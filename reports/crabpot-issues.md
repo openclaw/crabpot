@@ -14,30 +14,30 @@ Status: PASS
 
 | Metric                     | Value |
 | -------------------------- | ----- |
-| Issue findings             | 387   |
-| Open issue findings        | 387   |
+| Issue findings             | 388   |
+| Open issue findings        | 388   |
 | Runtime-covered findings   | 0     |
 | Runtime-partial findings   | 0     |
 | 🔴 P0                      | 6     |
-| 🟠 P1                      | 127   |
+| 🟠 P1                      | 128   |
 | Open 🔴 P0                 | 6     |
-| Open 🟠 P1                 | 127   |
+| Open 🟠 P1                 | 128   |
 | Live issues                | 6     |
 | Live P0 issues             | 6     |
-| Compat gaps                | 112   |
+| Compat gaps                | 113   |
 | Deprecation warnings       | 38    |
 | Inspector gaps             | 157   |
 | Open inspector gaps        | 157   |
 | Runtime coverage artifacts | 0     |
 | Upstream metadata          | 74    |
-| Contract probes            | 267   |
+| Contract probes            | 268   |
 
 ## Triage Overview
 
 | Class               | Count | P0 | Meaning                                                                                                                                                  |
 | ------------------- | ----- | -- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | live-issue          | 6     | 6  | Potential runtime breakage in the target OpenClaw/plugin pair. P0 only when it is not a deprecated compat seam.                                          |
-| compat-gap          | 112   | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                                                                   |
+| compat-gap          | 113   | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                                                                   |
 | deprecation-warning | 38    | -  | Plugin uses a supported but deprecated compatibility seam; keep it wired while migration exists.                                                         |
 | inspector-gap       | 157   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments. Runtime-covered rows are proof-backed and not open report work. |
 | upstream-metadata   | 74    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.                                                 |
@@ -740,6 +740,12 @@ _none_
   - state: open · compat:missing
   - evidence:
     - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **yuanbao** `compat-gap` `core-compat-adapter`
+  - **sdk-export-missing**: yuanbao: plugin SDK import aliases are missing from target package exports
+  - state: open · compat:untracked
+  - evidence:
+    - openclaw/plugin-sdk/command-gating @ plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/guard-command.js:5
 
 - 🟠 P1 **zalo** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: zalo: compat-dependent behavior lacks registry coverage
@@ -2284,6 +2290,7 @@ _none_
   - **package-dependency-install-required**: yuanbao: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
+    - @opentelemetry/api @ plugins/yuanbao/.crabpot-package/package.json
     - protobufjs @ plugins/yuanbao/.crabpot-package/package.json
     - semver @ plugins/yuanbao/.crabpot-package/package.json
     - ws @ plugins/yuanbao/.crabpot-package/package.json
@@ -2301,7 +2308,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/group.js:84
-    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:179
+    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:175
     - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js:622
 
 - 🟡 P2 **zalo** `inspector-gap` `inspector-follow-up`
@@ -3803,6 +3810,12 @@ _none_
   - state: open · compat:missing
   - evidence:
     - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **yuanbao** `compat-gap` `core-compat-adapter`
+  - **sdk-export-missing**: yuanbao: plugin SDK import aliases are missing from target package exports
+  - state: open · compat:untracked
+  - evidence:
+    - openclaw/plugin-sdk/command-gating @ plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/guard-command.js:5
 
 - 🟠 P1 **zalo** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: zalo: compat-dependent behavior lacks registry coverage
@@ -5823,6 +5836,7 @@ _none_
   - **package-dependency-install-required**: yuanbao: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
+    - @opentelemetry/api @ plugins/yuanbao/.crabpot-package/package.json
     - protobufjs @ plugins/yuanbao/.crabpot-package/package.json
     - semver @ plugins/yuanbao/.crabpot-package/package.json
     - ws @ plugins/yuanbao/.crabpot-package/package.json
@@ -5858,7 +5872,7 @@ _none_
   - state: open · compat:none
   - evidence:
     - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/group.js:84
-    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:179
+    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:175
     - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js:622
 
 - 🟡 P2 **zalo** `inspector-gap` `inspector-follow-up`
@@ -6132,6 +6146,12 @@ _none_
   - id: `sdk.import.package-export-cold-import:telnyx-sms`
   - evidence:
     - [openclaw/plugin-sdk/direct-dm @ inbound.ts:2](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/6e3956246cd3e0e72af649d2fd75dee6f3e46966/src/inbound.ts#L2)
+
+- 🟠 P1 **yuanbao** `sdk-alias`
+  - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
+  - id: `sdk.import.package-export-cold-import:yuanbao`
+  - evidence:
+    - openclaw/plugin-sdk/command-gating @ plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/guard-command.js:5
 
 - 🟡 P2 **a2a-gateway** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -6734,6 +6754,7 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:yuanbao`
   - evidence:
+    - @opentelemetry/api @ plugins/yuanbao/.crabpot-package/package.json
     - protobufjs @ plugins/yuanbao/.crabpot-package/package.json
     - semver @ plugins/yuanbao/.crabpot-package/package.json
     - ws @ plugins/yuanbao/.crabpot-package/package.json
@@ -6881,7 +6902,7 @@ _none_
   - id: `tool.registration.schema-capture:yuanbao`
   - evidence:
     - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/group.js:84
-    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:179
+    - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:175
     - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js:622
 
 - 🟢 P3 **clawmetry** `inspector-capture-api`

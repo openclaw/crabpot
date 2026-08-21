@@ -11689,7 +11689,7 @@
       "source": "plugins/yuanbao/.crabpot-package/dist/src/business/tools/group.js:84"
     },
     {
-      "id": "registration.registerTool:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-tools-member-js-179",
+      "id": "registration.registerTool:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-tools-member-js-175",
       "fixture": "yuanbao",
       "kind": "registration",
       "seam": "registerTool",
@@ -11718,7 +11718,7 @@
           "execute"
         ]
       },
-      "source": "plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:179"
+      "source": "plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:175"
     },
     {
       "id": "registration.registerTool:yuanbao:plugins-yuanbao-crabpot-package-dist-src-business-tools-remind-js-622",

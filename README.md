@@ -10,14 +10,14 @@
 ## Reporting Data
 
 `main` follows a promoted green OpenClaw source pin plus npm `latest` plugin artifacts, with bundled fixtures source-packed from that pinned checkout. `crab-beta` follows beta npm dist-tags for externalized packages and source-packs bundled fixtures. `crab-development` checks `openclaw/openclaw` main against source-packed official plugin artifacts from that same OpenClaw checkout.
-- **Last dashboard update:** Aug 05, 2026, 00:52 UTC
+- **Last dashboard update:** Aug 21, 2026, 06:46 UTC
 <!-- crabpot-tracks:start -->
 - **Source:** `github-default-pin`
 - **OpenClaw version:** `2026.7.2`
 - **OpenClaw SHA:** `7ae6a950f6b7`
 - **Dashboard target:** `openclaw/openclaw@7ae6a950f6b7 + npm latest plugin artifacts`
 - **Plugin artifacts:** `npm latest fixture set plus bundled source-packed fixtures`
-- **GitHub report run:** [30963776305](https://github.com/openclaw/crabpot/actions/runs/30963776305)
+- **GitHub report run:** [32454628128](https://github.com/openclaw/crabpot/actions/runs/32454628128)
 <!-- crabpot-tracks:end -->
 
 <!-- crabpot-summary:start -->
@@ -27,17 +27,17 @@
 | ---------------------- | --------------------------------------------------------------------- |
 | Fixtures               | 60                                                                    |
 | Hard breakages         | 0                                                                     |
-| Warnings               | 138                                                                   |
+| Warnings               | 139                                                                   |
 | Suggestions            | 249                                                                   |
-| Issues                 | 387                                                                   |
+| Issues                 | 388                                                                   |
 | P0 issues              | [🔴 P0 6](reports/crabpot-issues.md#p0-live-issues)                   |
-| P1 issues              | [🟠 P1 127](reports/crabpot-issues.md#triage-summary)                 |
+| P1 issues              | [🟠 P1 128](reports/crabpot-issues.md#triage-summary)                 |
 | Live issues            | 6 total / 6 P0                                                        |
-| Compat gaps            | 112                                                                   |
+| Compat gaps            | 113                                                                   |
 | Deprecation warnings   | 38                                                                    |
 | Inspector gaps         | 157                                                                   |
 | Upstream metadata      | 74                                                                    |
-| Contract probes        | 267                                                                   |
+| Contract probes        | 268                                                                   |
 | Policy failures        | 0                                                                     |
 | Policy warnings        | 308                                                                   |
 | Ref diff failures      | 0                                                                     |
@@ -48,8 +48,8 @@
 | Workspace plan         | 121 entrypoints / 80 installs / 15 builds                             |
 | Platform risks         | 17 Windows / 17 container                                             |
 | Jiti loader candidates | 20                                                                    |
-| Import loop            | p50 118ms / p95 118ms / plugin delta RSS 0.1MB / plugin delta CPU 9ms |
-| Runtime profile        | p50 6954ms / command p95 7005ms / max RSS 557.2MB / 3 samples/command |
+| Import loop            | p50 95ms / p95 103ms / plugin delta RSS 0MB / plugin delta CPU 8ms    |
+| Runtime profile        | p50 7118ms / command p95 7199ms / max RSS 569.1MB / 3 samples/command |
 
 ### Top Discovered Issues
 

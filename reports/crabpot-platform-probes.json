@@ -1888,7 +1888,7 @@
     {
       "fixture": "yuanbao",
       "id": "cold-import.extension:yuanbao:plugins-yuanbao-crabpot-package-dist-index-js",
-      "status": "dependency-install-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/yuanbao/.crabpot-package/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1906,7 +1906,7 @@
     {
       "fixture": "yuanbao",
       "id": "cold-import.setupEntry:yuanbao:plugins-yuanbao-crabpot-package-dist-setup-entry-js",
-      "status": "dependency-install-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/yuanbao/.crabpot-package/dist/setup-entry.js",
       "packageManager": "npm",
       "loaderSource": "native-node",

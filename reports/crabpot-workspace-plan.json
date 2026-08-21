@@ -23,7 +23,7 @@
     "tsLoaderEntrypointCount": 20,
     "jitiAlternativeCount": 20,
     "missingBuildScriptCount": 0,
-    "sdkAliasRequiredCount": 18
+    "sdkAliasRequiredCount": 20
   },
   "fixtures": [
     {
@@ -7807,7 +7807,7 @@
           "packagePath": "plugins/yuanbao/.crabpot-package/package.json",
           "packageName": "openclaw-plugin-yuanbao",
           "entrypoint": "plugins/yuanbao/.crabpot-package/dist/index.js",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": "plugins/yuanbao/package-lock.json",
           "loaderStrategy": {
@@ -7819,13 +7819,19 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
+            "sdk-alias-compat",
             "synthetic-probes"
           ],
           "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "protobufjs, semver, ws"
+              "evidence": "@opentelemetry/api, protobufjs, semver, ws"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/command-gating @ plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/guard-command.js:5"
             }
           ],
           "steps": [
@@ -7876,7 +7882,7 @@
           "packagePath": "plugins/yuanbao/.crabpot-package/package.json",
           "packageName": "openclaw-plugin-yuanbao",
           "entrypoint": "plugins/yuanbao/.crabpot-package/dist/setup-entry.js",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": "plugins/yuanbao/package-lock.json",
           "loaderStrategy": {
@@ -7888,13 +7894,19 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
+            "sdk-alias-compat",
             "synthetic-probes"
           ],
           "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "protobufjs, semver, ws"
+              "evidence": "@opentelemetry/api, protobufjs, semver, ws"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/command-gating @ plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/guard-command.js:5"
             }
           ],
           "steps": [

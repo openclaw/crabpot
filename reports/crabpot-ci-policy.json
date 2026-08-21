@@ -3643,7 +3643,7 @@
     {
       "id": "compatibility-report.p1-issues",
       "action": "pass",
-      "message": "127 P1 issues tracked",
+      "message": "128 P1 issues tracked",
       "evidence": [
         "a2a-gateway:missing-compat-record",
         "agentchat:missing-compat-record",
@@ -3768,6 +3768,7 @@
         "yuanbao:missing-compat-record",
         "yuanbao:missing-compat-record",
         "yuanbao:missing-compat-record",
+        "yuanbao:sdk-export-missing",
         "zalo:missing-compat-record",
         "zalo:missing-compat-record",
         "zalouser:missing-compat-record",
