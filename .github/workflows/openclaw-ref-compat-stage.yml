@@ -1,0 +1,110 @@
+name: OpenClaw Ref Compatibility Stage
+
+on:
+  workflow_run:
+    workflows: ["OpenClaw Ref Compatibility"]
+    types: [completed]
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: openclaw-ref-compat-stage-${{ github.event.workflow_run.id }}
+  cancel-in-progress: false
+
+jobs:
+  stage:
+    name: Stage branch-scoped compatibility run
+    if: >-
+      ${{
+        github.event.workflow_run.conclusion == 'success' &&
+        github.event.workflow_run.event == 'workflow_dispatch' &&
+        github.event.workflow_run.head_repository.full_name == github.repository
+      }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download compatibility request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
+        run: |
+          set -euo pipefail
+          mkdir request
+          gh run download "${SOURCE_RUN_ID}" \
+            --repo "${GITHUB_REPOSITORY}" \
+            --name openclaw-ref-compat-request \
+            --dir request
+          test -f request/openclaw-ref-request.json
+          test ! -L request/openclaw-ref-request.json
+          test "$(find request -type f | wc -l)" -eq 1
+          test "$(wc -c < request/openclaw-ref-request.json)" -le 16384
+
+      - name: Validate compatibility request
+        run: |
+          set -euo pipefail
+          request=request/openclaw-ref-request.json
+          jq -e '
+            (keys | sort) == ([
+              "base_openclaw_ref",
+              "base_openclaw_repository",
+              "fixture",
+              "fixture_set",
+              "head_openclaw_ref",
+              "head_openclaw_repository",
+              "mode",
+              "openclaw_ref",
+              "openclaw_repository",
+              "profile_runs",
+              "run_isolated_fixture",
+              "strict_contract",
+              "strict_perf"
+            ] | sort) and
+            (.mode | IN("static", "diff", "isolated", "full")) and
+            (.profile_runs | test("^[1-9][0-9]*$")) and
+            (.fixture_set | test("^[A-Za-z0-9_.-]+(,[A-Za-z0-9_.-]+)*$")) and
+            (.fixture | test("^$|^[A-Za-z0-9_.-]+$")) and
+            (.run_isolated_fixture | type == "boolean") and
+            (.strict_contract | type == "boolean") and
+            (.strict_perf | type == "boolean") and
+            ([.openclaw_repository, .base_openclaw_repository, .head_openclaw_repository] |
+              all(test("^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"))) and
+            ([.openclaw_ref, .base_openclaw_ref, .head_openclaw_ref] |
+              all(length > 0 and (test("[[:cntrl:][:space:]]") | not)))
+          ' "${request}" >/dev/null
+
+      - name: Create branch dispatch token
+        id: branch-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          client-id: Iv23liOECG0slfuhz093
+          private-key: ${{ secrets.CLAWSWEEPER_APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: ${{ github.event.repository.name }}
+          permission-contents: write
+
+      - name: Checkout trusted Crabpot source
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 1
+          path: crabpot
+          token: ${{ steps.branch-token.outputs.token }}
+
+      - name: Push ephemeral compatibility branch
+        env:
+          RUN_BRANCH: openclaw-ref-run/${{ github.event.workflow_run.id }}-${{ github.event.workflow_run.run_attempt }}
+        run: |
+          set -euo pipefail
+          cp request/openclaw-ref-request.json crabpot/.github/openclaw-ref-request.json
+          git -C crabpot config user.name "github-actions[bot]"
+          git -C crabpot config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git -C crabpot checkout -b "${RUN_BRANCH}"
+          git -C crabpot add .github/openclaw-ref-request.json
+          git -C crabpot commit -m "ci: stage OpenClaw ref compatibility request"
+          git -C crabpot push origin "HEAD:refs/heads/${RUN_BRANCH}"
+          {
+            echo "Compatibility execution was staged on \`${RUN_BRANCH}\`."
+            echo
+            echo "The branch-scoped run will delete the branch after completion."
+          } >> "$GITHUB_STEP_SUMMARY"

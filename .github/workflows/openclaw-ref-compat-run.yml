@@ -1,0 +1,376 @@
+name: OpenClaw Ref Compatibility Run
+
+on:
+  push:
+    branches:
+      - "openclaw-ref-run/**"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: openclaw-ref-compat-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  request:
+    name: Validate compatibility request
+    runs-on: ubuntu-latest
+    outputs:
+      mode: ${{ steps.request.outputs.mode }}
+      openclaw_repository: ${{ steps.request.outputs.openclaw_repository }}
+      openclaw_ref: ${{ steps.request.outputs.openclaw_ref }}
+      base_openclaw_repository: ${{ steps.request.outputs.base_openclaw_repository }}
+      base_openclaw_ref: ${{ steps.request.outputs.base_openclaw_ref }}
+      head_openclaw_repository: ${{ steps.request.outputs.head_openclaw_repository }}
+      head_openclaw_ref: ${{ steps.request.outputs.head_openclaw_ref }}
+      fixture_set: ${{ steps.request.outputs.fixture_set }}
+      run_isolated_fixture: ${{ steps.request.outputs.run_isolated_fixture }}
+      fixture: ${{ steps.request.outputs.fixture }}
+      profile_runs: ${{ steps.request.outputs.profile_runs }}
+      strict_contract: ${{ steps.request.outputs.strict_contract }}
+      strict_perf: ${{ steps.request.outputs.strict_perf }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
+      - name: Validate and load request
+        id: request
+        shell: bash
+        run: |
+          set -euo pipefail
+          request=.github/openclaw-ref-request.json
+          test -f "${request}"
+          jq -e '
+            (.mode | IN("static", "diff", "isolated", "full")) and
+            (.profile_runs | test("^[1-9][0-9]*$")) and
+            (.fixture_set | test("^[A-Za-z0-9_.-]+(,[A-Za-z0-9_.-]+)*$")) and
+            (.fixture | test("^$|^[A-Za-z0-9_.-]+$")) and
+            (.run_isolated_fixture | type == "boolean") and
+            (.strict_contract | type == "boolean") and
+            (.strict_perf | type == "boolean") and
+            ([.openclaw_repository, .base_openclaw_repository, .head_openclaw_repository] |
+              all(test("^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"))) and
+            ([.openclaw_ref, .base_openclaw_ref, .head_openclaw_ref] |
+              all(length > 0 and (test("[[:cntrl:][:space:]]") | not)))
+          ' "${request}" >/dev/null
+          for key in \
+            mode \
+            openclaw_repository \
+            openclaw_ref \
+            base_openclaw_repository \
+            base_openclaw_ref \
+            head_openclaw_repository \
+            head_openclaw_ref \
+            fixture_set \
+            run_isolated_fixture \
+            fixture \
+            profile_runs \
+            strict_contract \
+            strict_perf; do
+            printf '%s=%s\n' "${key}" "$(jq -r ".${key}" "${request}")" >> "$GITHUB_OUTPUT"
+          done
+
+  static-contract:
+    name: Static contract against selected OpenClaw ref
+    runs-on: ubuntu-latest
+    needs: request
+    env:
+      TARGET_REPOSITORY: ${{ (needs.request.outputs.mode == 'diff' || needs.request.outputs.mode == 'full') && needs.request.outputs.head_openclaw_repository || needs.request.outputs.openclaw_repository }}
+      TARGET_REF: ${{ (needs.request.outputs.mode == 'diff' || needs.request.outputs.mode == 'full') && needs.request.outputs.head_openclaw_ref || needs.request.outputs.openclaw_ref }}
+      PROFILE_RUNS: ${{ needs.request.outputs.profile_runs }}
+      STRICT_CONTRACT: ${{ needs.request.outputs.strict_contract }}
+      STRICT_PERF: ${{ needs.request.outputs.strict_perf }}
+      SUITE_POLICY: ${{ needs.request.outputs.strict_contract == 'true' && 'release' || 'dashboard' }}
+    steps:
+      - name: Checkout Crabpot
+        uses: actions/checkout@v6
+        with:
+          submodules: recursive
+
+      - name: Checkout target OpenClaw
+        uses: actions/checkout@v6
+        with:
+          repository: ${{ env.TARGET_REPOSITORY }}
+          ref: ${{ env.TARGET_REF }}
+          path: openclaw
+
+      - name: Show target revision
+        env:
+          TARGET_LABEL: ${{ env.TARGET_REPOSITORY }}@${{ env.TARGET_REF }}
+        run: |
+          echo "repository=${TARGET_REPOSITORY}"
+          echo "ref=${TARGET_REF}"
+          git -C openclaw rev-parse HEAD
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - run: node scripts/run-static-suite.mjs --openclaw ./openclaw --policy "${SUITE_POLICY}" --profile-runs "${PROFILE_RUNS}" --plugin-inspector-smoke
+      - name: Run runtime profile policy
+        run: node scripts/compare-runtime-profile.mjs ${{ needs.request.outputs.strict_perf == 'true' && '--strict' || '' }}
+      - run: node scripts/check-contract-coverage.mjs --openclaw ./openclaw
+      - name: Install OpenClaw lifecycle dependencies
+        run: |
+          corepack enable
+          corepack prepare "$(node -p "require('./openclaw/package.json').packageManager.split('+')[0]")" --activate
+          pnpm --dir openclaw install --frozen-lockfile --ignore-scripts
+
+      - name: Write report artifacts
+        if: always()
+        continue-on-error: true
+        run: |
+          node scripts/generate-report.mjs --openclaw ./openclaw
+          node scripts/capture-contracts.mjs --openclaw ./openclaw
+          node scripts/synthetic-probes.mjs --openclaw ./openclaw
+          node scripts/cold-import-readiness.mjs --openclaw ./openclaw
+          node scripts/workspace-plan.mjs --openclaw ./openclaw
+          node scripts/platform-probes.mjs --openclaw ./openclaw
+          node scripts/check-generated-surface-fixture.mjs --openclaw ./openclaw
+          node scripts/import-loop-profile.mjs --openclaw ./openclaw --runs "${PROFILE_RUNS}"
+          node scripts/profile-contract-runtime.mjs --openclaw ./openclaw --runs "${PROFILE_RUNS}"
+          node scripts/compare-runtime-profile.mjs ${{ needs.request.outputs.strict_perf == 'true' && '--strict' || '' }}
+          node scripts/check-ci-policy.mjs ${{ needs.request.outputs.strict_contract == 'true' && '--strict' || '' }}
+          node scripts/write-ci-summary.mjs --mode "${{ needs.request.outputs.mode }}" --openclaw-label "${TARGET_REPOSITORY}@${TARGET_REF}" --github-step-summary
+
+      - name: Upload static compatibility reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: crabpot-openclaw-ref-static-reports
+          path: reports/
+          if-no-files-found: warn
+
+  ref-diff:
+    name: Compare base and head OpenClaw refs
+    runs-on: ubuntu-latest
+    needs: request
+    if: ${{ needs.request.outputs.mode == 'diff' || needs.request.outputs.mode == 'full' }}
+    permissions:
+      contents: read
+    env:
+      PROFILE_RUNS: ${{ needs.request.outputs.profile_runs }}
+    steps:
+      - name: Checkout Crabpot
+        uses: actions/checkout@v6
+        with:
+          submodules: recursive
+
+      - name: Checkout base OpenClaw
+        uses: actions/checkout@v6
+        with:
+          repository: ${{ needs.request.outputs.base_openclaw_repository }}
+          ref: ${{ needs.request.outputs.base_openclaw_ref }}
+          path: openclaw-base
+
+      - name: Checkout head OpenClaw
+        uses: actions/checkout@v6
+        with:
+          repository: ${{ needs.request.outputs.head_openclaw_repository }}
+          ref: ${{ needs.request.outputs.head_openclaw_ref }}
+          path: openclaw-head
+
+      - name: Show compared revisions
+        env:
+          BASE_LABEL: ${{ needs.request.outputs.base_openclaw_repository }}@${{ needs.request.outputs.base_openclaw_ref }}
+          HEAD_LABEL: ${{ needs.request.outputs.head_openclaw_repository }}@${{ needs.request.outputs.head_openclaw_ref }}
+        run: |
+          echo "base=${BASE_LABEL}"
+          git -C openclaw-base rev-parse HEAD
+          echo "head=${HEAD_LABEL}"
+          git -C openclaw-head rev-parse HEAD
+          ln -s openclaw-head openclaw
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - run: node scripts/sync-fixtures.mjs --materialize --openclaw ./openclaw
+      - run: npm test
+      - name: Compare OpenClaw refs
+        env:
+          BASE_LABEL: ${{ needs.request.outputs.base_openclaw_repository }}@${{ needs.request.outputs.base_openclaw_ref }}
+          HEAD_LABEL: ${{ needs.request.outputs.head_openclaw_repository }}@${{ needs.request.outputs.head_openclaw_ref }}
+        run: |
+          node scripts/compare-openclaw-refs.mjs \
+            --base-openclaw ./openclaw-base \
+            --head-openclaw ./openclaw-head \
+            --base-label "${BASE_LABEL}" \
+            --head-label "${HEAD_LABEL}" \
+            ${{ needs.request.outputs.strict_contract == 'true' && '--strict' || '' }}
+      - name: Run runtime profile policy
+        run: |
+          node scripts/profile-contract-runtime.mjs --openclaw ./openclaw-head --runs "${PROFILE_RUNS}"
+          node scripts/compare-runtime-profile.mjs ${{ needs.request.outputs.strict_perf == 'true' && '--strict' || '' }}
+
+      - name: Write ref diff summary
+        if: always()
+        continue-on-error: true
+        env:
+          OPENCLAW_LABEL: ${{ needs.request.outputs.base_openclaw_repository }}@${{ needs.request.outputs.base_openclaw_ref }}..${{ needs.request.outputs.head_openclaw_repository }}@${{ needs.request.outputs.head_openclaw_ref }}
+        run: |
+          node scripts/profile-contract-runtime.mjs --openclaw ./openclaw-head --runs "${PROFILE_RUNS}"
+          node scripts/compare-runtime-profile.mjs ${{ needs.request.outputs.strict_perf == 'true' && '--strict' || '' }}
+          node scripts/check-ci-policy.mjs ${{ needs.request.outputs.strict_contract == 'true' && '--strict' || '' }}
+          node scripts/write-ci-summary.mjs --mode "${{ needs.request.outputs.mode }}" --openclaw-label "${OPENCLAW_LABEL}" --github-step-summary
+
+      - name: Upload ref diff reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: crabpot-openclaw-ref-diff-reports
+          path: reports/
+          if-no-files-found: warn
+
+  fixture-plan:
+    name: Resolve isolated fixture set
+    runs-on: ubuntu-latest
+    needs: request
+    if: ${{ needs.request.outputs.mode == 'isolated' || needs.request.outputs.mode == 'full' || (needs.request.outputs.run_isolated_fixture == 'true' && needs.request.outputs.fixture != '') }}
+    outputs:
+      matrix: ${{ steps.resolve.outputs.matrix }}
+      count: ${{ steps.resolve.outputs.count }}
+      fixtures: ${{ steps.resolve.outputs.fixtures }}
+    permissions:
+      contents: read
+    env:
+      TARGET_REPOSITORY: ${{ (needs.request.outputs.mode == 'full') && needs.request.outputs.head_openclaw_repository || needs.request.outputs.openclaw_repository }}
+      TARGET_REF: ${{ (needs.request.outputs.mode == 'full') && needs.request.outputs.head_openclaw_ref || needs.request.outputs.openclaw_ref }}
+    steps:
+      - name: Checkout Crabpot
+        uses: actions/checkout@v6
+        with:
+          submodules: recursive
+
+      - name: Checkout target OpenClaw
+        uses: actions/checkout@v6
+        with:
+          repository: ${{ env.TARGET_REPOSITORY }}
+          ref: ${{ env.TARGET_REF }}
+          path: openclaw
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - name: Resolve fixture matrix
+        id: resolve
+        env:
+          INPUT_FIXTURE_SET: ${{ needs.request.outputs.fixture_set }}
+          INPUT_FIXTURE: ${{ needs.request.outputs.fixture }}
+          INPUT_RUN_ISOLATED_FIXTURE: ${{ needs.request.outputs.run_isolated_fixture }}
+        run: |
+          fixture_set="${INPUT_FIXTURE_SET}"
+          if [ "${INPUT_RUN_ISOLATED_FIXTURE}" = "true" ] && [ -n "${INPUT_FIXTURE}" ]; then
+            fixture_set="${INPUT_FIXTURE}"
+          fi
+          node scripts/resolve-fixture-set.mjs \
+            --fixture-set "${fixture_set}" \
+            --openclaw ./openclaw \
+            --allow-empty \
+            --github-output >> "$GITHUB_OUTPUT"
+
+      - name: Show selected fixtures
+        run: echo "fixtures=${{ steps.resolve.outputs.fixtures }}"
+
+  isolated-fixture:
+    name: Isolated fixture ${{ matrix.id }}
+    runs-on: ubuntu-latest
+    needs: [request, fixture-plan]
+    if: ${{ needs.fixture-plan.outputs.count != '0' }}
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.fixture-plan.outputs.matrix) }}
+    permissions:
+      contents: read
+    env:
+      TARGET_REPOSITORY: ${{ (needs.request.outputs.mode == 'full') && needs.request.outputs.head_openclaw_repository || needs.request.outputs.openclaw_repository }}
+      TARGET_REF: ${{ (needs.request.outputs.mode == 'full') && needs.request.outputs.head_openclaw_ref || needs.request.outputs.openclaw_ref }}
+    steps:
+      - name: Checkout Crabpot
+        uses: actions/checkout@v6
+        with:
+          submodules: recursive
+
+      - name: Checkout target OpenClaw
+        uses: actions/checkout@v6
+        with:
+          repository: ${{ env.TARGET_REPOSITORY }}
+          ref: ${{ env.TARGET_REF }}
+          path: openclaw
+
+      - name: Show target revision
+        run: |
+          echo "repository=${TARGET_REPOSITORY}"
+          echo "ref=${TARGET_REF}"
+          git -C openclaw rev-parse HEAD
+          echo "fixture=${{ matrix.id }}"
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - name: Validate workspace plan
+        run: node scripts/workspace-plan.mjs --check --openclaw ./openclaw
+
+      - name: Execute fixture lane
+        id: execute
+        continue-on-error: true
+        env:
+          CRABPOT_EXECUTE_ISOLATED: "1"
+        run: npm run workspace:execute -- --fixture "${{ matrix.id }}" --allow-empty --openclaw ./openclaw
+
+      - name: Summarize execution artifacts
+        if: always()
+        continue-on-error: true
+        run: npm run execution:report
+
+      - name: Reconcile compatibility report with runtime evidence
+        if: always()
+        continue-on-error: true
+        run: node scripts/generate-report.mjs --openclaw ./openclaw --execution-results reports/crabpot-execution-results.json --fixture-set "${{ matrix.id }}"
+
+      - name: Run execution policy
+        id: policy
+        if: always()
+        continue-on-error: true
+        run: node scripts/check-ci-policy.mjs ${{ needs.request.outputs.strict_contract == 'true' && '--strict' || '' }}
+
+      - name: Write isolated summary
+        if: always()
+        continue-on-error: true
+        run: node scripts/write-ci-summary.mjs --mode "${{ needs.request.outputs.mode }}" --openclaw-label "${TARGET_REPOSITORY}@${TARGET_REF}" --github-step-summary
+
+      - name: Upload isolated execution artifacts
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: crabpot-openclaw-ref-isolated-${{ matrix.id }}
+          path: |
+            .crabpot/results/
+            reports/crabpot-report.*
+            reports/crabpot-issues.*
+            reports/crabpot-execution-results.*
+            reports/crabpot-ci-policy.*
+            reports/crabpot-ci-summary.*
+          if-no-files-found: warn
+
+      - name: Fail if isolated execution failed
+        if: ${{ steps.execute.outcome == 'failure' || steps.policy.outcome == 'failure' }}
+        run: exit 1
+
+  cleanup:
+    name: Delete ephemeral compatibility branch
+    runs-on: ubuntu-latest
+    needs: [request, static-contract, ref-diff, fixture-plan, isolated-fixture]
+    if: ${{ always() && startsWith(github.ref_name, 'openclaw-ref-run/') }}
+    permissions:
+      contents: write
+    steps:
+      - name: Delete request branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_BRANCH: ${{ github.ref_name }}
+        run: gh api --method DELETE "repos/${GITHUB_REPOSITORY}/git/refs/heads/${RUN_BRANCH}"

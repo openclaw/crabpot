@@ -6,7 +6,6 @@ on:
   pull_request:
   push:
     branches: [main, crab-beta, crab-development]
-  workflow_dispatch:
 
 permissions:
   contents: read
@@ -28,11 +27,6 @@ jobs:
           HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
         run: |
           set -euo pipefail
-          if [ "${EVENT_NAME}" = "workflow_dispatch" ]; then
-            echo "audit=true" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
           base="${BASE_SHA}"
           head="${HEAD_SHA}"
           if [ -z "${base}" ] || [[ "${base}" =~ ^0+$ ]]; then
