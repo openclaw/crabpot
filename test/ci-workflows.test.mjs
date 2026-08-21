@@ -6,8 +6,15 @@ async function readWorkflow(path) {
   return (await readFile(path, "utf8")).replace(/\r\n/g, "\n");
 }
 
+async function readOpenClawRefWorkflows() {
+  return [
+    await readWorkflow(".github/workflows/openclaw-ref-compat.yml"),
+    await readWorkflow(".github/workflows/openclaw-ref-compat-run.yml"),
+  ].join("\n");
+}
+
 test("manual OpenClaw ref workflow accepts branch tag or SHA inputs", async () => {
-  const workflow = await readWorkflow(".github/workflows/openclaw-ref-compat.yml");
+  const workflow = await readOpenClawRefWorkflows();
 
   assert.match(workflow, /openclaw_repository:/);
   assert.match(workflow, /openclaw_ref:/);
@@ -16,14 +23,14 @@ test("manual OpenClaw ref workflow accepts branch tag or SHA inputs", async () =
   assert.match(workflow, /TARGET_REF:/);
   assert.match(workflow, /ref: \$\{\{ env\.TARGET_REF \}\}/);
   assert.match(workflow, /strict_contract:[\s\S]*default: true/);
-  assert.match(workflow, /SUITE_POLICY: \$\{\{ inputs\.strict_contract && 'release' \|\| 'dashboard' \}\}/);
+  assert.match(workflow, /SUITE_POLICY: \$\{\{ needs\.request\.outputs\.strict_contract == 'true' && 'release' \|\| 'dashboard' \}\}/);
   assert.match(workflow, /node scripts\/run-static-suite\.mjs --openclaw \.\/openclaw --policy "\$\{SUITE_POLICY\}"/);
   assert.match(workflow, /--plugin-inspector-smoke/);
   assert.match(workflow, /node scripts\/check-contract-coverage\.mjs --openclaw \.\/openclaw/);
 });
 
 test("manual OpenClaw ref workflow keeps isolated fixture execution opt-in", async () => {
-  const workflow = await readWorkflow(".github/workflows/openclaw-ref-compat.yml");
+  const workflow = await readOpenClawRefWorkflows();
 
   assert.match(workflow, /run_isolated_fixture:/);
   assert.match(workflow, /fixture:/);
@@ -35,14 +42,31 @@ test("manual OpenClaw ref workflow keeps isolated fixture execution opt-in", asy
 });
 
 test("manual OpenClaw ref workflow has diff and profile modes", async () => {
-  const workflow = await readWorkflow(".github/workflows/openclaw-ref-compat.yml");
+  const workflow = await readOpenClawRefWorkflows();
 
   assert.match(workflow, /mode:/);
   assert.match(workflow, /Compare base and head OpenClaw refs/);
   assert.match(workflow, /node scripts\/compare-openclaw-refs\.mjs/);
   assert.match(workflow, /node scripts\/compare-runtime-profile\.mjs/);
-  assert.match(workflow, /node scripts\/check-ci-policy\.mjs \$\{\{ inputs\.strict_contract && '--strict' \|\| '' \}\}/);
+  assert.match(workflow, /node scripts\/check-ci-policy\.mjs \$\{\{ needs\.request\.outputs\.strict_contract == 'true' && '--strict' \|\| '' \}\}/);
   assert.match(workflow, /node scripts\/write-ci-summary\.mjs/);
+});
+
+test("manual OpenClaw ref execution uses a branch-scoped cache boundary", async () => {
+  const dispatch = await readWorkflow(".github/workflows/openclaw-ref-compat.yml");
+  const run = await readWorkflow(".github/workflows/openclaw-ref-compat-run.yml");
+  const check = await readWorkflow(".github/workflows/check.yml");
+
+  assert.match(dispatch, /workflow_dispatch:/);
+  assert.match(dispatch, /RUN_BRANCH: openclaw-ref-run\/\$\{\{ github\.run_id \}\}-\$\{\{ github\.run_attempt \}\}/);
+  assert.match(dispatch, /\.github\/openclaw-ref-request\.json/);
+  assert.doesNotMatch(dispatch, /Checkout target OpenClaw/);
+  assert.doesNotMatch(dispatch, /npm (?:run|test)/);
+  assert.match(run, /push:\n\s+branches:\n\s+- "openclaw-ref-run\/\*\*"/);
+  assert.doesNotMatch(run, /workflow_dispatch:/);
+  assert.match(run, /name: Delete ephemeral compatibility branch/);
+  assert.match(run, /permissions:\n\s+contents: write[\s\S]*RUN_BRANCH: \$\{\{ github\.ref_name \}\}/);
+  assert.doesNotMatch(check, /workflow_dispatch:/);
 });
 
 test("default check workflow uploads policy and summary reports", async () => {
@@ -234,7 +258,7 @@ test("default check workflow resolves changed submodules into an isolated fixtur
 test("workflows use current action majors and dependency caches", async () => {
   const workflows = [
     await readWorkflow(".github/workflows/check.yml"),
-    await readWorkflow(".github/workflows/openclaw-ref-compat.yml"),
+    await readOpenClawRefWorkflows(),
     await readWorkflow(".github/workflows/dependabot-auto-merge.yml"),
     await readWorkflow(".github/workflows/openclaw-head-canary.yml"),
     await readWorkflow(".github/workflows/openclaw-pin-age.yml"),
@@ -299,28 +323,28 @@ test("crabbox hydrate validates the job key before writing state", async () => {
 });
 
 test("manual workflow enforces strict runtime profile policy before best-effort summaries", async () => {
-  const workflow = await readWorkflow(".github/workflows/openclaw-ref-compat.yml");
+  const workflow = await readOpenClawRefWorkflows();
   const policySteps = [...workflow.matchAll(/- name: Run runtime profile policy\n(?<body>(?:        .*\n)+)/g)].map(
     (match) => match.groups.body,
   );
 
   assert.equal(policySteps.length, 2);
   for (const step of policySteps) {
-    assert.match(step, /node scripts\/compare-runtime-profile\.mjs \$\{\{ inputs\.strict_perf && '--strict' \|\| '' \}\}/);
+    assert.match(step, /node scripts\/compare-runtime-profile\.mjs \$\{\{ needs\.request\.outputs\.strict_perf == 'true' && '--strict' \|\| '' \}\}/);
     assert.doesNotMatch(step, /continue-on-error/);
   }
   assert.ok(policySteps.some((step) => step.includes("node scripts/profile-contract-runtime.mjs --openclaw ./openclaw-head")));
 });
 
 test("manual workflow writes OpenClaw lifecycle import profile artifacts", async () => {
-  const workflow = await readWorkflow(".github/workflows/openclaw-ref-compat.yml");
+  const workflow = await readOpenClawRefWorkflows();
 
   assert.match(workflow, /pnpm --dir openclaw install --frozen-lockfile --ignore-scripts/);
   assert.match(workflow, /node scripts\/import-loop-profile\.mjs --openclaw \.\/openclaw --runs "\$\{PROFILE_RUNS\}"/);
 });
 
 test("manual workflow keeps isolated execution artifacts and failure policy wired", async () => {
-  const workflow = await readWorkflow(".github/workflows/openclaw-ref-compat.yml");
+  const workflow = await readOpenClawRefWorkflows();
 
   assert.match(
     workflow,
