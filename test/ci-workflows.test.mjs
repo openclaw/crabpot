@@ -58,6 +58,9 @@ test("manual OpenClaw ref execution uses a branch-scoped cache boundary", async 
   const check = await readWorkflow(".github/workflows/check.yml");
 
   assert.match(dispatch, /workflow_dispatch:/);
+  assert.match(dispatch, /actions\/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1/);
+  assert.match(dispatch, /permission-contents: write/);
+  assert.match(dispatch, /token: \$\{\{ steps\.branch-token\.outputs\.token \}\}/);
   assert.match(dispatch, /RUN_BRANCH: openclaw-ref-run\/\$\{\{ github\.run_id \}\}-\$\{\{ github\.run_attempt \}\}/);
   assert.match(dispatch, /\.github\/openclaw-ref-request\.json/);
   assert.doesNotMatch(dispatch, /Checkout target OpenClaw/);
