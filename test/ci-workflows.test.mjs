@@ -9,6 +9,7 @@ async function readWorkflow(path) {
 async function readOpenClawRefWorkflows() {
   return [
     await readWorkflow(".github/workflows/openclaw-ref-compat.yml"),
+    await readWorkflow(".github/workflows/openclaw-ref-compat-stage.yml"),
     await readWorkflow(".github/workflows/openclaw-ref-compat-run.yml"),
   ].join("\n");
 }
@@ -54,17 +55,29 @@ test("manual OpenClaw ref workflow has diff and profile modes", async () => {
 
 test("manual OpenClaw ref execution uses a branch-scoped cache boundary", async () => {
   const dispatch = await readWorkflow(".github/workflows/openclaw-ref-compat.yml");
+  const stage = await readWorkflow(".github/workflows/openclaw-ref-compat-stage.yml");
   const run = await readWorkflow(".github/workflows/openclaw-ref-compat-run.yml");
   const check = await readWorkflow(".github/workflows/check.yml");
 
   assert.match(dispatch, /workflow_dispatch:/);
-  assert.match(dispatch, /actions\/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1/);
-  assert.match(dispatch, /permission-contents: write/);
-  assert.match(dispatch, /token: \$\{\{ steps\.branch-token\.outputs\.token \}\}/);
-  assert.match(dispatch, /RUN_BRANCH: openclaw-ref-run\/\$\{\{ github\.run_id \}\}-\$\{\{ github\.run_attempt \}\}/);
-  assert.match(dispatch, /\.github\/openclaw-ref-request\.json/);
+  assert.match(dispatch, /actions\/upload-artifact@v7/);
+  assert.match(dispatch, /name: openclaw-ref-compat-request/);
+  assert.doesNotMatch(dispatch, /CLAWSWEEPER_APP_PRIVATE_KEY/);
+  assert.doesNotMatch(dispatch, /permission-contents: write/);
+  assert.doesNotMatch(dispatch, /actions\/create-github-app-token/);
   assert.doesNotMatch(dispatch, /Checkout target OpenClaw/);
   assert.doesNotMatch(dispatch, /npm (?:run|test)/);
+  assert.match(stage, /workflow_run:/);
+  assert.match(stage, /workflows: \["OpenClaw Ref Compatibility"\]/);
+  assert.match(stage, /github\.event\.workflow_run\.event == 'workflow_dispatch'/);
+  assert.match(stage, /github\.event\.workflow_run\.head_repository\.full_name == github\.repository/);
+  assert.match(stage, /gh run download "\$\{SOURCE_RUN_ID\}"/);
+  assert.match(stage, /actions\/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1/);
+  assert.match(stage, /permission-contents: write/);
+  assert.match(stage, /ref: \$\{\{ github\.event\.repository\.default_branch \}\}/);
+  assert.match(stage, /token: \$\{\{ steps\.branch-token\.outputs\.token \}\}/);
+  assert.match(stage, /RUN_BRANCH: openclaw-ref-run\/\$\{\{ github\.event\.workflow_run\.id \}\}-\$\{\{ github\.event\.workflow_run\.run_attempt \}\}/);
+  assert.match(stage, /\.github\/openclaw-ref-request\.json/);
   assert.match(run, /push:\n\s+branches:\n\s+- "openclaw-ref-run\/\*\*"/);
   assert.doesNotMatch(run, /workflow_dispatch:/);
   assert.match(run, /name: Delete ephemeral compatibility branch/);

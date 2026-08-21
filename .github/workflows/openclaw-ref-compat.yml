@@ -69,27 +69,10 @@ permissions:
   contents: read
 
 jobs:
-  dispatch:
-    name: Stage branch-scoped compatibility run
+  request:
+    name: Queue branch-scoped compatibility run
     runs-on: ubuntu-latest
     steps:
-      - name: Create branch dispatch token
-        id: branch-token
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        with:
-          client-id: Iv23liOECG0slfuhz093
-          private-key: ${{ secrets.CLAWSWEEPER_APP_PRIVATE_KEY }}
-          owner: ${{ github.repository_owner }}
-          repositories: ${{ github.event.repository.name }}
-          permission-contents: write
-
-      - name: Checkout trusted Crabpot source
-        uses: actions/checkout@v6
-        with:
-          ref: ${{ github.sha }}
-          fetch-depth: 1
-          token: ${{ steps.branch-token.outputs.token }}
-
       - name: Write compatibility request
         env:
           MODE: ${{ inputs.mode }}
@@ -134,20 +117,15 @@ jobs:
               profile_runs: $profile_runs,
               strict_contract: $strict_contract,
               strict_perf: $strict_perf
-            }' > .github/openclaw-ref-request.json
+            }' > openclaw-ref-request.json
 
-      - name: Push ephemeral compatibility branch
-        env:
-          RUN_BRANCH: openclaw-ref-run/${{ github.run_id }}-${{ github.run_attempt }}
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git checkout -b "${RUN_BRANCH}"
-          git add .github/openclaw-ref-request.json
-          git commit -m "ci: stage OpenClaw ref compatibility request"
-          git push origin "HEAD:refs/heads/${RUN_BRANCH}"
-          {
-            echo "Compatibility execution was staged on \`${RUN_BRANCH}\`."
-            echo
-            echo "The branch-scoped run will delete the branch after completion."
-          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload compatibility request
+        uses: actions/upload-artifact@v7
+        with:
+          name: openclaw-ref-compat-request
+          path: openclaw-ref-request.json
+          if-no-files-found: error
+          retention-days: 1
+
+      - name: Summarize queued request
+        run: echo "The trusted staging workflow will validate this request and start a branch-scoped run." >> "$GITHUB_STEP_SUMMARY"
