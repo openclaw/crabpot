@@ -35,7 +35,7 @@ test("fixture manifest is valid and seam-rich", async () => {
   }
 });
 
-test("openclaw beta fixture set narrows to beta npm packages", async () => {
+test("openclaw development fixture set includes current monorepo and externalized packages", async () => {
   const manifest = await readConfiguredManifest({ fixtureSet: "openclaw-beta" });
 
   assert.deepEqual(manifest.fixtures.map((fixture) => fixture.id), [
@@ -48,7 +48,18 @@ test("openclaw beta fixture set narrows to beta npm packages", async () => {
     "openclaw-qqbot",
     "whatsapp",
   ]);
-  assert.ok(manifest.fixtures.every((fixture) => fixture.package?.tag === "beta"));
+  assert.ok(
+    manifest.fixtures
+      .filter((fixture) => fixture.id !== "openclaw-qqbot")
+      .every((fixture) => fixture.package?.tag === "beta"),
+  );
+  const qqbot = manifest.fixtures.find((fixture) => fixture.id === "openclaw-qqbot");
+  assert.equal(qqbot.package.name, "@tencent-connect/openclaw-qqbot");
+  assert.equal(qqbot.package.version, "2.0.1");
+  assert.equal(qqbot.source.repo, "https://github.com/tencent-connect/openclaw-qqbot.git");
+  assert.equal(qqbot.source.path, ".");
+  assert.deepEqual(qqbot.expect.registrations, ["registerChannel", "registerTool"]);
+  assert.equal(qqbot.execution, undefined);
 });
 
 test("Codex fixture follows current provider ownership", async () => {

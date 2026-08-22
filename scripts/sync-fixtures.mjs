@@ -11,6 +11,10 @@ import {
   resolveNpmViewVersion,
 } from "./npm-pack-result.mjs";
 import { writePackageAvailabilityReport } from "./package-availability.mjs";
+import {
+  findNearbySourcePackageCandidates,
+  formatMissingSourcePackageMessage,
+} from "./source-package-candidates.mjs";
 
 const openclawSourceRepo = "https://github.com/openclaw/openclaw.git";
 const sourcePackPluginTrack = "source-pack";
@@ -156,7 +160,18 @@ async function materializeSourcePackFixture(fixture, target) {
 
   const packageJsonPath = path.join(sourceDir, "package.json");
   if (!existsSync(packageJsonPath)) {
-    throw new Error(`${fixture.id}: missing source package.json at ${path.relative(repoRoot, packageJsonPath)}`);
+    const candidates = await findNearbySourcePackageCandidates({
+      expectedPackageName: fixture.package.name,
+      missingSourcePath: fixture.source.path,
+      sourceRoot: openclawRoot,
+    });
+    throw new Error(
+      formatMissingSourcePackageMessage({
+        candidates,
+        fixtureId: fixture.id,
+        packageJsonPath: path.relative(repoRoot, packageJsonPath),
+      }),
+    );
   }
   const packageJson = JSON.parse(await readFile(packageJsonPath, "utf8"));
   if (packageJson.name !== fixture.package.name) {

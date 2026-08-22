@@ -4,17 +4,17 @@
   "private": true,
   "description": "Crabpot npm fixture shim for OpenClaw QQ Bot channel plugin.",
   "dependencies": {
-    "@openclaw/qqbot": "2026.7.2-beta.4"
+    "@tencent-connect/openclaw-qqbot": "2.0.1"
   },
   "crabpot": {
     "fixture": "openclaw-qqbot",
     "source": "npm",
-    "package": "@openclaw/qqbot",
-    "sourceRepo": "https://github.com/openclaw/openclaw.git",
-    "sourcePath": "extensions/qqbot",
-    "sourceRef": "10ad3aa16068baa84a1bd9ac4f7d42ae725cedb7"
+    "package": "@tencent-connect/openclaw-qqbot",
+    "sourceRepo": "https://github.com/tencent-connect/openclaw-qqbot.git",
+    "sourcePath": ".",
+    "sourceRef": "88dee0b0e493469dc8c1684a5beafcbc66aa5bda"
   },
   "overrides": {
-    "ws": "8.20.1"
+    "ws": "8.21.0"
   }
 }
