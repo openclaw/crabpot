@@ -1,16 +1,16 @@
 {
   "generatedAt": "deterministic",
   "targetOpenClaw": {
-    "configuredPath": "../openclaw",
+    "configuredPath": "./openclaw",
     "searchedPaths": [
-      "../openclaw"
+      "./openclaw"
     ],
     "status": "ok",
-    "compatRegistryPath": "../openclaw/src/plugins/compat/registry.ts",
+    "compatRegistryPath": "openclaw/src/plugins/compat/registry.ts",
     "compatRecordCount": 0,
     "compatRecords": [],
     "compatRecordStatuses": {},
-    "hookTypesPath": "../openclaw/src/plugins/hook-types.ts",
+    "hookTypesPath": "openclaw/src/plugins/hook-types.ts",
     "hookNameCount": 42,
     "hookNames": [
       "after_compaction",
@@ -56,7 +56,7 @@
       "subagent_spawned",
       "tool_result_persist"
     ],
-    "apiBuilderPath": "../openclaw/src/plugins/api-builder.ts",
+    "apiBuilderPath": "openclaw/src/plugins/api-builder.ts",
     "apiRegistrarCount": 57,
     "apiRegistrars": [
       "registerAgentEventSubscription",
@@ -117,7 +117,7 @@
       "registerWidgetPresenter",
       "registerWorkerProvider"
     ],
-    "capturedRegistrationPath": "../openclaw/src/plugins/captured-registration.ts",
+    "capturedRegistrationPath": "openclaw/src/plugins/captured-registration.ts",
     "capturedRegistrarCount": 31,
     "capturedRegistrars": [
       "registerAgentEventSubscription",
@@ -152,7 +152,7 @@
       "registerWebSearchProvider",
       "registerWorkerProvider"
     ],
-    "packagePath": "../openclaw/package.json",
+    "packagePath": "openclaw/package.json",
     "sdkExportCount": 315,
     "sdkExports": [
       "openclaw/plugin-sdk/access-groups",
@@ -476,7 +476,7 @@
     "reservedSdkExports": [],
     "supportedFacadeSdkExports": [],
     "publicPluginOwnedSdkExports": [],
-    "manifestTypesPath": "../openclaw/src/plugins/manifest-types.ts",
+    "manifestTypesPath": "openclaw/src/plugins/manifest-types.ts",
     "manifestFieldCount": 48,
     "manifestFields": [
       "activation",

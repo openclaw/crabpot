@@ -3074,31 +3074,31 @@ _none_
 
 ## Target OpenClaw Compat Records
 
-| Metric                    | Value                                            |
-| ------------------------- | ------------------------------------------------ |
-| Configured path           | ../openclaw                                      |
-| Status                    | ok                                               |
-| Requested version         | -                                                |
-| Resolved version          | -                                                |
-| Range eligibility version | -                                                |
-| Source                    | -                                                |
-| NPM dist-tag              | -                                                |
-| Prepared cache            | -                                                |
-| Compat registry           | ../openclaw/src/plugins/compat/registry.ts       |
-| Compat records            | 0                                                |
-| Compat status counts      | -                                                |
-| Record ids                | -                                                |
-| Hook registry             | ../openclaw/src/plugins/hook-types.ts            |
-| Hook names                | 42                                               |
-| API builder               | ../openclaw/src/plugins/api-builder.ts           |
-| API registrars            | 57                                               |
-| Captured registration     | ../openclaw/src/plugins/captured-registration.ts |
-| Captured registrars       | 31                                               |
-| Package metadata          | ../openclaw/package.json                         |
-| Plugin SDK exports        | 315                                              |
-| Manifest types            | ../openclaw/src/plugins/manifest-types.ts        |
-| Manifest fields           | 48                                               |
-| Manifest contract fields  | 22                                               |
+| Metric                    | Value                                         |
+| ------------------------- | --------------------------------------------- |
+| Configured path           | ./openclaw                                    |
+| Status                    | ok                                            |
+| Requested version         | -                                             |
+| Resolved version          | -                                             |
+| Range eligibility version | -                                             |
+| Source                    | -                                             |
+| NPM dist-tag              | -                                             |
+| Prepared cache            | -                                             |
+| Compat registry           | openclaw/src/plugins/compat/registry.ts       |
+| Compat records            | 0                                             |
+| Compat status counts      | -                                             |
+| Record ids                | -                                             |
+| Hook registry             | openclaw/src/plugins/hook-types.ts            |
+| Hook names                | 42                                            |
+| API builder               | openclaw/src/plugins/api-builder.ts           |
+| API registrars            | 57                                            |
+| Captured registration     | openclaw/src/plugins/captured-registration.ts |
+| Captured registrars       | 31                                            |
+| Package metadata          | openclaw/package.json                         |
+| Plugin SDK exports        | 315                                           |
+| Manifest types            | openclaw/src/plugins/manifest-types.ts        |
+| Manifest fields           | 48                                            |
+| Manifest contract fields  | 22                                            |
 
 ## Warnings
 
