@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
-import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { chmodSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { test } from "node:test";
@@ -10,6 +10,7 @@ import {
   pluginInspectorRef,
   resolvePluginInspectorCliInvocation,
   resolvePluginInspectorCliPath,
+  run,
 } from "../scripts/plugin-inspector-source.mjs";
 
 test("plugin inspector source pin requires an exact prepared checkout", (t) => {
@@ -84,10 +85,83 @@ test("plugin inspector smoke uses full default findings output", () => {
     sourceScript,
     /run\(npmCommand\(\), \["ci", "--omit=dev", "--ignore-scripts", "--no-audit", "--no-fund"\], checkoutDir\)/,
   );
+  assert.match(sourceScript, /CRABPOT_GIT_TIMEOUT_MS/);
+  assert.match(sourceScript, /CRABPOT_NPM_TIMEOUT_MS/);
+  assert.match(smokeScript, /CRABPOT_PLUGIN_INSPECTOR_TIMEOUT_MS/);
   assert.doesNotMatch(smokeScript, /--include-inspector-gaps/);
   assert.doesNotMatch(smokeScript, /--author-facing/);
   assert.doesNotMatch(smokeScript, /const command =/);
   assert.match(smokeScript, /"report", "--config", configPath, "--out", outDir/);
+});
+
+test("plugin inspector checkout head probe returns instead of blocking when git hangs", (t) => {
+  const hangDir = mkdtempSync(path.join(os.tmpdir(), "crabpot-git-head-hang-"));
+  const checkoutDir = mkdtempSync(path.join(os.tmpdir(), "crabpot-git-head-checkout-"));
+  t.after(() => {
+    rmSync(hangDir, { force: true, recursive: true });
+    rmSync(checkoutDir, { force: true, recursive: true });
+  });
+  const hangGit = path.join(hangDir, process.platform === "win32" ? "git.cmd" : "git");
+  if (process.platform === "win32") {
+    writeFileSync(hangGit, `@echo off\r\n"${process.execPath}" -e "setTimeout(() => {}, 30000)"\r\n`);
+  } else {
+    writeFileSync(hangGit, `#!/bin/sh\nexec "${process.execPath}" -e 'setTimeout(() => {}, 30000)'\n`);
+    chmodSync(hangGit, 0o755);
+  }
+  mkdirSync(path.join(checkoutDir, "src"), { recursive: true });
+  writeFileSync(path.join(checkoutDir, "src", "index.js"), "export {};\n", "utf8");
+  mkdirSync(path.join(checkoutDir, "node_modules"), { recursive: true });
+  writeFileSync(path.join(checkoutDir, "node_modules", ".crabpot-install-ready"), "ready\n", "utf8");
+
+  withEnv({ CRABPOT_GIT_TIMEOUT_MS: "250" }, () => {
+    const startedAt = Date.now();
+    const previousPath = process.env.PATH;
+    process.env.PATH = `${hangDir}${path.delimiter}${previousPath}`;
+    try {
+      assert.throws(() => isPinnedCheckoutReady(checkoutDir, "unused"), /timed out after 250ms/);
+      assert.ok(Date.now() - startedAt < 4_000, "hung git rev-parse must return");
+    } finally {
+      process.env.PATH = previousPath;
+    }
+  });
+});
+
+test("plugin inspector checkout run() returns instead of blocking when the child hangs", () => {
+  withEnv({ CRABPOT_GIT_TIMEOUT_MS: "250" }, () => {
+    const startedAt = Date.now();
+    assert.throws(
+      () => run(process.execPath, ["-e", "setTimeout(() => {}, 30_000)"]),
+      /timed out after 250ms/,
+    );
+    assert.ok(Date.now() - startedAt < 4_000, "hung git/npm checkout spawn must return");
+  });
+});
+
+test("plugin inspector smoke returns instead of blocking when the inspector hangs", (t) => {
+  const hangDir = mkdtempSync(path.join(os.tmpdir(), "crabpot-inspector-smoke-hang-"));
+  t.after(() => rmSync(hangDir, { force: true, recursive: true }));
+  const hangBin = writeHangCommand(hangDir);
+
+  withEnv(
+    {
+      CRABPOT_PLUGIN_INSPECTOR_BIN: hangBin,
+      CRABPOT_PLUGIN_INSPECTOR_TIMEOUT_MS: "250",
+    },
+    () => {
+      const startedAt = Date.now();
+      const result = spawnSync(process.execPath, ["scripts/run-plugin-inspector-smoke.mjs"], {
+        cwd: process.cwd(),
+        encoding: "utf8",
+        env: process.env,
+        timeout: 5_000,
+      });
+
+      assert.notEqual(result.error?.code, "ETIMEDOUT", result.error?.message);
+      assert.notEqual(result.status, 0);
+      assert.match(`${result.stderr}\n${result.stdout}`, /timed out after 250ms/);
+      assert.ok(Date.now() - startedAt < 4_000, "hung inspector smoke spawn must return");
+    },
+  );
 });
 
 function runGit(cwd, args) {
@@ -96,8 +170,27 @@ function runGit(cwd, args) {
   return result;
 }
 
+function writeHangCommand(dir) {
+  if (process.platform === "win32") {
+    const file = path.join(dir, "hang-inspector.cmd");
+    writeFileSync(file, `@echo off\r\n"${process.execPath}" -e "setTimeout(() => {}, 30000)"\r\n`);
+    return file;
+  }
+
+  const file = path.join(dir, "hang-inspector");
+  writeFileSync(file, `#!/bin/sh\nexec "${process.execPath}" -e 'setTimeout(() => {}, 30000)'\n`);
+  chmodSync(file, 0o755);
+  return file;
+}
+
 function withEnv(values, callback) {
-  const keys = ["CRABPOT_PLUGIN_INSPECTOR_BIN", "CRABPOT_PLUGIN_INSPECTOR_CLI"];
+  const keys = [
+    "CRABPOT_PLUGIN_INSPECTOR_BIN",
+    "CRABPOT_PLUGIN_INSPECTOR_CLI",
+    "CRABPOT_GIT_TIMEOUT_MS",
+    "CRABPOT_NPM_TIMEOUT_MS",
+    "CRABPOT_PLUGIN_INSPECTOR_TIMEOUT_MS",
+  ];
   const previous = Object.fromEntries(keys.map((key) => [key, process.env[key]]));
   for (const key of keys) {
     delete process.env[key];
