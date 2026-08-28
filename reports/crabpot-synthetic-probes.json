@@ -8506,7 +8506,7 @@
       "source": "plugins/twitch/.crabpot-package/dist/index.js:3"
     },
     {
-      "id": "registration.createChatChannelPlugin:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-919",
+      "id": "registration.createChatChannelPlugin:mattermost:plugins-mattermost-crabpot-package-src-channel-ts-932",
       "fixture": "mattermost",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -8531,7 +8531,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/mattermost/.crabpot-package/src/channel.ts:919"
+      "source": "plugins/mattermost/.crabpot-package/src/channel.ts:932"
     },
     {
       "id": "registration.defineBundledChannelEntry:mattermost:plugins-mattermost-crabpot-package-index-ts-16",
