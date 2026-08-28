@@ -3,54 +3,54 @@
   "runs": 3,
   "targetOpenClaw": {
     "status": "ok",
-    "configuredPath": "./openclaw",
+    "configuredPath": "../openclaw",
     "compatRecords": 0,
-    "hookNames": 44,
-    "apiRegistrars": 56,
-    "capturedRegistrars": 32,
-    "sdkExports": 301,
-    "manifestFields": 45,
-    "manifestContractFields": 23
+    "hookNames": 42,
+    "apiRegistrars": 57,
+    "capturedRegistrars": 31,
+    "sdkExports": 315,
+    "manifestFields": 48,
+    "manifestContractFields": 22
   },
   "fixtureInventory": {
     "fixtures": 60,
-    "sourceFiles": 2119,
+    "sourceFiles": 2117,
     "observedHooks": 111,
     "observedRegistrations": 210,
-    "observedSdkImports": 999,
-    "contractProbes": 268,
-    "issueFindings": 388
+    "observedSdkImports": 1003,
+    "contractProbes": 270,
+    "issueFindings": 393
   },
   "platform": {
-    "os": "linux",
-    "arch": "x64",
-    "node": "v22.23.2",
+    "os": "darwin",
+    "arch": "arm64",
+    "node": "v24.20.0",
     "rssSampler": "ps-immediate-25ms",
     "cpuSampler": "ps-percent-immediate-25ms"
   },
   "summary": {
     "commandCount": 9,
     "sampleCount": 27,
-    "rssSampleCount": 6000,
-    "cpuSampleCount": 6000,
+    "rssSampleCount": 3112,
+    "cpuSampleCount": 3112,
     "wallTimeBasis": "command-median-p95",
-    "p50WallMs": 7118,
-    "p95WallMs": 7199,
-    "maxPeakRssMb": 569.1,
-    "maxRssDeltaMb": 540.8,
-    "maxCpuMsEstimate": 8478,
-    "maxHarnessHeapDeltaMb": 11.9
+    "p50WallMs": 3619,
+    "p95WallMs": 4034,
+    "maxPeakRssMb": 581.2,
+    "maxRssDeltaMb": 579.9,
+    "maxCpuMsEstimate": 4426,
+    "maxHarnessHeapDeltaMb": 11.1
   },
   "groups": [
     {
       "category": "baseline",
       "commandCount": 1,
-      "p50WallMs": 32,
-      "p95WallMs": 34,
-      "maxPeakRssMb": 29.6,
+      "p50WallMs": 36,
+      "p95WallMs": 38,
+      "maxPeakRssMb": 35.7,
       "maxCpuMsEstimate": 0,
-      "rssSampleCount": 3,
-      "cpuSampleCount": 3,
+      "rssSampleCount": 6,
+      "cpuSampleCount": 6,
       "commands": [
         "node-boot"
       ]
@@ -58,12 +58,12 @@
     {
       "category": "fixture-scan",
       "commandCount": 1,
-      "p50WallMs": 6975,
-      "p95WallMs": 7031,
-      "maxPeakRssMb": 494.4,
-      "maxCpuMsEstimate": 8254,
-      "rssSampleCount": 834,
-      "cpuSampleCount": 834,
+      "p50WallMs": 3679,
+      "p95WallMs": 3689,
+      "maxPeakRssMb": 581.2,
+      "maxCpuMsEstimate": 3755,
+      "rssSampleCount": 425,
+      "cpuSampleCount": 425,
       "commands": [
         "fixture-inspection"
       ]
@@ -71,12 +71,12 @@
     {
       "category": "target-registry",
       "commandCount": 1,
-      "p50WallMs": 7118,
-      "p95WallMs": 7150,
-      "maxPeakRssMb": 569.1,
-      "maxCpuMsEstimate": 8444,
-      "rssSampleCount": 850,
-      "cpuSampleCount": 850,
+      "p50WallMs": 3712,
+      "p95WallMs": 3832,
+      "maxPeakRssMb": 535.8,
+      "maxCpuMsEstimate": 3824,
+      "rssSampleCount": 433,
+      "cpuSampleCount": 433,
       "commands": [
         "compat-report-registry"
       ]
@@ -84,12 +84,12 @@
     {
       "category": "contract-capture",
       "commandCount": 1,
-      "p50WallMs": 7027,
-      "p95WallMs": 7045,
-      "maxPeakRssMb": 472.2,
-      "maxCpuMsEstimate": 8257,
-      "rssSampleCount": 839,
-      "cpuSampleCount": 839,
+      "p50WallMs": 3619,
+      "p95WallMs": 3730,
+      "maxPeakRssMb": 578.8,
+      "maxCpuMsEstimate": 3745,
+      "rssSampleCount": 422,
+      "cpuSampleCount": 422,
       "commands": [
         "contract-capture"
       ]
@@ -97,12 +97,12 @@
     {
       "category": "synthetic-probes",
       "commandCount": 1,
-      "p50WallMs": 7167,
-      "p95WallMs": 7196,
-      "maxPeakRssMb": 567.6,
-      "maxCpuMsEstimate": 8455,
-      "rssSampleCount": 853,
-      "cpuSampleCount": 853,
+      "p50WallMs": 3530,
+      "p95WallMs": 4171,
+      "maxPeakRssMb": 535.7,
+      "maxCpuMsEstimate": 3846,
+      "rssSampleCount": 430,
+      "cpuSampleCount": 430,
       "commands": [
         "synthetic-probe-plan"
       ]
@@ -110,12 +110,12 @@
     {
       "category": "cold-import",
       "commandCount": 1,
-      "p50WallMs": 7199,
-      "p95WallMs": 7205,
-      "maxPeakRssMb": 556.3,
-      "maxCpuMsEstimate": 8466,
-      "rssSampleCount": 857,
-      "cpuSampleCount": 857,
+      "p50WallMs": 3608,
+      "p95WallMs": 3674,
+      "maxPeakRssMb": 581.1,
+      "maxCpuMsEstimate": 3692,
+      "rssSampleCount": 421,
+      "cpuSampleCount": 421,
       "commands": [
         "cold-import-readiness"
       ]
@@ -123,12 +123,12 @@
     {
       "category": "workspace-plan",
       "commandCount": 1,
-      "p50WallMs": 7164,
-      "p95WallMs": 7203,
-      "maxPeakRssMb": 556.4,
-      "maxCpuMsEstimate": 8478,
-      "rssSampleCount": 853,
-      "cpuSampleCount": 853,
+      "p50WallMs": 4034,
+      "p95WallMs": 5081,
+      "maxPeakRssMb": 545.1,
+      "maxCpuMsEstimate": 4426,
+      "rssSampleCount": 492,
+      "cpuSampleCount": 492,
       "commands": [
         "workspace-plan"
       ]
@@ -136,12 +136,12 @@
     {
       "category": "platform-probes",
       "commandCount": 1,
-      "p50WallMs": 7152,
-      "p95WallMs": 7156,
-      "maxPeakRssMb": 505.2,
-      "maxCpuMsEstimate": 8473,
-      "rssSampleCount": 854,
-      "cpuSampleCount": 854,
+      "p50WallMs": 3827,
+      "p95WallMs": 3954,
+      "maxPeakRssMb": 542.2,
+      "maxCpuMsEstimate": 3739,
+      "rssSampleCount": 438,
+      "cpuSampleCount": 438,
       "commands": [
         "platform-probes"
       ]
@@ -149,12 +149,12 @@
     {
       "category": "import-loop",
       "commandCount": 1,
-      "p50WallMs": 490,
-      "p95WallMs": 491,
-      "maxPeakRssMb": 64.1,
-      "maxCpuMsEstimate": 255,
-      "rssSampleCount": 57,
-      "cpuSampleCount": 57,
+      "p50WallMs": 383,
+      "p95WallMs": 409,
+      "maxPeakRssMb": 61.5,
+      "maxCpuMsEstimate": 69,
+      "rssSampleCount": 45,
+      "cpuSampleCount": 45,
       "commands": [
         "import-loop-profile"
       ]
@@ -165,65 +165,65 @@
       "id": "node-boot",
       "label": "Node boot",
       "category": "baseline",
-      "command": "/opt/hostedtoolcache/node/22.23.2/x64/bin/node -e 0",
+      "command": "/opt/homebrew/Cellar/node@24/24.20.0/bin/node -e 0",
       "samples": [
         {
-          "wallMs": 34,
-          "peakRssMb": 29.6,
-          "rssDeltaMb": 0,
+          "wallMs": 35,
+          "peakRssMb": 35.7,
+          "rssDeltaMb": 34.4,
           "peakCpuPercent": 0,
           "cpuMsEstimate": 0,
-          "harnessHeapDeltaMb": 0.5,
-          "statSampleCount": 1,
-          "rssSampleCount": 1,
-          "cpuSampleCount": 1,
+          "harnessHeapDeltaMb": 0.4,
+          "statSampleCount": 2,
+          "rssSampleCount": 2,
+          "cpuSampleCount": 2,
           "exitCode": 0,
           "stdoutPreview": "",
           "stderrPreview": ""
         },
         {
-          "wallMs": 32,
-          "peakRssMb": 28.3,
+          "wallMs": 38,
+          "peakRssMb": 1.7,
           "rssDeltaMb": 0,
           "peakCpuPercent": 0,
           "cpuMsEstimate": 0,
-          "harnessHeapDeltaMb": 0.3,
-          "statSampleCount": 1,
-          "rssSampleCount": 1,
-          "cpuSampleCount": 1,
+          "harnessHeapDeltaMb": 0.4,
+          "statSampleCount": 2,
+          "rssSampleCount": 2,
+          "cpuSampleCount": 2,
           "exitCode": 0,
           "stdoutPreview": "",
           "stderrPreview": ""
         },
         {
-          "wallMs": 31,
-          "peakRssMb": 28.2,
+          "wallMs": 36,
+          "peakRssMb": 1.5,
           "rssDeltaMb": 0,
           "peakCpuPercent": 0,
           "cpuMsEstimate": 0,
           "harnessHeapDeltaMb": 0.3,
-          "statSampleCount": 1,
-          "rssSampleCount": 1,
-          "cpuSampleCount": 1,
+          "statSampleCount": 2,
+          "rssSampleCount": 2,
+          "cpuSampleCount": 2,
           "exitCode": 0,
           "stdoutPreview": "",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 31,
-        "median": 32,
-        "max": 34
+        "min": 35,
+        "median": 36,
+        "max": 38
       },
       "peakRssMb": {
-        "min": 28.2,
-        "median": 28.3,
-        "max": 29.6
+        "min": 1.5,
+        "median": 1.7,
+        "max": 35.7
       },
       "rssDeltaMb": {
         "min": 0,
         "median": 0,
-        "max": 0
+        "max": 34.4
       },
       "peakCpuPercent": {
         "min": 0,
@@ -237,12 +237,12 @@
       },
       "harnessHeapDeltaMb": {
         "min": 0.3,
-        "median": 0.3,
-        "max": 0.5
+        "median": 0.4,
+        "max": 0.4
       },
-      "statSampleCount": 3,
-      "rssSampleCount": 3,
-      "cpuSampleCount": 3,
+      "statSampleCount": 6,
+      "rssSampleCount": 6,
+      "cpuSampleCount": 6,
       "exitCodes": [
         0
       ]
@@ -251,84 +251,84 @@
       "id": "fixture-inspection",
       "label": "Fixture inspection",
       "category": "fixture-scan",
-      "command": "/opt/hostedtoolcache/node/22.23.2/x64/bin/node scripts/inspect-fixtures.mjs --check",
+      "command": "/opt/homebrew/Cellar/node@24/24.20.0/bin/node scripts/inspect-fixtures.mjs --check",
       "samples": [
         {
-          "wallMs": 6968,
-          "peakRssMb": 473.2,
-          "rssDeltaMb": 444.9,
-          "peakCpuPercent": 150,
-          "cpuMsEstimate": 8166,
-          "harnessHeapDeltaMb": -11.4,
-          "statSampleCount": 277,
-          "rssSampleCount": 277,
-          "cpuSampleCount": 277,
+          "wallMs": 3611,
+          "peakRssMb": 579.1,
+          "rssDeltaMb": 577.2,
+          "peakCpuPercent": 128.2,
+          "cpuMsEstimate": 3651,
+          "harnessHeapDeltaMb": 9.8,
+          "statSampleCount": 139,
+          "rssSampleCount": 139,
+          "cpuSampleCount": 139,
           "exitCode": 0,
           "stdoutPreview": "│ 59      │ 'inworld-tts'            │ 'ok'   │ ''                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    │ 'definePluginEntry,registerSpeechProvider'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           │ 'speechProviders'                                                                                                                                                                                                                                                                                                                                                                                                                                                                              │\n└─────────┴──────────────────────────┴────────┴───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘",
-          "stderrPreview": "(node:6850) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
+          "stderrPreview": "(node:94973) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
         },
         {
-          "wallMs": 6975,
-          "peakRssMb": 492.4,
-          "rssDeltaMb": 464.1,
-          "peakCpuPercent": 150,
-          "cpuMsEstimate": 8168,
-          "harnessHeapDeltaMb": 11.2,
-          "statSampleCount": 277,
-          "rssSampleCount": 277,
-          "cpuSampleCount": 277,
+          "wallMs": 3679,
+          "peakRssMb": 581.2,
+          "rssDeltaMb": 579.9,
+          "peakCpuPercent": 129.9,
+          "cpuMsEstimate": 3690,
+          "harnessHeapDeltaMb": 9.8,
+          "statSampleCount": 143,
+          "rssSampleCount": 143,
+          "cpuSampleCount": 143,
           "exitCode": 0,
           "stdoutPreview": "│ 59      │ 'inworld-tts'            │ 'ok'   │ ''                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    │ 'definePluginEntry,registerSpeechProvider'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           │ 'speechProviders'                                                                                                                                                                                                                                                                                                                                                                                                                                                                              │\n└─────────┴──────────────────────────┴────────┴───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘",
-          "stderrPreview": "(node:7142) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
+          "stderrPreview": "(node:96528) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
         },
         {
-          "wallMs": 7031,
-          "peakRssMb": 494.4,
-          "rssDeltaMb": 466.1,
-          "peakCpuPercent": 153,
-          "cpuMsEstimate": 8254,
-          "harnessHeapDeltaMb": -0.5,
-          "statSampleCount": 280,
-          "rssSampleCount": 280,
-          "cpuSampleCount": 280,
+          "wallMs": 3689,
+          "peakRssMb": 574.6,
+          "rssDeltaMb": 573.3,
+          "peakCpuPercent": 138.4,
+          "cpuMsEstimate": 3755,
+          "harnessHeapDeltaMb": 9.7,
+          "statSampleCount": 143,
+          "rssSampleCount": 143,
+          "cpuSampleCount": 143,
           "exitCode": 0,
           "stdoutPreview": "│ 59      │ 'inworld-tts'            │ 'ok'   │ ''                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    │ 'definePluginEntry,registerSpeechProvider'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           │ 'speechProviders'                                                                                                                                                                                                                                                                                                                                                                                                                                                                              │\n└─────────┴──────────────────────────┴────────┴───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘",
-          "stderrPreview": "(node:7432) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
+          "stderrPreview": "(node:98276) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
         }
       ],
       "wallMs": {
-        "min": 6968,
-        "median": 6975,
-        "max": 7031
+        "min": 3611,
+        "median": 3679,
+        "max": 3689
       },
       "peakRssMb": {
-        "min": 473.2,
-        "median": 492.4,
-        "max": 494.4
+        "min": 574.6,
+        "median": 579.1,
+        "max": 581.2
       },
       "rssDeltaMb": {
-        "min": 444.9,
-        "median": 464.1,
-        "max": 466.1
+        "min": 573.3,
+        "median": 577.2,
+        "max": 579.9
       },
       "peakCpuPercent": {
-        "min": 150,
-        "median": 150,
-        "max": 153
+        "min": 128.2,
+        "median": 129.9,
+        "max": 138.4
       },
       "cpuMsEstimate": {
-        "min": 8166,
-        "median": 8168,
-        "max": 8254
+        "min": 3651,
+        "median": 3690,
+        "max": 3755
       },
       "harnessHeapDeltaMb": {
-        "min": -11.4,
-        "median": -0.5,
-        "max": 11.2
+        "min": 9.7,
+        "median": 9.8,
+        "max": 9.8
       },
-      "statSampleCount": 834,
-      "rssSampleCount": 834,
-      "cpuSampleCount": 834,
+      "statSampleCount": 425,
+      "rssSampleCount": 425,
+      "cpuSampleCount": 425,
       "exitCodes": [
         0
       ]
@@ -337,84 +337,84 @@
       "id": "compat-report-registry",
       "label": "Compatibility report plus target registry parse",
       "category": "target-registry",
-      "command": "/opt/hostedtoolcache/node/22.23.2/x64/bin/node scripts/generate-report.mjs --check",
+      "command": "/opt/homebrew/Cellar/node@24/24.20.0/bin/node scripts/generate-report.mjs --check",
       "samples": [
         {
-          "wallMs": 7118,
-          "peakRssMb": 499.4,
-          "rssDeltaMb": 471.1,
-          "peakCpuPercent": 160,
-          "cpuMsEstimate": 8413,
-          "harnessHeapDeltaMb": -0.4,
-          "statSampleCount": 283,
-          "rssSampleCount": 283,
-          "cpuSampleCount": 283,
+          "wallMs": 3832,
+          "peakRssMb": 534.6,
+          "rssDeltaMb": 533.1,
+          "peakCpuPercent": 139.1,
+          "cpuMsEstimate": 3824,
+          "harnessHeapDeltaMb": 10.3,
+          "statSampleCount": 149,
+          "rssSampleCount": 149,
+          "cpuSampleCount": 149,
           "exitCode": 0,
-          "stdoutPreview": "crabpot report check: pass; 0 breakages, 139 warnings, 249 suggestions, 388 issues\nreport targets: reports/crabpot-report.md, reports/crabpot-report.json, reports/crabpot-issues.md",
-          "stderrPreview": "(node:7727) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
+          "stdoutPreview": "crabpot report check: pass; 0 breakages, 144 warnings, 249 suggestions, 393 issues\nreport targets: reports/crabpot-report.md, reports/crabpot-report.json, reports/crabpot-issues.md",
+          "stderrPreview": "(node:99993) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
         },
         {
-          "wallMs": 7100,
-          "peakRssMb": 495.5,
-          "rssDeltaMb": 467.2,
-          "peakCpuPercent": 148,
-          "cpuMsEstimate": 8364,
-          "harnessHeapDeltaMb": -0.2,
-          "statSampleCount": 282,
-          "rssSampleCount": 282,
-          "cpuSampleCount": 282,
+          "wallMs": 3712,
+          "peakRssMb": 535.8,
+          "rssDeltaMb": 534.5,
+          "peakCpuPercent": 133.7,
+          "cpuMsEstimate": 3745,
+          "harnessHeapDeltaMb": -101.2,
+          "statSampleCount": 144,
+          "rssSampleCount": 144,
+          "cpuSampleCount": 144,
           "exitCode": 0,
-          "stdoutPreview": "crabpot report check: pass; 0 breakages, 139 warnings, 249 suggestions, 388 issues\nreport targets: reports/crabpot-report.md, reports/crabpot-report.json, reports/crabpot-issues.md",
-          "stderrPreview": "(node:8025) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
+          "stdoutPreview": "crabpot report check: pass; 0 breakages, 144 warnings, 249 suggestions, 393 issues\nreport targets: reports/crabpot-report.md, reports/crabpot-report.json, reports/crabpot-issues.md",
+          "stderrPreview": "(node:2481) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
         },
         {
-          "wallMs": 7150,
-          "peakRssMb": 569.1,
-          "rssDeltaMb": 540.8,
-          "peakCpuPercent": 147,
-          "cpuMsEstimate": 8444,
-          "harnessHeapDeltaMb": 0,
-          "statSampleCount": 285,
-          "rssSampleCount": 285,
-          "cpuSampleCount": 285,
+          "wallMs": 3619,
+          "peakRssMb": 518,
+          "rssDeltaMb": 516.7,
+          "peakCpuPercent": 136.4,
+          "cpuMsEstimate": 3666,
+          "harnessHeapDeltaMb": 9.5,
+          "statSampleCount": 140,
+          "rssSampleCount": 140,
+          "cpuSampleCount": 140,
           "exitCode": 0,
-          "stdoutPreview": "crabpot report check: pass; 0 breakages, 139 warnings, 249 suggestions, 388 issues\nreport targets: reports/crabpot-report.md, reports/crabpot-report.json, reports/crabpot-issues.md",
-          "stderrPreview": "(node:8322) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
+          "stdoutPreview": "crabpot report check: pass; 0 breakages, 144 warnings, 249 suggestions, 393 issues\nreport targets: reports/crabpot-report.md, reports/crabpot-report.json, reports/crabpot-issues.md",
+          "stderrPreview": "(node:4569) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
         }
       ],
       "wallMs": {
-        "min": 7100,
-        "median": 7118,
-        "max": 7150
+        "min": 3619,
+        "median": 3712,
+        "max": 3832
       },
       "peakRssMb": {
-        "min": 495.5,
-        "median": 499.4,
-        "max": 569.1
+        "min": 518,
+        "median": 534.6,
+        "max": 535.8
       },
       "rssDeltaMb": {
-        "min": 467.2,
-        "median": 471.1,
-        "max": 540.8
+        "min": 516.7,
+        "median": 533.1,
+        "max": 534.5
       },
       "peakCpuPercent": {
-        "min": 147,
-        "median": 148,
-        "max": 160
+        "min": 133.7,
+        "median": 136.4,
+        "max": 139.1
       },
       "cpuMsEstimate": {
-        "min": 8364,
-        "median": 8413,
-        "max": 8444
+        "min": 3666,
+        "median": 3745,
+        "max": 3824
       },
       "harnessHeapDeltaMb": {
-        "min": -0.4,
-        "median": -0.2,
-        "max": 0
+        "min": -101.2,
+        "median": 9.5,
+        "max": 10.3
       },
-      "statSampleCount": 850,
-      "rssSampleCount": 850,
-      "cpuSampleCount": 850,
+      "statSampleCount": 433,
+      "rssSampleCount": 433,
+      "cpuSampleCount": 433,
       "exitCodes": [
         0
       ]
@@ -423,84 +423,84 @@
       "id": "contract-capture",
       "label": "Contract capture inventory",
       "category": "contract-capture",
-      "command": "/opt/hostedtoolcache/node/22.23.2/x64/bin/node scripts/capture-contracts.mjs --check",
+      "command": "/opt/homebrew/Cellar/node@24/24.20.0/bin/node scripts/capture-contracts.mjs --check",
       "samples": [
         {
-          "wallMs": 6995,
-          "peakRssMb": 411.6,
-          "rssDeltaMb": 383.3,
-          "peakCpuPercent": 150,
-          "cpuMsEstimate": 8219,
-          "harnessHeapDeltaMb": -0.6,
-          "statSampleCount": 279,
-          "rssSampleCount": 279,
-          "cpuSampleCount": 279,
+          "wallMs": 3602,
+          "peakRssMb": 518.5,
+          "rssDeltaMb": 517.2,
+          "peakCpuPercent": 134.7,
+          "cpuMsEstimate": 3638,
+          "harnessHeapDeltaMb": 9.3,
+          "statSampleCount": 139,
+          "rssSampleCount": 139,
+          "cpuSampleCount": 139,
           "exitCode": 0,
-          "stdoutPreview": "contract capture: 386 registrations, 130 hooks, 2076 sdk imports, 268 issue probes",
-          "stderrPreview": "(node:8622) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
+          "stdoutPreview": "contract capture: 386 registrations, 130 hooks, 2081 sdk imports, 270 issue probes",
+          "stderrPreview": "(node:6302) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
         },
         {
-          "wallMs": 7027,
-          "peakRssMb": 437.5,
-          "rssDeltaMb": 409.3,
-          "peakCpuPercent": 153,
-          "cpuMsEstimate": 8257,
-          "harnessHeapDeltaMb": -0.5,
-          "statSampleCount": 279,
-          "rssSampleCount": 279,
-          "cpuSampleCount": 279,
+          "wallMs": 3730,
+          "peakRssMb": 578.8,
+          "rssDeltaMb": 577.3,
+          "peakCpuPercent": 130.4,
+          "cpuMsEstimate": 3745,
+          "harnessHeapDeltaMb": 9.5,
+          "statSampleCount": 144,
+          "rssSampleCount": 144,
+          "cpuSampleCount": 144,
           "exitCode": 0,
-          "stdoutPreview": "contract capture: 386 registrations, 130 hooks, 2076 sdk imports, 268 issue probes",
-          "stderrPreview": "(node:8918) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
+          "stdoutPreview": "contract capture: 386 registrations, 130 hooks, 2081 sdk imports, 270 issue probes",
+          "stderrPreview": "(node:8055) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
         },
         {
-          "wallMs": 7045,
-          "peakRssMb": 472.2,
-          "rssDeltaMb": 443.9,
-          "peakCpuPercent": 150,
-          "cpuMsEstimate": 8250,
-          "harnessHeapDeltaMb": -0.5,
-          "statSampleCount": 281,
-          "rssSampleCount": 281,
-          "cpuSampleCount": 281,
+          "wallMs": 3619,
+          "peakRssMb": 521.9,
+          "rssDeltaMb": 521.5,
+          "peakCpuPercent": 129.5,
+          "cpuMsEstimate": 3597,
+          "harnessHeapDeltaMb": 9.1,
+          "statSampleCount": 139,
+          "rssSampleCount": 139,
+          "cpuSampleCount": 139,
           "exitCode": 0,
-          "stdoutPreview": "contract capture: 386 registrations, 130 hooks, 2076 sdk imports, 268 issue probes",
-          "stderrPreview": "(node:9215) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
+          "stdoutPreview": "contract capture: 386 registrations, 130 hooks, 2081 sdk imports, 270 issue probes",
+          "stderrPreview": "(node:9611) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
         }
       ],
       "wallMs": {
-        "min": 6995,
-        "median": 7027,
-        "max": 7045
+        "min": 3602,
+        "median": 3619,
+        "max": 3730
       },
       "peakRssMb": {
-        "min": 411.6,
-        "median": 437.5,
-        "max": 472.2
+        "min": 518.5,
+        "median": 521.9,
+        "max": 578.8
       },
       "rssDeltaMb": {
-        "min": 383.3,
-        "median": 409.3,
-        "max": 443.9
+        "min": 517.2,
+        "median": 521.5,
+        "max": 577.3
       },
       "peakCpuPercent": {
-        "min": 150,
-        "median": 150,
-        "max": 153
+        "min": 129.5,
+        "median": 130.4,
+        "max": 134.7
       },
       "cpuMsEstimate": {
-        "min": 8219,
-        "median": 8250,
-        "max": 8257
+        "min": 3597,
+        "median": 3638,
+        "max": 3745
       },
       "harnessHeapDeltaMb": {
-        "min": -0.6,
-        "median": -0.5,
-        "max": -0.5
+        "min": 9.1,
+        "median": 9.3,
+        "max": 9.5
       },
-      "statSampleCount": 839,
-      "rssSampleCount": 839,
-      "cpuSampleCount": 839,
+      "statSampleCount": 422,
+      "rssSampleCount": 422,
+      "cpuSampleCount": 422,
       "exitCodes": [
         0
       ]
@@ -509,84 +509,84 @@
       "id": "synthetic-probe-plan",
       "label": "Synthetic probe plan",
       "category": "synthetic-probes",
-      "command": "/opt/hostedtoolcache/node/22.23.2/x64/bin/node scripts/synthetic-probes.mjs --check",
+      "command": "/opt/homebrew/Cellar/node@24/24.20.0/bin/node scripts/synthetic-probes.mjs --check",
       "samples": [
         {
-          "wallMs": 7167,
-          "peakRssMb": 495.1,
-          "rssDeltaMb": 466.8,
-          "peakCpuPercent": 157,
-          "cpuMsEstimate": 8393,
-          "harnessHeapDeltaMb": 0,
-          "statSampleCount": 285,
-          "rssSampleCount": 285,
-          "cpuSampleCount": 285,
+          "wallMs": 4171,
+          "peakRssMb": 535.7,
+          "rssDeltaMb": 534.3,
+          "peakCpuPercent": 117.9,
+          "cpuMsEstimate": 3846,
+          "harnessHeapDeltaMb": 9.2,
+          "statSampleCount": 160,
+          "rssSampleCount": 160,
+          "cpuSampleCount": 160,
           "exitCode": 0,
           "stdoutPreview": "synthetic probes: 507 ready, 9 blocked, 516 total",
-          "stderrPreview": "(node:9515) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
+          "stderrPreview": "(node:11055) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
         },
         {
-          "wallMs": 7094,
-          "peakRssMb": 435,
-          "rssDeltaMb": 406.7,
-          "peakCpuPercent": 146,
-          "cpuMsEstimate": 8265,
-          "harnessHeapDeltaMb": -0.2,
-          "statSampleCount": 282,
-          "rssSampleCount": 282,
-          "cpuSampleCount": 282,
+          "wallMs": 3530,
+          "peakRssMb": 525.3,
+          "rssDeltaMb": 524.7,
+          "peakCpuPercent": 131.6,
+          "cpuMsEstimate": 3565,
+          "harnessHeapDeltaMb": -41.6,
+          "statSampleCount": 136,
+          "rssSampleCount": 136,
+          "cpuSampleCount": 136,
           "exitCode": 0,
           "stdoutPreview": "synthetic probes: 507 ready, 9 blocked, 516 total",
-          "stderrPreview": "(node:9838) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
+          "stderrPreview": "(node:12856) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
         },
         {
-          "wallMs": 7196,
-          "peakRssMb": 567.6,
-          "rssDeltaMb": 539.3,
-          "peakCpuPercent": 147,
-          "cpuMsEstimate": 8455,
-          "harnessHeapDeltaMb": -0.3,
-          "statSampleCount": 286,
-          "rssSampleCount": 286,
-          "cpuSampleCount": 286,
+          "wallMs": 3470,
+          "peakRssMb": 520.5,
+          "rssDeltaMb": 519.1,
+          "peakCpuPercent": 135.9,
+          "cpuMsEstimate": 3487,
+          "harnessHeapDeltaMb": 7.6,
+          "statSampleCount": 134,
+          "rssSampleCount": 134,
+          "cpuSampleCount": 134,
           "exitCode": 0,
           "stdoutPreview": "synthetic probes: 507 ready, 9 blocked, 516 total",
-          "stderrPreview": "(node:10143) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
+          "stderrPreview": "(node:14280) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
         }
       ],
       "wallMs": {
-        "min": 7094,
-        "median": 7167,
-        "max": 7196
+        "min": 3470,
+        "median": 3530,
+        "max": 4171
       },
       "peakRssMb": {
-        "min": 435,
-        "median": 495.1,
-        "max": 567.6
+        "min": 520.5,
+        "median": 525.3,
+        "max": 535.7
       },
       "rssDeltaMb": {
-        "min": 406.7,
-        "median": 466.8,
-        "max": 539.3
+        "min": 519.1,
+        "median": 524.7,
+        "max": 534.3
       },
       "peakCpuPercent": {
-        "min": 146,
-        "median": 147,
-        "max": 157
+        "min": 117.9,
+        "median": 131.6,
+        "max": 135.9
       },
       "cpuMsEstimate": {
-        "min": 8265,
-        "median": 8393,
-        "max": 8455
+        "min": 3487,
+        "median": 3565,
+        "max": 3846
       },
       "harnessHeapDeltaMb": {
-        "min": -0.3,
-        "median": -0.2,
-        "max": 0
+        "min": -41.6,
+        "median": 7.6,
+        "max": 9.2
       },
-      "statSampleCount": 853,
-      "rssSampleCount": 853,
-      "cpuSampleCount": 853,
+      "statSampleCount": 430,
+      "rssSampleCount": 430,
+      "cpuSampleCount": 430,
       "exitCodes": [
         0
       ]
@@ -595,84 +595,84 @@
       "id": "cold-import-readiness",
       "label": "Cold import readiness",
       "category": "cold-import",
-      "command": "/opt/hostedtoolcache/node/22.23.2/x64/bin/node scripts/cold-import-readiness.mjs --check",
+      "command": "/opt/homebrew/Cellar/node@24/24.20.0/bin/node scripts/cold-import-readiness.mjs --check",
       "samples": [
         {
-          "wallMs": 7199,
-          "peakRssMb": 556.3,
-          "rssDeltaMb": 528.1,
-          "peakCpuPercent": 146,
-          "cpuMsEstimate": 8459,
-          "harnessHeapDeltaMb": -0.3,
-          "statSampleCount": 287,
-          "rssSampleCount": 287,
-          "cpuSampleCount": 287,
+          "wallMs": 3566,
+          "peakRssMb": 528.8,
+          "rssDeltaMb": 528.4,
+          "peakCpuPercent": 133.3,
+          "cpuMsEstimate": 3602,
+          "harnessHeapDeltaMb": 7.8,
+          "statSampleCount": 138,
+          "rssSampleCount": 138,
+          "cpuSampleCount": 138,
           "exitCode": 0,
           "stdoutPreview": "cold import readiness: 121 entrypoints, 6 ready, 115 blocked",
-          "stderrPreview": "(node:10447) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
+          "stderrPreview": "(node:15681) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
         },
         {
-          "wallMs": 7205,
-          "peakRssMb": 484.9,
-          "rssDeltaMb": 456.7,
-          "peakCpuPercent": 157,
-          "cpuMsEstimate": 8466,
-          "harnessHeapDeltaMb": 11.9,
-          "statSampleCount": 287,
-          "rssSampleCount": 287,
-          "cpuSampleCount": 287,
+          "wallMs": 3674,
+          "peakRssMb": 581.1,
+          "rssDeltaMb": 579.7,
+          "peakCpuPercent": 136.6,
+          "cpuMsEstimate": 3692,
+          "harnessHeapDeltaMb": 8.1,
+          "statSampleCount": 143,
+          "rssSampleCount": 143,
+          "cpuSampleCount": 143,
           "exitCode": 0,
           "stdoutPreview": "cold import readiness: 121 entrypoints, 6 ready, 115 blocked",
-          "stderrPreview": "(node:10749) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
+          "stderrPreview": "(node:17178) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
         },
         {
-          "wallMs": 7118,
-          "peakRssMb": 431.6,
-          "rssDeltaMb": 403.4,
-          "peakCpuPercent": 153,
-          "cpuMsEstimate": 8456,
-          "harnessHeapDeltaMb": -427.1,
-          "statSampleCount": 283,
-          "rssSampleCount": 283,
-          "cpuSampleCount": 283,
+          "wallMs": 3608,
+          "peakRssMb": 577.1,
+          "rssDeltaMb": 576.5,
+          "peakCpuPercent": 133.1,
+          "cpuMsEstimate": 3659,
+          "harnessHeapDeltaMb": 7.9,
+          "statSampleCount": 140,
+          "rssSampleCount": 140,
+          "cpuSampleCount": 140,
           "exitCode": 0,
           "stdoutPreview": "cold import readiness: 121 entrypoints, 6 ready, 115 blocked",
-          "stderrPreview": "(node:11049) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
+          "stderrPreview": "(node:18667) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
         }
       ],
       "wallMs": {
-        "min": 7118,
-        "median": 7199,
-        "max": 7205
+        "min": 3566,
+        "median": 3608,
+        "max": 3674
       },
       "peakRssMb": {
-        "min": 431.6,
-        "median": 484.9,
-        "max": 556.3
+        "min": 528.8,
+        "median": 577.1,
+        "max": 581.1
       },
       "rssDeltaMb": {
-        "min": 403.4,
-        "median": 456.7,
-        "max": 528.1
+        "min": 528.4,
+        "median": 576.5,
+        "max": 579.7
       },
       "peakCpuPercent": {
-        "min": 146,
-        "median": 153,
-        "max": 157
+        "min": 133.1,
+        "median": 133.3,
+        "max": 136.6
       },
       "cpuMsEstimate": {
-        "min": 8456,
-        "median": 8459,
-        "max": 8466
+        "min": 3602,
+        "median": 3659,
+        "max": 3692
       },
       "harnessHeapDeltaMb": {
-        "min": -427.1,
-        "median": -0.3,
-        "max": 11.9
+        "min": 7.8,
+        "median": 7.9,
+        "max": 8.1
       },
-      "statSampleCount": 857,
-      "rssSampleCount": 857,
-      "cpuSampleCount": 857,
+      "statSampleCount": 421,
+      "rssSampleCount": 421,
+      "cpuSampleCount": 421,
       "exitCodes": [
         0
       ]
@@ -681,84 +681,84 @@
       "id": "workspace-plan",
       "label": "Workspace execution plan",
       "category": "workspace-plan",
-      "command": "/opt/hostedtoolcache/node/22.23.2/x64/bin/node scripts/workspace-plan.mjs --check",
+      "command": "/opt/homebrew/Cellar/node@24/24.20.0/bin/node scripts/workspace-plan.mjs --check",
       "samples": [
         {
-          "wallMs": 7203,
-          "peakRssMb": 556.4,
-          "rssDeltaMb": 528.1,
-          "peakCpuPercent": 150,
-          "cpuMsEstimate": 8478,
-          "harnessHeapDeltaMb": 1.3,
-          "statSampleCount": 287,
-          "rssSampleCount": 287,
-          "cpuSampleCount": 287,
+          "wallMs": 3605,
+          "peakRssMb": 545.1,
+          "rssDeltaMb": 543.8,
+          "peakCpuPercent": 137.1,
+          "cpuMsEstimate": 3652,
+          "harnessHeapDeltaMb": 7.9,
+          "statSampleCount": 140,
+          "rssSampleCount": 140,
+          "cpuSampleCount": 140,
           "exitCode": 0,
           "stdoutPreview": "workspace plan: 121 entrypoints, 80 installs, 80 audits, 15 builds, 121 captures, 121 synthetic probes, 121 artifact dirs",
-          "stderrPreview": "(node:11346) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
+          "stderrPreview": "(node:20105) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
         },
         {
-          "wallMs": 7164,
-          "peakRssMb": 507,
-          "rssDeltaMb": 478.7,
-          "peakCpuPercent": 150,
-          "cpuMsEstimate": 8439,
-          "harnessHeapDeltaMb": -0.2,
-          "statSampleCount": 285,
-          "rssSampleCount": 285,
-          "cpuSampleCount": 285,
+          "wallMs": 4034,
+          "peakRssMb": 540.6,
+          "rssDeltaMb": 539.6,
+          "peakCpuPercent": 137.5,
+          "cpuMsEstimate": 4018,
+          "harnessHeapDeltaMb": -38.5,
+          "statSampleCount": 156,
+          "rssSampleCount": 156,
+          "cpuSampleCount": 156,
           "exitCode": 0,
           "stdoutPreview": "workspace plan: 121 entrypoints, 80 installs, 80 audits, 15 builds, 121 captures, 121 synthetic probes, 121 artifact dirs",
-          "stderrPreview": "(node:11647) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
+          "stderrPreview": "(node:21583) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
         },
         {
-          "wallMs": 7062,
-          "peakRssMb": 423,
-          "rssDeltaMb": 394.7,
-          "peakCpuPercent": 153,
-          "cpuMsEstimate": 8354,
-          "harnessHeapDeltaMb": 2.2,
-          "statSampleCount": 281,
-          "rssSampleCount": 281,
-          "cpuSampleCount": 281,
+          "wallMs": 5081,
+          "peakRssMb": 543.9,
+          "rssDeltaMb": 543.6,
+          "peakCpuPercent": 131.3,
+          "cpuMsEstimate": 4426,
+          "harnessHeapDeltaMb": 11.1,
+          "statSampleCount": 196,
+          "rssSampleCount": 196,
+          "cpuSampleCount": 196,
           "exitCode": 0,
           "stdoutPreview": "workspace plan: 121 entrypoints, 80 installs, 80 audits, 15 builds, 121 captures, 121 synthetic probes, 121 artifact dirs",
-          "stderrPreview": "(node:11947) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
+          "stderrPreview": "(node:23531) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
         }
       ],
       "wallMs": {
-        "min": 7062,
-        "median": 7164,
-        "max": 7203
+        "min": 3605,
+        "median": 4034,
+        "max": 5081
       },
       "peakRssMb": {
-        "min": 423,
-        "median": 507,
-        "max": 556.4
+        "min": 540.6,
+        "median": 543.9,
+        "max": 545.1
       },
       "rssDeltaMb": {
-        "min": 394.7,
-        "median": 478.7,
-        "max": 528.1
+        "min": 539.6,
+        "median": 543.6,
+        "max": 543.8
       },
       "peakCpuPercent": {
-        "min": 150,
-        "median": 150,
-        "max": 153
+        "min": 131.3,
+        "median": 137.1,
+        "max": 137.5
       },
       "cpuMsEstimate": {
-        "min": 8354,
-        "median": 8439,
-        "max": 8478
+        "min": 3652,
+        "median": 4018,
+        "max": 4426
       },
       "harnessHeapDeltaMb": {
-        "min": -0.2,
-        "median": 1.3,
-        "max": 2.2
+        "min": -38.5,
+        "median": 7.9,
+        "max": 11.1
       },
-      "statSampleCount": 853,
-      "rssSampleCount": 853,
-      "cpuSampleCount": 853,
+      "statSampleCount": 492,
+      "rssSampleCount": 492,
+      "cpuSampleCount": 492,
       "exitCodes": [
         0
       ]
@@ -767,84 +767,84 @@
       "id": "platform-probes",
       "label": "Platform and loader probes",
       "category": "platform-probes",
-      "command": "/opt/hostedtoolcache/node/22.23.2/x64/bin/node scripts/platform-probes.mjs --check",
+      "command": "/opt/homebrew/Cellar/node@24/24.20.0/bin/node scripts/platform-probes.mjs --check",
       "samples": [
         {
-          "wallMs": 7152,
-          "peakRssMb": 501.5,
-          "rssDeltaMb": 473.2,
-          "peakCpuPercent": 142,
-          "cpuMsEstimate": 8368,
-          "harnessHeapDeltaMb": -0.8,
-          "statSampleCount": 285,
-          "rssSampleCount": 285,
-          "cpuSampleCount": 285,
+          "wallMs": 3954,
+          "peakRssMb": 541.8,
+          "rssDeltaMb": 541.6,
+          "peakCpuPercent": 123.4,
+          "cpuMsEstimate": 3661,
+          "harnessHeapDeltaMb": 8.6,
+          "statSampleCount": 153,
+          "rssSampleCount": 153,
+          "cpuSampleCount": 153,
           "exitCode": 0,
           "stdoutPreview": "platform probes: 121 entrypoints, 20 TS loader, 17 Windows-risk steps, 17 container-risk steps",
-          "stderrPreview": "(node:12242) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
+          "stderrPreview": "(node:25744) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
         },
         {
-          "wallMs": 7156,
-          "peakRssMb": 498.3,
-          "rssDeltaMb": 470,
-          "peakCpuPercent": 150,
-          "cpuMsEstimate": 8473,
-          "harnessHeapDeltaMb": -0.5,
-          "statSampleCount": 285,
-          "rssSampleCount": 285,
-          "cpuSampleCount": 285,
+          "wallMs": 3827,
+          "peakRssMb": 542.2,
+          "rssDeltaMb": 541.5,
+          "peakCpuPercent": 126.6,
+          "cpuMsEstimate": 3739,
+          "harnessHeapDeltaMb": 8.2,
+          "statSampleCount": 146,
+          "rssSampleCount": 146,
+          "cpuSampleCount": 146,
           "exitCode": 0,
           "stdoutPreview": "platform probes: 121 entrypoints, 20 TS loader, 17 Windows-risk steps, 17 container-risk steps",
-          "stderrPreview": "(node:12548) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
+          "stderrPreview": "(node:27344) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
         },
         {
-          "wallMs": 7122,
-          "peakRssMb": 505.2,
-          "rssDeltaMb": 476.9,
-          "peakCpuPercent": 150,
-          "cpuMsEstimate": 8418,
-          "harnessHeapDeltaMb": -0.5,
-          "statSampleCount": 284,
-          "rssSampleCount": 284,
-          "cpuSampleCount": 284,
+          "wallMs": 3592,
+          "peakRssMb": 542.2,
+          "rssDeltaMb": 540.9,
+          "peakCpuPercent": 137.2,
+          "cpuMsEstimate": 3603,
+          "harnessHeapDeltaMb": 7.8,
+          "statSampleCount": 139,
+          "rssSampleCount": 139,
+          "cpuSampleCount": 139,
           "exitCode": 0,
           "stdoutPreview": "platform probes: 121 entrypoints, 20 TS loader, 17 Windows-risk steps, 17 container-risk steps",
-          "stderrPreview": "(node:12853) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
+          "stderrPreview": "(node:29345) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
         }
       ],
       "wallMs": {
-        "min": 7122,
-        "median": 7152,
-        "max": 7156
+        "min": 3592,
+        "median": 3827,
+        "max": 3954
       },
       "peakRssMb": {
-        "min": 498.3,
-        "median": 501.5,
-        "max": 505.2
+        "min": 541.8,
+        "median": 542.2,
+        "max": 542.2
       },
       "rssDeltaMb": {
-        "min": 470,
-        "median": 473.2,
-        "max": 476.9
+        "min": 540.9,
+        "median": 541.5,
+        "max": 541.6
       },
       "peakCpuPercent": {
-        "min": 142,
-        "median": 150,
-        "max": 150
+        "min": 123.4,
+        "median": 126.6,
+        "max": 137.2
       },
       "cpuMsEstimate": {
-        "min": 8368,
-        "median": 8418,
-        "max": 8473
+        "min": 3603,
+        "median": 3661,
+        "max": 3739
       },
       "harnessHeapDeltaMb": {
-        "min": -0.8,
-        "median": -0.5,
-        "max": -0.5
+        "min": 7.8,
+        "median": 8.2,
+        "max": 8.6
       },
-      "statSampleCount": 854,
-      "rssSampleCount": 854,
-      "cpuSampleCount": 854,
+      "statSampleCount": 438,
+      "rssSampleCount": 438,
+      "cpuSampleCount": 438,
       "exitCodes": [
         0
       ]
@@ -853,84 +853,84 @@
       "id": "import-loop-profile",
       "label": "Repeated cold import capture loop",
       "category": "import-loop",
-      "command": "/opt/hostedtoolcache/node/22.23.2/x64/bin/node scripts/import-loop-profile.mjs --check --runs 2",
+      "command": "/opt/homebrew/Cellar/node@24/24.20.0/bin/node scripts/import-loop-profile.mjs --check --runs 2",
       "samples": [
         {
-          "wallMs": 490,
-          "peakRssMb": 64.1,
-          "rssDeltaMb": 35.9,
-          "peakCpuPercent": 112,
-          "cpuMsEstimate": 246,
-          "harnessHeapDeltaMb": 1.8,
-          "statSampleCount": 19,
-          "rssSampleCount": 19,
-          "cpuSampleCount": 19,
+          "wallMs": 409,
+          "peakRssMb": 61.5,
+          "rssDeltaMb": 59.5,
+          "peakCpuPercent": 28.9,
+          "cpuMsEstimate": 69,
+          "harnessHeapDeltaMb": 0.7,
+          "statSampleCount": 16,
+          "rssSampleCount": 16,
+          "cpuSampleCount": 16,
           "exitCode": 0,
-          "stdoutPreview": "import loop profile: 2 runs, p50 96ms / p95 99ms / plugin delta RSS 0MB / plugin delta CPU 10ms",
+          "stdoutPreview": "import loop profile: 2 runs, p50 74ms / p95 76ms / plugin delta RSS 4.3MB / plugin delta CPU 3ms",
           "stderrPreview": ""
         },
         {
-          "wallMs": 490,
-          "peakRssMb": 63.5,
-          "rssDeltaMb": 35.3,
-          "peakCpuPercent": 112,
-          "cpuMsEstimate": 255,
-          "harnessHeapDeltaMb": 1.8,
-          "statSampleCount": 19,
-          "rssSampleCount": 19,
-          "cpuSampleCount": 19,
+          "wallMs": 365,
+          "peakRssMb": 61,
+          "rssDeltaMb": 59.6,
+          "peakCpuPercent": 22.3,
+          "cpuMsEstimate": 55,
+          "harnessHeapDeltaMb": 0.9,
+          "statSampleCount": 14,
+          "rssSampleCount": 14,
+          "cpuSampleCount": 14,
           "exitCode": 0,
-          "stdoutPreview": "import loop profile: 2 runs, p50 98ms / p95 98ms / plugin delta RSS 0.8MB / plugin delta CPU 8ms",
+          "stdoutPreview": "import loop profile: 2 runs, p50 70ms / p95 70ms / plugin delta RSS 5.6MB / plugin delta CPU 3ms",
           "stderrPreview": ""
         },
         {
-          "wallMs": 491,
-          "peakRssMb": 63.7,
-          "rssDeltaMb": 35.4,
-          "peakCpuPercent": 112,
-          "cpuMsEstimate": 252,
-          "harnessHeapDeltaMb": -4.3,
-          "statSampleCount": 19,
-          "rssSampleCount": 19,
-          "cpuSampleCount": 19,
+          "wallMs": 383,
+          "peakRssMb": 61.2,
+          "rssDeltaMb": 60.3,
+          "peakCpuPercent": 23,
+          "cpuMsEstimate": 55,
+          "harnessHeapDeltaMb": 0.9,
+          "statSampleCount": 15,
+          "rssSampleCount": 15,
+          "cpuSampleCount": 15,
           "exitCode": 0,
-          "stdoutPreview": "import loop profile: 2 runs, p50 96ms / p95 99ms / plugin delta RSS 0.4MB / plugin delta CPU 1ms",
+          "stdoutPreview": "import loop profile: 2 runs, p50 77ms / p95 80ms / plugin delta RSS 0.3MB / plugin delta CPU 3ms",
           "stderrPreview": ""
         }
       ],
       "wallMs": {
-        "min": 490,
-        "median": 490,
-        "max": 491
+        "min": 365,
+        "median": 383,
+        "max": 409
       },
       "peakRssMb": {
-        "min": 63.5,
-        "median": 63.7,
-        "max": 64.1
+        "min": 61,
+        "median": 61.2,
+        "max": 61.5
       },
       "rssDeltaMb": {
-        "min": 35.3,
-        "median": 35.4,
-        "max": 35.9
+        "min": 59.5,
+        "median": 59.6,
+        "max": 60.3
       },
       "peakCpuPercent": {
-        "min": 112,
-        "median": 112,
-        "max": 112
+        "min": 22.3,
+        "median": 23,
+        "max": 28.9
       },
       "cpuMsEstimate": {
-        "min": 246,
-        "median": 252,
-        "max": 255
+        "min": 55,
+        "median": 55,
+        "max": 69
       },
       "harnessHeapDeltaMb": {
-        "min": -4.3,
-        "median": 1.8,
-        "max": 1.8
+        "min": 0.7,
+        "median": 0.9,
+        "max": 0.9
       },
-      "statSampleCount": 57,
-      "rssSampleCount": 57,
-      "cpuSampleCount": 57,
+      "statSampleCount": 45,
+      "rssSampleCount": 45,
+      "cpuSampleCount": 45,
       "exitCodes": [
         0
       ]
