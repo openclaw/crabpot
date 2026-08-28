@@ -196,3 +196,8 @@ upstream plugin source in this repository.
 For an npm fixture, update the exact dependency in `plugins/<id>/package.json`,
 regenerate `plugins/<id>/package-lock.json`, then run the same report/check
 commands. Dependabot uses the same files.
+
+When the fixture declares OpenClaw as a peer, refresh its lock with
+`npm install --package-lock-only --ignore-scripts --legacy-peer-deps --prefix plugins/<id>`.
+OpenClaw is supplied by the workspace's host link; do not add an automatic peer
+installation of the host and its dependency tree to the fixture lock.

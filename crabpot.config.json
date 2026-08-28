@@ -844,7 +844,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/brave",
-        "ref": "5e63b365d4d3e62ef600b783fad7c5043b6f4738"
+        "ref": "7ea3a421cde856dd1d0a2b8e8d256926976d7bff"
       },
       "path": "plugins/brave-plugin",
       "priority": "medium",
@@ -876,7 +876,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/codex",
-        "ref": "5e63b365d4d3e62ef600b783fad7c5043b6f4738"
+        "ref": "7ea3a421cde856dd1d0a2b8e8d256926976d7bff"
       },
       "path": "plugins/codex",
       "priority": "medium",
@@ -917,7 +917,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/diagnostics-prometheus",
-        "ref": "5e63b365d4d3e62ef600b783fad7c5043b6f4738"
+        "ref": "7ea3a421cde856dd1d0a2b8e8d256926976d7bff"
       },
       "path": "plugins/diagnostics-prometheus",
       "priority": "medium",
@@ -947,7 +947,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/google-meet",
-        "ref": "5e63b365d4d3e62ef600b783fad7c5043b6f4738"
+        "ref": "7ea3a421cde856dd1d0a2b8e8d256926976d7bff"
       },
       "path": "plugins/google-meet",
       "priority": "medium",
@@ -979,7 +979,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/diffs",
-        "ref": "5e63b365d4d3e62ef600b783fad7c5043b6f4738"
+        "ref": "7ea3a421cde856dd1d0a2b8e8d256926976d7bff"
       },
       "path": "plugins/diffs",
       "priority": "medium",
@@ -1012,7 +1012,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/memory-lancedb",
-        "ref": "5e63b365d4d3e62ef600b783fad7c5043b6f4738"
+        "ref": "7ea3a421cde856dd1d0a2b8e8d256926976d7bff"
       },
       "path": "plugins/memory-lancedb",
       "priority": "medium",
@@ -1064,7 +1064,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/qqbot",
-        "ref": "5e63b365d4d3e62ef600b783fad7c5043b6f4738"
+        "ref": "dabe1915362e20c25704af91612a32a8f4c96e83"
       },
       "path": "plugins/openclaw-qqbot",
       "priority": "medium",
@@ -1103,7 +1103,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/whatsapp",
-        "ref": "5e63b365d4d3e62ef600b783fad7c5043b6f4738"
+        "ref": "7ea3a421cde856dd1d0a2b8e8d256926976d7bff"
       },
       "path": "plugins/whatsapp",
       "priority": "medium",

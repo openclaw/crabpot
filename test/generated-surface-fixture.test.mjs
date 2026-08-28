@@ -70,6 +70,10 @@ test("generated surface fixture verifies target OpenClaw surface", async () => {
     assert.deepEqual(report.expected.directCallbacks, ["onConversationBindingResolved"]);
     assert.deepEqual(report.expected.sdkExports, ["openclaw/plugin-sdk", "openclaw/plugin-sdk/runtime"]);
     assert.deepEqual(report.expected.manifestContracts, ["speechProviders", "tools"]);
+    assert.deepEqual(report.observed.static.sdkImports, report.expected.sdkExports);
+    const sdkSource = await readFile(path.join(pluginRoot, "src/generated-sdk-imports.ts"), "utf8");
+    assert.match(sdkSource, /import \* as sdk0 from "openclaw\/plugin-sdk"/);
+    assert.doesNotMatch(sdkSource, /import type/);
     assert.equal(report.summary.missingStaticCount, 0);
     assert.equal(report.summary.missingRuntimeCount, 0);
   } finally {
