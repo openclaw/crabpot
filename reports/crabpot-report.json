@@ -1,17 +1,17 @@
 {
   "generatedAt": "deterministic",
   "targetOpenClaw": {
-    "configuredPath": "./openclaw",
+    "configuredPath": "../openclaw",
     "searchedPaths": [
-      "./openclaw"
+      "../openclaw"
     ],
     "status": "ok",
-    "compatRegistryPath": "openclaw/src/plugins/compat/registry.ts",
+    "compatRegistryPath": "../openclaw/src/plugins/compat/registry.ts",
     "compatRecordCount": 0,
     "compatRecords": [],
     "compatRecordStatuses": {},
-    "hookTypesPath": "openclaw/src/plugins/hook-types.ts",
-    "hookNameCount": 44,
+    "hookTypesPath": "../openclaw/src/plugins/hook-types.ts",
+    "hookNameCount": 42,
     "hookNames": [
       "after_compaction",
       "after_tool_call",
@@ -31,7 +31,6 @@
       "channel_pairing_requested",
       "cron_changed",
       "cron_reconciled",
-      "deactivate",
       "gateway_start",
       "gateway_stop",
       "heartbeat_prompt_contribution",
@@ -55,16 +54,16 @@
       "subagent_ended",
       "subagent_progress",
       "subagent_spawned",
-      "subagent_spawning",
       "tool_result_persist"
     ],
-    "apiBuilderPath": "openclaw/src/plugins/api-builder.ts",
-    "apiRegistrarCount": 56,
+    "apiBuilderPath": "../openclaw/src/plugins/api-builder.ts",
+    "apiRegistrarCount": 57,
     "apiRegistrars": [
       "registerAgentEventSubscription",
       "registerAgentHarness",
       "registerAgentToolResultMiddleware",
       "registerAutoEnableProbe",
+      "registerBoardWidgetContentKind",
       "registerChannel",
       "registerCli",
       "registerCliBackend",
@@ -87,7 +86,6 @@
       "registerMediaUnderstandingProvider",
       "registerMemoryCapability",
       "registerMemoryCorpusSupplement",
-      "registerMemoryEmbeddingProvider",
       "registerMemoryPromptPreparation",
       "registerMemoryPromptSupplement",
       "registerMigrationProvider",
@@ -116,10 +114,11 @@
       "registerVideoGenerationProvider",
       "registerWebFetchProvider",
       "registerWebSearchProvider",
+      "registerWidgetPresenter",
       "registerWorkerProvider"
     ],
-    "capturedRegistrationPath": "openclaw/src/plugins/captured-registration.ts",
-    "capturedRegistrarCount": 32,
+    "capturedRegistrationPath": "../openclaw/src/plugins/captured-registration.ts",
+    "capturedRegistrarCount": 31,
     "capturedRegistrars": [
       "registerAgentEventSubscription",
       "registerAgentHarness",
@@ -131,7 +130,6 @@
       "registerEmbeddingProvider",
       "registerImageGenerationProvider",
       "registerMediaUnderstandingProvider",
-      "registerMemoryEmbeddingProvider",
       "registerMigrationProvider",
       "registerModelCatalogProvider",
       "registerMusicGenerationProvider",
@@ -154,8 +152,8 @@
       "registerWebSearchProvider",
       "registerWorkerProvider"
     ],
-    "packagePath": "openclaw/package.json",
-    "sdkExportCount": 301,
+    "packagePath": "../openclaw/package.json",
+    "sdkExportCount": 315,
     "sdkExports": [
       "openclaw/plugin-sdk/access-groups",
       "openclaw/plugin-sdk/account-core",
@@ -167,7 +165,6 @@
       "openclaw/plugin-sdk/acp-binding-runtime",
       "openclaw/plugin-sdk/acp-runtime",
       "openclaw/plugin-sdk/acp-runtime-backend",
-      "openclaw/plugin-sdk/agent-config-primitives",
       "openclaw/plugin-sdk/agent-core",
       "openclaw/plugin-sdk/agent-harness",
       "openclaw/plugin-sdk/agent-harness-exec-review-runtime",
@@ -176,6 +173,7 @@
       "openclaw/plugin-sdk/agent-harness-tool-runtime",
       "openclaw/plugin-sdk/agent-media-payload",
       "openclaw/plugin-sdk/agent-runtime",
+      "openclaw/plugin-sdk/agent-scope-runtime",
       "openclaw/plugin-sdk/agent-sessions",
       "openclaw/plugin-sdk/allow-from",
       "openclaw/plugin-sdk/allowlist-config-edit",
@@ -200,6 +198,7 @@
       "openclaw/plugin-sdk/channel-config-helpers",
       "openclaw/plugin-sdk/channel-config-primitives",
       "openclaw/plugin-sdk/channel-config-schema",
+      "openclaw/plugin-sdk/channel-config-ui-hints",
       "openclaw/plugin-sdk/channel-config-writes",
       "openclaw/plugin-sdk/channel-contract",
       "openclaw/plugin-sdk/channel-core",
@@ -210,7 +209,6 @@
       "openclaw/plugin-sdk/channel-inbound-debounce",
       "openclaw/plugin-sdk/channel-ingress-runtime",
       "openclaw/plugin-sdk/channel-lifecycle",
-      "openclaw/plugin-sdk/channel-logging",
       "openclaw/plugin-sdk/channel-mention-gating",
       "openclaw/plugin-sdk/channel-message",
       "openclaw/plugin-sdk/channel-outbound",
@@ -221,12 +219,12 @@
       "openclaw/plugin-sdk/channel-route",
       "openclaw/plugin-sdk/channel-runtime-context",
       "openclaw/plugin-sdk/channel-secret-basic-runtime",
-      "openclaw/plugin-sdk/channel-secret-runtime",
+      "openclaw/plugin-sdk/channel-secret-owner-runtime",
       "openclaw/plugin-sdk/channel-secret-tts-runtime",
       "openclaw/plugin-sdk/channel-send-result",
       "openclaw/plugin-sdk/channel-setup",
       "openclaw/plugin-sdk/channel-status",
-      "openclaw/plugin-sdk/channel-streaming",
+      "openclaw/plugin-sdk/channel-streaming-config",
       "openclaw/plugin-sdk/channel-targets",
       "openclaw/plugin-sdk/chat-channel-ids",
       "openclaw/plugin-sdk/cli-argv",
@@ -242,6 +240,7 @@
       "openclaw/plugin-sdk/command-status",
       "openclaw/plugin-sdk/command-status-runtime",
       "openclaw/plugin-sdk/command-surface",
+      "openclaw/plugin-sdk/computer-use",
       "openclaw/plugin-sdk/concurrency-runtime",
       "openclaw/plugin-sdk/config-contracts",
       "openclaw/plugin-sdk/config-mutation",
@@ -260,6 +259,7 @@
       "openclaw/plugin-sdk/directory-config-runtime",
       "openclaw/plugin-sdk/directory-runtime",
       "openclaw/plugin-sdk/discord",
+      "openclaw/plugin-sdk/doctor-repair-runtime",
       "openclaw/plugin-sdk/document-extractor",
       "openclaw/plugin-sdk/embedding-providers",
       "openclaw/plugin-sdk/error-runtime",
@@ -272,7 +272,6 @@
       "openclaw/plugin-sdk/gateway-method-runtime",
       "openclaw/plugin-sdk/gateway-runtime",
       "openclaw/plugin-sdk/global-singleton",
-      "openclaw/plugin-sdk/group-access",
       "openclaw/plugin-sdk/group-activation",
       "openclaw/plugin-sdk/health",
       "openclaw/plugin-sdk/heartbeat-runtime",
@@ -297,7 +296,6 @@
       "openclaw/plugin-sdk/llm",
       "openclaw/plugin-sdk/logging-core",
       "openclaw/plugin-sdk/markdown-table-runtime",
-      "openclaw/plugin-sdk/matrix",
       "openclaw/plugin-sdk/media-generation-runtime",
       "openclaw/plugin-sdk/media-local-roots",
       "openclaw/plugin-sdk/media-mime",
@@ -305,11 +303,15 @@
       "openclaw/plugin-sdk/media-store",
       "openclaw/plugin-sdk/media-understanding",
       "openclaw/plugin-sdk/media-understanding-runtime",
+      "openclaw/plugin-sdk/meeting-page-script-runtime",
       "openclaw/plugin-sdk/meeting-runtime",
       "openclaw/plugin-sdk/memory-core-host-embedding-registry",
+      "openclaw/plugin-sdk/memory-core-host-engine-curated",
       "openclaw/plugin-sdk/memory-core-host-engine-embeddings",
       "openclaw/plugin-sdk/memory-core-host-engine-foundation",
-      "openclaw/plugin-sdk/memory-core-host-engine-qmd",
+      "openclaw/plugin-sdk/memory-core-host-engine-fs",
+      "openclaw/plugin-sdk/memory-core-host-engine-schema",
+      "openclaw/plugin-sdk/memory-core-host-engine-sessions",
       "openclaw/plugin-sdk/memory-core-host-engine-storage",
       "openclaw/plugin-sdk/memory-core-host-runtime-cli",
       "openclaw/plugin-sdk/memory-core-host-runtime-core",
@@ -321,24 +323,29 @@
       "openclaw/plugin-sdk/memory-host-markdown",
       "openclaw/plugin-sdk/memory-host-search",
       "openclaw/plugin-sdk/message-tool-delivery-hints",
-      "openclaw/plugin-sdk/messaging-targets",
       "openclaw/plugin-sdk/migration",
       "openclaw/plugin-sdk/migration-runtime",
+      "openclaw/plugin-sdk/model-ref-parse",
       "openclaw/plugin-sdk/model-session-runtime",
       "openclaw/plugin-sdk/models-provider-runtime",
       "openclaw/plugin-sdk/music-generation",
       "openclaw/plugin-sdk/native-command-config-runtime",
       "openclaw/plugin-sdk/native-command-registry",
+      "openclaw/plugin-sdk/native-hook-relay-runtime",
       "openclaw/plugin-sdk/node-host",
+      "openclaw/plugin-sdk/node-selection-runtime",
       "openclaw/plugin-sdk/number-runtime",
+      "openclaw/plugin-sdk/outbound-echo-runtime",
       "openclaw/plugin-sdk/outbound-media",
       "openclaw/plugin-sdk/pair-loop-guard-runtime",
       "openclaw/plugin-sdk/param-readers",
       "openclaw/plugin-sdk/persistent-dedupe",
+      "openclaw/plugin-sdk/plugin-command-runtime",
       "openclaw/plugin-sdk/plugin-config-runtime",
       "openclaw/plugin-sdk/plugin-entry",
       "openclaw/plugin-sdk/plugin-runtime",
       "openclaw/plugin-sdk/plugin-state-runtime",
+      "openclaw/plugin-sdk/plugin-state-store-runtime",
       "openclaw/plugin-sdk/poll-runtime",
       "openclaw/plugin-sdk/process-runtime",
       "openclaw/plugin-sdk/provider-auth",
@@ -346,6 +353,7 @@
       "openclaw/plugin-sdk/provider-auth-login-flow-runtime",
       "openclaw/plugin-sdk/provider-auth-result",
       "openclaw/plugin-sdk/provider-auth-runtime",
+      "openclaw/plugin-sdk/provider-binary-stream",
       "openclaw/plugin-sdk/provider-catalog-live-runtime",
       "openclaw/plugin-sdk/provider-catalog-runtime",
       "openclaw/plugin-sdk/provider-catalog-shared",
@@ -375,6 +383,8 @@
       "openclaw/plugin-sdk/realtime-bootstrap-context",
       "openclaw/plugin-sdk/realtime-transcription",
       "openclaw/plugin-sdk/realtime-voice",
+      "openclaw/plugin-sdk/realtime-voice-activation",
+      "openclaw/plugin-sdk/realtime-voice-audio-queue",
       "openclaw/plugin-sdk/reply-chunking",
       "openclaw/plugin-sdk/reply-dispatch-runtime",
       "openclaw/plugin-sdk/reply-history",
@@ -390,6 +400,7 @@
       "openclaw/plugin-sdk/runtime",
       "openclaw/plugin-sdk/runtime-config-snapshot",
       "openclaw/plugin-sdk/runtime-doctor",
+      "openclaw/plugin-sdk/runtime-doctor-migrations",
       "openclaw/plugin-sdk/runtime-env",
       "openclaw/plugin-sdk/runtime-fetch",
       "openclaw/plugin-sdk/runtime-group-policy",
@@ -399,6 +410,8 @@
       "openclaw/plugin-sdk/secret-file-runtime",
       "openclaw/plugin-sdk/secret-input",
       "openclaw/plugin-sdk/secret-input-runtime",
+      "openclaw/plugin-sdk/secret-provider-alias",
+      "openclaw/plugin-sdk/secret-ref-readonly",
       "openclaw/plugin-sdk/secret-ref-runtime",
       "openclaw/plugin-sdk/secure-random-runtime",
       "openclaw/plugin-sdk/security-runtime",
@@ -407,6 +420,7 @@
       "openclaw/plugin-sdk/session-catalog-runtime",
       "openclaw/plugin-sdk/session-discussion",
       "openclaw/plugin-sdk/session-key-runtime",
+      "openclaw/plugin-sdk/session-store-paths",
       "openclaw/plugin-sdk/session-store-runtime",
       "openclaw/plugin-sdk/session-transcript-hit",
       "openclaw/plugin-sdk/session-transcript-runtime",
@@ -423,6 +437,7 @@
       "openclaw/plugin-sdk/ssrf-dispatcher",
       "openclaw/plugin-sdk/ssrf-policy",
       "openclaw/plugin-sdk/ssrf-runtime",
+      "openclaw/plugin-sdk/ssrf-runtime-internal",
       "openclaw/plugin-sdk/state-paths",
       "openclaw/plugin-sdk/status-helpers",
       "openclaw/plugin-sdk/string-coerce-runtime",
@@ -434,7 +449,6 @@
       "openclaw/plugin-sdk/temp-path",
       "openclaw/plugin-sdk/text-autolink-runtime",
       "openclaw/plugin-sdk/text-chunking",
-      "openclaw/plugin-sdk/text-runtime",
       "openclaw/plugin-sdk/text-utility-runtime",
       "openclaw/plugin-sdk/thread-bindings-runtime",
       "openclaw/plugin-sdk/thread-bindings-session-runtime",
@@ -448,7 +462,6 @@
       "openclaw/plugin-sdk/tts-runtime",
       "openclaw/plugin-sdk/types",
       "openclaw/plugin-sdk/video-generation",
-      "openclaw/plugin-sdk/video-generation-core",
       "openclaw/plugin-sdk/video-generation-runtime",
       "openclaw/plugin-sdk/web-content-extractor",
       "openclaw/plugin-sdk/web-media",
@@ -456,22 +469,15 @@
       "openclaw/plugin-sdk/webhook-request-guards",
       "openclaw/plugin-sdk/webhook-targets",
       "openclaw/plugin-sdk/widget-html",
-      "openclaw/plugin-sdk/windows-spawn",
-      "openclaw/plugin-sdk/zod"
+      "openclaw/plugin-sdk/windows-spawn"
     ],
-    "pluginSdkEntrypointsPath": "openclaw/src/plugin-sdk/entrypoints.ts",
+    "pluginSdkEntrypointsPath": null,
     "reservedSdkExportCount": 0,
     "reservedSdkExports": [],
-    "supportedFacadeSdkExports": [
-      "openclaw/plugin-sdk/discord",
-      "openclaw/plugin-sdk/matrix",
-      "openclaw/plugin-sdk/telegram-account"
-    ],
-    "publicPluginOwnedSdkExports": [
-      "openclaw/plugin-sdk/memory-core-host-engine-foundation"
-    ],
-    "manifestTypesPath": "openclaw/src/plugins/manifest-types.ts",
-    "manifestFieldCount": 45,
+    "supportedFacadeSdkExports": [],
+    "publicPluginOwnedSdkExports": [],
+    "manifestTypesPath": "../openclaw/src/plugins/manifest-types.ts",
+    "manifestFieldCount": 48,
     "manifestFields": [
       "activation",
       "autoEnableWhenConfiguredProviders",
@@ -479,12 +485,14 @@
       "channelConfigs",
       "channels",
       "cliBackends",
+      "cliCommands",
       "commandAliases",
       "configContracts",
       "configSchema",
       "contracts",
       "dashboard",
       "description",
+      "doctorContract",
       "enabledByDefault",
       "enabledByDefaultOnPlatforms",
       "icon",
@@ -511,6 +519,7 @@
       "qaRunners",
       "requiresPlugins",
       "secretProviderIntegrations",
+      "sessionRouteStateOwners",
       "setup",
       "skills",
       "syntheticAuthRefs",
@@ -519,7 +528,7 @@
       "version",
       "videoGenerationProviderMetadata"
     ],
-    "manifestContractFieldCount": 23,
+    "manifestContractFieldCount": 22,
     "manifestContractFields": [
       "agentToolResultMiddleware",
       "documentExtractors",
@@ -529,7 +538,6 @@
       "gatewayMethodDispatch",
       "imageGenerationProviders",
       "mediaUnderstandingProviders",
-      "memoryEmbeddingProviders",
       "migrationProviders",
       "musicGenerationProviders",
       "realtimeTranscriptionProviders",
@@ -551,28 +559,28 @@
     "fixtureCount": 60,
     "highPriorityFixtures": 22,
     "breakageCount": 0,
-    "warningCount": 139,
+    "warningCount": 144,
     "suggestionCount": 249,
-    "decisionCount": 407,
-    "logCount": 351,
-    "issueCount": 388,
-    "openIssueCount": 388,
-    "p0IssueCount": 6,
-    "p1IssueCount": 128,
-    "openP0IssueCount": 6,
-    "openP1IssueCount": 128,
-    "liveIssueCount": 6,
-    "liveP0IssueCount": 6,
-    "compatGapCount": 113,
+    "decisionCount": 409,
+    "logCount": 347,
+    "issueCount": 393,
+    "openIssueCount": 393,
+    "p0IssueCount": 9,
+    "p1IssueCount": 130,
+    "openP0IssueCount": 9,
+    "openP1IssueCount": 130,
+    "liveIssueCount": 9,
+    "liveP0IssueCount": 9,
+    "compatGapCount": 114,
     "deprecationWarningCount": 38,
     "inspectorGapCount": 157,
-    "upstreamIssueCount": 74,
+    "upstreamIssueCount": 75,
     "fixtureRegressionCount": 0,
     "openInspectorGapCount": 157,
     "runtimeCoveredIssueCount": 0,
     "runtimePartiallyCoveredIssueCount": 0,
     "runtimeCoverageArtifactCount": 0,
-    "contractProbeCount": 268
+    "contractProbeCount": 270
   },
   "fixtures": [
     {
@@ -9333,7 +9341,6 @@
         "plugins/matrix/.crabpot-package/src/doctor-contract.ts",
         "plugins/matrix/.crabpot-package/src/doctor.ts",
         "plugins/matrix/.crabpot-package/src/env-vars.ts",
-        "plugins/matrix/.crabpot-package/src/exec-approval-resolver.ts",
         "plugins/matrix/.crabpot-package/src/exec-approvals.ts",
         "plugins/matrix/.crabpot-package/src/group-mentions.ts",
         "plugins/matrix/.crabpot-package/src/matrix/account-config.ts",
@@ -9351,7 +9358,6 @@
         "plugins/matrix/.crabpot-package/src/matrix/actions/summary.ts",
         "plugins/matrix/.crabpot-package/src/matrix/actions/types.ts",
         "plugins/matrix/.crabpot-package/src/matrix/actions/verification.ts",
-        "plugins/matrix/.crabpot-package/src/matrix/active-client.ts",
         "plugins/matrix/.crabpot-package/src/matrix/async-lock.ts",
         "plugins/matrix/.crabpot-package/src/matrix/backup-health.ts",
         "plugins/matrix/.crabpot-package/src/matrix/client-bootstrap.ts",
@@ -9372,6 +9378,7 @@
         "plugins/matrix/.crabpot-package/src/matrix/config-paths.ts",
         "plugins/matrix/.crabpot-package/src/matrix/config-update.ts",
         "plugins/matrix/.crabpot-package/src/matrix/credentials-read.ts",
+        "plugins/matrix/.crabpot-package/src/matrix/credentials-state.ts",
         "plugins/matrix/.crabpot-package/src/matrix/credentials-write.runtime.ts",
         "plugins/matrix/.crabpot-package/src/matrix/credentials.ts",
         "plugins/matrix/.crabpot-package/src/matrix/crypto-snapshot-doctor.ts",
@@ -9416,7 +9423,6 @@
         "plugins/matrix/.crabpot-package/src/matrix/monitor/location.ts",
         "plugins/matrix/.crabpot-package/src/matrix/monitor/media.ts",
         "plugins/matrix/.crabpot-package/src/matrix/monitor/mentions.ts",
-        "plugins/matrix/.crabpot-package/src/matrix/monitor/preflight-audio.runtime.ts",
         "plugins/matrix/.crabpot-package/src/matrix/monitor/preflight-audio.ts",
         "plugins/matrix/.crabpot-package/src/matrix/monitor/reaction-events.ts",
         "plugins/matrix/.crabpot-package/src/matrix/monitor/recent-invite.ts",
@@ -9452,6 +9458,7 @@
         "plugins/matrix/.crabpot-package/src/matrix/sdk/client-device-info.ts",
         "plugins/matrix/.crabpot-package/src/matrix/sdk/client-event-bridge.ts",
         "plugins/matrix/.crabpot-package/src/matrix/sdk/client-support.ts",
+        "plugins/matrix/.crabpot-package/src/matrix/sdk/client-sync-quiesce.ts",
         "plugins/matrix/.crabpot-package/src/matrix/sdk/client-verification.ts",
         "plugins/matrix/.crabpot-package/src/matrix/sdk/crypto-bootstrap.ts",
         "plugins/matrix/.crabpot-package/src/matrix/sdk/crypto-facade.ts",
@@ -9492,7 +9499,6 @@
         "plugins/matrix/.crabpot-package/src/plugin-entry.runtime.js",
         "plugins/matrix/.crabpot-package/src/plugin-entry.runtime.ts",
         "plugins/matrix/.crabpot-package/src/profile-update.ts",
-        "plugins/matrix/.crabpot-package/src/record-shared.ts",
         "plugins/matrix/.crabpot-package/src/resolve-targets.ts",
         "plugins/matrix/.crabpot-package/src/resolver.runtime.ts",
         "plugins/matrix/.crabpot-package/src/resolver.ts",
@@ -9526,9 +9532,11 @@
           "keys": [
             "activation",
             "channels",
+            "cliCommands",
             "commandAliases",
             "configSchema",
             "description",
+            "doctorContract",
             "icon",
             "id",
             "name"
@@ -9548,7 +9556,7 @@
       "package": {
         "path": "plugins/matrix/.crabpot-package/package.json",
         "name": "@openclaw/matrix",
-        "version": "2026.7.2",
+        "version": "2026.8.1",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -9579,8 +9587,8 @@
           "runtimeExtensions": [],
           "setupEntry": "./setup-entry.ts",
           "runtimeSetupEntry": null,
-          "compatPluginApi": ">=2026.7.2",
-          "buildOpenClawVersion": "2026.7.2",
+          "compatPluginApi": ">=2026.8.1",
+          "buildOpenClawVersion": "2026.8.1",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": "clawhub:@openclaw/matrix",
@@ -9615,7 +9623,7 @@
         {
           "path": "plugins/matrix/.crabpot-package/package.json",
           "name": "@openclaw/matrix",
-          "version": "2026.7.2",
+          "version": "2026.8.1",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -9646,8 +9654,8 @@
             "runtimeExtensions": [],
             "setupEntry": "./setup-entry.ts",
             "runtimeSetupEntry": null,
-            "compatPluginApi": ">=2026.7.2",
-            "buildOpenClawVersion": "2026.7.2",
+            "compatPluginApi": ">=2026.8.1",
+            "buildOpenClawVersion": "2026.8.1",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": "clawhub:@openclaw/matrix",
@@ -9707,6 +9715,7 @@
         "openclaw/plugin-sdk/acp-binding-resolve-runtime",
         "openclaw/plugin-sdk/acp-binding-runtime",
         "openclaw/plugin-sdk/agent-runtime",
+        "openclaw/plugin-sdk/agent-scope-runtime",
         "openclaw/plugin-sdk/allow-from",
         "openclaw/plugin-sdk/approval-auth-runtime",
         "openclaw/plugin-sdk/approval-client-runtime",
@@ -9741,6 +9750,7 @@
         "openclaw/plugin-sdk/conversation-runtime",
         "openclaw/plugin-sdk/dangerous-name-runtime",
         "openclaw/plugin-sdk/directory-runtime",
+        "openclaw/plugin-sdk/doctor-repair-runtime",
         "openclaw/plugin-sdk/error-runtime",
         "openclaw/plugin-sdk/expect-runtime",
         "openclaw/plugin-sdk/extension-shared",
@@ -9751,9 +9761,9 @@
         "openclaw/plugin-sdk/json-store",
         "openclaw/plugin-sdk/keyed-async-queue",
         "openclaw/plugin-sdk/lazy-runtime",
-        "openclaw/plugin-sdk/logging-core",
         "openclaw/plugin-sdk/media-local-roots",
         "openclaw/plugin-sdk/media-runtime",
+        "openclaw/plugin-sdk/media-understanding-runtime",
         "openclaw/plugin-sdk/number-runtime",
         "openclaw/plugin-sdk/outbound-media",
         "openclaw/plugin-sdk/pair-loop-guard-runtime",
@@ -9762,6 +9772,7 @@
         "openclaw/plugin-sdk/plugin-entry",
         "openclaw/plugin-sdk/plugin-runtime",
         "openclaw/plugin-sdk/plugin-state-runtime",
+        "openclaw/plugin-sdk/plugin-state-store-runtime",
         "openclaw/plugin-sdk/poll-runtime",
         "openclaw/plugin-sdk/process-runtime",
         "openclaw/plugin-sdk/reply-history",
@@ -9769,7 +9780,7 @@
         "openclaw/plugin-sdk/response-limit-runtime",
         "openclaw/plugin-sdk/retry-runtime",
         "openclaw/plugin-sdk/routing",
-        "openclaw/plugin-sdk/runtime-doctor",
+        "openclaw/plugin-sdk/runtime-doctor-migrations",
         "openclaw/plugin-sdk/runtime-env",
         "openclaw/plugin-sdk/runtime-fetch",
         "openclaw/plugin-sdk/runtime-group-policy",
@@ -9789,7 +9800,7 @@
         "openclaw/plugin-sdk/status-helpers",
         "openclaw/plugin-sdk/string-coerce-runtime",
         "openclaw/plugin-sdk/string-normalization-runtime",
-        "openclaw/plugin-sdk/temp-path",
+        "openclaw/plugin-sdk/test-env",
         "openclaw/plugin-sdk/text-autolink-runtime",
         "openclaw/plugin-sdk/text-chunking",
         "openclaw/plugin-sdk/text-utility-runtime",
@@ -9860,21 +9871,9 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/account-id",
-          "file": "plugins/matrix/.crabpot-package/src/matrix/account-config.ts",
-          "line": 3,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/account-config.ts:3"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/account-id",
           "file": "plugins/matrix/.crabpot-package/src/matrix/accounts.ts",
           "line": 2,
           "ref": "plugins/matrix/.crabpot-package/src/matrix/accounts.ts:2"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/account-id",
-          "file": "plugins/matrix/.crabpot-package/src/matrix/active-client.ts",
-          "line": 2,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/active-client.ts:2"
         },
         {
           "specifier": "openclaw/plugin-sdk/account-id",
@@ -9915,8 +9914,14 @@
         {
           "specifier": "openclaw/plugin-sdk/account-id",
           "file": "plugins/matrix/.crabpot-package/src/matrix/credentials-read.ts",
-          "line": 2,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/credentials-read.ts:2"
+          "line": 4,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/credentials-read.ts:4"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/account-id",
+          "file": "plugins/matrix/.crabpot-package/src/matrix/credentials-state.ts",
+          "line": 4,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/credentials-state.ts:4"
         },
         {
           "specifier": "openclaw/plugin-sdk/account-id",
@@ -9941,12 +9946,6 @@
           "file": "plugins/matrix/.crabpot-package/src/matrix/session-store-metadata.ts",
           "line": 2,
           "ref": "plugins/matrix/.crabpot-package/src/matrix/session-store-metadata.ts:2"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/account-id",
-          "file": "plugins/matrix/.crabpot-package/src/matrix/subagent-hooks.ts",
-          "line": 2,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/subagent-hooks.ts:2"
         },
         {
           "specifier": "openclaw/plugin-sdk/account-id",
@@ -9987,8 +9986,8 @@
         {
           "specifier": "openclaw/plugin-sdk/account-resolution-runtime",
           "file": "plugins/matrix/.crabpot-package/src/matrix/account-config.ts",
-          "line": 4,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/account-config.ts:4"
+          "line": 3,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/account-config.ts:3"
         },
         {
           "specifier": "openclaw/plugin-sdk/acp-binding-resolve-runtime",
@@ -9999,8 +9998,8 @@
         {
           "specifier": "openclaw/plugin-sdk/acp-binding-runtime",
           "file": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-runtime.ts",
-          "line": 35,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-runtime.ts:35"
+          "line": 36,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-runtime.ts:36"
         },
         {
           "specifier": "openclaw/plugin-sdk/acp-binding-runtime",
@@ -10015,7 +10014,7 @@
           "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:1"
         },
         {
-          "specifier": "openclaw/plugin-sdk/agent-runtime",
+          "specifier": "openclaw/plugin-sdk/agent-scope-runtime",
           "file": "plugins/matrix/.crabpot-package/src/matrix/thread-bindings.ts",
           "line": 5,
           "ref": "plugins/matrix/.crabpot-package/src/matrix/thread-bindings.ts:5"
@@ -10064,9 +10063,9 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/approval-gateway-runtime",
-          "file": "plugins/matrix/.crabpot-package/src/exec-approval-resolver.ts",
-          "line": 2,
-          "ref": "plugins/matrix/.crabpot-package/src/exec-approval-resolver.ts:2"
+          "file": "plugins/matrix/.crabpot-package/src/matrix/monitor/reaction-events.ts",
+          "line": 26,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/reaction-events.ts:26"
         },
         {
           "specifier": "openclaw/plugin-sdk/approval-handler-adapter-runtime",
@@ -10095,20 +10094,20 @@
         {
           "specifier": "openclaw/plugin-sdk/approval-native-runtime",
           "file": "plugins/matrix/.crabpot-package/src/approval-native.ts",
-          "line": 9,
-          "ref": "plugins/matrix/.crabpot-package/src/approval-native.ts:9"
+          "line": 12,
+          "ref": "plugins/matrix/.crabpot-package/src/approval-native.ts:12"
         },
         {
           "specifier": "openclaw/plugin-sdk/approval-native-runtime",
           "file": "plugins/matrix/.crabpot-package/src/exec-approvals.ts",
-          "line": 10,
-          "ref": "plugins/matrix/.crabpot-package/src/exec-approvals.ts:10"
+          "line": 11,
+          "ref": "plugins/matrix/.crabpot-package/src/exec-approvals.ts:11"
         },
         {
           "specifier": "openclaw/plugin-sdk/approval-reaction-runtime",
           "file": "plugins/matrix/.crabpot-package/src/approval-reactions.ts",
-          "line": 2,
-          "ref": "plugins/matrix/.crabpot-package/src/approval-reactions.ts:2"
+          "line": 3,
+          "ref": "plugins/matrix/.crabpot-package/src/approval-reactions.ts:3"
         },
         {
           "specifier": "openclaw/plugin-sdk/approval-reply-runtime",
@@ -10304,12 +10303,6 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/channel-outbound",
-          "file": "plugins/matrix/.crabpot-package/src/matrix/monitor/preflight-audio.runtime.ts",
-          "line": 1,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/preflight-audio.runtime.ts:1"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/channel-outbound",
           "file": "plugins/matrix/.crabpot-package/src/matrix/monitor/replies.ts",
           "line": 6,
           "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/replies.ts:6"
@@ -10425,32 +10418,26 @@
         {
           "specifier": "openclaw/plugin-sdk/context-visibility-runtime",
           "file": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-context.ts",
-          "line": 6,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-context.ts:6"
+          "line": 9,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-context.ts:9"
         },
         {
           "specifier": "openclaw/plugin-sdk/context-visibility-runtime",
           "file": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts",
-          "line": 6,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:6"
+          "line": 7,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:7"
         },
         {
           "specifier": "openclaw/plugin-sdk/conversation-binding-runtime",
           "file": "plugins/matrix/.crabpot-package/src/matrix/subagent-hooks.ts",
-          "line": 3,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/subagent-hooks.ts:3"
+          "line": 2,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/subagent-hooks.ts:2"
         },
         {
           "specifier": "openclaw/plugin-sdk/conversation-runtime",
           "file": "plugins/matrix/.crabpot-package/src/channel.ts",
           "line": 17,
           "ref": "plugins/matrix/.crabpot-package/src/channel.ts:17"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/conversation-runtime",
-          "file": "plugins/matrix/.crabpot-package/src/matrix/subagent-hooks.ts",
-          "line": 7,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/subagent-hooks.ts:7"
         },
         {
           "specifier": "openclaw/plugin-sdk/conversation-runtime",
@@ -10477,6 +10464,12 @@
           "ref": "plugins/matrix/.crabpot-package/src/channel.ts:18"
         },
         {
+          "specifier": "openclaw/plugin-sdk/doctor-repair-runtime",
+          "file": "plugins/matrix/.crabpot-package/src/doctor.ts",
+          "line": 4,
+          "ref": "plugins/matrix/.crabpot-package/src/doctor.ts:4"
+        },
+        {
           "specifier": "openclaw/plugin-sdk/error-runtime",
           "file": "plugins/matrix/.crabpot-package/src/channel-account-paths.ts",
           "line": 4,
@@ -10496,15 +10489,15 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/error-runtime",
-          "file": "plugins/matrix/.crabpot-package/src/exec-approval-resolver.ts",
-          "line": 8,
-          "ref": "plugins/matrix/.crabpot-package/src/exec-approval-resolver.ts:8"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/error-runtime",
           "file": "plugins/matrix/.crabpot-package/src/matrix/client/config.ts",
           "line": 2,
           "ref": "plugins/matrix/.crabpot-package/src/matrix/client/config.ts:2"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/error-runtime",
+          "file": "plugins/matrix/.crabpot-package/src/matrix/client/shared.ts",
+          "line": 3,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/client/shared.ts:3"
         },
         {
           "specifier": "openclaw/plugin-sdk/error-runtime",
@@ -10529,6 +10522,12 @@
           "file": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-ingress-content.ts",
           "line": 2,
           "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-ingress-content.ts:2"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/error-runtime",
+          "file": "plugins/matrix/.crabpot-package/src/matrix/monitor/reaction-events.ts",
+          "line": 4,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/reaction-events.ts:4"
         },
         {
           "specifier": "openclaw/plugin-sdk/error-runtime",
@@ -10559,6 +10558,12 @@
           "file": "plugins/matrix/.crabpot-package/src/matrix/sdk/client-verification.ts",
           "line": 1,
           "ref": "plugins/matrix/.crabpot-package/src/matrix/sdk/client-verification.ts:1"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/error-runtime",
+          "file": "plugins/matrix/.crabpot-package/src/matrix/sdk/crypto-bootstrap.ts",
+          "line": 4,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/sdk/crypto-bootstrap.ts:4"
         },
         {
           "specifier": "openclaw/plugin-sdk/error-runtime",
@@ -10601,6 +10606,12 @@
           "file": "plugins/matrix/.crabpot-package/src/matrix/sdk/verification-manager.ts",
           "line": 9,
           "ref": "plugins/matrix/.crabpot-package/src/matrix/sdk/verification-manager.ts:9"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/extension-shared",
+          "file": "plugins/matrix/.crabpot-package/src/matrix/client/shared.ts",
+          "line": 4,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/client/shared.ts:4"
         },
         {
           "specifier": "openclaw/plugin-sdk/extension-shared",
@@ -10677,8 +10688,8 @@
         {
           "specifier": "openclaw/plugin-sdk/keyed-async-queue",
           "file": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts",
-          "line": 7,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:7"
+          "line": 8,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:8"
         },
         {
           "specifier": "openclaw/plugin-sdk/keyed-async-queue",
@@ -10725,8 +10736,8 @@
         {
           "specifier": "openclaw/plugin-sdk/lazy-runtime",
           "file": "plugins/matrix/.crabpot-package/src/matrix/client/shared.ts",
-          "line": 3,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/client/shared.ts:3"
+          "line": 5,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/client/shared.ts:5"
         },
         {
           "specifier": "openclaw/plugin-sdk/lazy-runtime",
@@ -10742,15 +10753,9 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/lazy-runtime",
-          "file": "plugins/matrix/.crabpot-package/src/matrix/monitor/preflight-audio.ts",
-          "line": 2,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/preflight-audio.ts:2"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/lazy-runtime",
           "file": "plugins/matrix/.crabpot-package/src/matrix/monitor/reaction-events.ts",
-          "line": 3,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/reaction-events.ts:3"
+          "line": 5,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/reaction-events.ts:5"
         },
         {
           "specifier": "openclaw/plugin-sdk/lazy-runtime",
@@ -10807,22 +10812,10 @@
           "ref": "plugins/matrix/.crabpot-package/subagent-hooks-api.ts:3"
         },
         {
-          "specifier": "openclaw/plugin-sdk/logging-core",
-          "file": "plugins/matrix/.crabpot-package/src/matrix/sdk/logger.ts",
-          "line": 3,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/sdk/logger.ts:3"
-        },
-        {
           "specifier": "openclaw/plugin-sdk/media-local-roots",
           "file": "plugins/matrix/.crabpot-package/src/matrix/monitor/runtime-api.ts",
           "line": 22,
           "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/runtime-api.ts:22"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/media-runtime",
-          "file": "plugins/matrix/.crabpot-package/src/matrix/monitor/preflight-audio.runtime.ts",
-          "line": 2,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/preflight-audio.runtime.ts:2"
         },
         {
           "specifier": "openclaw/plugin-sdk/media-runtime",
@@ -10837,6 +10830,12 @@
           "ref": "plugins/matrix/.crabpot-package/src/matrix/send/formatting.ts:3"
         },
         {
+          "specifier": "openclaw/plugin-sdk/media-understanding-runtime",
+          "file": "plugins/matrix/.crabpot-package/src/matrix/monitor/preflight-audio.ts",
+          "line": 2,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/preflight-audio.ts:2"
+        },
+        {
           "specifier": "openclaw/plugin-sdk/number-runtime",
           "file": "plugins/matrix/.crabpot-package/src/cli-devices.ts",
           "line": 2,
@@ -10847,12 +10846,6 @@
           "file": "plugins/matrix/.crabpot-package/src/cli-shared.ts",
           "line": 3,
           "ref": "plugins/matrix/.crabpot-package/src/cli-shared.ts:3"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/number-runtime",
-          "file": "plugins/matrix/.crabpot-package/src/matrix/actions/limits.ts",
-          "line": 2,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/actions/limits.ts:2"
         },
         {
           "specifier": "openclaw/plugin-sdk/number-runtime",
@@ -10917,8 +10910,8 @@
         {
           "specifier": "openclaw/plugin-sdk/persistent-dedupe",
           "file": "plugins/matrix/.crabpot-package/src/matrix/monitor/inbound-dedupe-migration.ts",
-          "line": 18,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/inbound-dedupe-migration.ts:18"
+          "line": 404,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/inbound-dedupe-migration.ts:404"
         },
         {
           "specifier": "openclaw/plugin-sdk/persistent-dedupe",
@@ -10971,14 +10964,26 @@
         {
           "specifier": "openclaw/plugin-sdk/plugin-runtime",
           "file": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts",
-          "line": 8,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:8"
+          "line": 9,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:9"
         },
         {
           "specifier": "openclaw/plugin-sdk/plugin-state-runtime",
           "file": "plugins/matrix/.crabpot-package/src/approval-reactions.ts",
-          "line": 4,
-          "ref": "plugins/matrix/.crabpot-package/src/approval-reactions.ts:4"
+          "line": 5,
+          "ref": "plugins/matrix/.crabpot-package/src/approval-reactions.ts:5"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/plugin-state-store-runtime",
+          "file": "plugins/matrix/.crabpot-package/auth-presence.ts",
+          "line": 3,
+          "ref": "plugins/matrix/.crabpot-package/auth-presence.ts:3"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/plugin-state-store-runtime",
+          "file": "plugins/matrix/.crabpot-package/src/matrix/credentials-read.ts",
+          "line": 6,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/credentials-read.ts:6"
         },
         {
           "specifier": "openclaw/plugin-sdk/poll-runtime",
@@ -11049,26 +11054,20 @@
         {
           "specifier": "openclaw/plugin-sdk/routing",
           "file": "plugins/matrix/.crabpot-package/src/approval-reactions.ts",
-          "line": 5,
-          "ref": "plugins/matrix/.crabpot-package/src/approval-reactions.ts:5"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/routing",
-          "file": "plugins/matrix/.crabpot-package/src/exec-approvals.ts",
-          "line": 17,
-          "ref": "plugins/matrix/.crabpot-package/src/exec-approvals.ts:17"
+          "line": 6,
+          "ref": "plugins/matrix/.crabpot-package/src/approval-reactions.ts:6"
         },
         {
           "specifier": "openclaw/plugin-sdk/routing",
           "file": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts",
-          "line": 9,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:9"
+          "line": 10,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:10"
         },
         {
           "specifier": "openclaw/plugin-sdk/routing",
           "file": "plugins/matrix/.crabpot-package/src/matrix/monitor/reaction-events.ts",
-          "line": 4,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/reaction-events.ts:4"
+          "line": 6,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/reaction-events.ts:6"
         },
         {
           "specifier": "openclaw/plugin-sdk/routing",
@@ -11101,46 +11100,22 @@
           "ref": "plugins/matrix/.crabpot-package/src/setup-contract.ts:2"
         },
         {
-          "specifier": "openclaw/plugin-sdk/runtime-doctor",
-          "file": "plugins/matrix/.crabpot-package/auth-presence.ts",
-          "line": 3,
-          "ref": "plugins/matrix/.crabpot-package/auth-presence.ts:3"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/runtime-doctor",
+          "specifier": "openclaw/plugin-sdk/runtime-doctor-migrations",
           "file": "plugins/matrix/.crabpot-package/doctor-contract-api.ts",
           "line": 6,
           "ref": "plugins/matrix/.crabpot-package/doctor-contract-api.ts:6"
         },
         {
-          "specifier": "openclaw/plugin-sdk/runtime-doctor",
+          "specifier": "openclaw/plugin-sdk/runtime-doctor-migrations",
           "file": "plugins/matrix/.crabpot-package/src/doctor-contract.ts",
           "line": 7,
           "ref": "plugins/matrix/.crabpot-package/src/doctor-contract.ts:7"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/runtime-doctor",
-          "file": "plugins/matrix/.crabpot-package/src/doctor.ts",
-          "line": 4,
-          "ref": "plugins/matrix/.crabpot-package/src/doctor.ts:4"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/runtime-doctor",
-          "file": "plugins/matrix/.crabpot-package/src/matrix/credentials-read.ts",
-          "line": 4,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/credentials-read.ts:4"
         },
         {
           "specifier": "openclaw/plugin-sdk/runtime-env",
           "file": "plugins/matrix/.crabpot-package/src/matrix/client/config.ts",
           "line": 7,
           "ref": "plugins/matrix/.crabpot-package/src/matrix/client/config.ts:7"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/runtime-env",
-          "file": "plugins/matrix/.crabpot-package/src/matrix/monitor/preflight-audio.ts",
-          "line": 3,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/preflight-audio.ts:3"
         },
         {
           "specifier": "openclaw/plugin-sdk/runtime-fetch",
@@ -11162,21 +11137,21 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/secret-input",
+          "file": "plugins/matrix/.crabpot-package/src/account-selection.ts",
+          "line": 14,
+          "ref": "plugins/matrix/.crabpot-package/src/account-selection.ts:14"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/secret-input",
           "file": "plugins/matrix/.crabpot-package/src/config-schema.ts",
           "line": 13,
           "ref": "plugins/matrix/.crabpot-package/src/config-schema.ts:13"
         },
         {
           "specifier": "openclaw/plugin-sdk/secret-input-runtime",
-          "file": "plugins/matrix/.crabpot-package/src/account-selection.ts",
-          "line": 14,
-          "ref": "plugins/matrix/.crabpot-package/src/account-selection.ts:14"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/secret-input-runtime",
           "file": "plugins/matrix/.crabpot-package/src/matrix/account-config.ts",
-          "line": 9,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/account-config.ts:9"
+          "line": 8,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/account-config.ts:8"
         },
         {
           "specifier": "openclaw/plugin-sdk/secret-input-runtime",
@@ -11205,20 +11180,26 @@
         {
           "specifier": "openclaw/plugin-sdk/security-runtime",
           "file": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts",
-          "line": 10,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:10"
+          "line": 11,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:11"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/security-runtime",
+          "file": "plugins/matrix/.crabpot-package/src/matrix/sdk/logger.ts",
+          "line": 6,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/sdk/logger.ts:6"
         },
         {
           "specifier": "openclaw/plugin-sdk/session-binding-runtime",
           "file": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-runtime.ts",
-          "line": 39,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-runtime.ts:39"
+          "line": 40,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-runtime.ts:40"
         },
         {
           "specifier": "openclaw/plugin-sdk/session-binding-runtime",
           "file": "plugins/matrix/.crabpot-package/src/matrix/monitor/reaction-events.ts",
-          "line": 5,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/reaction-events.ts:5"
+          "line": 7,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/reaction-events.ts:7"
         },
         {
           "specifier": "openclaw/plugin-sdk/session-binding-runtime",
@@ -11235,8 +11216,8 @@
         {
           "specifier": "openclaw/plugin-sdk/session-store-runtime",
           "file": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-context.ts",
-          "line": 10,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-context.ts:10"
+          "line": 13,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-context.ts:13"
         },
         {
           "specifier": "openclaw/plugin-sdk/session-store-runtime",
@@ -11247,8 +11228,8 @@
         {
           "specifier": "openclaw/plugin-sdk/session-store-runtime",
           "file": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts",
-          "line": 11,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:11"
+          "line": 12,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler.ts:12"
         },
         {
           "specifier": "openclaw/plugin-sdk/session-store-runtime",
@@ -11301,8 +11282,14 @@
         {
           "specifier": "openclaw/plugin-sdk/sqlite-runtime",
           "file": "plugins/matrix/.crabpot-package/src/matrix/monitor/inbound-dedupe-migration.ts",
-          "line": 23,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/inbound-dedupe-migration.ts:23"
+          "line": 243,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/inbound-dedupe-migration.ts:243"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/sqlite-runtime",
+          "file": "plugins/matrix/.crabpot-package/src/matrix/monitor/inbound-dedupe-migration.ts",
+          "line": 278,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/inbound-dedupe-migration.ts:278"
         },
         {
           "specifier": "openclaw/plugin-sdk/ssrf-dispatcher",
@@ -11321,12 +11308,6 @@
           "file": "plugins/matrix/.crabpot-package/runtime-api.ts",
           "line": 33,
           "ref": "plugins/matrix/.crabpot-package/runtime-api.ts:33"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/ssrf-runtime",
-          "file": "plugins/matrix/.crabpot-package/src/doctor-contract.ts",
-          "line": 14,
-          "ref": "plugins/matrix/.crabpot-package/src/doctor-contract.ts:14"
         },
         {
           "specifier": "openclaw/plugin-sdk/ssrf-runtime",
@@ -11391,8 +11372,8 @@
         {
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
           "file": "plugins/matrix/.crabpot-package/src/approval-native.ts",
-          "line": 18,
-          "ref": "plugins/matrix/.crabpot-package/src/approval-native.ts:18"
+          "line": 21,
+          "ref": "plugins/matrix/.crabpot-package/src/approval-native.ts:21"
         },
         {
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
@@ -11408,9 +11389,9 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "file": "plugins/matrix/.crabpot-package/src/exec-approvals.ts",
-          "line": 18,
-          "ref": "plugins/matrix/.crabpot-package/src/exec-approvals.ts:18"
+          "file": "plugins/matrix/.crabpot-package/src/doctor-contract.ts",
+          "line": 16,
+          "ref": "plugins/matrix/.crabpot-package/src/doctor-contract.ts:16"
         },
         {
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
@@ -11432,6 +11413,12 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
+          "file": "plugins/matrix/.crabpot-package/src/matrix/actions/summary.ts",
+          "line": 2,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/actions/summary.ts:2"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
           "file": "plugins/matrix/.crabpot-package/src/matrix/actions/verification.ts",
           "line": 4,
           "ref": "plugins/matrix/.crabpot-package/src/matrix/actions/verification.ts:4"
@@ -11441,6 +11428,30 @@
           "file": "plugins/matrix/.crabpot-package/src/matrix/client/create-client.ts",
           "line": 9,
           "ref": "plugins/matrix/.crabpot-package/src/matrix/client/create-client.ts:9"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
+          "file": "plugins/matrix/.crabpot-package/src/matrix/client/env-auth.ts",
+          "line": 3,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/client/env-auth.ts:3"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
+          "file": "plugins/matrix/.crabpot-package/src/matrix/client/file-sync-store.ts",
+          "line": 18,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/client/file-sync-store.ts:18"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
+          "file": "plugins/matrix/.crabpot-package/src/matrix/client/storage.ts",
+          "line": 11,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/client/storage.ts:11"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
+          "file": "plugins/matrix/.crabpot-package/src/matrix/crypto-state-store.ts",
+          "line": 9,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/crypto-state-store.ts:9"
         },
         {
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
@@ -11493,14 +11504,20 @@
         {
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
           "file": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-context.ts",
-          "line": 11,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-context.ts:11"
+          "line": 14,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-context.ts:14"
         },
         {
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
           "file": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-reply-dispatcher.ts",
           "line": 11,
           "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-reply-dispatcher.ts:11"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
+          "file": "plugins/matrix/.crabpot-package/src/matrix/monitor/inbound-dedupe-migration.ts",
+          "line": 22,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/inbound-dedupe-migration.ts:22"
         },
         {
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
@@ -11595,8 +11612,8 @@
         {
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
           "file": "plugins/matrix/.crabpot-package/src/matrix/subagent-hooks.ts",
-          "line": 13,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/subagent-hooks.ts:13"
+          "line": 3,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/subagent-hooks.ts:3"
         },
         {
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
@@ -11618,15 +11635,15 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "file": "plugins/matrix/.crabpot-package/src/plugin-entry.runtime.ts",
-          "line": 5,
-          "ref": "plugins/matrix/.crabpot-package/src/plugin-entry.runtime.ts:5"
+          "file": "plugins/matrix/.crabpot-package/src/outbound.ts",
+          "line": 16,
+          "ref": "plugins/matrix/.crabpot-package/src/outbound.ts:16"
         },
         {
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
-          "file": "plugins/matrix/.crabpot-package/src/record-shared.ts",
-          "line": 2,
-          "ref": "plugins/matrix/.crabpot-package/src/record-shared.ts:2"
+          "file": "plugins/matrix/.crabpot-package/src/plugin-entry.runtime.ts",
+          "line": 5,
+          "ref": "plugins/matrix/.crabpot-package/src/plugin-entry.runtime.ts:5"
         },
         {
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
@@ -11665,10 +11682,10 @@
           "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/allowlist.ts:7"
         },
         {
-          "specifier": "openclaw/plugin-sdk/temp-path",
+          "specifier": "openclaw/plugin-sdk/test-env",
           "file": "plugins/matrix/.crabpot-package/test-support.ts",
-          "line": 4,
-          "ref": "plugins/matrix/.crabpot-package/test-support.ts:4"
+          "line": 2,
+          "ref": "plugins/matrix/.crabpot-package/test-support.ts:2"
         },
         {
           "specifier": "openclaw/plugin-sdk/text-autolink-runtime",
@@ -11727,8 +11744,8 @@
         {
           "specifier": "openclaw/plugin-sdk/text-utility-runtime",
           "file": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-context.ts",
-          "line": 12,
-          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-context.ts:12"
+          "line": 15,
+          "ref": "plugins/matrix/.crabpot-package/src/matrix/monitor/handler-context.ts:15"
         },
         {
           "specifier": "openclaw/plugin-sdk/text-utility-runtime",
@@ -18216,8 +18233,8 @@
         {
           "name": "createChatChannelPlugin",
           "file": "plugins/mattermost/.crabpot-package/src/channel.ts",
-          "line": 919,
-          "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:919"
+          "line": 932,
+          "ref": "plugins/mattermost/.crabpot-package/src/channel.ts:932"
         },
         {
           "name": "defineBundledChannelEntry",
@@ -18325,6 +18342,7 @@
             "activation",
             "channels",
             "configSchema",
+            "doctorContract",
             "icon",
             "id"
           ],
@@ -18340,7 +18358,7 @@
       "package": {
         "path": "plugins/mattermost/.crabpot-package/package.json",
         "name": "@openclaw/mattermost",
-        "version": "2026.7.2",
+        "version": "2026.8.1",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -18365,8 +18383,8 @@
           "runtimeExtensions": [],
           "setupEntry": "./setup-entry.ts",
           "runtimeSetupEntry": null,
-          "compatPluginApi": ">=2026.7.2",
-          "buildOpenClawVersion": "2026.7.2",
+          "compatPluginApi": ">=2026.8.1",
+          "buildOpenClawVersion": "2026.8.1",
           "buildPluginSdkVersion": null,
           "install": {
             "clawhubSpec": "clawhub:@openclaw/mattermost",
@@ -18401,7 +18419,7 @@
         {
           "path": "plugins/mattermost/.crabpot-package/package.json",
           "name": "@openclaw/mattermost",
-          "version": "2026.7.2",
+          "version": "2026.8.1",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -18426,8 +18444,8 @@
             "runtimeExtensions": [],
             "setupEntry": "./setup-entry.ts",
             "runtimeSetupEntry": null,
-            "compatPluginApi": ">=2026.7.2",
-            "buildOpenClawVersion": "2026.7.2",
+            "compatPluginApi": ">=2026.8.1",
+            "buildOpenClawVersion": "2026.8.1",
             "buildPluginSdkVersion": null,
             "install": {
               "clawhubSpec": "clawhub:@openclaw/mattermost",
@@ -18515,6 +18533,7 @@
         "openclaw/plugin-sdk/interactive-runtime",
         "openclaw/plugin-sdk/lazy-runtime",
         "openclaw/plugin-sdk/markdown-table-runtime",
+        "openclaw/plugin-sdk/media-mime",
         "openclaw/plugin-sdk/media-runtime",
         "openclaw/plugin-sdk/models-provider-runtime",
         "openclaw/plugin-sdk/number-runtime",
@@ -18532,7 +18551,7 @@
         "openclaw/plugin-sdk/response-limit-runtime",
         "openclaw/plugin-sdk/retry-runtime",
         "openclaw/plugin-sdk/routing",
-        "openclaw/plugin-sdk/runtime-doctor",
+        "openclaw/plugin-sdk/runtime-doctor-migrations",
         "openclaw/plugin-sdk/runtime-group-policy",
         "openclaw/plugin-sdk/runtime-store",
         "openclaw/plugin-sdk/secret-input",
@@ -18996,6 +19015,18 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/core",
+          "file": "plugins/mattermost/.crabpot-package/src/mattermost/interactions.ts",
+          "line": 4,
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/interactions.ts:4"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/core",
+          "file": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-slash.ts",
+          "line": 2,
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-slash.ts:2"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/core",
           "file": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts",
           "line": 39,
           "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:39"
@@ -19032,6 +19063,12 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/error-runtime",
+          "file": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts",
+          "line": 3,
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:3"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/error-runtime",
           "file": "plugins/mattermost/.crabpot-package/src/mattermost/draft-stream.ts",
           "line": 4,
           "ref": "plugins/mattermost/.crabpot-package/src/mattermost/draft-stream.ts:4"
@@ -19057,8 +19094,8 @@
         {
           "specifier": "openclaw/plugin-sdk/extension-shared",
           "file": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts",
-          "line": 3,
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:3"
+          "line": 4,
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:4"
         },
         {
           "specifier": "openclaw/plugin-sdk/extension-shared",
@@ -19069,14 +19106,14 @@
         {
           "specifier": "openclaw/plugin-sdk/fetch-runtime",
           "file": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts",
-          "line": 4,
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:4"
+          "line": 5,
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:5"
         },
         {
           "specifier": "openclaw/plugin-sdk/gateway-runtime",
           "file": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-slash.ts",
-          "line": 2,
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-slash.ts:2"
+          "line": 3,
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-slash.ts:3"
         },
         {
           "specifier": "openclaw/plugin-sdk/gateway-runtime",
@@ -19107,6 +19144,12 @@
           "file": "plugins/mattermost/.crabpot-package/src/mattermost/send.ts",
           "line": 10,
           "ref": "plugins/mattermost/.crabpot-package/src/mattermost/send.ts:10"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/media-mime",
+          "file": "plugins/mattermost/.crabpot-package/src/mattermost/send.ts",
+          "line": 11,
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/send.ts:11"
         },
         {
           "specifier": "openclaw/plugin-sdk/media-runtime",
@@ -19141,8 +19184,8 @@
         {
           "specifier": "openclaw/plugin-sdk/number-runtime",
           "file": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts",
-          "line": 5,
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:5"
+          "line": 6,
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:6"
         },
         {
           "specifier": "openclaw/plugin-sdk/number-runtime",
@@ -19170,12 +19213,6 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/number-runtime",
-          "file": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts",
-          "line": 40,
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/runtime-api.ts:40"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/number-runtime",
           "file": "plugins/mattermost/.crabpot-package/src/mattermost/slash-http.ts",
           "line": 10,
           "ref": "plugins/mattermost/.crabpot-package/src/mattermost/slash-http.ts:10"
@@ -19195,8 +19232,8 @@
         {
           "specifier": "openclaw/plugin-sdk/plugin-config-runtime",
           "file": "plugins/mattermost/.crabpot-package/src/mattermost/send.ts",
-          "line": 11,
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/send.ts:11"
+          "line": 12,
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/send.ts:12"
         },
         {
           "specifier": "openclaw/plugin-sdk/plugin-runtime",
@@ -19213,8 +19250,8 @@
         {
           "specifier": "openclaw/plugin-sdk/provider-http",
           "file": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts",
-          "line": 6,
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:6"
+          "line": 7,
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:7"
         },
         {
           "specifier": "openclaw/plugin-sdk/provider-http",
@@ -19297,14 +19334,14 @@
         {
           "specifier": "openclaw/plugin-sdk/response-limit-runtime",
           "file": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts",
-          "line": 10,
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:10"
+          "line": 11,
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:11"
         },
         {
           "specifier": "openclaw/plugin-sdk/retry-runtime",
           "file": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts",
-          "line": 11,
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:11"
+          "line": 12,
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:12"
         },
         {
           "specifier": "openclaw/plugin-sdk/routing",
@@ -19325,7 +19362,7 @@
           "ref": "plugins/mattermost/.crabpot-package/src/mattermost/monitor-turn.ts:16"
         },
         {
-          "specifier": "openclaw/plugin-sdk/runtime-doctor",
+          "specifier": "openclaw/plugin-sdk/runtime-doctor-migrations",
           "file": "plugins/mattermost/.crabpot-package/src/doctor-contract.ts",
           "line": 4,
           "ref": "plugins/mattermost/.crabpot-package/src/doctor-contract.ts:4"
@@ -19363,8 +19400,8 @@
         {
           "specifier": "openclaw/plugin-sdk/security-runtime",
           "file": "plugins/mattermost/.crabpot-package/src/mattermost/interactions.ts",
-          "line": 4,
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/interactions.ts:4"
+          "line": 5,
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/interactions.ts:5"
         },
         {
           "specifier": "openclaw/plugin-sdk/security-runtime",
@@ -19422,15 +19459,9 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/ssrf-runtime",
-          "file": "plugins/mattermost/.crabpot-package/src/doctor-contract.ts",
-          "line": 5,
-          "ref": "plugins/mattermost/.crabpot-package/src/doctor-contract.ts:5"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/ssrf-runtime",
           "file": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts",
-          "line": 12,
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:12"
+          "line": 13,
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:13"
         },
         {
           "specifier": "openclaw/plugin-sdk/ssrf-runtime",
@@ -19465,8 +19496,8 @@
         {
           "specifier": "openclaw/plugin-sdk/ssrf-runtime",
           "file": "plugins/mattermost/.crabpot-package/src/mattermost/send.ts",
-          "line": 12,
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/send.ts:12"
+          "line": 13,
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/send.ts:13"
         },
         {
           "specifier": "openclaw/plugin-sdk/ssrf-runtime",
@@ -19506,6 +19537,12 @@
         },
         {
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
+          "file": "plugins/mattermost/.crabpot-package/src/gateway-auth-bypass.ts",
+          "line": 2,
+          "ref": "plugins/mattermost/.crabpot-package/src/gateway-auth-bypass.ts:2"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
           "file": "plugins/mattermost/.crabpot-package/src/mattermost/accounts.ts",
           "line": 16,
           "ref": "plugins/mattermost/.crabpot-package/src/mattermost/accounts.ts:16"
@@ -19513,8 +19550,8 @@
         {
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
           "file": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts",
-          "line": 16,
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:16"
+          "line": 17,
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/client.ts:17"
         },
         {
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
@@ -19525,8 +19562,8 @@
         {
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
           "file": "plugins/mattermost/.crabpot-package/src/mattermost/interactions.ts",
-          "line": 5,
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/interactions.ts:5"
+          "line": 6,
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/interactions.ts:6"
         },
         {
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
@@ -19591,8 +19628,8 @@
         {
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
           "file": "plugins/mattermost/.crabpot-package/src/mattermost/send.ts",
-          "line": 13,
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/send.ts:13"
+          "line": 14,
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/send.ts:14"
         },
         {
           "specifier": "openclaw/plugin-sdk/string-coerce-runtime",
@@ -19639,8 +19676,8 @@
         {
           "specifier": "openclaw/plugin-sdk/text-chunking",
           "file": "plugins/mattermost/.crabpot-package/src/mattermost/send.ts",
-          "line": 17,
-          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/send.ts:17"
+          "line": 18,
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/send.ts:18"
         },
         {
           "specifier": "openclaw/plugin-sdk/text-utility-runtime",
@@ -19659,6 +19696,12 @@
           "file": "plugins/mattermost/.crabpot-package/src/mattermost/probe.ts",
           "line": 10,
           "ref": "plugins/mattermost/.crabpot-package/src/mattermost/probe.ts:10"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/text-utility-runtime",
+          "file": "plugins/mattermost/.crabpot-package/src/mattermost/slash-commands.ts",
+          "line": 3,
+          "ref": "plugins/mattermost/.crabpot-package/src/mattermost/slash-commands.ts:3"
         },
         {
           "specifier": "openclaw/plugin-sdk/text-utility-runtime",
@@ -32161,6 +32204,16 @@
     },
     {
       "fixture": "aiwerk-mcp-bridge",
+      "code": "unknown-hook-name",
+      "message": "fixture registers hooks that are not present in the target OpenClaw hook registry",
+      "evidence": [
+        "deactivate @ plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:389",
+        "deactivate @ plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:462"
+      ],
+      "level": "warning"
+    },
+    {
+      "fixture": "aiwerk-mcp-bridge",
       "code": "manifest-unknown-fields",
       "level": "warning",
       "message": "manifest uses top-level fields that are not present in the target OpenClaw PluginManifest type",
@@ -32200,6 +32253,15 @@
         "llm_output @ plugins/llm-trace-phoenix/index.ts:216"
       ],
       "compatRecord": "hook.llm-observer.privacy-payload"
+    },
+    {
+      "fixture": "opik-openclaw",
+      "code": "unknown-hook-name",
+      "message": "fixture registers hooks that are not present in the target OpenClaw hook registry",
+      "evidence": [
+        "subagent_spawning @ plugins/opik-openclaw/src/service/hooks/subagent.ts:38"
+      ],
+      "level": "warning"
     },
     {
       "fixture": "opik-openclaw",
@@ -32425,14 +32487,35 @@
     },
     {
       "fixture": "kitchen-sink",
+      "code": "unknown-hook-name",
+      "message": "fixture registers hooks that are not present in the target OpenClaw hook registry",
+      "evidence": [
+        "deactivate @ plugins/kitchen-sink/src/generated-hooks.js:22",
+        "subagent_spawning @ plugins/kitchen-sink/src/generated-hooks.js:42"
+      ],
+      "level": "warning"
+    },
+    {
+      "fixture": "kitchen-sink",
       "code": "unknown-registration-name",
       "message": "fixture calls api.register* methods that are not present in the target OpenClaw plugin API builder",
       "evidence": [
+        "registerMemoryEmbeddingProvider @ plugins/kitchen-sink/src/generated-registrars.js:29",
+        "registerMemoryEmbeddingProvider @ plugins/kitchen-sink/src/kitchen-runtime.js:95",
         "registerMemoryFlushPlan @ plugins/kitchen-sink/src/generated-registrars.js:30",
         "registerMemoryPromptSection @ plugins/kitchen-sink/src/generated-registrars.js:31",
         "registerMemoryRuntime @ plugins/kitchen-sink/src/generated-registrars.js:33"
       ],
       "level": "warning"
+    },
+    {
+      "fixture": "kitchen-sink",
+      "code": "manifest-unknown-contracts",
+      "level": "warning",
+      "message": "manifest declares contract keys that are not present in the target OpenClaw PluginManifestContracts type",
+      "evidence": [
+        "memoryEmbeddingProviders @ plugins/kitchen-sink/openclaw.plugin.json"
+      ]
     },
     {
       "fixture": "kitchen-sink",
@@ -32451,7 +32534,14 @@
       "code": "sdk-export-missing",
       "message": "fixture imports plugin SDK aliases that are not exported by the target OpenClaw package",
       "evidence": [
-        "openclaw/plugin-sdk/webhook-path @ plugins/bluebubbles/.crabpot-package/dist/webhook-shared-CoiIKIWN.js:2"
+        "openclaw/plugin-sdk/channel-streaming @ plugins/bluebubbles/.crabpot-package/dist/probe-B4I0cEVm.js:6",
+        "openclaw/plugin-sdk/text-runtime @ plugins/bluebubbles/.crabpot-package/dist/channel-BSIXOcHe.js:18",
+        "openclaw/plugin-sdk/text-runtime @ plugins/bluebubbles/.crabpot-package/dist/monitor-processing-Dy-LY2QQ.js:8",
+        "openclaw/plugin-sdk/text-runtime @ plugins/bluebubbles/.crabpot-package/dist/probe-B4I0cEVm.js:4",
+        "openclaw/plugin-sdk/text-runtime @ plugins/bluebubbles/.crabpot-package/dist/reactions-D1ETgpPi.js:3",
+        "openclaw/plugin-sdk/text-runtime @ plugins/bluebubbles/.crabpot-package/dist/webhook-shared-CoiIKIWN.js:1",
+        "openclaw/plugin-sdk/webhook-path @ plugins/bluebubbles/.crabpot-package/dist/webhook-shared-CoiIKIWN.js:2",
+        "openclaw/plugin-sdk/zod @ plugins/bluebubbles/.crabpot-package/dist/config-schema-a7F7uzDv.js:3"
       ],
       "compatRecord": "plugin-sdk-export-aliases",
       "level": "warning"
@@ -32510,6 +32600,16 @@
       "evidence": [
         "openclaw.release.publishToClawHub requires openclaw.install.clawhubSpec"
       ]
+    },
+    {
+      "fixture": "matrix",
+      "code": "sdk-export-missing",
+      "message": "fixture imports plugin SDK aliases that are not exported by the target OpenClaw package",
+      "evidence": [
+        "openclaw/plugin-sdk/test-env @ plugins/matrix/.crabpot-package/test-support.ts:2"
+      ],
+      "compatRecord": "plugin-sdk-export-aliases",
+      "level": "warning"
     },
     {
       "fixture": "msteams",
@@ -33854,6 +33954,8 @@
         "registerMemoryCapability @ plugins/kitchen-sink/src/generated-registrars.js:27",
         "registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/generated-registrars.js:28",
         "registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/kitchen-runtime.js:98",
+        "registerMemoryEmbeddingProvider @ plugins/kitchen-sink/src/generated-registrars.js:29",
+        "registerMemoryEmbeddingProvider @ plugins/kitchen-sink/src/kitchen-runtime.js:95",
         "registerMemoryFlushPlan @ plugins/kitchen-sink/src/generated-registrars.js:30",
         "registerMemoryPromptSection @ plugins/kitchen-sink/src/generated-registrars.js:31",
         "registerMemoryPromptSupplement @ plugins/kitchen-sink/src/generated-registrars.js:32",
@@ -34248,7 +34350,7 @@
       "level": "suggestion",
       "message": "add channel envelope, config-schema, and runtime metadata probes",
       "evidence": [
-        "createChatChannelPlugin @ plugins/mattermost/.crabpot-package/src/channel.ts:919"
+        "createChatChannelPlugin @ plugins/mattermost/.crabpot-package/src/channel.ts:932"
       ],
       "compatRecord": "channel.runtime.envelope-config-metadata"
     },
@@ -36038,6 +36140,26 @@
   ],
   "issues": [
     {
+      "id": "CRABPOT-DA7E30E9",
+      "fixture": "aiwerk-mcp-bridge",
+      "severity": "P0",
+      "owner": "core",
+      "code": "unknown-hook-name",
+      "decision": "core-compat-adapter",
+      "status": "blocking",
+      "issueClass": "live-issue",
+      "live": true,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "aiwerk-mcp-bridge: fixture uses a hook missing from target OpenClaw",
+      "evidence": [
+        "deactivate @ plugins/aiwerk-mcp-bridge/.crabpot-package/dist/index.js:389",
+        "deactivate @ plugins/aiwerk-mcp-bridge/.crabpot-package/index.ts:462"
+      ],
+      "compatRecord": null,
+      "runtimeCoverage": null
+    },
+    {
       "id": "CRABPOT-6ECF4CB1",
       "fixture": "connectclaw",
       "severity": "P0",
@@ -36096,7 +36218,27 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-7F84E687",
+      "id": "CRABPOT-E93E8D86",
+      "fixture": "kitchen-sink",
+      "severity": "P0",
+      "owner": "core",
+      "code": "unknown-hook-name",
+      "decision": "core-compat-adapter",
+      "status": "blocking",
+      "issueClass": "live-issue",
+      "live": true,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "kitchen-sink: fixture uses a hook missing from target OpenClaw",
+      "evidence": [
+        "deactivate @ plugins/kitchen-sink/src/generated-hooks.js:22",
+        "subagent_spawning @ plugins/kitchen-sink/src/generated-hooks.js:42"
+      ],
+      "compatRecord": null,
+      "runtimeCoverage": null
+    },
+    {
+      "id": "CRABPOT-423AE32C",
       "fixture": "kitchen-sink",
       "severity": "P0",
       "owner": "core",
@@ -36109,6 +36251,8 @@
       "compatStatus": "none",
       "title": "kitchen-sink: fixture calls a registrar missing from target OpenClaw",
       "evidence": [
+        "registerMemoryEmbeddingProvider @ plugins/kitchen-sink/src/generated-registrars.js:29",
+        "registerMemoryEmbeddingProvider @ plugins/kitchen-sink/src/kitchen-runtime.js:95",
         "registerMemoryFlushPlan @ plugins/kitchen-sink/src/generated-registrars.js:30",
         "registerMemoryPromptSection @ plugins/kitchen-sink/src/generated-registrars.js:31",
         "registerMemoryRuntime @ plugins/kitchen-sink/src/generated-registrars.js:33"
@@ -36150,6 +36294,25 @@
       "title": "openclaw-telemetry: fixture uses a hook missing from target OpenClaw",
       "evidence": [
         "before_agent_start @ plugins/openclaw-telemetry/index.ts:53"
+      ],
+      "compatRecord": null,
+      "runtimeCoverage": null
+    },
+    {
+      "id": "CRABPOT-34B52D64",
+      "fixture": "opik-openclaw",
+      "severity": "P0",
+      "owner": "core",
+      "code": "unknown-hook-name",
+      "decision": "core-compat-adapter",
+      "status": "blocking",
+      "issueClass": "live-issue",
+      "live": true,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "opik-openclaw: fixture uses a hook missing from target OpenClaw",
+      "evidence": [
+        "subagent_spawning @ plugins/opik-openclaw/src/service/hooks/subagent.ts:38"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -36231,7 +36394,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-50D01655",
+      "id": "CRABPOT-73E47483",
       "fixture": "bluebubbles",
       "severity": "P1",
       "owner": "core",
@@ -36244,7 +36407,14 @@
       "compatStatus": "untracked",
       "title": "bluebubbles: plugin SDK import aliases are missing from target package exports",
       "evidence": [
-        "openclaw/plugin-sdk/webhook-path @ plugins/bluebubbles/.crabpot-package/dist/webhook-shared-CoiIKIWN.js:2"
+        "openclaw/plugin-sdk/channel-streaming @ plugins/bluebubbles/.crabpot-package/dist/probe-B4I0cEVm.js:6",
+        "openclaw/plugin-sdk/text-runtime @ plugins/bluebubbles/.crabpot-package/dist/channel-BSIXOcHe.js:18",
+        "openclaw/plugin-sdk/text-runtime @ plugins/bluebubbles/.crabpot-package/dist/monitor-processing-Dy-LY2QQ.js:8",
+        "openclaw/plugin-sdk/text-runtime @ plugins/bluebubbles/.crabpot-package/dist/probe-B4I0cEVm.js:4",
+        "openclaw/plugin-sdk/text-runtime @ plugins/bluebubbles/.crabpot-package/dist/reactions-D1ETgpPi.js:3",
+        "openclaw/plugin-sdk/text-runtime @ plugins/bluebubbles/.crabpot-package/dist/webhook-shared-CoiIKIWN.js:1",
+        "openclaw/plugin-sdk/webhook-path @ plugins/bluebubbles/.crabpot-package/dist/webhook-shared-CoiIKIWN.js:2",
+        "openclaw/plugin-sdk/zod @ plugins/bluebubbles/.crabpot-package/dist/config-schema-a7F7uzDv.js:3"
       ],
       "compatRecord": "plugin-sdk-export-aliases",
       "runtimeCoverage": null
@@ -36937,6 +37107,29 @@
       "runtimeCoverage": null
     },
     {
+      "id": "CRABPOT-51B44173",
+      "fixture": "kitchen-sink",
+      "severity": "P1",
+      "owner": "plugin",
+      "code": "manifest-unknown-contracts",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "issueClass": "upstream-metadata",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "none",
+      "title": "kitchen-sink: manifest declares unsupported contract keys",
+      "evidence": [
+        "memoryEmbeddingProviders @ plugins/kitchen-sink/openclaw.plugin.json"
+      ],
+      "compatRecord": null,
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "Remove unsupported manifest contract keys or move them to a documented OpenClaw contract field.",
+        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-contracts"
+      }
+    },
+    {
       "id": "CRABPOT-41C8DB57",
       "fixture": "kitchen-sink",
       "severity": "P1",
@@ -37108,6 +37301,25 @@
         "api.capture.runtime-registrars"
       ],
       "compatRecord": "api.capture.runtime-registrars",
+      "runtimeCoverage": null
+    },
+    {
+      "id": "CRABPOT-5085F2B2",
+      "fixture": "matrix",
+      "severity": "P1",
+      "owner": "core",
+      "code": "sdk-export-missing",
+      "decision": "core-compat-adapter",
+      "status": "open",
+      "issueClass": "compat-gap",
+      "live": false,
+      "deprecated": false,
+      "compatStatus": "untracked",
+      "title": "matrix: plugin SDK import aliases are missing from target package exports",
+      "evidence": [
+        "openclaw/plugin-sdk/test-env @ plugins/matrix/.crabpot-package/test-support.ts:2"
+      ],
+      "compatRecord": "plugin-sdk-export-aliases",
       "runtimeCoverage": null
     },
     {
@@ -40904,7 +41116,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-A5536A0C",
+      "id": "CRABPOT-B34285E2",
       "fixture": "kitchen-sink",
       "severity": "P2",
       "owner": "inspector",
@@ -40943,6 +41155,8 @@
         "registerMemoryCapability @ plugins/kitchen-sink/src/generated-registrars.js:27",
         "registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/generated-registrars.js:28",
         "registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/kitchen-runtime.js:98",
+        "registerMemoryEmbeddingProvider @ plugins/kitchen-sink/src/generated-registrars.js:29",
+        "registerMemoryEmbeddingProvider @ plugins/kitchen-sink/src/kitchen-runtime.js:95",
         "registerMemoryFlushPlan @ plugins/kitchen-sink/src/generated-registrars.js:30",
         "registerMemoryPromptSection @ plugins/kitchen-sink/src/generated-registrars.js:31",
         "registerMemoryPromptSupplement @ plugins/kitchen-sink/src/generated-registrars.js:32",
@@ -41266,7 +41480,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-5E1438AA",
+      "id": "CRABPOT-66F4F351",
       "fixture": "mattermost",
       "severity": "P2",
       "owner": "inspector",
@@ -41279,7 +41493,7 @@
       "compatStatus": "untracked",
       "title": "mattermost: channel runtime needs envelope/config probes",
       "evidence": [
-        "createChatChannelPlugin @ plugins/mattermost/.crabpot-package/src/channel.ts:919"
+        "createChatChannelPlugin @ plugins/mattermost/.crabpot-package/src/channel.ts:932"
       ],
       "compatRecord": "channel.runtime.envelope-config-metadata",
       "runtimeCoverage": null
@@ -44320,7 +44534,14 @@
       "target": "sdk-alias",
       "contract": "Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.",
       "evidence": [
-        "openclaw/plugin-sdk/webhook-path @ plugins/bluebubbles/.crabpot-package/dist/webhook-shared-CoiIKIWN.js:2"
+        "openclaw/plugin-sdk/channel-streaming @ plugins/bluebubbles/.crabpot-package/dist/probe-B4I0cEVm.js:6",
+        "openclaw/plugin-sdk/text-runtime @ plugins/bluebubbles/.crabpot-package/dist/channel-BSIXOcHe.js:18",
+        "openclaw/plugin-sdk/text-runtime @ plugins/bluebubbles/.crabpot-package/dist/monitor-processing-Dy-LY2QQ.js:8",
+        "openclaw/plugin-sdk/text-runtime @ plugins/bluebubbles/.crabpot-package/dist/probe-B4I0cEVm.js:4",
+        "openclaw/plugin-sdk/text-runtime @ plugins/bluebubbles/.crabpot-package/dist/reactions-D1ETgpPi.js:3",
+        "openclaw/plugin-sdk/text-runtime @ plugins/bluebubbles/.crabpot-package/dist/webhook-shared-CoiIKIWN.js:1",
+        "openclaw/plugin-sdk/webhook-path @ plugins/bluebubbles/.crabpot-package/dist/webhook-shared-CoiIKIWN.js:2",
+        "openclaw/plugin-sdk/zod @ plugins/bluebubbles/.crabpot-package/dist/config-schema-a7F7uzDv.js:3"
       ]
     },
     {
@@ -44351,6 +44572,16 @@
       "contract": "Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.",
       "evidence": [
         "openclaw/plugin-sdk @ plugins/dingtalk-doc/index.ts:11"
+      ]
+    },
+    {
+      "id": "sdk.import.package-export-cold-import:matrix",
+      "fixture": "matrix",
+      "priority": "P1",
+      "target": "sdk-alias",
+      "contract": "Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.",
+      "evidence": [
+        "openclaw/plugin-sdk/test-env @ plugins/matrix/.crabpot-package/test-support.ts:2"
       ]
     },
     {
@@ -44542,6 +44773,8 @@
         "registerMemoryCapability @ plugins/kitchen-sink/src/generated-registrars.js:27",
         "registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/generated-registrars.js:28",
         "registerMemoryCorpusSupplement @ plugins/kitchen-sink/src/kitchen-runtime.js:98",
+        "registerMemoryEmbeddingProvider @ plugins/kitchen-sink/src/generated-registrars.js:29",
+        "registerMemoryEmbeddingProvider @ plugins/kitchen-sink/src/kitchen-runtime.js:95",
         "registerMemoryFlushPlan @ plugins/kitchen-sink/src/generated-registrars.js:30",
         "registerMemoryPromptSection @ plugins/kitchen-sink/src/generated-registrars.js:31",
         "registerMemoryPromptSupplement @ plugins/kitchen-sink/src/generated-registrars.js:32",
@@ -44878,6 +45111,16 @@
       "contract": "OpenClaw plugin manifests declare a human-readable display name for registry and tooling metadata.",
       "evidence": [
         "plugins/openclaw-weixin/.crabpot-package/openclaw.plugin.json"
+      ]
+    },
+    {
+      "id": "manifest.schema.contract-keys:kitchen-sink",
+      "fixture": "kitchen-sink",
+      "priority": "P2",
+      "target": "manifest-loader",
+      "contract": "Manifest contract keys are represented in target OpenClaw PluginManifestContracts.",
+      "evidence": [
+        "memoryEmbeddingProviders @ plugins/kitchen-sink/openclaw.plugin.json"
       ]
     },
     {
@@ -45887,7 +46130,7 @@
       "target": "channel-runtime",
       "contract": "Channel setup, message envelope, sender metadata, and config schema remain stable.",
       "evidence": [
-        "createChatChannelPlugin @ plugins/mattermost/.crabpot-package/src/channel.ts:919"
+        "createChatChannelPlugin @ plugins/mattermost/.crabpot-package/src/channel.ts:932"
       ]
     },
     {
@@ -47473,15 +47716,6 @@
     },
     {
       "fixture": "aiwerk-mcp-bridge",
-      "code": "hook-names-present",
-      "level": "log",
-      "message": "all observed hooks exist in the target OpenClaw hook registry",
-      "evidence": [
-        "deactivate"
-      ]
-    },
-    {
-      "fixture": "aiwerk-mcp-bridge",
       "code": "api-registrars-present",
       "level": "log",
       "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
@@ -47574,24 +47808,6 @@
         "hook:tool_result_persist",
         "registration:registerCli",
         "registration:registerService"
-      ]
-    },
-    {
-      "fixture": "opik-openclaw",
-      "code": "hook-names-present",
-      "level": "log",
-      "message": "all observed hooks exist in the target OpenClaw hook registry",
-      "evidence": [
-        "after_tool_call",
-        "agent_end",
-        "before_tool_call",
-        "llm_input",
-        "llm_output",
-        "subagent_delivery_target",
-        "subagent_ended",
-        "subagent_spawned",
-        "subagent_spawning",
-        "tool_result_persist"
       ]
     },
     {
@@ -48074,53 +48290,6 @@
     },
     {
       "fixture": "kitchen-sink",
-      "code": "hook-names-present",
-      "level": "log",
-      "message": "all observed hooks exist in the target OpenClaw hook registry",
-      "evidence": [
-        "after_compaction",
-        "after_tool_call",
-        "agent_end",
-        "agent_turn_prepare",
-        "before_agent_finalize",
-        "before_agent_reply",
-        "before_agent_run",
-        "before_compaction",
-        "before_dispatch",
-        "before_install",
-        "before_message_write",
-        "before_model_resolve",
-        "before_prompt_build",
-        "before_reset",
-        "before_tool_call",
-        "channel_pairing_requested",
-        "cron_changed",
-        "deactivate",
-        "gateway_start",
-        "gateway_stop",
-        "heartbeat_prompt_contribution",
-        "inbound_claim",
-        "llm_input",
-        "llm_output",
-        "message_received",
-        "message_sending",
-        "message_sent",
-        "model_call_ended",
-        "model_call_started",
-        "reply_dispatch",
-        "reply_payload_sending",
-        "resolve_exec_env",
-        "session_end",
-        "session_start",
-        "subagent_delivery_target",
-        "subagent_ended",
-        "subagent_spawned",
-        "subagent_spawning",
-        "tool_result_persist"
-      ]
-    },
-    {
-      "fixture": "kitchen-sink",
       "code": "sdk-exports-present",
       "level": "log",
       "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
@@ -48564,110 +48733,6 @@
     },
     {
       "fixture": "matrix",
-      "code": "sdk-exports-present",
-      "level": "log",
-      "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
-      "evidence": [
-        "openclaw/plugin-sdk/account-core",
-        "openclaw/plugin-sdk/account-helpers",
-        "openclaw/plugin-sdk/account-id",
-        "openclaw/plugin-sdk/account-resolution-runtime",
-        "openclaw/plugin-sdk/acp-binding-resolve-runtime",
-        "openclaw/plugin-sdk/acp-binding-runtime",
-        "openclaw/plugin-sdk/agent-runtime",
-        "openclaw/plugin-sdk/allow-from",
-        "openclaw/plugin-sdk/approval-auth-runtime",
-        "openclaw/plugin-sdk/approval-client-runtime",
-        "openclaw/plugin-sdk/approval-delivery-runtime",
-        "openclaw/plugin-sdk/approval-gateway-runtime",
-        "openclaw/plugin-sdk/approval-handler-adapter-runtime",
-        "openclaw/plugin-sdk/approval-handler-runtime",
-        "openclaw/plugin-sdk/approval-native-runtime",
-        "openclaw/plugin-sdk/approval-reaction-runtime",
-        "openclaw/plugin-sdk/approval-reply-runtime",
-        "openclaw/plugin-sdk/approval-runtime",
-        "openclaw/plugin-sdk/channel-actions",
-        "openclaw/plugin-sdk/channel-config-helpers",
-        "openclaw/plugin-sdk/channel-config-schema",
-        "openclaw/plugin-sdk/channel-core",
-        "openclaw/plugin-sdk/channel-dm-policy",
-        "openclaw/plugin-sdk/channel-entry-contract",
-        "openclaw/plugin-sdk/channel-feedback",
-        "openclaw/plugin-sdk/channel-inbound",
-        "openclaw/plugin-sdk/channel-ingress-runtime",
-        "openclaw/plugin-sdk/channel-outbound",
-        "openclaw/plugin-sdk/channel-pairing",
-        "openclaw/plugin-sdk/channel-policy",
-        "openclaw/plugin-sdk/channel-runtime-context",
-        "openclaw/plugin-sdk/channel-secret-basic-runtime",
-        "openclaw/plugin-sdk/channel-send-result",
-        "openclaw/plugin-sdk/channel-setup",
-        "openclaw/plugin-sdk/channel-status",
-        "openclaw/plugin-sdk/channel-targets",
-        "openclaw/plugin-sdk/context-visibility-runtime",
-        "openclaw/plugin-sdk/conversation-binding-runtime",
-        "openclaw/plugin-sdk/conversation-runtime",
-        "openclaw/plugin-sdk/dangerous-name-runtime",
-        "openclaw/plugin-sdk/directory-runtime",
-        "openclaw/plugin-sdk/error-runtime",
-        "openclaw/plugin-sdk/expect-runtime",
-        "openclaw/plugin-sdk/extension-shared",
-        "openclaw/plugin-sdk/file-lock",
-        "openclaw/plugin-sdk/gateway-runtime",
-        "openclaw/plugin-sdk/html-entity-runtime",
-        "openclaw/plugin-sdk/interactive-runtime",
-        "openclaw/plugin-sdk/json-store",
-        "openclaw/plugin-sdk/keyed-async-queue",
-        "openclaw/plugin-sdk/lazy-runtime",
-        "openclaw/plugin-sdk/logging-core",
-        "openclaw/plugin-sdk/media-local-roots",
-        "openclaw/plugin-sdk/media-runtime",
-        "openclaw/plugin-sdk/number-runtime",
-        "openclaw/plugin-sdk/outbound-media",
-        "openclaw/plugin-sdk/pair-loop-guard-runtime",
-        "openclaw/plugin-sdk/persistent-dedupe",
-        "openclaw/plugin-sdk/plugin-config-runtime",
-        "openclaw/plugin-sdk/plugin-entry",
-        "openclaw/plugin-sdk/plugin-runtime",
-        "openclaw/plugin-sdk/plugin-state-runtime",
-        "openclaw/plugin-sdk/poll-runtime",
-        "openclaw/plugin-sdk/process-runtime",
-        "openclaw/plugin-sdk/reply-history",
-        "openclaw/plugin-sdk/reply-payload",
-        "openclaw/plugin-sdk/response-limit-runtime",
-        "openclaw/plugin-sdk/retry-runtime",
-        "openclaw/plugin-sdk/routing",
-        "openclaw/plugin-sdk/runtime-doctor",
-        "openclaw/plugin-sdk/runtime-env",
-        "openclaw/plugin-sdk/runtime-fetch",
-        "openclaw/plugin-sdk/runtime-group-policy",
-        "openclaw/plugin-sdk/runtime-store",
-        "openclaw/plugin-sdk/secret-input",
-        "openclaw/plugin-sdk/secret-input-runtime",
-        "openclaw/plugin-sdk/secret-ref-runtime",
-        "openclaw/plugin-sdk/security-runtime",
-        "openclaw/plugin-sdk/session-binding-runtime",
-        "openclaw/plugin-sdk/session-key-runtime",
-        "openclaw/plugin-sdk/session-store-runtime",
-        "openclaw/plugin-sdk/setup",
-        "openclaw/plugin-sdk/sqlite-runtime",
-        "openclaw/plugin-sdk/ssrf-dispatcher",
-        "openclaw/plugin-sdk/ssrf-policy",
-        "openclaw/plugin-sdk/ssrf-runtime",
-        "openclaw/plugin-sdk/status-helpers",
-        "openclaw/plugin-sdk/string-coerce-runtime",
-        "openclaw/plugin-sdk/string-normalization-runtime",
-        "openclaw/plugin-sdk/temp-path",
-        "openclaw/plugin-sdk/text-autolink-runtime",
-        "openclaw/plugin-sdk/text-chunking",
-        "openclaw/plugin-sdk/text-utility-runtime",
-        "openclaw/plugin-sdk/thread-bindings-session-runtime",
-        "openclaw/plugin-sdk/time-runtime",
-        "openclaw/plugin-sdk/tool-send"
-      ]
-    },
-    {
-      "fixture": "matrix",
       "code": "manifest-fields-checked",
       "level": "log",
       "message": "plugin manifest fields were compared with target OpenClaw manifest types",
@@ -48683,7 +48748,7 @@
       "evidence": [
         "plugins/matrix/.crabpot-package/package.json",
         "@openclaw/matrix",
-        "version:2026.7.2"
+        "version:2026.8.1"
       ]
     },
     {
@@ -49615,6 +49680,7 @@
         "openclaw/plugin-sdk/interactive-runtime",
         "openclaw/plugin-sdk/lazy-runtime",
         "openclaw/plugin-sdk/markdown-table-runtime",
+        "openclaw/plugin-sdk/media-mime",
         "openclaw/plugin-sdk/media-runtime",
         "openclaw/plugin-sdk/models-provider-runtime",
         "openclaw/plugin-sdk/number-runtime",
@@ -49632,7 +49698,7 @@
         "openclaw/plugin-sdk/response-limit-runtime",
         "openclaw/plugin-sdk/retry-runtime",
         "openclaw/plugin-sdk/routing",
-        "openclaw/plugin-sdk/runtime-doctor",
+        "openclaw/plugin-sdk/runtime-doctor-migrations",
         "openclaw/plugin-sdk/runtime-group-policy",
         "openclaw/plugin-sdk/runtime-store",
         "openclaw/plugin-sdk/secret-input",
@@ -49667,7 +49733,7 @@
       "evidence": [
         "plugins/mattermost/.crabpot-package/package.json",
         "@openclaw/mattermost",
-        "version:2026.7.2"
+        "version:2026.8.1"
       ]
     },
     {
@@ -52235,6 +52301,13 @@
     },
     {
       "fixture": "kitchen-sink",
+      "decision": "plugin-upstream-fix",
+      "seam": "manifest-contract",
+      "action": "Use a supported manifest contract key or add a versioned OpenClaw contract field.",
+      "evidence": "memoryEmbeddingProviders"
+    },
+    {
+      "fixture": "kitchen-sink",
       "decision": "inspector-follow-up",
       "seam": "conversation-access",
       "action": "Add synthetic llm_input/llm_output/agent_end probes before tightening hook payloads or redaction behavior.",
@@ -52245,7 +52318,7 @@
       "decision": "inspector-follow-up",
       "seam": "registration-capture",
       "action": "Expose or mirror a full public API capture shim before treating these runtime-only seams as covered.",
-      "evidence": "registerAutoEnableProbe, registerChannel, registerCommand, registerCompactionProvider, registerConfigMigration, registerContextEngine, registerDetachedTaskRuntime, registerGatewayDiscoveryService, registerGatewayMethod, registerHook, registerHostedMediaResolver, registerHttpRoute, registerInteractiveHandler, registerMemoryCapability, registerMemoryCorpusSupplement, registerMemoryFlushPlan, registerMemoryPromptSection, registerMemoryPromptSupplement, registerMemoryRuntime, registerNodeCliFeature, registerNodeHostCommand, registerNodeInvokePolicy, registerReload, registerSecurityAuditCollector, registerService"
+      "evidence": "registerAutoEnableProbe, registerChannel, registerCommand, registerCompactionProvider, registerConfigMigration, registerContextEngine, registerDetachedTaskRuntime, registerGatewayDiscoveryService, registerGatewayMethod, registerHook, registerHostedMediaResolver, registerHttpRoute, registerInteractiveHandler, registerMemoryCapability, registerMemoryCorpusSupplement, registerMemoryEmbeddingProvider, registerMemoryFlushPlan, registerMemoryPromptSection, registerMemoryPromptSupplement, registerMemoryRuntime, registerNodeCliFeature, registerNodeHostCommand, registerNodeInvokePolicy, registerReload, registerSecurityAuditCollector, registerService"
     },
     {
       "fixture": "kitchen-sink",
@@ -52273,7 +52346,7 @@
       "decision": "core-compat-adapter",
       "seam": "sdk-alias",
       "action": "Restore the package export alias or publish a versioned migration map before cold-importing old plugins.",
-      "evidence": "openclaw/plugin-sdk/webhook-path"
+      "evidence": "openclaw/plugin-sdk/channel-streaming, openclaw/plugin-sdk/text-runtime, openclaw/plugin-sdk/webhook-path, openclaw/plugin-sdk/zod"
     },
     {
       "fixture": "bluebubbles",
@@ -52372,6 +52445,13 @@
       "seam": "manifest-contract",
       "action": "Keep checking this declarative contract in default offline CI.",
       "evidence": "tools"
+    },
+    {
+      "fixture": "matrix",
+      "decision": "core-compat-adapter",
+      "seam": "sdk-alias",
+      "action": "Restore the package export alias or publish a versioned migration map before cold-importing old plugins.",
+      "evidence": "openclaw/plugin-sdk/test-env"
     },
     {
       "fixture": "matrix",

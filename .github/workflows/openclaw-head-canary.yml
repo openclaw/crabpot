@@ -16,7 +16,7 @@ jobs:
     outputs:
       sha: ${{ steps.openclaw-head.outputs.sha }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           repository: openclaw/openclaw
           ref: main
@@ -35,16 +35,16 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-15, windows-latest]
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           submodules: recursive
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
           cache-dependency-path: |
             plugins/**/package-lock.json
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           repository: openclaw/openclaw
           ref: ${{ needs.resolve-head.outputs.sha }}

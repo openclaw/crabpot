@@ -15,7 +15,7 @@ jobs:
     name: Fixture lock security
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 1
       - name: Resolve fixture security scope
@@ -44,7 +44,7 @@ jobs:
             fi
           done < <(git diff --name-only "${base}" "${head}" --)
           echo "audit=${audit}" >> "$GITHUB_OUTPUT"
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         if: ${{ steps.scope.outputs.audit == 'true' }}
         with:
           node-version: 22
@@ -63,10 +63,10 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-15, windows-latest]
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           submodules: recursive
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
@@ -75,7 +75,7 @@ jobs:
       - name: Resolve pinned OpenClaw Default Track
         id: openclaw-track
         run: node scripts/openclaw-pin.mjs --github-output
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           repository: openclaw/openclaw
           ref: ${{ steps.openclaw-track.outputs.ref }}
@@ -123,13 +123,13 @@ jobs:
     container:
       image: node:22-bookworm
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           submodules: recursive
       - name: Resolve pinned OpenClaw Default Track
         id: openclaw-track
         run: node scripts/openclaw-pin.mjs --github-output
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           repository: openclaw/openclaw
           ref: ${{ steps.openclaw-track.outputs.ref }}
@@ -154,11 +154,11 @@ jobs:
       count: ${{ steps.resolve.outputs.count }}
       fixtures: ${{ steps.resolve.outputs.fixtures }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 1
           submodules: recursive
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
@@ -167,7 +167,7 @@ jobs:
       - name: Resolve pinned OpenClaw Default Track
         id: openclaw-track
         run: node scripts/openclaw-pin.mjs --github-output
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           repository: openclaw/openclaw
           ref: ${{ steps.openclaw-track.outputs.ref }}
@@ -218,10 +218,10 @@ jobs:
       fail-fast: false
       matrix: ${{ fromJson(needs.changed-fixture-plan.outputs.matrix) }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           submodules: recursive
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
@@ -230,7 +230,7 @@ jobs:
       - name: Resolve pinned OpenClaw Default Track
         id: openclaw-track
         run: node scripts/openclaw-pin.mjs --github-output
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           repository: openclaw/openclaw
           ref: ${{ steps.openclaw-track.outputs.ref }}
@@ -315,10 +315,10 @@ jobs:
       contents: write
       statuses: write
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           submodules: recursive
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
@@ -327,7 +327,7 @@ jobs:
       - name: Resolve pinned OpenClaw Default Track
         id: openclaw-track
         run: node scripts/openclaw-pin.mjs --github-output
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           repository: openclaw/openclaw
           ref: ${{ steps.openclaw-track.outputs.ref }}

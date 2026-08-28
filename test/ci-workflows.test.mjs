@@ -285,8 +285,8 @@ test("workflows use current action majors and dependency caches", async () => {
   ].map((match) => match[1]);
 
   assert.deepEqual([...new Set(actionRefs)].sort(), [
-    "actions/checkout@v6",
-    "actions/setup-node@v6",
+    "actions/checkout@v7",
+    "actions/setup-node@v7",
     "actions/upload-artifact@v7",
   ]);
   assert.match(workflows, /cache: npm/);

@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Dependabot branch
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.event.pull_request.head.ref }}
@@ -29,7 +29,7 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
@@ -49,7 +49,7 @@ jobs:
         run: node scripts/openclaw-pin.mjs --github-output
 
       - name: Checkout OpenClaw
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           repository: openclaw/openclaw
           ref: ${{ steps.openclaw-track.outputs.ref }}

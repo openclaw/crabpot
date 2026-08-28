@@ -616,7 +616,7 @@
     {
       "fixture": "matrix",
       "id": "cold-import.extension:matrix:plugins-matrix-crabpot-package-index-ts",
-      "status": "ts-loader-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/matrix/.crabpot-package/index.ts",
       "packageManager": "npm",
       "loaderSource": "typescript-source",
@@ -636,7 +636,7 @@
     {
       "fixture": "matrix",
       "id": "cold-import.setupEntry:matrix:plugins-matrix-crabpot-package-setup-entry-ts",
-      "status": "ts-loader-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/matrix/.crabpot-package/setup-entry.ts",
       "packageManager": "npm",
       "loaderSource": "typescript-source",

@@ -31,7 +31,7 @@ jobs:
       strict_contract: ${{ steps.request.outputs.strict_contract }}
       strict_perf: ${{ steps.request.outputs.strict_perf }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 1
 
@@ -85,12 +85,12 @@ jobs:
       SUITE_POLICY: ${{ needs.request.outputs.strict_contract == 'true' && 'release' || 'dashboard' }}
     steps:
       - name: Checkout Crabpot
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           submodules: recursive
 
       - name: Checkout target OpenClaw
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           repository: ${{ env.TARGET_REPOSITORY }}
           ref: ${{ env.TARGET_REF }}
@@ -104,7 +104,7 @@ jobs:
           echo "ref=${TARGET_REF}"
           git -C openclaw rev-parse HEAD
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
 
@@ -154,19 +154,19 @@ jobs:
       PROFILE_RUNS: ${{ needs.request.outputs.profile_runs }}
     steps:
       - name: Checkout Crabpot
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           submodules: recursive
 
       - name: Checkout base OpenClaw
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           repository: ${{ needs.request.outputs.base_openclaw_repository }}
           ref: ${{ needs.request.outputs.base_openclaw_ref }}
           path: openclaw-base
 
       - name: Checkout head OpenClaw
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           repository: ${{ needs.request.outputs.head_openclaw_repository }}
           ref: ${{ needs.request.outputs.head_openclaw_ref }}
@@ -183,7 +183,7 @@ jobs:
           git -C openclaw-head rev-parse HEAD
           ln -s openclaw-head openclaw
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
 
@@ -240,18 +240,18 @@ jobs:
       TARGET_REF: ${{ (needs.request.outputs.mode == 'full') && needs.request.outputs.head_openclaw_ref || needs.request.outputs.openclaw_ref }}
     steps:
       - name: Checkout Crabpot
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           submodules: recursive
 
       - name: Checkout target OpenClaw
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           repository: ${{ env.TARGET_REPOSITORY }}
           ref: ${{ env.TARGET_REF }}
           path: openclaw
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
 
@@ -290,12 +290,12 @@ jobs:
       TARGET_REF: ${{ (needs.request.outputs.mode == 'full') && needs.request.outputs.head_openclaw_ref || needs.request.outputs.openclaw_ref }}
     steps:
       - name: Checkout Crabpot
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           submodules: recursive
 
       - name: Checkout target OpenClaw
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           repository: ${{ env.TARGET_REPOSITORY }}
           ref: ${{ env.TARGET_REF }}
@@ -308,7 +308,7 @@ jobs:
           git -C openclaw rev-parse HEAD
           echo "fixture=${{ matrix.id }}"
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
 
