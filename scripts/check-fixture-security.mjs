@@ -6,6 +6,7 @@ import { pathToFileURL } from "node:url";
 import { repoRoot } from "./manifest-lib.mjs";
 
 const blockedSeverities = new Set(["critical", "high"]);
+const defaultNpmTimeoutMs = 2 * 60 * 1000;
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   main();
@@ -28,14 +29,16 @@ export function lockFixableFindings(audit, lockfile = {}) {
 
 function main() {
   const findings = [];
+  const timeout = configuredTimeoutMs("CRABPOT_NPM_TIMEOUT_MS", defaultNpmTimeoutMs);
   for (const fixture of fixtureLockDirectories()) {
     const lockfile = JSON.parse(readFileSync(path.join(fixture.path, "package-lock.json"), "utf8"));
     const result = spawnSync("npm", ["audit", "--package-lock-only", "--omit=dev", "--json"], {
       cwd: fixture.path,
       encoding: "utf8",
       maxBuffer: 16 * 1024 * 1024,
+      timeout,
     });
-    const audit = parseAuditResult(result, fixture.id);
+    const audit = parseAuditResult(result, fixture.id, timeout);
     for (const finding of lockFixableFindings(audit, lockfile)) {
       findings.push({ fixture: fixture.id, ...finding });
     }
@@ -67,8 +70,11 @@ function fixtureLockDirectories() {
     .sort((left, right) => left.id.localeCompare(right.id));
 }
 
-export function parseAuditResult(result, fixture) {
+export function parseAuditResult(result, fixture, timeout) {
   if (result.error) {
+    if (result.error.code === "ETIMEDOUT") {
+      throw new Error(`${fixture}: npm audit timed out after ${timeout}ms`);
+    }
     throw result.error;
   }
   if (result.signal) {
@@ -99,6 +105,18 @@ export function parseAuditResult(result, fixture) {
     throw new Error(`${fixture}: npm audit exited with unexpected status ${result.status}`);
   }
   return audit;
+}
+
+function configuredTimeoutMs(envName, fallback) {
+  const raw = process.env[envName];
+  if (!raw) {
+    return fallback;
+  }
+  const parsed = Number.parseInt(raw, 10);
+  if (!Number.isInteger(parsed) || parsed <= 0) {
+    throw new Error(`${envName} must be a positive integer timeout in milliseconds`);
+  }
+  return parsed;
 }
 
 function hasImmutableOwner(node, packages) {
