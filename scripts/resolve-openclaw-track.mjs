@@ -8,6 +8,8 @@ const execFile = promisify(execFileCallback);
 
 export const openclawRepository = "openclaw/openclaw";
 export const openclawGitUrl = "https://github.com/openclaw/openclaw.git";
+const defaultFetchTimeoutMs = 15_000;
+const defaultGitTimeoutMs = 2 * 60 * 1000;
 
 const branchTracks = new Map([
   ["main", "latest"],
@@ -135,7 +137,8 @@ function assertTrack(track) {
 }
 
 async function npmDistTag(tag) {
-  const response = await fetch("https://registry.npmjs.org/openclaw");
+  const timeout = configuredTimeoutMs("CRABPOT_FETCH_TIMEOUT_MS", defaultFetchTimeoutMs);
+  const response = await fetchWithTimeout("https://registry.npmjs.org/openclaw", timeout, "could not read openclaw npm metadata");
   if (!response.ok) {
     throw new Error(`could not read openclaw npm metadata: ${response.status}`);
   }
@@ -162,13 +165,25 @@ async function tagSha(version) {
 async function optionalLsRemote(ref) {
   try {
     return await lsRemote(ref);
-  } catch {
+  } catch (error) {
+    if (isTimeoutError(error)) {
+      throw error;
+    }
     return "";
   }
 }
 
 async function lsRemote(ref) {
-  const { stdout } = await execFile("git", ["ls-remote", openclawGitUrl, ref]);
+  const timeout = configuredTimeoutMs("CRABPOT_GIT_TIMEOUT_MS", defaultGitTimeoutMs);
+  let stdout;
+  try {
+    ({ stdout } = await execFile("git", ["ls-remote", openclawGitUrl, ref], { timeout }));
+  } catch (error) {
+    if (error?.code === "ETIMEDOUT" || error?.killed) {
+      throw new Error(`git ls-remote timed out after ${timeout}ms`);
+    }
+    throw error;
+  }
   const sha = stdout.trim().split(/\s+/)[0] ?? "";
   if (!/^[0-9a-f]{40}$/.test(sha)) {
     throw new Error(`could not resolve ${openclawGitUrl} ${ref}`);
@@ -178,7 +193,8 @@ async function lsRemote(ref) {
 
 async function fetchPackageVersionAtRef(ref) {
   const url = `https://raw.githubusercontent.com/${openclawRepository}/${encodeURIComponent(ref)}/package.json`;
-  const response = await fetch(url);
+  const timeout = configuredTimeoutMs("CRABPOT_FETCH_TIMEOUT_MS", defaultFetchTimeoutMs);
+  const response = await fetchWithTimeout(url, timeout, `could not read OpenClaw package.json for ${ref}`);
   if (!response.ok) {
     throw new Error(`could not read OpenClaw package.json for ${ref}: ${response.status}`);
   }
@@ -191,6 +207,33 @@ async function fetchPackageVersionAtRef(ref) {
 
 function shortSha(sha) {
   return sha.slice(0, 12);
+}
+
+async function fetchWithTimeout(url, timeout, label) {
+  try {
+    return await fetch(url, { signal: AbortSignal.timeout(timeout) });
+  } catch (error) {
+    if (error?.name === "TimeoutError" || error?.name === "AbortError") {
+      throw new Error(`${label}: timed out after ${timeout}ms`);
+    }
+    throw error;
+  }
+}
+
+function isTimeoutError(error) {
+  return error?.code === "ETIMEDOUT" || /timed out after \d+ms/.test(error?.message ?? "");
+}
+
+function configuredTimeoutMs(envName, fallback) {
+  const raw = process.env[envName];
+  if (!raw) {
+    return fallback;
+  }
+  const parsed = Number.parseInt(raw, 10);
+  if (!Number.isInteger(parsed) || parsed <= 0) {
+    throw new Error(`${envName} must be a positive integer timeout in milliseconds`);
+  }
+  return parsed;
 }
 
 async function writeGithubOutput(result) {
