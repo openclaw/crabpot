@@ -101,6 +101,10 @@ an exact candidate checkout before its npm release. Set
 `CRABPOT_PLUGIN_INSPECTOR_BIN=/path/to/plugin-inspector`
 to test an arbitrary CLI binary.
 
+The pinned source recognizes compiled CommonJS channel factory calls and
+classifies widget presenters as metadata-only synthetic probes. These repairs
+are not yet in the default 0.3.23 package; use source mode to validate them.
+
 Current migration state: `scripts/inspect-fixtures.mjs` delegates static source,
 manifest, and package inspection to `plugin-inspector` while preserving
 crabpot's existing command output and exported helper names. Crabpot keeps its
