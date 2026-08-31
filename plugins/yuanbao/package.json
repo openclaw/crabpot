@@ -7,7 +7,7 @@
     "openclaw-plugin-yuanbao": "2.18.2"
   },
   "overrides": {
-    "@anthropic-ai/sdk": "0.91.1",
+    "@anthropic-ai/sdk": "0.122.0",
     "basic-ftp": "5.3.1",
     "brace-expansion": "5.0.9",
     "conf": "10.2.0",
@@ -17,11 +17,11 @@
     "fast-xml-parser": "5.11.1",
     "form-data": "4.0.6",
     "hono": "4.13.5",
-    "ip-address": "10.5.0",
+    "ip-address": "10.7.0",
     "linkify-it": "5.0.2",
     "markdown-it": "14.3.1",
     "protobufjs": "8.8.0",
-    "qs": "6.15.3",
+    "qs": "6.16.0",
     "tar": "7.5.22",
     "tough-cookie": "6.0.2",
     "undici@^7": "7.29.0",

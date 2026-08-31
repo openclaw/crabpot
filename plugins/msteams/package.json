@@ -15,8 +15,8 @@
     "sourceRef": "4bf1a7d1e0a9189d10c7fbaf263d2ad537cd0760"
   },
   "overrides": {
-    "axios": "1.15.2",
-    "qs": "6.15.2",
+    "axios": "1.20.0",
+    "qs": "6.16.0",
     "uuid": "11.1.1"
   }
 }

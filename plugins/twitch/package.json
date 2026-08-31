@@ -15,6 +15,6 @@
     "sourceRef": "10ad3aa16068baa84a1bd9ac4f7d42ae725cedb7"
   },
   "overrides": {
-    "ws": "8.20.1"
+    "ws": "8.21.3"
   }
 }
