@@ -90,6 +90,41 @@ test("plugin inspector smoke uses full default findings output", () => {
   assert.match(smokeScript, /"report", "--config", configPath, "--out", outDir/);
 });
 
+test("plugin inspector smoke check fails on a real missing registration", (t) => {
+  const root = mkdtempSync(path.join(os.tmpdir(), "crabpot-inspector-smoke-"));
+  t.after(() => rmSync(root, { force: true, recursive: true }));
+  mkdirSync(path.join(root, "fixture"));
+  writeFileSync(path.join(root, "fixture", "index.js"), "export {};\n");
+  const configPath = path.join(root, "config.json");
+  writeFileSync(configPath, JSON.stringify({
+    version: 1,
+    submoduleRoot: ".",
+    fixtures: [{
+      id: "fixture", path: "fixture", repo: "https://example.invalid/fixture.git",
+      priority: "high", seams: ["tool"], expect: { registrations: ["registerTool"] },
+    }],
+  }));
+  const env = {
+    ...process.env,
+    CRABPOT_PLUGIN_INSPECTOR_DIR: path.dirname(path.dirname(resolvePluginInspectorCliPath())),
+    CRABPOT_PLUGIN_INSPECTOR_CLI: "source",
+  };
+  delete env.CRABPOT_PLUGIN_INSPECTOR_BIN;
+  for (const check of [false, true]) {
+    const out = path.join(root, check ? "checked" : "report-only");
+    const result = spawnSync(process.execPath, [
+      "scripts/run-plugin-inspector-smoke.mjs", "--config", configPath, "--out", out,
+      ...(check ? ["--check"] : []),
+    ], { cwd: new URL("..", import.meta.url), env, encoding: "utf8" });
+    assert.ifError(result.error);
+    assert.match(result.stdout, /Status: FAIL/, result.stderr);
+    const report = JSON.parse(readFileSync(path.join(out, "plugin-inspector-report.json"), "utf8"));
+    assert.equal(report.status, "fail");
+    assert.equal(report.breakages[0].code, "missing-expected-seam");
+    assert.equal(result.status, check ? 1 : 0, result.stderr || result.stdout);
+  }
+});
+
 function runGit(cwd, args) {
   const result = spawnSync("git", args, { cwd, encoding: "utf8" });
   assert.equal(result.status, 0, result.stderr);

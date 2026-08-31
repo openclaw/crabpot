@@ -126,6 +126,8 @@ validating local inspector source changes. Set `CRABPOT_PLUGIN_INSPECTOR_DIR`
 to the candidate checkout to avoid selecting a different sibling checkout.
 Keep the published package pin unchanged until the candidate is on npm, then
 update it and run the package-mode smoke separately.
+The npm smoke forwards `--check`, so reported compatibility breakages produce
+a failing exit status. Direct wrapper calls without `--check` only write reports.
 
 Issue severity means:
 
