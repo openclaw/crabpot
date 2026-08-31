@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for OpenClaw Tlon/Urbit channel plugin.",
   "dependencies": {
-    "@openclaw/tlon": "2026.7.1"
+    "@openclaw/tlon": "2026.8.1"
   },
   "crabpot": {
     "fixture": "tlon",

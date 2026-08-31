@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for OpenClaw diagnostics OpenTelemetry exporter.",
   "dependencies": {
-    "@openclaw/diagnostics-otel": "2026.7.1"
+    "@openclaw/diagnostics-otel": "2026.8.1"
   },
   "crabpot": {
     "fixture": "diagnostics-otel",
@@ -15,8 +15,8 @@
     "sourceRef": "10ad3aa16068baa84a1bd9ac4f7d42ae725cedb7"
   },
   "overrides": {
-    "@opentelemetry/exporter-prometheus": "0.217.0",
-    "@opentelemetry/sdk-node": "0.217.0",
-    "protobufjs": "7.5.8"
+    "@opentelemetry/exporter-prometheus": "0.221.0",
+    "@opentelemetry/sdk-node": "0.221.0",
+    "protobufjs": "7.6.6"
   }
 }

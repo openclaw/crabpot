@@ -13,7 +13,7 @@ import {
 } from "../scripts/plugin-inspector-source.mjs";
 
 test("plugin inspector source pin requires an exact prepared checkout", (t) => {
-  assert.equal(pluginInspectorRef, "dbd761673e104f57a1ac470d4db7aa928b5b75b4");
+  assert.equal(pluginInspectorRef, "19512a12323eab2fff783820ffd20c3c04040964");
 
   const checkoutDir = mkdtempSync(path.join(os.tmpdir(), "crabpot-plugin-inspector-"));
   t.after(() => rmSync(checkoutDir, { force: true, recursive: true }));
@@ -88,6 +88,39 @@ test("plugin inspector smoke uses full default findings output", () => {
   assert.doesNotMatch(smokeScript, /--author-facing/);
   assert.doesNotMatch(smokeScript, /const command =/);
   assert.match(smokeScript, /"report", "--config", configPath, "--out", outDir/);
+});
+
+test("plugin inspector smoke forwards check mode and preserves failure status", (t) => {
+  const inspectorRoot = mkdtempSync(path.join(os.tmpdir(), "crabpot-inspector-smoke-"));
+  t.after(() => rmSync(inspectorRoot, { recursive: true, force: true }));
+  mkdirSync(path.join(inspectorRoot, "src"));
+  writeFileSync(
+    path.join(inspectorRoot, "src", "cli.js"),
+    'console.log(JSON.stringify(process.argv.slice(2))); process.exitCode = process.argv.includes("--check") ? 1 : 0;\n',
+  );
+
+  for (const check of [false, true]) {
+    const result = spawnSync(process.execPath, [
+      "scripts/run-plugin-inspector-smoke.mjs",
+      "--config", "fixture-config.json",
+      "--out", "fixture-reports",
+      ...(check ? ["--check"] : []),
+    ], {
+      cwd: path.resolve(import.meta.dirname, ".."),
+      encoding: "utf8",
+      env: {
+        ...process.env,
+        CRABPOT_PLUGIN_INSPECTOR_BIN: "",
+        CRABPOT_PLUGIN_INSPECTOR_CLI: "source",
+        CRABPOT_PLUGIN_INSPECTOR_DIR: inspectorRoot,
+      },
+    });
+    assert.equal(result.status, check ? 1 : 0, result.stderr);
+    assert.deepEqual(JSON.parse(result.stdout), [
+      "report", "--config", "fixture-config.json", "--out", "fixture-reports",
+      ...(check ? ["--check"] : []),
+    ]);
+  }
 });
 
 function runGit(cwd, args) {

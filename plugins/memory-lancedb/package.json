@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for OpenClaw LanceDB-backed long-term memory plugin with auto-recall/capture.",
   "dependencies": {
-    "@openclaw/memory-lancedb": "2026.8.1-beta.3"
+    "@openclaw/memory-lancedb": "2026.8.1"
   },
   "crabpot": {
     "fixture": "memory-lancedb",

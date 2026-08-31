@@ -2,7 +2,7 @@
   "generatedAt": "deterministic",
   "targetOpenClaw": {
     "status": "ok",
-    "configuredPath": "./openclaw",
+    "configuredPath": ".crabpot/openclaw",
     "sdkExportCount": 315
   },
   "summary": {
@@ -13,7 +13,7 @@
     "tsLoaderRequiredCount": 12,
     "buildRequiredCount": 9,
     "dependencyInstallRequiredCount": 65,
-    "sdkAliasRequiredCount": 22
+    "sdkAliasRequiredCount": 26
   },
   "fixtures": [
     {
@@ -852,7 +852,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@opentelemetry/api, @opentelemetry/api-logs, @opentelemetry/exporter-logs-otlp-proto, @opentelemetry/exporter-metrics-otlp-proto, @opentelemetry/exporter-trace-otlp-proto, @opentelemetry/resources, @opentelemetry/sdk-logs, @opentelemetry/sdk-metrics, @opentelemetry/sdk-node, @opentelemetry/sdk-trace-base, @opentelemetry/semantic-conventions"
+              "evidence": "@opentelemetry/api, @opentelemetry/api-logs, @opentelemetry/context-async-hooks, @opentelemetry/core, @opentelemetry/exporter-logs-otlp-proto, @opentelemetry/exporter-metrics-otlp-proto, @opentelemetry/exporter-trace-otlp-proto, @opentelemetry/propagator-b3, @opentelemetry/propagator-jaeger, @opentelemetry/resources, @opentelemetry/sdk-logs, @opentelemetry/sdk-metrics, @opentelemetry/sdk-trace-base, @opentelemetry/semantic-conventions"
             }
           ],
           "assertions": [
@@ -872,16 +872,22 @@
           "kind": "extension",
           "specifier": "./index.ts",
           "path": "plugins/discord/.crabpot-package/index.ts",
-          "status": "missing",
+          "status": "sdk-alias-required",
           "blockers": [
             {
               "code": "missing-entrypoint",
               "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/discord/.crabpot-package/index.ts"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/channel-join-intro-runtime @ plugins/discord/.crabpot-package/dist/provider-LXiOcJrH.js:84"
             }
           ],
           "assertions": [
-            "plugin package metadata points at an existing OpenClaw entrypoint"
+            "plugin package metadata points at an existing OpenClaw entrypoint",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         },
         {
@@ -891,16 +897,22 @@
           "kind": "runtimeExtension",
           "specifier": "./dist/index.js",
           "path": "plugins/discord/.crabpot-package/dist/index.js",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@discordjs/voice, discord-api-types, libopus-wasm, typebox, undici, ws"
+              "evidence": "@discord/embedded-app-sdk, @discordjs/voice, discord-api-types, libopus-wasm, mdast-util-from-markdown, typebox, undici, ws, zod"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/channel-join-intro-runtime @ plugins/discord/.crabpot-package/dist/provider-LXiOcJrH.js:84"
             }
           ],
           "assertions": [
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "fixture dependencies are installed in an isolated workspace before cold import",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         },
         {
@@ -910,16 +922,22 @@
           "kind": "setupEntry",
           "specifier": "./dist/setup-entry.js",
           "path": "plugins/discord/.crabpot-package/dist/setup-entry.js",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@discordjs/voice, discord-api-types, libopus-wasm, typebox, undici, ws"
+              "evidence": "@discord/embedded-app-sdk, @discordjs/voice, discord-api-types, libopus-wasm, mdast-util-from-markdown, typebox, undici, ws, zod"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/channel-join-intro-runtime @ plugins/discord/.crabpot-package/dist/provider-LXiOcJrH.js:84"
             }
           ],
           "assertions": [
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "fixture dependencies are installed in an isolated workspace before cold import",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         },
         {
@@ -929,16 +947,22 @@
           "kind": "runtimeSetupEntry",
           "specifier": "./dist/setup-entry.js",
           "path": "plugins/discord/.crabpot-package/dist/setup-entry.js",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@discordjs/voice, discord-api-types, libopus-wasm, typebox, undici, ws"
+              "evidence": "@discord/embedded-app-sdk, @discordjs/voice, discord-api-types, libopus-wasm, mdast-util-from-markdown, typebox, undici, ws, zod"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/channel-join-intro-runtime @ plugins/discord/.crabpot-package/dist/provider-LXiOcJrH.js:84"
             }
           ],
           "assertions": [
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "fixture dependencies are installed in an isolated workspace before cold import",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         }
       ]
@@ -1085,18 +1109,18 @@
           ]
         },
         {
-          "id": "cold-import.runtimeExtension:msteams:plugins-msteams-crabpot-package-dist-index-js",
+          "id": "cold-import.runtimeExtension:msteams:plugins-msteams-crabpot-package-dist-index-cjs",
           "fixture": "msteams",
           "packagePath": "plugins/msteams/.crabpot-package/package.json",
           "kind": "runtimeExtension",
-          "specifier": "./dist/index.js",
-          "path": "plugins/msteams/.crabpot-package/dist/index.js",
+          "specifier": "./dist/index.cjs",
+          "path": "plugins/msteams/.crabpot-package/dist/index.cjs",
           "status": "dependency-install-required",
           "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@azure/identity, @microsoft/teams.api, @microsoft/teams.apps, express, typebox"
+              "evidence": "@azure/identity, @microsoft/teams.api, @microsoft/teams.apps, express, typebox, zod"
             }
           ],
           "assertions": [
@@ -1104,18 +1128,18 @@
           ]
         },
         {
-          "id": "cold-import.setupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-js",
+          "id": "cold-import.setupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-cjs",
           "fixture": "msteams",
           "packagePath": "plugins/msteams/.crabpot-package/package.json",
           "kind": "setupEntry",
-          "specifier": "./dist/setup-entry.js",
-          "path": "plugins/msteams/.crabpot-package/dist/setup-entry.js",
+          "specifier": "./dist/setup-entry.cjs",
+          "path": "plugins/msteams/.crabpot-package/dist/setup-entry.cjs",
           "status": "dependency-install-required",
           "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@azure/identity, @microsoft/teams.api, @microsoft/teams.apps, express, typebox"
+              "evidence": "@azure/identity, @microsoft/teams.api, @microsoft/teams.apps, express, typebox, zod"
             }
           ],
           "assertions": [
@@ -1123,18 +1147,18 @@
           ]
         },
         {
-          "id": "cold-import.runtimeSetupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-js",
+          "id": "cold-import.runtimeSetupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-cjs",
           "fixture": "msteams",
           "packagePath": "plugins/msteams/.crabpot-package/package.json",
           "kind": "runtimeSetupEntry",
-          "specifier": "./dist/setup-entry.js",
-          "path": "plugins/msteams/.crabpot-package/dist/setup-entry.js",
+          "specifier": "./dist/setup-entry.cjs",
+          "path": "plugins/msteams/.crabpot-package/dist/setup-entry.cjs",
           "status": "dependency-install-required",
           "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@azure/identity, @microsoft/teams.api, @microsoft/teams.apps, express, typebox"
+              "evidence": "@azure/identity, @microsoft/teams.api, @microsoft/teams.apps, express, typebox, zod"
             }
           ],
           "assertions": [
@@ -1342,7 +1366,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "commander, typebox, ws, zod"
+              "evidence": "typebox, ws, zod"
             }
           ],
           "assertions": [
@@ -1550,7 +1574,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@larksuiteoapi/node-sdk, typebox, zod"
+              "evidence": "@larksuiteoapi/node-sdk, mdast-util-from-markdown, mdast-util-gfm-table, micromark-extension-gfm-table, typebox, zod"
             }
           ],
           "assertions": [
@@ -1569,7 +1593,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@larksuiteoapi/node-sdk, typebox, zod"
+              "evidence": "@larksuiteoapi/node-sdk, mdast-util-from-markdown, mdast-util-gfm-table, micromark-extension-gfm-table, typebox, zod"
             }
           ],
           "assertions": [
@@ -1588,7 +1612,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@larksuiteoapi/node-sdk, typebox, zod"
+              "evidence": "@larksuiteoapi/node-sdk, mdast-util-from-markdown, mdast-util-gfm-table, micromark-extension-gfm-table, typebox, zod"
             }
           ],
           "assertions": [
@@ -1714,7 +1738,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@twurple/api, @twurple/auth, @twurple/chat, zod"
+              "evidence": "@twurple/api-call, @twurple/auth, @twurple/chat, zod"
             }
           ],
           "assertions": [
@@ -1733,7 +1757,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@twurple/api, @twurple/auth, @twurple/chat, zod"
+              "evidence": "@twurple/api-call, @twurple/auth, @twurple/chat, zod"
             }
           ],
           "assertions": [
@@ -1752,7 +1776,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@twurple/api, @twurple/auth, @twurple/chat, zod"
+              "evidence": "@twurple/api-call, @twurple/auth, @twurple/chat, zod"
             }
           ],
           "assertions": [
@@ -1971,12 +1995,18 @@
           "status": "dependency-install-required",
           "blockers": [
             {
+              "code": "top-level-side-effect-review",
+              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
+              "evidence": "plugins/codex/.crabpot-package/dist/index.js"
+            },
+            {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@openai/codex, typebox, ws, zod"
+              "evidence": "@openai/codex, semver, smol-toml, typebox, ws, zod"
             }
           ],
           "assertions": [
+            "cold import sandbox blocks network/process side effects before register capture",
             "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         }
@@ -2054,18 +2084,12 @@
           "status": "dependency-install-required",
           "blockers": [
             {
-              "code": "top-level-side-effect-review",
-              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
-              "evidence": "plugins/google-meet/.crabpot-package/dist/index.js"
-            },
-            {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "commander, typebox"
+              "evidence": "jszip, typebox"
             }
           ],
           "assertions": [
-            "cold import sandbox blocks network/process side effects before register capture",
             "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         }
@@ -2194,7 +2218,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@tencent-connect/qqbot-connector, mpg123-decoder, silk-wasm, ws, zod"
+              "evidence": "@tencent-connect/qqbot-connector, mpg123-decoder, p-map, pretty-ms, silk-wasm, ws, zod"
             }
           ],
           "assertions": [
@@ -2213,7 +2237,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@tencent-connect/qqbot-connector, mpg123-decoder, silk-wasm, ws, zod"
+              "evidence": "@tencent-connect/qqbot-connector, mpg123-decoder, p-map, pretty-ms, silk-wasm, ws, zod"
             }
           ],
           "assertions": [
@@ -2232,7 +2256,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@tencent-connect/qqbot-connector, mpg123-decoder, silk-wasm, ws, zod"
+              "evidence": "@tencent-connect/qqbot-connector, mpg123-decoder, p-map, pretty-ms, silk-wasm, ws, zod"
             }
           ],
           "assertions": [

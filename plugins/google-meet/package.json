@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for OpenClaw Google Meet participant plugin.",
   "dependencies": {
-    "@openclaw/google-meet": "2026.8.1-beta.3"
+    "@openclaw/google-meet": "2026.8.1"
   },
   "crabpot": {
     "fixture": "google-meet",
