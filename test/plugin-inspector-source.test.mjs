@@ -13,7 +13,7 @@ import {
 } from "../scripts/plugin-inspector-source.mjs";
 
 test("plugin inspector source pin requires an exact prepared checkout", (t) => {
-  assert.equal(pluginInspectorRef, "dbd761673e104f57a1ac470d4db7aa928b5b75b4");
+  assert.equal(pluginInspectorRef, "92db8c57e1d5544c522c7c882a33be1ad4e253b9");
 
   const checkoutDir = mkdtempSync(path.join(os.tmpdir(), "crabpot-plugin-inspector-"));
   t.after(() => rmSync(checkoutDir, { force: true, recursive: true }));
@@ -88,6 +88,41 @@ test("plugin inspector smoke uses full default findings output", () => {
   assert.doesNotMatch(smokeScript, /--author-facing/);
   assert.doesNotMatch(smokeScript, /const command =/);
   assert.match(smokeScript, /"report", "--config", configPath, "--out", outDir/);
+});
+
+test("plugin inspector smoke check fails on a real missing registration", (t) => {
+  const root = mkdtempSync(path.join(os.tmpdir(), "crabpot-inspector-smoke-"));
+  t.after(() => rmSync(root, { force: true, recursive: true }));
+  mkdirSync(path.join(root, "fixture"));
+  writeFileSync(path.join(root, "fixture", "index.js"), "export {};\n");
+  const configPath = path.join(root, "config.json");
+  writeFileSync(configPath, JSON.stringify({
+    version: 1,
+    submoduleRoot: ".",
+    fixtures: [{
+      id: "fixture", path: "fixture", repo: "https://example.invalid/fixture.git",
+      priority: "high", seams: ["tool"], expect: { registrations: ["registerTool"] },
+    }],
+  }));
+  const env = {
+    ...process.env,
+    CRABPOT_PLUGIN_INSPECTOR_DIR: path.dirname(path.dirname(resolvePluginInspectorCliPath())),
+    CRABPOT_PLUGIN_INSPECTOR_CLI: "source",
+  };
+  delete env.CRABPOT_PLUGIN_INSPECTOR_BIN;
+  for (const check of [false, true]) {
+    const out = path.join(root, check ? "checked" : "report-only");
+    const result = spawnSync(process.execPath, [
+      "scripts/run-plugin-inspector-smoke.mjs", "--config", configPath, "--out", out,
+      ...(check ? ["--check"] : []),
+    ], { cwd: new URL("..", import.meta.url), env, encoding: "utf8" });
+    assert.ifError(result.error);
+    assert.match(result.stdout, /Status: FAIL/, result.stderr);
+    const report = JSON.parse(readFileSync(path.join(out, "plugin-inspector-report.json"), "utf8"));
+    assert.equal(report.status, "fail");
+    assert.equal(report.breakages[0].code, "missing-expected-seam");
+    assert.equal(result.status, check ? 1 : 0, result.stderr || result.stdout);
+  }
 });
 
 function runGit(cwd, args) {

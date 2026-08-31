@@ -120,9 +120,14 @@ node scripts/check-contract-coverage.mjs --openclaw ../openclaw
 ```
 
 `npm run plugin-inspector:smoke` uses the published
-`@openclaw/plugin-inspector@0.3.16` package by default. Use
+`@openclaw/plugin-inspector@0.3.24` package by default. Use
 `CRABPOT_PLUGIN_INSPECTOR_CLI=source npm run plugin-inspector:smoke` only when
-validating local inspector source changes.
+validating local inspector source changes. Set `CRABPOT_PLUGIN_INSPECTOR_DIR`
+to the candidate checkout to avoid selecting a different sibling checkout.
+Keep the published package pin unchanged until the candidate is on npm, then
+update it and run the package-mode smoke separately.
+The npm smoke forwards `--check`, so reported compatibility breakages produce
+a failing exit status. Direct wrapper calls without `--check` only write reports.
 
 Issue severity means:
 
