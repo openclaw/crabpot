@@ -93,7 +93,7 @@ npm run plugin-inspector:smoke
 ```
 
 The smoke writes ignored artifacts under `.crabpot/plugin-inspector-smoke/`.
-By default the smoke runs the published `@openclaw/plugin-inspector@0.3.23`
+By default the smoke runs the published `@openclaw/plugin-inspector@0.3.24`
 package through `npm exec`. For local plugin-inspector development, set
 `CRABPOT_PLUGIN_INSPECTOR_CLI=source` to run the sibling or pinned source
 checkout instead. Set `CRABPOT_PLUGIN_INSPECTOR_DIR=/path/to/candidate` to select
@@ -101,9 +101,8 @@ an exact candidate checkout before its npm release. Set
 `CRABPOT_PLUGIN_INSPECTOR_BIN=/path/to/plugin-inspector`
 to test an arbitrary CLI binary.
 
-The pinned source recognizes compiled CommonJS channel factory calls and
-classifies widget presenters as metadata-only synthetic probes. These repairs
-are not yet in the default 0.3.23 package; use source mode to validate them.
+The pinned source and published package recognize compiled CommonJS channel
+factory calls and classify widget presenters as metadata-only synthetic probes.
 
 Current migration state: `scripts/inspect-fixtures.mjs` delegates static source,
 manifest, and package inspection to `plugin-inspector` while preserving
