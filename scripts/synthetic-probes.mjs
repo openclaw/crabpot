@@ -42,6 +42,10 @@ const crabpotMetadataOnlyRegistrars = new Map([
     "registerTranscriptSourceProvider",
     "transcript source providers are captured as registration metadata before transcript provider runtime execution",
   ],
+  [
+    "registerWidgetPresenter",
+    "widget presenters are captured as registration metadata before channel presentation execution",
+  ],
 ]);
 
 export function validateSyntheticProbePlan(plan) {

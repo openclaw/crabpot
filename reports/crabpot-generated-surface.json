@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-28T06:38:32.024Z",
+  "generatedAt": "2026-08-31T07:19:56.955Z",
   "status": "pass",
   "pluginRoot": ".crabpot/generated-surface-plugin",
   "targetOpenClaw": {
     "status": "ok",
-    "configuredPath": "../openclaw",
+    "configuredPath": ".crabpot/openclaw",
     "hookNameCount": 42,
     "apiRegistrarCount": 57,
     "sdkExportCount": 315,
@@ -1360,14 +1360,14 @@
   },
   "inspector": {
     "static": {
-      "command": "npm exec --yes --package @openclaw/plugin-inspector@0.3.21 -- plugin-inspector check --config plugin-inspector.config.json --no-openclaw --out reports --no-runtime",
+      "command": "npm exec --yes --package @openclaw/plugin-inspector@0.3.23 -- plugin-inspector check --config plugin-inspector.config.json --no-openclaw --out reports --no-runtime",
       "status": 0,
       "stdout": "Status: PASS\nFixtures: 1\nBreakages: 0\nIssues: 4\nLogs: 4\n\nReports:\n- json: ./.crabpot/generated-surface-plugin/reports/plugin-inspector-report.json\n- markdown: ./.crabpot/generated-surface-plugin/reports/plugin-inspector-report.md\n- issues: ./.crabpot/generated-surface-plugin/reports/plugin-inspector-issues.md\n",
       "stderr": "",
       "failures": []
     },
     "runtime": {
-      "command": "npm exec --yes --package @openclaw/plugin-inspector@0.3.21 -- plugin-inspector check --config plugin-inspector.config.json --no-openclaw --out reports --runtime --mock-sdk",
+      "command": "npm exec --yes --package @openclaw/plugin-inspector@0.3.23 -- plugin-inspector check --config plugin-inspector.config.json --no-openclaw --out reports --runtime --mock-sdk",
       "status": 0,
       "stdout": "Status: PASS\nFixtures: 1\nBreakages: 0\nIssues: 4\nLogs: 4\n\nReports:\n- json: ./.crabpot/generated-surface-plugin/reports/plugin-inspector-report.json\n- markdown: ./.crabpot/generated-surface-plugin/reports/plugin-inspector-report.md\n- issues: ./.crabpot/generated-surface-plugin/reports/plugin-inspector-issues.md\n",
       "stderr": "",

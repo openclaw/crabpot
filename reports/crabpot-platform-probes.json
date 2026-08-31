@@ -508,7 +508,7 @@
     {
       "fixture": "discord",
       "id": "cold-import.extension:discord:plugins-discord-crabpot-package-index-ts",
-      "status": "missing",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/discord/.crabpot-package/index.ts",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -526,7 +526,7 @@
     {
       "fixture": "discord",
       "id": "cold-import.runtimeExtension:discord:plugins-discord-crabpot-package-dist-index-js",
-      "status": "dependency-install-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/discord/.crabpot-package/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -544,7 +544,7 @@
     {
       "fixture": "discord",
       "id": "cold-import.setupEntry:discord:plugins-discord-crabpot-package-dist-setup-entry-js",
-      "status": "dependency-install-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/discord/.crabpot-package/dist/setup-entry.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -562,7 +562,7 @@
     {
       "fixture": "discord",
       "id": "cold-import.runtimeSetupEntry:discord:plugins-discord-crabpot-package-dist-setup-entry-js",
-      "status": "dependency-install-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/discord/.crabpot-package/dist/setup-entry.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -673,9 +673,9 @@
     },
     {
       "fixture": "msteams",
-      "id": "cold-import.runtimeExtension:msteams:plugins-msteams-crabpot-package-dist-index-js",
+      "id": "cold-import.runtimeExtension:msteams:plugins-msteams-crabpot-package-dist-index-cjs",
       "status": "dependency-install-required",
-      "entrypoint": "plugins/msteams/.crabpot-package/dist/index.js",
+      "entrypoint": "plugins/msteams/.crabpot-package/dist/index.cjs",
       "packageManager": "npm",
       "loaderSource": "native-node",
       "loaderPrimary": "node",
@@ -691,9 +691,9 @@
     },
     {
       "fixture": "msteams",
-      "id": "cold-import.setupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-js",
+      "id": "cold-import.setupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-cjs",
       "status": "dependency-install-required",
-      "entrypoint": "plugins/msteams/.crabpot-package/dist/setup-entry.js",
+      "entrypoint": "plugins/msteams/.crabpot-package/dist/setup-entry.cjs",
       "packageManager": "npm",
       "loaderSource": "native-node",
       "loaderPrimary": "node",
@@ -709,9 +709,9 @@
     },
     {
       "fixture": "msteams",
-      "id": "cold-import.runtimeSetupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-js",
+      "id": "cold-import.runtimeSetupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-cjs",
       "status": "dependency-install-required",
-      "entrypoint": "plugins/msteams/.crabpot-package/dist/setup-entry.js",
+      "entrypoint": "plugins/msteams/.crabpot-package/dist/setup-entry.cjs",
       "packageManager": "npm",
       "loaderSource": "native-node",
       "loaderPrimary": "node",
@@ -4722,7 +4722,7 @@
     },
     {
       "fixture": "msteams",
-      "entrypoint": "cold-import.runtimeExtension:msteams:plugins-msteams-crabpot-package-dist-index-js",
+      "entrypoint": "cold-import.runtimeExtension:msteams:plugins-msteams-crabpot-package-dist-index-cjs",
       "kind": "prepare",
       "command": "mkdir -p .crabpot/workspaces/msteams && rsync -a --delete plugins/msteams/.crabpot-package/ .crabpot/workspaces/msteams/",
       "coverage": "covered by Crabpot structured executor",
@@ -4737,7 +4737,7 @@
     },
     {
       "fixture": "msteams",
-      "entrypoint": "cold-import.runtimeExtension:msteams:plugins-msteams-crabpot-package-dist-index-js",
+      "entrypoint": "cold-import.runtimeExtension:msteams:plugins-msteams-crabpot-package-dist-index-cjs",
       "kind": "prepare-artifacts",
       "command": "mkdir -p .crabpot/results/msteams",
       "coverage": "covered by Crabpot structured executor",
@@ -4750,7 +4750,7 @@
     },
     {
       "fixture": "msteams",
-      "entrypoint": "cold-import.runtimeExtension:msteams:plugins-msteams-crabpot-package-dist-index-js",
+      "entrypoint": "cold-import.runtimeExtension:msteams:plugins-msteams-crabpot-package-dist-index-cjs",
       "kind": "audit",
       "command": "npm audit --json > ../../results/msteams/package-audit.json || true",
       "coverage": "covered by Crabpot structured executor",
@@ -4764,9 +4764,9 @@
     },
     {
       "fixture": "msteams",
-      "entrypoint": "cold-import.runtimeExtension:msteams:plugins-msteams-crabpot-package-dist-index-js",
+      "entrypoint": "cold-import.runtimeExtension:msteams:plugins-msteams-crabpot-package-dist-index-cjs",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.js --mock-sdk --output ../../results/msteams/cold-import-runtimeExtension-msteams-plugins-msteams-crabpot-package-dist-index-js.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/index.cjs --mock-sdk --output ../../results/msteams/cold-import-runtimeExtension-msteams-plugins-msteams-crabpot-package-dist-index-cjs.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4777,9 +4777,9 @@
     },
     {
       "fixture": "msteams",
-      "entrypoint": "cold-import.runtimeExtension:msteams:plugins-msteams-crabpot-package-dist-index-js",
+      "entrypoint": "cold-import.runtimeExtension:msteams:plugins-msteams-crabpot-package-dist-index-cjs",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.js --mock-sdk --output ../../results/msteams/cold-import-runtimeExtension-msteams-plugins-msteams-crabpot-package-dist-index-js.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/index.cjs --mock-sdk --output ../../results/msteams/cold-import-runtimeExtension-msteams-plugins-msteams-crabpot-package-dist-index-cjs.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4790,7 +4790,7 @@
     },
     {
       "fixture": "msteams",
-      "entrypoint": "cold-import.setupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-js",
+      "entrypoint": "cold-import.setupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-cjs",
       "kind": "prepare",
       "command": "mkdir -p .crabpot/workspaces/msteams && rsync -a --delete plugins/msteams/.crabpot-package/ .crabpot/workspaces/msteams/",
       "coverage": "covered by Crabpot structured executor",
@@ -4805,7 +4805,7 @@
     },
     {
       "fixture": "msteams",
-      "entrypoint": "cold-import.setupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-js",
+      "entrypoint": "cold-import.setupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-cjs",
       "kind": "prepare-artifacts",
       "command": "mkdir -p .crabpot/results/msteams",
       "coverage": "covered by Crabpot structured executor",
@@ -4818,7 +4818,7 @@
     },
     {
       "fixture": "msteams",
-      "entrypoint": "cold-import.setupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-js",
+      "entrypoint": "cold-import.setupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-cjs",
       "kind": "audit",
       "command": "npm audit --json > ../../results/msteams/package-audit.json || true",
       "coverage": "covered by Crabpot structured executor",
@@ -4832,9 +4832,9 @@
     },
     {
       "fixture": "msteams",
-      "entrypoint": "cold-import.setupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-js",
+      "entrypoint": "cold-import.setupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-cjs",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --mock-sdk --output ../../results/msteams/cold-import-setupEntry-msteams-plugins-msteams-crabpot-package-dist-setup-entry-js.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.cjs --mock-sdk --output ../../results/msteams/cold-import-setupEntry-msteams-plugins-msteams-crabpot-package-dist-setup-entry-cjs.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4845,9 +4845,9 @@
     },
     {
       "fixture": "msteams",
-      "entrypoint": "cold-import.setupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-js",
+      "entrypoint": "cold-import.setupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-cjs",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --mock-sdk --output ../../results/msteams/cold-import-setupEntry-msteams-plugins-msteams-crabpot-package-dist-setup-entry-js.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.cjs --mock-sdk --output ../../results/msteams/cold-import-setupEntry-msteams-plugins-msteams-crabpot-package-dist-setup-entry-cjs.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4858,7 +4858,7 @@
     },
     {
       "fixture": "msteams",
-      "entrypoint": "cold-import.runtimeSetupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-js",
+      "entrypoint": "cold-import.runtimeSetupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-cjs",
       "kind": "prepare",
       "command": "mkdir -p .crabpot/workspaces/msteams && rsync -a --delete plugins/msteams/.crabpot-package/ .crabpot/workspaces/msteams/",
       "coverage": "covered by Crabpot structured executor",
@@ -4873,7 +4873,7 @@
     },
     {
       "fixture": "msteams",
-      "entrypoint": "cold-import.runtimeSetupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-js",
+      "entrypoint": "cold-import.runtimeSetupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-cjs",
       "kind": "prepare-artifacts",
       "command": "mkdir -p .crabpot/results/msteams",
       "coverage": "covered by Crabpot structured executor",
@@ -4886,7 +4886,7 @@
     },
     {
       "fixture": "msteams",
-      "entrypoint": "cold-import.runtimeSetupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-js",
+      "entrypoint": "cold-import.runtimeSetupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-cjs",
       "kind": "audit",
       "command": "npm audit --json > ../../results/msteams/package-audit.json || true",
       "coverage": "covered by Crabpot structured executor",
@@ -4900,9 +4900,9 @@
     },
     {
       "fixture": "msteams",
-      "entrypoint": "cold-import.runtimeSetupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-js",
+      "entrypoint": "cold-import.runtimeSetupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-cjs",
       "kind": "capture",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.js --mock-sdk --output ../../results/msteams/cold-import-runtimeSetupEntry-msteams-plugins-msteams-crabpot-package-dist-setup-entry-js.capture.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/run-cold-import-capture.mjs ./dist/setup-entry.cjs --mock-sdk --output ../../results/msteams/cold-import-runtimeSetupEntry-msteams-plugins-msteams-crabpot-package-dist-setup-entry-cjs.capture.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
@@ -4913,9 +4913,9 @@
     },
     {
       "fixture": "msteams",
-      "entrypoint": "cold-import.runtimeSetupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-js",
+      "entrypoint": "cold-import.runtimeSetupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-cjs",
       "kind": "synthetic-probe",
-      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.js --mock-sdk --output ../../results/msteams/cold-import-runtimeSetupEntry-msteams-plugins-msteams-crabpot-package-dist-setup-entry-js.synthetic.json",
+      "command": "CRABPOT_EXECUTE_ISOLATED=1 node ../../../scripts/synthetic-probes.mjs --entrypoint ./dist/setup-entry.cjs --mock-sdk --output ../../results/msteams/cold-import-runtimeSetupEntry-msteams-plugins-msteams-crabpot-package-dist-setup-entry-cjs.synthetic.json",
       "coverage": "covered by Crabpot structured executor",
       "platforms": [
         "windows"
