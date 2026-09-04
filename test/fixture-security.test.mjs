@@ -1,4 +1,8 @@
 import assert from "node:assert/strict";
+import { spawnSync } from "node:child_process";
+import { chmodSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import os from "node:os";
+import path from "node:path";
 import { test } from "node:test";
 import {
   lockFixableFindings,
@@ -54,6 +58,26 @@ test("fixture security gate blocks only lock-refreshable critical and high findi
   );
 });
 
+test("fixture security gate treats npm audit timeouts as spawn errors", () => {
+  const error = new Error("spawnSync npm ETIMEDOUT");
+  error.code = "ETIMEDOUT";
+  assert.throws(
+    () =>
+      parseAuditResult(
+        {
+          error,
+          status: null,
+          signal: "SIGTERM",
+          stdout: "",
+          stderr: "",
+        },
+        "fixture",
+        250,
+      ),
+    /fixture: npm audit timed out after 250ms/,
+  );
+});
+
 test("fixture security gate rejects npm audit operational errors", () => {
   assert.throws(
     () =>
@@ -89,3 +113,38 @@ test("fixture security gate accepts vulnerability audit exit status", () => {
     audit,
   );
 });
+
+test("fixture security check returns instead of blocking when npm audit hangs", (t) => {
+  const hangDir = mkdtempSync(path.join(os.tmpdir(), "crabpot-npm-audit-hang-"));
+  t.after(() => rmSync(hangDir, { force: true, recursive: true }));
+  writeHangCommand(hangDir, process.platform === "win32" ? "npm.cmd" : "npm");
+
+  const startedAt = Date.now();
+  const result = spawnSync(process.execPath, ["scripts/check-fixture-security.mjs"], {
+    cwd: process.cwd(),
+    encoding: "utf8",
+    env: {
+      ...process.env,
+      CRABPOT_NPM_TIMEOUT_MS: "250",
+      PATH: `${hangDir}${path.delimiter}${process.env.PATH}`,
+    },
+    timeout: 5_000,
+  });
+
+  assert.notEqual(result.error?.code, "ETIMEDOUT", result.error?.message);
+  assert.notEqual(result.status, 0);
+  assert.match(`${result.stderr}\n${result.stdout}`, /timed out after 250ms/);
+  assert.ok(Date.now() - startedAt < 4_000, "hung npm audit must return");
+});
+
+function writeHangCommand(dir, name) {
+  const file = path.join(dir, name);
+  if (process.platform === "win32") {
+    writeFileSync(file, `@echo off\r\n"${process.execPath}" -e "setTimeout(() => {}, 30000)"\r\n`);
+    return file;
+  }
+
+  writeFileSync(file, `#!/bin/sh\nexec "${process.execPath}" -e 'setTimeout(() => {}, 30000)'\n`);
+  chmodSync(file, 0o755);
+  return file;
+}
