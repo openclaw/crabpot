@@ -2,6 +2,7 @@
 
 ## 0.2.2 - Unreleased
 
+- Removed the obsolete bundled QQ Bot source fixture that blocked development dashboard materialization after OpenClaw externalized the plugin; retained the Tencent QQbot git fixture and its channel/tool coverage.
 - Refreshed compatible plugin fixture pins and npm locks, upgraded plugin-inspector to 0.3.21, and moved CI to current GitHub Actions.
 - Refreshed plugin fixtures and restored real OpenClaw lifecycle profiling against current diagnostics APIs.
 - Split CI into a required pinned OpenClaw Default Track, an advisory artifact-producing HEAD canary, and a 14-day pin-promotion SLA.

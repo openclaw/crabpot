@@ -7,6 +7,12 @@ test("fixture manifest is valid and seam-rich", async () => {
 
   assert.equal(manifest.submoduleRoot, "plugins");
   assert.ok(manifest.fixtures.length >= 10);
+  assert.equal(manifest.fixtures.some((fixture) => fixture.id === "openclaw-qqbot"), false);
+  const qqbot = manifest.fixtures.find((fixture) => fixture.id === "qqbot");
+  assert.equal(qqbot.repo, "https://github.com/tencent-connect/openclaw-qqbot.git");
+  assert.equal(qqbot.path, "plugins/qqbot");
+  assert.equal(qqbot.package, undefined);
+  assert.deepEqual(qqbot.expect.registrations, ["registerChannel", "registerTool"]);
   assert.deepEqual(
     ["hyperspell", "honcho", "composio", "memu-engine", "secureclaw", "memos-cloud"].filter((id) =>
       manifest.fixtures.some((fixture) => fixture.id === id),
@@ -45,7 +51,6 @@ test("openclaw beta fixture set narrows to beta npm packages", async () => {
     "google-meet",
     "diffs",
     "memory-lancedb",
-    "openclaw-qqbot",
     "whatsapp",
   ]);
   assert.ok(manifest.fixtures.every((fixture) => fixture.package?.tag === "beta"));

@@ -1055,45 +1055,6 @@
       "why": "Official LanceDB memory package covering automatic recall/capture hooks, vector-store lifecycle, service/CLI setup, tool contracts, and npm artifact packaging."
     },
     {
-      "id": "openclaw-qqbot",
-      "name": "OpenClaw QQ Bot channel plugin",
-      "package": {
-        "name": "@openclaw/qqbot",
-        "tag": "beta"
-      },
-      "source": {
-        "repo": "https://github.com/openclaw/openclaw.git",
-        "path": "extensions/qqbot",
-        "ref": "dabe1915362e20c25704af91612a32a8f4c96e83"
-      },
-      "path": "plugins/openclaw-qqbot",
-      "priority": "medium",
-      "seams": [
-        "channel",
-        "command",
-        "tool",
-        "media",
-        "npm-artifact"
-      ],
-      "expect": {
-        "registrations": [
-          "registerCommand",
-          "registerTool"
-        ]
-      },
-      "execution": {
-        "blockedFailures": [
-          {
-            "id": "openclaw-qqbot-command-channel-config-runtime",
-            "seam": "registerCommand",
-            "errorIncludes": "reading 'channels'",
-            "reason": "captured QQ Bot command probe requires host channel configuration"
-          }
-        ]
-      },
-      "why": "Official OpenClaw QQ Bot npm package covering command/tool registration, channel manifest metadata, media-capable messaging, and monorepo source mapping without replacing the external QQBot fixture."
-    },
-    {
       "id": "whatsapp",
       "name": "OpenClaw WhatsApp channel plugin",
       "package": {

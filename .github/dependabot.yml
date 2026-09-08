@@ -321,17 +321,6 @@ updates:
       include: "scope"
 
   - package-ecosystem: "npm"
-    directory: "/plugins/openclaw-qqbot"
-    schedule:
-      interval: "cron"
-      cronjob: "23 9,21 * * *"
-      timezone: "Etc/UTC"
-    open-pull-requests-limit: 5
-    commit-message:
-      prefix: "chore"
-      include: "scope"
-
-  - package-ecosystem: "npm"
     directory: "/plugins/whatsapp"
     schedule:
       interval: "cron"

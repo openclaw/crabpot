@@ -24,6 +24,8 @@ test("compatibility report classifies current fixture seams", async () => {
   assert.equal(report.status, "pass");
   assert.equal(report.breakages.length, 0);
   assert.ok(report.summary.fixtureCount >= 10);
+  assert.equal(report.fixtures.some((fixture) => fixture.id === "openclaw-qqbot"), false);
+  assert.ok(report.fixtures.some((fixture) => fixture.id === "qqbot"));
   assert.ok(report.summary.issueCount > 0);
   assert.ok(report.summary.p1IssueCount > 0);
   assert.ok(report.summary.deprecationWarningCount > 0);
@@ -149,7 +151,7 @@ test("markdown report includes review sections", async () => {
 test("report can focus on the OpenClaw beta npm fixture set", async () => {
   const report = await buildReport({ fixtureSet: "openclaw-beta", generatedAt: "test", openclawPath: false });
 
-  assert.equal(report.summary.fixtureCount, 8);
+  assert.equal(report.summary.fixtureCount, 7);
   assert.equal(report.crabpotContext.fixtureSet, "openclaw-beta");
   assert.deepEqual(report.crabpotContext.fixtureIds, [
     "brave-plugin",
@@ -158,7 +160,6 @@ test("report can focus on the OpenClaw beta npm fixture set", async () => {
     "google-meet",
     "diffs",
     "memory-lancedb",
-    "openclaw-qqbot",
     "whatsapp",
   ]);
   assert.ok(report.fixtures.every((fixture) => report.crabpotContext.fixtureIds.includes(fixture.id)));
