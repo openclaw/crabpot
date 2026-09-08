@@ -282,6 +282,7 @@
         "discord:missing-compat-record",
         "discord:sdk-export-missing",
         "feishu:missing-compat-record",
+        "feishu:sdk-export-missing",
         "google-meet:missing-compat-record",
         "hasdata:missing-compat-record",
         "honcho:conversation-access-hook",
@@ -341,7 +342,6 @@
         "openclaw-telemetry:sdk-export-missing",
         "openclaw-weixin:missing-compat-record",
         "openclaw-weixin:missing-compat-record",
-        "openclaw-weixin:sdk-export-missing",
         "opik-openclaw:before-tool-call-probe",
         "opik-openclaw:conversation-access-hook",
         "opik-openclaw:missing-compat-record",
@@ -360,6 +360,7 @@
         "telnyx-sms:missing-compat-record",
         "telnyx-sms:sdk-export-missing",
         "tlon:missing-compat-record",
+        "tlon:sdk-export-missing",
         "twitch:missing-compat-record",
         "voice-call:missing-compat-record",
         "wecom:before-tool-call-probe",
@@ -370,7 +371,6 @@
         "yuanbao:missing-compat-record",
         "yuanbao:missing-compat-record",
         "yuanbao:missing-compat-record",
-        "yuanbao:sdk-export-missing",
         "zalo:missing-compat-record",
         "zalouser:missing-compat-record"
       ]
