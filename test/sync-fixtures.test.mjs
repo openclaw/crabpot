@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
 import { existsSync } from "node:fs";
-import { chmod, cp, mkdir, mkdtemp, readFile, readdir, rm, writeFile } from "node:fs/promises";
+import { chmod, cp, mkdir, mkdtemp, readFile, readdir, realpath, rm, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import { test } from "node:test";
@@ -68,7 +68,7 @@ async function controlledNpm() {
 }
 
 async function miniatureRepo(t, fixtures, steps = []) {
-  const root = await mkdtemp(path.join(os.tmpdir(), "crabpot-materialize-test-"));
+  const root = await realpath(await mkdtemp(path.join(os.tmpdir(), "crabpot-materialize-test-")));
   t.after(() => rm(root, { recursive: true, force: true }));
   await cp(path.join(repoRoot, "scripts"), path.join(root, "scripts"), { recursive: true });
   for (const directory of ["bin", "tmp", "home"]) {
