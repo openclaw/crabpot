@@ -62,6 +62,9 @@ if (args.packageAvailabilityReport) {
   });
 }
 
+if (packageAvailabilityFailures.some((failure) => failure.reason === "npm-pack-failed")) {
+  throw new Error("npm fixture acquisition failed; see npm pack errors above");
+}
 console.log("crabpot: fixtures materialized. review .gitmodules and commit pinned revisions.");
 
 async function checkGitmodules(manifest) {
@@ -122,9 +125,6 @@ async function materializeNpmFixture(fixture, target) {
         requestedVersion: dependency.version,
         reason: "npm-pack-failed",
       });
-      if (!existsSync(payloadDir)) {
-        await mkdir(payloadDir, { recursive: true });
-      }
       return;
     }
     const packed = parseNpmPackResult(pack.stdout);

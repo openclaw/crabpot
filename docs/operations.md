@@ -12,6 +12,21 @@ Repo-backed fixtures use `repo` and are pinned as shallow git submodules.
 Npm-only fixtures use `package.name` plus a pinned `package.version`; their code
 is unpacked into ignored `plugins/<id>` directories during materialization.
 
+Materialization collects requested npm pack failures, processes the remaining
+fixtures, and writes `reports/crabpot-package-availability.json` before exiting
+nonzero. It does not announce success or allow the static runner to continue
+past that failed prerequisite. A missing dist-tag that successfully falls back
+to the pinned shim version still succeeds, with its existing availability
+evidence; a failed fallback pack does not.
+
+`--no-package-availability-report` suppresses report writes, not failure:
+failed packs still exit nonzero and any existing report stays byte-identical.
+Failed acquisition creates no empty payload directory and leaves stale payload
+bytes untouched; their presence does not make the requested acquisition usable.
+`--check` remains manifest/shim validation, not an acquisition check. Best-effort
+reports can retain unavailable-package findings after materialization fails;
+successful report generation does not make the failed prerequisite pass.
+
 ## Updating fixtures
 
 ```bash

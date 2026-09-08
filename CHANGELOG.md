@@ -2,6 +2,7 @@
 
 ## 0.2.2 - Unreleased
 
+- Failed npm fixture packs now stop materialization and dependent checks after collecting availability evidence, including when report writing is disabled; successful pinned fallbacks remain supported.
 - Adopted the inspector source repair for credential-free model-auth registration capture; published-package smoke remains on the older 0.3.24 release.
 - Removed the obsolete bundled QQ Bot source fixture that blocked development dashboard materialization after OpenClaw externalized the plugin; retained the Tencent QQbot git fixture and its channel/tool coverage.
 - Restored native lifecycle profiling through root registry activation and rejected malformed phase timings.
