@@ -2,6 +2,7 @@
 
 ## 0.2.2 - Unreleased
 
+- Adopted the inspector source repair for credential-free model-auth registration capture; published-package smoke remains on the older 0.3.24 release.
 - Removed the obsolete bundled QQ Bot source fixture that blocked development dashboard materialization after OpenClaw externalized the plugin; retained the Tencent QQbot git fixture and its channel/tool coverage.
 - Restored native lifecycle profiling through root registry activation and rejected malformed phase timings.
 - Run the development dashboard and advisory HEAD canary on Node 24 for current OpenClaw hosts; keep the pinned Default Track and latest/beta dashboards on Node 22.

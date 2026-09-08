@@ -119,8 +119,10 @@ npm run profile -- --check
 node scripts/check-contract-coverage.mjs --openclaw ../openclaw
 ```
 
-`npm run plugin-inspector:smoke` uses the published
-`@openclaw/plugin-inspector@0.3.24` package by default. Use
+Source-backed reports and registration capture use the landed inspector repair
+for credential-free model-auth binding. `npm run plugin-inspector:smoke` still
+uses the older published `@openclaw/plugin-inspector@0.3.24` package by default;
+that package does not contain the repair. Use
 `CRABPOT_PLUGIN_INSPECTOR_CLI=source npm run plugin-inspector:smoke` only when
 validating local inspector source changes. Set `CRABPOT_PLUGIN_INSPECTOR_DIR`
 to the candidate checkout to avoid selecting a different sibling checkout.

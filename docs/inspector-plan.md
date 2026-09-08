@@ -103,12 +103,15 @@ to test an arbitrary CLI binary.
 
 The pinned source and published package recognize compiled CommonJS channel
 factory calls and classify widget presenters as metadata-only synthetic probes.
+Only the pinned source includes credential-free model-auth binding during
+registration capture. Published npm `0.3.24` does not include that repair;
+package-mode smoke is not proof of source/package parity.
 
 Current migration state: `scripts/inspect-fixtures.mjs` delegates static source,
 manifest, and package inspection to `plugin-inspector` while preserving
 crabpot's existing command output and exported helper names. Crabpot keeps its
 orchestration, report paths, fixture policy, and opt-in execution guards; the
-reusable compatibility logic now lives in the published inspector package.
+reusable compatibility logic now lives in the separate inspector package.
 
 ## Compatibility issue workflow
 
