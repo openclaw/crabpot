@@ -2,6 +2,7 @@
 
 ## 0.2.2 - Unreleased
 
+- Run the development dashboard and advisory HEAD canary on Node 24 for current OpenClaw hosts; keep the pinned Default Track and latest/beta dashboards on Node 22.
 - Refreshed compatible plugin fixture pins and npm locks, upgraded plugin-inspector to 0.3.21, and moved CI to current GitHub Actions.
 - Refreshed plugin fixtures and restored real OpenClaw lifecycle profiling against current diagnostics APIs.
 - Split CI into a required pinned OpenClaw Default Track, an advisory artifact-producing HEAD canary, and a 14-day pin-promotion SLA.
