@@ -10,46 +10,53 @@
 ## Reporting Data
 
 `main` follows a promoted green OpenClaw source pin plus npm `latest` plugin artifacts, with bundled fixtures source-packed from that pinned checkout. `crab-beta` follows beta npm dist-tags for externalized packages and source-packs bundled fixtures. `crab-development` checks `openclaw/openclaw` main against source-packed official plugin artifacts from that same OpenClaw checkout.
-- **Last dashboard update:** Sep 08, 2026, 11:42 UTC
+- **Last dashboard update:** Sep 08, 2026, 12:52 UTC
 <!-- crabpot-tracks:start -->
 - **Source:** `github-default-pin`
 - **OpenClaw version:** `2026.8.1`
 - **OpenClaw SHA:** `5570c5ffac86`
 - **Dashboard target:** `openclaw/openclaw@5570c5ffac86 + npm latest plugin artifacts`
 - **Plugin artifacts:** `npm latest fixture set plus bundled source-packed fixtures`
-- **GitHub report run:** [34220870274](https://github.com/openclaw/crabpot/actions/runs/34220870274)
+- **GitHub report run:** -
 <!-- crabpot-tracks:end -->
 
 <!-- crabpot-summary:start -->
 ## Dashboard
 
-| Metric                 | Result                                                                |
-| ---------------------- | --------------------------------------------------------------------- |
-| Fixtures               | 60                                                                    |
-| Hard breakages         | 0                                                                     |
-| Warnings               | 123                                                                   |
-| Suggestions            | 241                                                                   |
-| Issues                 | 364                                                                   |
-| P0 issues              | [🔴 P0 9](reports/crabpot-issues.md#p0-live-issues)                   |
-| P1 issues              | [🟠 P1 125](reports/crabpot-issues.md#triage-summary)                 |
-| Live issues            | 9 total / 9 P0                                                        |
-| Compat gaps            | 109                                                                   |
-| Deprecation warnings   | 23                                                                    |
-| Inspector gaps         | 158                                                                   |
-| Upstream metadata      | 65                                                                    |
-| Contract probes        | 255                                                                   |
-| Policy failures        | 0                                                                     |
-| Policy warnings        | 1                                                                     |
-| Ref diff failures      | 0                                                                     |
-| Profile failures       | 0                                                                     |
-| Execution probes       | 0 pass / 0 fail / 0 blocked                                           |
-| Synthetic probes       | 501 ready / 10 blocked / 511 total                                    |
-| Cold import            | 4 ready / 119 blocked / 123 entrypoints                               |
-| Workspace plan         | 123 entrypoints / 82 installs / 15 builds                             |
-| Platform risks         | 17 Windows / 17 container                                             |
-| Jiti loader candidates | 20                                                                    |
-| Import loop            | p50 106ms / p95 107ms / plugin delta RSS 0.9MB / plugin delta CPU 0ms |
-| Runtime profile        | p50 5822ms / command p95 5990ms / max RSS 218.7MB / 3 samples/command |
+| Metric                 | Result                                                                                                                                                                                                                                                                                                                                                                     |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Fixtures               | 59<br><em>-1 vs main at b326861d5c1e</em>                                                                                                                                                                                                                                                                                                                                  |
+| Hard breakages         | 0<br><em>0 vs main at b326861d5c1e</em>                                                                                                                                                                                                                                                                                                                                    |
+| Warnings               | 121<br><em>-2 vs main at b326861d5c1e</em>                                                                                                                                                                                                                                                                                                                                 |
+| Suggestions            | 237<br><em>-4 vs main at b326861d5c1e</em>                                                                                                                                                                                                                                                                                                                                 |
+| Issues                 | 358<br><em>-6 vs main at b326861d5c1e</em>                                                                                                                                                                                                                                                                                                                                 |
+| P0 issues              | [🔴 P0 9](reports/crabpot-issues.md#p0-live-issues)<br><em>0 vs main at b326861d5c1e</em>                                                                                                                                                                                                                                                                                  |
+| P1 issues              | [🟠 P1 123](reports/crabpot-issues.md#triage-summary)<br><em>-2 vs main at b326861d5c1e</em>                                                                                                                                                                                                                                                                               |
+| Live issues            | 9 total<br><em>0 vs main at b326861d5c1e</em> / 9 P0<br><em>0 vs main at b326861d5c1e</em>                                                                                                                                                                                                                                                                                 |
+| Compat gaps            | 107<br><em>-2 vs main at b326861d5c1e</em>                                                                                                                                                                                                                                                                                                                                 |
+| Deprecation warnings   | 22<br><em>-1 vs main at b326861d5c1e</em>                                                                                                                                                                                                                                                                                                                                  |
+| Inspector gaps         | 156<br><em>-2 vs main at b326861d5c1e</em>                                                                                                                                                                                                                                                                                                                                 |
+| Upstream metadata      | 64<br><em>-1 vs main at b326861d5c1e</em>                                                                                                                                                                                                                                                                                                                                  |
+| Contract probes        | 251<br><em>-4 vs main at b326861d5c1e</em>                                                                                                                                                                                                                                                                                                                                 |
+| Policy failures        | 0<br><em>0 vs main at b326861d5c1e</em>                                                                                                                                                                                                                                                                                                                                    |
+| Policy warnings        | 1<br><em>0 vs main at b326861d5c1e</em>                                                                                                                                                                                                                                                                                                                                    |
+| Ref diff failures      | 0<br><em>0 vs main at b326861d5c1e</em>                                                                                                                                                                                                                                                                                                                                    |
+| Profile failures       | 0<br><em>0 vs main at b326861d5c1e</em>                                                                                                                                                                                                                                                                                                                                    |
+| Execution probes       | 0 pass<br><em>0 vs main at b326861d5c1e</em> / 0 fail<br><em>0 vs main at b326861d5c1e</em> / 0 blocked<br><em>0 vs main at b326861d5c1e</em>                                                                                                                                                                                                                              |
+| Synthetic probes       | 497 ready<br><em>-4 vs main at b326861d5c1e</em> / 10 blocked<br><em>0 vs main at b326861d5c1e</em> / 507 total<br><em>-4 vs main at b326861d5c1e</em>                                                                                                                                                                                                                     |
+| Cold import            | 4 ready<br><em>0 vs main at b326861d5c1e</em> / 115 blocked<br><em>-4 vs main at b326861d5c1e</em> / 119 entrypoints<br><em>-4 vs main at b326861d5c1e</em>                                                                                                                                                                                                                |
+| Workspace plan         | 119 entrypoints<br><em>-4 vs main at b326861d5c1e</em> / 79 installs<br><em>-3 vs main at b326861d5c1e</em> / 15 builds<br><em>0 vs main at b326861d5c1e</em>                                                                                                                                                                                                              |
+| Platform risks         | 17 Windows<br><em>0 vs main at b326861d5c1e</em> / 17 container<br><em>0 vs main at b326861d5c1e</em>                                                                                                                                                                                                                                                                      |
+| Jiti loader candidates | 20<br><em>0 vs main at b326861d5c1e</em>                                                                                                                                                                                                                                                                                                                                   |
+| Import loop            | p50 1184ms<br><em>+1078 vs main at b326861d5c1e</em> / p95 1188ms<br><em>+1081 vs main at b326861d5c1e</em> / plugin delta RSS 1.1MB<br><em>+0.2 vs main at b326861d5c1e</em> / plugin delta CPU 28ms<br><em>+28 vs main at b326861d5c1e</em> / OpenClaw import 51.4ms<br><em>+51.4 vs main at b326861d5c1e</em> / activate 0.2ms<br><em>+0.2 vs main at b326861d5c1e</em> |
+| Runtime profile        | p50 3022ms<br><em>-2800 vs main at b326861d5c1e</em> / command p95 3127ms<br><em>-2863 vs main at b326861d5c1e</em> / max RSS 219MB<br><em>+0.3 vs main at b326861d5c1e</em> / 3 samples/command                                                                                                                                                                           |
+
+### OpenClaw Lifecycle Probe
+
+| Phase                      | p50                                              | p95                                              |
+| -------------------------- | ------------------------------------------------ | ------------------------------------------------ |
+| Import (`full`)            | 51.4ms<br><em>+51.4 vs main at b326861d5c1e</em> | 54.4ms<br><em>+54.4 vs main at b326861d5c1e</em> |
+| Activate (`full:register`) | 0.2ms<br><em>+0.2 vs main at b326861d5c1e</em>   | 0.2ms<br><em>+0.2 vs main at b326861d5c1e</em>   |
 
 ### Top Discovered Issues
 

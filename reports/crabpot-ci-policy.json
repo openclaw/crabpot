@@ -3,7 +3,7 @@
   "status": "pass",
   "strict": false,
   "policy": {
-    "allowedBlocked": 17,
+    "allowedBlocked": 16,
     "expectedWarnings": 1,
     "fixtureSets": [
       "build",
@@ -51,7 +51,7 @@
     {
       "id": "compatibility-report.deprecation-warnings",
       "action": "pass",
-      "message": "23 deprecated compat seams tracked",
+      "message": "22 deprecated compat seams tracked",
       "evidence": [
         "agentchat:channel-env-vars",
         "connectclaw:legacy-before-agent-start",
@@ -69,7 +69,6 @@
         "memory-tencentdb:legacy-root-sdk-import",
         "memos-cloud:legacy-before-agent-start",
         "mocrane-wecom:legacy-root-sdk-import",
-        "openclaw-qqbot:channel-env-vars",
         "openclaw-telemetry:legacy-before-agent-start",
         "openclaw-telemetry:legacy-root-sdk-import",
         "opik-openclaw:legacy-root-sdk-import",
@@ -81,7 +80,7 @@
     {
       "id": "compatibility-report.inspector-gaps",
       "action": "pass",
-      "message": "158 inspector proof gaps tracked",
+      "message": "156 inspector proof gaps tracked",
       "evidence": [
         "clawmetry:conversation-access-hook",
         "dingtalk-doc:before-tool-call-probe",
@@ -197,8 +196,6 @@
         "nostr:channel-contract-probe",
         "nostr:package-dependency-install-required",
         "nostr:registration-capture-gap",
-        "openclaw-qqbot:package-dependency-install-required",
-        "openclaw-qqbot:registration-capture-gap",
         "openclaw-telemetry:package-typescript-source-entrypoint",
         "openclaw-telemetry:registration-capture-gap",
         "openclaw-weixin:channel-contract-probe",
@@ -246,7 +243,7 @@
     {
       "id": "compatibility-report.p1-issues",
       "action": "pass",
-      "message": "125 P1 issues tracked",
+      "message": "123 P1 issues tracked",
       "evidence": [
         "a2a-gateway:missing-compat-record",
         "agentchat:missing-compat-record",
@@ -330,8 +327,6 @@
         "nextcloud-talk:missing-compat-record",
         "nostr:missing-compat-record",
         "nostr:missing-compat-record",
-        "openclaw-qqbot:missing-compat-record",
-        "openclaw-qqbot:missing-compat-record",
         "openclaw-telemetry:before-tool-call-probe",
         "openclaw-telemetry:conversation-access-hook",
         "openclaw-telemetry:missing-compat-record",

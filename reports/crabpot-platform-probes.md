@@ -8,13 +8,13 @@ Targets: linux, macos, windows, container
 
 | Metric                         | Value |
 | ------------------------------ | ----- |
-| fixtureCount                   | 60    |
-| entrypointCount                | 123   |
+| fixtureCount                   | 59    |
+| entrypointCount                | 119   |
 | tsLoaderEntrypointCount        | 20    |
 | jitiAlternativeCount           | 20    |
-| lazyImportProbeCount           | 123   |
+| lazyImportProbeCount           | 119   |
 | portabilityFindingCount        | 17    |
-| coveredPortabilityFindingCount | 574   |
+| coveredPortabilityFindingCount | 555   |
 | windowsRiskStepCount           | 17    |
 | macosRiskStepCount             | 17    |
 | linuxRiskStepCount             | 17    |
@@ -112,10 +112,6 @@ Targets: linux, macos, windows, container
 | diffs                  | sdk-alias-required          | node    | -            | no          | no            | yes              | yes                | plugins/diffs/.crabpot-package/dist/index.js                            |
 | memory-lancedb         | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/memory-lancedb/.crabpot-package/index.ts                        |
 | memory-lancedb         | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/memory-lancedb/.crabpot-package/dist/index.js                   |
-| openclaw-qqbot         | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/openclaw-qqbot/.crabpot-package/index.ts                        |
-| openclaw-qqbot         | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/openclaw-qqbot/.crabpot-package/dist/index.js                   |
-| openclaw-qqbot         | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/openclaw-qqbot/.crabpot-package/dist/setup-entry.js             |
-| openclaw-qqbot         | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/openclaw-qqbot/.crabpot-package/dist/setup-entry.js             |
 | whatsapp               | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/whatsapp/.crabpot-package/index.ts                              |
 | whatsapp               | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/whatsapp/.crabpot-package/dist/index.js                         |
 | whatsapp               | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/whatsapp/.crabpot-package/dist/setup-entry.js                   |
@@ -582,25 +578,6 @@ Targets: linux, macos, windows, container
 | memory-lancedb         | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | memory-lancedb         | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | memory-lancedb         | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
-| openclaw-qqbot         | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
-| openclaw-qqbot         | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
-| openclaw-qqbot         | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
-| openclaw-qqbot         | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
-| openclaw-qqbot         | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
-| openclaw-qqbot         | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
-| openclaw-qqbot         | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
-| openclaw-qqbot         | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
-| openclaw-qqbot         | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
-| openclaw-qqbot         | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
-| openclaw-qqbot         | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
-| openclaw-qqbot         | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
-| openclaw-qqbot         | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
-| openclaw-qqbot         | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
-| openclaw-qqbot         | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
-| openclaw-qqbot         | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
-| openclaw-qqbot         | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
-| openclaw-qqbot         | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
-| openclaw-qqbot         | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | whatsapp               | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | whatsapp               | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
 | whatsapp               | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
