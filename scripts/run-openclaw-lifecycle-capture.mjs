@@ -49,7 +49,7 @@ function parseArgs(argv) {
   return args;
 }
 
-export async function captureOpenClawLifecycle(entrypoint) {
+async function captureOpenClawLifecycle(entrypoint) {
   const openclawRoot = path.resolve(process.env.CRABPOT_OPENCLAW_DIR ?? process.cwd());
   const pluginId = "crabpot-lifecycle-probe";
   const pluginRoot = mkdtempSync(path.join(os.tmpdir(), "crabpot-openclaw-plugin-"));
@@ -86,22 +86,12 @@ export async function captureOpenClawLifecycle(entrypoint) {
       originalError(...args);
     };
 
-    const {
-      clearActivatedPluginRuntimeState,
-      clearPluginRegistryLoadCache,
-      loadOpenClawPlugins,
-    } = await import(
+    // Each capture runs in a fresh child process, which owns its root registry.
+    const { loadAndActivateRootPluginRegistry } = await import(
       pathToFileURL(path.join(openclawRoot, "src", "plugins", "loader.ts")).href
     );
-    const { resetPluginRuntimeStateForTest } = await import(
-      pathToFileURL(path.join(openclawRoot, "src", "plugins", "runtime.ts")).href
-    );
 
-    clearPluginRegistryLoadCache();
-    clearActivatedPluginRuntimeState();
-    resetPluginRuntimeStateForTest();
-
-    const registry = loadOpenClawPlugins({
+    const registry = loadAndActivateRootPluginRegistry({
       cache: false,
       workspaceDir: stateRoot,
       config: {
@@ -229,16 +219,17 @@ function writeProbePlugin(params) {
 }
 
 function parseProfileLine(line) {
-  const match = /^\[plugin-load-profile\] phase=(\S+) plugin=(\S+) elapsedMs=([0-9.]+)(?: .*)? source=(.+)$/u.exec(
+  const match = /^\[plugin-load-profile\] phase=(\S+) plugin=(\S+) elapsedMs=([0-9]+(?:\.[0-9]+)?)(?: .*)? source=(.+)$/u.exec(
     line,
   );
-  if (!match) {
+  const elapsedMs = Number(match?.[3]);
+  if (!match || !Number.isFinite(elapsedMs)) {
     return null;
   }
   return {
     phase: match[1],
     pluginId: match[2],
-    elapsedMs: Number.parseFloat(match[3]),
+    elapsedMs,
     source: lifecyclePathLabel(match[4]),
   };
 }

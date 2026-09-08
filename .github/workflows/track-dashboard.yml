@@ -68,7 +68,7 @@ jobs:
       - uses: actions/setup-node@v7
         if: ${{ steps.select.outputs.run == 'true' }}
         with:
-          node-version: 22
+          node-version: ${{ matrix.track == 'development' && '24' || '22' }}
           cache: npm
           cache-dependency-path: |
             plugins/**/package-lock.json

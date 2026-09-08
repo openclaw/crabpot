@@ -9,12 +9,12 @@ Targets: linux, macos, windows, container
 | Metric                         | Value |
 | ------------------------------ | ----- |
 | fixtureCount                   | 60    |
-| entrypointCount                | 121   |
+| entrypointCount                | 123   |
 | tsLoaderEntrypointCount        | 20    |
 | jitiAlternativeCount           | 20    |
-| lazyImportProbeCount           | 121   |
+| lazyImportProbeCount           | 123   |
 | portabilityFindingCount        | 17    |
-| coveredPortabilityFindingCount | 564   |
+| coveredPortabilityFindingCount | 574   |
 | windowsRiskStepCount           | 17    |
 | macosRiskStepCount             | 17    |
 | linuxRiskStepCount             | 17    |
@@ -72,6 +72,8 @@ Targets: linux, macos, windows, container
 | nostr                  | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/nostr/.crabpot-package/dist/setup-entry.js                      |
 | voice-call             | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/voice-call/.crabpot-package/index.ts                            |
 | voice-call             | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/voice-call/.crabpot-package/dist/index.js                       |
+| voice-call             | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/voice-call/.crabpot-package/dist/setup-api.js                   |
+| voice-call             | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/voice-call/.crabpot-package/dist/setup-api.js                   |
 | zalo                   | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/zalo/.crabpot-package/index.ts                                  |
 | zalo                   | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/zalo/.crabpot-package/dist/index.js                             |
 | zalo                   | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/zalo/.crabpot-package/dist/setup-entry.js                       |
@@ -80,14 +82,14 @@ Targets: linux, macos, windows, container
 | zalouser               | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/zalouser/.crabpot-package/dist/index.js                         |
 | zalouser               | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/zalouser/.crabpot-package/dist/setup-entry.js                   |
 | zalouser               | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/zalouser/.crabpot-package/dist/setup-entry.js                   |
-| feishu                 | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/feishu/.crabpot-package/index.ts                                |
-| feishu                 | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/feishu/.crabpot-package/dist/index.js                           |
-| feishu                 | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/feishu/.crabpot-package/dist/setup-entry.js                     |
-| feishu                 | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/feishu/.crabpot-package/dist/setup-entry.js                     |
-| tlon                   | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/tlon/.crabpot-package/index.ts                                  |
-| tlon                   | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/tlon/.crabpot-package/dist/index.js                             |
-| tlon                   | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/tlon/.crabpot-package/dist/setup-entry.js                       |
-| tlon                   | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/tlon/.crabpot-package/dist/setup-entry.js                       |
+| feishu                 | sdk-alias-required          | node    | -            | no          | no            | yes              | yes                | plugins/feishu/.crabpot-package/index.ts                                |
+| feishu                 | sdk-alias-required          | node    | -            | no          | no            | yes              | yes                | plugins/feishu/.crabpot-package/dist/index.js                           |
+| feishu                 | sdk-alias-required          | node    | -            | no          | no            | yes              | yes                | plugins/feishu/.crabpot-package/dist/setup-entry.js                     |
+| feishu                 | sdk-alias-required          | node    | -            | no          | no            | yes              | yes                | plugins/feishu/.crabpot-package/dist/setup-entry.js                     |
+| tlon                   | sdk-alias-required          | node    | -            | no          | no            | yes              | yes                | plugins/tlon/.crabpot-package/index.ts                                  |
+| tlon                   | sdk-alias-required          | node    | -            | no          | no            | yes              | yes                | plugins/tlon/.crabpot-package/dist/index.js                             |
+| tlon                   | sdk-alias-required          | node    | -            | no          | no            | yes              | yes                | plugins/tlon/.crabpot-package/dist/setup-entry.js                       |
+| tlon                   | sdk-alias-required          | node    | -            | no          | no            | yes              | yes                | plugins/tlon/.crabpot-package/dist/setup-entry.js                       |
 | twitch                 | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/twitch/.crabpot-package/index.ts                                |
 | twitch                 | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/twitch/.crabpot-package/dist/index.js                           |
 | twitch                 | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/twitch/.crabpot-package/dist/setup-entry.js                     |
@@ -103,7 +105,7 @@ Targets: linux, macos, windows, container
 | codex                  | sdk-alias-required          | node    | -            | no          | no            | yes              | yes                | plugins/codex/.crabpot-package/index.ts                                 |
 | codex                  | sdk-alias-required          | node    | -            | no          | no            | yes              | yes                | plugins/codex/.crabpot-package/dist/index.js                            |
 | diagnostics-prometheus | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/diagnostics-prometheus/.crabpot-package/index.ts                |
-| diagnostics-prometheus | ready                       | node    | -            | no          | no            | yes              | yes                | plugins/diagnostics-prometheus/.crabpot-package/dist/index.js           |
+| diagnostics-prometheus | review-required             | node    | -            | no          | no            | yes              | yes                | plugins/diagnostics-prometheus/.crabpot-package/dist/index.js           |
 | google-meet            | missing                     | node    | -            | no          | no            | yes              | yes                | plugins/google-meet/.crabpot-package/index.ts                           |
 | google-meet            | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/google-meet/.crabpot-package/dist/index.js                      |
 | diffs                  | sdk-alias-required          | node    | -            | no          | no            | yes              | yes                | plugins/diffs/.crabpot-package/index.ts                                 |
@@ -126,10 +128,10 @@ Targets: linux, macos, windows, container
 | dingtalk-doc           | sdk-alias-required          | node    | -            | no          | no            | yes              | yes                | plugins/dingtalk-doc/dist/index.mjs                                     |
 | hapi-openclaw          | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/hapi-openclaw/.crabpot-package/dist/index.js                    |
 | mocrane-wecom          | sdk-alias-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/mocrane-wecom/index.ts                                          |
-| yuanbao                | sdk-alias-required          | node    | -            | no          | no            | yes              | yes                | plugins/yuanbao/.crabpot-package/dist/index.js                          |
-| yuanbao                | sdk-alias-required          | node    | -            | no          | no            | yes              | yes                | plugins/yuanbao/.crabpot-package/dist/setup-entry.js                    |
-| openclaw-weixin        | sdk-alias-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/openclaw-weixin/.crabpot-package/index.ts                       |
-| openclaw-weixin        | sdk-alias-required          | node    | -            | no          | no            | yes              | yes                | plugins/openclaw-weixin/.crabpot-package/dist/index.js                  |
+| yuanbao                | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/yuanbao/.crabpot-package/dist/index.js                          |
+| yuanbao                | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/yuanbao/.crabpot-package/dist/setup-entry.js                    |
+| openclaw-weixin        | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/openclaw-weixin/.crabpot-package/index.ts                       |
+| openclaw-weixin        | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/openclaw-weixin/.crabpot-package/dist/index.js                  |
 | lightclawbot           | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/lightclawbot/.crabpot-package/dist/index.js                     |
 | lightclawbot           | dependency-install-required | node    | -            | no          | no            | yes              | yes                | plugins/lightclawbot/.crabpot-package/dist/setup-entry.js               |
 | telnyx-sms             | sdk-alias-required          | node    | -            | no          | no            | yes              | yes                | plugins/telnyx-sms/dist/index.js                                        |
@@ -387,6 +389,16 @@ Targets: linux, macos, windows, container
 | nostr                  | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | voice-call             | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
 | voice-call             | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| voice-call             | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| voice-call             | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| voice-call             | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| voice-call             | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| voice-call             | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
+| voice-call             | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| voice-call             | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
+| voice-call             | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |
+| voice-call             | prepare-artifacts | windows            | posix-mkdir                           | covered by Crabpot structured executor |
+| voice-call             | audit             | windows            | posix-null-failure, shell-redirection | covered by Crabpot structured executor |
 | voice-call             | capture           | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | voice-call             | synthetic-probe   | windows            | posix-env-prefix                      | covered by Crabpot structured executor |
 | voice-call             | prepare           | container, windows | posix-mkdir, rsync-required           | covered by Crabpot structured executor |

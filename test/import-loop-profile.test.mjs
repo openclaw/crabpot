@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
-import { mkdtemp, mkdir, writeFile } from "node:fs/promises";
+import { existsSync } from "node:fs";
+import { mkdtemp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import { test } from "node:test";
@@ -92,11 +93,13 @@ test("import loop validation fails requested OpenClaw lifecycle profiles without
   ]);
 });
 
-test("OpenClaw lifecycle capture CLI exits after writing output when loader leaves active handles", async () => {
+async function lifecycleHost(t, { importMs = "2.0", activationMs = "1.0", status = "loaded", throws = false } = {}) {
   const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-openclaw-lifecycle-"));
+  t.after(() => rm(dir, { recursive: true, force: true }));
   const openclawRoot = path.join(dir, "openclaw");
   const pluginDir = path.join(dir, "plugin");
   const loaderPath = path.join(dir, "ts-loader.mjs");
+  const observationsPath = path.join(dir, "observations.jsonl");
   await writeFile(
     loaderPath,
     [
@@ -116,26 +119,30 @@ test("OpenClaw lifecycle capture CLI exits after writing output when loader leav
   await writeFile(
     path.join(openclawRoot, "src", "plugins", "loader.ts"),
     [
-      "export function clearPluginRegistryLoadCache() {}",
-      "export function clearActivatedPluginRuntimeState() {}",
-      "export function loadOpenClawPlugins(options) {",
-      "  if (process.env.OPENCLAW_DIAGNOSTICS !== 'plugin.load-profile') {",
-      "    throw new Error('plugin load profiling diagnostics are disabled');",
-      "  }",
+      "import assert from 'node:assert/strict';",
+      "import { appendFileSync } from 'node:fs';",
+      "assert.equal(process.env.OPENCLAW_DIAGNOSTICS, 'plugin.load-profile');",
+      "assert.equal(process.env.HOME, process.env.OPENCLAW_STATE_DIR);",
+      "assert.match(process.env.HOME, /crabpot-openclaw-state-/);",
+      "assert.equal(process.env.OPENCLAW_DISABLE_BUNDLED_PLUGINS, '1');",
+      "export function loadAndActivateRootPluginRegistry(options) {",
       "  const source = options.config.plugins.load.paths[0];",
+      `  appendFileSync(${JSON.stringify(observationsPath)}, JSON.stringify({ source, state: options.workspaceDir }) + '\\n');`,
+      "  assert.equal(options.cache, false);",
+      "  assert.equal(options.workspaceDir, process.env.OPENCLAW_STATE_DIR);",
+      `  if (${throws}) throw new Error('lifecycle-loader-sentinel');`,
       "  const windowsSource = 'C:\\\\Users\\\\runner\\\\AppData\\\\Local\\\\Temp\\\\crabpot-openclaw-plugin-AbCd\\\\index.mjs';",
-      "  console.error(`[plugin-load-profile] phase=full plugin=crabpot-lifecycle-probe elapsedMs=2.0 source=${source}`);",
-      "  console.error(`[plugin-load-profile] phase=full:register plugin=crabpot-lifecycle-probe elapsedMs=1.0 source=${windowsSource}`);",
+      ...(importMs === null ? [] : [
+        `  console.error('[plugin-load-profile] phase=full plugin=crabpot-lifecycle-probe elapsedMs=' + ${JSON.stringify(importMs)} + ' source=' + source);`,
+      ]),
+      ...(activationMs === null ? [] : [
+        `  console.error('[plugin-load-profile] phase=full:register plugin=crabpot-lifecycle-probe elapsedMs=' + ${JSON.stringify(activationMs)} + ' mode=full source=' + windowsSource);`,
+      ]),
       "  setInterval(() => undefined, 1000);",
-      "  return { plugins: [{ id: 'crabpot-lifecycle-probe', status: 'loaded' }] };",
+      `  return { plugins: [{ id: 'crabpot-lifecycle-probe', status: ${JSON.stringify(status)}, ${status === "error" ? "error: 'lifecycle-register-sentinel'" : ""} }] };`,
       "}",
       "",
     ].join("\n"),
-    "utf8",
-  );
-  await writeFile(
-    path.join(openclawRoot, "src", "plugins", "runtime.ts"),
-    "export function resetPluginRuntimeStateForTest() {}\n",
     "utf8",
   );
   const entrypoint = path.join(pluginDir, "index.mjs");
@@ -145,28 +152,51 @@ test("OpenClaw lifecycle capture CLI exits after writing output when loader leav
     "utf8",
   );
 
-  const result = spawnSync(
-    process.execPath,
-    [
+  const captureCommand = ({ entrypoint: input = entrypoint, outputPath } = {}) => ({
+    command: process.execPath,
+    args: [
       "--experimental-loader",
       pathToFileURL(loaderPath).href,
-      "scripts/run-openclaw-lifecycle-capture.mjs",
-      entrypoint,
+      path.join(repoRoot, "scripts/run-openclaw-lifecycle-capture.mjs"),
+      input,
+      ...(outputPath ? ["--output", outputPath] : []),
     ],
-    {
-      cwd: repoRoot,
-      encoding: "utf8",
-      env: {
-        ...process.env,
-        CRABPOT_EXECUTE_ISOLATED: "1",
-        CRABPOT_FIXTURE_ROOT: repoRoot,
-        CRABPOT_OPENCLAW_DIR: openclawRoot,
-        CRABPOT_OPENCLAW_LABEL: "fake-openclaw",
-      },
-      timeout: 2_000,
+    cwd: repoRoot,
+    env: {
+      CRABPOT_EXECUTE_ISOLATED: "1",
+      CRABPOT_FIXTURE_ROOT: dir,
+      CRABPOT_OPENCLAW_DIR: openclawRoot,
+      CRABPOT_OPENCLAW_LABEL: "fake-openclaw",
     },
-  );
+  });
+  return {
+    dir,
+    entrypoint,
+    captureCommand,
+    run() {
+      const command = captureCommand();
+      return spawnSync(command.command, command.args, {
+        cwd: command.cwd,
+        encoding: "utf8",
+        env: { ...process.env, ...command.env },
+        timeout: 2_000,
+      });
+    },
+    async assertCleanup(expectedCalls) {
+      const observations = (await readFile(observationsPath, "utf8")).trim().split("\n").map(JSON.parse);
+      assert.equal(observations.length, expectedCalls);
+      for (const { source, state } of observations) {
+        assert.equal(existsSync(path.dirname(source)), false, source);
+        assert.equal(existsSync(state), false, state);
+      }
+      assert.equal(new Set(observations.map(({ state }) => state)).size, expectedCalls);
+    },
+  };
+}
 
+test("OpenClaw lifecycle capture CLI exits after writing output when loader leaves active handles", async (t) => {
+  const host = await lifecycleHost(t);
+  const result = host.run();
   assert.equal(result.error?.code, undefined, result.error?.message);
   assert.equal(result.status, 0, result.stderr);
   const capture = JSON.parse(result.stdout);
@@ -176,4 +206,57 @@ test("OpenClaw lifecycle capture CLI exits after writing output when loader leav
   assert.equal(capture.openClawLifecycle.activationMs, 1);
   assert.equal(capture.openClawLifecycle.phases[0].source, "crabpot-lifecycle-probe/index.mjs");
   assert.equal(capture.openClawLifecycle.phases[1].source, "crabpot-lifecycle-probe/index.mjs");
+  await host.assertCleanup(1);
+});
+
+test("OpenClaw lifecycle capture and parent require loaded status and valid phases", async (t) => {
+  for (const [name, options, captured] of [
+    ["zero durations", { importMs: "0.0", activationMs: "0.0" }, true],
+    ["missing import", { importMs: null }, false],
+    ["missing registration", { activationMs: null }, false],
+    ...[".", "1.2.3", "9".repeat(310)].flatMap((token) => [
+      [`malformed import ${token.slice(0, 10)}`, { importMs: token }, false],
+      [`malformed registration ${token.slice(0, 10)}`, { activationMs: token }, false],
+    ]),
+    ["failed registration with timings", { status: "error" }, false],
+  ]) {
+    await t.test(name, async (t) => {
+      const host = await lifecycleHost(t, options);
+      const result = host.run();
+      assert.equal(result.error?.code, undefined, result.error?.message);
+      assert.equal(result.status, 0, result.stderr);
+      const capture = JSON.parse(result.stdout);
+      const profile = await buildImportLoopProfile({
+        rootDir: host.dir,
+        outputDir: path.join(host.dir, "profile"),
+        entrypoint: host.entrypoint,
+        captureCommand: host.captureCommand,
+        runs: 1,
+      });
+      const errors = validateImportLoopProfile(profile, { requireOpenClawLifecycle: true });
+      assert.equal(errors.length === 0, captured, JSON.stringify({ errors, capture }));
+      assert.equal(capture.status, captured ? "captured" : "failed");
+      assert.equal(capture.captured.length, captured ? 2 : 0);
+      assert.equal(profile.summary.failCount, captured ? 0 : 1);
+      assert.equal(profile.summary.baselineFailCount, captured ? 0 : 1);
+      if (captured) {
+        assert.equal(capture.openClawLifecycle.importMs, 0);
+        assert.equal(capture.openClawLifecycle.activationMs, 0);
+      } else if (options.status === "error") {
+        assert.equal(capture.error, "lifecycle-register-sentinel");
+        assert.equal(capture.openClawLifecycle.phases.length, 2);
+      }
+      await host.assertCleanup(3);
+    });
+  }
+});
+
+test("OpenClaw lifecycle capture CLI cleans up after a thrown loader exception", async (t) => {
+  const host = await lifecycleHost(t, { throws: true });
+  const result = host.run();
+  assert.equal(result.error?.code, undefined, result.error?.message);
+  assert.equal(result.status, 1, result.stderr);
+  assert.match(result.stderr, /lifecycle-loader-sentinel/);
+  assert.equal(result.stdout, "");
+  await host.assertCleanup(1);
 });
