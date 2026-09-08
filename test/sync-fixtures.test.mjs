@@ -300,6 +300,28 @@ test("check-only modes validate shims without calling npm or promising acquisiti
   assert.equal(existsSync(path.join(repo.root, availabilityPath)), false);
 });
 
+for (const selection of [
+  { name: "CLI named set overrides env", cli: "named", env: "third", label: "named", ids: ["first", "second"] },
+  { name: "CLI comma list", cli: " first, second ", env: "third", label: "first, second", ids: ["first", "second"] },
+  { name: "CLI all overrides env subset", cli: "all", env: "first", label: "all", ids: ["first", "second", "third"] },
+  { name: "env all", env: "all", label: "all", ids: ["first", "second", "third"] },
+]) {
+  test(`availability labels the actual selection: ${selection.name}`, async (t) => {
+    const fixtures = ["first", "second", "third"].map((id) => fixture(id, `${id}-plugin`));
+    const selected = selection.ids.map((id) => fixtures.find((item) => item.id === id));
+    const repo = await miniatureRepo(t, fixtures,
+      selected.flatMap((item) => [view(item), pack(item, "1.2.3", true)]));
+    await repo.json("crabpot.ci-policy.json", { fixtureSets: { named: ["first", "second"] } });
+    const args = ["--materialize", ...(selection.cli ? ["--fixture-set", selection.cli] : [])];
+    const result = repo.run("sync-fixtures.mjs", args, { CRABPOT_FIXTURE_SET: selection.env });
+    await repo.assertNpmComplete();
+    assertFailedAcquisition(result);
+    const report = await repo.readJson(availabilityPath);
+    assert.deepEqual(report.failures.map((entry) => entry.fixture), selection.ids);
+    assert.equal(report.fixtureSet, selection.label);
+  });
+}
+
 for (const selected of [false, true]) {
   test(`actual static runner stops after ${selected ? "selected" : "initial"} materialization failure`, async (t) => {
     const item = fixture("fixture", "@openclaw/fixture");
@@ -333,6 +355,7 @@ for (const selected of [false, true]) {
     assert.doesNotMatch(result.stdout, /dependent sentinel/);
     const report = await repo.readJson(availabilityPath);
     assert.equal(report.pluginTrack, selected ? "beta" : "manifest");
+    assert.equal(report.fixtureSet, selected ? item.id : "all");
     assert.equal(report.failures[0].fixture, item.id);
     assert.equal(report.failures[0].requestedVersion, selected ? "2.0.0" : "1.2.3");
   });

@@ -56,7 +56,7 @@ for (const fixture of manifest.fixtures) {
 if (args.packageAvailabilityReport) {
   await writePackageAvailabilityReport({
     generatedAt: new Date().toISOString(),
-    fixtureSet: args.fixtureSet || "all",
+    fixtureSet: manifest.fixtureSelection?.fixtureSet ?? "all",
     pluginTrack: args.pluginTrack || "manifest",
     failures: packageAvailabilityFailures,
   });

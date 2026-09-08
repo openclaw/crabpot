@@ -14,10 +14,11 @@ is unpacked into ignored `plugins/<id>` directories during materialization.
 
 Materialization collects requested npm pack failures, processes the remaining
 fixtures, and writes `reports/crabpot-package-availability.json` before exiting
-nonzero. It does not announce success or allow the static runner to continue
-past that failed prerequisite. A missing dist-tag that successfully falls back
-to the pinned shim version still succeeds, with its existing availability
-evidence; a failed fallback pack does not.
+nonzero. The report labels the resolved fixture selection, including selection
+passed through the environment. It does not announce success or allow the
+static runner to continue past that failed prerequisite. A missing dist-tag that
+successfully falls back to the pinned shim version still succeeds, with its
+existing availability evidence; a failed fallback pack does not.
 
 `--no-package-availability-report` suppresses report writes, not failure:
 failed packs still exit nonzero and any existing report stays byte-identical.
