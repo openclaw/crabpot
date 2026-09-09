@@ -1,155 +1,466 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-08T14:45:44Z",
-  "runUrl": "https://github.com/openclaw/crabpot/actions/runs/34238577814",
-  "mode": "check",
-  "openclawLabel": "openclaw/openclaw@5570c5ffac86 (Default Track pin 2026-08-28)",
+  "generatedAt": "2026-09-09T17:21:34Z",
+  "runUrl": "https://github.com/openclaw/crabpot/actions/runs/34381976082",
+  "mode": "track:development",
+  "openclawLabel": "openclaw/openclaw@main (2026.9.3, ffffa9bc2bd5)",
   "status": "pass",
   "metrics": {
-    "fixtures": 59,
+    "fixtures": 7,
     "hardBreakages": 0,
-    "warnings": 121,
-    "suggestions": 237,
-    "issues": 358,
-    "p0Issues": 9,
-    "p1Issues": 123,
-    "liveIssues": 9,
-    "liveP0Issues": 9,
-    "compatGaps": 107,
-    "deprecationWarnings": 22,
-    "inspectorGaps": 156,
-    "upstreamIssues": 64,
-    "contractProbes": 251,
+    "warnings": 9,
+    "suggestions": 23,
+    "issues": 32,
+    "p0Issues": 0,
+    "p1Issues": 11,
+    "liveIssues": 0,
+    "liveP0Issues": 0,
+    "compatGaps": 10,
+    "deprecationWarnings": 0,
+    "inspectorGaps": 18,
+    "upstreamIssues": 4,
+    "contractProbes": 26,
     "policyFailures": 0,
-    "policyWarnings": 1,
+    "policyWarnings": 21,
     "refDiffFailures": 0,
     "profileFailures": 0,
-    "executionPass": 0,
+    "executionPass": 79,
     "executionFail": 0,
-    "executionBlocked": 0,
-    "syntheticReady": 497,
-    "syntheticBlocked": 10,
-    "syntheticTotal": 507,
-    "coldReady": 4,
-    "coldBlocked": 115,
-    "coldTotal": 119,
-    "workspaceEntrypoints": 119,
-    "workspaceInstalls": 79,
-    "workspaceBuilds": 15,
-    "platformWindowsRisks": 17,
-    "platformContainerRisks": 17,
-    "loaderJitiCandidates": 20,
-    "importLoopP50Ms": 3066,
-    "importLoopP95Ms": 3108,
+    "executionBlocked": 20,
+    "syntheticReady": 56,
+    "syntheticBlocked": 2,
+    "syntheticTotal": 58,
+    "coldReady": 0,
+    "coldBlocked": 8,
+    "coldTotal": 8,
+    "workspaceEntrypoints": 8,
+    "workspaceInstalls": 6,
+    "workspaceBuilds": 0,
+    "platformWindowsRisks": 0,
+    "platformContainerRisks": 0,
+    "loaderJitiCandidates": 8,
+    "importLoopP50Ms": 2994,
+    "importLoopP95Ms": 3028,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 129.1,
-    "importLoopOpenClawImportP95Ms": 144.7,
-    "importLoopOpenClawActivationP50Ms": 0.5,
+    "importLoopOpenClawImportP50Ms": 60.8,
+    "importLoopOpenClawImportP95Ms": 61.8,
+    "importLoopOpenClawActivationP50Ms": 0.4,
     "importLoopOpenClawActivationP95Ms": 0.5,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 0.7,
-    "importLoopMaxCpuMs": 16,
-    "importLoopRssSampleCount": 364,
-    "importLoopCpuSampleCount": 364,
-    "runtimeP50Ms": 5853,
-    "runtimeP95Ms": 5946,
-    "runtimeMaxRssMb": 213.6,
-    "runtimeRssSampleCount": 4965,
-    "runtimeCpuSampleCount": 4965,
+    "importLoopMaxRssMb": 1.8,
+    "importLoopMaxCpuMs": 0,
+    "importLoopRssSampleCount": 357,
+    "importLoopCpuSampleCount": 357,
+    "runtimeP50Ms": 1238,
+    "runtimeP95Ms": 1260,
+    "runtimeMaxRssMb": 130.6,
+    "runtimeRssSampleCount": 1102,
+    "runtimeCpuSampleCount": 1102,
     "runtimeSamplesPerCommand": 3,
     "runtimeWallTimeBasis": "command-median-p95"
   },
-  "baseline": null,
+  "baseline": {
+    "label": "main",
+    "generatedAt": "2026-09-08T14:45:44Z",
+    "openclawLabel": "openclaw/openclaw@5570c5ffac86 (Default Track pin 2026-08-28)",
+    "runUrl": "https://github.com/openclaw/crabpot/actions/runs/34238577814",
+    "metrics": {
+      "fixtures": 59,
+      "hardBreakages": 0,
+      "warnings": 121,
+      "suggestions": 237,
+      "issues": 358,
+      "p0Issues": 9,
+      "p1Issues": 123,
+      "liveIssues": 9,
+      "liveP0Issues": 9,
+      "compatGaps": 107,
+      "deprecationWarnings": 22,
+      "inspectorGaps": 156,
+      "upstreamIssues": 64,
+      "contractProbes": 251,
+      "policyFailures": 0,
+      "policyWarnings": 1,
+      "refDiffFailures": 0,
+      "profileFailures": 0,
+      "executionPass": 0,
+      "executionFail": 0,
+      "executionBlocked": 0,
+      "syntheticReady": 497,
+      "syntheticBlocked": 10,
+      "syntheticTotal": 507,
+      "coldReady": 4,
+      "coldBlocked": 115,
+      "coldTotal": 119,
+      "workspaceEntrypoints": 119,
+      "workspaceInstalls": 79,
+      "workspaceBuilds": 15,
+      "platformWindowsRisks": 17,
+      "platformContainerRisks": 17,
+      "loaderJitiCandidates": 20,
+      "importLoopP50Ms": 3066,
+      "importLoopP95Ms": 3108,
+      "importLoopOpenClawLifecycleCount": 3,
+      "importLoopOpenClawImportP50Ms": 129.1,
+      "importLoopOpenClawImportP95Ms": 144.7,
+      "importLoopOpenClawActivationP50Ms": 0.5,
+      "importLoopOpenClawActivationP95Ms": 0.5,
+      "importLoopMetricBasis": "baseline-adjusted",
+      "importLoopMaxRssMb": 0.7,
+      "importLoopMaxCpuMs": 16,
+      "importLoopRssSampleCount": 364,
+      "importLoopCpuSampleCount": 364,
+      "runtimeP50Ms": 5853,
+      "runtimeP95Ms": 5946,
+      "runtimeMaxRssMb": 213.6,
+      "runtimeRssSampleCount": 4965,
+      "runtimeCpuSampleCount": 4965,
+      "runtimeSamplesPerCommand": 3,
+      "runtimeWallTimeBasis": "command-median-p95"
+    },
+    "deltas": {
+      "fixtures": {
+        "current": 7,
+        "baseline": 59,
+        "value": -52
+      },
+      "hardBreakages": {
+        "current": 0,
+        "baseline": 0,
+        "value": 0
+      },
+      "warnings": {
+        "current": 9,
+        "baseline": 121,
+        "value": -112
+      },
+      "suggestions": {
+        "current": 23,
+        "baseline": 237,
+        "value": -214
+      },
+      "issues": {
+        "current": 32,
+        "baseline": 358,
+        "value": -326
+      },
+      "p0Issues": {
+        "current": 0,
+        "baseline": 9,
+        "value": -9
+      },
+      "p1Issues": {
+        "current": 11,
+        "baseline": 123,
+        "value": -112
+      },
+      "liveIssues": {
+        "current": 0,
+        "baseline": 9,
+        "value": -9
+      },
+      "liveP0Issues": {
+        "current": 0,
+        "baseline": 9,
+        "value": -9
+      },
+      "compatGaps": {
+        "current": 10,
+        "baseline": 107,
+        "value": -97
+      },
+      "deprecationWarnings": {
+        "current": 0,
+        "baseline": 22,
+        "value": -22
+      },
+      "inspectorGaps": {
+        "current": 18,
+        "baseline": 156,
+        "value": -138
+      },
+      "upstreamIssues": {
+        "current": 4,
+        "baseline": 64,
+        "value": -60
+      },
+      "contractProbes": {
+        "current": 26,
+        "baseline": 251,
+        "value": -225
+      },
+      "policyFailures": {
+        "current": 0,
+        "baseline": 0,
+        "value": 0
+      },
+      "policyWarnings": {
+        "current": 21,
+        "baseline": 1,
+        "value": 20
+      },
+      "refDiffFailures": {
+        "current": 0,
+        "baseline": 0,
+        "value": 0
+      },
+      "profileFailures": {
+        "current": 0,
+        "baseline": 0,
+        "value": 0
+      },
+      "executionPass": {
+        "current": 79,
+        "baseline": 0,
+        "value": 79
+      },
+      "executionFail": {
+        "current": 0,
+        "baseline": 0,
+        "value": 0
+      },
+      "executionBlocked": {
+        "current": 20,
+        "baseline": 0,
+        "value": 20
+      },
+      "syntheticReady": {
+        "current": 56,
+        "baseline": 497,
+        "value": -441
+      },
+      "syntheticBlocked": {
+        "current": 2,
+        "baseline": 10,
+        "value": -8
+      },
+      "syntheticTotal": {
+        "current": 58,
+        "baseline": 507,
+        "value": -449
+      },
+      "coldReady": {
+        "current": 0,
+        "baseline": 4,
+        "value": -4
+      },
+      "coldBlocked": {
+        "current": 8,
+        "baseline": 115,
+        "value": -107
+      },
+      "coldTotal": {
+        "current": 8,
+        "baseline": 119,
+        "value": -111
+      },
+      "workspaceEntrypoints": {
+        "current": 8,
+        "baseline": 119,
+        "value": -111
+      },
+      "workspaceInstalls": {
+        "current": 6,
+        "baseline": 79,
+        "value": -73
+      },
+      "workspaceBuilds": {
+        "current": 0,
+        "baseline": 15,
+        "value": -15
+      },
+      "platformWindowsRisks": {
+        "current": 0,
+        "baseline": 17,
+        "value": -17
+      },
+      "platformContainerRisks": {
+        "current": 0,
+        "baseline": 17,
+        "value": -17
+      },
+      "loaderJitiCandidates": {
+        "current": 8,
+        "baseline": 20,
+        "value": -12
+      },
+      "importLoopP50Ms": {
+        "current": 2994,
+        "baseline": 3066,
+        "value": -72
+      },
+      "importLoopP95Ms": {
+        "current": 3028,
+        "baseline": 3108,
+        "value": -80
+      },
+      "importLoopOpenClawLifecycleCount": {
+        "current": 3,
+        "baseline": 3,
+        "value": 0
+      },
+      "importLoopOpenClawImportP50Ms": {
+        "current": 60.8,
+        "baseline": 129.1,
+        "value": -68.3
+      },
+      "importLoopOpenClawImportP95Ms": {
+        "current": 61.8,
+        "baseline": 144.7,
+        "value": -82.9
+      },
+      "importLoopOpenClawActivationP50Ms": {
+        "current": 0.4,
+        "baseline": 0.5,
+        "value": -0.1
+      },
+      "importLoopOpenClawActivationP95Ms": {
+        "current": 0.5,
+        "baseline": 0.5,
+        "value": 0
+      },
+      "importLoopMaxRssMb": {
+        "current": 1.8,
+        "baseline": 0.7,
+        "value": 1.1
+      },
+      "importLoopMaxCpuMs": {
+        "current": 0,
+        "baseline": 16,
+        "value": -16
+      },
+      "importLoopRssSampleCount": {
+        "current": 357,
+        "baseline": 364,
+        "value": -7
+      },
+      "importLoopCpuSampleCount": {
+        "current": 357,
+        "baseline": 364,
+        "value": -7
+      },
+      "runtimeP50Ms": {
+        "current": 1238,
+        "baseline": 5853,
+        "value": -4615
+      },
+      "runtimeP95Ms": {
+        "current": 1260,
+        "baseline": 5946,
+        "value": -4686
+      },
+      "runtimeMaxRssMb": {
+        "current": 130.6,
+        "baseline": 213.6,
+        "value": -83
+      },
+      "runtimeRssSampleCount": {
+        "current": 1102,
+        "baseline": 4965,
+        "value": -3863
+      },
+      "runtimeCpuSampleCount": {
+        "current": 1102,
+        "baseline": 4965,
+        "value": -3863
+      },
+      "runtimeSamplesPerCommand": {
+        "current": 3,
+        "baseline": 3,
+        "value": 0
+      }
+    }
+  },
   "topIssues": [
     {
-      "id": "CRABPOT-DA7E30E9",
-      "severity": "P0",
-      "issueClass": "live-issue",
-      "fixture": "aiwerk-mcp-bridge",
-      "code": "unknown-hook-name",
-      "decision": "core-compat-adapter",
-      "title": "aiwerk-mcp-bridge: fixture uses a hook missing from target OpenClaw"
-    },
-    {
-      "id": "CRABPOT-6ECF4CB1",
-      "severity": "P0",
-      "issueClass": "live-issue",
-      "fixture": "connectclaw",
-      "code": "unknown-hook-name",
-      "decision": "core-compat-adapter",
-      "title": "connectclaw: fixture uses a hook missing from target OpenClaw"
-    },
-    {
-      "id": "CRABPOT-661658BA",
-      "severity": "P0",
-      "issueClass": "live-issue",
-      "fixture": "honcho",
-      "code": "unknown-hook-name",
-      "decision": "core-compat-adapter",
-      "title": "honcho: fixture uses a hook missing from target OpenClaw"
-    },
-    {
-      "id": "CRABPOT-53155FC5",
-      "severity": "P0",
-      "issueClass": "live-issue",
-      "fixture": "honcho",
-      "code": "unknown-registration-name",
-      "decision": "core-compat-adapter",
-      "title": "honcho: fixture calls a registrar missing from target OpenClaw"
-    },
-    {
-      "id": "CRABPOT-E93E8D86",
-      "severity": "P0",
-      "issueClass": "live-issue",
-      "fixture": "kitchen-sink",
-      "code": "unknown-hook-name",
-      "decision": "core-compat-adapter",
-      "title": "kitchen-sink: fixture uses a hook missing from target OpenClaw"
-    },
-    {
-      "id": "CRABPOT-423AE32C",
-      "severity": "P0",
-      "issueClass": "live-issue",
-      "fixture": "kitchen-sink",
-      "code": "unknown-registration-name",
-      "decision": "core-compat-adapter",
-      "title": "kitchen-sink: fixture calls a registrar missing from target OpenClaw"
-    },
-    {
-      "id": "CRABPOT-23239ED9",
-      "severity": "P0",
-      "issueClass": "live-issue",
-      "fixture": "memos-cloud",
-      "code": "unknown-hook-name",
-      "decision": "core-compat-adapter",
-      "title": "memos-cloud: fixture uses a hook missing from target OpenClaw"
-    },
-    {
-      "id": "CRABPOT-24360AC4",
-      "severity": "P0",
-      "issueClass": "live-issue",
-      "fixture": "openclaw-telemetry",
-      "code": "unknown-hook-name",
-      "decision": "core-compat-adapter",
-      "title": "openclaw-telemetry: fixture uses a hook missing from target OpenClaw"
-    },
-    {
-      "id": "CRABPOT-34B52D64",
-      "severity": "P0",
-      "issueClass": "live-issue",
-      "fixture": "opik-openclaw",
-      "code": "unknown-hook-name",
-      "decision": "core-compat-adapter",
-      "title": "opik-openclaw: fixture uses a hook missing from target OpenClaw"
-    },
-    {
-      "id": "CRABPOT-DC39E00B",
+      "id": "CRABPOT-01CB33C1",
       "severity": "P1",
       "issueClass": "compat-gap",
-      "fixture": "a2a-gateway",
+      "fixture": "codex",
       "code": "missing-compat-record",
       "decision": "core-compat-adapter",
-      "title": "a2a-gateway: compat-dependent behavior lacks registry coverage"
+      "title": "codex: compat-dependent behavior lacks registry coverage"
+    },
+    {
+      "id": "CRABPOT-2A54D5DE",
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "codex",
+      "code": "sdk-export-missing",
+      "decision": "core-compat-adapter",
+      "title": "codex: plugin SDK import aliases are missing from target package exports"
+    },
+    {
+      "id": "CRABPOT-207B9D9D",
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "diagnostics-prometheus",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "title": "diagnostics-prometheus: compat-dependent behavior lacks registry coverage"
+    },
+    {
+      "id": "CRABPOT-78272BC3",
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "diffs",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "title": "diffs: compat-dependent behavior lacks registry coverage"
+    },
+    {
+      "id": "CRABPOT-A28A1D6F",
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "diffs",
+      "code": "sdk-export-missing",
+      "decision": "core-compat-adapter",
+      "title": "diffs: plugin SDK import aliases are missing from target package exports"
+    },
+    {
+      "id": "CRABPOT-7328E246",
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "google-meet",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "title": "google-meet: compat-dependent behavior lacks registry coverage"
+    },
+    {
+      "id": "CRABPOT-AA03BD52",
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "google-meet",
+      "code": "sdk-export-missing",
+      "decision": "core-compat-adapter",
+      "title": "google-meet: plugin SDK import aliases are missing from target package exports"
+    },
+    {
+      "id": "CRABPOT-927EAA27",
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "memory-lancedb",
+      "code": "conversation-access-hook",
+      "decision": "inspector-follow-up",
+      "title": "memory-lancedb: conversation-access hooks need privacy-boundary probes"
+    },
+    {
+      "id": "CRABPOT-2E6070EB",
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "memory-lancedb",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "title": "memory-lancedb: compat-dependent behavior lacks registry coverage"
+    },
+    {
+      "id": "CRABPOT-1F3E0006",
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "memory-lancedb",
+      "code": "missing-compat-record",
+      "decision": "core-compat-adapter",
+      "title": "memory-lancedb: compat-dependent behavior lacks registry coverage"
     }
   ],
   "artifactPaths": {

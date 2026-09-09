@@ -2,21 +2,1565 @@
   "generatedAt": "deterministic",
   "resultsDir": ".crabpot/results",
   "summary": {
-    "artifactCount": 0,
-    "captureArtifactCount": 0,
-    "syntheticArtifactCount": 0,
-    "auditArtifactCount": 0,
-    "profileArtifactCount": 0,
-    "capturedRegistrationCount": 0,
-    "auditFindingCount": 0,
-    "executionWallMs": 0,
-    "maxPeakRssMb": 0,
-    "maxCpuMsEstimate": 0,
-    "passCount": 0,
+    "artifactCount": 22,
+    "captureArtifactCount": 8,
+    "syntheticArtifactCount": 8,
+    "auditArtifactCount": 5,
+    "profileArtifactCount": 1,
+    "capturedRegistrationCount": 67,
+    "auditFindingCount": 3,
+    "executionWallMs": 35752,
+    "maxPeakRssMb": 495.1,
+    "maxCpuMsEstimate": 9250,
+    "passCount": 79,
     "failCount": 0,
-    "blockedCount": 0,
+    "blockedCount": 20,
     "profileFailureCount": 0,
     "profileBlockedCount": 0
   },
-  "artifacts": []
+  "artifacts": [
+    {
+      "artifactPath": ".crabpot/results/brave-plugin/cold-import-extension-brave-plugin-plugins-brave-plugin-crabpot-package-index-ts.capture.json",
+      "fixture": "brave-plugin",
+      "kind": "capture",
+      "entrypoint": "index.ts",
+      "status": "captured",
+      "capturedCount": 1,
+      "captured": [
+        "registration:registerWebSearchProvider"
+      ]
+    },
+    {
+      "artifactPath": ".crabpot/results/brave-plugin/cold-import-extension-brave-plugin-plugins-brave-plugin-crabpot-package-index-ts.synthetic.json",
+      "fixture": "brave-plugin",
+      "kind": "synthetic",
+      "entrypoint": ".crabpot/workspaces/brave-plugin/index.ts",
+      "status": "captured",
+      "summary": {
+        "probeCount": 1,
+        "passCount": 1,
+        "failCount": 0,
+        "blockedCount": 0
+      },
+      "captured": [
+        "registration:registerWebSearchProvider"
+      ],
+      "passed": [
+        {
+          "captureIndex": 0,
+          "kind": "registration",
+          "seam": "registerWebSearchProvider",
+          "label": "registerWebSearchProvider",
+          "status": "pass",
+          "output": {
+            "mode": "metadata-only",
+            "reason": "web search providers are captured as registration metadata before provider runtime execution"
+          }
+        }
+      ],
+      "failures": [],
+      "blocked": []
+    },
+    {
+      "artifactPath": ".crabpot/results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.capture.json",
+      "fixture": "codex",
+      "kind": "capture",
+      "entrypoint": "index.ts",
+      "status": "captured",
+      "capturedCount": 28,
+      "captured": [
+        "registration:registerService",
+        "registration:registerService",
+        "registration:registerCli",
+        "registration:registerSessionCatalog",
+        "registration:registerNodeHostCommand",
+        "registration:registerNodeHostCommand",
+        "registration:registerNodeHostCommand",
+        "registration:registerNodeHostCommand",
+        "registration:registerNodeHostCommand",
+        "registration:registerNodeInvokePolicy",
+        "registration:registerAgentHarness",
+        "registration:registerMediaUnderstandingProvider",
+        "registration:registerWebSearchProvider",
+        "registration:registerMigrationProvider",
+        "registration:registerTool",
+        "registration:registerToolMetadata",
+        "registration:registerTool",
+        "registration:registerToolMetadata",
+        "registration:registerNodeHostCommand",
+        "registration:registerNodeHostCommand",
+        "registration:registerNodeInvokePolicy",
+        "registration:registerNodeInvokePolicy",
+        "registration:registerNodeHostCommand",
+        "registration:registerNodeInvokePolicy",
+        "registration:registerCommand",
+        "hook:inbound_claim",
+        "hook:onConversationBindingResolved",
+        "hook:session_end"
+      ]
+    },
+    {
+      "artifactPath": ".crabpot/results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json",
+      "fixture": "codex",
+      "kind": "synthetic",
+      "entrypoint": ".crabpot/workspaces/codex/index.ts",
+      "status": "captured",
+      "summary": {
+        "probeCount": 28,
+        "passCount": 23,
+        "failCount": 0,
+        "blockedCount": 5
+      },
+      "captured": [
+        "registration:registerSessionCatalog",
+        "registration:registerNodeHostCommand",
+        "registration:registerNodeHostCommand",
+        "registration:registerNodeHostCommand",
+        "registration:registerNodeHostCommand",
+        "registration:registerNodeHostCommand",
+        "registration:registerNodeInvokePolicy",
+        "registration:registerAgentHarness",
+        "registration:registerMediaUnderstandingProvider",
+        "registration:registerWebSearchProvider",
+        "registration:registerMigrationProvider",
+        "registration:registerToolMetadata",
+        "registration:registerToolMetadata",
+        "registration:registerNodeHostCommand",
+        "registration:registerNodeHostCommand",
+        "registration:registerNodeInvokePolicy",
+        "registration:registerNodeInvokePolicy",
+        "registration:registerNodeHostCommand",
+        "registration:registerNodeInvokePolicy",
+        "registration:registerCommand",
+        "hook:inbound_claim",
+        "hook:onConversationBindingResolved",
+        "hook:session_end"
+      ],
+      "passed": [
+        {
+          "captureIndex": 3,
+          "kind": "registration",
+          "seam": "registerSessionCatalog",
+          "label": "registerSessionCatalog",
+          "status": "pass",
+          "output": {
+            "mode": "metadata-only",
+            "reason": "session catalogs are captured as registration metadata before catalog runtime execution"
+          }
+        },
+        {
+          "captureIndex": 4,
+          "kind": "registration",
+          "seam": "registerNodeHostCommand",
+          "label": "registerNodeHostCommand",
+          "status": "pass",
+          "output": {
+            "mode": "metadata-only",
+            "reason": "node host commands are captured as registration metadata before host process execution"
+          }
+        },
+        {
+          "captureIndex": 5,
+          "kind": "registration",
+          "seam": "registerNodeHostCommand",
+          "label": "registerNodeHostCommand",
+          "status": "pass",
+          "output": {
+            "mode": "metadata-only",
+            "reason": "node host commands are captured as registration metadata before host process execution"
+          }
+        },
+        {
+          "captureIndex": 6,
+          "kind": "registration",
+          "seam": "registerNodeHostCommand",
+          "label": "registerNodeHostCommand",
+          "status": "pass",
+          "output": {
+            "mode": "metadata-only",
+            "reason": "node host commands are captured as registration metadata before host process execution"
+          }
+        },
+        {
+          "captureIndex": 7,
+          "kind": "registration",
+          "seam": "registerNodeHostCommand",
+          "label": "registerNodeHostCommand",
+          "status": "pass",
+          "output": {
+            "mode": "metadata-only",
+            "reason": "node host commands are captured as registration metadata before host process execution"
+          }
+        },
+        {
+          "captureIndex": 8,
+          "kind": "registration",
+          "seam": "registerNodeHostCommand",
+          "label": "registerNodeHostCommand",
+          "status": "pass",
+          "output": {
+            "mode": "metadata-only",
+            "reason": "node host commands are captured as registration metadata before host process execution"
+          }
+        },
+        {
+          "captureIndex": 9,
+          "kind": "registration",
+          "seam": "registerNodeInvokePolicy",
+          "label": "registerNodeInvokePolicy",
+          "status": "pass",
+          "output": {
+            "mode": "metadata-only",
+            "reason": "node invoke policies are captured as registration metadata before host authorization checks"
+          }
+        },
+        {
+          "captureIndex": 10,
+          "kind": "registration",
+          "seam": "registerAgentHarness",
+          "label": "registerAgentHarness",
+          "status": "pass",
+          "output": {
+            "mode": "metadata-only",
+            "reason": "agent harness factories are captured as registration metadata; agent runtime execution remains isolated opt-in"
+          }
+        },
+        {
+          "captureIndex": 11,
+          "kind": "registration",
+          "seam": "registerMediaUnderstandingProvider",
+          "label": "registerMediaUnderstandingProvider",
+          "status": "pass",
+          "output": {
+            "mode": "metadata-only",
+            "reason": "media understanding providers are captured as registration metadata before provider runtime execution"
+          }
+        },
+        {
+          "captureIndex": 12,
+          "kind": "registration",
+          "seam": "registerWebSearchProvider",
+          "label": "registerWebSearchProvider",
+          "status": "pass",
+          "output": {
+            "mode": "metadata-only",
+            "reason": "web search providers are captured as registration metadata before provider runtime execution"
+          }
+        },
+        {
+          "captureIndex": 13,
+          "kind": "registration",
+          "seam": "registerMigrationProvider",
+          "label": "registerMigrationProvider",
+          "status": "pass",
+          "output": {
+            "mode": "metadata-only",
+            "reason": "migration providers are captured as registration metadata before migration runtime execution"
+          }
+        },
+        {
+          "captureIndex": 15,
+          "kind": "registration",
+          "seam": "registerToolMetadata",
+          "label": "registerToolMetadata",
+          "status": "pass",
+          "output": {
+            "mode": "metadata-only",
+            "reason": "tool metadata descriptors are captured as registration metadata before tool runtime execution"
+          }
+        },
+        {
+          "captureIndex": 17,
+          "kind": "registration",
+          "seam": "registerToolMetadata",
+          "label": "registerToolMetadata",
+          "status": "pass",
+          "output": {
+            "mode": "metadata-only",
+            "reason": "tool metadata descriptors are captured as registration metadata before tool runtime execution"
+          }
+        },
+        {
+          "captureIndex": 18,
+          "kind": "registration",
+          "seam": "registerNodeHostCommand",
+          "label": "registerNodeHostCommand",
+          "status": "pass",
+          "output": {
+            "mode": "metadata-only",
+            "reason": "node host commands are captured as registration metadata before host process execution"
+          }
+        },
+        {
+          "captureIndex": 19,
+          "kind": "registration",
+          "seam": "registerNodeHostCommand",
+          "label": "registerNodeHostCommand",
+          "status": "pass",
+          "output": {
+            "mode": "metadata-only",
+            "reason": "node host commands are captured as registration metadata before host process execution"
+          }
+        },
+        {
+          "captureIndex": 20,
+          "kind": "registration",
+          "seam": "registerNodeInvokePolicy",
+          "label": "registerNodeInvokePolicy",
+          "status": "pass",
+          "output": {
+            "mode": "metadata-only",
+            "reason": "node invoke policies are captured as registration metadata before host authorization checks"
+          }
+        },
+        {
+          "captureIndex": 21,
+          "kind": "registration",
+          "seam": "registerNodeInvokePolicy",
+          "label": "registerNodeInvokePolicy",
+          "status": "pass",
+          "output": {
+            "mode": "metadata-only",
+            "reason": "node invoke policies are captured as registration metadata before host authorization checks"
+          }
+        },
+        {
+          "captureIndex": 22,
+          "kind": "registration",
+          "seam": "registerNodeHostCommand",
+          "label": "registerNodeHostCommand",
+          "status": "pass",
+          "output": {
+            "mode": "metadata-only",
+            "reason": "node host commands are captured as registration metadata before host process execution"
+          }
+        },
+        {
+          "captureIndex": 23,
+          "kind": "registration",
+          "seam": "registerNodeInvokePolicy",
+          "label": "registerNodeInvokePolicy",
+          "status": "pass",
+          "output": {
+            "mode": "metadata-only",
+            "reason": "node invoke policies are captured as registration metadata before host authorization checks"
+          }
+        },
+        {
+          "captureIndex": 24,
+          "kind": "registration",
+          "seam": "registerCommand",
+          "label": "registerCommand.handler",
+          "status": "pass",
+          "output": {
+            "type": "object",
+            "keys": [
+              "presentation",
+              "text"
+            ]
+          }
+        },
+        {
+          "captureIndex": 25,
+          "kind": "hook",
+          "seam": "inbound_claim",
+          "label": "inbound_claim",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 26,
+          "kind": "hook",
+          "seam": "onConversationBindingResolved",
+          "label": "onConversationBindingResolved",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 27,
+          "kind": "hook",
+          "seam": "session_end",
+          "label": "session_end",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        }
+      ],
+      "failures": [],
+      "blocked": [
+        {
+          "captureIndex": 0,
+          "kind": "registration",
+          "seam": "registerService",
+          "label": "registerService",
+          "status": "blocked",
+          "reason": "captured registration requires includeLifecycle=true"
+        },
+        {
+          "captureIndex": 1,
+          "kind": "registration",
+          "seam": "registerService",
+          "label": "registerService",
+          "status": "blocked",
+          "reason": "captured registration requires includeLifecycle=true"
+        },
+        {
+          "captureIndex": 2,
+          "kind": "registration",
+          "seam": "registerCli",
+          "label": "registerCli",
+          "status": "blocked",
+          "reason": "captured registration has no supported callable probe"
+        },
+        {
+          "captureIndex": 14,
+          "kind": "registration",
+          "seam": "registerTool",
+          "label": "registerTool",
+          "status": "blocked",
+          "reason": "captured registration has no supported callable probe"
+        },
+        {
+          "captureIndex": 16,
+          "kind": "registration",
+          "seam": "registerTool",
+          "label": "registerTool",
+          "status": "blocked",
+          "reason": "captured registration has no supported callable probe"
+        }
+      ]
+    },
+    {
+      "artifactPath": ".crabpot/results/codex/package-audit.json",
+      "fixture": "codex",
+      "kind": "audit",
+      "entrypoint": "-",
+      "status": "warning",
+      "findingCount": 0,
+      "vulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0,
+        "total": 0
+      }
+    },
+    {
+      "artifactPath": ".crabpot/results/diagnostics-prometheus/cold-import-extension-diagnostics-prometheus-plugins-diagnostics-prometheus-crabpot-package-index-ts.capture.json",
+      "fixture": "diagnostics-prometheus",
+      "kind": "capture",
+      "entrypoint": "index.ts",
+      "status": "captured",
+      "capturedCount": 2,
+      "captured": [
+        "registration:registerService",
+        "registration:registerHttpRoute"
+      ]
+    },
+    {
+      "artifactPath": ".crabpot/results/diagnostics-prometheus/cold-import-extension-diagnostics-prometheus-plugins-diagnostics-prometheus-crabpot-package-index-ts.synthetic.json",
+      "fixture": "diagnostics-prometheus",
+      "kind": "synthetic",
+      "entrypoint": ".crabpot/workspaces/diagnostics-prometheus/index.ts",
+      "status": "captured",
+      "summary": {
+        "probeCount": 2,
+        "passCount": 0,
+        "failCount": 0,
+        "blockedCount": 2
+      },
+      "captured": [],
+      "passed": [],
+      "failures": [],
+      "blocked": [
+        {
+          "captureIndex": 0,
+          "kind": "registration",
+          "seam": "registerService",
+          "label": "registerService",
+          "status": "blocked",
+          "reason": "captured registration requires includeLifecycle=true"
+        },
+        {
+          "captureIndex": 1,
+          "kind": "registration",
+          "seam": "registerHttpRoute",
+          "label": "registerHttpRoute.handler",
+          "status": "blocked",
+          "error": "captured HTTP route probe requires route descriptor input",
+          "reason": "captured HTTP route probe requires route descriptor input",
+          "blockedBy": "http-route-descriptor-input"
+        }
+      ]
+    },
+    {
+      "artifactPath": ".crabpot/results/diffs/cold-import-extension-diffs-plugins-diffs-crabpot-package-index-ts.capture.json",
+      "fixture": "diffs",
+      "kind": "capture",
+      "entrypoint": "index.ts",
+      "status": "captured",
+      "capturedCount": 3,
+      "captured": [
+        "registration:registerTool",
+        "registration:registerHttpRoute",
+        "hook:before_prompt_build"
+      ]
+    },
+    {
+      "artifactPath": ".crabpot/results/diffs/cold-import-extension-diffs-plugins-diffs-crabpot-package-index-ts.synthetic.json",
+      "fixture": "diffs",
+      "kind": "synthetic",
+      "entrypoint": ".crabpot/workspaces/diffs/index.ts",
+      "status": "captured",
+      "summary": {
+        "probeCount": 3,
+        "passCount": 1,
+        "failCount": 0,
+        "blockedCount": 2
+      },
+      "captured": [
+        "hook:before_prompt_build"
+      ],
+      "passed": [
+        {
+          "captureIndex": 2,
+          "kind": "hook",
+          "seam": "before_prompt_build",
+          "label": "before_prompt_build",
+          "status": "pass",
+          "output": {
+            "type": "object",
+            "keys": [
+              "prependSystemContext"
+            ]
+          }
+        }
+      ],
+      "failures": [],
+      "blocked": [
+        {
+          "captureIndex": 0,
+          "kind": "registration",
+          "seam": "registerTool",
+          "label": "registerTool",
+          "status": "blocked",
+          "reason": "captured registration has no supported callable probe"
+        },
+        {
+          "captureIndex": 1,
+          "kind": "registration",
+          "seam": "registerHttpRoute",
+          "label": "registerHttpRoute.handler",
+          "status": "blocked",
+          "error": "captured HTTP route probe requires route descriptor input",
+          "reason": "captured HTTP route probe requires route descriptor input",
+          "blockedBy": "http-route-descriptor-input"
+        }
+      ]
+    },
+    {
+      "artifactPath": ".crabpot/results/diffs/package-audit.json",
+      "fixture": "diffs",
+      "kind": "audit",
+      "entrypoint": "-",
+      "status": "warning",
+      "findingCount": 0,
+      "vulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0,
+        "total": 0
+      }
+    },
+    {
+      "artifactPath": ".crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.capture.json",
+      "fixture": "google-meet",
+      "kind": "capture",
+      "entrypoint": "index.ts",
+      "status": "captured",
+      "capturedCount": 21,
+      "captured": [
+        "registration:registerTranscriptSourceProvider",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerTool",
+        "registration:registerNodeHostCommand",
+        "registration:registerNodeInvokePolicy",
+        "registration:registerCli"
+      ]
+    },
+    {
+      "artifactPath": ".crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json",
+      "fixture": "google-meet",
+      "kind": "synthetic",
+      "entrypoint": ".crabpot/workspaces/google-meet/index.ts",
+      "status": "captured",
+      "summary": {
+        "probeCount": 53,
+        "passCount": 50,
+        "failCount": 0,
+        "blockedCount": 3
+      },
+      "captured": [
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerGatewayMethod",
+        "registration:registerNodeHostCommand",
+        "registration:registerNodeInvokePolicy"
+      ],
+      "passed": [
+        {
+          "captureIndex": 1,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.handler",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 1,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.run",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 1,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.execute",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 2,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.handler",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 2,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.run",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 2,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.execute",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 3,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.handler",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 3,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.run",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 3,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.execute",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 4,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.handler",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 4,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.run",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 4,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.execute",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 5,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.handler",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 5,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.run",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 5,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.execute",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 6,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.handler",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 6,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.run",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 6,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.execute",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 7,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.handler",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 7,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.run",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 7,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.execute",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 8,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.handler",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 8,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.run",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 8,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.execute",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 9,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.handler",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 9,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.run",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 9,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.execute",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 10,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.handler",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 10,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.run",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 10,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.execute",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 11,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.handler",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 11,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.run",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 11,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.execute",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 12,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.handler",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 12,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.run",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 12,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.execute",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 13,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.handler",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 13,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.run",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 13,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.execute",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 14,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.handler",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 14,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.run",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 14,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.execute",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 15,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.handler",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 15,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.run",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 15,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.execute",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 16,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.handler",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 16,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.run",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 16,
+          "kind": "registration",
+          "seam": "registerGatewayMethod",
+          "label": "registerGatewayMethod.execute",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 18,
+          "kind": "registration",
+          "seam": "registerNodeHostCommand",
+          "label": "registerNodeHostCommand",
+          "status": "pass",
+          "output": {
+            "mode": "metadata-only",
+            "reason": "node host commands are captured as registration metadata before host process execution"
+          }
+        },
+        {
+          "captureIndex": 19,
+          "kind": "registration",
+          "seam": "registerNodeInvokePolicy",
+          "label": "registerNodeInvokePolicy",
+          "status": "pass",
+          "output": {
+            "mode": "metadata-only",
+            "reason": "node invoke policies are captured as registration metadata before host authorization checks"
+          }
+        }
+      ],
+      "failures": [],
+      "blocked": [
+        {
+          "captureIndex": 0,
+          "kind": "registration",
+          "seam": "registerTranscriptSourceProvider",
+          "label": "registerTranscriptSourceProvider",
+          "status": "blocked",
+          "reason": "captured registration has no execution profile"
+        },
+        {
+          "captureIndex": 17,
+          "kind": "registration",
+          "seam": "registerTool",
+          "label": "registerTool",
+          "status": "blocked",
+          "reason": "captured registration has no supported callable probe"
+        },
+        {
+          "captureIndex": 20,
+          "kind": "registration",
+          "seam": "registerCli",
+          "label": "registerCli",
+          "status": "blocked",
+          "reason": "captured registration has no supported callable probe"
+        }
+      ]
+    },
+    {
+      "artifactPath": ".crabpot/results/google-meet/package-audit.json",
+      "fixture": "google-meet",
+      "kind": "audit",
+      "entrypoint": "-",
+      "status": "warning",
+      "findingCount": 0,
+      "vulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0,
+        "total": 0
+      }
+    },
+    {
+      "artifactPath": ".crabpot/results/memory-lancedb/cold-import-extension-memory-lancedb-plugins-memory-lancedb-crabpot-package-index-ts.capture.json",
+      "fixture": "memory-lancedb",
+      "kind": "capture",
+      "entrypoint": "index.ts",
+      "status": "captured",
+      "capturedCount": 9,
+      "captured": [
+        "registration:registerMemoryCapability",
+        "registration:registerTool",
+        "registration:registerTool",
+        "registration:registerTool",
+        "registration:registerCli",
+        "hook:before_prompt_build",
+        "hook:agent_end",
+        "hook:session_end",
+        "registration:registerService"
+      ]
+    },
+    {
+      "artifactPath": ".crabpot/results/memory-lancedb/cold-import-extension-memory-lancedb-plugins-memory-lancedb-crabpot-package-index-ts.synthetic.json",
+      "fixture": "memory-lancedb",
+      "kind": "synthetic",
+      "entrypoint": ".crabpot/workspaces/memory-lancedb/index.ts",
+      "status": "captured",
+      "summary": {
+        "probeCount": 9,
+        "passCount": 4,
+        "failCount": 0,
+        "blockedCount": 5
+      },
+      "captured": [
+        "registration:registerMemoryCapability",
+        "hook:before_prompt_build",
+        "hook:agent_end",
+        "hook:session_end"
+      ],
+      "passed": [
+        {
+          "captureIndex": 0,
+          "kind": "registration",
+          "seam": "registerMemoryCapability",
+          "label": "registerMemoryCapability",
+          "status": "pass",
+          "output": {
+            "mode": "metadata-only",
+            "reason": "memory capabilities are captured as registration metadata before memory runtime execution"
+          }
+        },
+        {
+          "captureIndex": 5,
+          "kind": "hook",
+          "seam": "before_prompt_build",
+          "label": "before_prompt_build",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 6,
+          "kind": "hook",
+          "seam": "agent_end",
+          "label": "agent_end",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        },
+        {
+          "captureIndex": 7,
+          "kind": "hook",
+          "seam": "session_end",
+          "label": "session_end",
+          "status": "pass",
+          "output": {
+            "type": "undefined"
+          }
+        }
+      ],
+      "failures": [],
+      "blocked": [
+        {
+          "captureIndex": 1,
+          "kind": "registration",
+          "seam": "registerTool",
+          "label": "registerTool",
+          "status": "blocked",
+          "reason": "captured registration has no supported callable probe"
+        },
+        {
+          "captureIndex": 2,
+          "kind": "registration",
+          "seam": "registerTool",
+          "label": "registerTool",
+          "status": "blocked",
+          "reason": "captured registration has no supported callable probe"
+        },
+        {
+          "captureIndex": 3,
+          "kind": "registration",
+          "seam": "registerTool",
+          "label": "registerTool",
+          "status": "blocked",
+          "reason": "captured registration has no supported callable probe"
+        },
+        {
+          "captureIndex": 4,
+          "kind": "registration",
+          "seam": "registerCli",
+          "label": "registerCli",
+          "status": "blocked",
+          "reason": "captured registration has no supported callable probe"
+        },
+        {
+          "captureIndex": 8,
+          "kind": "registration",
+          "seam": "registerService",
+          "label": "registerService",
+          "status": "blocked",
+          "reason": "captured registration requires includeLifecycle=true"
+        }
+      ]
+    },
+    {
+      "artifactPath": ".crabpot/results/memory-lancedb/package-audit.json",
+      "fixture": "memory-lancedb",
+      "kind": "audit",
+      "entrypoint": "-",
+      "status": "warning",
+      "findingCount": 3,
+      "vulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 3,
+        "critical": 0,
+        "total": 3
+      }
+    },
+    {
+      "artifactPath": ".crabpot/results/openclaw-beta/execution-profile.json",
+      "fixture": "openclaw-beta",
+      "kind": "profile",
+      "entrypoint": "-",
+      "status": "pass",
+      "summary": {
+        "stepCount": 53,
+        "failCount": 0,
+        "blockedCount": 0,
+        "totalWallMs": 35752,
+        "maxPeakRssMb": 495.1,
+        "maxCpuMsEstimate": 9250
+      },
+      "slowestSteps": [
+        {
+          "fixture": "memory-lancedb",
+          "entrypoint": "cold-import.extension:memory-lancedb:plugins-memory-lancedb-crabpot-package-index-ts",
+          "packagePath": "plugins/memory-lancedb/.crabpot-package/package.json",
+          "status": "ts-loader-required",
+          "kind": "install",
+          "command": "npm install --ignore-scripts --legacy-peer-deps",
+          "cwd": ".crabpot/workspaces/memory-lancedb",
+          "artifactPath": null,
+          "exitCode": 0,
+          "timeoutMs": 300000,
+          "timedOut": false,
+          "wallMs": 10187,
+          "peakRssMb": 495.1,
+          "peakCpuPercent": 128,
+          "cpuMsEstimate": 9250
+        },
+        {
+          "fixture": "codex",
+          "entrypoint": "cold-import.extension:codex:plugins-codex-crabpot-package-index-ts",
+          "packagePath": "plugins/codex/.crabpot-package/package.json",
+          "status": "sdk-alias-required",
+          "kind": "install",
+          "command": "npm install --ignore-scripts --legacy-peer-deps",
+          "cwd": ".crabpot/workspaces/codex",
+          "artifactPath": null,
+          "exitCode": 0,
+          "timeoutMs": 300000,
+          "timedOut": false,
+          "wallMs": 5007,
+          "peakRssMb": 403.3,
+          "peakCpuPercent": 143,
+          "cpuMsEstimate": 6100
+        },
+        {
+          "fixture": "whatsapp",
+          "entrypoint": "cold-import.extension:whatsapp:plugins-whatsapp-crabpot-package-index-ts",
+          "packagePath": "plugins/whatsapp/.crabpot-package/package.json",
+          "status": "sdk-alias-required",
+          "kind": "install",
+          "command": "npm install --ignore-scripts --legacy-peer-deps",
+          "cwd": ".crabpot/workspaces/whatsapp",
+          "artifactPath": null,
+          "exitCode": 0,
+          "timeoutMs": 300000,
+          "timedOut": false,
+          "wallMs": 3596,
+          "peakRssMb": 232.8,
+          "peakCpuPercent": 119,
+          "cpuMsEstimate": 3398
+        },
+        {
+          "fixture": "diffs",
+          "entrypoint": "cold-import.extension:diffs:plugins-diffs-crabpot-package-index-ts",
+          "packagePath": "plugins/diffs/.crabpot-package/package.json",
+          "status": "sdk-alias-required",
+          "kind": "install",
+          "command": "npm install --ignore-scripts --legacy-peer-deps",
+          "cwd": ".crabpot/workspaces/diffs",
+          "artifactPath": null,
+          "exitCode": 0,
+          "timeoutMs": 300000,
+          "timedOut": false,
+          "wallMs": 3496,
+          "peakRssMb": 260.3,
+          "peakCpuPercent": 121,
+          "cpuMsEstimate": 3311
+        },
+        {
+          "fixture": "whatsapp",
+          "entrypoint": "cold-import.setupEntry:whatsapp:plugins-whatsapp-crabpot-package-setup-entry-ts",
+          "packagePath": "plugins/whatsapp/.crabpot-package/package.json",
+          "status": "sdk-alias-required",
+          "kind": "install",
+          "command": "npm install --ignore-scripts --legacy-peer-deps",
+          "cwd": ".crabpot/workspaces/whatsapp",
+          "artifactPath": null,
+          "exitCode": 0,
+          "timeoutMs": 300000,
+          "timedOut": false,
+          "wallMs": 1947,
+          "peakRssMb": 257,
+          "peakCpuPercent": 154,
+          "cpuMsEstimate": 2725
+        }
+      ]
+    },
+    {
+      "artifactPath": ".crabpot/results/whatsapp/cold-import-extension-whatsapp-plugins-whatsapp-crabpot-package-index-ts.capture.json",
+      "fixture": "whatsapp",
+      "kind": "capture",
+      "entrypoint": "index.ts",
+      "status": "captured",
+      "capturedCount": 3,
+      "captured": [
+        "registration:registerChannel",
+        "registration:registerTool",
+        "registration:registerTool"
+      ]
+    },
+    {
+      "artifactPath": ".crabpot/results/whatsapp/cold-import-extension-whatsapp-plugins-whatsapp-crabpot-package-index-ts.synthetic.json",
+      "fixture": "whatsapp",
+      "kind": "synthetic",
+      "entrypoint": ".crabpot/workspaces/whatsapp/index.ts",
+      "status": "captured",
+      "summary": {
+        "probeCount": 3,
+        "passCount": 0,
+        "failCount": 0,
+        "blockedCount": 3
+      },
+      "captured": [],
+      "passed": [],
+      "failures": [],
+      "blocked": [
+        {
+          "captureIndex": 0,
+          "kind": "registration",
+          "seam": "registerChannel",
+          "label": "registerChannel",
+          "status": "blocked",
+          "reason": "captured registration requires includeChannelRuntime=true"
+        },
+        {
+          "captureIndex": 1,
+          "kind": "registration",
+          "seam": "registerTool",
+          "label": "registerTool",
+          "status": "blocked",
+          "reason": "captured registration has no supported callable probe"
+        },
+        {
+          "captureIndex": 2,
+          "kind": "registration",
+          "seam": "registerTool",
+          "label": "registerTool",
+          "status": "blocked",
+          "reason": "captured registration has no supported callable probe"
+        }
+      ]
+    },
+    {
+      "artifactPath": ".crabpot/results/whatsapp/cold-import-setupEntry-whatsapp-plugins-whatsapp-crabpot-package-setup-entry-ts.capture.json",
+      "fixture": "whatsapp",
+      "kind": "capture",
+      "entrypoint": "setup-entry.ts",
+      "status": "no-register-export",
+      "capturedCount": 0,
+      "captured": []
+    },
+    {
+      "artifactPath": ".crabpot/results/whatsapp/cold-import-setupEntry-whatsapp-plugins-whatsapp-crabpot-package-setup-entry-ts.synthetic.json",
+      "fixture": "whatsapp",
+      "kind": "synthetic",
+      "entrypoint": ".crabpot/workspaces/whatsapp/setup-entry.ts",
+      "status": "no-register-export",
+      "summary": {
+        "probeCount": 0,
+        "passCount": 0,
+        "failCount": 0,
+        "blockedCount": 0
+      },
+      "captured": [],
+      "passed": [],
+      "failures": [],
+      "blocked": []
+    },
+    {
+      "artifactPath": ".crabpot/results/whatsapp/package-audit.json",
+      "fixture": "whatsapp",
+      "kind": "audit",
+      "entrypoint": "-",
+      "status": "warning",
+      "findingCount": 0,
+      "vulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0,
+        "total": 0
+      }
+    }
+  ]
 }
