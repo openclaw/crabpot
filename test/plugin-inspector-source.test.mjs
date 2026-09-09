@@ -13,7 +13,7 @@ import {
 } from "../scripts/plugin-inspector-source.mjs";
 
 test("plugin inspector source pin requires an exact prepared checkout", (t) => {
-  assert.equal(pluginInspectorRef, "84ede904fd6e766a9fc4de002f39af87d90c1916");
+  assert.equal(pluginInspectorRef, "2e21b3b48aa06fea30b08202f4c6be13c1f3216a");
 
   const checkoutDir = mkdtempSync(path.join(os.tmpdir(), "crabpot-plugin-inspector-"));
   t.after(() => rmSync(checkoutDir, { force: true, recursive: true }));
@@ -48,7 +48,7 @@ test("plugin inspector smoke defaults to the published npm package", () => {
     const invocation = resolvePluginInspectorCliInvocation();
 
     assert.equal(invocation.command, "npm");
-    assert.equal(pluginInspectorPackage, "@openclaw/plugin-inspector@0.3.24");
+    assert.equal(pluginInspectorPackage, "@openclaw/plugin-inspector@0.3.25");
     assert.deepEqual(invocation.args, ["exec", "--yes", "--package", pluginInspectorPackage, "--", "plugin-inspector"]);
     assert.equal(invocation.shell, process.platform === "win32");
   });

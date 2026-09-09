@@ -135,15 +135,17 @@ npm run profile -- --check
 node scripts/check-contract-coverage.mjs --openclaw ../openclaw
 ```
 
-Source-backed reports and registration capture use the landed inspector repair
-for credential-free model-auth binding. `npm run plugin-inspector:smoke` still
-uses the older published `@openclaw/plugin-inspector@0.3.24` package by default;
-that package does not contain the repair. Use
+Source-backed reports and registration capture use inspector 0.3.25,
+including bounded capture/probes, CommonJS SDK mocks, serial service lifecycle
+probes, and Gateway response validation. `npm run plugin-inspector:smoke`
+uses the published `@openclaw/plugin-inspector@0.3.25` package by default.
+Use
 `CRABPOT_PLUGIN_INSPECTOR_CLI=source npm run plugin-inspector:smoke` only when
 validating local inspector source changes. Set `CRABPOT_PLUGIN_INSPECTOR_DIR`
 to the candidate checkout to avoid selecting a different sibling checkout.
-Keep the published package pin unchanged until the candidate is on npm, then
-update it and run the package-mode smoke separately.
+For a published-package check, unset `CRABPOT_PLUGIN_INSPECTOR_BIN`,
+`CRABPOT_PLUGIN_INSPECTOR_CLI`, and `CRABPOT_PLUGIN_INSPECTOR_DIR`, and use a
+fresh `npm_config_cache`. Run this separately from the source-mode smoke.
 The npm smoke forwards `--check`, so reported compatibility breakages produce
 a failing exit status. Direct wrapper calls without `--check` only write reports.
 
