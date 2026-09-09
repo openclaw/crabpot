@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for Tencent Yuanbao Bot.",
   "dependencies": {
-    "openclaw-plugin-yuanbao": "2.18.2"
+    "openclaw-plugin-yuanbao": "2.18.3"
   },
   "overrides": {
     "@anthropic-ai/sdk": "0.91.1",
