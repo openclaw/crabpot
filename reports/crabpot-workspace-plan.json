@@ -23,7 +23,7 @@
     "tsLoaderEntrypointCount": 20,
     "jitiAlternativeCount": 20,
     "missingBuildScriptCount": 0,
-    "sdkAliasRequiredCount": 36
+    "sdkAliasRequiredCount": 30
   },
   "fixtures": [
     {
@@ -6073,7 +6073,7 @@
           "packagePath": "plugins/brave-plugin/.crabpot-package/package.json",
           "packageName": "@openclaw/brave-plugin",
           "entrypoint": "plugins/brave-plugin/.crabpot-package/index.ts",
-          "status": "sdk-alias-required",
+          "status": "missing",
           "packageManager": "npm",
           "lockfile": "plugins/brave-plugin/package-lock.json",
           "loaderStrategy": {
@@ -6084,7 +6084,6 @@
           },
           "requiredCapabilities": [
             "capture-shim",
-            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -6093,11 +6092,6 @@
               "code": "missing-entrypoint",
               "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/brave-plugin/.crabpot-package/index.ts"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/diagnostic-flags @ plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider-CY6mh6hm.js:2"
             }
           ],
           "steps": [
@@ -6141,7 +6135,7 @@
           "packagePath": "plugins/brave-plugin/.crabpot-package/package.json",
           "packageName": "@openclaw/brave-plugin",
           "entrypoint": "plugins/brave-plugin/.crabpot-package/dist/index.js",
-          "status": "sdk-alias-required",
+          "status": "ready",
           "packageManager": "npm",
           "lockfile": "plugins/brave-plugin/package-lock.json",
           "loaderStrategy": {
@@ -6152,17 +6146,10 @@
           },
           "requiredCapabilities": [
             "capture-shim",
-            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
-          "blockers": [
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/diagnostic-flags @ plugins/brave-plugin/.crabpot-package/dist/brave-web-search-provider-CY6mh6hm.js:2"
-            }
-          ],
+          "blockers": [],
           "steps": [
             {
               "kind": "prepare",
@@ -6209,7 +6196,7 @@
           "packagePath": "plugins/codex/.crabpot-package/package.json",
           "packageName": "@openclaw/codex",
           "entrypoint": "plugins/codex/.crabpot-package/index.ts",
-          "status": "sdk-alias-required",
+          "status": "missing",
           "packageManager": "npm",
           "lockfile": "plugins/codex/package-lock.json",
           "loaderStrategy": {
@@ -6220,7 +6207,6 @@
           },
           "requiredCapabilities": [
             "capture-shim",
-            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -6229,86 +6215,6 @@
               "code": "missing-entrypoint",
               "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/codex/.crabpot-package/index.ts"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-harness-registration @ plugins/codex/.crabpot-package/dist/auth-profile-CwzO4_RG.js:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-harness-registration @ plugins/codex/.crabpot-package/dist/auth-profile-selection-DFu9e167.js:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-harness-registration @ plugins/codex/.crabpot-package/dist/binding-connection-QqgcPCgk.js:5"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-harness-registration @ plugins/codex/.crabpot-package/dist/config-options-jnIFvwxD.js:6"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-harness-registration @ plugins/codex/.crabpot-package/dist/index.js:27"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-harness-registration @ plugins/codex/.crabpot-package/dist/managed-thread-store-D1t5jh3G.js:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-harness-registration @ plugins/codex/.crabpot-package/dist/plugin-app-cache-key-CdSQzWyX.js:5"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-harness-registration @ plugins/codex/.crabpot-package/dist/session-binding-record-CaZjYwNS.js:3"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-harness-registration @ plugins/codex/.crabpot-package/dist/session-catalog-HaDcp7Sv.js:11"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-harness-registration @ plugins/codex/.crabpot-package/dist/shared-client-CVhez2Uo.js:17"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/diagnostic-flags @ plugins/codex/.crabpot-package/dist/thread-lifecycle-D1pzRwHB.js:46"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/provider-auth-aliases @ plugins/codex/.crabpot-package/dist/auth-profile-CwzO4_RG.js:3"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/provider-auth-aliases @ plugins/codex/.crabpot-package/dist/config-JDfTI4VI.js:8"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/provider-auth-aliases @ plugins/codex/.crabpot-package/dist/config-runtime-BWf6JLWG.js:3"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/provider-auth-aliases @ plugins/codex/.crabpot-package/dist/shared-client-CVhez2Uo.js:28"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/session-catalog-paging @ plugins/codex/.crabpot-package/dist/session-catalog-HaDcp7Sv.js:16"
             }
           ],
           "steps": [
@@ -6352,7 +6258,7 @@
           "packagePath": "plugins/codex/.crabpot-package/package.json",
           "packageName": "@openclaw/codex",
           "entrypoint": "plugins/codex/.crabpot-package/dist/index.js",
-          "status": "sdk-alias-required",
+          "status": "dependency-install-required",
           "packageManager": "npm",
           "lockfile": "plugins/codex/package-lock.json",
           "loaderStrategy": {
@@ -6364,7 +6270,6 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
-            "sdk-alias-compat",
             "side-effect-sandbox",
             "synthetic-probes",
             "target-openclaw-link"
@@ -6379,86 +6284,6 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@openai/codex, semver, smol-toml, typebox, ws, zod"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-harness-registration @ plugins/codex/.crabpot-package/dist/auth-profile-CwzO4_RG.js:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-harness-registration @ plugins/codex/.crabpot-package/dist/auth-profile-selection-DFu9e167.js:1"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-harness-registration @ plugins/codex/.crabpot-package/dist/binding-connection-QqgcPCgk.js:5"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-harness-registration @ plugins/codex/.crabpot-package/dist/config-options-jnIFvwxD.js:6"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-harness-registration @ plugins/codex/.crabpot-package/dist/index.js:27"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-harness-registration @ plugins/codex/.crabpot-package/dist/managed-thread-store-D1t5jh3G.js:2"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-harness-registration @ plugins/codex/.crabpot-package/dist/plugin-app-cache-key-CdSQzWyX.js:5"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-harness-registration @ plugins/codex/.crabpot-package/dist/session-binding-record-CaZjYwNS.js:3"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-harness-registration @ plugins/codex/.crabpot-package/dist/session-catalog-HaDcp7Sv.js:11"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-harness-registration @ plugins/codex/.crabpot-package/dist/shared-client-CVhez2Uo.js:17"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/diagnostic-flags @ plugins/codex/.crabpot-package/dist/thread-lifecycle-D1pzRwHB.js:46"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/provider-auth-aliases @ plugins/codex/.crabpot-package/dist/auth-profile-CwzO4_RG.js:3"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/provider-auth-aliases @ plugins/codex/.crabpot-package/dist/config-JDfTI4VI.js:8"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/provider-auth-aliases @ plugins/codex/.crabpot-package/dist/config-runtime-BWf6JLWG.js:3"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/provider-auth-aliases @ plugins/codex/.crabpot-package/dist/shared-client-CVhez2Uo.js:28"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/session-catalog-paging @ plugins/codex/.crabpot-package/dist/session-catalog-HaDcp7Sv.js:16"
             }
           ],
           "steps": [
@@ -6588,7 +6413,7 @@
           "packagePath": "plugins/diagnostics-prometheus/.crabpot-package/package.json",
           "packageName": "@openclaw/diagnostics-prometheus",
           "entrypoint": "plugins/diagnostics-prometheus/.crabpot-package/dist/index.js",
-          "status": "review-required",
+          "status": "ready",
           "packageManager": "npm",
           "lockfile": "plugins/diagnostics-prometheus/package-lock.json",
           "loaderStrategy": {
@@ -6599,17 +6424,10 @@
           },
           "requiredCapabilities": [
             "capture-shim",
-            "side-effect-sandbox",
             "synthetic-probes",
             "target-openclaw-link"
           ],
-          "blockers": [
-            {
-              "code": "top-level-side-effect-review",
-              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
-              "evidence": "plugins/diagnostics-prometheus/.crabpot-package/dist/index.js"
-            }
-          ],
+          "blockers": [],
           "steps": [
             {
               "kind": "prepare",
@@ -6799,7 +6617,7 @@
           "packagePath": "plugins/diffs/.crabpot-package/package.json",
           "packageName": "@openclaw/diffs",
           "entrypoint": "plugins/diffs/.crabpot-package/index.ts",
-          "status": "sdk-alias-required",
+          "status": "missing",
           "packageManager": "npm",
           "lockfile": "plugins/diffs/package-lock.json",
           "loaderStrategy": {
@@ -6810,7 +6628,6 @@
           },
           "requiredCapabilities": [
             "capture-shim",
-            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -6819,11 +6636,6 @@
               "code": "missing-entrypoint",
               "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/diffs/.crabpot-package/index.ts"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/gateway-config-runtime @ plugins/diffs/.crabpot-package/dist/index.js:8"
             }
           ],
           "steps": [
@@ -6867,7 +6679,7 @@
           "packagePath": "plugins/diffs/.crabpot-package/package.json",
           "packageName": "@openclaw/diffs",
           "entrypoint": "plugins/diffs/.crabpot-package/dist/index.js",
-          "status": "sdk-alias-required",
+          "status": "dependency-install-required",
           "packageManager": "npm",
           "lockfile": "plugins/diffs/package-lock.json",
           "loaderStrategy": {
@@ -6879,7 +6691,6 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
-            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -6888,11 +6699,6 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@pierre/diffs, @shikijs/langs, playwright-core, typebox, zod"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/gateway-config-runtime @ plugins/diffs/.crabpot-package/dist/index.js:8"
             }
           ],
           "steps": [
@@ -7035,7 +6841,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "apache-arrow, openai, typebox, @lancedb/lancedb-darwin-arm64, @lancedb/lancedb-linux-arm64-gnu, @lancedb/lancedb-linux-arm64-musl, @lancedb/lancedb-linux-x64-gnu, @lancedb/lancedb-linux-x64-musl, @lancedb/lancedb-win32-arm64-msvc, @lancedb/lancedb-win32-x64-msvc"
+              "evidence": "@lancedb/lancedb, apache-arrow, openai, typebox"
             }
           ],
           "steps": [
