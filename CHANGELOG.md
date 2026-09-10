@@ -2,6 +2,7 @@
 
 ## 0.2.2 - Unreleased
 
+- Bound OpenClaw track metadata fetches through JSON consumption and Git lookups through the shared command owner, with strict timeout settings and preserved operational failures; warn about missing tags only after successful empty lookups. Thanks @SebTardif.
 - Bound fixture-security npm audits with native Windows command execution, strict timeout settings, and combined 16 MiB output capture; preserve valid vulnerability exit status 1 and existing severity/fixability policy. Preserve primary command errors through cleanup failures, report unconfirmed cleanup, and stop cached process-group signaling after POSIX supervisor loss. Preserve Windows cleanup results when cancellation precedes a command request, and prevent late request dispatch. Thanks @SebTardif.
 - Run static-suite test files serially, matching the established `npm test` concurrency without filtering tests or changing preparation.
 - Bound inspector and checkout commands through descendant cleanup, including Windows Job ownership, strict timeout settings, and combined captured-output limits; preserve uncapped inherited smoke output. Thanks @SebTardif for the initial timeout repair.

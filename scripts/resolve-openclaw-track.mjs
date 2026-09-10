@@ -1,13 +1,12 @@
 #!/usr/bin/env node
-import { execFile as execFileCallback } from "node:child_process";
 import { appendFile } from "node:fs/promises";
-import { promisify } from "node:util";
 import { pathToFileURL } from "node:url";
-
-const execFile = promisify(execFileCallback);
+import { configuredTimeoutMs, runOwnedCommand } from "./owned-command.mjs";
 
 export const openclawRepository = "openclaw/openclaw";
 export const openclawGitUrl = "https://github.com/openclaw/openclaw.git";
+const defaultFetchTimeoutMs = 15_000;
+const defaultGitTimeoutMs = 2 * 60 * 1000;
 
 const branchTracks = new Map([
   ["main", "latest"],
@@ -135,11 +134,8 @@ function assertTrack(track) {
 }
 
 async function npmDistTag(tag) {
-  const response = await fetch("https://registry.npmjs.org/openclaw");
-  if (!response.ok) {
-    throw new Error(`could not read openclaw npm metadata: ${response.status}`);
-  }
-  const metadata = await response.json();
+  const timeout = configuredTimeoutMs("CRABPOT_FETCH_TIMEOUT_MS", defaultFetchTimeoutMs);
+  const metadata = await fetchJsonWithTimeout("https://registry.npmjs.org/openclaw", timeout, "could not read openclaw npm metadata");
   const value = metadata?.["dist-tags"]?.[tag];
   if (!value || typeof value !== "string") {
     throw new Error(`npm dist-tag ${tag} did not resolve to an OpenClaw version`);
@@ -148,28 +144,37 @@ async function npmDistTag(tag) {
 }
 
 async function tagSha(version) {
-  const peeled = await optionalLsRemote(`refs/tags/v${version}^{}`);
+  const peeled = await lsRemote(`refs/tags/v${version}^{}`, { allowMissing: true });
   if (peeled) {
     return peeled;
   }
-  const direct = await optionalLsRemote(`refs/tags/v${version}`);
+  const direct = await lsRemote(`refs/tags/v${version}`, { allowMissing: true });
   if (direct) {
     return direct;
   }
   throw new MissingOpenClawTagError(version);
 }
 
-async function optionalLsRemote(ref) {
-  try {
-    return await lsRemote(ref);
-  } catch {
+async function lsRemote(ref, { allowMissing = false } = {}) {
+  const timeout = configuredTimeoutMs("CRABPOT_GIT_TIMEOUT_MS", defaultGitTimeoutMs);
+  const result = runOwnedCommand("git", ["ls-remote", openclawGitUrl, ref], { timeout, encoding: "utf8" });
+  if (result.error) {
+    if (result.error.code === "ETIMEDOUT" && !result.cleanupError) {
+      result.error.message = `git ls-remote timed out after ${timeout}ms`;
+    }
+    throw result.error;
+  }
+  if (result.signal) {
+    throw new Error(`git ls-remote terminated by ${result.signal}`);
+  }
+  if (result.status !== 0) {
+    throw new Error(`git ls-remote failed with status ${result.status}: ${result.stderr.trim()}`);
+  }
+  const output = result.stdout.trim();
+  if (allowMissing && !output) {
     return "";
   }
-}
-
-async function lsRemote(ref) {
-  const { stdout } = await execFile("git", ["ls-remote", openclawGitUrl, ref]);
-  const sha = stdout.trim().split(/\s+/)[0] ?? "";
+  const sha = output.split(/\s+/)[0] ?? "";
   if (!/^[0-9a-f]{40}$/.test(sha)) {
     throw new Error(`could not resolve ${openclawGitUrl} ${ref}`);
   }
@@ -178,11 +183,8 @@ async function lsRemote(ref) {
 
 async function fetchPackageVersionAtRef(ref) {
   const url = `https://raw.githubusercontent.com/${openclawRepository}/${encodeURIComponent(ref)}/package.json`;
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error(`could not read OpenClaw package.json for ${ref}: ${response.status}`);
-  }
-  const pkg = await response.json();
+  const timeout = configuredTimeoutMs("CRABPOT_FETCH_TIMEOUT_MS", defaultFetchTimeoutMs);
+  const pkg = await fetchJsonWithTimeout(url, timeout, `could not read OpenClaw package.json for ${ref}`);
   if (!pkg.version || typeof pkg.version !== "string") {
     throw new Error(`OpenClaw package.json for ${ref} has no string version`);
   }
@@ -191,6 +193,22 @@ async function fetchPackageVersionAtRef(ref) {
 
 function shortSha(sha) {
   return sha.slice(0, 12);
+}
+
+async function fetchJsonWithTimeout(url, timeout, label) {
+  const signal = AbortSignal.timeout(timeout);
+  try {
+    const response = await fetch(url, { signal });
+    if (!response.ok) {
+      throw new Error(`${label}: ${response.status}`);
+    }
+    return await response.json();
+  } catch (error) {
+    if (signal.aborted && error === signal.reason) {
+      throw new Error(`${label}: timed out after ${timeout}ms`, { cause: error });
+    }
+    throw error;
+  }
 }
 
 async function writeGithubOutput(result) {
