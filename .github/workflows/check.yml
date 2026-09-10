@@ -68,7 +68,7 @@ jobs:
           submodules: recursive
       - uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version: 24
           cache: npm
           cache-dependency-path: |
             plugins/**/package-lock.json
@@ -121,7 +121,7 @@ jobs:
     name: Default Track / Container static checks
     runs-on: ubuntu-latest
     container:
-      image: node:22-bookworm
+      image: node:24-bookworm
     steps:
       - uses: actions/checkout@v7
         with:
@@ -223,7 +223,7 @@ jobs:
           submodules: recursive
       - uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version: 24
           cache: npm
           cache-dependency-path: |
             plugins/**/package-lock.json
@@ -320,7 +320,7 @@ jobs:
           submodules: recursive
       - uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version: 24
           cache: npm
           cache-dependency-path: |
             plugins/**/package-lock.json

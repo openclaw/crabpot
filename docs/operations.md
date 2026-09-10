@@ -45,6 +45,18 @@ Then inspect the diff. A fixture update is only useful if it either:
 
 ## CI model
 
+Host-running jobs use Node 24 for the selected OpenClaw 2026.9.3 source pin,
+which requires Node `>=24.16.0 <25 || >=26.1.0`. This includes Default Track
+static/container/isolated execution, dashboard tracks, Dependabot report
+refreshes, and manual ref static/diff/isolated execution. Host-free security
+and fixture-selection jobs remain on Node 22; Crabpot's private package engine
+remains `>=22`.
+
+Kitchen Sink 0.3.0 covers 42 hooks, 56 active registrars, and 22 manifest
+contracts. The host exposes 57 registrars; the fixture intentionally omits
+`registerDetachedTaskRuntime` to avoid replacing the host's durable task owner.
+The generic generated mock surface still covers all 57 registrars.
+
 Use a cheap default workflow first:
 
 - validate the manifest

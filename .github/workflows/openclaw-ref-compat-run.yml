@@ -106,7 +106,7 @@ jobs:
 
       - uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version: 24
 
       - run: node scripts/run-static-suite.mjs --openclaw ./openclaw --policy "${SUITE_POLICY}" --profile-runs "${PROFILE_RUNS}" --plugin-inspector-smoke
       - name: Run runtime profile policy
@@ -185,7 +185,7 @@ jobs:
 
       - uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version: 24
 
       - run: node scripts/sync-fixtures.mjs --materialize --openclaw ./openclaw
       - run: npm test
@@ -310,7 +310,7 @@ jobs:
 
       - uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version: 24
 
       - name: Validate workspace plan
         run: node scripts/workspace-plan.mjs --check --openclaw ./openclaw
