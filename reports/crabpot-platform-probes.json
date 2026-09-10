@@ -526,7 +526,7 @@
     {
       "fixture": "discord",
       "id": "cold-import.runtimeExtension:discord:plugins-discord-crabpot-package-dist-index-js",
-      "status": "sdk-alias-required",
+      "status": "dependency-install-required",
       "entrypoint": "plugins/discord/.crabpot-package/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -544,7 +544,7 @@
     {
       "fixture": "discord",
       "id": "cold-import.setupEntry:discord:plugins-discord-crabpot-package-dist-setup-entry-js",
-      "status": "sdk-alias-required",
+      "status": "dependency-install-required",
       "entrypoint": "plugins/discord/.crabpot-package/dist/setup-entry.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -562,7 +562,7 @@
     {
       "fixture": "discord",
       "id": "cold-import.runtimeSetupEntry:discord:plugins-discord-crabpot-package-dist-setup-entry-js",
-      "status": "sdk-alias-required",
+      "status": "dependency-install-required",
       "entrypoint": "plugins/discord/.crabpot-package/dist/setup-entry.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -674,7 +674,7 @@
     {
       "fixture": "msteams",
       "id": "cold-import.runtimeExtension:msteams:plugins-msteams-crabpot-package-dist-index-cjs",
-      "status": "sdk-alias-required",
+      "status": "dependency-install-required",
       "entrypoint": "plugins/msteams/.crabpot-package/dist/index.cjs",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -692,7 +692,7 @@
     {
       "fixture": "msteams",
       "id": "cold-import.setupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-cjs",
-      "status": "sdk-alias-required",
+      "status": "dependency-install-required",
       "entrypoint": "plugins/msteams/.crabpot-package/dist/setup-entry.cjs",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -710,7 +710,7 @@
     {
       "fixture": "msteams",
       "id": "cold-import.runtimeSetupEntry:msteams:plugins-msteams-crabpot-package-dist-setup-entry-cjs",
-      "status": "sdk-alias-required",
+      "status": "dependency-install-required",
       "entrypoint": "plugins/msteams/.crabpot-package/dist/setup-entry.cjs",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1106,7 +1106,7 @@
     {
       "fixture": "feishu",
       "id": "cold-import.runtimeExtension:feishu:plugins-feishu-crabpot-package-dist-index-js",
-      "status": "sdk-alias-required",
+      "status": "dependency-install-required",
       "entrypoint": "plugins/feishu/.crabpot-package/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1124,7 +1124,7 @@
     {
       "fixture": "feishu",
       "id": "cold-import.setupEntry:feishu:plugins-feishu-crabpot-package-dist-setup-entry-js",
-      "status": "sdk-alias-required",
+      "status": "dependency-install-required",
       "entrypoint": "plugins/feishu/.crabpot-package/dist/setup-entry.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1142,7 +1142,7 @@
     {
       "fixture": "feishu",
       "id": "cold-import.runtimeSetupEntry:feishu:plugins-feishu-crabpot-package-dist-setup-entry-js",
-      "status": "sdk-alias-required",
+      "status": "dependency-install-required",
       "entrypoint": "plugins/feishu/.crabpot-package/dist/setup-entry.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1178,7 +1178,7 @@
     {
       "fixture": "tlon",
       "id": "cold-import.runtimeExtension:tlon:plugins-tlon-crabpot-package-dist-index-js",
-      "status": "sdk-alias-required",
+      "status": "dependency-install-required",
       "entrypoint": "plugins/tlon/.crabpot-package/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1196,7 +1196,7 @@
     {
       "fixture": "tlon",
       "id": "cold-import.setupEntry:tlon:plugins-tlon-crabpot-package-dist-setup-entry-js",
-      "status": "sdk-alias-required",
+      "status": "dependency-install-required",
       "entrypoint": "plugins/tlon/.crabpot-package/dist/setup-entry.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1214,7 +1214,7 @@
     {
       "fixture": "tlon",
       "id": "cold-import.runtimeSetupEntry:tlon:plugins-tlon-crabpot-package-dist-setup-entry-js",
-      "status": "sdk-alias-required",
+      "status": "dependency-install-required",
       "entrypoint": "plugins/tlon/.crabpot-package/dist/setup-entry.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1434,7 +1434,7 @@
     {
       "fixture": "brave-plugin",
       "id": "cold-import.runtimeExtension:brave-plugin:plugins-brave-plugin-crabpot-package-dist-index-js",
-      "status": "sdk-alias-required",
+      "status": "ready",
       "entrypoint": "plugins/brave-plugin/.crabpot-package/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1470,7 +1470,7 @@
     {
       "fixture": "codex",
       "id": "cold-import.runtimeExtension:codex:plugins-codex-crabpot-package-dist-index-js",
-      "status": "sdk-alias-required",
+      "status": "dependency-install-required",
       "entrypoint": "plugins/codex/.crabpot-package/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -1578,7 +1578,7 @@
     {
       "fixture": "diffs",
       "id": "cold-import.runtimeExtension:diffs:plugins-diffs-crabpot-package-dist-index-js",
-      "status": "sdk-alias-required",
+      "status": "dependency-install-required",
       "entrypoint": "plugins/diffs/.crabpot-package/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
