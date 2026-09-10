@@ -10,6 +10,46 @@ using System.Threading;
 // admits the root atomically; the child never inherits the controller pipe.
 public static class CrabpotCommandJob
 {
+    // Temporary issue305 receipt file; independent of the Worker/control pipe.
+    sealed class StartupTrace
+    {
+        readonly string file, id;
+        readonly Stopwatch clock = Stopwatch.StartNew();
+        int sequence, bytes;
+
+        public StartupTrace(string directory, string attemptId)
+        {
+            try
+            {
+                Guid parsed;
+                if (String.IsNullOrEmpty(directory) || !Guid.TryParse(attemptId, out parsed)) return;
+                file = Path.Combine(directory, "native.jsonl");
+                id = parsed.ToString("D");
+            }
+            catch {}
+        }
+
+        public void Write(string name, uint pid = 0, bool extinct = false)
+        {
+            if (file == null || sequence >= 32) return;
+            try
+            {
+                // Names are fixed literals and id is a parsed Guid; no payload strings.
+                string line = String.Format(System.Globalization.CultureInfo.InvariantCulture,
+                    "{{\"id\":\"{0}\",\"producer\":\"native\",\"sequence\":{1},\"event\":\"{2}\"," +
+                    "\"unixMs\":{3},\"elapsedMs\":{4},\"clock\":\"Stopwatch.ElapsedMilliseconds\"," +
+                    "\"childPid\":{5},\"previouslyConfirmed\":{6}}}\n",
+                    id, ++sequence, name, DateTimeOffset.UtcNow.ToUnixTimeMilliseconds(),
+                    clock.ElapsedMilliseconds, pid, extinct ? "true" : "false");
+                int length = Encoding.UTF8.GetByteCount(line);
+                if (length > 2048 || bytes + length > 65536) return;
+                bytes += length;
+                File.AppendAllText(file, line, new UTF8Encoding(false));
+            }
+            catch {}
+        }
+    }
+
     [StructLayout(LayoutKind.Sequential)]
     struct BasicLimits
     {
@@ -121,8 +161,11 @@ public static class CrabpotCommandJob
 
     public static void Run(string application, string commandLine, string cwd, string environment,
         int timeout, int cleanup, CancellationTokenSource ownerLost,
-        CancellationTokenRegistration bootstrapKill, StreamWriter receipt)
+        CancellationTokenRegistration bootstrapKill, StreamWriter receipt,
+        string diagnosticDirectory = null, string diagnosticId = null)
     {
+        StartupTrace trace = new StartupTrace(diagnosticDirectory, diagnosticId);
+        trace.Write("native-entered");
         if (IntPtr.Size != 8 || Marshal.SizeOf(typeof(StartupInfoEx)) != 112 ||
             Marshal.SizeOf(typeof(ExtendedLimits)) != 144 || Marshal.SizeOf(typeof(Accounting)) != 48)
             throw new PlatformNotSupportedException("Windows Job ownership requires a 64-bit Windows runtime");
@@ -175,13 +218,17 @@ public static class CrabpotCommandJob
             startup.Startup.Stderr = inherited[2];
             startup.Attributes = attributes;
             environmentBlock = Marshal.StringToHGlobalUni(environment);
+            trace.Write("create-process-precheck");
             if (ownerLost.IsCancellationRequested)
                 throw new IOException("command owner disconnected before admission");
             Check(CreateProcessW(application, new StringBuilder(commandLine), IntPtr.Zero,
                 IntPtr.Zero, true, 0x08080400, environmentBlock, cwd, ref startup, out child),
                 "CreateProcessW(JOB_LIST)");
             created = true;
+            trace.Write("create-process-succeeded", child.ProcessId);
+            trace.Write("ready-write-begin", child.ProcessId);
             receipt.WriteLine("READY " + child.ProcessId);
+            trace.Write("ready-write-end", child.ProcessId);
             // Backing HANDLE arrays stay alive through CreateProcess and attribute deletion.
             DeleteProcThreadAttributeList(attributes);
             initialized = false;
@@ -220,12 +267,21 @@ public static class CrabpotCommandJob
             }
             if (timedOut) receipt.WriteLine("TIMEOUT");
             receipt.WriteLine("CLOSED");
+            trace.Write("closed-write-end", child.ProcessId, extinct);
         }
         finally
         {
+            trace.Write("native-cleanup-entered", child.ProcessId, extinct);
             // Owner loss or receipt failure still performs bounded explicit cleanup.
             // KILL_ON_JOB_CLOSE is only the last fallback, never a success receipt.
-            try { if (created && !extinct) TerminateAndObserve(job, cleanup); }
+            try
+            {
+                if (created && !extinct)
+                {
+                    TerminateAndObserve(job, cleanup);
+                    trace.Write("finally-job-extinction-observed", child.ProcessId, extinct);
+                }
+            }
             finally
             {
                 if (initialized) DeleteProcThreadAttributeList(attributes);
@@ -237,6 +293,7 @@ public static class CrabpotCommandJob
                 if (handles != IntPtr.Zero) Marshal.FreeHGlobal(handles);
                 if (jobList != IntPtr.Zero) Marshal.FreeHGlobal(jobList);
                 if (environmentBlock != IntPtr.Zero) Marshal.FreeHGlobal(environmentBlock);
+                trace.Write("native-cleanup-ended", child.ProcessId, extinct);
             }
         }
     }
