@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, rmSync, statSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, rmSync, statSync, writeFileSync, writeSync } from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { repoRoot } from "./manifest-lib.mjs";
@@ -182,6 +182,37 @@ function run(command, commandArgs, cwd = repoRoot) {
     timeout,
   });
   if (result.error) {
+    // Temporary failure evidence; diagnostic output must not replace the original error.
+    try {
+      const text = (value, limit) => {
+        const safe = String(value ?? "")
+          .replace(/\x1b\[[0-?]*[ -/]*[@-~]/g, "")
+          .replace(/[^\t\r\n\x20-\x7e]/g, "?")
+          .split(/\r?\n/)
+          .map((line) => /[\\/@"'`=]|\b\S+\.\S+\b|\b[A-Za-z0-9_-]{24,}\b|\b(?:token|secret|password|authorization|cookie|hostname|username)\b|\b(?:git|npm|node|powershell|cmd|csc)(?:\.exe|\.cmd)?\s|(?:^|\s)--?\w/i.test(line) ? "[redacted]" : line)
+          .join("\n");
+        return Buffer.from(safe).subarray(-limit).toString("ascii");
+      };
+      const errorFields = (error, includeCause = true) => {
+        if (!error) return null;
+        const fields = Object.fromEntries(["message", "code", "errno", "syscall", "nativeCode", "operation"]
+          .filter((key) => typeof error[key] === "string" || Number.isFinite(error[key]))
+          .map((key) => [key, typeof error[key] === "string" ? text(error[key], key === "message" ? 512 : 64) : error[key]]));
+        if (includeCause && error.cause) fields.cause = errorFields(error.cause, false);
+        return fields;
+      };
+      writeSync(2, `${JSON.stringify({
+        diagnostic: "crabpot-inspector-command-failure",
+        error: errorFields(result.error),
+        cleanupError: errorFields(result.cleanupError),
+        pid: Number.isSafeInteger(result.pid) ? result.pid : null,
+        status: Number.isSafeInteger(result.status) ? result.status : null,
+        signal: typeof result.signal === "string" ? text(result.signal, 64) : null,
+        stdoutBytes: Buffer.byteLength(result.stdout ?? ""),
+        stderrBytes: Buffer.byteLength(result.stderr ?? ""),
+        stderrTail: text(result.stderr, 2048),
+      })}\n`);
+    } catch {}
     if (result.error.code === "ETIMEDOUT" && !result.cleanupError) {
       throw new Error(`${command} ${commandArgs.join(" ")} timed out after ${timeout}ms`);
     }
