@@ -1,6 +1,7 @@
 import { spawn } from "node:child_process";
 import { randomUUID } from "node:crypto";
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
+import { appendFileSync, mkdirSync, writeSync } from "node:fs";
 import { createServer } from "node:net";
 import os from "node:os";
 import path from "node:path";
@@ -13,6 +14,130 @@ const startupMs = 10_000;
 const cleanupMs = 2_000;
 const termGraceMs = 200;
 const defaultMaxBuffer = 1024 * 1024;
+
+// Temporary issue305 diagnostics. Each producer owns its file, independently of
+// the command control pipe and Worker lifetime. No diagnostic is an authority receipt.
+const diagnosticRecordLimit = 32;
+const diagnosticByteLimit = diagnosticRecordLimit * 2048;
+let diagnosticSelected = false;
+
+function startupDiagnostic(command, args, options) {
+  if (process.platform !== "win32" || diagnosticSelected || command !== "git" || args[0] !== "init" ||
+      typeof args[1] !== "string") return null;
+  const cwd = fileURLOrPath(options.cwd ?? process.cwd());
+  if (path.dirname(args[1]) !== path.join(cwd, ".crabpot", "plugin-inspector") ||
+      !/^[a-f0-9]{40}$/.test(path.basename(args[1]))) return null;
+  diagnosticSelected = true;
+  const root = path.join(cwd, "reports", "crabpot-startup-305");
+  try {
+    mkdirSync(root, { recursive: true });
+    for (let attempt = 1; attempt <= 4; attempt += 1) {
+      const directory = path.join(root, `attempt-${attempt}`);
+      try { mkdirSync(directory); } catch (error) {
+        if (error.code === "EEXIST") continue;
+        throw error;
+      }
+      const entry = path.basename(process.argv[1] ?? "");
+      return {
+        root, directory, attempt, id: randomUUID(),
+        entry: entry === "capture-contracts.test.mjs" ? "cold-contract-test"
+          : /^(generate-report|capture-contracts|synthetic-probes|cold-import-readiness|workspace-plan|platform-probes|check-generated-surface-fixture|import-loop-profile|profile-contract-runtime)\.mjs$/.test(entry)
+            ? "later-report" : "other",
+      };
+    }
+  } catch {}
+  try { writeSync(2, "crabpot-startup-305: diagnostic storage unavailable or attempt limit reached\n"); } catch {}
+  return null;
+}
+
+function startupTrace(context, producer) {
+  let sequence = 0;
+  let bytes = 0;
+  const started = performance.now();
+  return (event, fields = {}) => {
+    if (!context || sequence >= diagnosticRecordLimit) return;
+    try {
+      const line = `${JSON.stringify({
+        id: context.id, producer, sequence: ++sequence, event,
+        unixMs: Date.now(), elapsedMs: Math.round(performance.now() - started),
+        clock: "performance.now", ...fields,
+      })}\n`;
+      const length = Buffer.byteLength(line);
+      if (length > 2048 || bytes + length > diagnosticByteLimit) return;
+      bytes += length;
+      appendFileSync(path.join(context.directory, `${producer}.jsonl`), line, { encoding: "utf8", mode: 0o600 });
+    } catch {}
+  };
+}
+
+function startupError(error, includeCause = true) {
+  if (!error) return null;
+  const token = (value) => typeof value === "string" && /^[A-Z][A-Z0-9_]{0,63}$/.test(value) ? value : null;
+  const message = String(error.message ?? "");
+  const knownMessage = /^(?:command (?:supervisor (?:startup timed out|exceeded its deadline|terminal cleanup receipt was not observed)|owner stopped|output exceeded maxBuffer|timed out after \d+ms)|Windows (?:command adapter startup timed out|Job (?:cleanup receipt missing|extinction receipt was not observed)|helper (?:closure was not observed|did not close after forced termination)|adapter (?:exited before command request|exited without Job extinction receipt|failed \((?:\d+|SIG[A-Z]+)\))))(?:; command cleanup was not confirmed)?$/;
+  return {
+    code: token(error.code), errno: Number.isSafeInteger(error.errno) ? error.errno : null,
+    nativeCode: Number.isSafeInteger(error.nativeCode) ? error.nativeCode : null,
+    operation: typeof error.operation === "string" &&
+      /^(?:CreateProcessW\(JOB_LIST\)|CreateJobObjectW|SetInformationJobObject|AssignProcessToJobObject|HANDLE_LIST|JOB_LIST|WaitForSingleObject)(?:\(bootstrap\))?$/.test(error.operation)
+      ? error.operation : null,
+    message: knownMessage.test(message) ? message.slice(0, 192) : "[redacted]",
+    ...(includeCause && error.cause ? { cause: startupError(error.cause, false) } : {}),
+  };
+}
+
+function startupResult(result) {
+  const bytes = (value) => value == null ? null : typeof value === "string" ? Buffer.byteLength(value) : value.byteLength;
+  return {
+    status: result?.status ?? null, signal: result?.signal ?? null, childPid: result?.pid ?? null,
+    error: startupError(result?.error), cleanupError: startupError(result?.cleanupError),
+    stdoutBytes: bytes(result?.stdout), stderrBytes: bytes(result?.stderr),
+  };
+}
+
+function summarizeStartup(context) {
+  if (!context) return;
+  try {
+    const original = {};
+    for (const producer of ["parent", "worker", "powershell", "native"]) {
+      const file = path.join(context.root, "attempt-1", `${producer}.jsonl`);
+      try {
+        if (statSync(file).size > diagnosticByteLimit) {
+          original[producer] = { invalid: "byte-limit" };
+          continue;
+        }
+        const lines = readFileSync(file, "utf8").split("\n").filter(Boolean);
+        const records = lines.slice(0, diagnosticRecordLimit).flatMap((line) => {
+          try { return [JSON.parse(line)]; } catch { return []; }
+        });
+        const last = records.at(-1);
+        original[producer] = {
+          records: records.length,
+          last: /^[a-z-]{1,64}$/.test(last?.event ?? "") ? last.event : null,
+          sequence: Number.isSafeInteger(last?.sequence) ? last.sequence : null,
+          unixMs: Number.isSafeInteger(last?.unixMs) ? last.unixMs : null,
+        };
+        if (producer === "parent") {
+          const entry = records[0]?.entry;
+          const final = records.find((record) => record.event === "parent-finalized");
+          original[producer].entry = ["cold-contract-test", "later-report", "other"].includes(entry) ? entry : null;
+          original[producer].result = final ? {
+            error: startupError(final.result?.error), cleanupError: startupError(final.result?.cleanupError),
+            status: Number.isSafeInteger(final.result?.status) ? final.result.status : null,
+            readyConsumed: final.readyConsumed === true, terminalReceipt: final.terminalReceipt === true,
+          } : null;
+        }
+      } catch { original[producer] = { records: 0, missingOrUnreadable: true }; }
+    }
+    const line = `crabpot-startup-305 ${JSON.stringify({
+      attempt: context.attempt, id: context.id, snapshotUnixMs: Date.now(), original,
+    })}\n`;
+    if (Buffer.byteLength(line) <= 8192) writeSync(2, line);
+  } catch {}
+}
+
+const workerTrace = startupTrace(workerData?.startupDiagnostic, "worker");
+if (workerData?.ownedCommand) workerTrace("worker-entered");
 
 export function configuredTimeoutMs(name, fallback) {
   const raw = process.env[name];
@@ -34,12 +159,17 @@ export function runOwnedCommand(command, args, options = {}) {
   if (!Number.isSafeInteger(maxBuffer) || maxBuffer < 1) {
     throw new RangeError("command maxBuffer must be a finite positive integer");
   }
+  const diagnostic = startupDiagnostic(command, args, options);
+  const trace = startupTrace(diagnostic, "parent");
+  let terminationRequested = false;
+  trace("parent-entered", { entry: diagnostic?.entry, node: process.version, startupMs, cleanupMs, timeoutMs: timeout });
   const shared = new Int32Array(new SharedArrayBuffer(16));
   const { port1, port2 } = new MessageChannel();
   const worker = new Worker(new URL(import.meta.url), {
     execArgv: [],
     workerData: {
       ownedCommand: true, port: port2, shared, command, args,
+      startupDiagnostic: diagnostic,
       options: {
         cwd: options.cwd === undefined ? process.cwd() : fileURLOrPath(options.cwd),
         env: options.env ?? process.env,
@@ -53,20 +183,29 @@ export function runOwnedCommand(command, args, options = {}) {
   });
   // Errors are delivered asynchronously after this synchronous call returns.
   // Startup and execution progress instead travel through the synchronously polled port.
-  worker.on("error", () => {});
+  worker.on("error", (error) => trace("worker-error-observed", { terminationRequested, error: startupError(error) }));
+  if (diagnostic) {
+    worker.once("exit", (code) => trace("worker-exit-observed", { code, terminationRequested }));
+  }
   worker.unref();
   const started = performance.now();
   let deadline = started + startupMs;
   let running = false;
   let result;
   let firstFailure;
+  let terminalReceipt = false;
+  trace("startup-deadline-armed");
   const receive = (packet) => {
     if (packet?.type === "ready") {
       running = true;
       deadline = performance.now() + timeout + cleanupMs;
+      trace("ready-consumed");
     } else if (packet?.type === "failure") {
       firstFailure ??= packet.error;
+      trace("first-failure-consumed", { error: startupError(firstFailure) });
     } else if (packet?.type === "result") {
+      terminalReceipt = true;
+      trace("terminal-consumed", { result: startupResult(packet.result), readyConsumed: running });
       result = packet.result;
       result.error ??= firstFailure;
     }
@@ -76,14 +215,17 @@ export function runOwnedCommand(command, args, options = {}) {
       receive(receiveMessageOnPort(port1)?.message);
       if (result) break;
       if (performance.now() >= deadline) {
+        trace("parent-deadline-fired", { readyConsumed: running });
         Atomics.store(shared, 1, 1);
         port1.postMessage({ type: "stop" });
+        trace("stop-requested");
         const end = performance.now() + cleanupMs;
         while (performance.now() < end) {
           receive(receiveMessageOnPort(port1)?.message);
           if (result) break;
           Atomics.wait(shared, 0, Atomics.load(shared, 0), 10);
         }
+        trace("late-wait-ended", { terminalReceipt, readyConsumed: running });
         if (!result) {
           // A cached POSIX group number is not retained authority after Worker loss.
           result = emptyResult();
@@ -106,6 +248,8 @@ export function runOwnedCommand(command, args, options = {}) {
     port1.close();
     // Closing the Worker's control socket makes the Windows adapter clean its
     // exact Job independently, including when the Worker itself failed.
+    terminationRequested = true;
+    trace("worker-termination-requested", { terminalReceipt, helperPid: Atomics.load(shared, 3) });
     void worker.terminate().catch(() => {});
     if (process.platform === "win32") {
       const helperPid = Atomics.load(shared, 3);
@@ -118,6 +262,10 @@ export function runOwnedCommand(command, args, options = {}) {
         }
         if (!helperClosed) Atomics.wait(shared, 0, Atomics.load(shared, 0), 10);
       }
+      trace("helper-probe-ended", {
+        helperPid, probeSkipped: helperPid <= 0, reportedAbsent: helperPid > 0 ? helperClosed : null,
+        error: startupError(cleanupCause),
+      });
       if (!helperClosed) {
         result ??= emptyResult();
         result.cleanupError = {
@@ -138,6 +286,8 @@ export function runOwnedCommand(command, args, options = {}) {
     result.error = { ...error, message: `${error.message}; command cleanup was not confirmed` };
   }
   if (result.error) result.error = Object.assign(new Error(result.error.message), result.error);
+  trace("parent-finalized", { result: startupResult(result), terminalReceipt, readyConsumed: running });
+  summarizeStartup(diagnostic);
   return result;
 }
 
@@ -210,6 +360,7 @@ async function supervise({ command, args, options, port, shared }) {
     result.error ??= errorData(error);
     if (failureSent) return;
     failureSent = true;
+    workerTrace("first-failure", { error: startupError(result.error), stdoutBytes: lengths.stdout, stderrBytes: lengths.stderr });
     port.postMessage({ type: "failure", error: {
       code: String(result.error.code ?? "EOWNERFAILURE").slice(0, 64),
       message: String(result.error.message).slice(0, 1024),
@@ -223,7 +374,9 @@ async function supervise({ command, args, options, port, shared }) {
     port.postMessage({ type: "ready" });
     Atomics.add(shared, 0, 1);
     Atomics.notify(shared, 0);
+    workerTrace("ready-forwarded", { childPid: pid });
     timer = setTimeout(() => {
+      workerTrace("execution-deadline-fired");
       fail({ code: "ETIMEDOUT", message: `command timed out after ${options.timeout}ms` });
     }, options.timeout);
     if (Atomics.load(shared, 1)) stop();
@@ -244,6 +397,7 @@ async function supervise({ command, args, options, port, shared }) {
     }
   };
   const onStop = () => {
+    workerTrace("stop-consumed", { done });
     if (!done) fail(Object.assign(new Error("command owner stopped"), { code: "EOWNERCANCELLED" }));
   };
   port.on("message", onStop);
@@ -394,14 +548,18 @@ function runWindows(command, args, options, result, observe, ready, fail, shared
   const completion = new Promise((resolve) => { completionResolve = resolve; });
   const terminateHelper = () => {
     try {
-      helper?.kill();
+      workerTrace("helper-kill-requested", { helperPid: helper?.pid ?? null, helperClosed });
+      const sent = helper?.kill();
+      workerTrace("helper-kill-returned", { sent: sent ?? null });
     } catch (error) {
+      workerTrace("helper-kill-error", { error: startupError(error) });
       recordFailure(error);
     }
   };
   const stop = () => {
     if (stopped) return;
     stopped = true;
+    workerTrace("adapter-stop", { requestIssued, admitted, closedJob, helperClosed, controlEnded });
     clearTimeout(startupTimer);
     if (!requestIssued) {
       // No request means no command Job can exist; retain the helper handle
@@ -411,8 +569,10 @@ function runWindows(command, args, options, result, observe, ready, fail, shared
       socket?.destroy();
     } else {
       socket?.write("STOP\n");
+      workerTrace("helper-stop-write-returned");
     }
     cleanupTimer = setTimeout(() => {
+      workerTrace("cleanup-deadline-fired", { requestIssued, admitted, closedJob, helperClosed, controlEnded });
       missingJobCleanupError = { code: "EOWNERCLEANUP", message: "Windows Job cleanup receipt missing" };
       result.cleanupError ??= missingJobCleanupError;
       recordFailure(result.cleanupError);
@@ -422,11 +582,13 @@ function runWindows(command, args, options, result, observe, ready, fail, shared
       helper?.stderr?.destroy();
       if (!helper || helperClosed) { finish(); return; }
       forcedCloseTimer = setTimeout(() => {
+        workerTrace("forced-close-deadline-fired");
         result.cleanupError = { code: "EOWNERCLEANUP", message: "Windows helper did not close after forced termination" };
         recordFailure(result.cleanupError);
         finish();
       }, cleanupMs);
     }, cleanupMs);
+    workerTrace("cleanup-deadline-armed");
   };
   const finish = () => {
     if (finished) return;
@@ -436,6 +598,7 @@ function runWindows(command, args, options, result, observe, ready, fail, shared
     clearTimeout(forcedCloseTimer);
     socket?.destroy();
     server.close();
+    workerTrace("adapter-finished", { requestIssued, admitted, closedJob, helperClosed, controlEnded });
     completionResolve();
   };
   const maybeFinish = () => {
@@ -463,11 +626,16 @@ function runWindows(command, args, options, result, observe, ready, fail, shared
   server.on("error", (error) => { fail(error); finish(); });
   server.once("connection", (connection) => {
     socket = connection;
+    workerTrace("helper-connected", { stopped });
     server.close();
     let pending = "";
     socket.setEncoding("utf8");
     socket.on("error", fail);
-    socket.on("close", () => { controlEnded = true; maybeFinish(); });
+    socket.on("close", () => {
+      controlEnded = true;
+      workerTrace("control-closed", { admitted, closedJob });
+      maybeFinish();
+    });
     socket.on("data", (data) => {
       pending += data;
       if (pending.length > 8192) {
@@ -480,12 +648,15 @@ function runWindows(command, args, options, result, observe, ready, fail, shared
         pending = pending.slice(end + 1);
         if (/^READY \d+$/.test(line) && !admitted) {
           admitted = true;
+          workerTrace("ready-received", { childPid: Number(line.slice(6)), stopped });
           clearTimeout(startupTimer);
           ready(Number(line.slice(6)));
         } else if (/^EXIT \d+$/.test(line) && admitted) {
           result.status = Number(line.slice(5));
+          workerTrace("exit-received", { status: result.status });
         } else if (line === "CLOSED" && admitted) {
           closedJob = true;
+          workerTrace("job-closed-received");
         } else if (line === "TIMEOUT" && admitted) {
           recordFailure({ code: "ETIMEDOUT", message: `command timed out after ${options.timeout}ms` });
         } else if (line.startsWith("ERROR ")) {
@@ -514,6 +685,7 @@ function runWindows(command, args, options, result, observe, ready, fail, shared
       return;
     }
     try {
+      workerTrace("request-build-begin");
       const executable = resolveWindowsCommand(command, options.cwd, options.env);
       const batch = /\.(cmd|bat)$/i.test(executable);
       const application = batch
@@ -528,6 +700,8 @@ function runWindows(command, args, options, result, observe, ready, fail, shared
           .sort(([a], [b]) => a.toUpperCase().localeCompare(b.toUpperCase()))
           .map(([key, value]) => `${key}=${value}`).join("\0") + "\0\0",
       })}\n`;
+      workerTrace("request-build-end");
+      workerTrace("request-prewrite-check");
       if (stopped || Atomics.load(shared, 1)) {
         stop();
         socket.destroy();
@@ -535,7 +709,10 @@ function runWindows(command, args, options, result, observe, ready, fail, shared
       }
       // A throwing or partial write may still have issued a request.
       requestIssued = true;
-      socket.write(request);
+      const writable = socket.write(request, workerData.startupDiagnostic ? (error) => {
+        workerTrace("request-write-completed", { error: startupError(error) });
+      } : undefined);
+      workerTrace("request-write-returned", { writable });
       if (stopped || Atomics.load(shared, 1)) socket.write("STOP\n");
     } catch (error) { fail(error); socket.destroy(); }
   });
@@ -543,13 +720,19 @@ function runWindows(command, args, options, result, observe, ready, fail, shared
     if (stopped) { finish(); return; }
     const powershell = path.join(environmentValue(options.env, "SYSTEMROOT") ?? process.env.SystemRoot ?? "C:\\Windows",
       "System32", "WindowsPowerShell", "v1.0", "powershell.exe");
+    workerTrace("helper-spawn-requested");
     helper = spawn(powershell, [
       "-NoLogo", "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass",
       "-File", fileURLToPath(new URL("./owned-command-windows.ps1", import.meta.url)), pipeName,
+      ...(workerData.startupDiagnostic
+        ? [workerData.startupDiagnostic.directory, workerData.startupDiagnostic.id] : []),
     ], { cwd: options.cwd, env: options.env, windowsHide: true,
       stdio: options.inherit ? "inherit" : ["ignore", "pipe", "pipe"] });
     observe(helper);
-    helper.once("spawn", () => Atomics.store(shared, 3, helper.pid));
+    helper.once("spawn", () => {
+      Atomics.store(shared, 3, helper.pid);
+      workerTrace("helper-spawned", { helperPid: helper.pid });
+    });
     helper.once("error", (error) => { fail(error); finish(); });
     helper.once("close", (code, signal) => {
       Atomics.store(shared, 3, 0);
@@ -557,12 +740,15 @@ function runWindows(command, args, options, result, observe, ready, fail, shared
         helperExitError = { code: "EOWNERNATIVE", message: `Windows adapter failed (${signal ?? code})` };
       }
       helperClosed = true;
+      workerTrace("helper-closed", { code, signal, admitted, closedJob, controlEnded });
       maybeFinish();
     });
   });
   startupTimer = setTimeout(() => {
+    workerTrace("adapter-startup-deadline-fired", { requestIssued, admitted, helperClosed });
     fail(Object.assign(new Error("Windows command adapter startup timed out"), { code: "EOWNERSTART" }));
   }, startupMs);
+  workerTrace("adapter-startup-deadline-armed");
   return { stop, completion };
 }
 
@@ -572,8 +758,10 @@ if (workerData?.ownedCommand === true) {
   try { result = await supervise(workerData); } catch (error) {
     result = { ...emptyResult(), error: errorData(error) };
   }
+  workerTrace("terminal-post-begin", { result: startupResult(result) });
   port.postMessage({ type: "result", result });
   Atomics.add(shared, 0, 1);
   Atomics.notify(shared, 0);
+  workerTrace("terminal-post-returned");
   port.close();
 }
