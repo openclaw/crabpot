@@ -16,7 +16,9 @@ async function readOpenClawRefWorkflows() {
 
 test("manual OpenClaw ref workflow accepts branch tag or SHA inputs", async () => {
   const workflow = await readOpenClawRefWorkflows();
+  const staticBlock = workflow.slice(workflow.indexOf("  static-contract:"), workflow.indexOf("  ref-diff:"));
 
+  assert.match(staticBlock, /^\s+node-version: 24$/m);
   assert.match(workflow, /openclaw_repository:/);
   assert.match(workflow, /openclaw_ref:/);
   assert.match(workflow, /base_openclaw_ref:/);
@@ -32,7 +34,11 @@ test("manual OpenClaw ref workflow accepts branch tag or SHA inputs", async () =
 
 test("manual OpenClaw ref workflow keeps isolated fixture execution opt-in", async () => {
   const workflow = await readOpenClawRefWorkflows();
+  const planBlock = workflow.slice(workflow.indexOf("  fixture-plan:"), workflow.indexOf("  isolated-fixture:"));
+  const isolatedBlock = workflow.slice(workflow.indexOf("  isolated-fixture:"), workflow.indexOf("  cleanup:"));
 
+  assert.match(planBlock, /^\s+node-version: 22$/m);
+  assert.match(isolatedBlock, /^\s+node-version: 24$/m);
   assert.match(workflow, /run_isolated_fixture:/);
   assert.match(workflow, /fixture:/);
   assert.match(workflow, /fixture_set:/);
@@ -44,7 +50,9 @@ test("manual OpenClaw ref workflow keeps isolated fixture execution opt-in", asy
 
 test("manual OpenClaw ref workflow has diff and profile modes", async () => {
   const workflow = await readOpenClawRefWorkflows();
+  const diffBlock = workflow.slice(workflow.indexOf("  ref-diff:"), workflow.indexOf("  fixture-plan:"));
 
+  assert.match(diffBlock, /^\s+node-version: 24$/m);
   assert.match(workflow, /mode:/);
   assert.match(workflow, /Compare base and head OpenClaw refs/);
   assert.match(workflow, /node scripts\/compare-openclaw-refs\.mjs/);
@@ -93,6 +101,7 @@ test("default check workflow uploads policy and summary reports", async () => {
   assert.match(workflow, /node scripts\/write-ci-summary\.mjs/);
   assert.match(workflow, /node scripts\/update-track-metadata\.mjs --default-pin-openclaw \.\/openclaw/);
   const dashboardBlock = workflow.slice(workflow.indexOf("  dashboard:"));
+  assert.match(dashboardBlock, /^\s+node-version: 24$/m);
   assert.match(dashboardBlock, /if: \$\{\{ !cancelled\(\) && github\.event_name != 'pull_request'/);
   assert.match(dashboardBlock, /permissions:[\s\S]*contents: write[\s\S]*statuses: write/);
   assert.match(dashboardBlock, /pnpm --dir openclaw install --frozen-lockfile --ignore-scripts/);
@@ -130,6 +139,8 @@ test("default check workflow retests plugin submodule gitlink changes", async ()
 test("track dashboard workflow refreshes branch dashboards by OpenClaw track", async () => {
   const workflow = await readWorkflow(".github/workflows/track-dashboard.yml");
 
+  assert.match(workflow, /^\s+node-version: 24$/m);
+  assert.doesNotMatch(workflow, /node-version:.*22/);
   assert.match(workflow, /schedule:/);
   assert.match(workflow, /cron: "7,22,37,52 \* \* \* \*"/);
   assert.match(workflow, /crabpot-track-dashboard-\$\{\{ github\.event_name == 'workflow_dispatch' && 'manual' \|\| 'schedule' \}\}-/);
@@ -183,7 +194,11 @@ test("track dashboard workflow refreshes branch dashboards by OpenClaw track", a
 
 test("default check workflow runs OS and container static lanes", async () => {
   const workflow = await readWorkflow(".github/workflows/check.yml");
+  const securityBlock = workflow.slice(workflow.indexOf("  fixture-security:"), workflow.indexOf("  manifest:"));
+  const manifestBlock = workflow.slice(workflow.indexOf("  manifest:"), workflow.indexOf("  container-smoke:"));
 
+  assert.match(securityBlock, /^\s+node-version: 22$/m);
+  assert.match(manifestBlock, /^\s+node-version: 24$/m);
   assert.match(workflow, /fixture-security:/);
   assert.match(workflow, /id: scope/);
   assert.match(workflow, /steps\.scope\.outputs\.audit == 'true'/);
@@ -196,7 +211,7 @@ test("default check workflow runs OS and container static lanes", async () => {
   assert.match(workflow, /name: Default Track \/ Static checks \(\$\{\{ matrix\.os \}\}\)/);
   assert.match(workflow, /os: \[ubuntu-latest, macos-15, windows-latest\]/);
   assert.match(workflow, /container-smoke:/);
-  assert.match(workflow, /image: node:22-bookworm/);
+  assert.match(workflow, /image: node:24-bookworm/);
   assert.match(workflow, /node scripts\/openclaw-pin\.mjs --github-output/);
   assert.doesNotMatch(workflow, /node scripts\/resolve-openclaw-track\.mjs --github-output/);
   assert.doesNotMatch(workflow, /node scripts\/update-track-metadata\.mjs\n/);
@@ -251,7 +266,11 @@ test("scheduled Default Track pin age gate enforces the 14-day SLA", async () =>
 
 test("default check workflow resolves changed submodules into an isolated fixture matrix", async () => {
   const workflow = await readWorkflow(".github/workflows/check.yml");
+  const planBlock = workflow.slice(workflow.indexOf("  changed-fixture-plan:"), workflow.indexOf("  changed-isolated-fixture:"));
+  const isolatedBlock = workflow.slice(workflow.indexOf("  changed-isolated-fixture:"), workflow.indexOf("  default-track:"));
 
+  assert.match(planBlock, /^\s+node-version: 22$/m);
+  assert.match(isolatedBlock, /^\s+node-version: 24$/m);
   assert.match(workflow, /changed-fixture-plan:/);
   assert.match(workflow, /set -euo pipefail/);
   assert.match(workflow, /git fetch --no-tags --depth=1 origin "\$\{refs\[@\]\}"/);
@@ -298,6 +317,7 @@ test("workflows use current action majors and dependency caches", async () => {
 test("dependabot auto-merge refreshes reports after fixture pin updates", async () => {
   const workflow = await readWorkflow(".github/workflows/dependabot-auto-merge.yml");
 
+  assert.match(workflow, /^\s+node-version: 24$/m);
   assert.match(workflow, /pull_request_target:/);
   assert.match(workflow, /group: crabpot-dependabot-automerge-\$\{\{ github\.event\.pull_request\.base\.ref \}\}/);
   assert.match(workflow, /cancel-in-progress: false/);

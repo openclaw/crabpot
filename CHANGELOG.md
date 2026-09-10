@@ -2,6 +2,7 @@
 
 ## 0.2.2 - Unreleased
 
+- Promote the green OpenClaw 2026.9.3 canary pin and adopt Kitchen Sink 0.3.0, covering 42 hooks, 56 active registrars, and 22 manifest contracts without replacing the host's detached-task owner.
 - Bound fixture-security npm audits with native Windows command execution, strict timeout settings, and combined 16 MiB output capture; preserve valid vulnerability exit status 1 and existing severity/fixability policy. Preserve primary command errors through cleanup failures, report unconfirmed cleanup, and stop cached process-group signaling after POSIX supervisor loss. Preserve Windows cleanup results when cancellation precedes a command request, and prevent late request dispatch. Thanks @SebTardif.
 - Run static-suite test files serially, matching the established `npm test` concurrency without filtering tests or changing preparation.
 - Bound inspector and checkout commands through descendant cleanup, including Windows Job ownership, strict timeout settings, and combined captured-output limits; preserve uncapped inherited smoke output. Thanks @SebTardif for the initial timeout repair.
@@ -10,7 +11,7 @@
 - Adopted inspector 0.3.25 in both source and published-package modes for bounded capture/probes, serial service lifecycle probes, CommonJS SDK mocks, Gateway response validation, and credential-free model-auth binding.
 - Removed the obsolete bundled QQ Bot source fixture that blocked development dashboard materialization after OpenClaw externalized the plugin; retained the Tencent QQbot git fixture and its channel/tool coverage.
 - Restored native lifecycle profiling through root registry activation and rejected malformed phase timings.
-- Run the development dashboard and advisory HEAD canary on Node 24 for current OpenClaw hosts; keep the pinned Default Track and latest/beta dashboards on Node 22.
+- Run host-backed Default Track, dashboard, manual ref, Dependabot refresh, and advisory jobs on Node 24; keep host-free security and planning jobs and the private package engine on Node 22.
 - Refreshed compatible plugin fixture pins and npm locks, upgraded plugin-inspector to 0.3.21, and moved CI to current GitHub Actions.
 - Refreshed plugin fixtures and restored real OpenClaw lifecycle profiling against current diagnostics APIs.
 - Split CI into a required pinned OpenClaw Default Track, an advisory artifact-producing HEAD canary, and a 14-day pin-promotion SLA.

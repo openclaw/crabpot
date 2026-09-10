@@ -6,6 +6,7 @@ test("fixture manifest is valid and seam-rich", async () => {
   const manifest = await readManifest();
 
   assert.equal(manifest.submoduleRoot, "plugins");
+  assert.equal(manifest.openclaw.minimumNode, "24");
   assert.ok(manifest.fixtures.length >= 10);
   assert.equal(manifest.fixtures.some((fixture) => fixture.id === "openclaw-qqbot"), false);
   const qqbot = manifest.fixtures.find((fixture) => fixture.id === "qqbot");
@@ -13,6 +14,11 @@ test("fixture manifest is valid and seam-rich", async () => {
   assert.equal(qqbot.path, "plugins/qqbot");
   assert.equal(qqbot.package, undefined);
   assert.deepEqual(qqbot.expect.registrations, ["registerChannel", "registerTool"]);
+  const kitchen = manifest.fixtures.find((fixture) => fixture.id === "kitchen-sink");
+  assert.equal(kitchen.expect.hooks.length, 42);
+  assert.equal(kitchen.expect.registrations.length, 56);
+  assert.equal(kitchen.expect.manifestContracts.length, 22);
+  assert.equal(kitchen.expect.registrations.includes("registerDetachedTaskRuntime"), false);
   assert.deepEqual(
     ["hyperspell", "honcho", "composio", "memu-engine", "secureclaw", "memos-cloud"].filter((id) =>
       manifest.fixtures.some((fixture) => fixture.id === id),
