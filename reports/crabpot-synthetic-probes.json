@@ -2186,7 +2186,7 @@
       "source": "plugins/feishu/.crabpot-package/dist/subagent-hooks-api.js:9"
     },
     {
-      "id": "hook.inbound_claim:codex:plugins-codex-crabpot-package-dist-index-js-1916",
+      "id": "hook.inbound_claim:codex:plugins-codex-crabpot-package-dist-index-js-1871",
       "fixture": "codex",
       "kind": "hook",
       "seam": "inbound_claim",
@@ -2211,10 +2211,10 @@
         "channelId": "fixture-channel",
         "accountId": "fixture-account"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1916"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1871"
     },
     {
-      "id": "hook.session_end:codex:plugins-codex-crabpot-package-dist-index-js-1926",
+      "id": "hook.session_end:codex:plugins-codex-crabpot-package-dist-index-js-1881",
       "fixture": "codex",
       "kind": "hook",
       "seam": "session_end",
@@ -2231,7 +2231,7 @@
         "hook": "session_end",
         "fixture": "codex"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1926"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1881"
     },
     {
       "id": "hook.before_prompt_build:diffs:plugins-diffs-crabpot-package-dist-index-js-2006",
@@ -7020,7 +7020,7 @@
       "source": "plugins/diagnostics-otel/.crabpot-package/dist/index.js:9"
     },
     {
-      "id": "registration.createChatChannelPlugin:discord:plugins-discord-crabpot-package-dist-channel-aAywxCij-js-621",
+      "id": "registration.createChatChannelPlugin:discord:plugins-discord-crabpot-package-dist-channel-C-OFFR5Y-js-622",
       "fixture": "discord",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -7045,7 +7045,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/discord/.crabpot-package/dist/channel-aAywxCij.js:621"
+      "source": "plugins/discord/.crabpot-package/dist/channel-C_OFFR5Y.js:622"
     },
     {
       "id": "registration.defineBundledChannelEntry:discord:plugins-discord-crabpot-package-dist-index-js-6",
@@ -7068,7 +7068,7 @@
       "source": "plugins/discord/.crabpot-package/dist/index.js:6"
     },
     {
-      "id": "registration.registerHttpRoute:discord:plugins-discord-crabpot-package-dist-activities-api-D-xtQQu-js-744",
+      "id": "registration.registerHttpRoute:discord:plugins-discord-crabpot-package-dist-activities-api-w8j7Elou-js-744",
       "fixture": "discord",
       "kind": "registration",
       "seam": "registerHttpRoute",
@@ -7094,7 +7094,7 @@
         ],
         "blockedBy": "http-route-descriptor-input"
       },
-      "source": "plugins/discord/.crabpot-package/dist/activities-api-D--xtQQu.js:744"
+      "source": "plugins/discord/.crabpot-package/dist/activities-api-w8j7Elou.js:744"
     },
     {
       "id": "registration.registerTranscriptSourceProvider:discord:plugins-discord-crabpot-package-dist-transcripts-source-api-js-4",
@@ -7117,7 +7117,7 @@
       "source": "plugins/discord/.crabpot-package/dist/transcripts-source-api.js:4"
     },
     {
-      "id": "registration.registerWidgetPresenter:discord:plugins-discord-crabpot-package-dist-activities-api-D-xtQQu-js-750",
+      "id": "registration.registerWidgetPresenter:discord:plugins-discord-crabpot-package-dist-activities-api-w8j7Elou-js-750",
       "fixture": "discord",
       "kind": "registration",
       "seam": "registerWidgetPresenter",
@@ -7134,7 +7134,7 @@
         "callableProperties": [],
         "reason": "widget presenters are captured as registration metadata before presentation runtime execution"
       },
-      "source": "plugins/discord/.crabpot-package/dist/activities-api-D--xtQQu.js:750"
+      "source": "plugins/discord/.crabpot-package/dist/activities-api-w8j7Elou.js:750"
     },
     {
       "id": "registration.definePluginEntry:lobster:plugins-lobster-crabpot-package-dist-index-js-455",
@@ -7362,7 +7362,7 @@
       "source": "plugins/matrix/.crabpot-package/index.ts:25"
     },
     {
-      "id": "registration.createChatChannelPlugin:msteams:plugins-msteams-crabpot-package-dist-channel-Cdm6-HsU-cjs-994",
+      "id": "registration.createChatChannelPlugin:msteams:plugins-msteams-crabpot-package-dist-channel-B9LIyYeu-cjs-995",
       "fixture": "msteams",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -7387,7 +7387,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/msteams/.crabpot-package/dist/channel-Cdm6-HsU.cjs:994"
+      "source": "plugins/msteams/.crabpot-package/dist/channel-B9LIyYeu.cjs:995"
     },
     {
       "id": "registration.defineBundledChannelEntry:msteams:plugins-msteams-crabpot-package-dist-index-cjs-2",
@@ -7410,7 +7410,7 @@
       "source": "plugins/msteams/.crabpot-package/dist/index.cjs:2"
     },
     {
-      "id": "registration.createChatChannelPlugin:nextcloud-talk:plugins-nextcloud-talk-crabpot-package-dist-channel-B3OgVClw-js-2243",
+      "id": "registration.createChatChannelPlugin:nextcloud-talk:plugins-nextcloud-talk-crabpot-package-dist-channel-BjQ2w4x-js-2227",
       "fixture": "nextcloud-talk",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -7435,7 +7435,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/nextcloud-talk/.crabpot-package/dist/channel-B3OgVClw.js:2243"
+      "source": "plugins/nextcloud-talk/.crabpot-package/dist/channel-BjQ2w4x_.js:2227"
     },
     {
       "id": "registration.defineBundledChannelEntry:nextcloud-talk:plugins-nextcloud-talk-crabpot-package-dist-index-js-3",
@@ -7783,7 +7783,7 @@
       "source": "plugins/voice-call/.crabpot-package/dist/index.js:459"
     },
     {
-      "id": "registration.createChatChannelPlugin:zalo:plugins-zalo-crabpot-package-dist-channel-CZH37RQ2-js-272",
+      "id": "registration.createChatChannelPlugin:zalo:plugins-zalo-crabpot-package-dist-channel-mgXGK008-js-272",
       "fixture": "zalo",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -7808,7 +7808,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/zalo/.crabpot-package/dist/channel-CZH37RQ2.js:272"
+      "source": "plugins/zalo/.crabpot-package/dist/channel-mgXGK008.js:272"
     },
     {
       "id": "registration.defineBundledChannelEntry:zalo:plugins-zalo-crabpot-package-dist-index-js-3",
@@ -7831,7 +7831,7 @@
       "source": "plugins/zalo/.crabpot-package/dist/index.js:3"
     },
     {
-      "id": "registration.createChatChannelPlugin:zalouser:plugins-zalouser-crabpot-package-dist-channel-B1ry85ff-js-587",
+      "id": "registration.createChatChannelPlugin:zalouser:plugins-zalouser-crabpot-package-dist-channel-DE-4xRbm-js-587",
       "fixture": "zalouser",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -7856,7 +7856,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/zalouser/.crabpot-package/dist/channel-B1ry85ff.js:587"
+      "source": "plugins/zalouser/.crabpot-package/dist/channel-DE-4xRbm.js:587"
     },
     {
       "id": "registration.defineBundledChannelEntry:zalouser:plugins-zalouser-crabpot-package-dist-index-js-9",
@@ -7911,7 +7911,7 @@
       "source": "plugins/zalouser/.crabpot-package/dist/index.js:23"
     },
     {
-      "id": "registration.createChatChannelPlugin:feishu:plugins-feishu-crabpot-package-dist-channel-DrAqd5ED-js-2338",
+      "id": "registration.createChatChannelPlugin:feishu:plugins-feishu-crabpot-package-dist-channel-HDnQAH4Z-js-2338",
       "fixture": "feishu",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -7936,7 +7936,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/feishu/.crabpot-package/dist/channel-DrAqd5ED.js:2338"
+      "source": "plugins/feishu/.crabpot-package/dist/channel-HDnQAH4Z.js:2338"
     },
     {
       "id": "registration.defineBundledChannelEntry:feishu:plugins-feishu-crabpot-package-dist-channel-entry-js-3",
@@ -7979,7 +7979,7 @@
       "source": "plugins/feishu/.crabpot-package/dist/index.js:4"
     },
     {
-      "id": "registration.registerTool:feishu:plugins-feishu-crabpot-package-dist-api-js-1524",
+      "id": "registration.registerTool:feishu:plugins-feishu-crabpot-package-dist-api-js-1495",
       "fixture": "feishu",
       "kind": "registration",
       "seam": "registerTool",
@@ -8008,10 +8008,10 @@
           "execute"
         ]
       },
-      "source": "plugins/feishu/.crabpot-package/dist/api.js:1524"
+      "source": "plugins/feishu/.crabpot-package/dist/api.js:1495"
     },
     {
-      "id": "registration.registerTool:feishu:plugins-feishu-crabpot-package-dist-api-js-1571",
+      "id": "registration.registerTool:feishu:plugins-feishu-crabpot-package-dist-api-js-1555",
       "fixture": "feishu",
       "kind": "registration",
       "seam": "registerTool",
@@ -8040,10 +8040,10 @@
           "execute"
         ]
       },
-      "source": "plugins/feishu/.crabpot-package/dist/api.js:1571"
+      "source": "plugins/feishu/.crabpot-package/dist/api.js:1555"
     },
     {
-      "id": "registration.registerTool:feishu:plugins-feishu-crabpot-package-dist-api-js-1781",
+      "id": "registration.registerTool:feishu:plugins-feishu-crabpot-package-dist-api-js-1767",
       "fixture": "feishu",
       "kind": "registration",
       "seam": "registerTool",
@@ -8072,10 +8072,10 @@
           "execute"
         ]
       },
-      "source": "plugins/feishu/.crabpot-package/dist/api.js:1781"
+      "source": "plugins/feishu/.crabpot-package/dist/api.js:1767"
     },
     {
-      "id": "registration.registerTool:feishu:plugins-feishu-crabpot-package-dist-api-js-1931",
+      "id": "registration.registerTool:feishu:plugins-feishu-crabpot-package-dist-api-js-1917",
       "fixture": "feishu",
       "kind": "registration",
       "seam": "registerTool",
@@ -8104,10 +8104,10 @@
           "execute"
         ]
       },
-      "source": "plugins/feishu/.crabpot-package/dist/api.js:1931"
+      "source": "plugins/feishu/.crabpot-package/dist/api.js:1917"
     },
     {
-      "id": "registration.registerTool:feishu:plugins-feishu-crabpot-package-dist-api-js-2389",
+      "id": "registration.registerTool:feishu:plugins-feishu-crabpot-package-dist-api-js-2366",
       "fixture": "feishu",
       "kind": "registration",
       "seam": "registerTool",
@@ -8136,10 +8136,10 @@
           "execute"
         ]
       },
-      "source": "plugins/feishu/.crabpot-package/dist/api.js:2389"
+      "source": "plugins/feishu/.crabpot-package/dist/api.js:2366"
     },
     {
-      "id": "registration.registerTool:feishu:plugins-feishu-crabpot-package-dist-chat-BZSnEtgb-js-195",
+      "id": "registration.registerTool:feishu:plugins-feishu-crabpot-package-dist-chat-zhIPXu4X-js-192",
       "fixture": "feishu",
       "kind": "registration",
       "seam": "registerTool",
@@ -8168,10 +8168,10 @@
           "execute"
         ]
       },
-      "source": "plugins/feishu/.crabpot-package/dist/chat-BZSnEtgb.js:195"
+      "source": "plugins/feishu/.crabpot-package/dist/chat-zhIPXu4X.js:192"
     },
     {
-      "id": "registration.registerTool:feishu:plugins-feishu-crabpot-package-dist-reply-delivery-result-BXEmtKpf-js-1713",
+      "id": "registration.registerTool:feishu:plugins-feishu-crabpot-package-dist-reply-delivery-result-C3smdVzb-js-1710",
       "fixture": "feishu",
       "kind": "registration",
       "seam": "registerTool",
@@ -8200,10 +8200,10 @@
           "execute"
         ]
       },
-      "source": "plugins/feishu/.crabpot-package/dist/reply-delivery-result-BXEmtKpf.js:1713"
+      "source": "plugins/feishu/.crabpot-package/dist/reply-delivery-result-C3smdVzb.js:1710"
     },
     {
-      "id": "registration.createChatChannelPlugin:tlon:plugins-tlon-crabpot-package-dist-channel-Dx1jbpJ1-js-150",
+      "id": "registration.createChatChannelPlugin:tlon:plugins-tlon-crabpot-package-dist-channel-CbhSVuV-js-150",
       "fixture": "tlon",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -8228,7 +8228,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/tlon/.crabpot-package/dist/channel-Dx1jbpJ1.js:150"
+      "source": "plugins/tlon/.crabpot-package/dist/channel-CbhSVuV_.js:150"
     },
     {
       "id": "registration.defineBundledChannelEntry:tlon:plugins-tlon-crabpot-package-dist-index-js-3",
@@ -8251,7 +8251,7 @@
       "source": "plugins/tlon/.crabpot-package/dist/index.js:3"
     },
     {
-      "id": "registration.createChatChannelPlugin:twitch:plugins-twitch-crabpot-package-dist-plugin-DpUZvxJa-js-1076",
+      "id": "registration.createChatChannelPlugin:twitch:plugins-twitch-crabpot-package-dist-plugin-BDosyZhO-js-1076",
       "fixture": "twitch",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -8276,7 +8276,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/twitch/.crabpot-package/dist/plugin-DpUZvxJa.js:1076"
+      "source": "plugins/twitch/.crabpot-package/dist/plugin-BDosyZhO.js:1076"
     },
     {
       "id": "registration.defineBundledChannelEntry:twitch:plugins-twitch-crabpot-package-dist-index-js-3",
@@ -8376,7 +8376,7 @@
       "source": "plugins/mattermost/.crabpot-package/src/mattermost/slash-state.ts:413"
     },
     {
-      "id": "registration.createChatChannelPlugin:synology-chat:plugins-synology-chat-crabpot-package-dist-channel-86zMbAnp-js-1893",
+      "id": "registration.createChatChannelPlugin:synology-chat:plugins-synology-chat-crabpot-package-dist-channel-DsZ1Gkzb-js-1875",
       "fixture": "synology-chat",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -8401,7 +8401,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/synology-chat/.crabpot-package/dist/channel-86zMbAnp.js:1893"
+      "source": "plugins/synology-chat/.crabpot-package/dist/channel-DsZ1Gkzb.js:1875"
     },
     {
       "id": "registration.defineBundledChannelEntry:synology-chat:plugins-synology-chat-crabpot-package-dist-index-js-3",
@@ -8492,7 +8492,7 @@
       "source": "plugins/codex/.crabpot-package/dist/cli-metadata.js:13"
     },
     {
-      "id": "registration.definePluginEntry:codex:plugins-codex-crabpot-package-dist-index-js-1724",
+      "id": "registration.definePluginEntry:codex:plugins-codex-crabpot-package-dist-index-js-1679",
       "fixture": "codex",
       "kind": "registration",
       "seam": "definePluginEntry",
@@ -8513,10 +8513,10 @@
         "callableProperties": [],
         "reason": "entry wrapper metadata is captured before plugin runtime execution"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1724"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1679"
     },
     {
-      "id": "registration.registerAgentHarness:codex:plugins-codex-crabpot-package-dist-index-js-1826",
+      "id": "registration.registerAgentHarness:codex:plugins-codex-crabpot-package-dist-index-js-1781",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerAgentHarness",
@@ -8533,7 +8533,7 @@
         "callableProperties": [],
         "reason": "agent harness factories are captured as registration metadata; agent runtime execution remains isolated opt-in"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1826"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1781"
     },
     {
       "id": "registration.registerCli:codex:plugins-codex-crabpot-package-dist-cli-metadata-js-4",
@@ -8568,7 +8568,7 @@
       "source": "plugins/codex/.crabpot-package/dist/cli-metadata.js:4"
     },
     {
-      "id": "registration.registerCommand:codex:plugins-codex-crabpot-package-dist-index-js-1863",
+      "id": "registration.registerCommand:codex:plugins-codex-crabpot-package-dist-index-js-1818",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerCommand",
@@ -8592,10 +8592,10 @@
           "execute"
         ]
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1863"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1818"
     },
     {
-      "id": "registration.registerMediaUnderstandingProvider:codex:plugins-codex-crabpot-package-dist-index-js-1827",
+      "id": "registration.registerMediaUnderstandingProvider:codex:plugins-codex-crabpot-package-dist-index-js-1782",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerMediaUnderstandingProvider",
@@ -8612,10 +8612,10 @@
         "callableProperties": [],
         "reason": "media understanding providers are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1827"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1782"
     },
     {
-      "id": "registration.registerMigrationProvider:codex:plugins-codex-crabpot-package-dist-index-js-1829",
+      "id": "registration.registerMigrationProvider:codex:plugins-codex-crabpot-package-dist-index-js-1784",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerMigrationProvider",
@@ -8632,10 +8632,10 @@
         "callableProperties": [],
         "reason": "migration providers are captured as registration metadata before migration runtime execution"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1829"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1784"
     },
     {
-      "id": "registration.registerNodeHostCommand:codex:plugins-codex-crabpot-package-dist-index-js-1802",
+      "id": "registration.registerNodeHostCommand:codex:plugins-codex-crabpot-package-dist-index-js-1757",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerNodeHostCommand",
@@ -8652,10 +8652,10 @@
         "callableProperties": [],
         "reason": "node host commands are captured as registration metadata before host process execution"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1802"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1757"
     },
     {
-      "id": "registration.registerNodeHostCommand:codex:plugins-codex-crabpot-package-dist-index-js-1859",
+      "id": "registration.registerNodeHostCommand:codex:plugins-codex-crabpot-package-dist-index-js-1814",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerNodeHostCommand",
@@ -8672,10 +8672,10 @@
         "callableProperties": [],
         "reason": "node host commands are captured as registration metadata before host process execution"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1859"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1814"
     },
     {
-      "id": "registration.registerNodeHostCommand:codex:plugins-codex-crabpot-package-dist-index-js-1861",
+      "id": "registration.registerNodeHostCommand:codex:plugins-codex-crabpot-package-dist-index-js-1816",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerNodeHostCommand",
@@ -8692,10 +8692,10 @@
         "callableProperties": [],
         "reason": "node host commands are captured as registration metadata before host process execution"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1861"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1816"
     },
     {
-      "id": "registration.registerNodeInvokePolicy:codex:plugins-codex-crabpot-package-dist-index-js-1804",
+      "id": "registration.registerNodeInvokePolicy:codex:plugins-codex-crabpot-package-dist-index-js-1759",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerNodeInvokePolicy",
@@ -8712,10 +8712,10 @@
         "callableProperties": [],
         "reason": "node invoke policies are captured as registration metadata before host authorization checks"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1804"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1759"
     },
     {
-      "id": "registration.registerNodeInvokePolicy:codex:plugins-codex-crabpot-package-dist-index-js-1860",
+      "id": "registration.registerNodeInvokePolicy:codex:plugins-codex-crabpot-package-dist-index-js-1815",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerNodeInvokePolicy",
@@ -8732,10 +8732,10 @@
         "callableProperties": [],
         "reason": "node invoke policies are captured as registration metadata before host authorization checks"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1860"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1815"
     },
     {
-      "id": "registration.registerNodeInvokePolicy:codex:plugins-codex-crabpot-package-dist-index-js-1862",
+      "id": "registration.registerNodeInvokePolicy:codex:plugins-codex-crabpot-package-dist-index-js-1817",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerNodeInvokePolicy",
@@ -8752,10 +8752,10 @@
         "callableProperties": [],
         "reason": "node invoke policies are captured as registration metadata before host authorization checks"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1862"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1817"
     },
     {
-      "id": "registration.registerService:codex:plugins-codex-crabpot-package-dist-index-js-1747",
+      "id": "registration.registerService:codex:plugins-codex-crabpot-package-dist-index-js-1702",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerService",
@@ -8781,10 +8781,10 @@
         ],
         "option": "includeLifecycle"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1747"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1702"
     },
     {
-      "id": "registration.registerService:codex:plugins-codex-crabpot-package-dist-index-js-1748",
+      "id": "registration.registerService:codex:plugins-codex-crabpot-package-dist-index-js-1703",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerService",
@@ -8810,10 +8810,10 @@
         ],
         "option": "includeLifecycle"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1748"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1703"
     },
     {
-      "id": "registration.registerService:codex:plugins-codex-crabpot-package-dist-index-js-1749",
+      "id": "registration.registerService:codex:plugins-codex-crabpot-package-dist-index-js-1704",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerService",
@@ -8839,10 +8839,10 @@
         ],
         "option": "includeLifecycle"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1749"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1704"
     },
     {
-      "id": "registration.registerSessionCatalog:codex:plugins-codex-crabpot-package-dist-session-catalog-HaDcp7Sv-js-1390",
+      "id": "registration.registerSessionCatalog:codex:plugins-codex-crabpot-package-dist-session-catalog-ct-AH01I-js-1334",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerSessionCatalog",
@@ -8859,10 +8859,10 @@
         "callableProperties": [],
         "reason": "session catalogs are captured as registration metadata before catalog runtime execution"
       },
-      "source": "plugins/codex/.crabpot-package/dist/session-catalog-HaDcp7Sv.js:1390"
+      "source": "plugins/codex/.crabpot-package/dist/session-catalog-ct-AH01I.js:1334"
     },
     {
-      "id": "registration.registerTool:codex:plugins-codex-crabpot-package-dist-index-js-1807",
+      "id": "registration.registerTool:codex:plugins-codex-crabpot-package-dist-index-js-1762",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerTool",
@@ -8891,10 +8891,10 @@
           "execute"
         ]
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1807"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1762"
     },
     {
-      "id": "registration.registerTool:codex:plugins-codex-crabpot-package-dist-index-js-1830",
+      "id": "registration.registerTool:codex:plugins-codex-crabpot-package-dist-index-js-1785",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerTool",
@@ -8923,10 +8923,10 @@
           "execute"
         ]
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1830"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1785"
     },
     {
-      "id": "registration.registerTool:codex:plugins-codex-crabpot-package-dist-index-js-1843",
+      "id": "registration.registerTool:codex:plugins-codex-crabpot-package-dist-index-js-1798",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerTool",
@@ -8955,10 +8955,10 @@
           "execute"
         ]
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1843"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1798"
     },
     {
-      "id": "registration.registerToolMetadata:codex:plugins-codex-crabpot-package-dist-index-js-1836",
+      "id": "registration.registerToolMetadata:codex:plugins-codex-crabpot-package-dist-index-js-1791",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerToolMetadata",
@@ -8975,10 +8975,10 @@
         "callableProperties": [],
         "reason": "tool metadata descriptors are captured as registration metadata before tool runtime execution"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1836"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1791"
     },
     {
-      "id": "registration.registerToolMetadata:codex:plugins-codex-crabpot-package-dist-index-js-1848",
+      "id": "registration.registerToolMetadata:codex:plugins-codex-crabpot-package-dist-index-js-1803",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerToolMetadata",
@@ -8995,10 +8995,10 @@
         "callableProperties": [],
         "reason": "tool metadata descriptors are captured as registration metadata before tool runtime execution"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1848"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1803"
     },
     {
-      "id": "registration.registerWebSearchProvider:codex:plugins-codex-crabpot-package-dist-index-js-1828",
+      "id": "registration.registerWebSearchProvider:codex:plugins-codex-crabpot-package-dist-index-js-1783",
       "fixture": "codex",
       "kind": "registration",
       "seam": "registerWebSearchProvider",
@@ -9015,7 +9015,7 @@
         "callableProperties": [],
         "reason": "web search providers are captured as registration metadata before provider runtime execution"
       },
-      "source": "plugins/codex/.crabpot-package/dist/index.js:1828"
+      "source": "plugins/codex/.crabpot-package/dist/index.js:1783"
     },
     {
       "id": "registration.definePluginEntry:diagnostics-prometheus:plugins-diagnostics-prometheus-crabpot-package-dist-index-js-689",
@@ -9686,7 +9686,7 @@
       "source": "plugins/memory-lancedb/.crabpot-package/dist/index.js:267"
     },
     {
-      "id": "registration.createChatChannelPlugin:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-BeBrHPVa-js-531",
+      "id": "registration.createChatChannelPlugin:whatsapp:plugins-whatsapp-crabpot-package-dist-channel-CzEIEZqG-js-532",
       "fixture": "whatsapp",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -9711,7 +9711,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/whatsapp/.crabpot-package/dist/channel-BeBrHPVa.js:531"
+      "source": "plugins/whatsapp/.crabpot-package/dist/channel-CzEIEZqG.js:532"
     },
     {
       "id": "registration.defineBundledChannelEntry:whatsapp:plugins-whatsapp-crabpot-package-dist-index-js-9",
