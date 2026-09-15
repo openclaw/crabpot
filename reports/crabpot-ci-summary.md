@@ -10,9 +10,9 @@ Status: PASS
 | Metric                      | Value                                                                                                                   |
 | --------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | Breakages                   | 0                                                                                                                       |
-| Warnings                    | 109                                                                                                                     |
+| Warnings                    | 128                                                                                                                     |
 | Suggestions                 | 237                                                                                                                     |
-| Issues                      | 346                                                                                                                     |
+| Issues                      | 365                                                                                                                     |
 | P0 issues                   | 7                                                                                                                       |
 | P1 issues                   | 116                                                                                                                     |
 | Live issues                 | 7                                                                                                                       |
@@ -20,7 +20,7 @@ Status: PASS
 | Compat gaps                 | 101                                                                                                                     |
 | Deprecation warnings        | 22                                                                                                                      |
 | Inspector gaps              | 156                                                                                                                     |
-| Upstream metadata           | 60                                                                                                                      |
+| Upstream metadata           | 79                                                                                                                      |
 | Ref diff failures           | 0                                                                                                                       |
 | Ref diff warnings           | 0                                                                                                                       |
 | Policy failures             | 0                                                                                                                       |
@@ -33,7 +33,7 @@ Status: PASS
 | Windows portability risks   | 17                                                                                                                      |
 | Container portability risks | 17                                                                                                                      |
 | Jiti loader candidates      | 20                                                                                                                      |
-| Import loop                 | p50 3069 ms / p95 3073 ms / plugin delta RSS 0 MB / plugin delta CPU 103 ms / OpenClaw import 61.6 ms / activate 0.5 ms |
+| Import loop                 | p50 2905 ms / p95 2908 ms / plugin delta RSS 1.1 MB / plugin delta CPU 0 ms / OpenClaw import 56.7 ms / activate 0.5 ms |
 
 ## Top Issues
 
@@ -74,8 +74,8 @@ _none_
 
 | Action | ID               | Metric       | Baseline | Current | Message                                    |
 | ------ | ---------------- | ------------ | -------- | ------- | ------------------------------------------ |
-| warn   | profile.wall-p95 | p95WallMs    | 1273     | 6396    | p95WallMs regressed 402.4% over baseline   |
-| warn   | profile.peak-rss | maxPeakRssMb | 65.1     | 305.2   | maxPeakRssMb regressed 240.1 over baseline |
+| warn   | profile.wall-p95 | p95WallMs    | 1273     | 6229    | p95WallMs regressed 389.3% over baseline   |
+| warn   | profile.peak-rss | maxPeakRssMb | 65.1     | 308.2   | maxPeakRssMb regressed 243.1 over baseline |
 
 ## Artifacts
 
