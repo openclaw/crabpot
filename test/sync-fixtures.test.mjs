@@ -105,6 +105,7 @@ async function miniatureRepo(t, fixtures, steps = []) {
     await mkdir(path.join(archiveRoot, "package"), { recursive: true });
     await writeFile(path.join(archiveRoot, "package/package.json"), JSON.stringify({
       name: step.name, version: step.version, type: "module", main: "index.mjs",
+      ...(step.pluginEntrypoint ? { openclaw: { extensions: ["./index.mjs"] } } : {}),
     }));
     await writeFile(path.join(archiveRoot, "package/index.mjs"), 'export const marker = "inert";\n');
     if (step.metadataLink) {
@@ -653,4 +654,67 @@ test("actual report retains failed acquisition as P0 with no payload and no host
   assert.match(markdown, /@openclaw\/fixture@1\.2\.3/);
   assertFailedAcquisition(materialized);
   assert.equal(existsSync(repo.payload()), false);
+});
+
+for (const pluginEntrypoint of [false, true]) {
+  test(`resolver CLI materializes ${pluginEntrypoint ? "executable" : "metadata-only"} fixture before planning`, async (t) => {
+    const item = fixture("selected", "selected-plugin");
+    const unselected = fixture("unselected", "unselected-plugin");
+    const repo = await miniatureRepo(t, [item, unselected], [view(item), { ...pack(item), pluginEntrypoint }]);
+    const env = { CRABPOT_PLUGIN_INSPECTOR_DIR: path.dirname(path.dirname(resolvePluginInspectorCliPath())) };
+    const args = ["--fixture-set", item.id, "--no-openclaw", "--github-output"];
+    assert.equal(existsSync(repo.payload(item)), false);
+    const before = repo.run("resolve-fixture-set.mjs", args, env);
+    assert.equal(before.status, 0, before.stderr);
+    const initialMatrix = JSON.parse(before.stdout.split("\n")[0].slice("matrix=".length));
+    assert.equal(initialMatrix.include[0].entrypointCount, 0);
+    assert.deepEqual((await repo.readJson("npm-plan.json")).calls, []);
+
+    const result = repo.run("resolve-fixture-set.mjs", [...args, "--materialize"], env);
+    assert.equal(result.status, 0, result.stderr);
+    const lines = result.stdout.trim().split(/\r?\n/);
+    assert.equal(lines.length, 3, result.stdout);
+    const matrix = JSON.parse(lines[0].slice("matrix=".length));
+    assert.equal(matrix.include.length, 1);
+    assert.equal(matrix.include[0].id, item.id);
+    assert.equal(matrix.include[0].entrypointCount, pluginEntrypoint ? 1 : 0);
+    assert.deepEqual(lines.slice(1), ["count=1", "fixtures=selected"]);
+    assert.match(result.stderr, /fixtures materialized/);
+    assert.equal(existsSync(repo.payload(unselected)), false);
+    assert.equal((await repo.readJson(`${item.path}/.crabpot-package/.crabpot-source.json`)).version, "1.2.3");
+    assert.equal((await repo.assertNpmComplete()).length, 2);
+    if (!pluginEntrypoint) {
+      const execution = repo.run("execute-workspace-plan.mjs", ["--fixture", item.id, "--allow-empty", "--no-openclaw"], {
+        ...env, CRABPOT_EXECUTE_ISOLATED: "1",
+      });
+      assert.equal(execution.status, 0, execution.stderr);
+      assert.match(execution.stdout, /no entrypoints selected/);
+      assert.equal((await repo.readJson(`.crabpot/results/${item.id}/execution-profile.json`)).summary.stepCount, 0);
+    }
+  });
+}
+
+test("resolver CLI emits no matrix after an actual pack failure", async (t) => {
+  const item = fixture();
+  const repo = await miniatureRepo(t, [item], [view(item), pack(item, "1.2.3", true)]);
+  const result = repo.run("resolve-fixture-set.mjs", ["--fixture-set", item.id, "--materialize", "--no-openclaw", "--github-output"], {
+    CRABPOT_PLUGIN_INSPECTOR_DIR: path.dirname(path.dirname(resolvePluginInspectorCliPath())),
+  });
+  assert.notEqual(result.status, 0);
+  assert.equal(result.stdout, "");
+  assert.match(result.stderr, /ETARGET/);
+  assert.match(result.stderr, /fixture materialization failed with exit code 1/);
+  assert.equal(existsSync(repo.payload()), false);
+  await repo.assertNpmComplete();
+});
+
+test("resolver CLI keeps intentional none empty without acquiring payloads", async (t) => {
+  const repo = await miniatureRepo(t, [fixture()]);
+  const result = repo.run("resolve-fixture-set.mjs", ["--fixture-set", "none", "--materialize", "--allow-empty", "--no-openclaw", "--github-output"], {
+    CRABPOT_PLUGIN_INSPECTOR_DIR: path.dirname(path.dirname(resolvePluginInspectorCliPath())),
+  });
+  assert.equal(result.status, 0, result.stderr);
+  assert.deepEqual(result.stdout.trim().split(/\r?\n/), ['matrix={"include":[]}', "count=0", "fixtures="]);
+  assert.equal(existsSync(repo.payload()), false);
+  assert.deepEqual(await repo.assertNpmComplete(), []);
 });
