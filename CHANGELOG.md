@@ -3,6 +3,7 @@
 ## 0.2.2 - Unreleased
 
 - Preserve original Gateway rejection messages in source-mode Plugin Inspector probes and verify both source and unpublished packed CLI smoke in Linux CI. Keep the published package pin at 0.3.25 until release.
+- Fixed fixture validation accepting missing acquisition sources and missing or mismatched submodule entries, while accepting valid quoted Git configuration.
 - Promote the green OpenClaw 2026.9.3 canary pin and adopt Kitchen Sink 0.3.0, covering 42 hooks, 56 active registrars, and 22 manifest contracts without replacing the host's detached-task owner.
 - Bound OpenClaw track metadata fetches through JSON consumption and Git lookups through the shared command owner, with strict timeout settings and preserved operational failures; warn about missing tags only after successful empty lookups. Thanks @SebTardif.
 - Bound fixture-security npm audits with native Windows command execution, strict timeout settings, and combined 16 MiB output capture; preserve valid vulnerability exit status 1 and existing severity/fixability policy. Preserve primary command errors through cleanup failures, report unconfirmed cleanup, and stop cached process-group signaling after POSIX supervisor loss. Preserve Windows cleanup results when cancellation precedes a command request, and prevent late request dispatch. Thanks @SebTardif.
