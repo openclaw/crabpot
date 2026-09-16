@@ -2,6 +2,7 @@
 
 ## 0.2.2 - Unreleased
 
+- Discover SDK modules loaded inside retained plugin handlers and verify real source and unpublished-package CLI values while keeping Gateway prerequisite failures visible. Keep the published Plugin Inspector pin at 0.3.25 until release.
 - Use the public lazy-runtime SDK contract in source-mode Plugin Inspector probes so plugin runtimes load lazily and report their actual outcomes. Keep the published package pin at 0.3.25 until release.
 - Preserve original Gateway rejection messages in source-mode Plugin Inspector probes and verify both source and unpublished packed CLI smoke in Linux CI. Keep the published package pin at 0.3.25 until release.
 - Fixed AWS Crabbox provisioning by sizing the root disk to the promoted image’s 400 GB minimum.
