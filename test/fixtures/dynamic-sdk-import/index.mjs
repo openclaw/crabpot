@@ -3,11 +3,11 @@ export function register(api) {
   api.registerTool({
     name: "dynamic_sdk_import",
     run: async () => {
-      const { readStringField: read } = await import("openclaw/plugin-sdk/dynamic-field");
-      const sdk = await import("openclaw/plugin-sdk/dynamic-record");
+      const { readStringField: read } = await import("openclaw/plugin-sdk/dynamic-field", {});
+      const sdk = await import("openclaw/plugin-sdk/dynamic-record",);
       const record = { value: "retained dynamic SDK" };
       if (!sdk.isRecord(record) || sdk.isRecord([])) throw new Error("record helper mismatch");
-      const value = await import("openclaw/plugin-sdk/dynamic-callback").then(({ readStringField }) => readStringField(record, "value"));
+      const value = await import("openclaw/plugin-sdk/dynamic-callback" /* trailing comment */).then(({ readStringField }) => readStringField(record, "value"));
       if (value !== read(record, "value")) throw new Error("field helper mismatch");
       return `${value}: checked`;
     },
