@@ -43,6 +43,11 @@ test("manual OpenClaw ref workflow keeps isolated fixture execution opt-in", asy
   assert.match(workflow, /fixture:/);
   assert.match(workflow, /fixture_set:/);
   assert.match(workflow, /Resolve fixture matrix/);
+  assert.match(planBlock, /node scripts\/resolve-fixture-set\.mjs[\s\S]*--materialize[\s\S]*--github-output/);
+  assert.match(
+    isolatedBlock,
+    /Materialize fixture payload[\s\S]*CRABPOT_FIXTURE_SET: \$\{\{ matrix\.id \}\}[\s\S]*node scripts\/sync-fixtures\.mjs --materialize --openclaw \.\/openclaw[\s\S]*Validate workspace plan[\s\S]*Execute fixture lane/,
+  );
   assert.match(workflow, /CRABPOT_EXECUTE_ISOLATED: "1"/);
   assert.match(workflow, /npm run workspace:execute -- --fixture/);
   assert.match(workflow, /npm run execution:report/);

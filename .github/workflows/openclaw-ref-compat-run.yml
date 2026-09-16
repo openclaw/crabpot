@@ -268,6 +268,7 @@ jobs:
           fi
           node scripts/resolve-fixture-set.mjs \
             --fixture-set "${fixture_set}" \
+            --materialize \
             --openclaw ./openclaw \
             --allow-empty \
             --github-output >> "$GITHUB_OUTPUT"
@@ -311,6 +312,11 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: 24
+
+      - name: Materialize fixture payload
+        env:
+          CRABPOT_FIXTURE_SET: ${{ matrix.id }}
+        run: node scripts/sync-fixtures.mjs --materialize --openclaw ./openclaw
 
       - name: Validate workspace plan
         run: node scripts/workspace-plan.mjs --check --openclaw ./openclaw
