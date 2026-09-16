@@ -33,7 +33,7 @@ Status: PASS
 | Windows portability risks   | 17                                                                                                                      |
 | Container portability risks | 17                                                                                                                      |
 | Jiti loader candidates      | 20                                                                                                                      |
-| Import loop                 | p50 2940 ms / p95 2967 ms / plugin delta RSS 1.6 MB / plugin delta CPU 4 ms / OpenClaw import 58.1 ms / activate 0.5 ms |
+| Import loop                 | p50 3026 ms / p95 3039 ms / plugin delta RSS 2.9 MB / plugin delta CPU 0 ms / OpenClaw import 61.6 ms / activate 0.5 ms |
 
 ## Top Issues
 
@@ -89,7 +89,7 @@ _none_
 | platform       | reports/crabpot-platform-probes.json     |
 | importLoop     | reports/crabpot-import-loop-profile.json |
 | execution      | reports/crabpot-execution-results.json   |
-| runtimeProfile | reports/crabpot-runtime-profile.json     |
+| runtimeProfile | -                                        |
 | refDiff        | -                                        |
 | profileDiff    | reports/crabpot-profile-diff.json        |
 | ciPolicy       | reports/crabpot-ci-policy.json           |

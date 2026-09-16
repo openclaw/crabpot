@@ -9,7 +9,7 @@ Generated: deterministic
 | Fixtures                | 59    |
 | Registrations           | 376   |
 | Hooks                   | 132   |
-| SDK imports             | 2629  |
+| SDK imports             | 2625  |
 | Package entrypoints     | 119   |
 | Issue probes            | 260   |
 | Inspector shim required | 208   |
@@ -3130,7 +3130,6 @@ Generated: deterministic
 | openclaw-weixin        | openclaw/plugin-sdk/command-auth                        | target-exported       | plugins/openclaw-weixin/.crabpot-package/src/messaging/process-message.ts:5                  | package export exists; cold import resolves without plugin credentials |
 | openclaw-weixin        | openclaw/plugin-sdk/config-runtime                      | target-exported       | plugins/openclaw-weixin/.crabpot-package/dist/src/auth/accounts.js:279                       | package export exists; cold import resolves without plugin credentials |
 | openclaw-weixin        | openclaw/plugin-sdk/config-runtime                      | target-exported       | plugins/openclaw-weixin/.crabpot-package/src/auth/accounts.ts:310                            | package export exists; cold import resolves without plugin credentials |
-| openclaw-weixin        | openclaw/plugin-sdk/core                                | target-exported       | plugins/openclaw-weixin/.crabpot-package/src/messaging/process-message.ts:44                 | package export exists; cold import resolves without plugin credentials |
 | openclaw-weixin        | openclaw/plugin-sdk/hook-runtime                        | target-exported       | plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/outbound-hooks.js:1              | package export exists; cold import resolves without plugin credentials |
 | openclaw-weixin        | openclaw/plugin-sdk/hook-runtime                        | target-exported       | plugins/openclaw-weixin/.crabpot-package/src/messaging/outbound-hooks.ts:1                   | package export exists; cold import resolves without plugin credentials |
 | openclaw-weixin        | openclaw/plugin-sdk/infra-runtime                       | target-exported       | plugins/openclaw-weixin/.crabpot-package/dist/src/auth/pairing.js:3                          | package export exists; cold import resolves without plugin credentials |
@@ -3157,9 +3156,6 @@ Generated: deterministic
 | telnyx-sms             | openclaw/plugin-sdk/channel-core                        | target-exported       | plugins/telnyx-sms/setup-entry.ts:1                                                          | package export exists; cold import resolves without plugin credentials |
 | telnyx-sms             | openclaw/plugin-sdk/channel-core                        | target-exported       | plugins/telnyx-sms/src/channel.ts:1                                                          | package export exists; cold import resolves without plugin credentials |
 | telnyx-sms             | openclaw/plugin-sdk/direct-dm                           | compat-alias-required | plugins/telnyx-sms/src/inbound.ts:2                                                          | package export exists; cold import resolves without plugin credentials |
-| codex-app-server       | openclaw/plugin-sdk/discord                             | target-exported       | plugins/codex-app-server/src/controller.ts:104                                               | package export exists; cold import resolves without plugin credentials |
-| codex-app-server       | openclaw/plugin-sdk/discord                             | target-exported       | plugins/codex-app-server/src/controller.ts:106                                               | package export exists; cold import resolves without plugin credentials |
-| codex-app-server       | openclaw/plugin-sdk/telegram-account                    | target-exported       | plugins/codex-app-server/src/controller.ts:105                                               | package export exists; cold import resolves without plugin credentials |
 | web-search-plus        | openclaw/plugin-sdk/plugin-entry                        | target-exported       | plugins/web-search-plus/index.ts:4                                                           | package export exists; cold import resolves without plugin credentials |
 | apify                  | openclaw/plugin-sdk/core                                | target-exported       | plugins/apify/src/tools/apify-scraper-tool.ts:3                                              | package export exists; cold import resolves without plugin credentials |
 | inworld-tts            | openclaw/plugin-sdk/plugin-entry                        | target-exported       | plugins/inworld-tts/index.ts:1                                                               | package export exists; cold import resolves without plugin credentials |

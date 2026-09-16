@@ -659,7 +659,7 @@
     "warningCount": 128,
     "suggestionCount": 164,
     "decisionCount": 309,
-    "logCount": 418,
+    "logCount": 417,
     "issueCount": 292,
     "openIssueCount": 292,
     "p0IssueCount": 7,
@@ -32260,7 +32260,6 @@
         "openclaw/plugin-sdk/channel-message",
         "openclaw/plugin-sdk/command-auth",
         "openclaw/plugin-sdk/config-runtime",
-        "openclaw/plugin-sdk/core",
         "openclaw/plugin-sdk/hook-runtime",
         "openclaw/plugin-sdk/infra-runtime",
         "openclaw/plugin-sdk/plugin-runtime"
@@ -32337,12 +32336,6 @@
           "file": "plugins/openclaw-weixin/.crabpot-package/src/auth/accounts.ts",
           "line": 310,
           "ref": "plugins/openclaw-weixin/.crabpot-package/src/auth/accounts.ts:310"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/core",
-          "file": "plugins/openclaw-weixin/.crabpot-package/src/messaging/process-message.ts",
-          "line": 44,
-          "ref": "plugins/openclaw-weixin/.crabpot-package/src/messaging/process-message.ts:44"
         },
         {
           "specifier": "openclaw/plugin-sdk/hook-runtime",
@@ -34632,30 +34625,8 @@
           }
         }
       ],
-      "sdkImports": [
-        "openclaw/plugin-sdk/discord",
-        "openclaw/plugin-sdk/telegram-account"
-      ],
-      "sdkImportDetails": [
-        {
-          "specifier": "openclaw/plugin-sdk/discord",
-          "file": "plugins/codex-app-server/src/controller.ts",
-          "line": 104,
-          "ref": "plugins/codex-app-server/src/controller.ts:104"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/discord",
-          "file": "plugins/codex-app-server/src/controller.ts",
-          "line": 106,
-          "ref": "plugins/codex-app-server/src/controller.ts:106"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/telegram-account",
-          "file": "plugins/codex-app-server/src/controller.ts",
-          "line": 105,
-          "ref": "plugins/codex-app-server/src/controller.ts:105"
-        }
-      ],
+      "sdkImports": [],
+      "sdkImportDetails": [],
       "sdkDeprecations": []
     },
     {
@@ -51527,7 +51498,6 @@
         "openclaw/plugin-sdk/channel-message",
         "openclaw/plugin-sdk/command-auth",
         "openclaw/plugin-sdk/config-runtime",
-        "openclaw/plugin-sdk/core",
         "openclaw/plugin-sdk/hook-runtime",
         "openclaw/plugin-sdk/infra-runtime",
         "openclaw/plugin-sdk/plugin-runtime"
@@ -51957,16 +51927,6 @@
         "registerCommand",
         "registerInteractiveHandler",
         "registerService"
-      ]
-    },
-    {
-      "fixture": "codex-app-server",
-      "code": "sdk-exports-present",
-      "level": "log",
-      "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
-      "evidence": [
-        "openclaw/plugin-sdk/discord",
-        "openclaw/plugin-sdk/telegram-account"
       ]
     },
     {
