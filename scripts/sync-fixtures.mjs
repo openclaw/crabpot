@@ -120,24 +120,45 @@ async function prepareFixturePayload(fixture) {
 }
 
 async function checkGitmodules(manifest) {
-  const gitmodulesPath = path.join(repoRoot, ".gitmodules");
-  if (!existsSync(gitmodulesPath)) {
+  const fixtures = manifest.fixtures.filter((fixture) => fixture.repo);
+  if (fixtures.length === 0) {
     return;
   }
+  const gitmodulesPath = path.join(repoRoot, ".gitmodules");
+  if (!existsSync(gitmodulesPath)) {
+    throw new Error(".gitmodules is missing for repo-backed fixtures");
+  }
 
-  const gitmodules = await readFile(gitmodulesPath, "utf8");
-  const missing = [];
-  for (const fixture of manifest.fixtures.filter((item) => item.repo)) {
-    if (!gitmodules.includes(`path = ${fixture.path}`)) {
-      missing.push(fixture.path);
-    }
-    if (!gitmodules.includes(`url = ${fixture.repo}`)) {
-      missing.push(fixture.repo);
+  const result = spawnSync("git", [
+    "config", "--file", gitmodulesPath, "--no-includes", "--null", "--get-regexp", "^submodule\\..*\\.(path|url)$",
+  ], {
+    cwd: repoRoot,
+    encoding: "utf8",
+    timeout: configuredTimeoutMs("CRABPOT_GIT_TIMEOUT_MS", defaultGitTimeoutMs),
+  });
+  // Exit 1 means no matching keys; other failures must not become an empty config.
+  if (result.error || (result.status !== 0 && result.status !== 1)) {
+    throw new Error(`failed to read .gitmodules: ${result.error?.message ?? result.stderr.trim()}`);
+  }
+  const submodules = new Map();
+  for (const record of result.stdout.split("\0").filter(Boolean)) {
+    const separator = record.indexOf("\n");
+    const [, name, key] = record.slice(0, separator).match(/^submodule\.(.*)\.(path|url)$/);
+    const entry = submodules.get(name) ?? { path: [], url: [] };
+    entry[key].push(record.slice(separator + 1));
+    submodules.set(name, entry);
+  }
+
+  const errors = [];
+  for (const fixture of fixtures) {
+    const matches = [...submodules.values()].filter((entry) => entry.path.includes(fixture.path));
+    if (matches.length !== 1 || matches[0].path.length !== 1 || matches[0].url.length !== 1 || matches[0].url[0] !== fixture.repo) {
+      errors.push(`${fixture.id}: .gitmodules must map ${fixture.path} to ${fixture.repo} exactly once`);
     }
   }
 
-  if (missing.length > 0) {
-    throw new Error(`.gitmodules is missing manifest entries:\n${missing.join("\n")}`);
+  if (errors.length > 0) {
+    throw new Error(errors.join("\n"));
   }
 }
 
