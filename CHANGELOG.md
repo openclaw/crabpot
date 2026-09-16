@@ -2,6 +2,7 @@
 
 ## 0.2.2 - Unreleased
 
+- Use the public lazy-runtime SDK contract in source-mode Plugin Inspector probes so plugin runtimes load lazily and report their actual outcomes. Keep the published package pin at 0.3.25 until release.
 - Preserve original Gateway rejection messages in source-mode Plugin Inspector probes and verify both source and unpublished packed CLI smoke in Linux CI. Keep the published package pin at 0.3.25 until release.
 - Fixed AWS Crabbox provisioning by sizing the root disk to the promoted image’s 400 GB minimum.
 - Promote the green OpenClaw 2026.9.3 canary pin and adopt Kitchen Sink 0.3.0, covering 42 hooks, 56 active registrars, and 22 manifest contracts without replacing the host's detached-task owner.
