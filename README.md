@@ -125,6 +125,18 @@ git submodule update --init --recursive
 That command mutates `.gitmodules` and `plugins/*`. Commit those changes when
 you intentionally pin or update fixture revisions.
 
+### Gateway probe prerequisites
+
+Fixture `execution.gatewayMethodPrerequisites` entries name the exact Gateway
+methods that require host state or live credentials. Synthetic runs record those
+methods as blocked before invoking them; they do not turn rejected responses
+into passes. Status methods without those prerequisites still execute. Each
+allowed blocker has a named follow-up in `crabpot.ci-policy.json`.
+
+Programmatic callers supplying isolated inputs and runtime can pass an explicit
+`gatewayMethodPrerequisites` map to the synthetic runner. Omit satisfied methods
+from that map; an empty map exercises every method with normal response checks.
+
 ### Inspector command limits
 
 Inspector smoke and generated-surface commands default to 10 minutes. Inspector
