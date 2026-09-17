@@ -2,6 +2,7 @@
 
 ## 0.2.2 - Unreleased
 
+- Cancel superseded PR check and advisory runs without replacing push or manual attempts. Stop expensive report regeneration after cancellation while preserving existing artifacts, failure summaries, and the required verdict.
 - Record fixture-owned account and meeting Gateway prerequisites before invoking credential-free synthetic probes. Keep ready status methods and unrelated Gateway failures visible; blocked methods remain explicit gaps until their host state and transports are supplied.
 
 - Prepare selected npm fixture payloads before manual OpenClaw ref compatibility planning and execution; derive capability selections from prepared source while preserving intentional empty lanes.

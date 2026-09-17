@@ -14,6 +14,53 @@ async function readOpenClawRefWorkflows() {
   ].join("\n");
 }
 
+test("PR checks supersede only the same workflow and pull request", async () => {
+  for (const file of ["check.yml", "openclaw-head-canary.yml"]) {
+    const workflow = await readWorkflow(`.github/workflows/${file}`);
+    const concurrency = workflow.match(/^concurrency:\n((?:  .*\n)+)/m)?.[1];
+
+    assert.ok(concurrency, `${file} must scope concurrency at workflow level`);
+    assert.equal(
+      concurrency,
+      "  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || format('run-{0}-{1}', github.run_id, github.run_attempt) }}\n" +
+        "  cancel-in-progress: ${{ github.event_name == 'pull_request' }}\n",
+    );
+    assert.doesNotMatch(workflow.slice(workflow.indexOf("jobs:")), /\n\s+concurrency:/);
+  }
+});
+
+test("cancelled checks keep existing artifacts without regenerating reports", async () => {
+  const check = await readWorkflow(".github/workflows/check.yml");
+  const canary = await readWorkflow(".github/workflows/openclaw-head-canary.yml");
+  const stepCondition = (workflow, name) => {
+    const block = workflow.match(new RegExp(`- name: ${name}\\n((?:        .*\\n)+)`))?.[1];
+    assert.ok(block, `missing step: ${name}`);
+    return block.match(/^        if: (.+)$/m)?.[1];
+  };
+
+  for (const [workflow, name] of [
+    [check, "Write CI summary artifacts"],
+    [check, "Reconcile compatibility report with runtime evidence"],
+    [check, "Run execution policy"],
+    [canary, "Write canary reports"],
+  ]) {
+    assert.equal(stepCondition(workflow, name), "${{ !cancelled() }}", name);
+  }
+  for (const [workflow, name] of [
+    [check, "Upload CI reports"],
+    [check, "Summarize execution artifacts"],
+    [check, "Write isolated summary"],
+    [check, "Upload isolated execution artifacts"],
+    [canary, "Upload HEAD canary reports"],
+  ]) {
+    assert.equal(stepCondition(workflow, name), "always()", name);
+  }
+  const aggregate = check.slice(check.indexOf("  default-track:"), check.indexOf("  dashboard:"));
+  assert.match(aggregate, /^    if: always\(\)$/m);
+  assert.match(aggregate, /test "\$\{MANIFEST_RESULT\}" = success/);
+  assert.match(aggregate, /test "\$\{CONTAINER_RESULT\}" = success/);
+});
+
 test("manual OpenClaw ref workflow accepts branch tag or SHA inputs", async () => {
   const workflow = await readOpenClawRefWorkflows();
   const staticBlock = workflow.slice(workflow.indexOf("  static-contract:"), workflow.indexOf("  ref-diff:"));
