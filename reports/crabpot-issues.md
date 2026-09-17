@@ -1410,8 +1410,8 @@ _none_
   - **channel-contract-probe**: openclaw-weixin: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:13
-    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:17
+    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:15
+    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:19
 
 - 🟡 P2 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: openclaw-weixin: cold import requires dependency installation in an isolated workspace
@@ -1430,8 +1430,8 @@ _none_
   - **registration-capture-gap**: openclaw-weixin: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:13
-    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:17
+    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:15
+    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:19
 
 - 🟡 P2 **opik-openclaw** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: opik-openclaw: cold import requires package build output
@@ -4220,8 +4220,8 @@ _none_
   - **channel-contract-probe**: openclaw-weixin: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:13
-    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:17
+    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:15
+    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:19
 
 - 🟡 P2 **openclaw-weixin** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-name-missing**: openclaw-weixin: manifest display name is missing
@@ -4258,8 +4258,8 @@ _none_
   - **registration-capture-gap**: openclaw-weixin: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:13
-    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:17
+    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:15
+    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:19
 
 - 🟡 P2 **opik-openclaw** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: opik-openclaw: root plugin SDK barrel is still used by fixtures
@@ -5079,8 +5079,8 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:openclaw-weixin`
   - evidence:
-    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:13
-    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:17
+    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:15
+    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:19
 
 - 🟡 P2 **opik-openclaw** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -5144,8 +5144,8 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:openclaw-weixin`
   - evidence:
-    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:13
-    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:17
+    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:15
+    - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:19
 
 - 🟡 P2 **qqbot** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
