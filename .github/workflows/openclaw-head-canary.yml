@@ -6,6 +6,11 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# PR runs supersede each other; other event attempts remain independent.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || format('run-{0}-{1}', github.run_id, github.run_attempt) }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 permissions:
   contents: read
 
@@ -77,7 +82,7 @@ jobs:
             --openclaw-track latest \
             --plugin-track latest
       - name: Write canary reports
-        if: always()
+        if: ${{ !cancelled() }}
         continue-on-error: true
         shell: bash
         env:
