@@ -190,13 +190,14 @@ export async function writeSyntheticProbePlan(plan, options = {}) {
 }
 
 export async function runCapturedSyntheticProbes(capture, options = {}) {
+  const manifest = options.manifest ?? (await readConfiguredManifest());
   const result = await pluginInspector.runCapturedSyntheticProbes(capture, {
     ...options,
+    gatewayMethodPrerequisites: gatewayMethodPrerequisites(capture.entrypoint, manifest, options),
     hookEvents: mergeHookEvents(options.hookEvents),
     registrationProbeInputs: mergeRegistrationProbeInputs(options.registrationProbeInputs),
     syntheticSource: "crabpot.synthetic",
   });
-  const manifest = options.manifest ?? (await readConfiguredManifest());
   return applyFixtureSyntheticFailurePolicy(result, manifest);
 }
 
@@ -213,8 +214,12 @@ export async function runEntrypointSyntheticProbes(entrypoint, options = {}) {
     return runCapturedSyntheticProbes(capture, options);
   }
 
+  const manifest = options.manifest ?? (await readConfiguredManifest());
   const result = await pluginInspector.runEntrypointSyntheticProbes(entrypoint, {
     ...options,
+    gatewayMethodPrerequisites: gatewayMethodPrerequisites(
+      path.resolve(options.cwd ?? process.cwd(), entrypoint), manifest, options,
+    ),
     apiOptions: {
       ...(options.apiOptions ?? {}),
       retainHandlers: true,
@@ -223,8 +228,14 @@ export async function runEntrypointSyntheticProbes(entrypoint, options = {}) {
     registrationProbeInputs: mergeRegistrationProbeInputs(options.registrationProbeInputs),
     syntheticSource: "crabpot.synthetic",
   });
-  const manifest = options.manifest ?? (await readConfiguredManifest());
   return applyFixtureSyntheticFailurePolicy(result, manifest);
+}
+
+function gatewayMethodPrerequisites(entrypoint, manifest, options) {
+  // Fixture ownership selects the prerequisite map; identical method names in
+  // unrelated plugins must still execute and report their actual failures.
+  return options.gatewayMethodPrerequisites ??
+    fixtureForSyntheticResult({ entrypoint }, manifest)?.execution?.gatewayMethodPrerequisites ?? {};
 }
 
 export function renderSyntheticProbeMarkdown(plan) {

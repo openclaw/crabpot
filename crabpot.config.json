@@ -920,6 +920,11 @@
           "webSearchProviders"
         ]
       },
+      "execution": {
+        "gatewayMethodPrerequisites": {
+          "codex.accountUsage": "captured account usage requires a saved subscription login and Gateway runtime"
+        }
+      },
       "why": "Official Codex package covering agent harness registration, hosted web search, media understanding, migrations, inbound claims, and npm artifact packaging."
     },
     {
@@ -981,6 +986,23 @@
           "registerNodeHostCommand",
           "registerTool"
         ]
+      },
+      "execution": {
+        "gatewayMethodPrerequisites": {
+          "googlemeet.join": "captured meeting action requires a configured meeting and transport",
+          "googlemeet.create": "captured room creation requires configured OAuth or a live browser transport",
+          "googlemeet.transcript": "captured meeting action requires an active meeting session",
+          "googlemeet.latest": "captured meeting query requires Google Meet OAuth credentials",
+          "googlemeet.calendarEvents": "captured meeting query requires Google Meet OAuth credentials",
+          "googlemeet.artifacts": "captured meeting query requires Google Meet OAuth credentials",
+          "googlemeet.attendance": "captured meeting query requires Google Meet OAuth credentials",
+          "googlemeet.export": "captured meeting query requires Google Meet OAuth credentials",
+          "googlemeet.leave": "captured meeting action requires an active meeting session",
+          "googlemeet.endActiveConference": "captured meeting query requires Google Meet OAuth credentials",
+          "googlemeet.speak": "captured meeting action requires an active meeting session",
+          "googlemeet.testSpeech": "captured meeting action requires a configured meeting and transport",
+          "googlemeet.testListen": "captured meeting action requires a configured meeting and transport"
+        }
       },
       "why": "Official Google Meet package covering meeting tools, gateway methods, node host commands, CLI setup, and npm artifact packaging."
     },

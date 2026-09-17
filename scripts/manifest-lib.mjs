@@ -146,6 +146,18 @@ export function validateManifest(manifest) {
       }
     }
 
+    const gatewayPrerequisites = fixture.execution?.gatewayMethodPrerequisites;
+    if (gatewayPrerequisites !== undefined) {
+      if (!gatewayPrerequisites || typeof gatewayPrerequisites !== "object" || Array.isArray(gatewayPrerequisites)) {
+        errors.push(`${fixture.id}: execution.gatewayMethodPrerequisites must be an object`);
+      } else {
+        for (const [method, reason] of Object.entries(gatewayPrerequisites)) {
+          if (!method.trim() || typeof reason !== "string" || !reason.trim()) {
+            errors.push(`${fixture.id}: gateway method prerequisites require a method and non-empty reason`);
+          }
+        }
+      }
+    }
     const blockedFailures = fixture.execution?.blockedFailures;
     if (blockedFailures !== undefined) {
       if (!Array.isArray(blockedFailures) || blockedFailures.length === 0) {
