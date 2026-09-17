@@ -12,7 +12,7 @@ Strict: false
 | Fail                   | 0                                                          |
 | Warn                   | 1                                                          |
 | Pass                   | 7                                                          |
-| Allowed blocked rules  | 16                                                         |
+| Allowed blocked rules  | 21                                                         |
 | Expected warning rules | 1                                                          |
 | Fixture sets           | build, openclaw-beta, sdk-alias, side-effect-review, smoke |
 

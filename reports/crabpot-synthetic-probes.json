@@ -11416,7 +11416,7 @@
       "source": "plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js:622"
     },
     {
-      "id": "registration.registerChannel:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-dist-index-js-13",
+      "id": "registration.registerChannel:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-dist-index-js-15",
       "fixture": "openclaw-weixin",
       "kind": "registration",
       "seam": "registerChannel",
@@ -11444,10 +11444,10 @@
         ],
         "option": "includeChannelRuntime"
       },
-      "source": "plugins/openclaw-weixin/.crabpot-package/dist/index.js:13"
+      "source": "plugins/openclaw-weixin/.crabpot-package/dist/index.js:15"
     },
     {
-      "id": "registration.registerChannel:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-index-ts-17",
+      "id": "registration.registerChannel:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-index-ts-19",
       "fixture": "openclaw-weixin",
       "kind": "registration",
       "seam": "registerChannel",
@@ -11475,7 +11475,7 @@
         ],
         "option": "includeChannelRuntime"
       },
-      "source": "plugins/openclaw-weixin/.crabpot-package/index.ts:17"
+      "source": "plugins/openclaw-weixin/.crabpot-package/index.ts:19"
     },
     {
       "id": "registration.createChatChannelPlugin:lightclawbot:plugins-lightclawbot-crabpot-package-dist-src-channel-js-47",

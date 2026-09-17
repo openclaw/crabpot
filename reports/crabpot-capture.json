@@ -38366,10 +38366,10 @@
       "priority": "high",
       "registrations": [
         {
-          "id": "registration.registerChannel:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-dist-index-js-13",
+          "id": "registration.registerChannel:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-dist-index-js-15",
           "fixture": "openclaw-weixin",
           "registrar": "registerChannel",
-          "ref": "plugins/openclaw-weixin/.crabpot-package/dist/index.js:13",
+          "ref": "plugins/openclaw-weixin/.crabpot-package/dist/index.js:15",
           "support": "inspector-shim-required",
           "assertions": [
             "channel id is stable",
@@ -38385,10 +38385,10 @@
           ]
         },
         {
-          "id": "registration.registerChannel:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-index-ts-17",
+          "id": "registration.registerChannel:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-index-ts-19",
           "fixture": "openclaw-weixin",
           "registrar": "registerChannel",
-          "ref": "plugins/openclaw-weixin/.crabpot-package/index.ts:17",
+          "ref": "plugins/openclaw-weixin/.crabpot-package/index.ts:19",
           "support": "inspector-shim-required",
           "assertions": [
             "channel id is stable",
@@ -38517,10 +38517,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/config-runtime:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-dist-src-auth-accounts-js-279",
+          "id": "sdk.openclaw/plugin-sdk/config-runtime:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-dist-src-auth-accounts-js-281",
           "fixture": "openclaw-weixin",
           "specifier": "openclaw/plugin-sdk/config-runtime",
-          "ref": "plugins/openclaw-weixin/.crabpot-package/dist/src/auth/accounts.js:279",
+          "ref": "plugins/openclaw-weixin/.crabpot-package/dist/src/auth/accounts.js:281",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -38528,10 +38528,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/config-runtime:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-src-auth-accounts-ts-310",
+          "id": "sdk.openclaw/plugin-sdk/config-runtime:openclaw-weixin:plugins-openclaw-weixin-crabpot-package-src-auth-accounts-ts-321",
           "fixture": "openclaw-weixin",
           "specifier": "openclaw/plugin-sdk/config-runtime",
-          "ref": "plugins/openclaw-weixin/.crabpot-package/src/auth/accounts.ts:310",
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/auth/accounts.ts:321",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -41330,8 +41330,8 @@
       "priority": "P2",
       "target": "inspector-capture-api",
       "evidence": [
-        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:13",
-        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:17"
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:15",
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:19"
       ],
       "assertions": [
         "registration arguments are recorded",
@@ -41465,8 +41465,8 @@
       "priority": "P2",
       "target": "channel-runtime",
       "evidence": [
-        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:13",
-        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:17"
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:15",
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:19"
       ],
       "assertions": [
         "message envelope is stable",

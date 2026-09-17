@@ -31984,14 +31984,14 @@
         {
           "name": "registerChannel",
           "file": "plugins/openclaw-weixin/.crabpot-package/dist/index.js",
-          "line": 13,
-          "ref": "plugins/openclaw-weixin/.crabpot-package/dist/index.js:13"
+          "line": 15,
+          "ref": "plugins/openclaw-weixin/.crabpot-package/dist/index.js:15"
         },
         {
           "name": "registerChannel",
           "file": "plugins/openclaw-weixin/.crabpot-package/index.ts",
-          "line": 17,
-          "ref": "plugins/openclaw-weixin/.crabpot-package/index.ts:17"
+          "line": 19,
+          "ref": "plugins/openclaw-weixin/.crabpot-package/index.ts:19"
         }
       ],
       "manifestContracts": [],
@@ -32020,11 +32020,14 @@
         "plugins/openclaw-weixin/.crabpot-package/dist/src/media/mime.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/media/silk-transcode.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/debug-mode.js",
+        "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/dispatch-options.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/error-notice.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/inbound.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/markdown-filter.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/outbound-hooks.js",
+        "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/partial-quote.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/process-message.js",
+        "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/quote-store.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/reply-progress-sender.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/send-media.js",
         "plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/send.js",
@@ -32056,11 +32059,14 @@
         "plugins/openclaw-weixin/.crabpot-package/src/media/mime.ts",
         "plugins/openclaw-weixin/.crabpot-package/src/media/silk-transcode.ts",
         "plugins/openclaw-weixin/.crabpot-package/src/messaging/debug-mode.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/messaging/dispatch-options.ts",
         "plugins/openclaw-weixin/.crabpot-package/src/messaging/error-notice.ts",
         "plugins/openclaw-weixin/.crabpot-package/src/messaging/inbound.ts",
         "plugins/openclaw-weixin/.crabpot-package/src/messaging/markdown-filter.ts",
         "plugins/openclaw-weixin/.crabpot-package/src/messaging/outbound-hooks.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/messaging/partial-quote.ts",
         "plugins/openclaw-weixin/.crabpot-package/src/messaging/process-message.ts",
+        "plugins/openclaw-weixin/.crabpot-package/src/messaging/quote-store.ts",
         "plugins/openclaw-weixin/.crabpot-package/src/messaging/reply-progress-sender.ts",
         "plugins/openclaw-weixin/.crabpot-package/src/messaging/send-media.ts",
         "plugins/openclaw-weixin/.crabpot-package/src/messaging/send.ts",
@@ -32077,7 +32083,7 @@
           "path": "plugins/openclaw-weixin/.crabpot-package/openclaw.plugin.json",
           "id": "openclaw-weixin",
           "name": null,
-          "version": "2.4.8",
+          "version": "2.4.9",
           "keys": [
             "channelConfigs",
             "channels",
@@ -32095,7 +32101,7 @@
       "package": {
         "path": "plugins/openclaw-weixin/.crabpot-package/package.json",
         "name": "@tencent-weixin/openclaw-weixin",
-        "version": "2.4.8",
+        "version": "2.4.9",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -32166,7 +32172,7 @@
         {
           "path": "plugins/openclaw-weixin/.crabpot-package/package.json",
           "name": "@tencent-weixin/openclaw-weixin",
-          "version": "2.4.8",
+          "version": "2.4.9",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -32328,14 +32334,14 @@
         {
           "specifier": "openclaw/plugin-sdk/config-runtime",
           "file": "plugins/openclaw-weixin/.crabpot-package/dist/src/auth/accounts.js",
-          "line": 279,
-          "ref": "plugins/openclaw-weixin/.crabpot-package/dist/src/auth/accounts.js:279"
+          "line": 281,
+          "ref": "plugins/openclaw-weixin/.crabpot-package/dist/src/auth/accounts.js:281"
         },
         {
           "specifier": "openclaw/plugin-sdk/config-runtime",
           "file": "plugins/openclaw-weixin/.crabpot-package/src/auth/accounts.ts",
-          "line": 310,
-          "ref": "plugins/openclaw-weixin/.crabpot-package/src/auth/accounts.ts:310"
+          "line": 321,
+          "ref": "plugins/openclaw-weixin/.crabpot-package/src/auth/accounts.ts:321"
         },
         {
           "specifier": "openclaw/plugin-sdk/hook-runtime",
@@ -37963,8 +37969,8 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:13",
-        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:17"
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:15",
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:19"
       ],
       "compatRecord": "api.capture.runtime-registrars"
     },
@@ -37974,8 +37980,8 @@
       "level": "suggestion",
       "message": "add channel envelope, config-schema, and runtime metadata probes",
       "evidence": [
-        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:13",
-        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:17"
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:15",
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:19"
       ],
       "compatRecord": "channel.runtime.envelope-config-metadata"
     },
@@ -43177,7 +43183,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-F9D3F966",
+      "id": "CRABPOT-B1872C27",
       "fixture": "openclaw-weixin",
       "severity": "P2",
       "owner": "inspector",
@@ -43190,8 +43196,8 @@
       "compatStatus": "active",
       "title": "openclaw-weixin: channel runtime needs envelope/config probes",
       "evidence": [
-        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:13",
-        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:17"
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:15",
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:19"
       ],
       "compatRecord": "channel.runtime.envelope-config-metadata",
       "runtimeCoverage": null
@@ -43282,7 +43288,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-5BFFC8CC",
+      "id": "CRABPOT-02D5F0A7",
       "fixture": "openclaw-weixin",
       "severity": "P2",
       "owner": "inspector",
@@ -43295,8 +43301,8 @@
       "compatStatus": "active",
       "title": "openclaw-weixin: runtime registrations need capture evidence before final contract judgment",
       "evidence": [
-        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:13",
-        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:17"
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:15",
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:19"
       ],
       "compatRecord": "api.capture.runtime-registrars",
       "runtimeCoverage": null
@@ -45120,8 +45126,8 @@
       "target": "inspector-capture-api",
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
-        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:13",
-        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:17"
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:15",
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:19"
       ]
     },
     {
@@ -45225,8 +45231,8 @@
       "target": "channel-runtime",
       "contract": "Channel setup, message envelope, sender metadata, and config schema remain stable.",
       "evidence": [
-        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:13",
-        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:17"
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:15",
+        "registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:19"
       ]
     },
     {
@@ -51520,7 +51526,7 @@
       "evidence": [
         "plugins/openclaw-weixin/.crabpot-package/package.json",
         "@tencent-weixin/openclaw-weixin",
-        "version:2.4.8"
+        "version:2.4.9"
       ]
     },
     {
