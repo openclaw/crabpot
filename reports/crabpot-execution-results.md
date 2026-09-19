@@ -5,29 +5,87 @@ Results dir: .crabpot/results
 
 ## Summary
 
-| Metric                       | Value |
-| ---------------------------- | ----- |
-| Artifacts                    | 0     |
-| Capture artifacts            | 0     |
-| Synthetic artifacts          | 0     |
-| Audit artifacts              | 0     |
-| Profile artifacts            | 0     |
-| Captured registrations/hooks | 0     |
-| Audit findings               | 0     |
-| Execution wall               | 0 ms  |
-| Max peak RSS                 | 0 MB  |
-| Max CPU estimate             | 0 ms  |
-| Pass                         | 0     |
-| Fail                         | 0     |
-| Blocked                      | 0     |
+| Metric                       | Value    |
+| ---------------------------- | -------- |
+| Artifacts                    | 22       |
+| Capture artifacts            | 8        |
+| Synthetic artifacts          | 8        |
+| Audit artifacts              | 5        |
+| Profile artifacts            | 1        |
+| Captured registrations/hooks | 70       |
+| Audit findings               | 3        |
+| Execution wall               | 39883 ms |
+| Max peak RSS                 | 464.7 MB |
+| Max CPU estimate             | 6729 ms  |
+| Pass                         | 36       |
+| Fail                         | 0        |
+| Blocked                      | 34       |
 
 ## Artifacts
 
-_none_
+| Fixture                | Kind      | Status             | Entrypoint                                          | Result                         | Artifact                                                                                                                                                    |
+| ---------------------- | --------- | ------------------ | --------------------------------------------------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| brave-plugin           | capture   | captured           | index.ts                                            | 1 captured                     | .crabpot/results/brave-plugin/cold-import-extension-brave-plugin-plugins-brave-plugin-crabpot-package-index-ts.capture.json                                 |
+| brave-plugin           | synthetic | captured           | .crabpot/workspaces/brave-plugin/index.ts           | 1 pass / 0 fail / 0 blocked    | .crabpot/results/brave-plugin/cold-import-extension-brave-plugin-plugins-brave-plugin-crabpot-package-index-ts.synthetic.json                               |
+| codex                  | capture   | captured           | index.ts                                            | 31 captured                    | .crabpot/results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.capture.json                                                      |
+| codex                  | synthetic | captured           | .crabpot/workspaces/codex/index.ts                  | 24 pass / 0 fail / 7 blocked   | .crabpot/results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json                                                    |
+| codex                  | audit     | warning            | -                                                   | 0 audit findings               | .crabpot/results/codex/package-audit.json                                                                                                                   |
+| diagnostics-prometheus | capture   | captured           | index.ts                                            | 2 captured                     | .crabpot/results/diagnostics-prometheus/cold-import-extension-diagnostics-prometheus-plugins-diagnostics-prometheus-crabpot-package-index-ts.capture.json   |
+| diagnostics-prometheus | synthetic | captured           | .crabpot/workspaces/diagnostics-prometheus/index.ts | 0 pass / 0 fail / 2 blocked    | .crabpot/results/diagnostics-prometheus/cold-import-extension-diagnostics-prometheus-plugins-diagnostics-prometheus-crabpot-package-index-ts.synthetic.json |
+| diffs                  | capture   | captured           | index.ts                                            | 3 captured                     | .crabpot/results/diffs/cold-import-extension-diffs-plugins-diffs-crabpot-package-index-ts.capture.json                                                      |
+| diffs                  | synthetic | captured           | .crabpot/workspaces/diffs/index.ts                  | 1 pass / 0 fail / 2 blocked    | .crabpot/results/diffs/cold-import-extension-diffs-plugins-diffs-crabpot-package-index-ts.synthetic.json                                                    |
+| diffs                  | audit     | warning            | -                                                   | 0 audit findings               | .crabpot/results/diffs/package-audit.json                                                                                                                   |
+| google-meet            | capture   | captured           | index.ts                                            | 21 captured                    | .crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.capture.json                                    |
+| google-meet            | synthetic | captured           | .crabpot/workspaces/google-meet/index.ts            | 6 pass / 0 fail / 15 blocked   | .crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json                                  |
+| google-meet            | audit     | warning            | -                                                   | 0 audit findings               | .crabpot/results/google-meet/package-audit.json                                                                                                             |
+| memory-lancedb         | capture   | captured           | index.ts                                            | 9 captured                     | .crabpot/results/memory-lancedb/cold-import-extension-memory-lancedb-plugins-memory-lancedb-crabpot-package-index-ts.capture.json                           |
+| memory-lancedb         | synthetic | captured           | .crabpot/workspaces/memory-lancedb/index.ts         | 4 pass / 0 fail / 5 blocked    | .crabpot/results/memory-lancedb/cold-import-extension-memory-lancedb-plugins-memory-lancedb-crabpot-package-index-ts.synthetic.json                         |
+| memory-lancedb         | audit     | warning            | -                                                   | 3 audit findings               | .crabpot/results/memory-lancedb/package-audit.json                                                                                                          |
+| openclaw-beta          | profile   | pass               | -                                                   | 53 steps / 39883 ms / 464.7 MB | .crabpot/results/openclaw-beta/execution-profile.json                                                                                                       |
+| whatsapp               | capture   | captured           | index.ts                                            | 3 captured                     | .crabpot/results/whatsapp/cold-import-extension-whatsapp-plugins-whatsapp-crabpot-package-index-ts.capture.json                                             |
+| whatsapp               | synthetic | captured           | .crabpot/workspaces/whatsapp/index.ts               | 0 pass / 0 fail / 3 blocked    | .crabpot/results/whatsapp/cold-import-extension-whatsapp-plugins-whatsapp-crabpot-package-index-ts.synthetic.json                                           |
+| whatsapp               | capture   | no-register-export | setup-entry.ts                                      | 0 captured                     | .crabpot/results/whatsapp/cold-import-setupEntry-whatsapp-plugins-whatsapp-crabpot-package-setup-entry-ts.capture.json                                      |
+| whatsapp               | synthetic | no-register-export | .crabpot/workspaces/whatsapp/setup-entry.ts         | 0 pass / 0 fail / 0 blocked    | .crabpot/results/whatsapp/cold-import-setupEntry-whatsapp-plugins-whatsapp-crabpot-package-setup-entry-ts.synthetic.json                                    |
+| whatsapp               | audit     | warning            | -                                                   | 0 audit findings               | .crabpot/results/whatsapp/package-audit.json                                                                                                                |
 
 ## Blocked Synthetic Probes
 
-_none_
+| Fixture                | Kind         | Seam                  | Label                     | Reason                                                                         | Artifact                                                                                                                                                    |
+| ---------------------- | ------------ | --------------------- | ------------------------- | ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| codex                  | registration | registerGatewayMethod | registerGatewayMethod     | captured account usage requires a saved subscription login and Gateway runtime | .crabpot/results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json                                                    |
+| codex                  | registration | registerService       | registerService           | captured registration requires includeLifecycle=true                           | .crabpot/results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json                                                    |
+| codex                  | registration | registerService       | registerService           | captured registration requires includeLifecycle=true                           | .crabpot/results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json                                                    |
+| codex                  | registration | registerCli           | registerCli               | captured registration has no supported callable probe                          | .crabpot/results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json                                                    |
+| codex                  | registration | registerService       | registerService           | captured registration requires includeLifecycle=true                           | .crabpot/results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json                                                    |
+| codex                  | registration | registerTool          | registerTool              | captured registration has no supported callable probe                          | .crabpot/results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json                                                    |
+| codex                  | registration | registerTool          | registerTool              | captured registration has no supported callable probe                          | .crabpot/results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json                                                    |
+| diagnostics-prometheus | registration | registerService       | registerService           | captured registration requires includeLifecycle=true                           | .crabpot/results/diagnostics-prometheus/cold-import-extension-diagnostics-prometheus-plugins-diagnostics-prometheus-crabpot-package-index-ts.synthetic.json |
+| diagnostics-prometheus | registration | registerHttpRoute     | registerHttpRoute.handler | captured HTTP route probe requires route descriptor input                      | .crabpot/results/diagnostics-prometheus/cold-import-extension-diagnostics-prometheus-plugins-diagnostics-prometheus-crabpot-package-index-ts.synthetic.json |
+| diffs                  | registration | registerTool          | registerTool              | captured registration has no supported callable probe                          | .crabpot/results/diffs/cold-import-extension-diffs-plugins-diffs-crabpot-package-index-ts.synthetic.json                                                    |
+| diffs                  | registration | registerHttpRoute     | registerHttpRoute.handler | captured HTTP route probe requires route descriptor input                      | .crabpot/results/diffs/cold-import-extension-diffs-plugins-diffs-crabpot-package-index-ts.synthetic.json                                                    |
+| google-meet            | registration | registerGatewayMethod | registerGatewayMethod     | captured meeting action requires a configured meeting and transport            | .crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json                                  |
+| google-meet            | registration | registerGatewayMethod | registerGatewayMethod     | captured room creation requires configured OAuth or a live browser transport   | .crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json                                  |
+| google-meet            | registration | registerGatewayMethod | registerGatewayMethod     | captured meeting action requires an active meeting session                     | .crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json                                  |
+| google-meet            | registration | registerGatewayMethod | registerGatewayMethod     | captured meeting query requires Google Meet OAuth credentials                  | .crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json                                  |
+| google-meet            | registration | registerGatewayMethod | registerGatewayMethod     | captured meeting query requires Google Meet OAuth credentials                  | .crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json                                  |
+| google-meet            | registration | registerGatewayMethod | registerGatewayMethod     | captured meeting query requires Google Meet OAuth credentials                  | .crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json                                  |
+| google-meet            | registration | registerGatewayMethod | registerGatewayMethod     | captured meeting query requires Google Meet OAuth credentials                  | .crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json                                  |
+| google-meet            | registration | registerGatewayMethod | registerGatewayMethod     | captured meeting query requires Google Meet OAuth credentials                  | .crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json                                  |
+| google-meet            | registration | registerGatewayMethod | registerGatewayMethod     | captured meeting action requires an active meeting session                     | .crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json                                  |
+| google-meet            | registration | registerGatewayMethod | registerGatewayMethod     | captured meeting query requires Google Meet OAuth credentials                  | .crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json                                  |
+| google-meet            | registration | registerGatewayMethod | registerGatewayMethod     | captured meeting action requires an active meeting session                     | .crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json                                  |
+| google-meet            | registration | registerGatewayMethod | registerGatewayMethod     | captured meeting action requires a configured meeting and transport            | .crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json                                  |
+| google-meet            | registration | registerGatewayMethod | registerGatewayMethod     | captured meeting action requires a configured meeting and transport            | .crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json                                  |
+| google-meet            | registration | registerTool          | registerTool              | captured registration has no supported callable probe                          | .crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json                                  |
+| google-meet            | registration | registerCli           | registerCli               | captured registration has no supported callable probe                          | .crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json                                  |
+| memory-lancedb         | registration | registerTool          | registerTool              | captured registration has no supported callable probe                          | .crabpot/results/memory-lancedb/cold-import-extension-memory-lancedb-plugins-memory-lancedb-crabpot-package-index-ts.synthetic.json                         |
+| memory-lancedb         | registration | registerTool          | registerTool              | captured registration has no supported callable probe                          | .crabpot/results/memory-lancedb/cold-import-extension-memory-lancedb-plugins-memory-lancedb-crabpot-package-index-ts.synthetic.json                         |
+| memory-lancedb         | registration | registerTool          | registerTool              | captured registration has no supported callable probe                          | .crabpot/results/memory-lancedb/cold-import-extension-memory-lancedb-plugins-memory-lancedb-crabpot-package-index-ts.synthetic.json                         |
+| memory-lancedb         | registration | registerCli           | registerCli               | captured registration has no supported callable probe                          | .crabpot/results/memory-lancedb/cold-import-extension-memory-lancedb-plugins-memory-lancedb-crabpot-package-index-ts.synthetic.json                         |
+| memory-lancedb         | registration | registerService       | registerService           | captured registration requires includeLifecycle=true                           | .crabpot/results/memory-lancedb/cold-import-extension-memory-lancedb-plugins-memory-lancedb-crabpot-package-index-ts.synthetic.json                         |
+| whatsapp               | registration | registerChannel       | registerChannel           | captured registration requires includeChannelRuntime=true                      | .crabpot/results/whatsapp/cold-import-extension-whatsapp-plugins-whatsapp-crabpot-package-index-ts.synthetic.json                                           |
+| whatsapp               | registration | registerTool          | registerTool              | captured registration has no supported callable probe                          | .crabpot/results/whatsapp/cold-import-extension-whatsapp-plugins-whatsapp-crabpot-package-index-ts.synthetic.json                                           |
+| whatsapp               | registration | registerTool          | registerTool              | captured registration has no supported callable probe                          | .crabpot/results/whatsapp/cold-import-extension-whatsapp-plugins-whatsapp-crabpot-package-index-ts.synthetic.json                                           |
 
 ## Failed Synthetic Probes
 
@@ -35,8 +93,20 @@ _none_
 
 ## Dependency Audit Artifacts
 
-_none_
+| Fixture        | Findings | Vulnerabilities                                                 | Artifact                                           |
+| -------------- | -------- | --------------------------------------------------------------- | -------------------------------------------------- |
+| codex          | 0        | {"info":0,"low":0,"moderate":0,"high":0,"critical":0,"total":0} | .crabpot/results/codex/package-audit.json          |
+| diffs          | 0        | {"info":0,"low":0,"moderate":0,"high":0,"critical":0,"total":0} | .crabpot/results/diffs/package-audit.json          |
+| google-meet    | 0        | {"info":0,"low":0,"moderate":0,"high":0,"critical":0,"total":0} | .crabpot/results/google-meet/package-audit.json    |
+| memory-lancedb | 3        | {"info":0,"low":0,"moderate":0,"high":3,"critical":0,"total":3} | .crabpot/results/memory-lancedb/package-audit.json |
+| whatsapp       | 0        | {"info":0,"low":0,"moderate":0,"high":0,"critical":0,"total":0} | .crabpot/results/whatsapp/package-audit.json       |
 
 ## Execution Profiles
 
-_none_
+| Fixture       | Step    | Wall    | Peak RSS | CPU Estimate | Command                                                                                                                     |
+| ------------- | ------- | ------- | -------- | ------------ | --------------------------------------------------------------------------------------------------------------------------- |
+| openclaw-beta | install | 8330 ms | 464.7 MB | 6729 ms      | npm install --ignore-scripts --legacy-peer-deps                                                                             |
+| openclaw-beta | install | 4097 ms | 392.4 MB | 4659 ms      | npm install --ignore-scripts --legacy-peer-deps                                                                             |
+| openclaw-beta | install | 3394 ms | 242 MB   | 2396 ms      | npm install --ignore-scripts --legacy-peer-deps                                                                             |
+| openclaw-beta | install | 3190 ms | 209.5 MB | 2370 ms      | npm install --ignore-scripts --legacy-peer-deps                                                                             |
+| openclaw-beta | prepare | 2296 ms | 0 MB     | 0 ms         | mkdir -p .crabpot/workspaces/whatsapp && rsync -a --delete plugins/whatsapp/.crabpot-package/ .crabpot/workspaces/whatsapp/ |
