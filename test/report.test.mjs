@@ -49,7 +49,7 @@ test("compatibility report classifies current fixture seams", async () => {
 
   assertHasFinding(report.warnings, "hasdata", "provider-auth-env-vars");
   assertHasFinding(report.warnings, "agentchat", "channel-env-vars");
-  assertHasFinding(report.warnings, "llm-trace-phoenix", "conversation-access-hook");
+  assertMissingFinding(report.warnings, "conversation-access-hook");
   assertHasFinding(report.suggestions, "a2a-gateway", "registration-capture-gap");
   assertHasFinding(report.suggestions, "wecom", "before-tool-call-probe");
   assertHasFinding(report.warnings, "a2a-gateway", "package-manifest-version-drift");
@@ -58,7 +58,6 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasFinding(report.suggestions, "agentchat", "package-build-artifact-entrypoint");
   assertHasFinding(report.suggestions, "a2a-gateway", "package-typescript-source-entrypoint");
   assertHasFinding(report.suggestions, "wecom", "package-dependency-install-required");
-  assertHasFinding(report.warnings, "honcho", "conversation-access-hook");
   assertHasFinding(report.warnings, "composio", "package-plugin-api-compat-missing");
   assertHasFinding(report.suggestions, "secureclaw", "registration-capture-gap");
   if (hasTargetOpenClaw) {
@@ -74,7 +73,7 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasDecision(report.decisions, "inspector-follow-up", "registration-capture");
 
   assertHasIssue(report.issues, "P2", "registration-capture-gap");
-  assertHasIssue(report.issues, "P1", "conversation-access-hook");
+  assertMissingFinding(report.issues, "conversation-access-hook");
   assertHasIssue(report.issues, "P2", "package-plugin-api-compat-missing");
   assertHasIssue(report.issues, "P2", "package-build-artifact-entrypoint");
   assertHasIssue(report.issues, "P2", "package-typescript-source-entrypoint");
