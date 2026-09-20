@@ -7,33 +7,33 @@ Status: PASS
 
 ## Counts
 
-| Metric                      | Value                                                                                                                 |
-| --------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| Breakages                   | 0                                                                                                                     |
-| Warnings                    | 128                                                                                                                   |
-| Suggestions                 | 164                                                                                                                   |
-| Issues                      | 292                                                                                                                   |
-| P0 issues                   | 7                                                                                                                     |
-| P1 issues                   | 43                                                                                                                    |
-| Live issues                 | 7                                                                                                                     |
-| Live P0 issues              | 7                                                                                                                     |
-| Compat gaps                 | 28                                                                                                                    |
-| Deprecation warnings        | 22                                                                                                                    |
-| Inspector gaps              | 156                                                                                                                   |
-| Upstream metadata           | 79                                                                                                                    |
-| Ref diff failures           | 0                                                                                                                     |
-| Ref diff warnings           | 0                                                                                                                     |
-| Policy failures             | 0                                                                                                                     |
-| Policy warnings             | 1                                                                                                                     |
-| Profile failures            | 0                                                                                                                     |
-| Profile warnings            | 2                                                                                                                     |
-| Execution pass              | 0                                                                                                                     |
-| Execution fail              | 0                                                                                                                     |
-| Execution blocked           | 0                                                                                                                     |
-| Windows portability risks   | 17                                                                                                                    |
-| Container portability risks | 17                                                                                                                    |
-| Jiti loader candidates      | 20                                                                                                                    |
-| Import loop                 | p50 2121 ms / p95 2139 ms / plugin delta RSS 0 MB / plugin delta CPU 0 ms / OpenClaw import 47.1 ms / activate 0.3 ms |
+| Metric                      | Value                                                                                                                   |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Breakages                   | 0                                                                                                                       |
+| Warnings                    | 104                                                                                                                     |
+| Suggestions                 | 164                                                                                                                     |
+| Issues                      | 268                                                                                                                     |
+| P0 issues                   | 7                                                                                                                       |
+| P1 issues                   | 34                                                                                                                      |
+| Live issues                 | 7                                                                                                                       |
+| Live P0 issues              | 7                                                                                                                       |
+| Compat gaps                 | 28                                                                                                                      |
+| Deprecation warnings        | 22                                                                                                                      |
+| Inspector gaps              | 147                                                                                                                     |
+| Upstream metadata           | 64                                                                                                                      |
+| Ref diff failures           | 0                                                                                                                       |
+| Ref diff warnings           | 0                                                                                                                       |
+| Policy failures             | 0                                                                                                                       |
+| Policy warnings             | 1                                                                                                                       |
+| Profile failures            | 0                                                                                                                       |
+| Profile warnings            | 2                                                                                                                       |
+| Execution pass              | 0                                                                                                                       |
+| Execution fail              | 0                                                                                                                       |
+| Execution blocked           | 0                                                                                                                       |
+| Windows portability risks   | 17                                                                                                                      |
+| Container portability risks | 17                                                                                                                      |
+| Jiti loader candidates      | 20                                                                                                                      |
+| Import loop                 | p50 1913 ms / p95 1970 ms / plugin delta RSS 3.8 MB / plugin delta CPU 0 ms / OpenClaw import 42.6 ms / activate 0.3 ms |
 
 ## Top Issues
 
@@ -48,7 +48,6 @@ Status: PASS
 | P0       | live-issue    | opik-openclaw      | unknown-hook-name         | core-compat-adapter | opik-openclaw: fixture uses a hook missing from target OpenClaw                       |
 | P1       | compat-gap    | agentchat          | missing-compat-record     | core-compat-adapter | agentchat: compat-dependent behavior lacks registry coverage                          |
 | P1       | compat-gap    | bluebubbles        | sdk-export-missing        | core-compat-adapter | bluebubbles: plugin SDK import aliases are missing from target package exports        |
-| P1       | inspector-gap | clawmetry          | conversation-access-hook  | inspector-follow-up | clawmetry: conversation-access hooks need privacy-boundary probes                     |
 | P1       | compat-gap    | connectclaw        | missing-compat-record     | core-compat-adapter | connectclaw: compat-dependent behavior lacks registry coverage                        |
 | P1       | compat-gap    | connectclaw        | missing-compat-record     | core-compat-adapter | connectclaw: compat-dependent behavior lacks registry coverage                        |
 | P1       | compat-gap    | connectclaw        | sdk-export-missing        | core-compat-adapter | connectclaw: plugin SDK import aliases are missing from target package exports        |
@@ -58,7 +57,8 @@ Status: PASS
 | P1       | compat-gap    | dingtalk-doc       | missing-compat-record     | core-compat-adapter | dingtalk-doc: compat-dependent behavior lacks registry coverage                       |
 | P1       | compat-gap    | dingtalk-doc       | sdk-export-missing        | core-compat-adapter | dingtalk-doc: plugin SDK import aliases are missing from target package exports       |
 | P1       | compat-gap    | hasdata            | missing-compat-record     | core-compat-adapter | hasdata: compat-dependent behavior lacks registry coverage                            |
-| P1       | inspector-gap | honcho             | conversation-access-hook  | inspector-follow-up | honcho: conversation-access hooks need privacy-boundary probes                        |
+| P1       | compat-gap    | honcho             | missing-compat-record     | core-compat-adapter | honcho: compat-dependent behavior lacks registry coverage                             |
+| P1       | compat-gap    | inworld-tts        | missing-compat-record     | core-compat-adapter | inworld-tts: compat-dependent behavior lacks registry coverage                        |
 
 ## Ref Regressions
 
@@ -74,8 +74,8 @@ _none_
 
 | Action | ID               | Metric       | Baseline | Current | Message                                    |
 | ------ | ---------------- | ------------ | -------- | ------- | ------------------------------------------ |
-| warn   | profile.wall-p95 | p95WallMs    | 1273     | 8911    | p95WallMs regressed 600% over baseline     |
-| warn   | profile.peak-rss | maxPeakRssMb | 65.1     | 761.9   | maxPeakRssMb regressed 696.8 over baseline |
+| warn   | profile.wall-p95 | p95WallMs    | 1273     | 8538    | p95WallMs regressed 570.7% over baseline   |
+| warn   | profile.peak-rss | maxPeakRssMb | 65.1     | 759.5   | maxPeakRssMb regressed 694.4 over baseline |
 
 ## Artifacts
 
