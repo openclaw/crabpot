@@ -12,6 +12,7 @@ test("compatibility report classifies current fixture seams", async () => {
   const report = await buildReport(testReportOptions());
   const hasTargetOpenClaw = report.targetOpenClaw.status === "ok";
   const hasSdkExportGap = report.issues.some((issue) => issue.code === "sdk-export-missing");
+  const hasConversationContractCoverage = targetHasConversationContractCoverage(report.targetOpenClaw);
   const agentchatChannelEnvVarsAreSupported =
     report.targetOpenClaw.manifestFields?.includes("channelEnvVars") === true;
   const p0Issues = report.issues.filter((issue) => issue.severity === "P0");
@@ -49,7 +50,11 @@ test("compatibility report classifies current fixture seams", async () => {
 
   assertHasFinding(report.warnings, "hasdata", "provider-auth-env-vars");
   assertHasFinding(report.warnings, "agentchat", "channel-env-vars");
-  assertMissingFinding(report.warnings, "conversation-access-hook");
+  if (hasConversationContractCoverage) {
+    assertMissingFinding(report.warnings, "conversation-access-hook");
+  } else {
+    assertHasFinding(report.warnings, "llm-trace-phoenix", "conversation-access-hook");
+  }
   assertHasFinding(report.suggestions, "a2a-gateway", "registration-capture-gap");
   assertHasFinding(report.suggestions, "wecom", "before-tool-call-probe");
   assertHasFinding(report.warnings, "a2a-gateway", "package-manifest-version-drift");
@@ -58,6 +63,9 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasFinding(report.suggestions, "agentchat", "package-build-artifact-entrypoint");
   assertHasFinding(report.suggestions, "a2a-gateway", "package-typescript-source-entrypoint");
   assertHasFinding(report.suggestions, "wecom", "package-dependency-install-required");
+  if (!hasConversationContractCoverage) {
+    assertHasFinding(report.warnings, "honcho", "conversation-access-hook");
+  }
   assertHasFinding(report.warnings, "composio", "package-plugin-api-compat-missing");
   assertHasFinding(report.suggestions, "secureclaw", "registration-capture-gap");
   if (hasTargetOpenClaw) {
@@ -73,7 +81,11 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasDecision(report.decisions, "inspector-follow-up", "registration-capture");
 
   assertHasIssue(report.issues, "P2", "registration-capture-gap");
-  assertMissingFinding(report.issues, "conversation-access-hook");
+  if (hasConversationContractCoverage) {
+    assertMissingFinding(report.issues, "conversation-access-hook");
+  } else {
+    assertHasIssue(report.issues, "P1", "conversation-access-hook");
+  }
   assertHasIssue(report.issues, "P2", "package-plugin-api-compat-missing");
   assertHasIssue(report.issues, "P2", "package-build-artifact-entrypoint");
   assertHasIssue(report.issues, "P2", "package-typescript-source-entrypoint");
@@ -310,6 +322,9 @@ test("disabled OpenClaw target suppresses target-derived compat findings", async
   assertMissingFinding(report.warnings, "sdk-export-missing");
   assertMissingFinding(report.warnings, "manifest-unknown-fields");
   assertMissingFinding(report.suggestions, "missing-compat-record");
+  assertHasFinding(report.warnings, "llm-trace-phoenix", "conversation-access-hook");
+  assertHasFinding(report.warnings, "honcho", "conversation-access-hook");
+  assertHasIssue(report.issues, "P1", "conversation-access-hook");
   assert.ok(report.contractProbes.every((probe) => !probe.id.startsWith("sdk.import.package-export-cold-import:")));
   assert.match(markdown, /\| Status\s+\| disabled\s+\|/);
 });
@@ -430,6 +445,20 @@ function testReportOptions() {
     generatedAt: "test",
     openclawPath: process.env.CRABPOT_TEST_OPENCLAW_PATH,
   };
+}
+
+function targetHasConversationContractCoverage(targetOpenClaw) {
+  const contractId = "hook.llm-observer.privacy-payload";
+  const status = targetOpenClaw.compatRecordStatuses?.[contractId];
+  const tests = targetOpenClaw.compatRecordTests?.[contractId];
+  const missingTests = targetOpenClaw.compatRecordMissingTests?.[contractId];
+  return (
+    ["active", "supported"].includes(status) &&
+    Array.isArray(tests) &&
+    tests.length > 0 &&
+    Array.isArray(missingTests) &&
+    missingTests.length === 0
+  );
 }
 
 function assertHasFinding(findings, fixture, code) {
