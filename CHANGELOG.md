@@ -6,9 +6,9 @@
 - Record fixture-owned account and meeting Gateway prerequisites before invoking credential-free synthetic probes. Keep ready status methods and unrelated Gateway failures visible; blocked methods remain explicit gaps until their host state and transports are supplied.
 
 - Prepare selected npm fixture payloads before manual OpenClaw ref compatibility planning and execution; derive capability selections from prepared source while preserving intentional empty lanes.
-- Discover SDK modules loaded inside retained plugin handlers and verify real source and unpublished-package CLI values while keeping Gateway prerequisite failures visible. Keep the published Plugin Inspector pin at 0.3.25 until release.
-- Use the public lazy-runtime SDK contract in source-mode Plugin Inspector probes so plugin runtimes load lazily and report their actual outcomes. Keep the published package pin at 0.3.25 until release.
-- Preserve original Gateway rejection messages in source-mode Plugin Inspector probes and verify both source and unpublished packed CLI smoke in Linux CI. Keep the published package pin at 0.3.25 until release.
+- Discover SDK modules loaded inside retained plugin handlers and verify real source and package CLI values while keeping Gateway prerequisite failures visible. Adopt Plugin Inspector 0.3.26 in both source and published-package modes.
+- Use the public lazy-runtime SDK contract in Plugin Inspector probes so plugin runtimes load lazily and report their actual outcomes in source and published-package modes.
+- Preserve original Gateway rejection messages in Plugin Inspector probes and verify both source and published-package smoke in Linux CI.
 - Fixed AWS Crabbox provisioning by sizing the root disk to the promoted image’s 400 GB minimum.
 - Promote the green OpenClaw 2026.9.3 canary pin and adopt Kitchen Sink 0.3.0, covering 42 hooks, 56 active registrars, and 22 manifest contracts without replacing the host's detached-task owner.
 - Bound OpenClaw track metadata fetches through JSON consumption and Git lookups through the shared command owner, with strict timeout settings and preserved operational failures; warn about missing tags only after successful empty lookups. Thanks @SebTardif.
