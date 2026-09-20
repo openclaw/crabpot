@@ -147,10 +147,11 @@ npm run profile -- --check
 node scripts/check-contract-coverage.mjs --openclaw ../openclaw
 ```
 
-Source-backed reports and registration capture use inspector 0.3.25,
-including bounded capture/probes, CommonJS SDK mocks, serial service lifecycle
-probes, and Gateway response validation. `npm run plugin-inspector:smoke`
-uses the published `@openclaw/plugin-inspector@0.3.25` package by default.
+Source-backed reports and registration capture use inspector 0.3.26,
+including bundled SDK import classification, target-owned conversation contract
+proof, lazy runtime SDK loading, and method-scoped Gateway prerequisites.
+`npm run plugin-inspector:smoke` uses the published
+`@openclaw/plugin-inspector@0.3.26` package by default.
 Use
 `CRABPOT_PLUGIN_INSPECTOR_CLI=source npm run plugin-inspector:smoke` only when
 validating local inspector source changes. Set `CRABPOT_PLUGIN_INSPECTOR_DIR`
