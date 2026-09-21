@@ -54804,14 +54804,9 @@
       "apify",
       "inworld-tts"
     ],
-    "openclawTarget": "latest",
-    "pluginTrack": "latest",
+    "openclawTarget": "explicit",
+    "pluginTrack": "manifest",
     "runtimeEvidence": null,
-    "packageAvailability": {
-      "path": "reports/crabpot-package-availability.json",
-      "failures": 0,
-      "openclawFailures": 0,
-      "fallbacks": 0
-    }
+    "packageAvailability": null
   }
 }

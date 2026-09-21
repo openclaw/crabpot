@@ -36,15 +36,15 @@
     "summary": {
       "commandCount": 9,
       "sampleCount": 27,
-      "rssSampleCount": 6969,
-      "cpuSampleCount": 6969,
+      "rssSampleCount": 9347,
+      "cpuSampleCount": 9347,
       "wallTimeBasis": "command-median-p95",
-      "p50WallMs": 8165,
-      "p95WallMs": 8538,
-      "maxPeakRssMb": 759.5,
-      "maxRssDeltaMb": 732.8,
-      "maxCpuMsEstimate": 11382,
-      "maxHarnessHeapDeltaMb": 22.3
+      "p50WallMs": 11043,
+      "p95WallMs": 11346,
+      "maxPeakRssMb": 755.4,
+      "maxRssDeltaMb": 728.7,
+      "maxCpuMsEstimate": 15163,
+      "maxHarnessHeapDeltaMb": 29.2
     },
     "targetOpenClaw": {
       "status": "ok",
@@ -84,20 +84,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 570.7% over baseline",
+      "message": "p95WallMs regressed 791.3% over baseline",
       "baseline": 1273,
-      "current": 8538,
-      "delta": 7265,
-      "percent": 570.7
+      "current": 11346,
+      "delta": 10073,
+      "percent": 791.3
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 694.4 over baseline",
+      "message": "maxPeakRssMb regressed 690.3 over baseline",
       "baseline": 65.1,
-      "current": 759.5,
-      "delta": 694.4
+      "current": 755.4,
+      "delta": 690.3
     },
     {
       "id": "profile.node-boot",
@@ -105,8 +105,8 @@
       "metric": "nodeBootWallMs",
       "message": "nodeBootWallMs stayed within 500 absolute regression threshold",
       "baseline": 917,
-      "current": 22,
-      "delta": -895
+      "current": 27,
+      "delta": -890
     },
     {
       "id": "registry.compatRecords",
