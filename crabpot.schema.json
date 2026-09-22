@@ -41,7 +41,7 @@
                 "type": "array", "uniqueItems": true,
                 "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" }
               },
-              "targetActivation": { "enum": ["startup", "workload"] }
+              "targetActivation": { "enum": ["startup", "workload", "scoped"] }
             }
           },
           "why": { "type": "string", "minLength": 1 }

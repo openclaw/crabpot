@@ -98,7 +98,7 @@ export async function runResourceWorkloadCases({ report, definition, adapter, ho
   const plans = resourceWorkloadPlan(definition);
   report.cases = plans.map(({ name, expectedBefore, expectedAfter }) => ({
     name, status: "blocked", phases: [],
-    activation: { expectedBefore, expectedAfter },
+    activation: { scope: "gateway-request-registry", expectedBefore, expectedAfter },
     adapterCleanup: { status: "pending", registration: "open", registered: 0, completed: 0 },
   }));
   report.reason = "workload-incomplete";

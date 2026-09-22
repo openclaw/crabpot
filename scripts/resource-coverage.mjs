@@ -188,6 +188,9 @@ export function validateResourceWorkloadReport(report, inventory, definitions) {
       if (report.schemaVersion === 1) {
         requireValue(stableJson(item.activePlugins) === stableJson(plan.expectedBefore), "workload active plugins differ");
       } else {
+        if (definition.pairedWorkload?.targetActivation === "scoped") {
+          requireValue(item.activation?.scope === "gateway-request-registry", "scoped workload lacks explicit catalog observation scope");
+        }
         requireValue(record(item.activation) &&
           stableJson(item.activation.expectedBefore) === stableJson(plan.expectedBefore) &&
           stableJson(item.activation.expectedAfter) === stableJson(plan.expectedAfter) &&

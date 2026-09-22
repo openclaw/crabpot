@@ -94,6 +94,7 @@ async function exercise({ scenario = definition, fault, enabledCpu = 3000, hooks
           if (fault === "missing-dependency") ids = ids.filter((id) => id !== "provider");
           if (fault === "wrong-dependency") ids = ids.map((id) => id === "provider" ? "other" : id);
           if (fault === "never-activates") ids = ids.filter((id) => id !== "sample");
+          if (fault === "publishes-scoped" && current.enabled && current.worked) ids = [...ids, "sample"];
           return { plugins: ids.map((id) => ({ id, runtime: { state: "active" } })) };
         },
         async measure(name, count, operation) {
@@ -184,8 +185,8 @@ test("paired cases execute identical phases with truthful lazy activation and si
     completed.filter(([name]) => name === "sample").map(([, ...operation]) => operation));
   assert.equal(completed.length, 12);
   assert.deepEqual(report.cases.map(({ activation }) => activation), [
-    { expectedBefore: ["provider"], expectedAfter: ["provider"], before: ["provider"], after: ["provider"] },
-    { expectedBefore: ["provider"], expectedAfter: ["provider", "sample"], before: ["provider"], after: ["provider", "sample"] },
+    { scope: "gateway-request-registry", expectedBefore: ["provider"], expectedAfter: ["provider"], before: ["provider"], after: ["provider"] },
+    { scope: "gateway-request-registry", expectedBefore: ["provider"], expectedAfter: ["provider", "sample"], before: ["provider"], after: ["provider", "sample"] },
   ]);
   const warm = report.comparison.workloadPhases.find(({ phase }) => phase === "warm-work");
   assert.equal(report.cases[0].phases[5].cpu.process.totalMs, 2);
@@ -200,6 +201,37 @@ test("paired cases execute identical phases with truthful lazy activation and si
   const coverage = buildResourceCoverage({ inventory: inventory(), resourceWorkloads: [definition], workloadReports: [report], configuredFixtureCount: 59, selectedFixtureCount: 0 });
   assert.deepEqual(coverage.plugins.map(({ status }) => status), ["unsupported", "exercised"]);
 });
+
+const scoped = { ...definition, pairedWorkload: { ...definition.pairedWorkload, targetActivation: "scoped" } };
+
+test("scoped handles complete matched work without publishing root activation", async () => {
+  const { report, completed } = await exercise({ scenario: scoped });
+  assert.equal(validate(report, scoped).status, "exercised");
+  assert.equal(completed.length, 12);
+  for (const item of report.cases) {
+    assert.deepEqual(item.activation, { scope: "gateway-request-registry", expectedBefore: ["provider"],
+      expectedAfter: ["provider"], before: ["provider"], after: ["provider"] });
+  }
+  assert.throws(() => validate(report), /comparison contract differs/);
+  for (const mutate of [
+    (value) => { delete value.cases[1].activation.scope; },
+    (value) => { value.cases[1].activation.scope = "all-loaded-handles"; },
+    (value) => { value.cases[1].activation.after.push("sample"); },
+    (value) => { value.cases[1].phases = value.cases[1].phases.filter(({ name }) => name !== "warm-work"); },
+  ]) {
+    const broken = structuredClone(report);
+    mutate(broken);
+    assert.throws(() => validate(broken, scoped), /resource coverage:/);
+  }
+});
+
+for (const fault of ["missing-dependency", "publishes-scoped", "missing-phase", "baseline-work", "cleanup"]) {
+  test(`scoped work still rejects ${fault}`, async () => {
+    const { report } = await exercise({ scenario: scoped, fault });
+    assert.equal(report.status, "failed");
+    assert.equal(validate(report, scoped).status, "failed");
+  });
+}
 
 for (const fault of ["missing-dependency", "wrong-dependency", "never-activates", "unmatched-count", "missing-phase", "baseline-work", "prepare", "startup", "cleanup", "work-and-cleanup"]) {
   test(`consumer rejects ${fault} and joins registered adapter peers`, async () => {

@@ -20,16 +20,18 @@ export function resourceWorkloadPlan(definition) {
       typeof id === "string" && identifier.test(id) && id !== definition.pluginId) &&
       new Set(paired.dependencies).size === paired.dependencies.length,
     "pairedWorkload dependencies must be unique plugin IDs excluding the target");
-    assert.ok(["startup", "workload"].includes(paired.targetActivation),
-      "pairedWorkload targetActivation must be startup or workload");
+    assert.ok(["startup", "workload", "scoped"].includes(paired.targetActivation),
+      "pairedWorkload targetActivation must be startup, workload or scoped");
   }
   const dependencies = [...(paired?.dependencies ?? [])].sort();
   return [false, true].map((enabled) => ({
     name: enabled ? definition.pluginId : paired ? "baseline" : "empty",
     enabled,
     runWorkload: enabled || paired !== undefined,
-    expectedBefore: [...dependencies, ...(enabled && paired?.targetActivation !== "workload" ? [definition.pluginId] : [])].sort(),
-    expectedAfter: [...dependencies, ...(enabled ? [definition.pluginId] : [])].sort(),
+    // Caller-owned handles execute without publishing to the Gateway registry.
+    // Their adapters prove behavior; catalog checks still fence the exact root set.
+    expectedBefore: [...dependencies, ...(enabled && (!paired || paired.targetActivation === "startup") ? [definition.pluginId] : [])].sort(),
+    expectedAfter: [...dependencies, ...(enabled && paired?.targetActivation !== "scoped" ? [definition.pluginId] : [])].sort(),
   }));
 }
 
