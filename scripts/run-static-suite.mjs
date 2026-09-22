@@ -129,7 +129,10 @@ function assertPolicy(policy) {
 }
 
 function run(command, args, env = {}, index = 1, total = 1) {
-  const timeout = configuredTimeoutMs("CRABPOT_STATIC_STEP_TIMEOUT_MS", defaultStepTimeoutMs);
+  // An empty static-suite setting historically selects the default.
+  const timeout = process.env.CRABPOT_STATIC_STEP_TIMEOUT_MS === ""
+    ? defaultStepTimeoutMs
+    : configuredTimeoutMs("CRABPOT_STATIC_STEP_TIMEOUT_MS", defaultStepTimeoutMs);
   const rendered = [command, ...args].join(" ");
   console.log(`crabpot: static step ${index}/${total}: ${rendered}`);
   const result = spawnSync(portableCommand(command), args, {
