@@ -29,9 +29,11 @@ function resign(value) {
 function calibration() {
   const phase = (name, completed = 0) => ({
     name, status: "exercised", operations: { attempted: completed, completed, failed: 0 },
-    before: { pid: 1 }, after: { pid: 1 },
-    cpu: { wallMs: 10, process: { totalMs: 5 } },
+    before: { pid: 1, atMonotonicMicros: 1000, process: { user: 1000, system: 1000 }, mainThread: { user: 1000, system: 1000 }, memory: { rss: 1000, heapTotal: 100, heapUsed: 50, external: 20, arrayBuffers: 10 }, activeResources: { Timeout: 2 }, runtime: { node: "v24.19.0", platform: "linux", arch: "x64" } },
+    after: { pid: 1, atMonotonicMicros: 11000, process: { user: 4000, system: 3000 }, mainThread: { user: 2000, system: 1000 }, memory: { rss: 900, heapTotal: 100, heapUsed: 30, external: 20, arrayBuffers: 10 }, activeResources: { Timeout: 1 }, runtime: { node: "v24.19.0", platform: "linux", arch: "x64" } },
+    cpu: { pid: 1, startMonotonicMicros: 1000, endMonotonicMicros: 11000, wallMs: 10, process: { userMs: 3, systemMs: 2, totalMs: 5 }, mainThread: { userMs: 1, systemMs: 0, totalMs: 1 } },
     memoryChangeBytes: { rss: -100, heapTotal: 0, heapUsed: -20, external: 0, arrayBuffers: 0 },
+    activeResourceChanges: { Timeout: -1 }, processCpuMsPerCompletedOperation: completed > 0 ? 5 / completed : null,
   });
   return {
     schemaVersion: 1,
@@ -76,6 +78,37 @@ test("calibration work never earns workload credit for inventory plugins", () =>
   assert.equal(result.calibration.cases[1].phases[4].operations.completed, 20);
   assert.equal(result.calibration.cases[1].phases[4].memoryChangeBytes.rss, -100);
   assert.equal(result.calibration.postDisposalResidual.status, "unsupported");
+});
+
+function omitActiveResources(phase) {
+  delete phase.before.activeResources;
+  delete phase.after.activeResources;
+  delete phase.activeResourceChanges;
+}
+
+test("Kitchen Sink v1 accepts the original producer without active-resource observations", () => {
+  const report = calibration();
+  // OpenClaw 50ea1795 emitted these CPU/memory fields before adding resource
+  // histograms to the same v1 report. Missing observations must stay missing.
+  for (const item of report.cases) item.phases.forEach(omitActiveResources);
+  const result = coverage(report);
+  assert.equal(result.calibration.status, "exercised");
+  assert.equal(result.summary.exercised, 0);
+  assert.equal(result.calibration.cases[1].phases[4].before.activeResources, undefined);
+  assert.equal(result.calibration.cases[1].phases[4].activeResourceChanges, undefined);
+});
+
+test("optional calibration resource observations must be complete and consistent", () => {
+  for (const change of [
+    (phase) => { delete phase.before.activeResources; },
+    (phase) => { delete phase.after.activeResources; },
+    (phase) => { delete phase.activeResourceChanges; },
+    (phase) => { phase.activeResourceChanges.Timeout = 0; },
+  ]) {
+    const report = calibration();
+    change(report.cases[1].phases[4]);
+    assert.throws(() => coverage(report), /active resources/);
+  }
 });
 
 test("failed and stale-source receipts retain producer outcomes without credit", () => {
@@ -140,9 +173,121 @@ test("success needs measured completions, phase observations, identity and joine
     (value) => { value.cases[1].activePlugins.push("unexpected"); },
     (value) => { value.cases[1].shutdown.exited = false; },
     (value) => { value.cases[1].shutdown.signal = "SIGKILL"; },
+    (value) => { value.cases[1].shutdown.signals.push("SIGKILL"); },
   ]) {
     const report = calibration();
     change(report);
     assert.throws(() => coverage(report), /resource coverage:/);
+  }
+});
+
+const resourceWorkloads = [{ id: "card-crud-v1", pluginId: "plugin-0", requiredOperations: { "first-use": 1, "warm-work": 20 } }];
+
+function workload() {
+  const source = inventory();
+  const control = calibration();
+  const phase = (name, completed = 0) => ({
+    ...structuredClone(control.cases[0].phases[0]), name,
+    operations: { attempted: completed, completed, failed: 0 },
+    processCpuMsPerCompletedOperation: completed > 0 ? 5 / completed : null,
+  });
+  return {
+    schemaVersion: 1, kind: "plugin-resource-workload", status: "exercised", reason: "measured-plugin-workload",
+    inventory: { source: source.source, sha256: source.sha256 },
+    scenario: { id: "card-crud-v1", pluginId: "plugin-0", requirements: resourceWorkloads[0].requiredOperations },
+    provenance: { adapterSha256: artifact, consumerSha256: artifact, harnessSha256: { host: artifact } },
+    measurement: { sampling: "boundaries only" },
+    cases: ["empty", "plugin-0"].map((name) => ({
+      ...structuredClone(control.cases[0]), name,
+      host: { commit, entrySha256: artifact },
+      activePlugins: name === "empty" ? [] : [name],
+      phases: [phase("startup"), phase("idle"), phase("neutral-rpc", 20), phase("post-neutral"),
+        ...(name === "empty" ? [] : [phase("first-use", 1), phase("warm-work", 20), phase("post-work")])],
+    })),
+  };
+}
+
+function workloadCoverage(report) {
+  return buildResourceCoverage({ inventory: inventory(), workloadReports: [report], resourceWorkloads, configuredFixtureCount: 59, selectedFixtureCount: 3 });
+}
+
+test("validated real-host workload credits exactly one source-inventory row", () => {
+  const result = workloadCoverage(workload());
+  assert.equal(result.summary.exercised, 1);
+  assert.equal(result.summary.unsupported, 159);
+  assert.equal(result.plugins[0].scenario, "card-crud-v1");
+  assert.equal(result.calibration.status, "blocked");
+  assert.deepEqual(result.workloads[0].cases[1].phases[5].memoryChangeBytes, workload().cases[1].phases[5].memoryChangeBytes);
+});
+
+test("incomplete, stale or failed workloads never count as exercised", () => {
+  for (const status of ["blocked", "failed"]) {
+    const report = workload();
+    report.status = status;
+    report.cases[1].status = status;
+    report.cases[1].phases = report.cases[1].phases.slice(0, 4);
+    const result = workloadCoverage(report);
+    assert.equal(result.summary.exercised, 0);
+    assert.equal(result.summary[status], 1);
+  }
+  const stale = workload();
+  stale.inventory.sha256 = "f".repeat(64);
+  assert.equal(workloadCoverage(stale).plugins[0].reason, "inventory-source-mismatch");
+});
+
+test("successful workload rejects wrong identity, reduced work, lost samples and forced cleanup", () => {
+  for (const change of [
+    (report) => { report.scenario.pluginId = "plugin-1"; },
+    (report) => { report.scenario.requirements = { "warm-work": 1 }; },
+    (report) => { report.cases[1].activePlugins.push("unexpected"); },
+    (report) => { report.cases[1].host.commit = "d".repeat(40); },
+    (report) => { report.cases[1].host.entrySha256 = "d".repeat(64); },
+    (report) => {
+      for (const sample of ["before", "after", "cpu"]) {
+        report.cases[1].phases[5][sample].cpuEnvironment = { availableParallelism: 2, affinity: "0-1" };
+      }
+    },
+    (report) => { report.cases[1].phases[5].operations = { attempted: 19, completed: 19, failed: 0 }; },
+    (report) => { report.cases[1].phases[5].after = null; },
+    (report) => { report.cases[1].phases[5].after.pid = 2; },
+    (report) => { report.cases[1].phases.forEach(omitActiveResources); },
+    (report) => { report.cases[1].shutdown.signals.push("SIGKILL"); },
+  ]) {
+    const report = workload();
+    change(report);
+    assert.throws(() => workloadCoverage(report), /resource coverage:/);
+  }
+  const report = workload();
+  assert.throws(() => buildResourceCoverage({ inventory: inventory(), workloadReports: [report, report], resourceWorkloads, configuredFixtureCount: 1, selectedFixtureCount: 1 }), /duplicate workload report/);
+});
+
+test("coverage requires complete snapshots and consistent derived measurements", () => {
+  const changes = [
+    (phase) => { phase.before = { pid: 1 }; },
+    (phase) => { delete phase.after.runtime; },
+    (phase) => { delete phase.before.memory; },
+    (phase) => { delete phase.after.process; },
+    (phase) => { delete phase.after.mainThread; },
+    (phase) => { delete phase.before.atMonotonicMicros; },
+    (phase) => { phase.after.atMonotonicMicros = phase.before.atMonotonicMicros; },
+    (phase) => { phase.after.mainThread.user = -1; },
+    (phase) => { phase.after.memory.rss = -1; },
+    (phase) => { phase.after.runtime.node = "v26.0.0"; },
+    (phase) => { phase.after.cpuEnvironment = { availableParallelism: 2 }; },
+    (phase) => { phase.cpu.pid = 2; },
+    (phase) => { phase.cpu.wallMs = 20; },
+    (phase) => { phase.cpu.process.totalMs = 10; },
+    (phase) => { phase.cpu.mainThread.userMs = 2; },
+    (phase) => { phase.memoryChangeBytes.rss = 0; },
+    (phase) => { phase.activeResourceChanges.Timeout = 0; },
+    (phase) => { phase.processCpuMsPerCompletedOperation = 0; },
+  ];
+  for (const change of changes) {
+    const report = workload();
+    change(report.cases[1].phases[5]);
+    assert.throws(() => workloadCoverage(report), /resource coverage:/);
+    const control = calibration();
+    change(control.cases[1].phases[4]);
+    assert.throws(() => coverage(control), /resource coverage:/);
   }
 });
