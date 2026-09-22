@@ -7245,7 +7245,7 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8522"
+              "evidence": "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8523"
             },
             {
               "code": "sdk-alias-required",
@@ -7340,7 +7340,7 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8522"
+              "evidence": "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8523"
             },
             {
               "code": "sdk-alias-required",
@@ -8192,7 +8192,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "ws"
+              "evidence": "@modelcontextprotocol/sdk, ws"
             }
           ],
           "steps": [
@@ -8268,7 +8268,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "ws"
+              "evidence": "@modelcontextprotocol/sdk, ws"
             }
           ],
           "steps": [
