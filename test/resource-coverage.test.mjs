@@ -211,6 +211,55 @@ function workloadCoverage(report) {
   return buildResourceCoverage({ inventory: inventory(), workloadReports: [report], resourceWorkloads, configuredFixtureCount: 59, selectedFixtureCount: 3 });
 }
 
+test("configured workloads without receipts are blocked within the source inventory denominator", () => {
+  const definition = resourceWorkloads[0];
+  const result = buildResourceCoverage({
+    inventory: inventory(), configuredFixtureCount: 59, selectedFixtureCount: 0,
+    resourceWorkloads: [
+      { ...definition, pairedWorkload: { dependencies: ["plugin-1"], targetActivation: "workload" } },
+      { ...definition, id: "second-scenario-v1" },
+      { ...definition, id: "external-v1", pluginId: "plugin-63" },
+      { ...definition, id: "outside-inventory-v1", pluginId: "outside-inventory" },
+    ],
+  });
+  assert.deepEqual(result.summary, { core: 63, external: 94, source: 3, exercised: 0, blocked: 2, unsupported: 158, failed: 0 });
+  assert.equal(result.inventory.count, 160);
+  assert.equal(result.plugins.length, 160);
+  assert.deepEqual(result.fixtures, { configured: 59, selected: 0 });
+  assert.equal(result.workloads, undefined);
+  for (const index of [0, 63]) {
+    assert.equal(result.plugins[index].status, "blocked");
+    assert.equal(result.plugins[index].reason, "workload-report-not-supplied");
+    assert.equal(result.plugins[index].scenario, undefined);
+  }
+  // A declared dependency is not an adapter, and multiple scenarios do not
+  // duplicate their plugin's row or create an observation that was not supplied.
+  assert.equal(result.plugins[1].status, "unsupported");
+  assert.equal(result.plugins[1].reason, "no-workload-adapter");
+  const markdown = renderResourceCoverageMarkdown(result);
+  assert.match(markdown, /160\*\* plugins/);
+  assert.match(markdown, /59\*\*; selected: \*\*0/);
+  assert.equal(markdown.split("| blocked | workload-report-not-supplied |").length - 1, 2);
+  assert.equal(markdown.split("| unsupported | no-workload-adapter |").length - 1, 158);
+});
+
+test("supplied workload receipts replace the missing-report state with their explicit outcome", () => {
+  for (const status of ["blocked", "failed", "exercised"]) {
+    const report = workload();
+    report.status = status;
+    report.reason = `observed-${status}`;
+    const result = workloadCoverage(report);
+    assert.equal(result.plugins[0].status, status);
+    assert.equal(result.plugins[0].reason, report.reason);
+    assert.equal(result.plugins[0].scenario, report.scenario.id);
+    assert.equal(result.workloads[0].reason, report.reason);
+    assert.equal(result.summary[status], 1);
+    assert.equal(result.summary.unsupported, 159);
+    assert.equal(result.summary.exercised, status === "exercised" ? 1 : 0);
+    assert.doesNotMatch(renderResourceCoverageMarkdown(result), /workload-report-not-supplied/);
+  }
+});
+
 test("validated real-host workload credits exactly one source-inventory row", () => {
   const result = workloadCoverage(workload());
   assert.equal(result.summary.exercised, 1);
