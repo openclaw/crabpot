@@ -217,6 +217,17 @@ node /crabpot/scripts/run-resource-campaign.mjs \
 
 The output directory must not exist; its parent must exist. Omit `--execute`
 to enumerate the full inventory without importing adapters or starting hosts.
+Optionally pass `--distribution core`, `external` or `source` to run only configured
+scenarios in that inventory distribution. The full inventory remains in every
+repetition: excluded configured rows are blocked with
+`not-selected-for-this-campaign`; plugins without configured scenarios remain unsupported.
+Dependency activation does not earn workload coverage. `selection` records the
+chosen distribution, selected/excluded configured counts and its status/reason.
+The CLI labels this partial scope and exits zero only when at least one selected
+scenario exists, every selected repetition is exercised and no configured scenario
+is absent from the inventory. Selection planning therefore exits nonzero.
+Successful selected work leaves the overall campaign blocked while excluded work remains;
+omitting `--distribution` preserves the existing all-distributions behavior.
 This command does not build, download, provision isolation, configure credentials
 or install campaign prerequisites. The workload adapter still owns native local
 plugin installation. Prepare its archives and offline dependency cache first.
