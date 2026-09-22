@@ -5,6 +5,7 @@ import { tmpdir } from "node:os";
 import path from "node:path";
 import { test } from "node:test";
 import { readManifest } from "../scripts/manifest-lib.mjs";
+import { runResourceWorkload } from "../scripts/run-resource-workload.mjs";
 import {
   buildReport,
   classifyIssueFinding,
@@ -186,13 +187,14 @@ test("optional resource inventory augments the report without changing compatibi
   context.after(() => rm(directory, { recursive: true, force: true }));
   // Canonical key order makes this digest independent of the consumer serializer.
   const payload = {
-    plugins: [{ declaredSurfaces: {}, distribution: "core", id: "sample", manifestPath: "extensions/sample/openclaw.plugin.json", package: null, path: "extensions/sample" }],
+    plugins: [{ declaredSurfaces: {}, distribution: "core", id: "workboard", manifestPath: "extensions/workboard/openclaw.plugin.json", package: null, path: "extensions/workboard" }],
     schemaVersion: 1,
     scope: "source-manifests",
     source: { commit: "a".repeat(40), kind: "git-tree", tree: "b".repeat(40) },
   };
   const pluginInventoryPath = path.join(directory, "inventory.json");
-  await writeFile(pluginInventoryPath, JSON.stringify({ ...payload, sha256: createHash("sha256").update(JSON.stringify(payload)).digest("hex") }));
+  const inventory = { ...payload, sha256: createHash("sha256").update(JSON.stringify(payload)).digest("hex") };
+  await writeFile(pluginInventoryPath, JSON.stringify(inventory));
   const options = { fixtureSet: "openclaw-beta", generatedAt: "test", openclawPath: false };
   const baseline = await buildReport(options);
   const report = await buildReport({ ...options, pluginInventoryPath });
@@ -206,9 +208,18 @@ test("optional resource inventory augments the report without changing compatibi
   assert.deepEqual(resourceCoverage.calibration, { status: "blocked", reason: "not-run" });
   const markdown = renderMarkdownReport(report);
   assert.ok(markdown.startsWith(`${renderMarkdownReport(baseline)}\n\n## Plugin Resource Coverage`));
-  assert.match(markdown, /sample \| core \| unsupported \| no-workload-adapter/);
+  assert.match(markdown, /workboard \| core \| unsupported \| no-workload-adapter/);
   assert.equal(renderIssuesReport(report), renderIssuesReport(baseline));
-  await assert.rejects(buildReport({ ...options, kitchenSinkResourceReportPath: "unused.json" }), /requires --plugin-inventory/);
+  await assert.rejects(buildReport({ ...options, kitchenSinkResourceReportPath: "unused.json" }), /require --plugin-inventory/);
+  const workloadPath = path.join(directory, "workload.json");
+  const definition = (await readManifest()).resourceWorkloads.find(({ pluginId }) => pluginId === "workboard");
+  await writeFile(workloadPath, JSON.stringify(await runResourceWorkload({ definition, inventory, execute: false })));
+  const withWorkload = await buildReport({ ...options, pluginInventoryPath, workloadReportPaths: [workloadPath] });
+  assert.equal(withWorkload.resourceCoverage.summary.blocked, 1);
+  assert.equal(withWorkload.resourceCoverage.summary.exercised, 0);
+  assert.equal(withWorkload.resourceCoverage.workloads[0].reason, "execution-not-requested");
+  assert.equal(renderIssuesReport(withWorkload), renderIssuesReport(baseline));
+  await assert.rejects(buildReport({ ...options, workloadReportPaths: [workloadPath] }), /require --plugin-inventory/);
 });
 
 test("OpenClaw npm artifact availability failures become P0 live issues", async () => {

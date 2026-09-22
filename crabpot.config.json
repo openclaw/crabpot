@@ -6,6 +6,15 @@
     "minimumNode": "24",
     "defaultCheckoutPath": "../openclaw"
   },
+  "resourceWorkloads": [
+    {
+      "id": "workboard-card-crud-v1",
+      "pluginId": "workboard",
+      "adapter": "workboard",
+      "requiredOperations": { "first-use": 1, "warm-work": 20 },
+      "why": "Real bundled plugin activation and SQLite-backed card CRUD through authenticated Gateway RPC."
+    }
+  ],
   "fixtures": [
     {
       "id": "agentchat",
