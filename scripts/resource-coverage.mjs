@@ -52,9 +52,12 @@ function cleanShutdown(shutdown) {
     Array.isArray(shutdown.signals) && !shutdown.signals.includes("SIGKILL");
 }
 
-function validateSuccessfulPhase(phase) {
+function validateSuccessfulPhase(phase, requireActiveResources = true) {
   requireValue(phase.status === "exercised" && phase.operations.failed === 0 && record(phase.before) && record(phase.after) && record(phase.cpu) && record(phase.memoryChangeBytes), "successful workload has an incomplete phase observation");
   const { before, after, cpu } = phase;
+  // Earlier Kitchen Sink v1 producers omit this entire observation. Partial
+  // observations still fail; new workload receipts require the complete trio.
+  const hasActiveResources = requireActiveResources || [before.activeResources, after.activeResources, phase.activeResourceChanges].some((value) => value !== undefined);
   const nonnegative = (value) => Number.isFinite(value) && value >= 0;
   const memoryFields = ["rss", "heapTotal", "heapUsed", "external", "arrayBuffers"];
   for (const sample of [before, after]) {
@@ -67,7 +70,7 @@ function validateSuccessfulPhase(phase) {
     if (sample.cpuEnvironment !== undefined) {
       requireValue(record(sample.cpuEnvironment) && Number.isSafeInteger(sample.cpuEnvironment.availableParallelism) && sample.cpuEnvironment.availableParallelism > 0 && (sample.cpuEnvironment.affinity === undefined || typeof sample.cpuEnvironment.affinity === "string"), "invalid snapshot CPU environment");
     }
-    requireValue(record(sample.activeResources) && Object.values(sample.activeResources).every((count) => Number.isSafeInteger(count) && count >= 0), "invalid snapshot active resources");
+    if (hasActiveResources) requireValue(record(sample.activeResources) && Object.values(sample.activeResources).every((count) => Number.isSafeInteger(count) && count >= 0), "invalid snapshot active resources");
   }
   requireValue(before.pid === after.pid && cpu.pid === after.pid && stableJson(before.runtime) === stableJson(after.runtime) && stableJson(before.cpuEnvironment) === stableJson(after.cpuEnvironment) && stableJson(cpu.cpuEnvironment) === stableJson(before.cpuEnvironment), "phase changed Gateway identity or CPU environment");
   requireValue(after.atMonotonicMicros > before.atMonotonicMicros && cpu.startMonotonicMicros === before.atMonotonicMicros && cpu.endMonotonicMicros === after.atMonotonicMicros && cpu.wallMs === (after.atMonotonicMicros - before.atMonotonicMicros) / 1000, "phase wall time differs from snapshots");
@@ -79,8 +82,10 @@ function validateSuccessfulPhase(phase) {
     requireValue(userMs >= 0 && systemMs >= 0 && cpu[scope]?.userMs === userMs && cpu[scope]?.systemMs === systemMs && cpu[scope]?.totalMs === userMs + systemMs, "phase CPU differs from snapshots");
   }
   requireValue(memoryFields.every((key) => phase.memoryChangeBytes[key] === after.memory[key] - before.memory[key]), "phase memory differs from snapshots");
-  const resources = Object.fromEntries([...new Set([...Object.keys(before.activeResources), ...Object.keys(after.activeResources)])].sort().map((key) => [key, (after.activeResources[key] ?? 0) - (before.activeResources[key] ?? 0)]));
-  requireValue(stableJson(phase.activeResourceChanges) === stableJson(resources), "phase active resources differ from snapshots");
+  if (hasActiveResources) {
+    const resources = Object.fromEntries([...new Set([...Object.keys(before.activeResources), ...Object.keys(after.activeResources)])].sort().map((key) => [key, (after.activeResources[key] ?? 0) - (before.activeResources[key] ?? 0)]));
+    requireValue(stableJson(phase.activeResourceChanges) === stableJson(resources), "phase active resources differ from snapshots");
+  }
   requireValue(phase.processCpuMsPerCompletedOperation === (phase.operations.completed > 0 ? cpu.process.totalMs / phase.operations.completed : null), "phase per-operation CPU differs from completed work");
 }
 
@@ -109,7 +114,7 @@ function readCalibration(report, inventory) {
     requireValue(item.status === "exercised" && JSON.stringify(item.activePlugins) === JSON.stringify(expectedPlugins), "successful calibration has an invalid active-plugin inventory");
     requireValue(cleanShutdown(item.shutdown), "successful calibration lacks clean joined shutdown");
     for (const phase of item.phases) {
-      validateSuccessfulPhase(phase);
+      validateSuccessfulPhase(phase, false);
     }
     for (const [phaseName, count] of [
       ["neutral-rpc", report.measurement.neutralOperations],
