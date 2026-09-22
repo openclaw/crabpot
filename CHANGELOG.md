@@ -2,6 +2,7 @@
 
 ## 0.2.2 - Unreleased
 
+- Refresh Dependabot compatibility reports against the merged base's OpenClaw pin, submodules, and plugin track, preventing stale-host and mislabeled beta-fixture evidence.
 - Cancel superseded PR check and advisory runs without replacing push or manual attempts. Stop expensive report regeneration after cancellation while preserving existing artifacts, failure summaries, and the required verdict.
 - Record fixture-owned account and meeting Gateway prerequisites before invoking credential-free synthetic probes. Keep ready status methods and unrelated Gateway failures visible; blocked methods remain explicit gaps until their host state and transports are supplied.
 

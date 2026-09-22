@@ -366,6 +366,28 @@ test("workflows use current action majors and dependency caches", async () => {
   assert.doesNotMatch(workflows, /FORCE_JAVASCRIPT_ACTIONS_TO_NODE24/);
 });
 
+test("dependabot refresh resolves the host and submodules after updating its base", async () => {
+  const workflow = await readWorkflow(".github/workflows/dependabot-auto-merge.yml");
+  const merge = workflow.indexOf('git merge --no-edit "origin/');
+  const submodules = workflow.indexOf("git submodule update --init --recursive", merge);
+  const resolveHost = workflow.indexOf("- name: Resolve pinned OpenClaw Default Track");
+
+  assert.ok(merge >= 0 && submodules > merge && resolveHost > submodules,
+    "the host pin and checked-out fixture sources must come from the merged base");
+});
+
+test("dependabot report refresh uses the selected track without filtering unit tests", async () => {
+  const workflow = await readWorkflow(".github/workflows/dependabot-auto-merge.yml");
+  const refresh = workflow.slice(workflow.indexOf("- name: Refresh compatibility reports"),
+    workflow.indexOf("- name: Commit refreshed reports"));
+
+  assert.match(refresh, /CRABPOT_OPENCLAW_TRACK: \$\{\{ steps\.openclaw-track\.outputs\.track \}\}/);
+  assert.match(refresh, /CRABPOT_PLUGIN_TRACK: \$\{\{ steps\.openclaw-track\.outputs\.track == 'development' && 'source-pack' \|\| steps\.openclaw-track\.outputs\.track \}\}/);
+  assert.match(refresh, /CRABPOT_FIXTURE_SET: \$\{\{ steps\.openclaw-track\.outputs\.track == 'development' && 'openclaw-beta' \|\| '' \}\}/);
+  assert.doesNotMatch(refresh, /npm test/);
+  assert.ok(workflow.indexOf("npm test") < workflow.indexOf("- name: Refresh compatibility reports"));
+});
+
 test("dependabot auto-merge refreshes reports after fixture pin updates", async () => {
   const workflow = await readWorkflow(".github/workflows/dependabot-auto-merge.yml");
 
