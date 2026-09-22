@@ -3,6 +3,7 @@
 ## 0.2.2 - Unreleased
 
 - Reject fractional, suffixed, and out-of-range static-suite timeout settings before running a step, using the shared bounded timeout validator while preserving the default for unset or empty settings.
+- Refresh Dependabot compatibility reports against the merged base's OpenClaw pin, submodules, and plugin track, preventing stale-host and mislabeled beta-fixture evidence.
 - Cancel superseded PR check and advisory runs without replacing push or manual attempts. Stop expensive report regeneration after cancellation while preserving existing artifacts, failure summaries, and the required verdict.
 - Record fixture-owned account and meeting Gateway prerequisites before invoking credential-free synthetic probes. Keep ready status methods and unrelated Gateway failures visible; blocked methods remain explicit gaps until their host state and transports are supplied.
 
