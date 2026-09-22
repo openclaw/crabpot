@@ -13,6 +13,7 @@ import {
 } from "./package-availability.mjs";
 import { loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
 import { defaultExecutionResultsJsonPath } from "./summarize-execution-results.mjs";
+import { readResourceCoverage, renderResourceCoverageMarkdown } from "./resource-coverage.mjs";
 
 export const defaultReportDir = path.join(repoRoot, "reports");
 export const defaultMarkdownReportPath = path.join(defaultReportDir, "crabpot-report.md");
@@ -46,8 +47,17 @@ export async function buildReport(options = {}) {
   const packageIssues = packageAvailabilityIssues(packageAvailability, { manifest });
   const packageDecisions = packageAvailabilityDecisions(packageAvailability, { manifest });
   const issues = [...packageIssues, ...(report.issues ?? [])];
+  const resourceCoverage = options.pluginInventoryPath || options.kitchenSinkResourceReportPath
+    ? readResourceCoverage({
+        pluginInventoryPath: options.pluginInventoryPath,
+        kitchenSinkResourceReportPath: options.kitchenSinkResourceReportPath,
+        configuredFixtureCount: (await readConfiguredManifest({ fixtureSet: "all" })).fixtures.length,
+        selectedFixtureCount: manifest.fixtures.length,
+      })
+    : null;
   return {
     ...report,
+    ...(resourceCoverage ? { resourceCoverage } : {}),
     summary: mergePackageAvailabilityIntoSummary(report.summary, issues),
     issues,
     decisions: [...packageDecisions, ...(report.decisions ?? [])],
@@ -116,13 +126,15 @@ function buildReportContext({
 }
 
 export function renderMarkdownReport(report) {
-  return withReportContext(
+  const markdown = withReportContext(
     report,
     pluginInspector.renderFixtureSetMarkdownReport(report, {
       ...compatibilityRenderOptions(),
       title: "Crabpot Compatibility Report",
     }),
   );
+  const resources = renderResourceCoverageMarkdown(report.resourceCoverage);
+  return resources ? `${markdown}\n\n${resources}` : markdown;
 }
 
 export function renderIssuesReport(report) {

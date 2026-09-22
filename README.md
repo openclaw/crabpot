@@ -201,6 +201,36 @@ surface. `reports/crabpot-dashboard-data.json` is the compact machine-readable
 dashboard card used to compare `crab-beta` and `crab-development` against
 `main`.
 
+### Plugin resource coverage
+
+Add a committed OpenClaw plugin inventory to the existing report:
+
+```bash
+# In the OpenClaw source checkout, using the commit of the measured Gateway:
+pnpm --silent plugins:inventory:json --commit <full-commit-sha> > plugin-inventory.json
+
+# In Crabpot, with explicit paths to the exported inventory and optional pilot:
+npm run report -- --plugin-inventory <plugin-inventory.json> \
+  --kitchen-sink-resource-report <kitchen-sink-resource.json>
+```
+
+The inventory command requires an OpenClaw revision that provides
+`plugins:inventory:json`. The optional pilot is the existing OpenClaw
+`--resource-profile` Kitchen Sink report, not a collector or import report.
+Resource inputs stay separate from `--execution-results`.
+
+JSON and Markdown show the full source inventory independently of Crabpot's
+configured and selected compatibility fixtures. Plugins without workload
+adapters are explicitly `unsupported`; imports, registration captures, and
+collector checks receive no workload credit. Kitchen Sink calibration appears
+outside that denominator. Failed receipts retain partial counts and errors;
+a different Gateway source commit blocks calibration for the selected inventory.
+
+The reader validates inventory integrity and producer-reported identities. It
+does not independently attest artifact bytes, infer leaks from RSS, or upgrade
+unsupported disposal observations. These options leave default compatibility
+reports unchanged and add no performance budget gate.
+
 ## Behavioral eval POC
 
 Behavior evals are profile-driven, default to a dry plan, and stay
