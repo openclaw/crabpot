@@ -29,19 +29,38 @@ if ($DiagnosticDirectory) {
 function Write-StartupTrace([string]$Event, [hashtable]$Fields = @{}) {
     if (-not $DiagnosticDirectory -or $script:startupSequence -ge 32) { return }
     try {
-        $script:startupSequence += 1
-        $record = [ordered]@{
-            id = $DiagnosticId; producer = "powershell"; sequence = $script:startupSequence
-            event = $Event; unixMs = [DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds()
-            elapsedMs = $startupClock.ElapsedMilliseconds; clock = "Stopwatch.ElapsedMilliseconds"
+        # The observer must not autoload modules before the owner connects its pipe.
+        if ($Event -cnotmatch '^(helper-entered|connect-begin|connect-end|read-begin|read-end|parse-begin|parse-end|owner-monitor-installed|bootstrap-job-assigned|compile-begin|compile-end|native-returned|helper-error|helper-finally-entered|helper-control-disposed)$') { return }
+        $culture = [Globalization.CultureInfo]::InvariantCulture
+        $detail = ""
+        switch ($Event) {
+            "helper-entered" {
+                if ($Fields.Count -ne 1 -or $Fields.helperPid -isnot [int]) { return }
+                $detail = [string]::Format($culture, ',"helperPid":{0}', $Fields.helperPid)
+            }
+            "read-end" {
+                if ($Fields.Count -ne 1 -or $Fields.eof -isnot [bool]) { return }
+                $detail = ',"eof":' + $Fields.eof.ToString().ToLowerInvariant()
+            }
+            "helper-error" {
+                if ($Fields.Count -ne 1 -or -not $Fields.ContainsKey("nativeCode")) { return }
+                if ($null -eq $Fields.nativeCode) { $code = "null" }
+                elseif ($Fields.nativeCode -is [int]) { $code = $Fields.nativeCode.ToString($culture) }
+                else { return }
+                $detail = ',"nativeCode":' + $code
+            }
+            default { if ($Fields.Count -ne 0) { return } }
         }
-        foreach ($key in $Fields.Keys) { $record[$key] = $Fields[$key] }
-        $line = ($record | ConvertTo-Json -Compress -Depth 3) + "`n"
+        $script:startupSequence += 1
+        $line = [string]::Format($culture,
+            '{{"id":"{0}","producer":"powershell","sequence":{1},"event":"{2}","unixMs":{3},"elapsedMs":{4},"clock":"Stopwatch.ElapsedMilliseconds"{5}}}' + "`n",
+            [Guid]::Parse($DiagnosticId).ToString("D"), $script:startupSequence, $Event,
+            [DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds(), $startupClock.ElapsedMilliseconds, $detail)
         $length = $startupUtf8.GetByteCount($line)
         if ($length -gt 2048 -or $script:startupBytes + $length -gt 65536) { return }
         $script:startupBytes += $length
         [System.IO.File]::AppendAllText(
-            (Join-Path $DiagnosticDirectory "powershell.jsonl"), $line, $startupUtf8)
+            [System.IO.Path]::Combine($DiagnosticDirectory, "powershell.jsonl"), $line, $startupUtf8)
     } catch {}
 }
 Write-StartupTrace "helper-entered" @{ helperPid = $PID }
