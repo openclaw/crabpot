@@ -203,12 +203,14 @@ test("optional resource inventory augments the report without changing compatibi
   assert.equal(Object.hasOwn(baseline, "resourceCoverage"), false);
   assert.equal(resourceCoverage.inventory.count, 1);
   assert.equal(resourceCoverage.summary.exercised, 0);
-  assert.equal(resourceCoverage.summary.unsupported, 1);
+  assert.equal(resourceCoverage.summary.unsupported, 0);
+  assert.equal(resourceCoverage.summary.blocked, 1);
+  assert.equal(resourceCoverage.plugins[0].reason, "workload-report-not-supplied");
   assert.deepEqual(resourceCoverage.fixtures, { configured: (await readManifest()).fixtures.length, selected: baseline.fixtures.length });
   assert.deepEqual(resourceCoverage.calibration, { status: "blocked", reason: "not-run" });
   const markdown = renderMarkdownReport(report);
   assert.ok(markdown.startsWith(`${renderMarkdownReport(baseline)}\n\n## Plugin Resource Coverage`));
-  assert.match(markdown, /workboard \| core \| unsupported \| no-workload-adapter/);
+  assert.match(markdown, /workboard \| core \| blocked \| workload-report-not-supplied/);
   assert.equal(renderIssuesReport(report), renderIssuesReport(baseline));
   await assert.rejects(buildReport({ ...options, kitchenSinkResourceReportPath: "unused.json" }), /require --plugin-inventory/);
   const workloadPath = path.join(directory, "workload.json");

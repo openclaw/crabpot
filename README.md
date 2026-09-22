@@ -221,8 +221,11 @@ Resource inputs stay separate from `--execution-results`.
 
 JSON and Markdown show the full source inventory independently of Crabpot's
 configured and selected compatibility fixtures. Plugins without workload
-adapters are explicitly `unsupported`; imports, registration captures, and
-collector checks receive no workload credit. Kitchen Sink calibration appears
+adapters are explicitly `unsupported`. Configured workloads without a supplied
+receipt are `blocked` with reason `workload-report-not-supplied`; this does not
+infer whether they ran or why a receipt is missing. Supplied receipts retain
+their validated outcomes. Imports, registration captures, and collector checks
+receive no workload credit. Kitchen Sink calibration appears
 outside that denominator. Failed receipts retain partial counts and errors;
 a different Gateway source commit blocks calibration for the selected inventory.
 
@@ -278,7 +281,8 @@ Repeat the option for distinct plugins. Same-plugin repetitions belong in
 separate reports. Credit requires complete raw snapshots, matching derived
 measurements, configured completion counts, identical host artifacts, the
 expected active plugin and joined shutdown without forced termination. Failed
-receipts preserve partial work. Unmeasured plugins remain `unsupported`.
+receipts preserve partial work. Plugins without configured adapters remain
+`unsupported`; configured workloads without receipts remain `blocked`.
 
 Adapters that need a dependency plugin and a matched workload control declare
 `pairedWorkload` alongside `requiredOperations`:

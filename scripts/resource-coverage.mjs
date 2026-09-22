@@ -222,8 +222,11 @@ export function validateResourceWorkloadReport(report, inventory, definitions) {
 export function buildResourceCoverage({ inventory, kitchenSinkReport, workloadReports = [], resourceWorkloads = [], configuredFixtureCount, selectedFixtureCount }) {
   validatePluginInventory(inventory);
   requireValue(Number.isSafeInteger(configuredFixtureCount) && configuredFixtureCount >= 0 && Number.isSafeInteger(selectedFixtureCount) && selectedFixtureCount >= 0 && selectedFixtureCount <= configuredFixtureCount, "invalid configured/selected fixture counts");
+  const configuredPlugins = new Set(resourceWorkloads.map(({ pluginId }) => pluginId));
   const plugins = inventory.plugins.map(({ id, path, distribution }) => ({
-    id, path, distribution, status: "unsupported", reason: "no-workload-adapter",
+    id, path, distribution,
+    status: configuredPlugins.has(id) ? "blocked" : "unsupported",
+    reason: configuredPlugins.has(id) ? "workload-report-not-supplied" : "no-workload-adapter",
   }));
   const workloads = workloadReports.map((report) => validateResourceWorkloadReport(report, inventory, resourceWorkloads));
   const selected = new Set();
