@@ -2,6 +2,7 @@
 
 ## 0.2.2 - Unreleased
 
+- Verify Plugin Inspector's public resource collector in source and packed-package smoke checks, without claiming plugin workload coverage.
 - Distinguish caller-owned plugin registry handles from Gateway registry activation in paired resource workloads, preserving exact catalog checks and completed-work requirements.
 - Run the report-only bundled resource campaign nightly at 03:43 UTC, retaining manual dispatch, pinned inputs and explicit full-inventory coverage gaps.
 - Select resource campaign workloads by inventory distribution while retaining full-inventory coverage gaps and an explicit partial-scope outcome.
