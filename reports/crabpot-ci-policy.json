@@ -78,7 +78,7 @@
     {
       "id": "compatibility-report.inspector-gaps",
       "action": "pass",
-      "message": "147 inspector proof gaps tracked",
+      "message": "148 inspector proof gaps tracked",
       "evidence": [
         "dingtalk-doc:before-tool-call-probe",
         "kitchen-sink:before-tool-call-probe",
@@ -147,6 +147,7 @@
         "kitchen-sink:registration-capture-gap",
         "lightclawbot:channel-contract-probe",
         "lightclawbot:package-dependency-install-required",
+        "lightclawbot:registration-capture-gap",
         "lobster:package-dependency-install-required",
         "lossless-claw:package-build-artifact-entrypoint",
         "lossless-claw:package-dependency-install-required",
@@ -232,7 +233,7 @@
     {
       "id": "compatibility-report.p1-issues",
       "action": "pass",
-      "message": "34 P1 issues tracked",
+      "message": "33 P1 issues tracked",
       "evidence": [
         "agentchat:missing-compat-record",
         "bluebubbles:sdk-export-missing",
@@ -240,7 +241,6 @@
         "connectclaw:missing-compat-record",
         "connectclaw:sdk-export-missing",
         "ddingtalk:missing-compat-record",
-        "dingtalk-connector:sdk-export-missing",
         "dingtalk-doc:before-tool-call-probe",
         "dingtalk-doc:missing-compat-record",
         "dingtalk-doc:sdk-export-missing",
