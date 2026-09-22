@@ -553,7 +553,7 @@
           "entrypoint": "plugins/mcp-adapter/index.ts",
           "status": "ts-loader-required",
           "packageManager": "npm",
-          "lockfile": "package-lock.json",
+          "lockfile": null,
           "loaderStrategy": {
             "source": "typescript-source",
             "primary": "tsx",
@@ -972,7 +972,7 @@
           "entrypoint": "plugins/openclaw-telemetry/index.ts",
           "status": "sdk-alias-required",
           "packageManager": "npm",
-          "lockfile": "package-lock.json",
+          "lockfile": null,
           "loaderStrategy": {
             "source": "typescript-source",
             "primary": "tsx",
@@ -1381,7 +1381,7 @@
           "entrypoint": "plugins/composio/index.ts",
           "status": "ts-loader-required",
           "packageManager": "npm",
-          "lockfile": "package-lock.json",
+          "lockfile": null,
           "loaderStrategy": {
             "source": "typescript-source",
             "primary": "tsx",
@@ -7497,7 +7497,7 @@
           "entrypoint": "plugins/dingtalk-connector/dist/index.mjs",
           "status": "build-required",
           "packageManager": "npm",
-          "lockfile": "package-lock.json",
+          "lockfile": null,
           "loaderStrategy": {
             "source": "native-node",
             "primary": "node",
@@ -8332,7 +8332,7 @@
           "entrypoint": "plugins/telnyx-sms/dist/index.js",
           "status": "build-required",
           "packageManager": "npm",
-          "lockfile": "package-lock.json",
+          "lockfile": null,
           "loaderStrategy": {
             "source": "native-node",
             "primary": "node",
@@ -8414,7 +8414,7 @@
           "entrypoint": "plugins/telnyx-sms/dist/setup-entry.js",
           "status": "build-required",
           "packageManager": "npm",
-          "lockfile": "package-lock.json",
+          "lockfile": null,
           "loaderStrategy": {
             "source": "native-node",
             "primary": "node",
@@ -8588,7 +8588,7 @@
           "entrypoint": "plugins/memu-engine/index.ts",
           "status": "ts-loader-required",
           "packageManager": "npm",
-          "lockfile": "package-lock.json",
+          "lockfile": null,
           "loaderStrategy": {
             "source": "typescript-source",
             "primary": "tsx",
@@ -8745,7 +8745,7 @@
           "entrypoint": "plugins/memos-cloud/index.js",
           "status": "review-required",
           "packageManager": "npm",
-          "lockfile": "package-lock.json",
+          "lockfile": null,
           "loaderStrategy": {
             "source": "native-node",
             "primary": "node",
@@ -8806,7 +8806,7 @@
           "entrypoint": "plugins/clawmetry/clawhub-plugin/index.ts",
           "status": "ts-loader-required",
           "packageManager": "npm",
-          "lockfile": "package-lock.json",
+          "lockfile": null,
           "loaderStrategy": {
             "source": "typescript-source",
             "primary": "tsx",
@@ -8871,7 +8871,7 @@
           "entrypoint": "plugins/clawmetry/clawhub-plugin/dist/index.js",
           "status": "ready",
           "packageManager": "npm",
-          "lockfile": "package-lock.json",
+          "lockfile": null,
           "loaderStrategy": {
             "source": "native-node",
             "primary": "node",

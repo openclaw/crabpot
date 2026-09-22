@@ -1,0 +1,3 @@
+# Captured stderr fixtures must keep their LF bytes on Windows.
+test/fixtures/hapi-openclaw-capture-error.txt text eol=lf
+test/fixtures/memory-tencentdb-capture-error.txt text eol=lf
