@@ -736,7 +736,9 @@ function runWindows(command, args, options, result, observe, ready, fail, shared
   });
   server.listen(`\\\\.\\pipe\\${pipeName}`, () => {
     if (stopped) { finish(); return; }
-    const powershell = path.join(environmentValue(options.env, "SYSTEMROOT") ?? process.env.SystemRoot ?? "C:\\Windows",
+    // The controller belongs to the parent runtime. Only the native command
+    // receives the caller's environment through the serialized request above.
+    const powershell = path.join(environmentValue(process.env, "SYSTEMROOT") ?? "C:\\Windows",
       "System32", "WindowsPowerShell", "v1.0", "powershell.exe");
     workerTrace("helper-spawn-requested");
     helper = spawn(powershell, [
@@ -744,7 +746,7 @@ function runWindows(command, args, options, result, observe, ready, fail, shared
       "-File", fileURLToPath(new URL("./owned-command-windows.ps1", import.meta.url)), pipeName,
       ...(workerData.startupDiagnostic
         ? [workerData.startupDiagnostic.directory, workerData.startupDiagnostic.id] : []),
-    ], { cwd: options.cwd, env: options.env, windowsHide: true,
+    ], { cwd: options.cwd, env: process.env, windowsHide: true,
       stdio: options.inherit ? "inherit" : ["ignore", "pipe", "pipe"] });
     observe(helper);
     helper.once("spawn", () => {
