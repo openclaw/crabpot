@@ -25,10 +25,22 @@ const marker = "tokenjuice compacted bash output";
 const files = Array.from({ length: 32 }, (_, index) => `synthetic-tracked-file-${String(index).padStart(2, "0")}.txt`);
 const requiredOperations = { "first-use": 1, "warm-work": 5 };
 
+export function assertFixtureCommand(result, commandName) {
+  // Keep both owner failures visible without copying command output or paths.
+  const code = (error) => !error ? null : /^[A-Z][A-Z0-9_]{0,63}$/.test(error.code ?? "") ? error.code : "UNCLASSIFIED";
+  const summary = {
+    status: result.status,
+    signal: result.signal,
+    error: code(result.error),
+    cleanupError: code(result.cleanupError),
+  };
+  assert.deepEqual(summary, { status: 0, signal: null, error: null, cleanupError: null },
+    `${commandName} fixture command failed: ${JSON.stringify(summary)}`);
+}
+
 async function owned(commandName, args, { env, cwd }) {
   const result = await runOwnedCommand(commandName, args, { env, cwd, timeout: 10_000, maxBuffer: 64 * 1024, encoding: "utf8" });
-  assert.ok(!result.error && !result.cleanupError && !result.signal && result.status === 0,
-    `${commandName} fixture command failed: ${result.cleanupError ?? result.error?.message ?? result.stderr ?? result.status}`);
+  assertFixtureCommand(result, commandName);
   return result.stdout;
 }
 
