@@ -66,11 +66,13 @@ async function exercise(options = {}, hooks = {}) {
 
 test("campaign runs sequentially and groups one validated receipt per plugin per repetition", async () => {
   let active = false;
-  const { campaign, saved } = await exercise({}, { async run({ definition }) {
+  let checks = 0;
+  const { campaign, saved } = await exercise({}, { verify() { checks++; }, async run({ definition }) {
     assert.equal(active, false); active = true; await Promise.resolve(); active = false; return receipt(definition);
   } });
   assert.equal(campaign.status, "complete");
   assert.equal(saved.size, 5);
+  assert.equal(checks, 8);
   for (const repetition of campaign.repetitions) {
     assert.deepEqual(repetition.summary, { exercised: 2, blocked: 0, unsupported: 1, failed: 0 });
     assert.equal(repetition.plugins.length, inventory.plugins.length);
@@ -96,12 +98,14 @@ test("input mismatch blocks every later execution and preserves the denominator"
 });
 
 test("failed producer receipt is retained before stopping later hosts", async () => {
-  const { campaign, saved } = await exercise({}, { async run({ definition }) {
+  let checks = 0;
+  const { campaign, saved } = await exercise({}, { verify() { checks++; }, async run({ definition }) {
     const report = receipt(definition); report.status = "failed"; report.reason = "workload-failed";
     report.cases[1].status = "failed"; report.cases[1].adapterCleanup.status = "failed";
     return report;
   } });
   assert.equal(campaign.status, "failed");
+  assert.equal(checks, 2);
   assert.equal(saved.get("repetition-1/a-v1.json").cases[1].adapterCleanup.status, "failed");
   assert.equal(saved.has("repetition-1/b-v1.json"), false);
   assert.equal(campaign.repetitions[1].plugins[0].status, "blocked");
@@ -124,11 +128,13 @@ for (const fault of ["cleanup", "identity", "counts", "archive", "throw"]) test(
 
 test("blocked host prerequisites stop unchanged repeated attempts", async () => {
   let calls = 0;
-  const { campaign } = await exercise({}, { async run({ definition }) {
+  let checks = 0;
+  const { campaign } = await exercise({}, { verify() { checks++; }, async run({ definition }) {
     calls++;
     return { ...receipt(definition), status: "blocked", reason: "host-prerequisite", cases: [] };
   } });
   assert.equal(calls, 1);
+  assert.equal(checks, 2);
   assert.equal(campaign.status, "blocked");
   assert.equal(campaign.repetitions[0].plugins[0].reason, "host-prerequisite");
 });
@@ -144,9 +150,77 @@ test("post-run input drift preserves raw evidence but cannot credit coverage", a
   let checks = 0;
   const { campaign, saved, calls } = await exercise({}, { verify() { if (++checks === 2) throw new Error("changed during work"); } });
   assert.equal(calls.length, 1);
+  assert.equal(checks, 2);
   assert.equal(saved.get("repetition-1/a-v1.json").status, "exercised");
   assert.equal(campaign.repetitions[0].plugins[0].status, "failed");
   assert.equal(campaign.repetitions[0].plugins[0].diagnostic.stage, "postverify");
+});
+
+for (const fault of ["run", "receipt-write", "receipt-validation", "receipt-pins"]) {
+  for (const drift of [false, true]) test(`postverify follows ${fault} failure once (drift=${drift})`, async () => {
+    const events = [];
+    const retained = new Map();
+    let checks = 0;
+    const { campaign } = await exercise({}, {
+      async verify() {
+        await Promise.resolve();
+        events.push(++checks === 1 ? "preverify" : "postverify");
+        if (checks === 2 && drift) assert.fail("host input changed: /private/fixture/host.mjs token=synthetic-sensitive-value");
+      },
+      async run({ definition }) {
+        events.push("run");
+        if (fault === "run") throw new TypeError("synthetic-runner-private-value");
+        const report = receipt(definition);
+        if (fault === "receipt-validation") delete report.cases[1].phases[0].after.runtime;
+        if (fault === "receipt-pins") report.provenance.consumerSha256 = "d".repeat(64);
+        return report;
+      },
+      async save(name, value) {
+        events.push(name === "campaign.json" ? "checkpoint" : "receipt");
+        if (name !== "campaign.json" && fault === "receipt-write") {
+          throw Object.assign(new Error("synthetic-storage-private-value"), { code: "EIO" });
+        }
+        retained.set(name, structuredClone(value));
+      },
+    });
+    assert.deepEqual(events, ["checkpoint", "preverify", "checkpoint", "run",
+      ...(fault === "run" ? [] : ["receipt"]), "postverify", "checkpoint", "checkpoint"]);
+    assert.equal(checks, 2);
+    assert.equal(campaign.status, "failed");
+    const row = campaign.repetitions[0].plugins[0];
+    assert.equal(row.status, "failed");
+    assert.equal(row.diagnostic.stage, fault === "receipt-pins" ? "receipt-validation" : fault);
+    assert.equal(row.reason, fault === "run" ? "runner-threw-without-receipt" : "invalid-or-unpinned-workload-receipt");
+    assert.equal(row.diagnostic.code, fault === "receipt-write" ? "EIO" : fault === "receipt-pins" ? "ERR_ASSERTION" : "UNKNOWN");
+    assert.equal(retained.has("repetition-1/a-v1.json"), fault !== "run" && fault !== "receipt-write");
+    assert.equal(campaign.repetitions[0].plugins[1].reason, "campaign-admission-stopped");
+    assert.equal(campaign.repetitions[1].plugins[0].reason, "campaign-admission-stopped");
+    if (drift) {
+      assert.equal(row.postverifyDiagnostic.stage, "postverify");
+      assert.equal(row.postverifyDiagnostic.code, "ERR_ASSERTION");
+      assert.match(row.postverifyDiagnostic.message, /host input changed: \[path\] credential=\[redacted\]/u);
+    } else assert.equal(row.postverifyDiagnostic, undefined);
+    const saved = JSON.stringify(retained.get("campaign.json"));
+    for (const secret of ["/private/fixture", "synthetic-sensitive-value", "synthetic-runner-private-value", "synthetic-storage-private-value"]) {
+      assert.ok(!saved.includes(secret));
+    }
+    assert.deepEqual(retained.get("campaign.json"), campaign);
+  });
+}
+
+test("failed preverification or admission checkpoint never invokes or postverifies work", async () => {
+  for (const fault of ["preverify", "checkpoint"]) {
+    const events = [];
+    let saves = 0;
+    const pending = exercise({}, {
+      verify() { events.push("preverify"); if (fault === "preverify") throw new Error("preverification failed"); },
+      run() { assert.fail("work must not start"); },
+      save() { events.push("checkpoint"); if (++saves === 2 && fault === "checkpoint") throw new Error("admission checkpoint failed"); },
+    });
+    if (fault === "checkpoint") await assert.rejects(pending, /admission checkpoint failed/);
+    else assert.equal((await pending).campaign.status, "blocked");
+    assert.deepEqual(events, ["checkpoint", "preverify", "checkpoint", ...(fault === "preverify" ? ["checkpoint"] : [])]);
+  }
 });
 
 test("a different configured scenario cannot supply the requested plugin receipt", async () => {

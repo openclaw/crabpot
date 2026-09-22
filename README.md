@@ -253,6 +253,8 @@ pinned. Use an empty artifacts array for bundled-only scenarios. This verifies
 declared local bytes, not the entire build or dependency closure; freeze those
 inputs in the outer runner. Runtime, files and archives are checked before and
 after each invocation, and producer receipt hashes must agree.
+Postverification also runs after runner, receipt persistence or receipt validation
+failures; input drift prevents credit and stops subsequent invocations.
 Each receipt must match the requested scenario and the pinned Gateway runtime.
 The Node version comparison accounts only for `process.version`'s leading `v`;
 Gateway snapshots use `process.versions.node` without that prefix.
@@ -275,6 +277,8 @@ Failures retain their stage (`preverify`, `run`, `receipt-write`,
 `receipt-validation` or `postverify`), a recognized error type/code and bounded,
 path-redacted validation context. Arbitrary runner exception text, stacks and
 assertion payloads are omitted; raw workload receipts remain separate evidence.
+If postverification also fails, `postverifyDiagnostic` retains that sanitized
+failure alongside the original `diagnostic` and reason.
 CPU/memory observations remain report-only: no resource thresholds, leak verdicts,
 automatic retries, cross-run aggregation, calibration execution or CI scheduling
 are added. Supply separately qualified calibration with matching frozen inputs.

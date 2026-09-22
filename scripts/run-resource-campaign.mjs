@@ -161,6 +161,7 @@ export async function runResourceCampaign({
       row.reason = "execution-in-progress";
       await checkpoint();
       let report;
+      let validated;
       let stage = "run";
       try {
         report = await run({ definition, inventory, execute: true, hostRoot });
@@ -170,22 +171,36 @@ export async function runResourceCampaign({
         await save(receipt, report);
         row.receipt = receipt;
         stage = "receipt-validation";
-        const validated = validateResourceWorkloadReport(report, inventory, [definition]);
+        validated = validateResourceWorkloadReport(report, inventory, [definition]);
         assert.equal(validated.producerStatus, validated.status, "Receipt inventory differs");
         assert.equal(report.provenance.adapterSha256, pins.files.crabpot[`scripts/resource-workloads/${definition.adapter}.mjs`], "Receipt adapter differs");
         verifyReceiptPins(report, pins);
-        stage = "postverify";
-        await verify();
-        row.status = validated.status;
-        row.reason = validated.reason;
-        // Incomplete executions may lack cleanup authority or a shared host prerequisite.
-        // Stop rather than retrying unchanged inputs or admitting another host.
-        halted = row.status !== "exercised";
       } catch (error) {
         row.status = "failed";
         row.reason = report === undefined ? "runner-threw-without-receipt" : "invalid-or-unpinned-workload-receipt";
         row.diagnostic = failureDiagnostic(error, stage);
         halted = true;
+      } finally {
+        // Every settled invocation must verify its inputs, even without a valid receipt.
+        // Retain both failures rather than replacing the original with input drift.
+        try { await verify(); }
+        catch (error) {
+          const diagnostic = failureDiagnostic(error, "postverify");
+          if (row.diagnostic) row.postverifyDiagnostic = diagnostic;
+          else {
+            row.diagnostic = diagnostic;
+            row.reason = "invalid-or-unpinned-workload-receipt";
+          }
+          row.status = "failed";
+          halted = true;
+        }
+      }
+      if (row.status !== "failed") {
+        row.status = validated.status;
+        row.reason = validated.reason;
+        // Incomplete executions may lack cleanup authority or a shared host prerequisite.
+        // Stop rather than retrying unchanged inputs or admitting another host.
+        halted = row.status !== "exercised";
       }
       await checkpoint();
     }
