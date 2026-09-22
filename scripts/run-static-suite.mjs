@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { spawnSync } from "node:child_process";
 import { pathToFileURL } from "node:url";
+import { configuredTimeoutMs } from "./owned-command.mjs";
 import { portableCommand } from "./portable-command.mjs";
 
 const defaultStepTimeoutMs = 10 * 60 * 1000;
@@ -147,16 +148,4 @@ function run(command, args, env = {}, index = 1, total = 1) {
     process.exit(result.status ?? 1);
   }
   console.log(`crabpot: static step ${index}/${total} complete`);
-}
-
-function configuredTimeoutMs(envName, fallback) {
-  const raw = process.env[envName];
-  if (!raw) {
-    return fallback;
-  }
-  const parsed = Number.parseInt(raw, 10);
-  if (!Number.isInteger(parsed) || parsed <= 0) {
-    throw new Error(`${envName} must be a positive integer timeout in milliseconds`);
-  }
-  return parsed;
 }

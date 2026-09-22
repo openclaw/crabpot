@@ -145,6 +145,10 @@ checkout Git and npm commands and fixture-security npm audits default to 2 minut
 `CRABPOT_NPM_TIMEOUT_MS` to a decimal integer from 1 through 2147483647;
 zero, fractions, trailing text, and infinite timeouts are rejected.
 
+Static-suite steps default to 10 minutes. `CRABPOT_STATIC_STEP_TIMEOUT_MS`
+uses the same decimal-integer range and rejects malformed values before
+starting a step.
+
 Commands remain synchronous to callers, with a separate bounded supervisor for
 startup, execution, output, and descendant cleanup. Captured checkout and
 generated-surface output retains the 1 MiB combined stdout/stderr limit. Smoke
