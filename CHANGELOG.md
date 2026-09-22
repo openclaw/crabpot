@@ -2,6 +2,8 @@
 
 ## 0.2.2 - Unreleased
 
+- Recognize exact HAPI and TencentDB known blockers in current Inspector child diagnostics, while preserving unexpected errors; declare the three Matrix verification methods that require account and crypto state.
+
 - Refresh npm fixture pins and compatible dependency overrides, including current stable OpenClaw plugin artifacts; patch TencentDB's Jaeger propagator while preserving its reviewed plugin pin.
 - Refresh Dependabot compatibility reports against the merged base's OpenClaw pin, submodules, and plugin track, preventing stale-host and mislabeled beta-fixture evidence.
 - Cancel superseded PR check and advisory runs without replacing push or manual attempts. Stop expensive report regeneration after cancellation while preserving existing artifacts, failure summaries, and the required verdict.

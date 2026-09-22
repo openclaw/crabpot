@@ -3,6 +3,13 @@
   "version": 1,
   "allowedBlocked": [
     {
+      "id": "matrix-verification-runtime-prerequisite",
+      "seam": "registerGatewayMethod",
+      "reasonIncludes": "captured Matrix verification requires a configured account and crypto runtime",
+      "decision": "allowed-blocked",
+      "until": "Matrix verification probes have an isolated configured account and crypto runtime"
+    },
+    {
       "id": "account-usage-runtime-prerequisite",
       "seam": "registerGatewayMethod",
       "reasonIncludes": "captured account usage requires a saved subscription login and Gateway runtime",
