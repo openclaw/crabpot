@@ -369,10 +369,11 @@ test("workflows use current action majors and dependency caches", async () => {
 test("dependabot refresh resolves the host and submodules after updating its base", async () => {
   const workflow = await readWorkflow(".github/workflows/dependabot-auto-merge.yml");
   const merge = workflow.indexOf('git merge --no-edit "origin/');
-  const submodules = workflow.indexOf("git submodule update --init --recursive", merge);
+  const sync = workflow.indexOf("git submodule sync --recursive", merge);
+  const submodules = workflow.indexOf("git submodule update --init --recursive", sync);
   const resolveHost = workflow.indexOf("- name: Resolve pinned OpenClaw Default Track");
 
-  assert.ok(merge >= 0 && submodules > merge && resolveHost > submodules,
+  assert.ok(merge >= 0 && sync > merge && submodules > sync && resolveHost > submodules,
     "the host pin and checked-out fixture sources must come from the merged base");
 });
 

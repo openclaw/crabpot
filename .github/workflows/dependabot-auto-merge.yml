@@ -50,6 +50,7 @@ jobs:
           set -euo pipefail
           git fetch origin "${{ github.event.pull_request.base.ref }}"
           git merge --no-edit "origin/${{ github.event.pull_request.base.ref }}"
+          git submodule sync --recursive
           git submodule update --init --recursive
 
       - name: Resolve pinned OpenClaw Default Track
