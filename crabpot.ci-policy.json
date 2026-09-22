@@ -3,6 +3,34 @@
   "version": 1,
   "allowedBlocked": [
     {
+      "id": "voice-call-runtime-prerequisite",
+      "seam": "registerGatewayMethod",
+      "reasonIncludes": "captured voice-call method requires an enabled runtime and configured provider",
+      "decision": "allowed-blocked",
+      "until": "voice-call probes have an isolated enabled runtime and configured provider"
+    },
+    {
+      "id": "voice-call-active-call-prerequisite",
+      "seam": "registerGatewayMethod",
+      "reasonIncludes": "captured voice-call action requires an active call and command input",
+      "decision": "allowed-blocked",
+      "until": "voice-call action probes can create isolated calls and supply command input"
+    },
+    {
+      "id": "voice-call-continuation-prerequisite",
+      "seam": "registerGatewayMethod",
+      "reasonIncludes": "captured voice-call continuation query requires an existing continuation operation",
+      "decision": "allowed-blocked",
+      "until": "voice-call continuation probes can create and poll isolated operations"
+    },
+    {
+      "id": "matrix-verification-runtime-prerequisite",
+      "seam": "registerGatewayMethod",
+      "reasonIncludes": "captured Matrix verification requires a configured account and crypto runtime",
+      "decision": "allowed-blocked",
+      "until": "Matrix verification probes have an isolated configured account and crypto runtime"
+    },
+    {
       "id": "account-usage-runtime-prerequisite",
       "seam": "registerGatewayMethod",
       "reasonIncludes": "captured account usage requires a saved subscription login and Gateway runtime",

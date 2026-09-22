@@ -1,0 +1,39 @@
+file:///fixture/crabpot/.crabpot/plugin-inspector/6169338410f76e1e7e9f6ec29c65b6007e62d829/src/inspector.js:389
+  const wrapped = new Error(details.message, { cause: error });
+                  ^
+
+Error: Error: Invalid hapi-openclaw config: hapiBaseUrl must be a non-empty string
+    at enrichCaptureError (file:///fixture/crabpot/.crabpot/plugin-inspector/6169338410f76e1e7e9f6ec29c65b6007e62d829/src/inspector.js:389:19)
+    at classifyChildCaptureError (file:///fixture/crabpot/.crabpot/plugin-inspector/6169338410f76e1e7e9f6ec29c65b6007e62d829/src/inspector.js:334:12)
+    at captureEntrypointInChild (file:///fixture/crabpot/.crabpot/plugin-inspector/6169338410f76e1e7e9f6ec29c65b6007e62d829/src/inspector.js:282:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async main (file:///fixture/crabpot/scripts/run-cold-import-capture.mjs:25:18)
+    at async file:///fixture/crabpot/scripts/run-cold-import-capture.mjs:10:3 {
+  failureClass: 'registration-execution-error',
+  [cause]: Error: Mock SDK capture child failed
+      at captureEntrypointInChild (file:///fixture/crabpot/.crabpot/plugin-inspector/6169338410f76e1e7e9f6ec29c65b6007e62d829/src/inspector.js:282:65)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async main (file:///fixture/crabpot/scripts/run-cold-import-capture.mjs:25:18)
+      at async file:///fixture/crabpot/scripts/run-cold-import-capture.mjs:10:3 {
+    exitCode: 1,
+    timedOut: false,
+    cancelled: false,
+    timeoutMs: 30000,
+    signal: null,
+    pid: 1001,
+    stdout: '',
+    stderr: '[plugin-inspector:registration-execution-error]\n' +
+      'Error: Invalid hapi-openclaw config: hapiBaseUrl must be a non-empty string\n' +
+      '    at readRequiredString (file:///fixture/crabpot/.crabpot/workspaces/hapi-openclaw/dist/index.js:89:11)\n' +
+      '    at resolvePluginConfig (file:///fixture/crabpot/.crabpot/workspaces/hapi-openclaw/dist/index.js:101:18)\n' +
+      '    at resolveRegisteredPluginConfig (file:///fixture/crabpot/.crabpot/workspaces/hapi-openclaw/dist/index.js:2360:10)\n' +
+      '    at registerPluginRoutes (file:///fixture/crabpot/.crabpot/workspaces/hapi-openclaw/dist/index.js:2363:18)\n' +
+      '    at register (file:///fixture/crabpot/.crabpot/workspaces/hapi-openclaw/dist/index.js:2406:5)\n' +
+      '    at captureLinkedEntrypoint (file:///fixture/crabpot/.crabpot/plugin-inspector/6169338410f76e1e7e9f6ec29c65b6007e62d829/src/mock-sdk-capture-runner.js:94:11)\n' +
+      '    at async run (file:///fixture/crabpot/.crabpot/plugin-inspector/6169338410f76e1e7e9f6ec29c65b6007e62d829/src/mock-sdk-capture-runner.js:50:12)\n' +
+      '    at async file:///fixture/crabpot/.crabpot/plugin-inspector/6169338410f76e1e7e9f6ec29c65b6007e62d829/src/mock-sdk-capture-runner.js:17:18\n',
+    outputTruncated: false
+  }
+}
+
+Node.js v24.20.0
