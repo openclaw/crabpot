@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
+import { requiredCaseOperations, resourceWorkloadComparison, resourceWorkloadPlan } from "./resource-workload-contract.mjs";
 
 const distributions = ["core", "external", "source"];
 const sha = /^[0-9a-f]{40}$/;
@@ -139,13 +140,22 @@ function readCalibration(report, inventory) {
   };
 }
 
-function readWorkload(report, inventory, definitions) {
-  requireValue(record(report) && report.schemaVersion === 1 && report.kind === "plugin-resource-workload" && ["blocked", "failed", "exercised"].includes(report.status), "expected plugin resource workload v1");
+export function validateResourceWorkloadReport(report, inventory, definitions) {
+  requireValue(record(report) && [1, 2].includes(report.schemaVersion) && report.kind === "plugin-resource-workload" && ["blocked", "failed", "exercised"].includes(report.status), "expected plugin resource workload v1 or v2");
   requireValue(typeof report.reason === "string" && report.reason.length > 0, "workload needs an outcome reason");
   const definition = definitions.find(({ id }) => id === report.scenario?.id);
   requireValue(definition && definition.pluginId === report.scenario.pluginId, "unknown workload or plugin identity");
+  const plans = resourceWorkloadPlan(definition);
+  // Published v1 receipts describe an empty-host control and startup activation.
+  // They cannot attest a later scenario requiring dependencies or paired work.
+  requireValue(report.schemaVersion !== 1 || definition.pairedWorkload === undefined, "v1 cannot attest paired workload requirements");
+  if (report.schemaVersion === 2) {
+    requireValue(stableJson(report.scenario.pairedWorkload) === stableJson(definition.pairedWorkload), "workload comparison contract differs from configured scenario");
+    requireValue(digest.test(report.provenance?.contractSha256), "workload lacks contract identity");
+  }
   requireValue(stableJson(definition.requiredOperations) === stableJson(report.scenario.requirements), "workload requirements differ from the configured scenario");
   requireValue(inventory.plugins.some(({ id }) => id === definition.pluginId), "workload plugin absent from inventory");
+  requireValue((definition.pairedWorkload?.dependencies ?? []).every((dependency) => inventory.plugins.some(({ id }) => id === dependency)), "workload dependency absent from inventory");
   requireValue(sha.test(report.inventory?.source?.commit) && digest.test(report.inventory?.sha256), "workload lacks inventory identity");
   requireValue(digest.test(report.provenance?.adapterSha256) && digest.test(report.provenance?.consumerSha256) && record(report.measurement) && Array.isArray(report.cases), "workload lacks producer provenance or observations");
   for (const item of report.cases) {
@@ -158,22 +168,51 @@ function readWorkload(report, inventory, definitions) {
   }
   if (report.status === "exercised") {
     requireValue(record(report.provenance.harnessSha256) && Object.keys(report.provenance.harnessSha256).length > 0 && Object.values(report.provenance.harnessSha256).every((value) => digest.test(value)), "successful workload lacks harness hashes");
-    requireValue(report.cases.length === 2 && report.cases[0].name === "empty" && report.cases[1].name === definition.pluginId, "workload needs ordered empty/plugin cases");
+    requireValue(report.cases.length === plans.length && report.cases.every((item, index) => item.name === plans[index].name), "workload needs ordered baseline/plugin cases");
     requireValue(report.cases[0].host?.entrySha256 === report.cases[1].host?.entrySha256, "workload cases used different host artifacts");
-    for (const item of report.cases) {
-      const enabled = item.name !== "empty";
+    if (report.schemaVersion === 2 && definition.pairedWorkload) {
+      for (const item of report.cases) {
+        requireValue(Array.isArray(item.fixtures) && item.fixtures.every((fixture) => record(fixture) &&
+          typeof fixture.archive === "string" && /^[^/\\]+\.tgz$/.test(fixture.archive) && digest.test(fixture.sha256)),
+        "paired workload lacks valid installed fixture receipts");
+      }
+      // Compare installed bytes, including multiplicity, not only plugin IDs or
+      // caller-supplied pins. Empty arrays are valid for host-bundled plugins.
+      requireValue(stableJson(report.cases[0].fixtures.map(({ sha256 }) => sha256).sort()) ===
+        stableJson(report.cases[1].fixtures.map(({ sha256 }) => sha256).sort()), "paired workload installed fixture hashes differ");
+    }
+    for (const [index, item] of report.cases.entries()) {
+      const plan = plans[index];
       requireValue(item.status === "exercised" && cleanShutdown(item.shutdown), "successful workload lacks clean joined shutdown");
       requireValue(item.host?.commit === report.inventory.source.commit && digest.test(item.host?.entrySha256), "workload host identity mismatch");
-      requireValue(JSON.stringify(item.activePlugins) === JSON.stringify(enabled ? [definition.pluginId] : []), "workload active plugins differ");
+      if (report.schemaVersion === 1) {
+        requireValue(stableJson(item.activePlugins) === stableJson(plan.expectedBefore), "workload active plugins differ");
+      } else {
+        requireValue(record(item.activation) &&
+          stableJson(item.activation.expectedBefore) === stableJson(plan.expectedBefore) &&
+          stableJson(item.activation.expectedAfter) === stableJson(plan.expectedAfter) &&
+          stableJson(item.activation.before) === stableJson(plan.expectedBefore) &&
+          stableJson(item.activation.after) === stableJson(plan.expectedAfter), "workload dependency or target activation differs");
+        const cleanup = item.adapterCleanup;
+        requireValue(cleanup?.status === "complete" && cleanup.registration === "closed" && Number.isSafeInteger(cleanup.registered) && cleanup.registered >= 0 &&
+          cleanup.completed === cleanup.registered && (cleanup.errors === undefined || (Array.isArray(cleanup.errors) && cleanup.errors.length === 0)),
+        "successful workload lacks completed adapter cleanup");
+      }
       for (const phase of item.phases) {
         validateSuccessfulPhase(phase);
         requireValue(phase.before.pid === item.phases[0].before.pid && stableJson(phase.before.runtime) === stableJson(report.cases[0].phases[0].before.runtime) && stableJson(phase.before.cpuEnvironment) === stableJson(report.cases[0].phases[0].before.cpuEnvironment), "workload changed Gateway, runtime or CPU environment");
       }
-      const required = { startup: 0, idle: 0, "neutral-rpc": 20, "post-neutral": 0,
-        ...(enabled ? { ...definition.requiredOperations, "post-work": 0 } : {}) };
+      const required = requiredCaseOperations(definition, plan);
+      if (report.schemaVersion === 2) {
+        requireValue(stableJson(item.phases.map(({ name }) => name)) === stableJson(Object.keys(required)), "workload phases differ from declared case order");
+        requireValue(item.phases.every((phase, phaseIndex) => phaseIndex === 0 || phase.before.atMonotonicMicros >= item.phases[phaseIndex - 1].after.atMonotonicMicros), "workload measured phases overlap");
+      }
       for (const [name, count] of Object.entries(required)) {
         requireValue(item.phases.find((phase) => phase.name === name)?.operations.completed === count, `workload lacks ${name} completions`);
       }
+    }
+    if (report.schemaVersion === 2) {
+      requireValue(stableJson(report.comparison) === stableJson(resourceWorkloadComparison(report.cases, definition)), "workload comparison differs from paired observations");
     }
   }
   const matches = stableJson(report.inventory.source) === stableJson(inventory.source) && report.inventory.sha256 === inventory.sha256;
@@ -186,7 +225,7 @@ export function buildResourceCoverage({ inventory, kitchenSinkReport, workloadRe
   const plugins = inventory.plugins.map(({ id, path, distribution }) => ({
     id, path, distribution, status: "unsupported", reason: "no-workload-adapter",
   }));
-  const workloads = workloadReports.map((report) => readWorkload(report, inventory, resourceWorkloads));
+  const workloads = workloadReports.map((report) => validateResourceWorkloadReport(report, inventory, resourceWorkloads));
   const selected = new Set();
   for (const workload of workloads) {
     const id = workload.scenario.pluginId;

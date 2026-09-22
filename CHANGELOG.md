@@ -2,6 +2,7 @@
 
 ## 0.2.2 - Unreleased
 
+- Support paired plugin workloads with identical dependency controls, before/after activation checks, adapter cleanup and signed resource deltas. Preserve published v1 empty-host receipts while emitting explicit v2 observations.
 - Adopt Inspector source fixes for SDK discovery inside packaged `.setup` modules and composed Zod enums, preserving the published 0.3.26 package pin pending upstream release.
 - Recognize exact HAPI and TencentDB blocker diagnostics from owned child processes, retaining raw failures and rejecting unrelated errors, timeouts, cancellations, and truncation.
 - Declare the exact Matrix verification and Voice Call Gateway prerequisites for credential-free probes; retain explicit gaps and normal failures for unrelated methods or configured overrides.
