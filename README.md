@@ -519,3 +519,31 @@ than the fourth web-search wrapper.
 The first fixture set intentionally covers channels, dynamic tools, LLM
 observation, diagnostics, gateway-owned services, async jobs, provider
 capabilities, and security/policy hooks.
+
+### Temporary Windows startup diagnostics
+
+The diagnostic candidate for [issue 305](https://github.com/openclaw/crabpot/issues/305)
+reuses [draft 306](https://github.com/openclaw/crabpot/pull/306)'s independent parent,
+Worker, PowerShell and native receipts. It is an observation patch, not a startup
+repair. The existing serial cold test flow, 10-second startup budget and cleanup
+failure semantics stay unchanged. No command is prewarmed or retried.
+
+Only the first matching Inspector checkout `git init` per parent process is
+observed, with at most four attempt directories under
+`reports/crabpot-startup-305/`. `capture-contracts.test.mjs` is labeled
+`cold-contract-test`; `ci-policy.test.mjs` is labeled `cold-policy-test`. Later
+report generation is labeled separately. Each summary describes its own attempt;
+later attempts cannot overwrite earlier producer files. The existing report
+artifact upload includes these receipts.
+
+Each producer is bounded to 32 records, 2 KiB per record and 64 KiB total. Records
+omit command arguments, environment, raw exception messages and output contents.
+Synchronous diagnostic I/O and added native compilation have an observer effect.
+A missing phase record is unavailable evidence; diagnostic progress, helper PIDs
+and termination requests never replace authoritative cleanup receipts.
+
+Use one reviewed diagnostic head's original Windows Default Track flow. Read both
+cold-attempt identities and producer sequences before any later summary attempt.
+A healthy observation is not a fix; a failure without sufficient phase receipts
+is still unattributed. Remove or separately disposition this temporary diagnostic
+after the bounded observation; do not merge it as a production repair.
