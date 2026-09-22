@@ -7,7 +7,7 @@ import { test } from "node:test";
 import { runOwnedCommand } from "../scripts/owned-command.mjs";
 import { readManifest } from "../scripts/manifest-lib.mjs";
 import {
-  agentCycle, assertModelOutput, assertPackageClosure, assertStatistics, configure,
+  agentCycle, assertFixtureCommand, assertModelOutput, assertPackageClosure, assertStatistics, configure,
   installPinnedArchive, prepareRepository, run, startProvider,
 } from "../scripts/resource-workloads/tokenjuice.mjs";
 
@@ -72,8 +72,7 @@ test("archive input checks actual bytes and closure before native installation",
   const archive = path.join(root, "fixture.tgz");
   const env = environment(root);
   const packed = await runOwnedCommand("tar", ["-czf", archive, "-C", root, "package"], { cwd: root, env, timeout: 10_000, maxBuffer: 64 * 1024, encoding: "utf8" });
-  assert.equal(packed.status, 0);
-  assert.ok(!packed.error && !packed.cleanupError);
+  assertFixtureCommand(packed, "tar");
   const sha256 = createHash("sha256").update(await readFile(archive)).digest("hex");
   const installed = [];
   const context = { root, env, installArchive: async (...args) => {
@@ -101,6 +100,31 @@ test("real Git fixture has exactly 32 modified tracked files, isolated config an
   assert.equal(env.TOKENJUICE_ARTIFACT_DIR, undefined);
   assertModelOutput(repository.raw, repository.raw, false);
   assertModelOutput(compact, repository.raw, true);
+});
+
+test("fixture failure retains command and cleanup codes without command data", () => {
+  const privateText = "synthetic-private-command-data";
+  assert.throws(() => assertFixtureCommand({
+    status: null, signal: null,
+    error: { code: "EOWNERSTART", message: privateText },
+    cleanupError: { code: "EOWNERCLEANUP", message: privateText },
+    stderr: privateText,
+  }, "git"), (error) => {
+    assert.equal(error.actual.error, "EOWNERSTART");
+    assert.equal(error.actual.cleanupError, "EOWNERCLEANUP");
+    assert.match(error.message, /"error":"EOWNERSTART"/);
+    assert.match(error.message, /"cleanupError":"EOWNERCLEANUP"/);
+    assert.ok(!error.message.includes(privateText));
+    return true;
+  });
+  assert.throws(() => assertFixtureCommand({
+    status: null, signal: "SIGTERM", error: { code: privateText },
+  }, "tar"), (error) => {
+    assert.equal(error.actual.signal, "SIGTERM");
+    assert.equal(error.actual.error, "UNCLASSIFIED");
+    assert.ok(!error.message.includes(privateText));
+    return true;
+  });
 });
 
 for (const [label, output, enabled] of [
