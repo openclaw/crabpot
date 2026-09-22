@@ -14,8 +14,8 @@ Status: PASS
 
 | Metric                     | Value |
 | -------------------------- | ----- |
-| Issue findings             | 268   |
-| Open issue findings        | 268   |
+| Issue findings             | 269   |
+| Open issue findings        | 269   |
 | Runtime-covered findings   | 0     |
 | Runtime-partial findings   | 0     |
 | 🔴 P0                      | 7     |
@@ -26,11 +26,11 @@ Status: PASS
 | Live P0 issues             | 7     |
 | Compat gaps                | 28    |
 | Deprecation warnings       | 22    |
-| Inspector gaps             | 147   |
-| Open inspector gaps        | 147   |
+| Inspector gaps             | 148   |
+| Open inspector gaps        | 148   |
 | Runtime coverage artifacts | 0     |
 | Upstream metadata          | 64    |
-| Contract probes            | 236   |
+| Contract probes            | 237   |
 
 ## Triage Overview
 
@@ -39,7 +39,7 @@ Status: PASS
 | live-issue          | 7     | 7  | Potential runtime breakage in the target OpenClaw/plugin pair. P0 only when it is not a deprecated compat seam.                                          |
 | compat-gap          | 28    | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                                                                   |
 | deprecation-warning | 22    | -  | Plugin uses a supported but deprecated compatibility seam; keep it wired while migration exists.                                                         |
-| inspector-gap       | 147   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments. Runtime-covered rows are proof-backed and not open report work. |
+| inspector-gap       | 148   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments. Runtime-covered rows are proof-backed and not open report work. |
 | upstream-metadata   | 64    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.                                                 |
 | fixture-regression  | 0     | -  | Fixture no longer exposes an expected seam; investigate fixture pin or scanner drift.                                                                    |
 
@@ -190,7 +190,7 @@ _none_
   - **sdk-export-missing**: memory-tencentdb: plugin SDK import aliases are missing from target package exports
   - state: open · compat:untracked
   - evidence:
-    - openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8522
+    - openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8523
     - openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:2190
 
 - 🟠 P1 **memos-cloud** `compat-gap` `core-compat-adapter`
@@ -400,7 +400,7 @@ _none_
   - **legacy-root-sdk-import**: memory-tencentdb: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8522
+    - openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8523
     - openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:2190
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
@@ -1049,14 +1049,22 @@ _none_
   - **channel-contract-probe**: lightclawbot: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - createChatChannelPlugin @ plugins/lightclawbot/.crabpot-package/dist/src/channel.js:47
+    - createChatChannelPlugin @ plugins/lightclawbot/.crabpot-package/dist/src/channel.js:49
     - defineChannelPluginEntry @ plugins/lightclawbot/.crabpot-package/dist/index.js:25
 
 - 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: lightclawbot: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
+    - @modelcontextprotocol/sdk @ plugins/lightclawbot/.crabpot-package/package.json
     - ws @ plugins/lightclawbot/.crabpot-package/package.json
+
+- 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: lightclawbot: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - registerMcpServerConnectionResolver @ plugins/lightclawbot/.crabpot-package/dist/src/connectors/mcp-connection.js:58
+    - registerService @ plugins/lightclawbot/.crabpot-package/dist/src/connectors/owned-tools.js:390
 
 - 🟡 P2 **lobster** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: lobster: cold import requires dependency installation in an isolated workspace
@@ -1200,9 +1208,9 @@ _none_
   - **registration-capture-gap**: memory-tencentdb: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1109
-    - registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7749
-    - registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7760
+    - registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1110
+    - registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7750
+    - registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7761
     - registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/src/offload-client/index.ts:67
     - registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1235
     - registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1246
@@ -2368,7 +2376,7 @@ _none_
   - **sdk-export-missing**: memory-tencentdb: plugin SDK import aliases are missing from target package exports
   - state: open · compat:untracked
   - evidence:
-    - openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8522
+    - openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8523
     - openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:2190
 
 - 🟠 P1 **memos-cloud** `compat-gap` `core-compat-adapter`
@@ -3375,13 +3383,14 @@ _none_
   - **channel-contract-probe**: lightclawbot: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - createChatChannelPlugin @ plugins/lightclawbot/.crabpot-package/dist/src/channel.js:47
+    - createChatChannelPlugin @ plugins/lightclawbot/.crabpot-package/dist/src/channel.js:49
     - defineChannelPluginEntry @ plugins/lightclawbot/.crabpot-package/dist/index.js:25
 
 - 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: lightclawbot: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
+    - @modelcontextprotocol/sdk @ plugins/lightclawbot/.crabpot-package/package.json
     - ws @ plugins/lightclawbot/.crabpot-package/package.json
 
 - 🟡 P2 **lightclawbot** `upstream-metadata` `plugin-upstream-fix`
@@ -3392,6 +3401,13 @@ _none_
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
+
+- 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: lightclawbot: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:active
+  - evidence:
+    - registerMcpServerConnectionResolver @ plugins/lightclawbot/.crabpot-package/dist/src/connectors/mcp-connection.js:58
+    - registerService @ plugins/lightclawbot/.crabpot-package/dist/src/connectors/owned-tools.js:390
 
 - 🟡 P2 **llm-trace-phoenix** `upstream-metadata` `plugin-upstream-fix`
   - **package-manifest-version-drift**: llm-trace-phoenix: package and manifest versions drift
@@ -3584,7 +3600,7 @@ _none_
   - **legacy-root-sdk-import**: memory-tencentdb: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8522
+    - openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8523
     - openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:2190
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
@@ -3615,9 +3631,9 @@ _none_
   - **registration-capture-gap**: memory-tencentdb: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1109
-    - registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7749
-    - registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7760
+    - registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1110
+    - registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7750
+    - registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7761
     - registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/src/offload-client/index.ts:67
     - registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1235
     - registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1246
@@ -4450,7 +4466,7 @@ _none_
   - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
   - id: `sdk.import.package-export-cold-import:memory-tencentdb`
   - evidence:
-    - openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8522
+    - openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8523
     - openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:2190
 
 - 🟠 P1 **mocrane-wecom** `sdk-alias`
@@ -4596,9 +4612,9 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:memory-tencentdb`
   - evidence:
-    - registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1109
-    - registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7749
-    - registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7760
+    - registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1110
+    - registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7750
+    - registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7761
     - registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/src/offload-client/index.ts:67
     - registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1235
     - registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1246
@@ -5173,7 +5189,7 @@ _none_
   - contract: Root plugin SDK barrel remains importable or has a machine-readable migration path.
   - id: `sdk.import.root-barrel-cold-import:memory-tencentdb`
   - evidence:
-    - openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8522
+    - openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8523
     - openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:2190
 
 - 🟡 P2 **mocrane-wecom** `sdk-alias`
@@ -5330,6 +5346,13 @@ _none_
     - [registerNodeHostCommand @ index.js:360](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/google-meet/dist/index.js#L360)
     - [registerNodeInvokePolicy @ index.js:366](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/google-meet/dist/index.js#L366)
 
+- 🟢 P3 **lightclawbot** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:lightclawbot`
+  - evidence:
+    - registerMcpServerConnectionResolver @ plugins/lightclawbot/.crabpot-package/dist/src/connectors/mcp-connection.js:58
+    - registerService @ plugins/lightclawbot/.crabpot-package/dist/src/connectors/owned-tools.js:390
+
 - 🟢 P3 **matrix** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:matrix`
@@ -5407,7 +5430,7 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:lightclawbot`
   - evidence:
-    - createChatChannelPlugin @ plugins/lightclawbot/.crabpot-package/dist/src/channel.js:47
+    - createChatChannelPlugin @ plugins/lightclawbot/.crabpot-package/dist/src/channel.js:49
     - defineChannelPluginEntry @ plugins/lightclawbot/.crabpot-package/dist/index.js:25
 
 - 🟢 P3 **mattermost** `channel-runtime`
@@ -5848,6 +5871,7 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:lightclawbot`
   - evidence:
+    - @modelcontextprotocol/sdk @ plugins/lightclawbot/.crabpot-package/package.json
     - ws @ plugins/lightclawbot/.crabpot-package/package.json
 
 - 🟢 P3 **lobster** `package-loader`

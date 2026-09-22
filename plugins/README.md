@@ -200,3 +200,8 @@ When the fixture declares OpenClaw as a peer, refresh its lock with
 `npm install --package-lock-only --ignore-scripts --legacy-peer-deps --prefix plugins/<id>`.
 OpenClaw is supplied by the workspace's host link; do not add an automatic peer
 installation of the host and its dependency tree to the fixture lock.
+
+HAPI's explicit OpenClaw dependency includes a published npm shrinkwrap.
+Transitive overrides in the fixture shim cannot replace that host-owned graph;
+update the mutable plugin dependencies instead. The workspace plan owns the
+OpenClaw host link used for execution.
