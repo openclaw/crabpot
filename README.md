@@ -223,7 +223,22 @@ plugin installation. Prepare its archives and offline dependency cache first.
 The outer runner must enforce a minimal environment, network/resource limits and
 a deadline, then stop and join the whole sandbox on interruption or failure.
 
-The required input-pins JSON has this shape (replace placeholders with real
+Generate pins inside the final Linux image, using its Node runtime with
+`process.threadCpuUsage`, after the frozen host, consumer and archives are present:
+
+```bash
+node /crabpot/scripts/prepare-resource-inputs.mjs \
+  --plugin-inventory /fixtures/inventory.json --host-root /app \
+  --out /fixtures/inputs.json --archive /fixtures/plugin.tgz
+```
+
+Repeat `--archive` for each local archive; omit it for bundled-only workloads.
+The output must not exist and its parent must exist. The writer validates the
+inventory digest and matching build commit, reads this consumer's manifest,
+and hashes the required files, available configured adapters and archives.
+It does not build, download, install or run workloads.
+
+The generated input-pins JSON has this shape (replace placeholders with real
 identities; do not copy the sample hashes):
 
 ```json

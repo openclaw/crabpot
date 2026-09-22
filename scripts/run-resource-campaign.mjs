@@ -21,6 +21,7 @@ const consumerFiles = [
   "scripts/resource-workload-contract.mjs", "scripts/resource-coverage.mjs", "scripts/manifest-lib.mjs",
 ];
 const entries = ["openclaw.mjs", "dist/index.mjs", "dist/index.js"];
+export { hostFiles as resourceHostFiles, consumerFiles as resourceConsumerFiles, entries as resourceHostEntries };
 const hashFile = (file) => digest(readFileSync(file));
 const record = (value) => value !== null && typeof value === "object" && !Array.isArray(value);
 
