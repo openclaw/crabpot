@@ -1,6 +1,48 @@
 import assert from "node:assert/strict";
+import { spawnSync } from "node:child_process";
+import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import os from "node:os";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { test } from "node:test";
 import { buildStaticSuiteSteps } from "../scripts/run-static-suite.mjs";
+
+function runWithTimeout(value) {
+  const cwd = mkdtempSync(path.join(os.tmpdir(), "crabpot-static-timeout-"));
+  try {
+    mkdirSync(path.join(cwd, "scripts"));
+    writeFileSync(path.join(cwd, "scripts/check-openclaw-plugin-contracts.mjs"),
+      'console.log("synthetic static command executed"); process.exit(23);\n');
+    const env = { ...process.env };
+    if (value === undefined) delete env.CRABPOT_STATIC_STEP_TIMEOUT_MS;
+    else env.CRABPOT_STATIC_STEP_TIMEOUT_MS = value;
+    return spawnSync(process.execPath, [fileURLToPath(new URL("../scripts/run-static-suite.mjs", import.meta.url))], {
+      cwd, env, encoding: "utf8", timeout: 10_000,
+    });
+  } finally {
+    rmSync(cwd, { recursive: true, force: true });
+  }
+}
+
+test("static suite rejects malformed step timeouts before starting a command", () => {
+  for (const value of ["1.5", "10ms", "-1", "0", "2147483648"]) {
+    const result = runWithTimeout(value);
+    assert.ifError(result.error);
+    assert.notEqual(result.status, 0, JSON.stringify(value));
+    assert.match(result.stderr, /CRABPOT_STATIC_STEP_TIMEOUT_MS must be a positive integer timeout/, JSON.stringify(value));
+    assert.equal(result.stdout, "", "invalid settings must not start the first step");
+  }
+});
+
+test("static suite preserves absent, empty, and valid step timeout settings", () => {
+  for (const value of [undefined, "", "10000"]) {
+    const result = runWithTimeout(value);
+    assert.ifError(result.error);
+    assert.equal(result.status, 23, JSON.stringify(value));
+    assert.match(result.stdout, /synthetic static command executed/);
+    assert.equal(result.stderr, "");
+  }
+});
 
 test("static suite keeps the dashboard gate broad and target-explicit", () => {
   const steps = buildStaticSuiteSteps({
