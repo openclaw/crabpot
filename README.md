@@ -260,6 +260,13 @@ startup, idle and 20 neutral RPCs against an empty-host baseline. Main-isolate
 heap/thread CPU excludes the SQLite worker; process CPU/RSS includes it. Short
 windows do not establish periodic-service cost or disposal retention.
 
+Beam's `beam-receiver-cycle-v1` uses one HTTP upload and four catalog RPCs per
+cycle. It verifies the stored two-message transcript, archives the snapshot and
+checks that the catalog is empty. One first cycle and 20 warm cycles stay below
+the receiver's normal rate limit. Mirroring is unconfigured; this does not cover
+remote publishing, continuation, expiry or concurrent uploads. Select this
+scenario with the same command and a separate output receipt.
+
 Add the receipt to the existing report from the Crabpot checkout:
 
 ```bash
