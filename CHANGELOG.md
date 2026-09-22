@@ -2,6 +2,10 @@
 
 ## 0.2.2 - Unreleased
 
+- Adopt Inspector source fixes for SDK discovery inside packaged `.setup` modules and composed Zod enums, preserving the published 0.3.26 package pin pending upstream release.
+- Recognize exact HAPI and TencentDB blocker diagnostics from owned child processes, retaining raw failures and rejecting unrelated errors, timeouts, cancellations, and truncation.
+- Declare the exact Matrix verification and Voice Call Gateway prerequisites for credential-free probes; retain explicit gaps and normal failures for unrelated methods or configured overrides.
+
 - Restore Dependabot updates with daily cron schedules that satisfy GitHub’s 24-hour minimum while preserving UTC minute staggering.
 - Reject fractional, suffixed, and out-of-range static-suite timeout settings before running a step, using the shared bounded timeout validator while preserving the default for unset or empty settings.
 - Refresh Dependabot compatibility reports against the merged base's OpenClaw pin, submodules, and plugin track, preventing stale-host and mislabeled beta-fixture evidence.
@@ -9,6 +13,7 @@
 - Record fixture-owned account and meeting Gateway prerequisites before invoking credential-free synthetic probes. Keep ready status methods and unrelated Gateway failures visible; blocked methods remain explicit gaps until their host state and transports are supplied.
 
 - Prepare selected npm fixture payloads before manual OpenClaw ref compatibility planning and execution; derive capability selections from prepared source while preserving intentional empty lanes.
+- Refresh npm fixture pins and compatible dependency overrides, including compatible current stable OpenClaw plugin artifacts; retain Discord’s pin pending host/runtime support and patch TencentDB's Jaeger propagator while preserving its reviewed plugin pin.
 - Discover SDK modules loaded inside retained plugin handlers and verify real source and package CLI values while keeping Gateway prerequisite failures visible. Adopt Plugin Inspector 0.3.26 in both source and published-package modes.
 - Use the public lazy-runtime SDK contract in Plugin Inspector probes so plugin runtimes load lazily and report their actual outcomes in source and published-package modes.
 - Preserve original Gateway rejection messages in Plugin Inspector probes and verify both source and published-package smoke in Linux CI.

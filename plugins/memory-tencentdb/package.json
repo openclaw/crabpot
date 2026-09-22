@@ -12,6 +12,7 @@
     "package": "@tencentdb-agent-memory/memory-tencentdb"
   },
   "overrides": {
+    "@opentelemetry/propagator-jaeger": "2.11.0",
     "esbuild": "0.28.2",
     "qs": "6.15.3",
     "tsx": "4.23.12",
