@@ -80,6 +80,37 @@ test("calibration work never earns workload credit for inventory plugins", () =>
   assert.equal(result.calibration.postDisposalResidual.status, "unsupported");
 });
 
+function omitActiveResources(phase) {
+  delete phase.before.activeResources;
+  delete phase.after.activeResources;
+  delete phase.activeResourceChanges;
+}
+
+test("Kitchen Sink v1 accepts the original producer without active-resource observations", () => {
+  const report = calibration();
+  // OpenClaw 50ea1795 emitted these CPU/memory fields before adding resource
+  // histograms to the same v1 report. Missing observations must stay missing.
+  for (const item of report.cases) item.phases.forEach(omitActiveResources);
+  const result = coverage(report);
+  assert.equal(result.calibration.status, "exercised");
+  assert.equal(result.summary.exercised, 0);
+  assert.equal(result.calibration.cases[1].phases[4].before.activeResources, undefined);
+  assert.equal(result.calibration.cases[1].phases[4].activeResourceChanges, undefined);
+});
+
+test("optional calibration resource observations must be complete and consistent", () => {
+  for (const change of [
+    (phase) => { delete phase.before.activeResources; },
+    (phase) => { delete phase.after.activeResources; },
+    (phase) => { delete phase.activeResourceChanges; },
+    (phase) => { phase.activeResourceChanges.Timeout = 0; },
+  ]) {
+    const report = calibration();
+    change(report.cases[1].phases[4]);
+    assert.throws(() => coverage(report), /active resources/);
+  }
+});
+
 test("failed and stale-source receipts retain producer outcomes without credit", () => {
   const report = calibration();
   report.status = "failed";
@@ -219,6 +250,7 @@ test("successful workload rejects wrong identity, reduced work, lost samples and
     (report) => { report.cases[1].phases[5].operations = { attempted: 19, completed: 19, failed: 0 }; },
     (report) => { report.cases[1].phases[5].after = null; },
     (report) => { report.cases[1].phases[5].after.pid = 2; },
+    (report) => { report.cases[1].phases.forEach(omitActiveResources); },
     (report) => { report.cases[1].shutdown.signals.push("SIGKILL"); },
   ]) {
     const report = workload();
