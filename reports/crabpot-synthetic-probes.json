@@ -2,14 +2,14 @@
   "generatedAt": "deterministic",
   "summary": {
     "fixtureCount": 59,
-    "probeCount": 511,
+    "probeCount": 516,
     "hookProbeCount": 132,
-    "registrationProbeCount": 379,
-    "readyCount": 501,
+    "registrationProbeCount": 384,
+    "readyCount": 506,
     "blockedCount": 10,
-    "directExecutionCount": 185,
-    "optInExecutionCount": 35,
-    "metadataOnlyCount": 159
+    "directExecutionCount": 188,
+    "optInExecutionCount": 36,
+    "metadataOnlyCount": 160
   },
   "probes": [
     {
@@ -2418,7 +2418,7 @@
       "source": "plugins/nemoclaw/nemoclaw/src/index.ts:385"
     },
     {
-      "id": "hook.after_tool_call:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1096",
+      "id": "hook.after_tool_call:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1097",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "after_tool_call",
@@ -2435,7 +2435,7 @@
         "hook": "after_tool_call",
         "fixture": "memory-tencentdb"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1096"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1097"
     },
     {
       "id": "hook.after_tool_call:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-src-offload-client-index-ts-47",
@@ -2458,7 +2458,7 @@
       "source": "plugins/memory-tencentdb/.crabpot-package/src/offload-client/index.ts:47"
     },
     {
-      "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1097",
+      "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1098",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "agent_end",
@@ -2495,10 +2495,10 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1097"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1098"
     },
     {
-      "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1258",
+      "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1259",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "agent_end",
@@ -2535,10 +2535,10 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1258"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1259"
     },
     {
-      "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-22215",
+      "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-22335",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "agent_end",
@@ -2575,10 +2575,10 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:22215"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:22335"
     },
     {
-      "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-808",
+      "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-809",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "agent_end",
@@ -2615,7 +2615,7 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:808"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:809"
     },
     {
       "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-openclaw-plugin-index-ts-209",
@@ -2698,7 +2698,7 @@
       "source": "plugins/memory-tencentdb/.crabpot-package/src/offload-client/index.ts:52"
     },
     {
-      "id": "hook.before_message_write:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-22177",
+      "id": "hook.before_message_write:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-22297",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "before_message_write",
@@ -2715,10 +2715,10 @@
         "hook": "before_message_write",
         "fixture": "memory-tencentdb"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:22177"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:22297"
     },
     {
-      "id": "hook.before_message_write:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-772",
+      "id": "hook.before_message_write:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-773",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "before_message_write",
@@ -2735,10 +2735,10 @@
         "hook": "before_message_write",
         "fixture": "memory-tencentdb"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:772"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:773"
     },
     {
-      "id": "hook.before_prompt_build:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1229",
+      "id": "hook.before_prompt_build:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1230",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "before_prompt_build",
@@ -2768,10 +2768,10 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1229"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1230"
     },
     {
-      "id": "hook.before_prompt_build:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-22113",
+      "id": "hook.before_prompt_build:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-22233",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "before_prompt_build",
@@ -2801,10 +2801,10 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:22113"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:22233"
     },
     {
-      "id": "hook.before_prompt_build:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-681",
+      "id": "hook.before_prompt_build:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-682",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "before_prompt_build",
@@ -2834,7 +2834,7 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:681"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:682"
     },
     {
       "id": "hook.before_prompt_build:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-openclaw-plugin-index-ts-173",
@@ -2870,7 +2870,7 @@
       "source": "plugins/memory-tencentdb/.crabpot-package/openclaw-plugin/index.ts:173"
     },
     {
-      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1104",
+      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1105",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "gateway_stop",
@@ -2887,10 +2887,10 @@
         "hook": "gateway_stop",
         "fixture": "memory-tencentdb"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1104"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1105"
     },
     {
-      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-22287",
+      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-22407",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "gateway_stop",
@@ -2907,10 +2907,10 @@
         "hook": "gateway_stop",
         "fixture": "memory-tencentdb"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:22287"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:22407"
     },
     {
-      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-22314",
+      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-22434",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "gateway_stop",
@@ -2927,10 +2927,10 @@
         "hook": "gateway_stop",
         "fixture": "memory-tencentdb"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:22314"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:22434"
     },
     {
-      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-912",
+      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-913",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "gateway_stop",
@@ -2947,10 +2947,10 @@
         "hook": "gateway_stop",
         "fixture": "memory-tencentdb"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:912"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:913"
     },
     {
-      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-965",
+      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-966",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "gateway_stop",
@@ -2967,7 +2967,7 @@
         "hook": "gateway_stop",
         "fixture": "memory-tencentdb"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:965"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:966"
     },
     {
       "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-src-offload-client-index-ts-61",
@@ -9925,7 +9925,7 @@
       "source": "plugins/nemoclaw/nemoclaw/src/index.ts:375"
     },
     {
-      "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-21712",
+      "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-21831",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerCli",
@@ -9954,10 +9954,10 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:21712"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:21831"
     },
     {
-      "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-22347",
+      "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-22467",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerCli",
@@ -9986,10 +9986,10 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:22347"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:22467"
     },
     {
-      "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-1014",
+      "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-1015",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerCli",
@@ -10018,7 +10018,7 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:1014"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:1015"
     },
     {
       "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-160",
@@ -10053,7 +10053,7 @@
       "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:160"
     },
     {
-      "id": "registration.registerContextEngine:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1109",
+      "id": "registration.registerContextEngine:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1110",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerContextEngine",
@@ -10074,10 +10074,10 @@
         "callableProperties": [],
         "reason": "context engine factories are captured as registration metadata; engine startup remains isolated opt-in"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1109"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1110"
     },
     {
-      "id": "registration.registerContextEngine:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-7749",
+      "id": "registration.registerContextEngine:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-7750",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerContextEngine",
@@ -10098,10 +10098,10 @@
         "callableProperties": [],
         "reason": "context engine factories are captured as registration metadata; engine startup remains isolated opt-in"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7749"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7750"
     },
     {
-      "id": "registration.registerContextEngine:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-7760",
+      "id": "registration.registerContextEngine:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-7761",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerContextEngine",
@@ -10122,7 +10122,7 @@
         "callableProperties": [],
         "reason": "context engine factories are captured as registration metadata; engine startup remains isolated opt-in"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7760"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7761"
     },
     {
       "id": "registration.registerContextEngine:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-src-offload-client-index-ts-67",
@@ -10197,7 +10197,7 @@
       "source": "plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1246"
     },
     {
-      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1159",
+      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1160",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerTool",
@@ -10226,10 +10226,10 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1159"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1160"
     },
     {
-      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1185",
+      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1186",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerTool",
@@ -10258,10 +10258,10 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1185"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1186"
     },
     {
-      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1211",
+      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1212",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerTool",
@@ -10290,10 +10290,10 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1211"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1212"
     },
     {
-      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-21847",
+      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-21967",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerTool",
@@ -10322,10 +10322,10 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:21847"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:21967"
     },
     {
-      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-21939",
+      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-22059",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerTool",
@@ -10354,10 +10354,10 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:21939"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:22059"
     },
     {
-      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-22065",
+      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-22185",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerTool",
@@ -10386,10 +10386,10 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:22065"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:22185"
     },
     {
-      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-379",
+      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-380",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerTool",
@@ -10418,10 +10418,10 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:379"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:380"
     },
     {
-      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-466",
+      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-467",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerTool",
@@ -10450,10 +10450,10 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:466"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:467"
     },
     {
-      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-619",
+      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-620",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerTool",
@@ -10482,7 +10482,7 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:619"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:620"
     },
     {
       "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-openclaw-plugin-index-ts-119",
@@ -10689,7 +10689,7 @@
       "source": "plugins/dingtalk-connector/src/gateway-methods.ts:130"
     },
     {
-      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-190",
+      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-189",
       "fixture": "dingtalk-connector",
       "kind": "registration",
       "seam": "registerGatewayMethod",
@@ -10717,10 +10717,10 @@
           "invoke"
         ]
       },
-      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:190"
+      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:189"
     },
     {
-      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-258",
+      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-256",
       "fixture": "dingtalk-connector",
       "kind": "registration",
       "seam": "registerGatewayMethod",
@@ -10748,10 +10748,10 @@
           "invoke"
         ]
       },
-      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:258"
+      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:256"
     },
     {
-      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-311",
+      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-308",
       "fixture": "dingtalk-connector",
       "kind": "registration",
       "seam": "registerGatewayMethod",
@@ -10779,10 +10779,10 @@
           "invoke"
         ]
       },
-      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:311"
+      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:308"
     },
     {
-      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-351",
+      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-347",
       "fixture": "dingtalk-connector",
       "kind": "registration",
       "seam": "registerGatewayMethod",
@@ -10810,10 +10810,10 @@
           "invoke"
         ]
       },
-      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:351"
+      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:347"
     },
     {
-      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-388",
+      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-383",
       "fixture": "dingtalk-connector",
       "kind": "registration",
       "seam": "registerGatewayMethod",
@@ -10841,10 +10841,10 @@
           "invoke"
         ]
       },
-      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:388"
+      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:383"
     },
     {
-      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-425",
+      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-419",
       "fixture": "dingtalk-connector",
       "kind": "registration",
       "seam": "registerGatewayMethod",
@@ -10872,10 +10872,10 @@
           "invoke"
         ]
       },
-      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:425"
+      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:419"
     },
     {
-      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-452",
+      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-445",
       "fixture": "dingtalk-connector",
       "kind": "registration",
       "seam": "registerGatewayMethod",
@@ -10903,10 +10903,10 @@
           "invoke"
         ]
       },
-      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:452"
+      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:445"
     },
     {
-      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-506",
+      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-498",
       "fixture": "dingtalk-connector",
       "kind": "registration",
       "seam": "registerGatewayMethod",
@@ -10934,10 +10934,10 @@
           "invoke"
         ]
       },
-      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:506"
+      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:498"
     },
     {
-      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-593",
+      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-584",
       "fixture": "dingtalk-connector",
       "kind": "registration",
       "seam": "registerGatewayMethod",
@@ -10965,10 +10965,10 @@
           "invoke"
         ]
       },
-      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:593"
+      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:584"
     },
     {
-      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-60",
+      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-61",
       "fixture": "dingtalk-connector",
       "kind": "registration",
       "seam": "registerGatewayMethod",
@@ -10996,10 +10996,10 @@
           "invoke"
         ]
       },
-      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:60"
+      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:61"
     },
     {
-      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-652",
+      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-642",
       "fixture": "dingtalk-connector",
       "kind": "registration",
       "seam": "registerGatewayMethod",
@@ -11027,10 +11027,10 @@
           "invoke"
         ]
       },
-      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:652"
+      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:642"
     },
     {
-      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-719",
+      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-gateway-methods-ts-708",
       "fixture": "dingtalk-connector",
       "kind": "registration",
       "seam": "registerGatewayMethod",
@@ -11058,10 +11058,10 @@
           "invoke"
         ]
       },
-      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:719"
+      "source": "plugins/dingtalk-connector/src/gateway-methods.ts:708"
     },
     {
-      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-services-card-bridge-ts-337",
+      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-services-card-bridge-ts-327",
       "fixture": "dingtalk-connector",
       "kind": "registration",
       "seam": "registerGatewayMethod",
@@ -11089,10 +11089,10 @@
           "invoke"
         ]
       },
-      "source": "plugins/dingtalk-connector/src/services/card-bridge.ts:337"
+      "source": "plugins/dingtalk-connector/src/services/card-bridge.ts:327"
     },
     {
-      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-services-card-bridge-ts-362",
+      "id": "registration.registerGatewayMethod:dingtalk-connector:plugins-dingtalk-connector-src-services-card-bridge-ts-351",
       "fixture": "dingtalk-connector",
       "kind": "registration",
       "seam": "registerGatewayMethod",
@@ -11120,7 +11120,7 @@
           "invoke"
         ]
       },
-      "source": "plugins/dingtalk-connector/src/services/card-bridge.ts:362"
+      "source": "plugins/dingtalk-connector/src/services/card-bridge.ts:351"
     },
     {
       "id": "registration.registerTool:dingtalk-doc:plugins-dingtalk-doc-src-tools-helpers-ts-93",
@@ -11558,7 +11558,7 @@
       "source": "plugins/openclaw-weixin/.crabpot-package/index.ts:19"
     },
     {
-      "id": "registration.createChatChannelPlugin:lightclawbot:plugins-lightclawbot-crabpot-package-dist-src-channel-js-47",
+      "id": "registration.createChatChannelPlugin:lightclawbot:plugins-lightclawbot-crabpot-package-dist-src-channel-js-49",
       "fixture": "lightclawbot",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -11583,7 +11583,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/lightclawbot/.crabpot-package/dist/src/channel.js:47"
+      "source": "plugins/lightclawbot/.crabpot-package/dist/src/channel.js:49"
     },
     {
       "id": "registration.defineChannelPluginEntry:lightclawbot:plugins-lightclawbot-crabpot-package-dist-index-js-25",
@@ -11610,6 +11610,119 @@
         "reason": "entry wrapper metadata is captured before channel runtime execution"
       },
       "source": "plugins/lightclawbot/.crabpot-package/dist/index.js:25"
+    },
+    {
+      "id": "registration.registerMcpServerConnectionResolver:lightclawbot:plugins-lightclawbot-crabpot-package-dist-src-connectors-mcp-connection-js-58",
+      "fixture": "lightclawbot",
+      "kind": "registration",
+      "seam": "registerMcpServerConnectionResolver",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "registration arguments are captured"
+      ],
+      "syntheticArguments": [
+        {}
+      ],
+      "execution": {
+        "mode": "metadata-only",
+        "callableProperties": [],
+        "reason": "MCP server connection resolvers are captured as registration metadata before requester-bound transport resolution"
+      },
+      "source": "plugins/lightclawbot/.crabpot-package/dist/src/connectors/mcp-connection.js:58"
+    },
+    {
+      "id": "registration.registerService:lightclawbot:plugins-lightclawbot-crabpot-package-dist-src-connectors-owned-tools-js-390",
+      "fixture": "lightclawbot",
+      "kind": "registration",
+      "seam": "registerService",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "service id is stable",
+        "start/stop lifecycle handlers are captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture-service",
+          "start": "function",
+          "stop": "function"
+        }
+      ],
+      "execution": {
+        "mode": "lifecycle-opt-in",
+        "callableProperties": [
+          "start",
+          "stop",
+          "dispose"
+        ],
+        "option": "includeLifecycle"
+      },
+      "source": "plugins/lightclawbot/.crabpot-package/dist/src/connectors/owned-tools.js:390"
+    },
+    {
+      "id": "registration.registerTool:lightclawbot:plugins-lightclawbot-crabpot-package-dist-src-connectors-owned-tools-js-368",
+      "fixture": "lightclawbot",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/lightclawbot/.crabpot-package/dist/src/connectors/owned-tools.js:368"
+    },
+    {
+      "id": "registration.registerTool:lightclawbot:plugins-lightclawbot-crabpot-package-dist-src-connectors-owned-tools-js-389",
+      "fixture": "lightclawbot",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/lightclawbot/.crabpot-package/dist/src/connectors/owned-tools.js:389"
     },
     {
       "id": "registration.registerTool:lightclawbot:plugins-lightclawbot-crabpot-package-dist-src-tools-download-tool-js-49",
@@ -11644,7 +11757,7 @@
       "source": "plugins/lightclawbot/.crabpot-package/dist/src/tools/download-tool.js:49"
     },
     {
-      "id": "registration.registerTool:lightclawbot:plugins-lightclawbot-crabpot-package-dist-src-tools-group-add-agent-tool-js-365",
+      "id": "registration.registerTool:lightclawbot:plugins-lightclawbot-crabpot-package-dist-src-tools-group-add-agent-tool-js-368",
       "fixture": "lightclawbot",
       "kind": "registration",
       "seam": "registerTool",
@@ -11673,7 +11786,7 @@
           "execute"
         ]
       },
-      "source": "plugins/lightclawbot/.crabpot-package/dist/src/tools/group-add-agent-tool.js:365"
+      "source": "plugins/lightclawbot/.crabpot-package/dist/src/tools/group-add-agent-tool.js:368"
     },
     {
       "id": "registration.registerTool:lightclawbot:plugins-lightclawbot-crabpot-package-dist-src-tools-group-history-tool-js-128",
@@ -11706,6 +11819,38 @@
         ]
       },
       "source": "plugins/lightclawbot/.crabpot-package/dist/src/tools/group-history-tool.js:128"
+    },
+    {
+      "id": "registration.registerTool:lightclawbot:plugins-lightclawbot-crabpot-package-dist-src-tools-mcp-servers-tool-js-132",
+      "fixture": "lightclawbot",
+      "kind": "registration",
+      "seam": "registerTool",
+      "status": "ready",
+      "blocker": null,
+      "assertions": [
+        "tool name is stable",
+        "input schema is captured",
+        "result shape metadata is captured"
+      ],
+      "syntheticArguments": [
+        {
+          "name": "fixture_tool",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          },
+          "run": "function"
+        }
+      ],
+      "execution": {
+        "mode": "direct",
+        "callableProperties": [
+          "run",
+          "handler",
+          "execute"
+        ]
+      },
+      "source": "plugins/lightclawbot/.crabpot-package/dist/src/tools/mcp-servers-tool.js:132"
     },
     {
       "id": "registration.registerTool:lightclawbot:plugins-lightclawbot-crabpot-package-dist-src-tools-upload-tool-js-41",

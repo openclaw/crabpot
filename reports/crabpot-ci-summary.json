@@ -1,22 +1,22 @@
 {
   "generatedAt": "deterministic",
   "title": "Crabpot CI Summary",
-  "mode": "check",
+  "mode": "dependabot",
   "openclawLabel": "openclaw/openclaw@d9b899649800 (Default Track pin 2026-09-10)",
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 104,
-    "suggestions": 164,
-    "issues": 268,
+    "warnings": 102,
+    "suggestions": 165,
+    "issues": 267,
     "p0Issues": 7,
-    "p1Issues": 34,
+    "p1Issues": 33,
     "liveIssues": 7,
     "liveP0Issues": 7,
-    "compatGaps": 28,
+    "compatGaps": 27,
     "deprecationWarnings": 22,
-    "inspectorGaps": 147,
-    "upstreamIssues": 64,
+    "inspectorGaps": 148,
+    "upstreamIssues": 63,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
@@ -29,16 +29,16 @@
     "platformWindowsRisks": 17,
     "platformContainerRisks": 17,
     "loaderJitiCandidates": 20,
-    "importLoopP50Ms": 1913,
-    "importLoopP95Ms": 1970,
+    "importLoopP50Ms": 3181,
+    "importLoopP95Ms": 3277,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 42.6,
-    "importLoopOpenClawActivationP50Ms": 0.3,
+    "importLoopOpenClawImportP50Ms": 65.9,
+    "importLoopOpenClawActivationP50Ms": 0.5,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 3.8,
-    "importLoopMaxCpuMs": 0,
-    "importLoopRssSampleCount": 230,
-    "importLoopCpuSampleCount": 230
+    "importLoopMaxRssMb": 2.8,
+    "importLoopMaxCpuMs": 93,
+    "importLoopRssSampleCount": 381,
+    "importLoopCpuSampleCount": 381
   },
   "topIssues": [
     {
@@ -147,14 +147,6 @@
     },
     {
       "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "dingtalk-connector",
-      "code": "sdk-export-missing",
-      "title": "dingtalk-connector: plugin SDK import aliases are missing from target package exports",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
       "issueClass": "inspector-gap",
       "fixture": "dingtalk-doc",
       "code": "before-tool-call-probe",
@@ -200,6 +192,14 @@
       "code": "missing-compat-record",
       "title": "inworld-tts: compat-dependent behavior lacks registry coverage",
       "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "kitchen-sink",
+      "code": "before-tool-call-probe",
+      "title": "kitchen-sink: before_tool_call needs terminal/block/approval probes",
+      "decision": "inspector-follow-up"
     }
   ],
   "refRegressions": [],
@@ -224,20 +224,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 570.7% over baseline",
+      "message": "p95WallMs regressed 884.4% over baseline",
       "baseline": 1273,
-      "current": 8538,
-      "delta": 7265,
-      "percent": 570.7
+      "current": 12532,
+      "delta": 11259,
+      "percent": 884.4
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 694.4 over baseline",
+      "message": "maxPeakRssMb regressed 693.8 over baseline",
       "baseline": 65.1,
-      "current": 759.5,
-      "delta": 694.4
+      "current": 758.9,
+      "delta": 693.8
     }
   ],
   "artifacts": {
