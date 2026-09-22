@@ -231,6 +231,48 @@ does not independently attest artifact bytes, infer leaks from RSS, or upgrade
 unsupported disposal observations. These options leave default compatibility
 reports unchanged and add no performance budget gate.
 
+Workload adapters live in `scripts/resource-workloads/`; their scenario IDs and
+required completion counts live in `crabpot.config.json` under `resourceWorkloads`.
+They exercise the real built Gateway through OpenClaw's source-checkout
+`runResourceGatewayCase` helper. An OpenClaw revision containing that helper and
+Linux Node with `process.threadCpuUsage()` are required. Missing prerequisites
+produce a blocked receipt, never plugin coverage.
+
+Prepare a container with one frozen built OpenClaw checkout, this Crabpot
+checkout, and the matching inventory. Run from the OpenClaw checkout root:
+
+```bash
+node /crabpot/scripts/run-resource-workload.mjs \
+  --scenario workboard-card-crud-v1 --plugin-inventory /fixtures/inventory.json \
+  --out /out/workboard.json --execute
+```
+
+Omit `--execute` for a plan without starting a Gateway. The runner must enforce
+network isolation, CPU/memory limits and an outer deadline, then stop and join
+the **whole container** on failure. Killing only this script can leave the
+Gateway's separate process group alive. A temporary HOME alone is not isolation.
+
+Workboard uses its real SQLite worker: one first CRUD cycle and 20 warm cycles,
+each asserting create/update/list/delete/list results and an empty final store.
+The first cycle follows an initial empty-store read; it does not measure first
+database activation. No cards can dispatch agent work. Each case also measures
+startup, idle and 20 neutral RPCs against an empty-host baseline. Main-isolate
+heap/thread CPU excludes the SQLite worker; process CPU/RSS includes it. Short
+windows do not establish periodic-service cost or disposal retention.
+
+Add the receipt to the existing report from the Crabpot checkout:
+
+```bash
+npm run report -- --plugin-inventory /fixtures/inventory.json \
+  --resource-workload-report /out/workboard.json
+```
+
+Repeat the option for distinct plugins. Same-plugin repetitions belong in
+separate reports. Credit requires complete raw snapshots, matching derived
+measurements, configured completion counts, identical host artifacts, the
+expected active plugin and joined shutdown without forced termination. Failed
+receipts preserve partial work. Unmeasured plugins remain `unsupported`.
+
 ## Behavioral eval POC
 
 Behavior evals are profile-driven, default to a dry plan, and stay

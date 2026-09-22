@@ -65,6 +65,29 @@ export function validateManifest(manifest) {
   }
 
   const ids = new Set();
+  const workloadIds = new Set();
+  if (manifest.resourceWorkloads !== undefined && !Array.isArray(manifest.resourceWorkloads)) {
+    errors.push("resourceWorkloads must be an array");
+  }
+  for (const workload of Array.isArray(manifest.resourceWorkloads) ? manifest.resourceWorkloads : []) {
+    if (!workload || typeof workload !== "object" || Array.isArray(workload)) {
+      errors.push("resource workload must be an object");
+      continue;
+    }
+    for (const key of ["id", "pluginId", "adapter"]) {
+      if (typeof workload[key] !== "string" || !/^[a-z0-9][a-z0-9-]*$/.test(workload[key])) {
+        errors.push(`resource workload ${key} must be a lowercase identifier`);
+      }
+    }
+    if (workloadIds.has(workload.id)) errors.push(`duplicate resource workload: ${workload.id}`);
+    workloadIds.add(workload.id);
+    if (!workload.requiredOperations || typeof workload.requiredOperations !== "object" || Array.isArray(workload.requiredOperations) ||
+        Object.keys(workload.requiredOperations).length === 0 || Object.entries(workload.requiredOperations).some(([name, count]) =>
+          !/^[a-z0-9][a-z0-9-]*$/.test(name) || !Number.isSafeInteger(count) || count < 1 || count > 1000)) {
+      errors.push("resource workload requiredOperations needs bounded positive counts");
+    }
+    if (typeof workload.why !== "string" || !workload.why.trim()) errors.push("resource workload why must be set");
+  }
   const paths = new Set();
   for (const fixture of manifest.fixtures ?? []) {
     if (!/^[a-z0-9][a-z0-9-]*$/.test(fixture.id ?? "")) {
