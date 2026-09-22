@@ -203,6 +203,82 @@ dashboard card used to compare `crab-beta` and `crab-development` against
 
 ### Plugin resource coverage
 
+#### Report-only campaign runner
+
+`scripts/run-resource-campaign.mjs` runs every configured `resourceWorkloads`
+scenario sequentially, with 1–10 repetitions (default 3). Run it from the frozen
+built OpenClaw root inside an already isolated runner:
+
+```bash
+node /crabpot/scripts/run-resource-campaign.mjs \
+  --plugin-inventory /fixtures/inventory.json --inputs /fixtures/inputs.json \
+  --out /out/campaign-1 --repetitions 3 --execute
+```
+
+The output directory must not exist; its parent must exist. Omit `--execute`
+to enumerate the full inventory without importing adapters or starting hosts.
+This command does not build, download, provision isolation, configure credentials
+or install campaign prerequisites. The workload adapter still owns native local
+plugin installation. Prepare its archives and offline dependency cache first.
+The outer runner must enforce a minimal environment, network/resource limits and
+a deadline, then stop and join the whole sandbox on interruption or failure.
+
+The required input-pins JSON has this shape (replace placeholders with real
+identities; do not copy the sample hashes):
+
+```json
+{
+  "schemaVersion": 1,
+  "hostCommit": "<full inventory/build commit>",
+  "runtime": { "node": "<exact process.version>", "platform": "linux", "arch": "x64" },
+  "files": {
+    "host": { "openclaw.mjs": "<sha256>", "dist/build-info.json": "<sha256>" },
+    "crabpot": { "crabpot.config.json": "<sha256>" }
+  },
+  "artifacts": [{ "path": "/fixtures/plugin.tgz", "sha256": "<sha256>" }]
+}
+```
+
+The abbreviated maps must also pin all four host instrumentation files:
+`scripts/e2e/kitchen-sink-rpc-walk.mts`,
+`scripts/e2e/lib/kitchen-sink-resources.mts`,
+`scripts/lib/gateway-bench-profile.ts`, and
+`scripts/lib/gateway-bench-profile-preload.ts`. The Crabpot map must include
+`scripts/run-resource-campaign.mjs`, `scripts/run-resource-workload.mjs`,
+`scripts/resource-workload-contract.mjs`, `scripts/resource-coverage.mjs`,
+`scripts/manifest-lib.mjs` and every available configured adapter. Paths in these
+maps are relative to their respective roots. Pin the actual built entry
+(`openclaw.mjs`, `dist/index.mjs` or `dist/index.js`). Additional files may be
+pinned. Use an empty artifacts array for bundled-only scenarios. This verifies
+declared local bytes, not the entire build or dependency closure; freeze those
+inputs in the outer runner. Runtime, files and archives are checked before and
+after each invocation, and producer receipt hashes must agree.
+Each receipt must match the requested scenario and the pinned Gateway runtime.
+The Node version comparison accounts only for `process.version`'s leading `v`;
+Gateway snapshots use `process.versions.node` without that prefix.
+
+`campaign.json` checkpoints one full-inventory outcome table per repetition;
+`repetition-N/<scenario>.json` retains each returned raw receipt before validation.
+Configured-but-unrun scenarios are blocked. Absent adapters, missing dependencies
+and configured IDs outside the inventory remain explicit gaps; unrelated plugins
+are unsupported, never healthy. Multiple scenarios for one plugin are rejected.
+Pass one repetition's validated receipts to the existing coverage report; never
+combine duplicate plugin receipts across repetitions as additional coverage.
+
+A blocked, failed, invalid or thrown execution stops admission of subsequent work. Later
+rows remain blocked and earlier receipts survive. An interrupted run retains its
+last checkpoint, including `execution-in-progress`; that is not completion or
+cleanup proof. An executed campaign exits nonzero for failures or configured
+blocked work. Unsupported rows do not fail the command. `complete` means all
+configured work completed, not that every inventory plugin was measured.
+Failures retain their stage (`preverify`, `run`, `receipt-write`,
+`receipt-validation` or `postverify`), a recognized error type/code and bounded,
+path-redacted validation context. Arbitrary runner exception text, stacks and
+assertion payloads are omitted; raw workload receipts remain separate evidence.
+CPU/memory observations remain report-only: no resource thresholds, leak verdicts,
+automatic retries, cross-run aggregation, calibration execution or CI scheduling
+are added. Supply separately qualified calibration with matching frozen inputs.
+
 Add a committed OpenClaw plugin inventory to the existing report:
 
 ```bash
