@@ -7245,7 +7245,7 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8522"
+              "evidence": "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8523"
             },
             {
               "code": "sdk-alias-required",
@@ -7340,7 +7340,7 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8522"
+              "evidence": "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8523"
             },
             {
               "code": "sdk-alias-required",
@@ -8192,7 +8192,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "ws"
+              "evidence": "@modelcontextprotocol/sdk, ws"
             }
           ],
           "steps": [
@@ -8268,7 +8268,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "ws"
+              "evidence": "@modelcontextprotocol/sdk, ws"
             }
           ],
           "steps": [
@@ -9084,7 +9084,7 @@
           "packagePath": "plugins/web-search-plus/package.json",
           "packageName": "web-search-plus-plugin-v2",
           "entrypoint": "plugins/web-search-plus/dist/index.js",
-          "status": "review-required",
+          "status": "ready",
           "packageManager": "npm",
           "lockfile": "plugins/web-search-plus/package-lock.json",
           "loaderStrategy": {
@@ -9095,17 +9095,10 @@
           },
           "requiredCapabilities": [
             "capture-shim",
-            "side-effect-sandbox",
             "synthetic-probes",
             "target-openclaw-link"
           ],
-          "blockers": [
-            {
-              "code": "top-level-side-effect-review",
-              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
-              "evidence": "plugins/web-search-plus/dist/index.js"
-            }
-          ],
+          "blockers": [],
           "steps": [
             {
               "kind": "prepare",

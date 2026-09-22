@@ -1,21 +1,21 @@
 {
   "generatedAt": "deterministic",
   "title": "Crabpot CI Summary",
-  "mode": "check",
+  "mode": "dependabot",
   "openclawLabel": "openclaw/openclaw@d9b899649800 (Default Track pin 2026-09-10)",
   "status": "pass",
   "summary": {
     "breakages": 0,
     "warnings": 104,
-    "suggestions": 164,
-    "issues": 268,
+    "suggestions": 165,
+    "issues": 269,
     "p0Issues": 7,
     "p1Issues": 34,
     "liveIssues": 7,
     "liveP0Issues": 7,
     "compatGaps": 28,
     "deprecationWarnings": 22,
-    "inspectorGaps": 147,
+    "inspectorGaps": 148,
     "upstreamIssues": 64,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
@@ -29,16 +29,16 @@
     "platformWindowsRisks": 17,
     "platformContainerRisks": 17,
     "loaderJitiCandidates": 20,
-    "importLoopP50Ms": 1913,
-    "importLoopP95Ms": 1970,
+    "importLoopP50Ms": 2254,
+    "importLoopP95Ms": 2264,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 42.6,
-    "importLoopOpenClawActivationP50Ms": 0.3,
+    "importLoopOpenClawImportP50Ms": 44.7,
+    "importLoopOpenClawActivationP50Ms": 0.4,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 3.8,
-    "importLoopMaxCpuMs": 0,
-    "importLoopRssSampleCount": 230,
-    "importLoopCpuSampleCount": 230
+    "importLoopMaxRssMb": 28.4,
+    "importLoopMaxCpuMs": 31,
+    "importLoopRssSampleCount": 269,
+    "importLoopCpuSampleCount": 269
   },
   "topIssues": [
     {
@@ -224,20 +224,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 570.7% over baseline",
+      "message": "p95WallMs regressed 621.1% over baseline",
       "baseline": 1273,
-      "current": 8538,
-      "delta": 7265,
-      "percent": 570.7
+      "current": 9179,
+      "delta": 7906,
+      "percent": 621.1
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 694.4 over baseline",
+      "message": "maxPeakRssMb regressed 689.5 over baseline",
       "baseline": 65.1,
-      "current": 759.5,
-      "delta": 694.4
+      "current": 754.6,
+      "delta": 689.5
     }
   ],
   "artifacts": {

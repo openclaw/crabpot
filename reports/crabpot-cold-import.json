@@ -8,8 +8,8 @@
   "summary": {
     "fixtureCount": 59,
     "entrypointCount": 119,
-    "readyCount": 5,
-    "blockedCount": 114,
+    "readyCount": 6,
+    "blockedCount": 113,
     "tsLoaderRequiredCount": 13,
     "buildRequiredCount": 15,
     "dependencyInstallRequiredCount": 64,
@@ -2336,7 +2336,7 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8522"
+              "evidence": "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8523"
             },
             {
               "code": "sdk-alias-required",
@@ -2372,7 +2372,7 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8522"
+              "evidence": "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8523"
             },
             {
               "code": "sdk-alias-required",
@@ -2654,7 +2654,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "ws"
+              "evidence": "@modelcontextprotocol/sdk, ws"
             }
           ],
           "assertions": [
@@ -2673,7 +2673,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "ws"
+              "evidence": "@modelcontextprotocol/sdk, ws"
             }
           ],
           "assertions": [
@@ -2950,16 +2950,11 @@
           "kind": "runtimeExtension",
           "specifier": "./dist/index.js",
           "path": "plugins/web-search-plus/dist/index.js",
-          "status": "review-required",
-          "blockers": [
-            {
-              "code": "top-level-side-effect-review",
-              "message": "entrypoint source contains side-effect-prone tokens that cold import must sandbox or review",
-              "evidence": "plugins/web-search-plus/dist/index.js"
-            }
-          ],
+          "status": "ready",
+          "blockers": [],
           "assertions": [
-            "cold import sandbox blocks network/process side effects before register capture"
+            "entrypoint can be imported by Node without fixture credentials",
+            "registration capture shim receives plugin registrations"
           ]
         }
       ]
