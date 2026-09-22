@@ -280,6 +280,68 @@ measurements, configured completion counts, identical host artifacts, the
 expected active plugin and joined shutdown without forced termination. Failed
 receipts preserve partial work. Unmeasured plugins remain `unsupported`.
 
+Adapters that need a dependency plugin and a matched workload control declare
+`pairedWorkload` alongside `requiredOperations`:
+
+```json
+"pairedWorkload": {
+  "dependencies": ["provider-plugin"],
+  "targetActivation": "workload"
+}
+```
+
+Both isolated cases execute the same declared phases, in order, with identical
+completion counts. The baseline has only the dependencies active; the enabled
+case must activate the target during work (`workload`) or before work (`startup`).
+Dependencies must be present in the source inventory. They do not earn separate
+coverage from another plugin's workload. Without this declaration, existing
+adapters retain their empty-host baseline and startup activation requirement.
+
+`prepare(context, { enabled, onCleanup })` runs in both paired cases before the
+Gateway starts. It may return case-local state. Install the same pinned fixture
+archive and configure the same synthetic workload inputs in both cases, changing
+only target enablement. Register each adapter-owned server or peer with
+`onCleanup(async () => { ... })` immediately after acquisition. The consumer runs
+these callbacks in reverse order after the host joins its Gateway, including
+preparation, startup and workload failures. A cleanup failure fails the receipt;
+callbacks must finish or reject within the outer runner's deadline.
+
+Registration is `open` during preparation, work and measurement drain. Before
+disposal it becomes `closing`, then `closed` after every registered callback
+settles. Registration during drain is accepted and disposed in reverse order.
+Registration while closing or closed throws synchronously and fails the case
+and in-memory receipt even if the caller catches the error. The rejected callback
+is not accepted or invoked: its caller retains cleanup ownership. Adapters must
+join their own background work before completion; a saved callback is not a
+resource lease after the run or permission to amend an already written receipt.
+
+`run(context, requirements, { enabled, state, onCleanup })` receives that state
+and the same `requirements` in both cases. Await each
+`context.measure(name, count, operation)` in declaration order. Assert the
+operation's semantic outcome before resolving it. Every started measurement has
+an immediate rejection handler and is drained before the host can stop the
+Gateway. Returning with a pending measurement fails the contract; adapter and
+drained measurement failures are both retained. The baseline must prove the
+unmodified result, and the enabled case the target's effect. The consumer owns
+phase/count and before/after active-plugin checks; adapters own these semantic
+assertions. This contract adds no provider, process runner or plugin mocks.
+
+New receipts use `plugin-resource-workload` schema v2. Each case retains whole
+Gateway measurements and records expected/observed activation plus adapter
+cleanup. `comparison.hostPhases` compares startup and neutral observations;
+`comparison.workloadPhases` contains only matched workload deltas, calculated as
+enabled minus baseline, including CPU per completed operation. Signed deltas
+include run noise; they are not CPU allocations to plugin functions. Empty-host
+scenarios have no matched workload deltas. The reader still accepts published
+v1 empty-host receipts under their original contract, but v1 cannot satisfy a
+paired scenario. Kitchen Sink v1 calibration is unchanged. No SQLite changes or
+real-plugin workload coverage result from this orchestration contract alone.
+Paired v2 receipts require the host-recorded `fixtures` array in each case and
+matching archive SHA-256 multisets. Archive labels are validated; byte hashes,
+including multiplicity, bind installed inputs regardless of installation order.
+Both arrays may be empty for host-bundled plugins. Plugin IDs alone do not prove
+that the baseline and enabled case installed the same package bytes.
+
 ## Behavioral eval POC
 
 Behavior evals are profile-driven, default to a dry plan, and stay

@@ -7,7 +7,8 @@ import path from "node:path";
 import { setTimeout as delay } from "node:timers/promises";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { readManifest } from "./manifest-lib.mjs";
-import { validatePluginInventory } from "./resource-coverage.mjs";
+import { validatePluginInventory, validateResourceWorkloadReport } from "./resource-coverage.mjs";
+import { resourceWorkloadComparison, resourceWorkloadPlan } from "./resource-workload-contract.mjs";
 
 const hash = (file) => createHash("sha256").update(readFileSync(file)).digest("hex");
 
@@ -29,17 +30,23 @@ export function parseArgs(argv) {
 
 export async function runResourceWorkload({ definition, inventory, execute, hostRoot = process.cwd() }) {
   validatePluginInventory(inventory);
+  resourceWorkloadPlan(definition);
   const plugin = inventory.plugins.find(({ id }) => id === definition.pluginId);
   assert.ok(plugin, `Plugin ${definition.pluginId} is absent from the source inventory`);
+  for (const dependency of definition.pairedWorkload?.dependencies ?? []) {
+    assert.ok(inventory.plugins.some(({ id }) => id === dependency), `Dependency ${dependency} is absent from the source inventory`);
+  }
   assert.match(definition.adapter, /^[a-z0-9][a-z0-9-]*$/);
   const adapterUrl = new URL(`./resource-workloads/${definition.adapter}.mjs`, import.meta.url);
   const adapter = await import(adapterUrl.href);
   const report = {
-    schemaVersion: 1, kind: "plugin-resource-workload", status: "blocked", reason: "execution-not-requested",
-    scenario: { id: definition.id, pluginId: definition.pluginId, requirements: definition.requiredOperations, operationUnit: adapter.operationUnit },
+    schemaVersion: 2, kind: "plugin-resource-workload", status: "blocked", reason: "execution-not-requested",
+    scenario: { id: definition.id, pluginId: definition.pluginId, requirements: definition.requiredOperations, operationUnit: adapter.operationUnit,
+      ...(definition.pairedWorkload ? { pairedWorkload: definition.pairedWorkload } : {}) },
     inventory: { source: inventory.source, sha256: inventory.sha256 },
     provenance: {
       adapterSha256: hash(adapterUrl), consumerSha256: hash(fileURLToPath(import.meta.url)),
+      contractSha256: hash(new URL("./resource-workload-contract.mjs", import.meta.url)),
       runtime: { node: process.version, platform: process.platform, arch: process.arch, cpuModel: os.cpus()[0]?.model },
     },
     measurement: {
@@ -49,6 +56,7 @@ export async function runResourceWorkload({ definition, inventory, execute, host
       memory: "RSS is process-wide; heap/external/ArrayBuffers describe the main isolate; ArrayBuffers overlaps external",
       isolation: "external runner must enforce network/resource limits and join the entire sandbox on outer failure",
       limitations: adapter.limitations,
+      attribution: "Cases measure the whole Gateway. Only comparison.workloadPhases subtract matched work; signed deltas include run noise and are not per-plugin allocation.",
     },
     cases: [], comparison: [],
     postDisposalResidual: { status: "unsupported", reason: "workload completes before host shutdown; no in-process disposal measurement" },
@@ -73,43 +81,157 @@ export async function runResourceWorkload({ definition, inventory, execute, host
     report.error = String(error.message ?? error).slice(0, 2048);
     return report;
   }
-  report.cases = ["empty", definition.pluginId].map((name) => ({ name, status: "blocked", phases: [] }));
+  await runResourceWorkloadCases({ report, definition, adapter, host, phases, runtime });
+  if (report.status === "exercised") {
+    try { validateResourceWorkloadReport(report, inventory, [definition]); }
+    catch (error) {
+      report.status = "failed";
+      report.reason = "invalid-workload-observation";
+      report.error = String(error.message ?? error).slice(0, 2048);
+    }
+  }
+  return report;
+}
+
+/** Shared orchestration only; the host retains Gateway/process ownership. */
+export async function runResourceWorkloadCases({ report, definition, adapter, host, phases, runtime }) {
+  const plans = resourceWorkloadPlan(definition);
+  report.cases = plans.map(({ name, expectedBefore, expectedAfter }) => ({
+    name, status: "blocked", phases: [],
+    activation: { expectedBefore, expectedAfter },
+    adapterCleanup: { status: "pending", registration: "open", registered: 0, completed: 0 },
+  }));
   report.reason = "workload-incomplete";
-  for (const result of report.cases) {
-    const enabled = result.name !== "empty";
-    await host.runResourceGatewayCase({
-      result, runtime,
-      prepare: async (context) => { if (enabled) await adapter.prepare(context); },
-      run: async (context) => {
-        const { rpc, sample, measure } = context;
-        const catalog = await rpc("plugins.list", {});
-        assert.ok(Array.isArray(catalog.plugins), "Missing plugin inventory");
-        result.activePlugins = catalog.plugins.filter((plugin) => plugin.runtime?.state === "active").map(({ id }) => id).sort();
-        assert.deepEqual(result.activePlugins, enabled ? [definition.pluginId] : []);
-        host.assertGatewayHealthPayload(await rpc("health", {}));
-        const observe = async (name) => {
-          const before = await sample();
-          await delay(report.measurement.idleMs);
-          result.phases.push(phases.summarizeResourcePhase(name, before, await sample(), { attempted: 0, completed: 0, failed: 0 }));
-        };
-        await observe("idle");
-        await measure("neutral-rpc", report.measurement.neutralOperations, async () => {
-          host.assertGatewayHealthPayload(await rpc("health", {}));
-        });
-        await observe("post-neutral");
-        if (enabled) {
-          await adapter.run(context, definition.requiredOperations);
-          await observe("post-work");
+  for (const [index, result] of report.cases.entries()) {
+    const plan = plans[index];
+    const cleanup = [];
+    const cleanupErrors = new Set();
+    const fail = (error) => {
+      result.status = "failed";
+      result.error = [result.error, String(error.message ?? error)].filter(Boolean).join("; ").slice(0, 2048);
+      report.status = "failed";
+      report.reason = "workload-failed";
+      report.error = report.cases.filter((item) => item.error).map((item) => `${item.name}: ${item.error}`).join("; ").slice(0, 2048);
+    };
+    const failCleanup = (error) => {
+      cleanupErrors.add(String(error.message ?? error).slice(0, 2048));
+      result.adapterCleanup.status = "failed";
+      result.adapterCleanup.errors = [...cleanupErrors];
+      fail(`Adapter cleanup failed: ${result.adapterCleanup.errors.join("; ")}`);
+    };
+    const adapterOptions = {
+      enabled: plan.enabled,
+      // Register immediately after acquisition, before another await can fail.
+      onCleanup(dispose) {
+        if (result.adapterCleanup.registration !== "open") {
+          // Rejected registrations never transfer ownership. Keep the receipt
+          // failed even if the adapter catches this synchronous contract error.
+          const error = new Error(`adapter cleanup registration is ${result.adapterCleanup.registration}; caller retains cleanup ownership`);
+          failCleanup(error);
+          throw error;
         }
+        assert.equal(typeof dispose, "function", "adapter cleanup must be a function");
+        cleanup.push(dispose);
+        result.adapterCleanup.registered++;
       },
-    });
+    };
+    let state;
+    try {
+      await host.runResourceGatewayCase({
+        result, runtime,
+        prepare: async (context) => {
+          if (plan.runWorkload) state = await adapter.prepare(context, adapterOptions);
+        },
+        run: async (context) => {
+          const { rpc, sample, measure } = context;
+          const observeActivation = async (when, expected) => {
+            const catalog = await rpc("plugins.list", {});
+            assert.ok(Array.isArray(catalog.plugins), "Missing plugin inventory");
+            result.activation[when] = catalog.plugins.filter((plugin) => plugin.runtime?.state === "active").map(({ id }) => id).sort();
+            assert.deepEqual(result.activation[when], expected, `active plugins differ ${when} work`);
+          };
+          await observeActivation("before", plan.expectedBefore);
+          host.assertGatewayHealthPayload(await rpc("health", {}));
+          const observe = async (name) => {
+            const before = await sample();
+            await delay(report.measurement.idleMs);
+            result.phases.push(phases.summarizeResourcePhase(name, before, await sample(), { attempted: 0, completed: 0, failed: 0 }));
+          };
+          await observe("idle");
+          await measure("neutral-rpc", report.measurement.neutralOperations, async () => {
+            host.assertGatewayHealthPayload(await rpc("health", {}));
+          });
+          await observe("post-neutral");
+          if (plan.runWorkload) {
+            const expected = Object.entries(definition.requiredOperations);
+            let nextPhase = 0;
+            let measuring = false;
+            let measurementAdmission = true;
+            const measurements = [];
+            const measureWork = (name, count, run) => {
+              assert.equal(measurementAdmission, true, "adapter workload measurement admission is closed");
+              assert.equal(measuring, false, "adapter workload phases must run sequentially");
+              assert.deepEqual([name, count], expected[nextPhase], "adapter must measure each declared workload phase in order");
+              nextPhase++;
+              measuring = true;
+              let pending;
+              try { pending = Promise.resolve(measure(name, count, run)); }
+              catch (error) { pending = Promise.reject(error); }
+              // Return the same handled promise: an async wrapper would create
+              // a second, unhandled rejection when an adapter forgets to await.
+              measurements.push(pending.then(
+                () => { measuring = false; return { ok: true }; },
+                (error) => { measuring = false; return { ok: false, error }; },
+              ));
+              return pending;
+            };
+            const errors = [];
+            try {
+              await adapter.run({ ...context, measure: measureWork }, definition.requiredOperations, { ...adapterOptions, state });
+              assert.equal(nextPhase, expected.length, "adapter omitted a declared workload phase");
+            } catch (error) { errors.push(error); }
+            finally {
+              measurementAdmission = false;
+              if (measuring) errors.push(new Error("adapter must await workload measurements"));
+              // No new measurements can start. Drain every owned promise before
+              // returning to the host, which stops the Gateway after this callback.
+              for (const outcome of await Promise.all(measurements)) {
+                if (!outcome.ok && !errors.includes(outcome.error)) errors.push(outcome.error);
+              }
+            }
+            if (errors.length) throw new AggregateError(errors, errors.map((error) => String(error.message ?? error)).join("; "));
+            await observe("post-work");
+          }
+          await observeActivation("after", plan.expectedAfter);
+        },
+      });
+    } catch (error) { fail(error); }
+    finally {
+      // The host has joined its Gateway. Adapter-owned peers are independent
+      // resources and must also close when preparation/startup/work failed.
+      result.adapterCleanup.registration = "closing";
+      for (const dispose of cleanup.reverse()) {
+        try { await dispose(); result.adapterCleanup.completed++; }
+        catch (error) { if (!cleanupErrors.has(String(error.message ?? error).slice(0, 2048))) failCleanup(error); }
+      }
+      result.adapterCleanup.registration = "closed";
+      result.adapterCleanup.status = cleanupErrors.size ? "failed" : "complete";
+    }
     if (result.status !== "exercised") {
       report.status = "failed";
-      report.error = result.error;
+      report.error ??= result.error;
       return report;
     }
   }
-  report.comparison = phases.compareResourcePhases(report.cases[0].phases, report.cases[1].phases);
+  // A saved registration callback can invalidate an earlier case while a later
+  // case runs. Never overwrite that recorded failure with final success.
+  if (report.cases.some(({ status }) => status !== "exercised")) return report;
+  try { report.comparison = resourceWorkloadComparison(report.cases, definition); }
+  catch (error) {
+    report.status = "failed";
+    report.error = String(error.message ?? error).slice(0, 2048);
+    return report;
+  }
   report.status = "exercised";
   report.reason = "measured-plugin-workload";
   return report;

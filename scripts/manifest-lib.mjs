@@ -1,5 +1,6 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
+import { resourceWorkloadPlan } from "./resource-workload-contract.mjs";
 
 export const repoRoot = path.resolve(import.meta.dirname, "..");
 export const manifestPath = path.join(repoRoot, "crabpot.config.json");
@@ -81,11 +82,7 @@ export function validateManifest(manifest) {
     }
     if (workloadIds.has(workload.id)) errors.push(`duplicate resource workload: ${workload.id}`);
     workloadIds.add(workload.id);
-    if (!workload.requiredOperations || typeof workload.requiredOperations !== "object" || Array.isArray(workload.requiredOperations) ||
-        Object.keys(workload.requiredOperations).length === 0 || Object.entries(workload.requiredOperations).some(([name, count]) =>
-          !/^[a-z0-9][a-z0-9-]*$/.test(name) || !Number.isSafeInteger(count) || count < 1 || count > 1000)) {
-      errors.push("resource workload requiredOperations needs bounded positive counts");
-    }
+    try { resourceWorkloadPlan(workload); } catch (error) { errors.push(error.message); }
     if (typeof workload.why !== "string" || !workload.why.trim()) errors.push("resource workload why must be set");
   }
   const paths = new Set();
