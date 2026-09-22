@@ -2,6 +2,7 @@
 
 ## 0.2.2 - Unreleased
 
+- Add an opt-in Beam receiver workload that measures real Gateway HTTP and RPC paths with a fixed synthetic peer.
 - Add opt-in Workboard Gateway resource workloads and source-inventory coverage, preserving unsupported plugins and separating Kitchen Sink calibration from real workload credit.
 - Adopt Inspector source fixes for SDK discovery inside packaged `.setup` modules and composed Zod enums, preserving the published 0.3.26 package pin pending upstream release.
 - Recognize exact HAPI and TencentDB blocker diagnostics from owned child processes, retaining raw failures and rejecting unrelated errors, timeouts, cancellations, and truncation.
