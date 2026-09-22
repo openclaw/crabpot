@@ -45,6 +45,11 @@ Then inspect the diff. A fixture update is only useful if it either:
 
 ## CI model
 
+Dependabot refreshes merge the current base and update its pinned submodules
+before resolving the OpenClaw host. Report generation uses the same plugin
+track as required CI: latest, beta, or source-packed development fixtures.
+Unit tests run separately against the complete manifest before that selection.
+
 Host-running jobs use Node 24 for the selected OpenClaw 2026.9.3 source pin,
 which requires Node `>=24.16.0 <25 || >=26.1.0`. This includes Default Track
 static/container/isolated execution, dashboard tracks, Dependabot report
