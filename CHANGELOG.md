@@ -2,7 +2,7 @@
 
 ## 0.2.2 - Unreleased
 
-- Temporarily capture bounded Windows cold-start phase receipts for separate contract and policy test attempts; no startup or cleanup policy changes.
+- Temporarily capture bounded Windows cold-start phase receipts for separate contract, policy, and Tokenjuice archive/repository fixture attempts; no environment, startup or cleanup policy changes.
 
 - Distinguish caller-owned plugin registry handles from Gateway registry activation in paired resource workloads, preserving exact catalog checks and completed-work requirements.
 

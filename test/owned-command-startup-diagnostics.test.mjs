@@ -95,6 +95,37 @@ test("diagnostics bound attempts, per-producer records and record bytes", (t) =>
   assert.equal(readdirSync(path.join(root, "reports/crabpot-startup-305")).length, 4);
 });
 
+test("archive and repository startup retain separate receipts after fixture removal", (t) => {
+  const root = fixture(t);
+  const temporary = path.join(root, "temporary-fixture");
+  const workspace = path.join(temporary, "synthetic-repository");
+  mkdirSync(workspace, { recursive: true });
+  const api = receiptOwner(root, "resource-workload-tokenjuice.test.mjs");
+  const tarArgs = ["-czf", path.join(temporary, "fixture.tgz"), "-C", temporary, "package"];
+  const gitArgs = ["init", "--initial-branch=resource-fixture"];
+  const archive = api.startupDiagnostic("tar", tarArgs, { cwd: temporary });
+  const repository = api.startupDiagnostic("git", gitArgs, { cwd: workspace });
+  assert.equal(archive.entry, "tokenjuice-archive");
+  assert.equal(repository.entry, "tokenjuice-repository");
+  assert.notEqual(archive.directory, repository.directory);
+  for (const context of [archive, repository]) {
+    const trace = api.startupTrace(context, "parent");
+    trace("parent-entered", { entry: context.entry });
+    api.summarizeStartup(context);
+    const summary = JSON.parse(api.messages.at(-1).slice("crabpot-startup-305 ".length));
+    assert.equal(summary.current.parent.entry, context.entry);
+    assert.ok(context.directory.startsWith(path.join(root, "reports") + path.sep));
+  }
+  assert.equal(api.startupDiagnostic("tar", tarArgs, { cwd: temporary }), null);
+  assert.equal(api.startupDiagnostic("git", gitArgs, { cwd: workspace }), null);
+  const otherParent = receiptOwner(root, "resource-workload-tokenjuice.test.mjs");
+  assert.equal(otherParent.startupDiagnostic("tar", tarArgs, { cwd: temporary }), null);
+  assert.equal(otherParent.startupDiagnostic("git", gitArgs, { cwd: workspace }), null);
+  rmSync(temporary, { recursive: true });
+  assert.equal(records(archive)[0].entry, "tokenjuice-archive");
+  assert.equal(records(repository)[0].entry, "tokenjuice-repository");
+});
+
 test("diagnostic errors retain bounded codes but omit private exception payloads", (t) => {
   const api = receiptOwner(fixture(t), "capture-contracts.test.mjs");
   const error = api.startupError({

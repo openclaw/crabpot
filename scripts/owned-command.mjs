@@ -19,28 +19,45 @@ const defaultMaxBuffer = 1024 * 1024;
 // the command control pipe and Worker lifetime. No diagnostic is an authority receipt.
 const diagnosticRecordLimit = 32;
 const diagnosticByteLimit = diagnosticRecordLimit * 2048;
-let diagnosticSelected = false;
+const diagnosticSelected = new Set();
 
 function startupDiagnostic(command, args, options) {
-  if (process.platform !== "win32" || diagnosticSelected || command !== "git" || args[0] !== "init" ||
-      typeof args[1] !== "string") return null;
+  if (process.platform !== "win32") return null;
   const cwd = fileURLOrPath(options.cwd ?? process.cwd());
-  if (path.dirname(args[1]) !== path.join(cwd, ".crabpot", "plugin-inspector") ||
-      !/^[a-f0-9]{40}$/.test(path.basename(args[1]))) return null;
-  diagnosticSelected = true;
-  const root = path.join(cwd, "reports", "crabpot-startup-305");
+  const entry = path.basename(process.argv[1] ?? "");
+  let label;
+  let root = path.join(cwd, "reports", "crabpot-startup-305");
+  let limit = 4;
+  if (command === "git" && args[0] === "init" && typeof args[1] === "string" &&
+      path.dirname(args[1]) === path.join(cwd, ".crabpot", "plugin-inspector") &&
+      /^[a-f0-9]{40}$/.test(path.basename(args[1]))) {
+    label = "inspector";
+  } else if (entry === "resource-workload-tokenjuice.test.mjs") {
+    if (command === "tar" && args.length === 5 && args[0] === "-czf" &&
+        args[1] === path.join(cwd, "fixture.tgz") && args[2] === "-C" &&
+        args[3] === cwd && args[4] === "package") label = "tokenjuice-archive";
+    if (command === "git" && args.length === 2 && args[0] === "init" &&
+        args[1] === "--initial-branch=resource-fixture" &&
+        path.basename(cwd) === "synthetic-repository") label = "tokenjuice-repository";
+    if (!label) return null;
+    // Fixture teardown deletes cwd; retain these receipts in CI's report root.
+    root = path.join(process.cwd(), "reports", "crabpot-startup-305", label);
+    limit = 1;
+  }
+  if (!label || diagnosticSelected.has(label)) return null;
+  diagnosticSelected.add(label);
   try {
     mkdirSync(root, { recursive: true });
-    for (let attempt = 1; attempt <= 4; attempt += 1) {
+    for (let attempt = 1; attempt <= limit; attempt += 1) {
       const directory = path.join(root, `attempt-${attempt}`);
       try { mkdirSync(directory); } catch (error) {
         if (error.code === "EEXIST") continue;
         throw error;
       }
-      const entry = path.basename(process.argv[1] ?? "");
       return {
         root, directory, attempt, id: randomUUID(),
-        entry: entry === "capture-contracts.test.mjs" ? "cold-contract-test"
+        entry: label !== "inspector" ? label
+          : entry === "capture-contracts.test.mjs" ? "cold-contract-test"
           : entry === "ci-policy.test.mjs" ? "cold-policy-test"
           : /^(generate-report|capture-contracts|synthetic-probes|cold-import-readiness|workspace-plan|platform-probes|check-generated-surface-fixture|import-loop-profile|profile-contract-runtime)\.mjs$/.test(entry)
             ? "later-report" : "other",
@@ -121,7 +138,7 @@ function summarizeStartup(context) {
         if (producer === "parent") {
           const entry = records[0]?.entry;
           const final = records.find((record) => record.event === "parent-finalized");
-          current[producer].entry = ["cold-contract-test", "cold-policy-test", "later-report", "other"].includes(entry) ? entry : null;
+          current[producer].entry = ["cold-contract-test", "cold-policy-test", "tokenjuice-archive", "tokenjuice-repository", "later-report", "other"].includes(entry) ? entry : null;
           current[producer].result = final ? {
             error: startupError(final.result?.error), cleanupError: startupError(final.result?.cleanupError),
             status: Number.isSafeInteger(final.result?.status) ? final.result.status : null,

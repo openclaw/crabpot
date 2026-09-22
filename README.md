@@ -536,6 +536,12 @@ report generation is labeled separately. Each summary describes its own attempt;
 later attempts cannot overwrite earlier producer files. The existing report
 artifact upload includes these receipts.
 
+The Tokenjuice fixture's first archive creation and repository initialization
+are observed separately as `tokenjuice-archive` and `tokenjuice-repository`.
+Each has one exclusive attempt under its own report subdirectory, outside the
+temporary fixture removed by test cleanup. Selection does not change the
+fixture's restricted environment, command ordering or deadlines.
+
 Each producer is bounded to 32 records, 2 KiB per record and 64 KiB total. Records
 omit command arguments, environment, raw exception messages and output contents.
 Synchronous diagnostic I/O and added native compilation have an observer effect.
