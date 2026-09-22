@@ -260,6 +260,52 @@ startup, idle and 20 neutral RPCs against an empty-host baseline. Main-isolate
 heap/thread CPU excludes the SQLite worker; process CPU/RSS includes it. Short
 windows do not establish periodic-service cost or disposal retention.
 
+Tokenjuice's `tokenjuice-exec-status-v1` scenario uses the ordinary OpenAI
+Responses provider with `agentRuntime.id: openclaw`, SSE and Code Mode disabled.
+Both cases install the same local archive and activate the OpenAI dependency.
+Both set `agents.defaults.utilityModel: ""` to disable automatic Activity recaps
+and utility-model selection. Any unexpected model request fails the fixture.
+Only the target's enablement changes. Each case runs one first-use turn and five
+warm turns in fresh sessions against the same synthetic Git repository with 32
+modified tracked files. The loopback fixture requests one `exec` per turn, then
+checks its `function_call_output` in the next model request before returning the
+terminal marker. The control must receive the original `git status` text; the
+enabled case must receive shorter text with Tokenjuice's notice and modified
+file entries. `agent.wait` must finish successfully. The first turn includes lazy
+middleware activation; subsequent turns reuse that process.
+The declared `scoped` activation mode matches the caller-owned middleware handle:
+Gateway catalog snapshots retain only OpenAI, while compaction and statistics
+assertions prove the target's work. This does not measure handle disposal.
+
+This scenario requires a source-built `@openclaw/tokenjuice` 2026.9.5 archive
+from the frozen host source with bundled `tokenjuice` 0.8.4. The registry wrapper
+with the same version used 0.8.3 and is deliberately rejected. Prepare the archive
+through OpenClaw's native plugin build/pack flow; retain the frozen source SHA,
+build inputs and archive hash with the runner's provenance. The adapter verifies
+the supplied hash and both package manifests before native installation; those
+checks alone do not attest the source build. No install or download occurs in
+the default report path.
+
+```bash
+CRABPOT_TOKENJUICE_ARCHIVE=/fixtures/tokenjuice-source.tgz \
+CRABPOT_TOKENJUICE_ARCHIVE_SHA256=<archive-sha256> \
+node /crabpot/scripts/run-resource-workload.mjs \
+  --scenario tokenjuice-exec-status-v1 --plugin-inventory /fixtures/inventory.json \
+  --out /out/tokenjuice.json --execute
+```
+
+The isolated runner needs Git, tar and local loopback TCP. Keep external network
+access disabled. The fixture listens only on `127.0.0.1`, uses a synthetic key
+and explicitly permits that private provider URL. It closes after the Gateway
+joins, including on failed preparation or work. Tokenjuice's default statistics
+remain enabled in the temporary HOME: all six reducer records are checked before
+shutdown. No raw artifacts are requested. Gateway process metrics exclude the
+Git child and mock server; wall time includes their work. Signed paired workload
+deltas include whole-agent noise and are not allocation to reducer functions.
+This covers one successful Git-status reducer path, not other commands, real
+providers, Codex, peaks, leaks or in-process disposal. Unit tests use synthetic
+outputs to test the observer; real-plugin coverage requires the isolated host run.
+
 Add the receipt to the existing report from the Crabpot checkout:
 
 ```bash
