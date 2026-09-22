@@ -140,7 +140,7 @@ Targets: linux, macos, windows, container
 | clawmetry              | ready                       | node    | -            | no          | no            | yes              | yes                | plugins/clawmetry/clawhub-plugin/dist/index.js                          |
 | codex-app-server       | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/codex-app-server/index.ts                                       |
 | web-search-plus        | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/web-search-plus/index.ts                                        |
-| web-search-plus        | review-required             | node    | -            | no          | no            | yes              | yes                | plugins/web-search-plus/dist/index.js                                   |
+| web-search-plus        | ready                       | node    | -            | no          | no            | yes              | yes                | plugins/web-search-plus/dist/index.js                                   |
 | apify                  | build-required              | node    | -            | no          | no            | yes              | yes                | plugins/apify/dist/index.js                                             |
 | inworld-tts            | ts-loader-required          | tsx     | jiti         | no          | no            | yes              | yes                | plugins/inworld-tts/index.ts                                            |
 

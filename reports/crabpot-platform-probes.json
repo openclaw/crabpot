@@ -2150,7 +2150,7 @@
     {
       "fixture": "web-search-plus",
       "id": "cold-import.runtimeExtension:web-search-plus:plugins-web-search-plus-dist-index-js",
-      "status": "review-required",
+      "status": "ready",
       "entrypoint": "plugins/web-search-plus/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
