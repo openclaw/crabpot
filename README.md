@@ -543,7 +543,12 @@ temporary fixture removed by test cleanup. Selection does not change the
 fixture's restricted environment, command ordering or deadlines.
 
 Each producer is bounded to 32 records, 2 KiB per record and 64 KiB total. Records
-omit command arguments, environment, raw exception messages and output contents.
+omit command arguments, environment values, raw exception messages and output contents.
+An initial .NET-only PowerShell record precedes the cmdlet-based observer and
+records only presence booleans for six fixed environment keys. A first record
+without the subsequent `helper-entered` record locates the gap around the
+observer; it does not prove a module-autoload failure. No first record still
+cannot distinguish pre-script startup from diagnostic storage failure.
 Synchronous diagnostic I/O and added native compilation have an observer effect.
 A missing phase record is unavailable evidence; diagnostic progress, helper PIDs
 and termination requests never replace authoritative cleanup receipts.

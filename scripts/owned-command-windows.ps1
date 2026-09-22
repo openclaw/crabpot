@@ -4,6 +4,28 @@ $startupSequence = 0
 $startupBytes = 0
 $startupClock = [System.Diagnostics.Stopwatch]::StartNew()
 $startupUtf8 = [System.Text.UTF8Encoding]::new($false)
+# Record script entry before the normal observer can load PowerShell modules.
+# Absence still cannot distinguish startup from a failed diagnostic write.
+if ($DiagnosticDirectory) {
+    try {
+        $presence = @()
+        foreach ($key in @("SystemRoot", "TEMP", "TMP", "USERPROFILE", "PSModulePath", "LOCALAPPDATA")) {
+            $present = ($null -ne [Environment]::GetEnvironmentVariable($key)).ToString().ToLowerInvariant()
+            $presence += '"has' + $key + '":' + $present
+        }
+        $line = [string]::Format([Globalization.CultureInfo]::InvariantCulture,
+            '{{"id":"{0}","producer":"powershell","sequence":1,"event":"helper-script-entered","unixMs":{1},"elapsedMs":{2},"clock":"Stopwatch.ElapsedMilliseconds","helperPid":{3},{4}}}' + "`n",
+            [Guid]::Parse($DiagnosticId).ToString("D"), [DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds(),
+            $startupClock.ElapsedMilliseconds, $PID, ($presence -join ","))
+        $length = $startupUtf8.GetByteCount($line)
+        if ($length -le 2048) {
+            $startupSequence = 1
+            $startupBytes = $length
+            [System.IO.File]::AppendAllText(
+                [System.IO.Path]::Combine($DiagnosticDirectory, "powershell.jsonl"), $line, $startupUtf8)
+        }
+    } catch {}
+}
 function Write-StartupTrace([string]$Event, [hashtable]$Fields = @{}) {
     if (-not $DiagnosticDirectory -or $script:startupSequence -ge 32) { return }
     try {
