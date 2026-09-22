@@ -274,6 +274,26 @@ test("startup adapters retain empty control and strict target activation", async
   assert.deepEqual(report.cases[0].adapterCleanup, { status: "complete", registration: "closed", registered: 0, completed: 0 });
 });
 
+for (const paired of [false, true]) {
+  test(`numeric workload phases retain host-first receipt order (${paired ? "paired" : "empty-host"})`, async () => {
+    const scenario = { ...definition, requiredOperations: { "10": 2, "2": 1, tail: 1 } };
+    if (!paired) delete scenario.pairedWorkload;
+    const { report } = await exercise({ scenario });
+    assert.equal(report.status, "exercised");
+    for (const [index, item] of report.cases.entries()) {
+      assert.deepEqual(item.phases.map(({ name }) => name), [
+        "startup", "idle", "neutral-rpc", "post-neutral",
+        ...(paired || index === 1 ? ["2", "10", "tail", "post-work"] : []),
+      ]);
+    }
+    assert.equal(validate(report, scenario).status, "exercised");
+    const reordered = structuredClone(report);
+    const phases = reordered.cases[1].phases;
+    phases.unshift(...phases.splice(4, 1));
+    assert.throws(() => validate(reordered, scenario), /phases differ from declared case order/);
+  });
+}
+
 for (const fault of ["unawaited", "unawaited-throw"]) {
   test(`${fault} measurement is handled and drained before host join and peer cleanup`, async () => {
     const gate = Promise.withResolvers();

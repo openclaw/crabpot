@@ -317,7 +317,8 @@ resource lease after the run or permission to amend an already written receipt.
 
 `run(context, requirements, { enabled, state, onCleanup })` receives that state
 and the same `requirements` in both cases. Await each
-`context.measure(name, count, operation)` in declaration order. Assert the
+`context.measure(name, count, operation)` in `Object.entries(requirements)` order.
+Host phases always come first, including when workload phase names are numeric. Assert the
 operation's semantic outcome before resolving it. Every started measurement has
 an immediate rejection handler and is drained before the host can stop the
 Gateway. Returning with a pending measurement fails the contract; adapter and

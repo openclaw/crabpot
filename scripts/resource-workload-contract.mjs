@@ -34,8 +34,9 @@ export function resourceWorkloadPlan(definition) {
 }
 
 export function requiredCaseOperations(definition, plan) {
-  return { startup: 0, idle: 0, "neutral-rpc": 20, "post-neutral": 0,
-    ...(plan.runWorkload ? { ...definition.requiredOperations, "post-work": 0 } : {}) };
+  // An object would enumerate integer-index workload names before host phases.
+  return [["startup", 0], ["idle", 0], ["neutral-rpc", 20], ["post-neutral", 0],
+    ...(plan.runWorkload ? [...Object.entries(definition.requiredOperations), ["post-work", 0]] : [])];
 }
 
 /** Signed deltas are observations, not allocations of CPU to plugin functions. */

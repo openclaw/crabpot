@@ -204,10 +204,10 @@ export function validateResourceWorkloadReport(report, inventory, definitions) {
       }
       const required = requiredCaseOperations(definition, plan);
       if (report.schemaVersion === 2) {
-        requireValue(stableJson(item.phases.map(({ name }) => name)) === stableJson(Object.keys(required)), "workload phases differ from declared case order");
+        requireValue(stableJson(item.phases.map(({ name }) => name)) === stableJson(required.map(([name]) => name)), "workload phases differ from declared case order");
         requireValue(item.phases.every((phase, phaseIndex) => phaseIndex === 0 || phase.before.atMonotonicMicros >= item.phases[phaseIndex - 1].after.atMonotonicMicros), "workload measured phases overlap");
       }
-      for (const [name, count] of Object.entries(required)) {
+      for (const [name, count] of required) {
         requireValue(item.phases.find((phase) => phase.name === name)?.operations.completed === count, `workload lacks ${name} completions`);
       }
     }
