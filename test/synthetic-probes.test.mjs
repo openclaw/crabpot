@@ -19,7 +19,7 @@ import {
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
 test("fixture Gateway prerequisites are scoped to the owning fixture and method", async () => {
-  const manifest = await readConfiguredManifest({ fixtureSet: "codex,google-meet,matrix" });
+  const manifest = await readConfiguredManifest({ fixtureSet: "codex,google-meet,matrix,voice-call" });
   for (const fixture of manifest.fixtures) {
     const api = createCaptureApi({ retainHandlers: true });
     const methods = Object.keys(fixture.execution?.gatewayMethodPrerequisites ?? {});
@@ -45,8 +45,8 @@ test("fixture Gateway prerequisites are scoped to the owning fixture and method"
 });
 
 test("same-name Gateway methods outside the fixture and explicitly configured probes still fail truthfully", async () => {
-  const manifest = await readConfiguredManifest({ fixtureSet: "google-meet,matrix" });
-  for (const [fixtureId, method] of [["google-meet", "googlemeet.join"], ["matrix", "matrix.verify.status"]]) {
+  const manifest = await readConfiguredManifest({ fixtureSet: "google-meet,matrix,voice-call" });
+  for (const [fixtureId, method] of [["google-meet", "googlemeet.join"], ["matrix", "matrix.verify.status"], ["voice-call", "voicecall.status"]]) {
     for (const [fixture, options] of [["unrelated", {}], [fixtureId, { gatewayMethodPrerequisites: {} }]]) {
       const api = createCaptureApi({ retainHandlers: true });
       let calls = 0;

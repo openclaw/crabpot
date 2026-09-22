@@ -656,6 +656,19 @@
           "registerTool"
         ]
       },
+      "execution": {
+        "gatewayMethodPrerequisites": {
+          "voicecall.initiate": "captured voice-call method requires an enabled runtime and configured provider",
+          "voicecall.start": "captured voice-call method requires an enabled runtime and configured provider",
+          "voicecall.status": "captured voice-call method requires an enabled runtime and configured provider",
+          "voicecall.continue": "captured voice-call action requires an active call and command input",
+          "voicecall.continue.start": "captured voice-call action requires an active call and command input",
+          "voicecall.speak": "captured voice-call action requires an active call and command input",
+          "voicecall.dtmf": "captured voice-call action requires an active call and command input",
+          "voicecall.end": "captured voice-call action requires an active call and command input",
+          "voicecall.continue.result": "captured voice-call continuation query requires an existing continuation operation"
+        }
+      },
       "why": "Official voice-call package covering gateway methods, service lifecycle, tool registration, config migration, CLI setup, and npm artifact packaging."
     },
     {

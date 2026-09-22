@@ -2,11 +2,12 @@
 
 ## 0.2.2 - Unreleased
 
-- Pin Inspector source with packaged `.setup` SDK discovery so current OpenClaw runtime capture resolves ESM and CommonJS imports; retain npm 0.3.26 until the next upstream package release.
-
-- Recognize exact HAPI and TencentDB known blockers in current Inspector child diagnostics, while preserving unexpected errors; declare the three Matrix verification methods that require account and crypto state.
-
 - Refresh npm fixture pins and compatible dependency overrides, including compatible current stable OpenClaw plugin artifacts; retain Discord’s pin pending host/runtime support and patch TencentDB's Jaeger propagator while preserving its reviewed plugin pin.
+
+- Adopt Inspector source fixes for SDK discovery inside packaged `.setup` modules and composed Zod enums, preserving the published 0.3.26 package pin pending upstream release.
+- Recognize exact HAPI and TencentDB blocker diagnostics from owned child processes, retaining raw failures and rejecting unrelated errors, timeouts, cancellations, and truncation.
+- Declare the exact Matrix verification and Voice Call Gateway prerequisites for credential-free probes; retain explicit gaps and normal failures for unrelated methods or configured overrides.
+
 - Restore Dependabot updates with daily cron schedules that satisfy GitHub’s 24-hour minimum while preserving UTC minute staggering.
 - Reject fractional, suffixed, and out-of-range static-suite timeout settings before running a step, using the shared bounded timeout validator while preserving the default for unset or empty settings.
 - Refresh Dependabot compatibility reports against the merged base's OpenClaw pin, submodules, and plugin track, preventing stale-host and mislabeled beta-fixture evidence.

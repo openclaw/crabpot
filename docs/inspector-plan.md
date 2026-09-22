@@ -102,7 +102,7 @@ an exact candidate checkout before its npm release. Set
 to test an arbitrary CLI binary.
 
 The pinned source additionally discovers SDK imports inside packaged `.setup`
-directories; the published pin stays at 0.3.26 until an upstream release.
+directories and preserves mocked Zod enum options for composed schemas; the published pin stays at 0.3.26 until an upstream release.
 Both source and published package recognize bundled SDK imports,
 consume target-owned conversation contract proof, load retained-handler SDK
 imports and lazy runtimes, and preserve method-scoped Gateway prerequisites.

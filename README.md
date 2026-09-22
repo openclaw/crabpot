@@ -133,7 +133,9 @@ methods as blocked before invoking them; they do not turn rejected responses
 into passes. Status methods without those prerequisites still execute. Each
 allowed blocker has a named follow-up in `crabpot.ci-policy.json`. Matrix recovery,
 bootstrap, and verification status require a configured account and crypto runtime;
-other Matrix methods keep their normal response checks.
+other Matrix methods keep their normal response checks. Voice Call declares its
+nine methods individually: runtime/provider setup, active call input, or a pending
+continuation operation must exist before the corresponding probe can run.
 
 Programmatic callers supplying isolated inputs and runtime can pass an explicit
 `gatewayMethodPrerequisites` map to the synthetic runner. Omit satisfied methods
