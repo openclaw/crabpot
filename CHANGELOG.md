@@ -2,6 +2,8 @@
 
 ## 0.2.2 - Unreleased
 
+- Temporarily capture bounded Windows cold-start phase receipts for separate contract, policy, and Tokenjuice archive/repository fixture attempts; no environment, startup or cleanup policy changes.
+
 - Distinguish caller-owned plugin registry handles from Gateway registry activation in paired resource workloads, preserving exact catalog checks and completed-work requirements.
 
 - Add an opt-in Tokenjuice resource workload with matched OpenAI agent turns, synthetic loopback responses, pinned source-built plugin admission and model-visible compaction checks. Preserve default statistics I/O and join the fixture on every exit. Retain command and cleanup error codes when fixture preparation fails.
