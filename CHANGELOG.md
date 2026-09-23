@@ -4,6 +4,7 @@
 
 - Add an opt-in Beam receiver workload that measures real Gateway HTTP and RPC paths with a fixed synthetic peer.
 - Report configured plugin workloads with missing receipts as blocked instead of claiming no adapter exists. Preserve supplied outcomes and the source-inventory denominator.
+- Run configured resource workloads as bounded sequential campaigns with pinned prepared inputs, full-inventory outcomes per repetition, retained partial receipts and fail-closed admission after execution failures. Verify inputs after failed invocations while preserving both workload and input-drift diagnostics. Keep numerical resource budgets and scheduling separate.
 - Support paired plugin workloads with identical dependency controls, before/after activation checks, adapter cleanup and signed resource deltas. Preserve published v1 empty-host receipts while emitting explicit v2 observations.
 - Add opt-in Workboard Gateway resource workloads and source-inventory coverage, preserving unsupported plugins and separating Kitchen Sink calibration from real workload credit.
 - Adopt Inspector source fixes for SDK discovery inside packaged `.setup` modules and composed Zod enums, preserving the published 0.3.26 package pin pending upstream release.
