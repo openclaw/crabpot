@@ -90,9 +90,9 @@ test("invalid host pin refuses preparation", posix, () => {
 });
 
 test("workflow admits only the fixed repository's main and retains failed evidence", () => {
-  const workflow = readFileSync(new URL("../.github/workflows/resource-campaign.yml", import.meta.url), "utf8");
-  assert.match(workflow, /workflow_dispatch:/);
-  assert.doesNotMatch(workflow, /schedule:|cron:/);
+  const workflow = readFileSync(new URL("../.github/workflows/resource-campaign.yml", import.meta.url), "utf8").replace(/\r\n/g, "\n");
+  assert.equal(workflow.match(/^on:\n([\s\S]*?)\npermissions:/m)?.[1],
+    '  workflow_dispatch:\n  schedule:\n    - cron: "43 3 * * *"\n');
   assert.match(workflow, /runs-on: ubuntu-24\.04/);
   assert.match(workflow, /github.repository == 'openclaw\/crabpot' && github.ref == 'refs\/heads\/main'/);
   assert.equal((workflow.match(/persist-credentials: false/g) ?? []).length, 2);
