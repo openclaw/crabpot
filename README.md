@@ -399,6 +399,24 @@ the receiver's normal rate limit. Mirroring is unconfigured; this does not cover
 remote publishing, continuation, expiry or concurrent uploads. Select this
 scenario with the same command and a separate output receipt.
 
+TypeSafe's `typesafe-systemone-decisions-v1` requires a genuine full OpenClaw
+source checkout with matching built `dist`, source inventory and qualified
+dependencies. Keep `src/`, `extensions/` and `pnpm-workspace.yaml` from that
+same revision: native discovery admits TypeSafe's `bundledDist: false` source
+plugin as bundled. Copying a plugin next to an installed package is not this
+route. The plugin's installed-host and plugin API requirements remain unchanged;
+this workload does not establish installed-package compatibility.
+
+The scenario selects `typesafe/kev-latest` for the decision role and invokes the
+real `decision_evaluate` core tool against a strict loopback `/v1/systemone`
+peer. Each of one first and 20 warm calls checks boolean, choice and score
+answers, host provenance and exactly one completed HTTP request. No hosted key
+or conversational model is configured. The empty-host case compares startup
+and neutral RPCs only; decision work is an absolute enabled-host observation,
+not an overhead delta. Model inference, hosted Jev behavior and model quality
+are unmeasured. Peer resources are outside the Gateway measurements; the peer
+closes after Gateway shutdown, including on preparation or workload failure.
+
 Session-share's `session-share-receiver-v1` connects a synthetic node through the
 public Gateway client and real device/node pairing. Each cycle lists and reads a
 fixed remote session, asserting both returned data and one node invocation per
