@@ -8,6 +8,7 @@
 
 - Generate resource campaign input pins from prepared local host, consumer and archive bytes, rejecting unsupported runtimes, source mismatches and existing output files.
 - Add an opt-in Beam receiver workload that measures real Gateway HTTP and RPC paths with a fixed synthetic peer.
+- Add an opt-in session-share receiver workload with real node pairing, verified catalog reads, and bounded Gateway resource measurements.
 - Report configured plugin workloads with missing receipts as blocked instead of claiming no adapter exists. Preserve supplied outcomes and the source-inventory denominator.
 - Run configured resource workloads as bounded sequential campaigns with pinned prepared inputs, full-inventory outcomes per repetition, retained partial receipts and fail-closed admission after execution failures. Verify inputs after failed invocations while preserving both workload and input-drift diagnostics. Keep numerical resource budgets and scheduling separate.
 - Support paired plugin workloads with identical dependency controls, before/after activation checks, adapter cleanup and signed resource deltas. Preserve published v1 empty-host receipts while emitting explicit v2 observations.

@@ -15,6 +15,13 @@
       "why": "Authenticated HTTP receiver, real plugin state and catalog read/archive through Gateway RPC."
     },
     {
+      "id": "session-share-receiver-v1",
+      "pluginId": "session-share",
+      "adapter": "session-share",
+      "requiredOperations": { "first-use": 1, "warm-work": 20 },
+      "why": "Real session catalog receiver and paired node invocation with deterministic remote session responses."
+    },
+    {
       "id": "workboard-card-crud-v1",
       "pluginId": "workboard",
       "adapter": "workboard",

@@ -376,6 +376,14 @@ the receiver's normal rate limit. Mirroring is unconfigured; this does not cover
 remote publishing, continuation, expiry or concurrent uploads. Select this
 scenario with the same command and a separate output receipt.
 
+Session-share's `session-share-receiver-v1` connects a synthetic node through the
+public Gateway client and real device/node pairing. Each cycle lists and reads a
+fixed remote session, asserting both returned data and one node invocation per
+RPC. One first cycle and 20 warm cycles run after pairing completes. The mock
+node closes and joins before the final observation. Remote storage, source-side
+privacy/redaction, pairing cost and cross-host network behavior are unmeasured;
+the mock client's resources are outside the Gateway process measurements.
+
 Add the receipt to the existing report from the Crabpot checkout:
 
 ```bash
