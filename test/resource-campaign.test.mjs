@@ -1,11 +1,12 @@
 import assert from "node:assert/strict";
+import { spawnSync } from "node:child_process";
 import { createHash } from "node:crypto";
-import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
+import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { test } from "node:test";
 import { requiredCaseOperations, resourceWorkloadPlan, resourceWorkloadComparison } from "../scripts/resource-workload-contract.mjs";
-import { parseArgs, runResourceCampaign, verifyPreparedInputs } from "../scripts/run-resource-campaign.mjs";
+import { parseArgs, resourceCampaignExitCode, runResourceCampaign, verifyPreparedInputs } from "../scripts/run-resource-campaign.mjs";
 
 const hash = "b".repeat(64);
 const commit = "a".repeat(40);
@@ -26,7 +27,7 @@ const pins = { schemaVersion: 1, hostCommit: commit,
   files: { host: Object.fromEntries(hostNames.map((name) => [name, hash])), crabpot: Object.fromEntries(consumerNames.map((name) => [name, hash])) }, artifacts: [] };
 
 // Controlled producer observations; no Gateway, adapter, provider or Inspector is executed.
-function receipt(definition) {
+function receipt(definition, sourceInventory = inventory) {
   const cases = resourceWorkloadPlan(definition).map((plan) => {
     let tick = 0;
     const sample = () => ({ pid: plan.enabled ? 2 : 1, atMonotonicMicros: ++tick * 1000,
@@ -47,8 +48,9 @@ function receipt(definition) {
       }) };
   });
   return { schemaVersion: 2, kind: "plugin-resource-workload", status: "exercised", reason: "measured-plugin-workload",
-    scenario: { id: definition.id, pluginId: definition.pluginId, requirements: definition.requiredOperations },
-    inventory: { source, sha256: inventory.sha256 }, provenance: { adapterSha256: hash, consumerSha256: hash, contractSha256: hash,
+    scenario: { id: definition.id, pluginId: definition.pluginId, requirements: definition.requiredOperations,
+      ...(definition.pairedWorkload ? { pairedWorkload: definition.pairedWorkload } : {}) },
+    inventory: { source, sha256: sourceInventory.sha256 }, provenance: { adapterSha256: hash, consumerSha256: hash, contractSha256: hash,
       harnessSha256: Object.fromEntries(hostNames.filter((name) => name.startsWith("scripts/")).map((name) => [name, hash])) },
     measurement: {}, cases, comparison: resourceWorkloadComparison(cases, definition) };
 }
@@ -58,7 +60,7 @@ async function exercise(options = {}, hooks = {}) {
   const campaign = await runResourceCampaign({ manifest: { resourceWorkloads: [definition("a"), definition("b")] },
     inventory, pins, repetitions: 2, execute: true, ...options }, {
     verify() {}, adapterAvailable: () => true,
-    async run({ definition }) { calls.push(definition.id); return receipt(definition); },
+    async run({ definition }) { calls.push(definition.id); return receipt(definition, options.inventory ?? inventory); },
     save(name, value) { saved.set(name, structuredClone(value)); }, ...hooks,
   });
   return { campaign, saved, calls };
@@ -71,6 +73,8 @@ test("campaign runs sequentially and groups one validated receipt per plugin per
     assert.equal(active, false); active = true; await Promise.resolve(); active = false; return receipt(definition);
   } });
   assert.equal(campaign.status, "complete");
+  assert.equal(campaign.selection, undefined);
+  assert.equal(resourceCampaignExitCode(campaign, true), 0);
   assert.equal(saved.size, 5);
   assert.equal(checks, 8);
   for (const repetition of campaign.repetitions) {
@@ -84,6 +88,8 @@ test("planning, missing adapters and unknown plugins never earn execution credit
   const planned = await exercise({ execute: false });
   assert.deepEqual(planned.calls, []);
   assert.equal(planned.campaign.repetitions[0].plugins[0].reason, "execution-not-requested");
+  assert.equal(resourceCampaignExitCode(planned.campaign, false), 0);
+  assert.equal(resourceCampaignExitCode(planned.campaign, true), 1);
   const missing = await exercise({ manifest: { resourceWorkloads: [definition("a"), definition("unknown")] } }, { adapterAvailable: () => false });
   assert.deepEqual(missing.calls, []);
   assert.equal(missing.campaign.unmatchedScenarios[0].reason, "plugin-absent-from-inventory");
@@ -300,4 +306,95 @@ test("prepared input verification hashes actual local bytes without importing th
   verifyPreparedInputs(expected, [definition("a")], inventory, path.join(root, "host"), path.join(root, "crabpot"));
   writeFileSync(path.join(root, "host/openclaw.mjs"), "changed");
   assert.throws(() => verifyPreparedInputs(expected, [definition("a")], inventory, path.join(root, "host"), path.join(root, "crabpot")), /input changed/);
+});
+
+function selectionInputs(distribution = "core") {
+  const selectedPayload = { ...payload, plugins: payload.plugins.map((plugin) => ({ ...plugin,
+    distribution: plugin.id === "a" ? distribution : distribution === "core" ? "external" : "core" })) };
+  return { distribution, inventory: { ...selectedPayload, sha256: digest(JSON.stringify(selectedPayload)) },
+    manifest: { resourceWorkloads: [{ ...definition("a"), pairedWorkload: { dependencies: ["b", "c"], targetActivation: "workload" } }, definition("b")] } };
+}
+
+for (const distribution of ["core", "external", "source"]) test(`${distribution} selection preserves the denominator and gives dependencies no credit`, async () => {
+  const { campaign, calls, saved } = await exercise(selectionInputs(distribution));
+  assert.deepEqual(calls, ["a-v1", "a-v1"]);
+  assert.equal(campaign.status, "blocked");
+  assert.equal(campaign.inventory.count, 3);
+  assert.deepEqual(campaign.selection, { distribution, configuredScenarios: 1, excludedConfiguredScenarios: 1,
+    status: "complete", reason: "selected-workloads-complete" });
+  assert.equal(resourceCampaignExitCode(campaign, true), 0);
+  for (const repetition of campaign.repetitions) {
+    assert.equal(repetition.plugins.length, 3);
+    assert.deepEqual(repetition.plugins.map(({ status }) => status), ["exercised", "blocked", "unsupported"]);
+    assert.equal(repetition.plugins[1].reason, "not-selected-for-this-campaign");
+    assert.equal(repetition.plugins[2].reason, "no-workload-adapter");
+    assert.equal(saved.has(`repetition-${repetition.repetition}/b-v1.json`), false);
+  }
+});
+
+for (const fault of ["cleanup", "identity", "second-repetition", "postverify"]) test(`selection cannot excuse ${fault} failure`, async () => {
+  const options = selectionInputs(); let runs = 0; let checks = 0;
+  const { campaign } = await exercise(options, { verify() {
+    if (++checks === 2 && fault === "postverify") throw new Error("changed inputs after selected work");
+  }, async run({ definition }) {
+    if (++runs === 2 && fault === "second-repetition") throw new Error("failed second repetition");
+    const report = receipt(definition, options.inventory);
+    if (fault === "cleanup") report.cases[1].adapterCleanup.completed = 0;
+    if (fault === "identity") report.provenance.adapterSha256 = "d".repeat(64);
+    return report;
+  } });
+  assert.equal(campaign.selection.status, "failed");
+  assert.equal(resourceCampaignExitCode(campaign, true), 1);
+  if (fault === "second-repetition") {
+    assert.equal(runs, 2);
+    assert.equal(campaign.repetitions[0].plugins[0].status, "exercised");
+  } else if (fault === "postverify") {
+    assert.equal(checks, 2);
+    assert.equal(runs, 1);
+    assert.equal(campaign.repetitions[0].plugins[0].diagnostic.stage, "postverify");
+  } else assert.match(campaign.repetitions[0].plugins[0].diagnostic.message, fault === "cleanup" ? /completed adapter cleanup/ : /Receipt adapter differs/);
+  assert.ok(campaign.repetitions.every(({ plugins }) => plugins[1].reason === "not-selected-for-this-campaign"));
+});
+
+test("empty, unexecuted, unavailable and unverified selections cannot succeed", async () => {
+  const empty = await exercise({ distribution: "source" });
+  assert.deepEqual(empty.calls, []);
+  assert.equal(empty.campaign.selection.reason, "no-selected-configured-scenarios");
+  for (const [options, hooks] of [[{ execute: false }, {}], [{}, { adapterAvailable: () => false }], [{}, { verify() { throw new Error("changed inputs"); } }]]) {
+    const { campaign, calls } = await exercise({ ...selectionInputs(), ...options }, hooks);
+    assert.deepEqual(calls, []);
+    assert.equal(campaign.selection.status, "blocked");
+    assert.equal(resourceCampaignExitCode(campaign, options.execute ?? true), 1);
+  }
+  assert.equal(resourceCampaignExitCode(empty.campaign, true), 1);
+});
+
+test("unmatched configured scenarios block selection success even after selected work completes", async () => {
+  const options = selectionInputs(); options.manifest.resourceWorkloads.push(definition("unknown"));
+  const { campaign, calls } = await exercise(options);
+  assert.equal(calls.length, 2);
+  assert.equal(campaign.selection.reason, "unmatched-configured-scenarios");
+  assert.equal(resourceCampaignExitCode(campaign, true), 1);
+});
+
+test("distribution admission rejects invalid and repeated values", async () => {
+  const required = ["--plugin-inventory", "i", "--inputs", "p", "--out", "o"];
+  assert.equal(parseArgs([...required, "--distribution", "core"]).distribution, "core");
+  for (const distribution of [null, "all", "", "Core"]) await assert.rejects(exercise({ distribution }), /Distribution/);
+  assert.throws(() => parseArgs([...required, "--distribution", "invalid"]), /Distribution/);
+  assert.throws(() => parseArgs([...required, "--distribution", "core", "--distribution", "source"]), /Duplicate/);
+});
+
+test("CLI reports partial scope and rejects selection planning while default planning stays successful", (t) => {
+  const root = mkdtempSync(path.join(os.tmpdir(), "resource-selection-test-"));
+  t.after(() => rmSync(root, { recursive: true, force: true }));
+  for (const [name, value] of [["inventory", inventory], ["pins", pins]]) writeFileSync(path.join(root, `${name}.json`), JSON.stringify(value));
+  for (const selected of [false, true]) {
+    const output = path.join(root, String(selected));
+    const args = ["scripts/run-resource-campaign.mjs", "--plugin-inventory", path.join(root, "inventory.json"), "--inputs", path.join(root, "pins.json"), "--out", output];
+    const result = spawnSync(process.execPath, [...args, ...(selected ? ["--distribution", "core"] : [])], { cwd: new URL("..", import.meta.url), encoding: "utf8", timeout: 5000 });
+    assert.equal(result.status, selected ? 1 : 0, result.stderr);
+    assert.equal(JSON.parse(readFileSync(path.join(output, "campaign.json"))).inventory.count, 3);
+    if (selected) assert.match(result.stdout, /partial scope core: blocked; full inventory: blocked/);
+  }
 });

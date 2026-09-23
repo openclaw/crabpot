@@ -2,6 +2,8 @@
 
 ## 0.2.2 - Unreleased
 
+- Select resource campaign workloads by inventory distribution while retaining full-inventory coverage gaps and an explicit partial-scope outcome.
+
 - Generate resource campaign input pins from prepared local host, consumer and archive bytes, rejecting unsupported runtimes, source mismatches and existing output files.
 - Add an opt-in Beam receiver workload that measures real Gateway HTTP and RPC paths with a fixed synthetic peer.
 - Report configured plugin workloads with missing receipts as blocked instead of claiming no adapter exists. Preserve supplied outcomes and the source-inventory denominator.

@@ -24,6 +24,7 @@ const entries = ["openclaw.mjs", "dist/index.mjs", "dist/index.js"];
 export { hostFiles as resourceHostFiles, consumerFiles as resourceConsumerFiles, entries as resourceHostEntries };
 const hashFile = (file) => digest(readFileSync(file));
 const record = (value) => value !== null && typeof value === "object" && !Array.isArray(value);
+const assertDistribution = (value) => assert.ok(value === undefined || ["core", "external", "source"].includes(value), "Distribution must be core, external or source");
 
 function failureDiagnostic(error, stage) {
   const code = ["ENOENT", "EACCES", "EPERM", "ENOSPC", "EIO", "ERR_ASSERTION"].includes(error?.code) ? error.code : "UNKNOWN";
@@ -95,7 +96,7 @@ function verifyReceiptPins(report, pins) {
 
 /** Sequential orchestration; the existing workload owner must join each Gateway and peer. */
 export async function runResourceCampaign({
-  manifest, inventory, pins, repetitions = 3, execute = false, hostRoot = process.cwd(),
+  manifest, inventory, pins, repetitions = 3, execute = false, hostRoot = process.cwd(), distribution,
 }, {
   run = runResourceWorkload,
   verify = async () => {
@@ -106,6 +107,8 @@ export async function runResourceCampaign({
   save = () => {},
 } = {}) {
   validatePluginInventory(inventory);
+  assertDistribution(distribution);
+  const selected = (plugin) => distribution === undefined || plugin.distribution === distribution;
   assert.ok(Number.isSafeInteger(repetitions) && repetitions >= 1 && repetitions <= 10, "Repetitions must be 1..10");
   const definitions = manifest.resourceWorkloads ?? [];
   const ids = new Set();
@@ -128,10 +131,16 @@ export async function runResourceCampaign({
       plugins: inventory.plugins.map(({ id, distribution }) => {
         const definition = definitions.find(({ pluginId }) => pluginId === id);
         return { id, distribution, ...(definition ? { scenario: definition.id } : {}),
-          status: definition ? "blocked" : "unsupported", reason: definition ? "not-run" : "no-workload-adapter" };
+          status: definition ? "blocked" : "unsupported", reason: !definition ? "no-workload-adapter"
+            : selected({ distribution }) ? "not-run" : "not-selected-for-this-campaign" };
       }),
     })),
   };
+  if (distribution !== undefined) {
+    const configured = campaign.repetitions[0].plugins.filter(({ scenario }) => scenario);
+    campaign.selection = { distribution, configuredScenarios: configured.filter(selected).length,
+      excludedConfiguredScenarios: configured.filter((row) => !selected(row)).length };
+  }
   const checkpoint = async () => {
     for (const repetition of campaign.repetitions) {
       repetition.summary = Object.fromEntries(["exercised", "blocked", "unsupported", "failed"].map((status) =>
@@ -139,12 +148,22 @@ export async function runResourceCampaign({
     }
     campaign.status = campaign.repetitions.some(({ summary }) => summary.failed) ? "failed"
       : campaign.unmatchedScenarios.length || campaign.repetitions.some(({ summary }) => summary.blocked) ? "blocked" : "complete";
+    if (campaign.selection) {
+      // Selection success never replaces the full-inventory coverage outcome.
+      const rows = campaign.repetitions.flatMap(({ plugins }) => plugins.filter((row) => row.scenario && selected(row)));
+      const complete = rows.length > 0 && !campaign.unmatchedScenarios.length && rows.every(({ status }) => status === "exercised");
+      campaign.selection.status = campaign.status === "failed" ? "failed" : complete ? "complete" : "blocked";
+      campaign.selection.reason = campaign.status === "failed" ? "selected-workload-failed"
+        : campaign.unmatchedScenarios.length ? "unmatched-configured-scenarios"
+        : !rows.length ? "no-selected-configured-scenarios"
+        : complete ? "selected-workloads-complete" : "selected-workloads-incomplete";
+    }
     await save("campaign.json", campaign);
   };
   await checkpoint();
   let halted = false;
   for (const repetition of campaign.repetitions) {
-    for (const row of repetition.plugins.filter(({ scenario }) => scenario)) {
+    for (const row of repetition.plugins.filter((row) => row.scenario && selected(row))) {
       const definition = definitions.find(({ id }) => id === row.scenario);
       if (halted) { row.reason = "campaign-admission-stopped"; continue; }
       if (!adapterAvailable(definition)) { row.reason = "configured-adapter-unavailable"; continue; }
@@ -215,13 +234,22 @@ export function parseArgs(argv) {
   for (let index = 0; index < argv.length; index++) {
     const option = argv[index];
     if (option === "--execute") { args.execute = true; continue; }
-    assert.ok(["--plugin-inventory", "--inputs", "--out", "--repetitions"].includes(option), `Unknown argument: ${option}`);
+    assert.ok(["--plugin-inventory", "--inputs", "--out", "--repetitions", "--distribution"].includes(option), `Unknown argument: ${option}`);
     const value = argv[++index];
     assert.ok(value && !value.startsWith("--"), `${option} requires a value`);
+    if (option === "--distribution") {
+      assert.ok(args.distribution === undefined, "Duplicate --distribution");
+      assertDistribution(value);
+    }
     args[option.slice(2)] = option === "--repetitions" ? Number(value) : value;
   }
   for (const key of ["plugin-inventory", "inputs", "out"]) assert.ok(args[key], `--${key} is required`);
   return args;
+}
+
+export function resourceCampaignExitCode(campaign, execute) {
+  if (campaign.selection) return campaign.selection.status === "complete" ? 0 : 1;
+  return execute && campaign.status !== "complete" ? 1 : 0;
 }
 
 async function main() {
@@ -240,8 +268,9 @@ async function main() {
       renameSync(`${file}.tmp`, file);
     },
   });
-  console.log(`resource campaign: ${campaign.status}; ${campaign.repetitions.length} repetitions; ${campaign.inventory.count} inventory plugins`);
-  if (args.execute && campaign.status !== "complete") {
+  const scope = campaign.selection ? `partial scope ${campaign.selection.distribution}: ${campaign.selection.status}; full inventory` : "resource campaign";
+  console.log(`${scope}: ${campaign.status}; ${campaign.repetitions.length} repetitions; ${campaign.inventory.count} inventory plugins`);
+  if (resourceCampaignExitCode(campaign, args.execute)) {
     console.error("[resource-campaign] FAILED (exit 1)");
     process.exitCode = 1;
   }
