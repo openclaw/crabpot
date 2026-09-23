@@ -411,6 +411,12 @@ Adapters that need a dependency plugin and a matched workload control declare
 Both isolated cases execute the same declared phases, in order, with identical
 completion counts. The baseline has only the dependencies active; the enabled
 case must activate the target during work (`workload`) or before work (`startup`).
+Use `scoped` for caller-owned registry handles that execute without publishing
+to the Gateway registry, such as lazy tool-result middleware. Both catalog
+observations must then equal the dependency set; receipts name this observation
+scope explicitly. Adapters must still assert the real target behavior and every
+declared operation. Catalog absence alone proves neither execution nor failure.
+This does not claim a root-registry transition or in-process handle disposal.
 Dependencies must be present in the source inventory. They do not earn separate
 coverage from another plugin's workload. Without this declaration, existing
 adapters retain their empty-host baseline and startup activation requirement.
