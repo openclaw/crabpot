@@ -22,6 +22,13 @@
       "why": "Real session catalog receiver and paired node invocation with deterministic remote session responses."
     },
     {
+      "id": "typesafe-systemone-decisions-v1",
+      "pluginId": "typesafe",
+      "adapter": "typesafe",
+      "requiredOperations": { "first-use": 1, "warm-work": 20 },
+      "why": "Source-checkout TypeSafe decision-provider lifecycle through the core decision tool and a strict local System One peer; no hosted credentials or model inference."
+    },
+    {
       "id": "workboard-card-crud-v1",
       "pluginId": "workboard",
       "adapter": "workboard",
