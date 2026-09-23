@@ -95,6 +95,8 @@ test("real Git fixture has exactly 32 modified tracked files, isolated config an
   assert.equal((repository.raw.match(/modified:/g) ?? []).length, 32);
   assert.match(repository.raw, /^On branch resource-fixture/);
   assert.equal(env.GIT_CONFIG_NOSYSTEM, "1");
+  assert.equal(path.dirname(env.GIT_CONFIG_GLOBAL), root);
+  assert.equal(await readFile(env.GIT_CONFIG_GLOBAL, "utf8"), "");
   assert.equal(env.GIT_CONFIG_COUNT, "0");
   assert.equal(env.TOKENJUICE_STATS, undefined);
   assert.equal(env.TOKENJUICE_ARTIFACT_DIR, undefined);

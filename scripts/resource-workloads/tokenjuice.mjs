@@ -3,7 +3,6 @@ import { createHash } from "node:crypto";
 import { createReadStream } from "node:fs";
 import { mkdir, readFile, readdir, stat, writeFile } from "node:fs/promises";
 import http from "node:http";
-import { devNull } from "node:os";
 import path from "node:path";
 import { runOwnedCommand } from "../owned-command.mjs";
 
@@ -78,10 +77,14 @@ export async function installPinnedArchive(context, inputs = process.env) {
 export async function prepareRepository(root, env) {
   const workspace = path.join(root, "synthetic-repository");
   const hooks = path.join(root, "empty-git-hooks");
+  const gitConfig = path.join(root, "gitconfig");
   await mkdir(workspace);
   await mkdir(hooks);
+  // Git for Windows rejects Node's null-device path as a config file.
+  // An owned empty file isolates user config on every platform.
+  await writeFile(gitConfig, "");
   Object.assign(env, {
-    LC_ALL: "C", LANG: "C", GIT_CONFIG_NOSYSTEM: "1", GIT_CONFIG_GLOBAL: devNull,
+    LC_ALL: "C", LANG: "C", GIT_CONFIG_NOSYSTEM: "1", GIT_CONFIG_GLOBAL: gitConfig,
     GIT_CONFIG_COUNT: "0", GIT_TERMINAL_PROMPT: "0",
   });
   const git = (args) => owned("git", args, { env, cwd: workspace });
