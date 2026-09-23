@@ -399,14 +399,6 @@ the receiver's normal rate limit. Mirroring is unconfigured; this does not cover
 remote publishing, continuation, expiry or concurrent uploads. Select this
 scenario with the same command and a separate output receipt.
 
-Session-share's `session-share-receiver-v1` connects a synthetic node through the
-public Gateway client and real device/node pairing. Each cycle lists and reads a
-fixed remote session, asserting both returned data and one node invocation per
-RPC. One first cycle and 20 warm cycles run after pairing completes. The mock
-node closes and joins before the final observation. Remote storage, source-side
-privacy/redaction, pairing cost and cross-host network behavior are unmeasured;
-the mock client's resources are outside the Gateway process measurements.
-
 TypeSafe's `typesafe-systemone-decisions-v1` requires a genuine full OpenClaw
 source checkout with matching built `dist`, source inventory and qualified
 dependencies. Keep `src/`, `extensions/` and `pnpm-workspace.yaml` from that
@@ -424,6 +416,14 @@ and neutral RPCs only; decision work is an absolute enabled-host observation,
 not an overhead delta. Model inference, hosted Jev behavior and model quality
 are unmeasured. Peer resources are outside the Gateway measurements; the peer
 closes after Gateway shutdown, including on preparation or workload failure.
+
+Session-share's `session-share-receiver-v1` connects a synthetic node through the
+public Gateway client and real device/node pairing. Each cycle lists and reads a
+fixed remote session, asserting both returned data and one node invocation per
+RPC. One first cycle and 20 warm cycles run after pairing completes. The mock
+node closes and joins before the final observation. Remote storage, source-side
+privacy/redaction, pairing cost and cross-host network behavior are unmeasured;
+the mock client's resources are outside the Gateway process measurements.
 
 Add the receipt to the existing report from the Crabpot checkout:
 
