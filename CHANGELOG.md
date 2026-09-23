@@ -2,6 +2,7 @@
 
 ## 0.2.2 - Unreleased
 
+- Run the report-only bundled resource campaign nightly at 03:43 UTC, retaining manual dispatch, pinned inputs and explicit full-inventory coverage gaps.
 - Select resource campaign workloads by inventory distribution while retaining full-inventory coverage gaps and an explicit partial-scope outcome.
 - Add a manual-only, report-only bundled resource campaign using a pinned installed Gateway, isolated Docker execution, full-inventory outcomes and explicit container closure evidence. Require remote wrapper proof before landing and one successful Actions run before a separate schedule-enable PR.
 

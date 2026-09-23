@@ -586,19 +586,14 @@ The first fixture set intentionally covers channels, dynamic tools, LLM
 observation, diagnostics, gateway-owned services, async jobs, provider
 capabilities, and security/policy hooks.
 
-### Manual bundled resource campaign
+### Nightly bundled resource campaign
 
-`.github/workflows/resource-campaign.yml` runs a report-only campaign only on
-manual dispatch from this repository's `main`. It never runs pull-request
-code. A reviewed full OpenClaw commit must be set in `RESOURCE_HOST_SHA`; an
-unset pin fails preparation instead of selecting a moving branch. The commit
-must contain the committed inventory export and shared resource Gateway host.
-
-Before initial landing, prove the exact wrapper and pinned host on an isolated
-remote Linux runner, retaining non-root execution and cleanup evidence. GitHub
-requires the workflow on the default branch before manual dispatch. After
-landing, run it once from `main` and verify the campaign artifacts and cleanup.
-Enable the daily schedule in a separate PR only after that Actions run passes.
+`.github/workflows/resource-campaign.yml` runs a report-only campaign daily at
+03:43 UTC and on manual dispatch from this repository's `main`. GitHub can delay
+scheduled runs. It never runs pull-request code. A reviewed full OpenClaw commit
+must be set in `RESOURCE_HOST_SHA`; an unset pin fails preparation instead of
+selecting a moving branch. The commit must contain the committed inventory
+export and shared resource Gateway host.
 
 Preparation installs the frozen source dependencies, uses core's Docker package
 builder and functional image, and records the host/archive/image/consumer
