@@ -60,6 +60,27 @@ jobs:
         if: ${{ steps.scope.outputs.audit != 'true' }}
         run: echo "No fixture lock or security-checker changes; scheduled audit owns drift detection."
 
+  # Temporary PR-local diagnostic. Remove after the owner startup investigation;
+  # this separate runner must never warm or reorder the required native fixtures.
+  windows-json-probe:
+    name: Temporary / Windows first-cmdlet probe
+    if: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository && github.head_ref == 'feat/plugin-resource-tokenjuice-20260923' }}
+    runs-on: windows-2025
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 1
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24.20.0
+      - name: Observe first JSON cmdlet inside the unchanged native Job owner
+        shell: cmd
+        timeout-minutes: 1
+        run: node test/fixtures/owned-command-json-probe.mjs
+
   manifest:
     name: Default Track / Static checks (${{ matrix.os }})
     runs-on: ${{ matrix.os }}

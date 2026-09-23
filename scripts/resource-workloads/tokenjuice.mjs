@@ -44,6 +44,7 @@ export function assertFixtureCommand(result, commandName) {
     return {
       reason: reasons.includes(message) ? message : "unclassified",
       nativeCode: Number.isInteger(error.nativeCode) && error.nativeCode >= 0 && error.nativeCode <= 0xffffffff ? error.nativeCode : null,
+      causeCode: error.cause == null ? null : ["EPERM", "EACCES", "EINVAL", "ESRCH", "UNKNOWN"].includes(error.cause.code) ? error.cause.code : "UNCLASSIFIED",
     };
   };
   const summary = {

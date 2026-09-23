@@ -180,6 +180,26 @@ test("owner diagnostics whitelist reasons and bounded native codes without copyi
   }
 });
 
+test("owner diagnostics distinguish missing and unknown liveness causes without private error data", () => {
+  const privateText = "synthetic-private-cause-data";
+  for (const [cause, expected] of [
+    [undefined, null],
+    ...["EPERM", "EACCES", "EINVAL", "ESRCH", "UNKNOWN"].map((code) => [{ code }, code]),
+    [{}, "UNCLASSIFIED"], [privateText, "UNCLASSIFIED"],
+    [{ code: privateText, message: privateText, stack: privateText, path: privateText }, "UNCLASSIFIED"],
+  ]) {
+    assert.throws(() => assertFixtureCommand({
+      status: null, signal: null, error: { code: "EOWNERSTART" },
+      cleanupError: { code: "EOWNERCLEANUP", message: "Windows helper closure was not observed", cause },
+    }, "tar"), (error) => {
+      assert.deepEqual(error.actual, { status: null, signal: null, error: "EOWNERSTART", cleanupError: "EOWNERCLEANUP" });
+      assert.ok(error.message.includes(`"reason":"Windows helper closure was not observed","nativeCode":null,"causeCode":${JSON.stringify(expected)}`));
+      assert.ok(!error.message.includes(privateText));
+      return true;
+    });
+  }
+});
+
 test("uncertain native cleanup retains its exact root and blocks subsequent native admission", async (t) => {
   const scope = nativeFixtureScope();
   // These synthetic failures own no process; the outer test can remove them.
