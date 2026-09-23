@@ -25,8 +25,27 @@ const files = Array.from({ length: 32 }, (_, index) => `synthetic-tracked-file-$
 const requiredOperations = { "first-use": 1, "warm-work": 5 };
 
 export function assertFixtureCommand(result, commandName) {
-  // Keep both owner failures visible without copying command output or paths.
+  // Preserve the outcome fields; only exact owner messages and bounded native
+  // codes may enter failure text, never arbitrary native error data.
   const code = (error) => !error ? null : /^[A-Z][A-Z0-9_]{0,63}$/.test(error.code ?? "") ? error.code : "UNCLASSIFIED";
+  const reasons = [
+    "command supervisor startup timed out",
+    "Windows command adapter startup timed out",
+    "command supervisor exceeded its deadline",
+    "command supervisor terminal cleanup receipt was not observed",
+    "Windows helper closure was not observed",
+    "Windows Job cleanup receipt missing",
+    "Windows helper did not close after forced termination",
+    "Windows Job extinction receipt was not observed",
+  ];
+  const detail = (error) => {
+    if (!error) return null;
+    const message = typeof error.message === "string" ? error.message.replace(/; command cleanup was not confirmed$/, "") : "";
+    return {
+      reason: reasons.includes(message) ? message : "unclassified",
+      nativeCode: Number.isInteger(error.nativeCode) && error.nativeCode >= 0 && error.nativeCode <= 0xffffffff ? error.nativeCode : null,
+    };
+  };
   const summary = {
     status: result.status,
     signal: result.signal,
@@ -34,7 +53,7 @@ export function assertFixtureCommand(result, commandName) {
     cleanupError: code(result.cleanupError),
   };
   assert.deepEqual(summary, { status: 0, signal: null, error: null, cleanupError: null },
-    `${commandName} fixture command failed: ${JSON.stringify(summary)}`);
+    `${commandName} fixture command failed: ${JSON.stringify(summary)}; owner details: ${JSON.stringify({ error: detail(result.error), cleanupError: detail(result.cleanupError) })}`);
 }
 
 async function owned(commandName, args, { env, cwd }) {

@@ -18,9 +18,29 @@ const raw = `On branch resource-fixture\nChanges not staged for commit:\n${Array
 // Synthetic only: these tests validate the observer, not the real reducer.
 const compact = "Changes not staged:\nM: synthetic-tracked-file-00.txt\nM: synthetic-tracked-file-31.txt\n\n[tokenjuice compacted bash output]";
 
+function nativeFixtureScope() {
+  let uncertainRoot;
+  return {
+    async run(root, operation) {
+      assert.ok(!uncertainRoot, "native fixture admission blocked after unconfirmed cleanup");
+      try { return await operation(); } catch (error) {
+        if (error.actual?.cleanupError) uncertainRoot = root;
+        throw error;
+      }
+    },
+    async cleanup(root) {
+      // A failed owner may still use this directory. Only that exact root stays.
+      if (root !== uncertainRoot) await rm(root, { recursive: true, force: true });
+    },
+  };
+}
+
+// Top-level tests run serially; this gate covers later native actions here only.
+const nativeFixtures = nativeFixtureScope();
+
 async function temporary(t) {
   const root = await mkdtemp(path.join(tmpdir(), "crabpot-tokenjuice-test-"));
-  t.after(() => rm(root, { recursive: true, force: true }));
+  t.after(() => nativeFixtures.cleanup(root));
   return root;
 }
 
@@ -71,8 +91,10 @@ test("archive input checks actual bytes and closure before native installation",
   await writeFile(path.join(root, "package/node_modules/tokenjuice/package.json"), JSON.stringify(dependency));
   const archive = path.join(root, "fixture.tgz");
   const env = environment(root);
-  const packed = await runOwnedCommand("tar", ["-czf", archive, "-C", root, "package"], { cwd: root, env, timeout: 10_000, maxBuffer: 64 * 1024, encoding: "utf8" });
-  assertFixtureCommand(packed, "tar");
+  await nativeFixtures.run(root, async () => {
+    const packed = await runOwnedCommand("tar", ["-czf", archive, "-C", root, "package"], { cwd: root, env, timeout: 10_000, maxBuffer: 64 * 1024, encoding: "utf8" });
+    assertFixtureCommand(packed, "tar");
+  });
   const sha256 = createHash("sha256").update(await readFile(archive)).digest("hex");
   const installed = [];
   const context = { root, env, installArchive: async (...args) => {
@@ -80,18 +102,18 @@ test("archive input checks actual bytes and closure before native installation",
     installed.push(args);
   } };
   const inputs = { CRABPOT_TOKENJUICE_ARCHIVE: archive, CRABPOT_TOKENJUICE_ARCHIVE_SHA256: sha256 };
-  await installPinnedArchive(context, inputs);
+  await nativeFixtures.run(root, () => installPinnedArchive(context, inputs));
   assert.deepEqual(installed, [[archive, sha256]]);
-  await assert.rejects(installPinnedArchive(context, { ...inputs, CRABPOT_TOKENJUICE_ARCHIVE_SHA256: "f".repeat(64) }), /hash mismatch/);
-  await assert.rejects(installPinnedArchive(context, {}), /absolute local/);
-  await assert.rejects(installPinnedArchive(context, { ...inputs, CRABPOT_TOKENJUICE_ARCHIVE_SHA256: "short" }), /SHA256/);
+  await assert.rejects(nativeFixtures.run(root, () => installPinnedArchive(context, { ...inputs, CRABPOT_TOKENJUICE_ARCHIVE_SHA256: "f".repeat(64) })), /hash mismatch/);
+  await assert.rejects(nativeFixtures.run(root, () => installPinnedArchive(context, {})), /absolute local/);
+  await assert.rejects(nativeFixtures.run(root, () => installPinnedArchive(context, { ...inputs, CRABPOT_TOKENJUICE_ARCHIVE_SHA256: "short" })), /SHA256/);
   assert.equal(installed.length, 1);
 });
 
 test("real Git fixture has exactly 32 modified tracked files, isolated config and unchanged stats defaults", async (t) => {
   const root = await temporary(t);
   const env = environment(root);
-  const repository = await prepareRepository(root, env);
+  const repository = await nativeFixtures.run(root, () => prepareRepository(root, env));
   assert.equal((repository.raw.match(/modified:/g) ?? []).length, 32);
   assert.match(repository.raw, /^On branch resource-fixture/);
   assert.equal(env.GIT_CONFIG_NOSYSTEM, "1");
@@ -127,6 +149,61 @@ test("fixture failure retains command and cleanup codes without command data", (
     assert.ok(!error.message.includes(privateText));
     return true;
   });
+});
+
+test("owner diagnostics whitelist reasons and bounded native codes without copying private fields", () => {
+  const privateText = "synthetic-private-owner-data";
+  for (const message of ["command supervisor startup timed out", "Windows command adapter startup timed out"]) {
+    assert.throws(() => assertFixtureCommand({
+      status: null, signal: null,
+      error: { code: "EOWNERSTART", message: `${message}; command cleanup was not confirmed`, nativeCode: 5,
+        stack: privateText, path: privateText, spawnargs: [privateText], env: { privateText } },
+      cleanupError: { code: "EOWNERCLEANUP", message: "Windows helper closure was not observed", cause: privateText },
+      stdout: privateText, stderr: privateText,
+    }, "git"), (error) => {
+      assert.deepEqual(error.actual, { status: null, signal: null, error: "EOWNERSTART", cleanupError: "EOWNERCLEANUP" });
+      assert.ok(error.message.includes(`"reason":"${message}"`));
+      assert.ok(error.message.includes('"nativeCode":5'));
+      assert.ok(error.message.includes('"reason":"Windows helper closure was not observed"'));
+      assert.ok(!error.message.includes(privateText));
+      return true;
+    });
+  }
+  for (const nativeCode of [-1, 1.5, NaN, 0x100000000, privateText, { privateText }]) {
+    assert.throws(() => assertFixtureCommand({
+      status: null, signal: null, error: { code: "EOWNERNATIVE", message: privateText, nativeCode },
+    }, "tar"), (error) => {
+      assert.ok(error.message.includes('"reason":"unclassified","nativeCode":null'));
+      assert.ok(!error.message.includes(privateText));
+      return true;
+    });
+  }
+});
+
+test("uncertain native cleanup retains its exact root and blocks subsequent native admission", async (t) => {
+  const scope = nativeFixtureScope();
+  // These synthetic failures own no process; the outer test can remove them.
+  const retained = await temporary(t), unused = await temporary(t);
+  await writeFile(path.join(retained, "sentinel"), "retained");
+  await writeFile(path.join(unused, "sentinel"), "unused");
+  const failure = Object.assign(new Error("synthetic owner failure"), { actual: { cleanupError: "EOWNERCLEANUP" } });
+  await assert.rejects(scope.run(retained, async () => { throw failure; }), (error) => error === failure);
+  await scope.cleanup(retained);
+  assert.equal(await readFile(path.join(retained, "sentinel"), "utf8"), "retained");
+  let admissions = 0;
+  await assert.rejects(scope.run(unused, async () => { admissions += 1; }), /native fixture admission blocked/);
+  assert.equal(admissions, 0);
+  await scope.cleanup(unused);
+  await assert.rejects(readFile(path.join(unused, "sentinel")), { code: "ENOENT" });
+});
+
+test("joined native failure permits later admission and ordinary fixture removal", async (t) => {
+  const scope = nativeFixtureScope(), root = await temporary(t);
+  const failure = Object.assign(new Error("synthetic child failure"), { actual: { status: 1, cleanupError: null } });
+  await assert.rejects(scope.run(root, async () => { throw failure; }), (error) => error === failure);
+  assert.equal(await scope.run(root, async () => "admitted"), "admitted");
+  await scope.cleanup(root);
+  await assert.rejects(readFile(root), { code: "ENOENT" });
 });
 
 for (const [label, output, enabled] of [
