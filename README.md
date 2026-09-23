@@ -141,6 +141,29 @@ Programmatic callers supplying isolated inputs and runtime can pass an explicit
 `gatewayMethodPrerequisites` map to the synthetic runner. Omit satisfied methods
 from that map; an empty map exercises every method with normal response checks.
 
+### Inspector resource contract smoke
+
+The source pin includes Inspector's process resource collector. On a trusted
+checkout, resolve that source and run the existing smoke with `--resources`:
+
+```bash
+inspector_root="$(node --input-type=module -e 'import path from "node:path"; import { resolvePluginInspectorCliPath } from "./scripts/plugin-inspector-source.mjs"; process.stdout.write(path.dirname(path.dirname(resolvePluginInspectorCliPath())));')"
+CRABPOT_PLUGIN_INSPECTOR_CLI=source CRABPOT_PLUGIN_INSPECTOR_DIR="$inspector_root" npm run plugin-inspector:smoke -- --resources
+```
+
+An explicit `CRABPOT_PLUGIN_INSPECTOR_DIR` selects the source or installed package
+under test; without it, the resolver can use a sibling checkout before the pin.
+The source and packed CI lanes exercise the public `resource-profile` export and
+write `plugin-inspector-resources.json` alongside the existing smoke reports.
+The published npm pin stays unchanged until a release includes this API; omit
+`--resources` when testing older packages.
+
+This checks collector observations in a fresh child: JSON-transported snapshots,
+a retained 1 MiB Buffer, and a timer added then removed. CPU/RSS cover the child
+process; other memory and active resources cover its main thread. It does not
+measure a plugin workload, peak memory, memory release, or a leak. The child uses
+an empty environment; that is not a network sandbox for external plugin code.
+
 ### Inspector command limits
 
 Inspector smoke and generated-surface commands default to 10 minutes. Inspector

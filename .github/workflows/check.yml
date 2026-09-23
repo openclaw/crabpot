@@ -105,13 +105,13 @@ jobs:
         run: |
           set -euo pipefail
           inspector_root="$(node --input-type=module -e 'import path from "node:path"; import { resolvePluginInspectorCliPath } from "./scripts/plugin-inspector-source.mjs"; process.stdout.write(path.dirname(path.dirname(resolvePluginInspectorCliPath())));')"
-          CRABPOT_PLUGIN_INSPECTOR_CLI=source CRABPOT_PLUGIN_INSPECTOR_DIR="$inspector_root" node scripts/run-plugin-inspector-smoke.mjs --check --runtime --out reports/plugin-inspector-source-smoke
+          CRABPOT_PLUGIN_INSPECTOR_CLI=source CRABPOT_PLUGIN_INSPECTOR_DIR="$inspector_root" node scripts/run-plugin-inspector-smoke.mjs --check --runtime --resources --out reports/plugin-inspector-source-smoke
           packed_root="$(mktemp -d "${RUNNER_TEMP}/plugin-inspector-smoke.XXXXXX")"
           trap 'rm -rf "$packed_root"' EXIT
           npm pack "$inspector_root" --ignore-scripts --pack-destination "$packed_root" --json > "$packed_root/pack.json"
           tarball="$(node --input-type=module -e 'import { readFileSync } from "node:fs"; process.stdout.write(JSON.parse(readFileSync(process.argv[1], "utf8"))[0].filename);' "$packed_root/pack.json")"
           npm install --prefix "$packed_root/install" --ignore-scripts --no-audit --no-fund "$packed_root/$tarball"
-          CRABPOT_PLUGIN_INSPECTOR_BIN="$packed_root/install/node_modules/.bin/plugin-inspector" CRABPOT_PLUGIN_INSPECTOR_DIR="$packed_root/install/node_modules/@openclaw/plugin-inspector" node scripts/run-plugin-inspector-smoke.mjs --check --runtime --out reports/plugin-inspector-packed-smoke
+          CRABPOT_PLUGIN_INSPECTOR_BIN="$packed_root/install/node_modules/.bin/plugin-inspector" CRABPOT_PLUGIN_INSPECTOR_DIR="$packed_root/install/node_modules/@openclaw/plugin-inspector" node scripts/run-plugin-inspector-smoke.mjs --check --runtime --resources --out reports/plugin-inspector-packed-smoke
       - name: Write CI summary artifacts
         if: ${{ !cancelled() }}
         continue-on-error: true

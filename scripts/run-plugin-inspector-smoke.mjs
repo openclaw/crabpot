@@ -15,8 +15,8 @@ const outIndex = args.indexOf("--out");
 const outDir = outIndex === -1 ? ".crabpot/plugin-inspector-smoke" : args[outIndex + 1];
 const configIndex = args.indexOf("--config");
 const configPath = configIndex === -1 ? "crabpot.config.json" : args[configIndex + 1];
-if (args.includes("--runtime") && !process.env.CRABPOT_PLUGIN_INSPECTOR_DIR) {
-  throw new Error("runtime smoke requires CRABPOT_PLUGIN_INSPECTOR_DIR to identify the source or installed package");
+if ((args.includes("--runtime") || args.includes("--resources")) && !process.env.CRABPOT_PLUGIN_INSPECTOR_DIR) {
+  throw new Error("runtime/resource smoke requires CRABPOT_PLUGIN_INSPECTOR_DIR to identify the source or installed package");
 }
 
 const inspectorArgs = ["report", "--config", configPath, "--out", outDir, ...(args.includes("--check") ? ["--check"] : [])];
@@ -61,4 +61,18 @@ if (result.status === 0 && args.includes("--runtime")) {
   writeFileSync(path.resolve(repoRoot, outDir, "plugin-inspector-runtime.json"),
     `${JSON.stringify({ summary: report.summary, results: report.results }, null, 2)}\n`);
   console.log("plugin-inspector runtime smoke: PASS (computed tool value; Gateway rejection preserved)");
+}
+
+if (result.status === 0 && args.includes("--resources")) {
+  const resources = runOwnedCommand(process.execPath, [
+    "test/fixtures/resource-profile-smoke.mjs",
+    path.resolve(repoRoot, process.env.CRABPOT_PLUGIN_INSPECTOR_DIR),
+  ], { cwd: repoRoot, env: {}, encoding: "utf8", timeout });
+  assert.ifError(resources.error);
+  assert.ifError(resources.cleanupError);
+  assert.equal(resources.status, 0, resources.stderr || resources.stdout);
+  const report = JSON.parse(resources.stdout);
+  writeFileSync(path.resolve(repoRoot, outDir, "plugin-inspector-resources.json"),
+    `${JSON.stringify(report, null, 2)}\n`);
+  console.log("plugin-inspector resource smoke: PASS (collector contract only; no plugin workload)");
 }
