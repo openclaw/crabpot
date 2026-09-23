@@ -3,6 +3,7 @@
 ## 0.2.2 - Unreleased
 
 - Select resource campaign workloads by inventory distribution while retaining full-inventory coverage gaps and an explicit partial-scope outcome.
+- Add a manual-only, report-only bundled resource campaign using a pinned installed Gateway, isolated Docker execution, full-inventory outcomes and explicit container closure evidence. Require remote wrapper proof before landing and one successful Actions run before a separate schedule-enable PR.
 
 - Generate resource campaign input pins from prepared local host, consumer and archive bytes, rejecting unsupported runtimes, source mismatches and existing output files.
 - Add an opt-in Beam receiver workload that measures real Gateway HTTP and RPC paths with a fixed synthetic peer.

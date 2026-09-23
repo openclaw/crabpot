@@ -585,3 +585,41 @@ than the fourth web-search wrapper.
 The first fixture set intentionally covers channels, dynamic tools, LLM
 observation, diagnostics, gateway-owned services, async jobs, provider
 capabilities, and security/policy hooks.
+
+### Manual bundled resource campaign
+
+`.github/workflows/resource-campaign.yml` runs a report-only campaign only on
+manual dispatch from this repository's `main`. It never runs pull-request
+code. A reviewed full OpenClaw commit must be set in `RESOURCE_HOST_SHA`; an
+unset pin fails preparation instead of selecting a moving branch. The commit
+must contain the committed inventory export and shared resource Gateway host.
+
+Before initial landing, prove the exact wrapper and pinned host on an isolated
+remote Linux runner, retaining non-root execution and cleanup evidence. GitHub
+requires the workflow on the default branch before manual dispatch. After
+landing, run it once from `main` and verify the campaign artifacts and cleanup.
+Enable the daily schedule in a separate PR only after that Actions run passes.
+
+Preparation installs the frozen source dependencies, uses core's Docker package
+builder and functional image, and records the host/archive/image/consumer
+identities. The native source harness is mounted into that installed image.
+Input pins are generated inside the actual Linux Node runtime. Measurement uses
+no network, two CPUs, 4 GiB memory with no extra swap, 512 PIDs, init, a minimal
+environment and a 20-minute command deadline. Core owns the Gateway lifecycle;
+the outer wrapper verifies that its exact named container is absent after a
+successful Docker daemon readback. Unknown closure fails the run, preserving
+both the original command exit and cleanup outcome.
+
+The campaign executes `--distribution core` with three sequential repetitions.
+The complete source inventory stays in every report: configured external or
+source-only scenarios are blocked by selection, and plugins without configured scenarios
+remain unsupported. A successful selected sweep is not full-inventory coverage.
+No CPU/memory threshold or leak verdict is enforced. Calibration is qualified
+separately; this campaign does not rerun the calibration controls. External
+archives are not prepared or installed by this workflow.
+
+Artifacts are uploaded on failure as well as success: preparation and execution
+logs, inventory, image/package provenance, runtime input pins, partial campaign
+receipts and `closure.json`. A missing closure receipt is unconfirmed termination,
+not a clean result. Hard runner loss can prevent finalization; retained evidence
+must not be interpreted as a successful campaign. Ordinary CI remains unchanged.
