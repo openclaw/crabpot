@@ -272,6 +272,47 @@ inventory digest and matching build commit, reads this consumer's manifest,
 and hashes the required files, available configured adapters and archives.
 It does not build, download, install or run workloads.
 
+Cold-import screening is a separate, optional input to the coverage report. After
+running OpenClaw's `scripts/profile-extension-memory.mts` against a genuine,
+clean source checkout with matching built entries, add each qualified schema 2
+receipt to preparation:
+
+```bash
+node /crabpot/scripts/prepare-resource-inputs.mjs \
+  --plugin-inventory /fixtures/inventory.json --host-root /app \
+  --cold-import-report /fixtures/imports.json --out /fixtures/screening-inputs.json
+node scripts/generate-report.mjs --plugin-inventory /fixtures/inventory.json \
+  --import-screening-inputs /fixtures/screening-inputs.json
+```
+
+Both flags are repeatable. A receipt can select multiple plugins; each directory
+maps to the inventory's `path`, not its plugin ID. Each inventory plugin can
+appear only once across supplied receipts. Compare repetitions separately.
+Preparation hashes the receipt bytes, producer files, build metadata and selected
+built entries in the same runtime. Keep the prepared envelope private: it retains
+raw receipts. Reporting emits only selected measurements and supplied-evidence
+identities, not diagnostic streams or local artifact paths.
+
+Admission requires whole-report qualification, matching before/after source,
+build and entry snapshots, runtime identities, complete CPU/RSS counters, awaited
+import completion and joined cleanup. It recomputes signed baseline deltas;
+combined imports remain a separate process observation, never a sum of plugin
+rows. Gitless installations, package-local entries, Windows process-group gaps,
+stale inputs and failed receipts cannot earn screening credit. Missing evidence
+leaves every uncovered inventory row blocked with
+`no-qualified-built-entry-receipt`; absence from selection does not prove an
+entry was not built. Workload outcomes and their denominator remain unchanged.
+
+Schema 2 screening requires the portable `results[].relativeFile` field. The
+producer retains local `repoRoot` and absolute `results[].file` fields for older
+report readers; the public coverage projection does not include them. Raw receipts
+and prepared-input envelopes still contain those local paths: do not publish them
+without redaction.
+
+These are supplied cold-import observations, not activation/workload coverage,
+retention/leak proof, or an attested transitive dependency closure. Freeze the
+full build/dependency and execution inputs in the outer runner.
+
 The generated input-pins JSON has this shape (replace placeholders with real
 identities; do not copy the sample hashes):
 
@@ -295,7 +336,7 @@ The abbreviated maps must also pin all four host instrumentation files:
 `scripts/lib/gateway-bench-profile-preload.ts`. The Crabpot map must include
 `scripts/run-resource-campaign.mjs`, `scripts/run-resource-workload.mjs`,
 `scripts/resource-workload-contract.mjs`, `scripts/resource-coverage.mjs`,
-`scripts/manifest-lib.mjs` and every available configured adapter. Paths in these
+`scripts/manifest-lib.mjs`, `scripts/import-screening.mjs` and every available configured adapter. Paths in these
 maps are relative to their respective roots. Pin the actual built entry
 (`openclaw.mjs`, `dist/index.mjs` or `dist/index.js`). Additional files may be
 pinned. Use an empty artifacts array for bundled-only scenarios. This verifies

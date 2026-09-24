@@ -28,6 +28,7 @@ async function main() {
     pluginInventoryPath: parsedArgs.pluginInventoryPath,
     kitchenSinkResourceReportPath: parsedArgs.kitchenSinkResourceReportPath,
     workloadReportPaths: parsedArgs.workloadReportPaths,
+    importScreeningInputPaths: parsedArgs.importScreeningInputPaths,
   });
 
   if (write) {
@@ -67,14 +68,16 @@ function parseArgs(argv) {
   let pluginInventoryPath;
   let kitchenSinkResourceReportPath;
   const workloadReportPaths = [];
+  const importScreeningInputPaths = [];
 
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
-    if (["--plugin-inventory", "--kitchen-sink-resource-report", "--resource-workload-report"].includes(arg)) {
+    if (["--plugin-inventory", "--kitchen-sink-resource-report", "--resource-workload-report", "--import-screening-inputs"].includes(arg)) {
       const value = argv[index + 1];
       if (!value || value.startsWith("--")) throw new Error(`${arg} requires a JSON report path`);
       if (arg === "--plugin-inventory") pluginInventoryPath = value;
       else if (arg === "--kitchen-sink-resource-report") kitchenSinkResourceReportPath = value;
+      else if (arg === "--import-screening-inputs") importScreeningInputPaths.push(value);
       else workloadReportPaths.push(value);
       index += 1;
       continue;
@@ -101,5 +104,5 @@ function parseArgs(argv) {
     flags.push(arg);
   }
 
-  return { executionResultsPath, fixtureSet, flags, openclawPath, pluginInventoryPath, kitchenSinkResourceReportPath, workloadReportPaths };
+  return { executionResultsPath, fixtureSet, flags, openclawPath, pluginInventoryPath, kitchenSinkResourceReportPath, workloadReportPaths, importScreeningInputPaths };
 }
