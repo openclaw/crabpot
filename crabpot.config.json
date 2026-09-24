@@ -34,6 +34,14 @@
       "adapter": "workboard",
       "requiredOperations": { "first-use": 1, "warm-work": 20 },
       "why": "Real bundled plugin activation and SQLite-backed card CRUD through authenticated Gateway RPC."
+    },
+    {
+      "id": "tokenjuice-exec-status-v1",
+      "pluginId": "tokenjuice",
+      "adapter": "tokenjuice",
+      "requiredOperations": { "first-use": 1, "warm-work": 5 },
+      "pairedWorkload": { "dependencies": ["openai"], "targetActivation": "scoped" },
+      "why": "Real lazy exec-result middleware in ordinary OpenAI embedded agent turns; matched disabled control, loopback Responses fixture and model-visible compaction assertions."
     }
   ],
   "fixtures": [
