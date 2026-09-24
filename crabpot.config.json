@@ -8,6 +8,16 @@
   },
   "resourceWorkloads": [
     {
+      "id": "memory-wiki-local-cycle-v1",
+      "pluginId": "memory-wiki",
+      "adapter": "memory-wiki",
+      "requiredOperations": {
+        "first-use": 1,
+        "warm-work": 20
+      },
+      "why": "Real local wiki mutation, default compilation/publication and verified page retrieval/search over a fixed synthetic corpus; no model or shared-memory backend."
+    },
+    {
       "id": "beam-receiver-cycle-v1",
       "pluginId": "beam",
       "adapter": "beam",
