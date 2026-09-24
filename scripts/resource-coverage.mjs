@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
+import { admitImportScreening } from "./import-screening.mjs";
 import { requiredCaseOperations, resourceWorkloadComparison, resourceWorkloadPlan } from "./resource-workload-contract.mjs";
 
 const distributions = ["core", "external", "source"];
@@ -222,15 +223,23 @@ export function validateResourceWorkloadReport(report, inventory, definitions) {
   return { ...report, producerStatus: report.status, status: matches ? report.status : "blocked", reason: matches ? report.reason : "inventory-source-mismatch" };
 }
 
-export function buildResourceCoverage({ inventory, kitchenSinkReport, workloadReports = [], resourceWorkloads = [], configuredFixtureCount, selectedFixtureCount }) {
+export function buildResourceCoverage({ inventory, kitchenSinkReport, workloadReports = [], importScreeningInputs = [], resourceWorkloads = [], configuredFixtureCount, selectedFixtureCount }) {
   validatePluginInventory(inventory);
   requireValue(Number.isSafeInteger(configuredFixtureCount) && configuredFixtureCount >= 0 && Number.isSafeInteger(selectedFixtureCount) && selectedFixtureCount >= 0 && selectedFixtureCount <= configuredFixtureCount, "invalid configured/selected fixture counts");
   const configuredPlugins = new Set(resourceWorkloads.map(({ pluginId }) => pluginId));
   const plugins = inventory.plugins.map(({ id, path, distribution }) => ({
     id, path, distribution,
+    screening: { status: "blocked", reason: "no-qualified-built-entry-receipt" },
     status: configuredPlugins.has(id) ? "blocked" : "unsupported",
     reason: configuredPlugins.has(id) ? "workload-report-not-supplied" : "no-workload-adapter",
   }));
+  const screening = importScreeningInputs.flatMap((bytes) => admitImportScreening(bytes, inventory));
+  const screened = new Set();
+  for (const receipt of screening) for (const row of receipt.plugins) {
+    requireValue(!screened.has(row.pluginId), "duplicate screening plugin; compare repetitions separately");
+    screened.add(row.pluginId);
+    plugins.find((plugin) => plugin.id === row.pluginId).screening = { status: receipt.status, reason: receipt.reason };
+  }
   const workloads = workloadReports.map((report) => validateResourceWorkloadReport(report, inventory, resourceWorkloads));
   const selected = new Set();
   for (const workload of workloads) {
@@ -241,6 +250,7 @@ export function buildResourceCoverage({ inventory, kitchenSinkReport, workloadRe
   }
   return {
     inventory: { source: inventory.source, sha256: inventory.sha256, count: plugins.length },
+    screening: { summary: { screened: screened.size, blocked: plugins.length - screened.size }, receipts: screening },
     fixtures: { configured: configuredFixtureCount, selected: selectedFixtureCount },
     summary: {
       ...Object.fromEntries(distributions.map((distribution) => [distribution, plugins.filter((plugin) => plugin.distribution === distribution).length])),
@@ -252,13 +262,14 @@ export function buildResourceCoverage({ inventory, kitchenSinkReport, workloadRe
   };
 }
 
-export function readResourceCoverage({ pluginInventoryPath, kitchenSinkResourceReportPath, workloadReportPaths = [], ...counts }) {
-  if (!pluginInventoryPath && !kitchenSinkResourceReportPath && !workloadReportPaths.length) return null;
+export function readResourceCoverage({ pluginInventoryPath, kitchenSinkResourceReportPath, workloadReportPaths = [], importScreeningInputPaths = [], ...counts }) {
+  if (!pluginInventoryPath && !kitchenSinkResourceReportPath && !workloadReportPaths.length && !importScreeningInputPaths.length) return null;
   requireValue(pluginInventoryPath, "resource reports require --plugin-inventory");
   return buildResourceCoverage({
     ...counts,
     inventory: JSON.parse(readFileSync(pluginInventoryPath, "utf8")),
     kitchenSinkReport: kitchenSinkResourceReportPath ? JSON.parse(readFileSync(kitchenSinkResourceReportPath, "utf8")) : undefined,
+    importScreeningInputs: importScreeningInputPaths.map((file) => readFileSync(file)),
     workloadReports: workloadReportPaths.map((file) => JSON.parse(readFileSync(file, "utf8"))),
   });
 }
@@ -272,9 +283,10 @@ export function renderResourceCoverageMarkdown(coverage) {
     `Source inventory: **${coverage.inventory.count}** plugins at \`${coverage.inventory.source.commit}\` (${coverage.summary.core} core, ${coverage.summary.external} external, ${coverage.summary.source} source-only).`,
     `Configured compatibility fixtures: **${coverage.fixtures.configured}**; selected: **${coverage.fixtures.selected}**. These are separate denominators.`, "",
     "Import and collector results do not establish workload coverage. Kitchen Sink calibration is outside the plugin denominator.", "",
+    `Cold-import screening: **${coverage.screening.summary.screened}** screened; **${coverage.screening.summary.blocked}** blocked. Missing receipts do not establish missing builds.`, "",
     `Calibration: **${coverage.calibration.status}** — ${cell(coverage.calibration.reason)}.`,
     ...(coverage.calibration.postDisposalResidual ? [`Post-disposal residual: **${cell(coverage.calibration.postDisposalResidual.status)}** — ${cell(coverage.calibration.postDisposalResidual.reason)}.`] : []), "",
-    "| Plugin | Distribution | Workload | Reason |", "| --- | --- | --- | --- |",
-    ...coverage.plugins.map((plugin) => `| ${cell(plugin.id)} | ${plugin.distribution} | ${plugin.status} | ${plugin.scenario ? cell(plugin.reason) : plugin.reason} |`),
+    "| Plugin | Distribution | Workload | Reason | Screening | Screening reason |", "| --- | --- | --- | --- | --- | --- |",
+    ...coverage.plugins.map((plugin) => `| ${cell(plugin.id)} | ${plugin.distribution} | ${plugin.status} | ${plugin.scenario ? cell(plugin.reason) : plugin.reason} | ${plugin.screening.status} | ${plugin.screening.reason} |`),
   ].join("\n");
 }

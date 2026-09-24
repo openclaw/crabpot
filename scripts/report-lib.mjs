@@ -47,11 +47,12 @@ export async function buildReport(options = {}) {
   const packageIssues = packageAvailabilityIssues(packageAvailability, { manifest });
   const packageDecisions = packageAvailabilityDecisions(packageAvailability, { manifest });
   const issues = [...packageIssues, ...(report.issues ?? [])];
-  const resourceCoverage = options.pluginInventoryPath || options.kitchenSinkResourceReportPath || options.workloadReportPaths?.length
+  const resourceCoverage = options.pluginInventoryPath || options.kitchenSinkResourceReportPath || options.workloadReportPaths?.length || options.importScreeningInputPaths?.length
     ? readResourceCoverage({
         pluginInventoryPath: options.pluginInventoryPath,
         kitchenSinkResourceReportPath: options.kitchenSinkResourceReportPath,
         workloadReportPaths: options.workloadReportPaths,
+        importScreeningInputPaths: options.importScreeningInputPaths,
         resourceWorkloads: manifest.resourceWorkloads,
         configuredFixtureCount: (await readConfiguredManifest({ fixtureSet: "all" })).fixtures.length,
         selectedFixtureCount: manifest.fixtures.length,

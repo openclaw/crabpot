@@ -19,6 +19,7 @@ const hostFiles = [
 const consumerFiles = [
   "crabpot.config.json", "scripts/run-resource-campaign.mjs", "scripts/run-resource-workload.mjs",
   "scripts/resource-workload-contract.mjs", "scripts/resource-coverage.mjs", "scripts/manifest-lib.mjs",
+  "scripts/import-screening.mjs",
 ];
 const entries = ["openclaw.mjs", "dist/index.mjs", "dist/index.js"];
 export { hostFiles as resourceHostFiles, consumerFiles as resourceConsumerFiles, entries as resourceHostEntries };

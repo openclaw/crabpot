@@ -21,7 +21,7 @@ const hostNames = ["openclaw.mjs", "dist/build-info.json", "scripts/e2e/kitchen-
   "scripts/e2e/lib/kitchen-sink-resources.mts", "scripts/lib/gateway-bench-profile.ts", "scripts/lib/gateway-bench-profile-preload.ts"];
 const consumerNames = ["crabpot.config.json", "scripts/run-resource-campaign.mjs", "scripts/run-resource-workload.mjs",
   "scripts/resource-workload-contract.mjs", "scripts/resource-coverage.mjs", "scripts/manifest-lib.mjs",
-  "scripts/resource-workloads/a.mjs", "scripts/resource-workloads/b.mjs"];
+  "scripts/import-screening.mjs", "scripts/resource-workloads/a.mjs", "scripts/resource-workloads/b.mjs"];
 const pins = { schemaVersion: 1, hostCommit: commit,
   runtime: { node: process.version, platform: process.platform, arch: process.arch },
   files: { host: Object.fromEntries(hostNames.map((name) => [name, hash])), crabpot: Object.fromEntries(consumerNames.map((name) => [name, hash])) }, artifacts: [] };

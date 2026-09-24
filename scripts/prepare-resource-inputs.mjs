@@ -5,6 +5,7 @@ import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { repoRoot, validateManifest } from "./manifest-lib.mjs";
+import { prepareImportScreening } from "./import-screening.mjs";
 import { validatePluginInventory } from "./resource-coverage.mjs";
 import { resourceHostFiles, resourceConsumerFiles, resourceHostEntries, verifyPreparedInputs } from "./run-resource-campaign.mjs";
 
@@ -14,7 +15,7 @@ export function assertResourceRuntime(runtime = process) {
 }
 
 // Assembly is host-free; it reads prepared bytes without importing plugins or the host.
-export function prepareResourceInputs({ inventoryPath, hostRoot, archives = [] }, consumerRoot = repoRoot) {
+export function prepareResourceInputs({ inventoryPath, hostRoot, archives = [], coldImportReportPaths = [] }, consumerRoot = repoRoot) {
   const inventory = validatePluginInventory(JSON.parse(readFileSync(inventoryPath, "utf8")));
   const manifest = JSON.parse(readFileSync(path.join(consumerRoot, "crabpot.config.json"), "utf8"));
   validateManifest(manifest);
@@ -37,6 +38,7 @@ export function prepareResourceInputs({ inventoryPath, hostRoot, archives = [] }
       return { path: file, sha256: hashFile(file) };
     }),
   };
+  if (coldImportReportPaths.length) prepareImportScreening(pins, inventory, hostRoot, coldImportReportPaths);
   verifyPreparedInputs(pins, definitions, inventory, hostRoot, consumerRoot);
   return pins;
 }
@@ -48,13 +50,14 @@ export function writeResourceInputPins(out, pins) {
 
 export function parseArgs(argv) {
   const names = { "--plugin-inventory": "inventoryPath", "--host-root": "hostRoot", "--out": "out" };
-  const args = { archives: [] };
+  const args = { archives: [], coldImportReportPaths: [] };
   for (let index = 0; index < argv.length; index++) {
     const option = argv[index];
-    assert.ok(Object.hasOwn(names, option) || option === "--archive", `Unknown argument: ${option}`);
+    assert.ok(Object.hasOwn(names, option) || ["--archive", "--cold-import-report"].includes(option), `Unknown argument: ${option}`);
     const value = argv[++index];
     assert.ok(value && !value.startsWith("--"), `${option} requires a value`);
     if (option === "--archive") args.archives.push(value);
+    else if (option === "--cold-import-report") args.coldImportReportPaths.push(value);
     else {
       assert.ok(!Object.hasOwn(args, names[option]), `Duplicate argument: ${option}`);
       args[names[option]] = value;
