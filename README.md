@@ -433,6 +433,25 @@ startup, idle and 20 neutral RPCs against an empty-host baseline. Main-isolate
 heap/thread CPU excludes the SQLite worker; process CPU/RSS includes it. Short
 windows do not establish periodic-service cost or disposal retention.
 
+Memory Wiki's `memory-wiki-local-cycle-v1` seeds one synthetic source page in
+its owned isolated vault, then runs one first and 20 warm apply/get/search cycles.
+The same synthesis title keeps the logical page set fixed. Alternating body and
+confidence ensure each cycle writes changed content, awaits real compilation and
+publication, and verifies current page and local-search results. Default automatic
+compilation, backlinks and dashboards stay enabled; first use includes initial
+source-sync compilation. Compilation history and state can grow even though the
+input corpus and page set stay fixed.
+
+Only `memory-wiki` is active in the enabled case; the control has no active
+plugins. Common startup/idle/neutral phases have empty-host deltas. Wiki cycle
+CPU/memory is an absolute enabled-host observation, not a paired-workload delta.
+Reads can use scan fallback, so success does not establish cache-hit rates. No
+model, embeddings, shared-memory search, bridge, URL ingestion or Obsidian is
+used. The host joins Gateway shutdown and removes its fixture root on success;
+short post-work samples do not establish disposal retention or leaks. Select
+this scenario with the same native per-scenario command above and its own output
+receipt. Qualify one complete empty/enabled pair before collecting repetitions.
+
 Beam's `beam-receiver-cycle-v1` uses one HTTP upload and four catalog RPCs per
 cycle. It verifies the stored two-message transcript, archives the snapshot and
 checks that the catalog is empty. One first cycle and 20 warm cycles stay below
