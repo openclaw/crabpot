@@ -233,10 +233,11 @@
     {
       "id": "compatibility-report.p1-issues",
       "action": "pass",
-      "message": "34 P1 issues tracked",
+      "message": "35 P1 issues tracked",
       "evidence": [
         "agentchat:missing-compat-record",
         "bluebubbles:sdk-export-missing",
+        "codex:sdk-export-missing",
         "connectclaw:missing-compat-record",
         "connectclaw:missing-compat-record",
         "connectclaw:sdk-export-missing",

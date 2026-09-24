@@ -36,15 +36,15 @@
     "summary": {
       "commandCount": 9,
       "sampleCount": 27,
-      "rssSampleCount": 8414,
-      "cpuSampleCount": 8414,
+      "rssSampleCount": 6235,
+      "cpuSampleCount": 6235,
       "wallTimeBasis": "command-median-p95",
-      "p50WallMs": 9882,
-      "p95WallMs": 10447,
-      "maxPeakRssMb": 755.9,
-      "maxRssDeltaMb": 729.3,
-      "maxCpuMsEstimate": 13896,
-      "maxHarnessHeapDeltaMb": 25.4
+      "p50WallMs": 7364,
+      "p95WallMs": 7692,
+      "maxPeakRssMb": 757.1,
+      "maxRssDeltaMb": 727.6,
+      "maxCpuMsEstimate": 10267,
+      "maxHarnessHeapDeltaMb": 19.5
     },
     "targetOpenClaw": {
       "status": "ok",
@@ -59,12 +59,12 @@
     },
     "fixtureInventory": {
       "fixtures": 59,
-      "sourceFiles": 2279,
+      "sourceFiles": 2288,
       "observedHooks": 113,
-      "observedRegistrations": 217,
-      "observedSdkImports": 1181,
-      "contractProbes": 237,
-      "issueFindings": 269
+      "observedRegistrations": 219,
+      "observedSdkImports": 1185,
+      "contractProbes": 238,
+      "issueFindings": 270
     }
   },
   "thresholds": {
@@ -84,20 +84,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 720.7% over baseline",
+      "message": "p95WallMs regressed 504.2% over baseline",
       "baseline": 1273,
-      "current": 10447,
-      "delta": 9174,
-      "percent": 720.7
+      "current": 7692,
+      "delta": 6419,
+      "percent": 504.2
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 690.8 over baseline",
+      "message": "maxPeakRssMb regressed 692 over baseline",
       "baseline": 65.1,
-      "current": 755.9,
-      "delta": 690.8
+      "current": 757.1,
+      "delta": 692
     },
     {
       "id": "profile.node-boot",
@@ -105,8 +105,8 @@
       "metric": "nodeBootWallMs",
       "message": "nodeBootWallMs stayed within 500 absolute regression threshold",
       "baseline": 917,
-      "current": 22,
-      "delta": -895
+      "current": 20,
+      "delta": -897
     },
     {
       "id": "registry.compatRecords",
