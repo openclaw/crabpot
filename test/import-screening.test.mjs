@@ -26,16 +26,16 @@ function fixture() {
   const entries = ["dist/extensions/kimi-coding/index.js", "dist/extensions/msteams/index.cjs"].map((file) => ({ path: file, bytes: Buffer.byteLength(sourceBytes), sha256: hash(sourceBytes) }));
   const snapshot = { source: { commit, tree, trackedClean: true }, build: { path: "dist/build-info.json", sha256: hash(buildBytes), bytes: Buffer.byteLength(buildBytes), declaredCommit: commit }, entries };
   const row = (completion, user, system, rss) => ({ status: "ok", code: 0, signal: null, error: null, completion,
-    maxRssMb: rss, resources: { userCpuUs: user, systemCpuUs: system, totalCpuUs: user + system, runtime: { ...runtime, platform: "linux" } },
+    maxRssMb: rss, resources: { maxRssKb: rss * 1024, userCpuUs: user, systemCpuUs: system, totalCpuUs: user + system, runtime: { ...runtime, platform: "linux" } },
     cleanup: { childClosed: true, processGroup: "verified" } });
   const delta = { userCpuUs: -10, systemCpuUs: -2, totalCpuUs: -12 };
-  const report = { schemaVersion: 2, scope: "cold-import",
+  const report = { schemaVersion: 2, scope: "cold-import", repoRoot: "/fixture/host",
     measurement: { cpu: "child-process-through-exit-hook-microseconds", rss: "process-peak-MiB", termination: "explicit-process-exit" },
     qualification: { qualified: true, gaps: [], scope: "cold-import-snapshot", temporaryHomeRemoved: true },
     provenance: { before: snapshot, after: structuredClone(snapshot), dependencyClosure: "not-attested" },
     selectedExtensions: ["kimi-coding", "msteams"], counts: { totalEntries: 2, ok: 2, fail: 0, timeout: 0 },
     baseline: row("baseline", 100, 20, 60), options: { skipCombined: false },
-    results: entries.map((entry, index) => ({ ...row("imports", 90, 18, 55), dir: ["kimi-coding", "msteams"][index], file: entry.path,
+    results: entries.map((entry, index) => ({ ...row("imports", 90, 18, 55), dir: ["kimi-coding", "msteams"][index], file: `/fixture/host/${entry.path}`, relativeFile: entry.path,
       cpuDeltaFromBaseline: delta, deltaFromBaselineMb: -5 })),
     combined: { ...row("imports", 140, 25, 80), cpuDeltaFromBaseline: { userCpuUs: 40, systemCpuUs: 5, totalCpuUs: 45 } },
   };
@@ -85,6 +85,12 @@ for (const [name, change] of [
   ["wrong entry pin", (f) => { f.pins.files.host[f.entries[0].path] = "c".repeat(64); }],
   ["missing producer pin", (f) => { delete f.pins.files.host[importProducerFiles[0]]; }],
   ["missing counter", (f) => { delete f.report.results[0].resources.userCpuUs; }],
+  ["missing native RSS", (f) => { delete f.report.results[0].resources.maxRssKb; }],
+  ["negative native RSS", (f) => { f.report.results[0].resources.maxRssKb = -1; }],
+  ["fractional native RSS", (f) => { f.report.results[0].resources.maxRssKb = 1.5; }],
+  ["RSS counter mismatch with consistent delta", (f) => { f.report.results[0].maxRssMb++; f.report.results[0].deltaFromBaselineMb++; }],
+  ["baseline RSS counter mismatch", (f) => { f.report.baseline.resources.maxRssKb++; }],
+  ["combined RSS counter mismatch", (f) => { f.report.combined.maxRssMb++; }],
   ["invalid counter sum", (f) => { f.report.results[0].resources.totalCpuUs++; }],
   ["clamped CPU delta", (f) => { f.report.results[0].cpuDeltaFromBaseline.totalCpuUs = 0; }],
   ["clamped RSS delta", (f) => { f.report.results[0].deltaFromBaselineMb = 0; }],
@@ -93,7 +99,9 @@ for (const [name, change] of [
   ["combined early exit", (f) => { f.report.combined.completion = null; }],
   ["cleanup unavailable", (f) => { f.report.results[0].cleanup.processGroup = "unavailable"; }],
   ["home cleanup failure", (f) => { f.report.qualification.temporaryHomeRemoved = false; }],
-  ["package-local entry", (f) => { f.report.results[0].file = "extensions/kimi-coding/index.js"; }],
+  ["package-local entry", (f) => { f.report.results[0].relativeFile = "extensions/kimi-coding/index.js"; }],
+  ["missing portable entry", (f) => { delete f.report.results[0].relativeFile; }],
+  ["absolute portable entry", (f) => { f.report.results[0].relativeFile = f.report.results[0].file; }],
   ["unknown directory", (f) => { f.report.selectedExtensions[0] = f.report.results[0].dir = "other"; }],
   ["duplicate directory", (f) => { f.report.selectedExtensions[1] = f.report.results[1].dir = "kimi-coding"; }],
   ["undeclared runtime field", (f) => { f.pins.importScreening.runtime.extra = "private diagnostic"; }],
@@ -140,7 +148,7 @@ test("public projection excludes raw diagnostics and undeclared receipt fields",
   f.report.provenance.before.entries[0].extra = "private diagnostic";
   f.report.provenance.after = structuredClone(f.report.provenance.before);
   const result = admitImportScreening(f.bind(), f.inventory);
-  assert.doesNotMatch(JSON.stringify(result), /private diagnostic|content|stderr/);
+  assert.doesNotMatch(JSON.stringify(result), /private diagnostic|content|stderr|\/fixture\/host/);
   f.report.options.skipCombined = true; f.report.combined = null;
   assert.equal(admitImportScreening(f.bind(), f.inventory)[0].combined, null);
 });

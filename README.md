@@ -302,6 +302,13 @@ stale inputs and failed receipts cannot earn screening credit. Missing evidence
 leaves every uncovered inventory row blocked with
 `no-qualified-built-entry-receipt`; absence from selection does not prove an
 entry was not built. Workload outcomes and their denominator remain unchanged.
+
+Schema 2 screening requires the portable `results[].relativeFile` field. The
+producer retains local `repoRoot` and absolute `results[].file` fields for older
+report readers; the public coverage projection does not include them. Raw receipts
+and prepared-input envelopes still contain those local paths: do not publish them
+without redaction.
+
 These are supplied cold-import observations, not activation/workload coverage,
 retention/leak proof, or an attested transitive dependency closure. Freeze the
 full build/dependency and execution inputs in the outer runner.

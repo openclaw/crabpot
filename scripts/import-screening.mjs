@@ -38,6 +38,7 @@ function observation(row, runtime, completion) {
   requireValue(Number.isFinite(row.maxRssMb) && row.maxRssMb >= 0, "peak RSS unavailable");
   const cpu = row.resources;
   requireValue(record(cpu) && ["userCpuUs", "systemCpuUs", "totalCpuUs"].every((key) => Number.isSafeInteger(cpu[key]) && cpu[key] >= 0) && cpu.totalCpuUs === cpu.userCpuUs + cpu.systemCpuUs, "CPU counters do not reconcile");
+  requireValue(Number.isSafeInteger(cpu.maxRssKb) && cpu.maxRssKb >= 0 && row.maxRssMb === cpu.maxRssKb / 1024, "native RSS counter does not reconcile");
   equal(cpu.runtime, runtime, "runtime differs from prepared inputs");
   return { maxRssMb: row.maxRssMb, resources: { userCpuUs: cpu.userCpuUs, systemCpuUs: cpu.systemCpuUs, totalCpuUs: cpu.totalCpuUs, runtime }, completion: row.completion, cleanup: row.cleanup };
 }
@@ -87,9 +88,9 @@ export function admitImportScreening(inputBytes, inventory) {
       const plugin = inventory.plugins.find((item) => item.path === `extensions/${dir}`);
       requireValue(plugin && plugin.id === receipt.pluginIds?.[index] && !ids.has(plugin.id), "unknown or duplicate inventory mapping");
       ids.add(plugin.id);
-      requireValue(relative(row.file) && row.file.startsWith(`dist/extensions/${dir}/`) && /\.[cm]?js$/u.test(row.file), "unqualified built entry path");
+      requireValue(relative(row.relativeFile) && row.relativeFile.startsWith(`dist/extensions/${dir}/`) && /\.[cm]?js$/u.test(row.relativeFile), "unqualified built entry path");
       const entry = before.entries[index];
-      requireValue(entry.path === row.file && digest.test(entry.sha256) && entry.sha256 === host[row.file] &&
+      requireValue(entry.path === row.relativeFile && digest.test(entry.sha256) && entry.sha256 === host[row.relativeFile] &&
         Number.isSafeInteger(entry.bytes) && entry.bytes >= 0, "entry differs from prepared bytes");
       requireValue(Object.hasOwn(row, "deltaFromBaselineMb"), "missing RSS delta");
       return { pluginId: plugin.id, entry: { path: entry.path, sha256: entry.sha256, bytes: entry.bytes }, measured: withDelta(row, baseline, runtime) };
@@ -121,7 +122,7 @@ export function prepareImportScreening(pins, inventory, hostRoot, reportPaths) {
       const dir = report.selectedExtensions[index];
       const plugin = inventory.plugins.find((entry) => entry.path === `extensions/${dir}`);
       requireValue(plugin, "selected directory is absent from inventory");
-      const file = row.file;
+      const file = row.relativeFile;
       requireValue(relative(file) && file.startsWith(`dist/extensions/${dir}/`), "entry is outside built plugin output");
       const entryBytes = readFileSync(path.join(hostRoot, file));
       requireValue(report.provenance?.before?.entries?.[index]?.bytes === entryBytes.length, "entry byte count differs");

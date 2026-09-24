@@ -2,7 +2,7 @@
 
 ## 0.2.2 - Unreleased
 
-- Admit pinned, qualified cold-import resource receipts into full-inventory screening while preserving separate workload outcomes and explicit gaps for plugins without evidence.
+- Admit pinned, qualified cold-import resource receipts into full-inventory screening while preserving separate workload outcomes and explicit gaps for plugins without evidence. Require the portable entry path while excluding retained local report paths from public coverage.
 
 - Add an opt-in source-checkout TypeSafe decision workload with a strict local System One peer, native tool dispatch, verified typed answers and peer cleanup; keep installed-package compatibility and model inference outside its coverage.
 - Verify Plugin Inspector's public resource collector in source and packed-package smoke checks, without claiming plugin workload coverage.
