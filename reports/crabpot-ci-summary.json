@@ -29,16 +29,16 @@
     "platformWindowsRisks": 17,
     "platformContainerRisks": 17,
     "loaderJitiCandidates": 20,
-    "importLoopP50Ms": 1702,
-    "importLoopP95Ms": 1756,
+    "importLoopP50Ms": 2992,
+    "importLoopP95Ms": 2998,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 39.3,
-    "importLoopOpenClawActivationP50Ms": 0.3,
+    "importLoopOpenClawImportP50Ms": 60.3,
+    "importLoopOpenClawActivationP50Ms": 0.5,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 1.5,
-    "importLoopMaxCpuMs": 0,
-    "importLoopRssSampleCount": 204,
-    "importLoopCpuSampleCount": 204
+    "importLoopMaxRssMb": 3.2,
+    "importLoopMaxCpuMs": 11,
+    "importLoopRssSampleCount": 357,
+    "importLoopCpuSampleCount": 357
   },
   "topIssues": [
     {
@@ -249,7 +249,7 @@
     "platform": "reports/crabpot-platform-probes.json",
     "importLoop": "reports/crabpot-import-loop-profile.json",
     "execution": "reports/crabpot-execution-results.json",
-    "runtimeProfile": "reports/crabpot-runtime-profile.json",
+    "runtimeProfile": null,
     "refDiff": null,
     "profileDiff": "reports/crabpot-profile-diff.json",
     "ciPolicy": "reports/crabpot-ci-policy.json"
