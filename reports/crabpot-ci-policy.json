@@ -237,7 +237,6 @@
       "evidence": [
         "agentchat:missing-compat-record",
         "bluebubbles:sdk-export-missing",
-        "codex:sdk-export-missing",
         "connectclaw:missing-compat-record",
         "connectclaw:missing-compat-record",
         "connectclaw:sdk-export-missing",
@@ -251,6 +250,7 @@
         "inworld-tts:missing-compat-record",
         "kitchen-sink:before-tool-call-probe",
         "matrix:sdk-export-missing",
+        "mattermost:sdk-export-missing",
         "memory-tencentdb:missing-compat-record",
         "memory-tencentdb:sdk-export-missing",
         "memos-cloud:missing-compat-record",

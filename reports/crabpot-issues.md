@@ -14,8 +14,8 @@ Status: PASS
 
 | Metric                     | Value |
 | -------------------------- | ----- |
-| Issue findings             | 270   |
-| Open issue findings        | 270   |
+| Issue findings             | 250   |
+| Open issue findings        | 250   |
 | Runtime-covered findings   | 0     |
 | Runtime-partial findings   | 0     |
 | 🔴 P0                      | 7     |
@@ -29,8 +29,8 @@ Status: PASS
 | Inspector gaps             | 148   |
 | Open inspector gaps        | 148   |
 | Runtime coverage artifacts | 0     |
-| Upstream metadata          | 64    |
-| Contract probes            | 238   |
+| Upstream metadata          | 44    |
+| Contract probes            | 218   |
 
 ## Triage Overview
 
@@ -40,7 +40,7 @@ Status: PASS
 | compat-gap          | 29    | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                                                                   |
 | deprecation-warning | 22    | -  | Plugin uses a supported but deprecated compatibility seam; keep it wired while migration exists.                                                         |
 | inspector-gap       | 148   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments. Runtime-covered rows are proof-backed and not open report work. |
-| upstream-metadata   | 64    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.                                                 |
+| upstream-metadata   | 44    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.                                                 |
 | fixture-regression  | 0     | -  | Fixture no longer exposes an expected seam; investigate fixture pin or scanner drift.                                                                    |
 
 ## P0 Live Issues
@@ -114,14 +114,6 @@ _none_
     - [openclaw/plugin-sdk/webhook-path @ webhook-shared-CoiIKIWN.js:2](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/webhook-shared-CoiIKIWN.js#L2)
     - [openclaw/plugin-sdk/zod @ config-schema-a7F7uzDv.js:3](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/config-schema-a7F7uzDv.js#L3)
 
-- 🟠 P1 **codex** `compat-gap` `core-compat-adapter`
-  - **sdk-export-missing**: codex: plugin SDK import aliases are missing from target package exports
-  - state: open · compat:untracked
-  - evidence:
-    - [openclaw/plugin-sdk/agent-workspace-runtime @ run-attempt-BHu11r7h.mjs:68](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/codex/dist/.setup/run-attempt-BHu11r7h.mjs#L68)
-    - [openclaw/plugin-sdk/worker-task-server @ session-history.worker-CaCh0xF_.mjs:7](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/codex/dist/.setup/session-history.worker-CaCh0xF_.mjs#L7)
-    - [openclaw/plugin-sdk/worker-task-server @ catalog-page.worker.js:2](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/codex/dist/catalog-page.worker.js#L2)
-
 - 🟠 P1 **connectclaw** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: connectclaw: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
@@ -186,7 +178,14 @@ _none_
   - **sdk-export-missing**: matrix: plugin SDK import aliases are missing from target package exports
   - state: open · compat:untracked
   - evidence:
-    - [openclaw/plugin-sdk/test-env @ test-support.ts:2](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/test-support.ts#L2)
+    - [openclaw/plugin-sdk/plugin-state-test-runtime @ recovery-persistence.test-support.ts:7](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/src/matrix/sdk/recovery-persistence.test-support.ts#L7)
+    - [openclaw/plugin-sdk/test-env @ test-support.ts:2](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/test-support.ts#L2)
+
+- 🟠 P1 **mattermost** `compat-gap` `core-compat-adapter`
+  - **sdk-export-missing**: mattermost: plugin SDK import aliases are missing from target package exports
+  - state: open · compat:untracked
+  - evidence:
+    - [openclaw/plugin-sdk/test-env @ reactions.test-helpers.ts:1](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/reactions.test-helpers.ts#L1)
 
 - 🟠 P1 **memory-tencentdb** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: memory-tencentdb: compat-dependent behavior lacks registry coverage
@@ -499,7 +498,7 @@ _none_
   - **before-tool-call-probe**: kitchen-sink: before_tool_call needs terminal/block/approval probes
   - state: open · compat:active
   - evidence:
-    - [before_tool_call @ generated-hooks.js:19](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-hooks.js#L19)
+    - [before_tool_call @ generated-hooks.js:19](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-hooks.js#L19)
 
 - 🟠 P1 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: nemoclaw: before_tool_call needs terminal/block/approval probes
@@ -1011,50 +1010,51 @@ _none_
   - **channel-contract-probe**: kitchen-sink: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [registerChannel @ generated-registrars.js:9](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L9)
-    - [registerChannel @ kitchen-runtime.js:56](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L56)
+    - [registerChannel @ generated-registrars.js:9](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L9)
+    - [registerChannel @ kitchen-runtime.js:59](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L59)
 
 - 🟡 P2 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: kitchen-sink: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerAutoEnableProbe @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L7)
-    - [registerBoardWidgetContentKind @ generated-registrars.js:8](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L8)
-    - [registerChannel @ generated-registrars.js:9](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L9)
-    - [registerChannel @ kitchen-runtime.js:56](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L56)
-    - [registerCommand @ generated-registrars.js:13](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L13)
-    - [registerCommand @ kitchen-runtime.js:51](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L51)
-    - [registerCommand @ kitchen-runtime.js:52](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L52)
-    - [registerCompactionProvider @ generated-registrars.js:14](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L14)
-    - [registerCompactionProvider @ kitchen-runtime.js:93](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L93)
-    - [registerConfigMigration @ generated-registrars.js:15](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L15)
-    - [registerContextEngine @ generated-registrars.js:16](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L16)
-    - [registerContextEngine @ kitchen-runtime.js:96](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L96)
-    - [registerGatewayDiscoveryService @ generated-registrars.js:20](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L20)
-    - [registerGatewayMethod @ generated-registrars.js:21](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L21)
-    - [registerGatewayMethod @ kitchen-runtime.js:108](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L108)
-    - [registerHook @ generated-registrars.js:22](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L22)
-    - [registerHostedMediaResolver @ generated-registrars.js:23](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L23)
-    - [registerHttpRoute @ generated-registrars.js:24](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L24)
-    - [registerHttpRoute @ kitchen-runtime.js:106](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L106)
-    - [registerInteractiveHandler @ generated-registrars.js:26](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L26)
-    - [registerInteractiveHandler @ kitchen-runtime.js:54](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L54)
-    - [registerMcpServerConnectionResolver @ generated-registrars.js:27](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L27)
-    - [registerMemoryCapability @ generated-registrars.js:29](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L29)
-    - [registerMemoryCorpusSupplement @ generated-registrars.js:30](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L30)
-    - [registerMemoryCorpusSupplement @ kitchen-runtime.js:90](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L90)
-    - [registerMemoryPromptPreparation @ generated-registrars.js:31](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L31)
-    - [registerMemoryPromptSupplement @ generated-registrars.js:32](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L32)
-    - [registerMemoryPromptSupplement @ kitchen-runtime.js:112](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L112)
-    - [registerNodeCliFeature @ sync-surface.mjs:166](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/scripts/sync-surface.mjs#L166)
-    - [registerNodeCliFeature @ generated-registrars.js:36](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L36)
-    - [registerNodeHostCommand @ generated-registrars.js:37](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L37)
-    - [registerNodeInvokePolicy @ generated-registrars.js:38](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L38)
-    - [registerReload @ generated-registrars.js:42](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L42)
-    - [registerSecurityAuditCollector @ generated-registrars.js:44](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L44)
-    - [registerService @ generated-registrars.js:45](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L45)
-    - [registerService @ kitchen-runtime.js:105](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L105)
-    - [registerWidgetPresenter @ generated-registrars.js:59](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L59)
+    - [registerAutoEnableProbe @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L7)
+    - [registerBoardWidgetContentKind @ generated-registrars.js:8](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L8)
+    - [registerChannel @ generated-registrars.js:9](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L9)
+    - [registerChannel @ kitchen-runtime.js:59](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L59)
+    - [registerCommand @ generated-registrars.js:13](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L13)
+    - [registerCommand @ kitchen-runtime.js:54](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L54)
+    - [registerCommand @ kitchen-runtime.js:55](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L55)
+    - [registerCompactionProvider @ generated-registrars.js:14](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L14)
+    - [registerCompactionProvider @ kitchen-runtime.js:96](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L96)
+    - [registerConfigMigration @ generated-registrars.js:15](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L15)
+    - [registerContextEngine @ generated-registrars.js:16](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L16)
+    - [registerContextEngine @ kitchen-runtime.js:99](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L99)
+    - [registerGatewayDiscoveryService @ generated-registrars.js:20](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L20)
+    - [registerGatewayMethod @ generated-registrars.js:21](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L21)
+    - [registerGatewayMethod @ kitchen-runtime.js:111](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L111)
+    - [registerGatewayMethod @ kitchen-runtime.js:114](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L114)
+    - [registerHook @ generated-registrars.js:22](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L22)
+    - [registerHostedMediaResolver @ generated-registrars.js:23](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L23)
+    - [registerHttpRoute @ generated-registrars.js:24](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L24)
+    - [registerHttpRoute @ kitchen-runtime.js:109](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L109)
+    - [registerInteractiveHandler @ generated-registrars.js:26](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L26)
+    - [registerInteractiveHandler @ kitchen-runtime.js:57](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L57)
+    - [registerMcpServerConnectionResolver @ generated-registrars.js:27](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L27)
+    - [registerMemoryCapability @ generated-registrars.js:29](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L29)
+    - [registerMemoryCorpusSupplement @ generated-registrars.js:30](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L30)
+    - [registerMemoryCorpusSupplement @ kitchen-runtime.js:93](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L93)
+    - [registerMemoryPromptPreparation @ generated-registrars.js:31](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L31)
+    - [registerMemoryPromptSupplement @ generated-registrars.js:32](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L32)
+    - [registerMemoryPromptSupplement @ kitchen-runtime.js:118](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L118)
+    - [registerNodeCliFeature @ sync-surface.mjs:166](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/scripts/sync-surface.mjs#L166)
+    - [registerNodeCliFeature @ generated-registrars.js:36](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L36)
+    - [registerNodeHostCommand @ generated-registrars.js:37](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L37)
+    - [registerNodeInvokePolicy @ generated-registrars.js:38](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L38)
+    - [registerReload @ generated-registrars.js:42](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L42)
+    - [registerSecurityAuditCollector @ generated-registrars.js:44](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L44)
+    - [registerService @ generated-registrars.js:45](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L45)
+    - [registerService @ kitchen-runtime.js:108](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L108)
+    - [registerWidgetPresenter @ generated-registrars.js:59](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L59)
 
 - 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: lightclawbot: channel runtime needs envelope/config probes
@@ -1107,55 +1107,54 @@ _none_
   - **package-dependency-install-required**: matrix: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@matrix-org/matrix-sdk-crypto-nodejs @ package.json](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/package.json)
-    - [@matrix-org/matrix-sdk-crypto-wasm @ package.json](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/package.json)
-    - [fake-indexeddb @ package.json](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/package.json)
-    - [markdown-it @ package.json](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/package.json)
-    - [matrix-js-sdk @ package.json](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/package.json)
-    - [music-metadata @ package.json](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/package.json)
+    - [@matrix-org/matrix-sdk-crypto-nodejs @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
+    - [@matrix-org/matrix-sdk-crypto-wasm @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
+    - [fake-indexeddb @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
+    - [markdown-it @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
+    - [matrix-js-sdk @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
+    - [music-metadata @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
 
 - 🟡 P2 **matrix** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: matrix: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/index.ts)
-    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/setup-entry.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/index.ts)
+    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/setup-entry.ts)
 
 - 🟡 P2 **matrix** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: matrix: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerGatewayMethod @ index.ts:15](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/index.ts#L15)
-    - [registerGatewayMethod @ index.ts:20](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/index.ts#L20)
-    - [registerGatewayMethod @ index.ts:25](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/index.ts#L25)
+    - [registerGatewayMethod @ index.ts:17](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/index.ts#L17)
+    - [registerGatewayMethod @ index.ts:22](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/index.ts#L22)
+    - [registerGatewayMethod @ index.ts:27](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/index.ts#L27)
 
 - 🟡 P2 **mattermost** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: mattermost: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [createChatChannelPlugin @ channel.ts:727](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/mattermost/src/channel.ts#L727)
+    - [createChatChannelPlugin @ channel.ts:694](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/channel.ts#L694)
 
 - 🟡 P2 **mattermost** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: mattermost: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/mattermost/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/mattermost/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/package.json)
 
 - 🟡 P2 **mattermost** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: mattermost: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/mattermost/index.ts)
-    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/mattermost/setup-entry.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/index.ts)
+    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/setup-entry.ts)
 
 - 🟡 P2 **mattermost** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: mattermost: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerHttpRoute @ slash-state.ts:413](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/mattermost/src/mattermost/slash-state.ts#L413)
+    - [registerHttpRoute @ slash-state.ts:440](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/slash-state.ts#L440)
 
 - 🟡 P2 **mcp-adapter** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: mcp-adapter: cold import requires dependency installation in an isolated workspace
@@ -1718,16 +1717,6 @@ _none_
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
 
-- 🟡 P2 **brave-plugin** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: brave-plugin: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/brave/openclaw.plugin.json)
-    - [configGroups @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/brave/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
-
 - 🟡 P2 **clawmetry** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: clawmetry: OpenClaw package install metadata is incomplete
   - state: open · compat:none
@@ -1746,16 +1735,6 @@ _none_
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
-
-- 🟡 P2 **codex** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: codex: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/codex/openclaw.plugin.json)
-    - [configGroups @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/codex/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
 
 - 🟡 P2 **composio** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: composio: plugin API compatibility range is missing
@@ -1793,34 +1772,6 @@ _none_
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
 
-- 🟡 P2 **diagnostics-otel** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: diagnostics-otel: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/diagnostics-otel/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
-
-- 🟡 P2 **diagnostics-prometheus** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: diagnostics-prometheus: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/diagnostics-prometheus/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
-
-- 🟡 P2 **diffs** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: diffs: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/diffs/openclaw.plugin.json)
-    - [configGroups @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/diffs/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
-
 - 🟡 P2 **dingtalk-connector** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: dingtalk-connector: manifest uses unsupported top-level fields
   - state: open · compat:none
@@ -1857,34 +1808,6 @@ _none_
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
-
-- 🟡 P2 **discord** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: discord: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/discord/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
-
-- 🟡 P2 **feishu** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: feishu: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/feishu/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
-
-- 🟡 P2 **google-meet** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: google-meet: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/google-meet/openclaw.plugin.json)
-    - [configGroups @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/google-meet/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
 
 - 🟡 P2 **hasdata** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: hasdata: manifest uses unsupported top-level fields
@@ -1933,15 +1856,6 @@ _none_
     - Align the plugin version declared in package.json and openclaw.plugin.json.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-manifest-version-drift
 
-- 🟡 P2 **lobster** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: lobster: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/lobster/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
-
 - 🟡 P2 **mcp-adapter** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: mcp-adapter: plugin API compatibility range is missing
   - state: open · compat:none
@@ -1950,16 +1864,6 @@ _none_
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
-
-- 🟡 P2 **memory-lancedb** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: memory-lancedb: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/memory-lancedb/openclaw.plugin.json)
-    - [configGroups @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/memory-lancedb/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
 
 - 🟡 P2 **memory-tencentdb** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: memory-tencentdb: plugin API compatibility range is missing
@@ -2014,33 +1918,6 @@ _none_
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
-
-- 🟡 P2 **msteams** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: msteams: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/msteams/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
-
-- 🟡 P2 **nextcloud-talk** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: nextcloud-talk: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/nextcloud-talk/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
-
-- 🟡 P2 **nostr** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: nostr: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/nostr/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
 
 - 🟡 P2 **openclaw-telemetry** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-name-missing**: openclaw-telemetry: manifest display name is missing
@@ -2106,48 +1983,11 @@ _none_
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
 
-- 🟡 P2 **synology-chat** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: synology-chat: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/synology-chat/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
-
 - 🟡 P2 **telnyx-sms** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: telnyx-sms: manifest uses unsupported top-level fields
   - state: open · compat:none
   - evidence:
     - [channelEnvVars @ openclaw.plugin.json](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/6e3956246cd3e0e72af649d2fd75dee6f3e46966/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
-
-- 🟡 P2 **tlon** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: tlon: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/tlon/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
-
-- 🟡 P2 **twitch** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: twitch: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/twitch/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
-
-- 🟡 P2 **voice-call** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: voice-call: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/voice-call/openclaw.plugin.json)
-    - [configGroups @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/voice-call/openclaw.plugin.json)
   - author remediation:
     - Move unsupported top-level manifest fields into supported package metadata or remove them.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
@@ -2160,16 +2000,6 @@ _none_
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
-
-- 🟡 P2 **whatsapp** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: whatsapp: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/whatsapp/openclaw.plugin.json)
-    - [configGroups @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/whatsapp/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
 
 - 🟡 P2 **yuanbao** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: yuanbao: manifest uses unsupported top-level fields
@@ -2197,24 +2027,6 @@ _none_
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
-
-- 🟡 P2 **zalo** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: zalo: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/zalo/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
-
-- 🟡 P2 **zalouser** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: zalouser: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/zalouser/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
 
 - 🟢 P3 **clawrouter** `upstream-metadata` `plugin-upstream-fix`
   - **security-manifest-schema-unavailable**: clawrouter: plugin security manifest references an unavailable schema
@@ -2299,14 +2111,6 @@ _none_
     - [openclaw/plugin-sdk/webhook-path @ webhook-shared-CoiIKIWN.js:2](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/webhook-shared-CoiIKIWN.js#L2)
     - [openclaw/plugin-sdk/zod @ config-schema-a7F7uzDv.js:3](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/config-schema-a7F7uzDv.js#L3)
 
-- 🟠 P1 **codex** `compat-gap` `core-compat-adapter`
-  - **sdk-export-missing**: codex: plugin SDK import aliases are missing from target package exports
-  - state: open · compat:untracked
-  - evidence:
-    - [openclaw/plugin-sdk/agent-workspace-runtime @ run-attempt-BHu11r7h.mjs:68](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/codex/dist/.setup/run-attempt-BHu11r7h.mjs#L68)
-    - [openclaw/plugin-sdk/worker-task-server @ session-history.worker-CaCh0xF_.mjs:7](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/codex/dist/.setup/session-history.worker-CaCh0xF_.mjs#L7)
-    - [openclaw/plugin-sdk/worker-task-server @ catalog-page.worker.js:2](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/codex/dist/catalog-page.worker.js#L2)
-
 - 🟠 P1 **connectclaw** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: connectclaw: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
@@ -2377,13 +2181,20 @@ _none_
   - **before-tool-call-probe**: kitchen-sink: before_tool_call needs terminal/block/approval probes
   - state: open · compat:active
   - evidence:
-    - [before_tool_call @ generated-hooks.js:19](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-hooks.js#L19)
+    - [before_tool_call @ generated-hooks.js:19](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-hooks.js#L19)
 
 - 🟠 P1 **matrix** `compat-gap` `core-compat-adapter`
   - **sdk-export-missing**: matrix: plugin SDK import aliases are missing from target package exports
   - state: open · compat:untracked
   - evidence:
-    - [openclaw/plugin-sdk/test-env @ test-support.ts:2](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/test-support.ts#L2)
+    - [openclaw/plugin-sdk/plugin-state-test-runtime @ recovery-persistence.test-support.ts:7](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/src/matrix/sdk/recovery-persistence.test-support.ts#L7)
+    - [openclaw/plugin-sdk/test-env @ test-support.ts:2](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/test-support.ts#L2)
+
+- 🟠 P1 **mattermost** `compat-gap` `core-compat-adapter`
+  - **sdk-export-missing**: mattermost: plugin SDK import aliases are missing from target package exports
+  - state: open · compat:untracked
+  - evidence:
+    - [openclaw/plugin-sdk/test-env @ reactions.test-helpers.ts:1](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/reactions.test-helpers.ts#L1)
 
 - 🟠 P1 **memory-tencentdb** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: memory-tencentdb: compat-dependent behavior lacks registry coverage
@@ -2674,16 +2485,6 @@ _none_
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
 
-- 🟡 P2 **brave-plugin** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: brave-plugin: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/brave/openclaw.plugin.json)
-    - [configGroups @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/brave/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
-
 - 🟡 P2 **clawmetry** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: clawmetry: OpenClaw package install metadata is incomplete
   - state: open · compat:none
@@ -2759,16 +2560,6 @@ _none_
     - [registerService @ cli.js:89557](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89557)
     - [registerService @ index.js:87593](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87593)
     - [registerService @ index.ts:2050](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2050)
-
-- 🟡 P2 **codex** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: codex: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/codex/openclaw.plugin.json)
-    - [configGroups @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/codex/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
 
 - 🟡 P2 **codex** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: codex: cold import requires dependency installation in an isolated workspace
@@ -2928,15 +2719,6 @@ _none_
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
 
-- 🟡 P2 **diagnostics-otel** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: diagnostics-otel: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/diagnostics-otel/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
-
 - 🟡 P2 **diagnostics-otel** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: diagnostics-otel: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
@@ -2962,31 +2744,12 @@ _none_
   - evidence:
     - [registerService @ index.js:9](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/diagnostics-otel/dist/index.js#L9)
 
-- 🟡 P2 **diagnostics-prometheus** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: diagnostics-prometheus: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/diagnostics-prometheus/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
-
 - 🟡 P2 **diagnostics-prometheus** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: diagnostics-prometheus: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
     - [registerHttpRoute @ index.js:719](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/diagnostics-prometheus/dist/index.js#L719)
     - [registerService @ index.js:718](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/diagnostics-prometheus/dist/index.js#L718)
-
-- 🟡 P2 **diffs** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: diffs: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/diffs/openclaw.plugin.json)
-    - [configGroups @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/diffs/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
 
 - 🟡 P2 **diffs** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: diffs: cold import requires dependency installation in an isolated workspace
@@ -3119,15 +2882,6 @@ _none_
   - evidence:
     - [createChatChannelPlugin @ channel-Dv4e3Jpc.mjs:625](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/discord/dist/.setup/channel-Dv4e3Jpc.mjs#L625)
 
-- 🟡 P2 **discord** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: discord: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/discord/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
-
 - 🟡 P2 **discord** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: discord: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
@@ -3155,15 +2909,6 @@ _none_
   - evidence:
     - [createChatChannelPlugin @ channel-DsndN1sp.mjs:2340](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/feishu/dist/.setup/channel-DsndN1sp.mjs#L2340)
 
-- 🟡 P2 **feishu** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: feishu: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/feishu/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
-
 - 🟡 P2 **feishu** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: feishu: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
@@ -3174,16 +2919,6 @@ _none_
     - [micromark-extension-gfm-table @ package.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/feishu/package.json)
     - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/feishu/package.json)
     - [zod @ package.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/feishu/package.json)
-
-- 🟡 P2 **google-meet** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: google-meet: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/google-meet/openclaw.plugin.json)
-    - [configGroups @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/google-meet/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
 
 - 🟡 P2 **google-meet** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: google-meet: cold import requires dependency installation in an isolated workspace
@@ -3356,50 +3091,51 @@ _none_
   - **channel-contract-probe**: kitchen-sink: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [registerChannel @ generated-registrars.js:9](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L9)
-    - [registerChannel @ kitchen-runtime.js:56](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L56)
+    - [registerChannel @ generated-registrars.js:9](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L9)
+    - [registerChannel @ kitchen-runtime.js:59](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L59)
 
 - 🟡 P2 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: kitchen-sink: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerAutoEnableProbe @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L7)
-    - [registerBoardWidgetContentKind @ generated-registrars.js:8](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L8)
-    - [registerChannel @ generated-registrars.js:9](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L9)
-    - [registerChannel @ kitchen-runtime.js:56](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L56)
-    - [registerCommand @ generated-registrars.js:13](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L13)
-    - [registerCommand @ kitchen-runtime.js:51](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L51)
-    - [registerCommand @ kitchen-runtime.js:52](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L52)
-    - [registerCompactionProvider @ generated-registrars.js:14](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L14)
-    - [registerCompactionProvider @ kitchen-runtime.js:93](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L93)
-    - [registerConfigMigration @ generated-registrars.js:15](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L15)
-    - [registerContextEngine @ generated-registrars.js:16](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L16)
-    - [registerContextEngine @ kitchen-runtime.js:96](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L96)
-    - [registerGatewayDiscoveryService @ generated-registrars.js:20](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L20)
-    - [registerGatewayMethod @ generated-registrars.js:21](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L21)
-    - [registerGatewayMethod @ kitchen-runtime.js:108](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L108)
-    - [registerHook @ generated-registrars.js:22](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L22)
-    - [registerHostedMediaResolver @ generated-registrars.js:23](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L23)
-    - [registerHttpRoute @ generated-registrars.js:24](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L24)
-    - [registerHttpRoute @ kitchen-runtime.js:106](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L106)
-    - [registerInteractiveHandler @ generated-registrars.js:26](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L26)
-    - [registerInteractiveHandler @ kitchen-runtime.js:54](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L54)
-    - [registerMcpServerConnectionResolver @ generated-registrars.js:27](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L27)
-    - [registerMemoryCapability @ generated-registrars.js:29](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L29)
-    - [registerMemoryCorpusSupplement @ generated-registrars.js:30](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L30)
-    - [registerMemoryCorpusSupplement @ kitchen-runtime.js:90](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L90)
-    - [registerMemoryPromptPreparation @ generated-registrars.js:31](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L31)
-    - [registerMemoryPromptSupplement @ generated-registrars.js:32](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L32)
-    - [registerMemoryPromptSupplement @ kitchen-runtime.js:112](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L112)
-    - [registerNodeCliFeature @ sync-surface.mjs:166](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/scripts/sync-surface.mjs#L166)
-    - [registerNodeCliFeature @ generated-registrars.js:36](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L36)
-    - [registerNodeHostCommand @ generated-registrars.js:37](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L37)
-    - [registerNodeInvokePolicy @ generated-registrars.js:38](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L38)
-    - [registerReload @ generated-registrars.js:42](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L42)
-    - [registerSecurityAuditCollector @ generated-registrars.js:44](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L44)
-    - [registerService @ generated-registrars.js:45](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L45)
-    - [registerService @ kitchen-runtime.js:105](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L105)
-    - [registerWidgetPresenter @ generated-registrars.js:59](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L59)
+    - [registerAutoEnableProbe @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L7)
+    - [registerBoardWidgetContentKind @ generated-registrars.js:8](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L8)
+    - [registerChannel @ generated-registrars.js:9](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L9)
+    - [registerChannel @ kitchen-runtime.js:59](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L59)
+    - [registerCommand @ generated-registrars.js:13](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L13)
+    - [registerCommand @ kitchen-runtime.js:54](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L54)
+    - [registerCommand @ kitchen-runtime.js:55](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L55)
+    - [registerCompactionProvider @ generated-registrars.js:14](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L14)
+    - [registerCompactionProvider @ kitchen-runtime.js:96](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L96)
+    - [registerConfigMigration @ generated-registrars.js:15](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L15)
+    - [registerContextEngine @ generated-registrars.js:16](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L16)
+    - [registerContextEngine @ kitchen-runtime.js:99](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L99)
+    - [registerGatewayDiscoveryService @ generated-registrars.js:20](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L20)
+    - [registerGatewayMethod @ generated-registrars.js:21](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L21)
+    - [registerGatewayMethod @ kitchen-runtime.js:111](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L111)
+    - [registerGatewayMethod @ kitchen-runtime.js:114](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L114)
+    - [registerHook @ generated-registrars.js:22](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L22)
+    - [registerHostedMediaResolver @ generated-registrars.js:23](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L23)
+    - [registerHttpRoute @ generated-registrars.js:24](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L24)
+    - [registerHttpRoute @ kitchen-runtime.js:109](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L109)
+    - [registerInteractiveHandler @ generated-registrars.js:26](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L26)
+    - [registerInteractiveHandler @ kitchen-runtime.js:57](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L57)
+    - [registerMcpServerConnectionResolver @ generated-registrars.js:27](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L27)
+    - [registerMemoryCapability @ generated-registrars.js:29](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L29)
+    - [registerMemoryCorpusSupplement @ generated-registrars.js:30](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L30)
+    - [registerMemoryCorpusSupplement @ kitchen-runtime.js:93](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L93)
+    - [registerMemoryPromptPreparation @ generated-registrars.js:31](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L31)
+    - [registerMemoryPromptSupplement @ generated-registrars.js:32](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L32)
+    - [registerMemoryPromptSupplement @ kitchen-runtime.js:118](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L118)
+    - [registerNodeCliFeature @ sync-surface.mjs:166](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/scripts/sync-surface.mjs#L166)
+    - [registerNodeCliFeature @ generated-registrars.js:36](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L36)
+    - [registerNodeHostCommand @ generated-registrars.js:37](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L37)
+    - [registerNodeInvokePolicy @ generated-registrars.js:38](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L38)
+    - [registerReload @ generated-registrars.js:42](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L42)
+    - [registerSecurityAuditCollector @ generated-registrars.js:44](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L44)
+    - [registerService @ generated-registrars.js:45](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L45)
+    - [registerService @ kitchen-runtime.js:108](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L108)
+    - [registerWidgetPresenter @ generated-registrars.js:59](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L59)
 
 - 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: lightclawbot: channel runtime needs envelope/config probes
@@ -3440,15 +3176,6 @@ _none_
   - author remediation:
     - Align the plugin version declared in package.json and openclaw.plugin.json.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-manifest-version-drift
-
-- 🟡 P2 **lobster** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: lobster: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/lobster/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
 
 - 🟡 P2 **lobster** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: lobster: cold import requires dependency installation in an isolated workspace
@@ -3503,55 +3230,54 @@ _none_
   - **package-dependency-install-required**: matrix: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@matrix-org/matrix-sdk-crypto-nodejs @ package.json](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/package.json)
-    - [@matrix-org/matrix-sdk-crypto-wasm @ package.json](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/package.json)
-    - [fake-indexeddb @ package.json](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/package.json)
-    - [markdown-it @ package.json](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/package.json)
-    - [matrix-js-sdk @ package.json](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/package.json)
-    - [music-metadata @ package.json](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/package.json)
+    - [@matrix-org/matrix-sdk-crypto-nodejs @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
+    - [@matrix-org/matrix-sdk-crypto-wasm @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
+    - [fake-indexeddb @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
+    - [markdown-it @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
+    - [matrix-js-sdk @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
+    - [music-metadata @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
 
 - 🟡 P2 **matrix** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: matrix: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/index.ts)
-    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/setup-entry.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/index.ts)
+    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/setup-entry.ts)
 
 - 🟡 P2 **matrix** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: matrix: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerGatewayMethod @ index.ts:15](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/index.ts#L15)
-    - [registerGatewayMethod @ index.ts:20](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/index.ts#L20)
-    - [registerGatewayMethod @ index.ts:25](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/index.ts#L25)
+    - [registerGatewayMethod @ index.ts:17](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/index.ts#L17)
+    - [registerGatewayMethod @ index.ts:22](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/index.ts#L22)
+    - [registerGatewayMethod @ index.ts:27](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/index.ts#L27)
 
 - 🟡 P2 **mattermost** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: mattermost: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [createChatChannelPlugin @ channel.ts:727](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/mattermost/src/channel.ts#L727)
+    - [createChatChannelPlugin @ channel.ts:694](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/channel.ts#L694)
 
 - 🟡 P2 **mattermost** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: mattermost: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/mattermost/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/mattermost/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/package.json)
 
 - 🟡 P2 **mattermost** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: mattermost: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/mattermost/index.ts)
-    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/mattermost/setup-entry.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/index.ts)
+    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/setup-entry.ts)
 
 - 🟡 P2 **mattermost** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: mattermost: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerHttpRoute @ slash-state.ts:413](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/mattermost/src/mattermost/slash-state.ts#L413)
+    - [registerHttpRoute @ slash-state.ts:440](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/slash-state.ts#L440)
 
 - 🟡 P2 **mcp-adapter** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: mcp-adapter: cold import requires dependency installation in an isolated workspace
@@ -3585,16 +3311,6 @@ _none_
   - state: open · compat:none
   - evidence:
     - [registerTool @ index.ts:30](https://github.com/androidStern-personal/openclaw-mcp-adapter/blob/5434ce21ac780a46a493c8125e52e80a03dd2640/index.ts#L30)
-
-- 🟡 P2 **memory-lancedb** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: memory-lancedb: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/memory-lancedb/openclaw.plugin.json)
-    - [configGroups @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/memory-lancedb/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
 
 - 🟡 P2 **memory-lancedb** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: memory-lancedb: cold import requires dependency installation in an isolated workspace
@@ -3782,15 +3498,6 @@ _none_
   - evidence:
     - [createChatChannelPlugin @ channel-BDp16XRR.cjs:1015](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/msteams/dist/.setup/channel-BDp16XRR.cjs#L1015)
 
-- 🟡 P2 **msteams** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: msteams: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/msteams/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
-
 - 🟡 P2 **msteams** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: msteams: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
@@ -3829,15 +3536,6 @@ _none_
   - evidence:
     - [createChatChannelPlugin @ channel-B_MT8EAm.mjs:2264](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/nextcloud-talk/dist/.setup/channel-B_MT8EAm.mjs#L2264)
 
-- 🟡 P2 **nextcloud-talk** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: nextcloud-talk: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/nextcloud-talk/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
-
 - 🟡 P2 **nextcloud-talk** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: nextcloud-talk: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
@@ -3849,15 +3547,6 @@ _none_
   - state: open · compat:active
   - evidence:
     - [createChatChannelPlugin @ channel-D0f0Q9uV.mjs:1661](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/nostr/dist/.setup/channel-D0f0Q9uV.mjs#L1661)
-
-- 🟡 P2 **nostr** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: nostr: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/nostr/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
 
 - 🟡 P2 **nostr** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: nostr: cold import requires dependency installation in an isolated workspace
@@ -4092,15 +3781,6 @@ _none_
   - evidence:
     - [createChatChannelPlugin @ channel-BjOfmoPT.mjs:1872](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/synology-chat/dist/.setup/channel-BjOfmoPT.mjs#L1872)
 
-- 🟡 P2 **synology-chat** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: synology-chat: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/synology-chat/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
-
 - 🟡 P2 **synology-chat** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: synology-chat: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
@@ -4150,15 +3830,6 @@ _none_
   - evidence:
     - [createChatChannelPlugin @ channel-D8GA_UwK.mjs:150](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/tlon/dist/.setup/channel-D8GA_UwK.mjs#L150)
 
-- 🟡 P2 **tlon** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: tlon: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/tlon/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
-
 - 🟡 P2 **tlon** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: tlon: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
@@ -4175,15 +3846,6 @@ _none_
   - evidence:
     - [createChatChannelPlugin @ plugin-CqPt4cYf.mjs:1075](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/twitch/dist/.setup/plugin-CqPt4cYf.mjs#L1075)
 
-- 🟡 P2 **twitch** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: twitch: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/twitch/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
-
 - 🟡 P2 **twitch** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: twitch: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
@@ -4192,16 +3854,6 @@ _none_
     - [@twurple/auth @ package.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/twitch/package.json)
     - [@twurple/chat @ package.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/twitch/package.json)
     - [zod @ package.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/twitch/package.json)
-
-- 🟡 P2 **voice-call** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: voice-call: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/voice-call/openclaw.plugin.json)
-    - [configGroups @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/voice-call/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
 
 - 🟡 P2 **voice-call** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: voice-call: cold import requires dependency installation in an isolated workspace
@@ -4261,16 +3913,6 @@ _none_
   - state: open · compat:active
   - evidence:
     - [createChatChannelPlugin @ channel-Bg_fS2iF.mjs:532](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/whatsapp/dist/.setup/channel-Bg_fS2iF.mjs#L532)
-
-- 🟡 P2 **whatsapp** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: whatsapp: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/whatsapp/openclaw.plugin.json)
-    - [configGroups @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/whatsapp/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
 
 - 🟡 P2 **whatsapp** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: whatsapp: cold import requires dependency installation in an isolated workspace
@@ -4353,15 +3995,6 @@ _none_
   - evidence:
     - [createChatChannelPlugin @ channel-C4-ovULW.mjs:274](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/zalo/dist/.setup/channel-C4-ovULW.mjs#L274)
 
-- 🟡 P2 **zalo** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: zalo: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/zalo/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
-
 - 🟡 P2 **zalo** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: zalo: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
@@ -4373,15 +4006,6 @@ _none_
   - state: open · compat:active
   - evidence:
     - [createChatChannelPlugin @ channel-I-deAQj9.mjs:593](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/zalouser/dist/.setup/channel-I-deAQj9.mjs#L593)
-
-- 🟡 P2 **zalouser** `upstream-metadata` `plugin-upstream-fix`
-  - **manifest-unknown-fields**: zalouser: manifest uses unsupported top-level fields
-  - state: open · compat:none
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/zalouser/openclaw.plugin.json)
-  - author remediation:
-    - Move unsupported top-level manifest fields into supported package metadata or remove them.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
 
 - 🟡 P2 **zalouser** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: zalouser: cold import requires dependency installation in an isolated workspace
@@ -4421,7 +4045,7 @@ _none_
   - contract: Hook returns preserve terminal, block, and approval semantics.
   - id: `hook.before_tool_call.terminal-block-approval:kitchen-sink`
   - evidence:
-    - [before_tool_call @ generated-hooks.js:19](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-hooks.js#L19)
+    - [before_tool_call @ generated-hooks.js:19](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-hooks.js#L19)
 
 - 🟠 P1 **nemoclaw** `hook-runner`
   - contract: Hook returns preserve terminal, block, and approval semantics.
@@ -4460,14 +4084,6 @@ _none_
     - [openclaw/plugin-sdk/webhook-path @ webhook-shared-CoiIKIWN.js:2](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/webhook-shared-CoiIKIWN.js#L2)
     - [openclaw/plugin-sdk/zod @ config-schema-a7F7uzDv.js:3](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/config-schema-a7F7uzDv.js#L3)
 
-- 🟠 P1 **codex** `sdk-alias`
-  - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
-  - id: `sdk.import.package-export-cold-import:codex`
-  - evidence:
-    - [openclaw/plugin-sdk/agent-workspace-runtime @ run-attempt-BHu11r7h.mjs:68](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/codex/dist/.setup/run-attempt-BHu11r7h.mjs#L68)
-    - [openclaw/plugin-sdk/worker-task-server @ session-history.worker-CaCh0xF_.mjs:7](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/codex/dist/.setup/session-history.worker-CaCh0xF_.mjs#L7)
-    - [openclaw/plugin-sdk/worker-task-server @ catalog-page.worker.js:2](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/codex/dist/catalog-page.worker.js#L2)
-
 - 🟠 P1 **connectclaw** `sdk-alias`
   - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
   - id: `sdk.import.package-export-cold-import:connectclaw`
@@ -4490,7 +4106,14 @@ _none_
   - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
   - id: `sdk.import.package-export-cold-import:matrix`
   - evidence:
-    - [openclaw/plugin-sdk/test-env @ test-support.ts:2](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/test-support.ts#L2)
+    - [openclaw/plugin-sdk/plugin-state-test-runtime @ recovery-persistence.test-support.ts:7](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/src/matrix/sdk/recovery-persistence.test-support.ts#L7)
+    - [openclaw/plugin-sdk/test-env @ test-support.ts:2](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/test-support.ts#L2)
+
+- 🟠 P1 **mattermost** `sdk-alias`
+  - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
+  - id: `sdk.import.package-export-cold-import:mattermost`
+  - evidence:
+    - [openclaw/plugin-sdk/test-env @ reactions.test-helpers.ts:1](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/reactions.test-helpers.ts#L1)
 
 - 🟠 P1 **memory-tencentdb** `sdk-alias`
   - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
@@ -4587,43 +4210,44 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:kitchen-sink`
   - evidence:
-    - [registerAutoEnableProbe @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L7)
-    - [registerBoardWidgetContentKind @ generated-registrars.js:8](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L8)
-    - [registerChannel @ generated-registrars.js:9](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L9)
-    - [registerChannel @ kitchen-runtime.js:56](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L56)
-    - [registerCommand @ generated-registrars.js:13](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L13)
-    - [registerCommand @ kitchen-runtime.js:51](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L51)
-    - [registerCommand @ kitchen-runtime.js:52](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L52)
-    - [registerCompactionProvider @ generated-registrars.js:14](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L14)
-    - [registerCompactionProvider @ kitchen-runtime.js:93](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L93)
-    - [registerConfigMigration @ generated-registrars.js:15](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L15)
-    - [registerContextEngine @ generated-registrars.js:16](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L16)
-    - [registerContextEngine @ kitchen-runtime.js:96](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L96)
-    - [registerGatewayDiscoveryService @ generated-registrars.js:20](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L20)
-    - [registerGatewayMethod @ generated-registrars.js:21](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L21)
-    - [registerGatewayMethod @ kitchen-runtime.js:108](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L108)
-    - [registerHook @ generated-registrars.js:22](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L22)
-    - [registerHostedMediaResolver @ generated-registrars.js:23](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L23)
-    - [registerHttpRoute @ generated-registrars.js:24](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L24)
-    - [registerHttpRoute @ kitchen-runtime.js:106](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L106)
-    - [registerInteractiveHandler @ generated-registrars.js:26](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L26)
-    - [registerInteractiveHandler @ kitchen-runtime.js:54](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L54)
-    - [registerMcpServerConnectionResolver @ generated-registrars.js:27](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L27)
-    - [registerMemoryCapability @ generated-registrars.js:29](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L29)
-    - [registerMemoryCorpusSupplement @ generated-registrars.js:30](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L30)
-    - [registerMemoryCorpusSupplement @ kitchen-runtime.js:90](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L90)
-    - [registerMemoryPromptPreparation @ generated-registrars.js:31](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L31)
-    - [registerMemoryPromptSupplement @ generated-registrars.js:32](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L32)
-    - [registerMemoryPromptSupplement @ kitchen-runtime.js:112](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L112)
-    - [registerNodeCliFeature @ sync-surface.mjs:166](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/scripts/sync-surface.mjs#L166)
-    - [registerNodeCliFeature @ generated-registrars.js:36](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L36)
-    - [registerNodeHostCommand @ generated-registrars.js:37](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L37)
-    - [registerNodeInvokePolicy @ generated-registrars.js:38](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L38)
-    - [registerReload @ generated-registrars.js:42](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L42)
-    - [registerSecurityAuditCollector @ generated-registrars.js:44](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L44)
-    - [registerService @ generated-registrars.js:45](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L45)
-    - [registerService @ kitchen-runtime.js:105](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L105)
-    - [registerWidgetPresenter @ generated-registrars.js:59](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L59)
+    - [registerAutoEnableProbe @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L7)
+    - [registerBoardWidgetContentKind @ generated-registrars.js:8](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L8)
+    - [registerChannel @ generated-registrars.js:9](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L9)
+    - [registerChannel @ kitchen-runtime.js:59](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L59)
+    - [registerCommand @ generated-registrars.js:13](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L13)
+    - [registerCommand @ kitchen-runtime.js:54](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L54)
+    - [registerCommand @ kitchen-runtime.js:55](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L55)
+    - [registerCompactionProvider @ generated-registrars.js:14](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L14)
+    - [registerCompactionProvider @ kitchen-runtime.js:96](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L96)
+    - [registerConfigMigration @ generated-registrars.js:15](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L15)
+    - [registerContextEngine @ generated-registrars.js:16](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L16)
+    - [registerContextEngine @ kitchen-runtime.js:99](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L99)
+    - [registerGatewayDiscoveryService @ generated-registrars.js:20](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L20)
+    - [registerGatewayMethod @ generated-registrars.js:21](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L21)
+    - [registerGatewayMethod @ kitchen-runtime.js:111](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L111)
+    - [registerGatewayMethod @ kitchen-runtime.js:114](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L114)
+    - [registerHook @ generated-registrars.js:22](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L22)
+    - [registerHostedMediaResolver @ generated-registrars.js:23](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L23)
+    - [registerHttpRoute @ generated-registrars.js:24](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L24)
+    - [registerHttpRoute @ kitchen-runtime.js:109](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L109)
+    - [registerInteractiveHandler @ generated-registrars.js:26](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L26)
+    - [registerInteractiveHandler @ kitchen-runtime.js:57](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L57)
+    - [registerMcpServerConnectionResolver @ generated-registrars.js:27](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L27)
+    - [registerMemoryCapability @ generated-registrars.js:29](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L29)
+    - [registerMemoryCorpusSupplement @ generated-registrars.js:30](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L30)
+    - [registerMemoryCorpusSupplement @ kitchen-runtime.js:93](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L93)
+    - [registerMemoryPromptPreparation @ generated-registrars.js:31](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L31)
+    - [registerMemoryPromptSupplement @ generated-registrars.js:32](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L32)
+    - [registerMemoryPromptSupplement @ kitchen-runtime.js:118](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L118)
+    - [registerNodeCliFeature @ sync-surface.mjs:166](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/scripts/sync-surface.mjs#L166)
+    - [registerNodeCliFeature @ generated-registrars.js:36](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L36)
+    - [registerNodeHostCommand @ generated-registrars.js:37](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L37)
+    - [registerNodeInvokePolicy @ generated-registrars.js:38](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L38)
+    - [registerReload @ generated-registrars.js:42](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L42)
+    - [registerSecurityAuditCollector @ generated-registrars.js:44](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L44)
+    - [registerService @ generated-registrars.js:45](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L45)
+    - [registerService @ kitchen-runtime.js:108](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L108)
+    - [registerWidgetPresenter @ generated-registrars.js:59](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L59)
 
 - 🟡 P2 **lossless-claw** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -4724,8 +4348,8 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:kitchen-sink`
   - evidence:
-    - [registerChannel @ generated-registrars.js:9](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/generated-registrars.js#L9)
-    - [registerChannel @ kitchen-runtime.js:56](https://github.com/openclaw/kitchen-sink/blob/904b69fd2af89042f4db7bb5ef0ca0e882193fcd/src/kitchen-runtime.js#L56)
+    - [registerChannel @ generated-registrars.js:9](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L9)
+    - [registerChannel @ kitchen-runtime.js:59](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L59)
 
 - 🟡 P2 **mocrane-wecom** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -5390,15 +5014,15 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:matrix`
   - evidence:
-    - [registerGatewayMethod @ index.ts:15](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/index.ts#L15)
-    - [registerGatewayMethod @ index.ts:20](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/index.ts#L20)
-    - [registerGatewayMethod @ index.ts:25](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/index.ts#L25)
+    - [registerGatewayMethod @ index.ts:17](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/index.ts#L17)
+    - [registerGatewayMethod @ index.ts:22](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/index.ts#L22)
+    - [registerGatewayMethod @ index.ts:27](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/index.ts#L27)
 
 - 🟢 P3 **mattermost** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:mattermost`
   - evidence:
-    - [registerHttpRoute @ slash-state.ts:413](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/mattermost/src/mattermost/slash-state.ts#L413)
+    - [registerHttpRoute @ slash-state.ts:440](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/slash-state.ts#L440)
 
 - 🟢 P3 **memory-lancedb** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -5470,7 +5094,7 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:mattermost`
   - evidence:
-    - [createChatChannelPlugin @ channel.ts:727](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/mattermost/src/channel.ts#L727)
+    - [createChatChannelPlugin @ channel.ts:694](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/channel.ts#L694)
 
 - 🟢 P3 **msteams** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -5569,76 +5193,11 @@ _none_
     - entryPoint @ plugins/aiwerk-mcp-bridge/.crabpot-package/openclaw.plugin.json
     - required @ plugins/aiwerk-mcp-bridge/.crabpot-package/openclaw.plugin.json
 
-- 🟢 P3 **brave-plugin** `manifest-loader`
-  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
-  - id: `manifest.schema.top-level-fields:brave-plugin`
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/brave/openclaw.plugin.json)
-    - [configGroups @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/brave/openclaw.plugin.json)
-
-- 🟢 P3 **codex** `manifest-loader`
-  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
-  - id: `manifest.schema.top-level-fields:codex`
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/codex/openclaw.plugin.json)
-    - [configGroups @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/codex/openclaw.plugin.json)
-
-- 🟢 P3 **diagnostics-otel** `manifest-loader`
-  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
-  - id: `manifest.schema.top-level-fields:diagnostics-otel`
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/diagnostics-otel/openclaw.plugin.json)
-
-- 🟢 P3 **diagnostics-prometheus** `manifest-loader`
-  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
-  - id: `manifest.schema.top-level-fields:diagnostics-prometheus`
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/diagnostics-prometheus/openclaw.plugin.json)
-
-- 🟢 P3 **diffs** `manifest-loader`
-  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
-  - id: `manifest.schema.top-level-fields:diffs`
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/diffs/openclaw.plugin.json)
-    - [configGroups @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/diffs/openclaw.plugin.json)
-
-- 🟢 P3 **discord** `manifest-loader`
-  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
-  - id: `manifest.schema.top-level-fields:discord`
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/discord/openclaw.plugin.json)
-
-- 🟢 P3 **feishu** `manifest-loader`
-  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
-  - id: `manifest.schema.top-level-fields:feishu`
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/feishu/openclaw.plugin.json)
-
-- 🟢 P3 **google-meet** `manifest-loader`
-  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
-  - id: `manifest.schema.top-level-fields:google-meet`
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/google-meet/openclaw.plugin.json)
-    - [configGroups @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/google-meet/openclaw.plugin.json)
-
 - 🟢 P3 **inworld-tts** `manifest-loader`
   - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
   - id: `manifest.schema.top-level-fields:inworld-tts`
   - evidence:
     - [providerAuthEnvVars @ openclaw.plugin.json](https://github.com/livingghost/openclaw-inworld-tts/blob/d2abaeea330ebef7530f43f8b395671f6f404aea/openclaw.plugin.json)
-
-- 🟢 P3 **lobster** `manifest-loader`
-  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
-  - id: `manifest.schema.top-level-fields:lobster`
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/lobster/openclaw.plugin.json)
-
-- 🟢 P3 **memory-lancedb** `manifest-loader`
-  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
-  - id: `manifest.schema.top-level-fields:memory-lancedb`
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/memory-lancedb/openclaw.plugin.json)
-    - [configGroups @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/memory-lancedb/openclaw.plugin.json)
 
 - 🟢 P3 **memos-cloud** `manifest-loader`
   - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
@@ -5646,73 +5205,11 @@ _none_
   - evidence:
     - [main @ openclaw.plugin.json](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/fd4bad4cbe66bb767d33d08d681eaea03ccb353a/openclaw.plugin.json)
 
-- 🟢 P3 **msteams** `manifest-loader`
-  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
-  - id: `manifest.schema.top-level-fields:msteams`
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/msteams/openclaw.plugin.json)
-
-- 🟢 P3 **nextcloud-talk** `manifest-loader`
-  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
-  - id: `manifest.schema.top-level-fields:nextcloud-talk`
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/nextcloud-talk/openclaw.plugin.json)
-
-- 🟢 P3 **nostr** `manifest-loader`
-  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
-  - id: `manifest.schema.top-level-fields:nostr`
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/nostr/openclaw.plugin.json)
-
-- 🟢 P3 **synology-chat** `manifest-loader`
-  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
-  - id: `manifest.schema.top-level-fields:synology-chat`
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/synology-chat/openclaw.plugin.json)
-
 - 🟢 P3 **telnyx-sms** `manifest-loader`
   - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
   - id: `manifest.schema.top-level-fields:telnyx-sms`
   - evidence:
     - [channelEnvVars @ openclaw.plugin.json](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/6e3956246cd3e0e72af649d2fd75dee6f3e46966/openclaw.plugin.json)
-
-- 🟢 P3 **tlon** `manifest-loader`
-  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
-  - id: `manifest.schema.top-level-fields:tlon`
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/tlon/openclaw.plugin.json)
-
-- 🟢 P3 **twitch** `manifest-loader`
-  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
-  - id: `manifest.schema.top-level-fields:twitch`
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/twitch/openclaw.plugin.json)
-
-- 🟢 P3 **voice-call** `manifest-loader`
-  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
-  - id: `manifest.schema.top-level-fields:voice-call`
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/voice-call/openclaw.plugin.json)
-    - [configGroups @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/voice-call/openclaw.plugin.json)
-
-- 🟢 P3 **whatsapp** `manifest-loader`
-  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
-  - id: `manifest.schema.top-level-fields:whatsapp`
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/whatsapp/openclaw.plugin.json)
-    - [configGroups @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/whatsapp/openclaw.plugin.json)
-
-- 🟢 P3 **zalo** `manifest-loader`
-  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
-  - id: `manifest.schema.top-level-fields:zalo`
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/zalo/openclaw.plugin.json)
-
-- 🟢 P3 **zalouser** `manifest-loader`
-  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
-  - id: `manifest.schema.top-level-fields:zalouser`
-  - evidence:
-    - [categories @ openclaw.plugin.json](https://github.com/openclaw/openclaw/blob/2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4/extensions/zalouser/openclaw.plugin.json)
 
 - 🟢 P3 **aiwerk-mcp-bridge** `package-loader`
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
@@ -5918,21 +5415,20 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:matrix`
   - evidence:
-    - [@matrix-org/matrix-sdk-crypto-nodejs @ package.json](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/package.json)
-    - [@matrix-org/matrix-sdk-crypto-wasm @ package.json](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/package.json)
-    - [fake-indexeddb @ package.json](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/package.json)
-    - [markdown-it @ package.json](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/package.json)
-    - [matrix-js-sdk @ package.json](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/package.json)
-    - [music-metadata @ package.json](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/package.json)
+    - [@matrix-org/matrix-sdk-crypto-nodejs @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
+    - [@matrix-org/matrix-sdk-crypto-wasm @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
+    - [fake-indexeddb @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
+    - [markdown-it @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
+    - [matrix-js-sdk @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
+    - [music-metadata @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
 
 - 🟢 P3 **mattermost** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:mattermost`
   - evidence:
-    - [ws @ package.json](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/mattermost/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/mattermost/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/package.json)
 
 - 🟢 P3 **memory-lancedb** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -6063,15 +5559,15 @@ _none_
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:matrix`
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/index.ts)
-    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/matrix/setup-entry.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/index.ts)
+    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/setup-entry.ts)
 
 - 🟢 P3 **mattermost** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:mattermost`
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/mattermost/index.ts)
-    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/d9b8996498001e04f706255eb0ae818349fd594c/extensions/mattermost/setup-entry.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/index.ts)
+    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/setup-entry.ts)
 
 - 🟢 P3 **memu-engine** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.

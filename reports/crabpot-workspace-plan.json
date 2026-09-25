@@ -2642,6 +2642,11 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/plugin-state-test-runtime @ plugins/matrix/.crabpot-package/src/matrix/sdk/recovery-persistence.test-support.ts:7"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
               "evidence": "openclaw/plugin-sdk/test-env @ plugins/matrix/.crabpot-package/test-support.ts:2"
             }
           ],
@@ -2734,6 +2739,11 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@matrix-org/matrix-sdk-crypto-nodejs, @matrix-org/matrix-sdk-crypto-wasm, fake-indexeddb, markdown-it, matrix-js-sdk, music-metadata, typebox, zod"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/plugin-state-test-runtime @ plugins/matrix/.crabpot-package/src/matrix/sdk/recovery-persistence.test-support.ts:7"
             },
             {
               "code": "sdk-alias-required",
@@ -5521,7 +5531,7 @@
           "packagePath": "plugins/mattermost/.crabpot-package/package.json",
           "packageName": "@openclaw/mattermost",
           "entrypoint": "plugins/mattermost/.crabpot-package/index.ts",
-          "status": "ts-loader-required",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": "plugins/mattermost/package-lock.json",
           "loaderStrategy": {
@@ -5535,6 +5545,7 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link",
             "ts-loader"
@@ -5548,7 +5559,12 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "ws, zod"
+              "evidence": "zod"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/test-env @ plugins/mattermost/.crabpot-package/src/mattermost/reactions.test-helpers.ts:1"
             }
           ],
           "steps": [
@@ -5611,7 +5627,7 @@
           "packagePath": "plugins/mattermost/.crabpot-package/package.json",
           "packageName": "@openclaw/mattermost",
           "entrypoint": "plugins/mattermost/.crabpot-package/setup-entry.ts",
-          "status": "ts-loader-required",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": "plugins/mattermost/package-lock.json",
           "loaderStrategy": {
@@ -5625,6 +5641,7 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link",
             "ts-loader"
@@ -5638,7 +5655,12 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "ws, zod"
+              "evidence": "zod"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/test-env @ plugins/mattermost/.crabpot-package/src/mattermost/reactions.test-helpers.ts:1"
             }
           ],
           "steps": [
@@ -6135,7 +6157,6 @@
           },
           "requiredCapabilities": [
             "capture-shim",
-            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -6144,21 +6165,6 @@
               "code": "missing-entrypoint",
               "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/codex/.crabpot-package/index.ts"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-workspace-runtime @ plugins/codex/.crabpot-package/dist/.setup/run-attempt-BHu11r7h.mjs:68"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/worker-task-server @ plugins/codex/.crabpot-package/dist/.setup/session-history.worker-CaCh0xF_.mjs:7"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/worker-task-server @ plugins/codex/.crabpot-package/dist/catalog-page.worker.js:2"
             }
           ],
           "steps": [
@@ -6202,7 +6208,7 @@
           "packagePath": "plugins/codex/.crabpot-package/package.json",
           "packageName": "@openclaw/codex",
           "entrypoint": "plugins/codex/.crabpot-package/dist/index.js",
-          "status": "sdk-alias-required",
+          "status": "dependency-install-required",
           "packageManager": "npm",
           "lockfile": "plugins/codex/package-lock.json",
           "loaderStrategy": {
@@ -6214,7 +6220,6 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
-            "sdk-alias-compat",
             "side-effect-sandbox",
             "synthetic-probes",
             "target-openclaw-link"
@@ -6229,21 +6234,6 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@openai/codex, semver, smol-toml, typebox, ws, zod"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-workspace-runtime @ plugins/codex/.crabpot-package/dist/.setup/run-attempt-BHu11r7h.mjs:68"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/worker-task-server @ plugins/codex/.crabpot-package/dist/.setup/session-history.worker-CaCh0xF_.mjs:7"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/worker-task-server @ plugins/codex/.crabpot-package/dist/catalog-page.worker.js:2"
             }
           ],
           "steps": [

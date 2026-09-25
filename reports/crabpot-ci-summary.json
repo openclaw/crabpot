@@ -2,13 +2,13 @@
   "generatedAt": "deterministic",
   "title": "Crabpot CI Summary",
   "mode": "check",
-  "openclawLabel": "openclaw/openclaw@d9b899649800 (Default Track pin 2026-09-10)",
+  "openclawLabel": "openclaw/openclaw@10bb24270d8d (Default Track pin 2026-09-25)",
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 105,
+    "warnings": 85,
     "suggestions": 165,
-    "issues": 270,
+    "issues": 250,
     "p0Issues": 7,
     "p1Issues": 35,
     "liveIssues": 7,
@@ -16,7 +16,7 @@
     "compatGaps": 29,
     "deprecationWarnings": 22,
     "inspectorGaps": 148,
-    "upstreamIssues": 64,
+    "upstreamIssues": 44,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
@@ -29,16 +29,16 @@
     "platformWindowsRisks": 17,
     "platformContainerRisks": 17,
     "loaderJitiCandidates": 20,
-    "importLoopP50Ms": 2992,
-    "importLoopP95Ms": 2998,
+    "importLoopP50Ms": 4361,
+    "importLoopP95Ms": 4382,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 60.3,
-    "importLoopOpenClawActivationP50Ms": 0.5,
+    "importLoopOpenClawImportP50Ms": 114.3,
+    "importLoopOpenClawActivationP50Ms": 1.3,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 3.2,
-    "importLoopMaxCpuMs": 11,
-    "importLoopRssSampleCount": 357,
-    "importLoopCpuSampleCount": 357
+    "importLoopMaxRssMb": 0.3,
+    "importLoopMaxCpuMs": 57,
+    "importLoopRssSampleCount": 519,
+    "importLoopCpuSampleCount": 519
   },
   "topIssues": [
     {
@@ -111,14 +111,6 @@
       "fixture": "bluebubbles",
       "code": "sdk-export-missing",
       "title": "bluebubbles: plugin SDK import aliases are missing from target package exports",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "codex",
-      "code": "sdk-export-missing",
-      "title": "codex: plugin SDK import aliases are missing from target package exports",
       "decision": "core-compat-adapter"
     },
     {
@@ -199,6 +191,14 @@
       "fixture": "honcho",
       "code": "missing-compat-record",
       "title": "honcho: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "inworld-tts",
+      "code": "missing-compat-record",
+      "title": "inworld-tts: compat-dependent behavior lacks registry coverage",
       "decision": "core-compat-adapter"
     }
   ],
