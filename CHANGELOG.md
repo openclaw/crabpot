@@ -2,6 +2,7 @@
 
 ## 0.2.2 - Unreleased
 
+- Validate optional Kitchen Sink session creation and first/warm tool observations separately from legacy aggregate admission, preserving failed partial observations without credit.
 - Add an opt-in paired-node File Transfer fetch workload that verifies policy preflight, saved bytes and audit records, sharing a pinned node lifecycle with Session Share.
 
 - Add an opt-in Memory Wiki local apply/compile/get/search workload with verified alternating writes, default publication and a fixed synthetic corpus; report enabled-cycle cost separately from empty-host overhead.
