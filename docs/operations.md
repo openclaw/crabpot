@@ -54,15 +54,16 @@ before resolving the OpenClaw host. Report generation uses the same plugin
 track as required CI: latest, beta, or source-packed development fixtures.
 Unit tests run separately against the complete manifest before that selection.
 
-Host-running jobs use Node 24 for the selected OpenClaw 2026.9.3 source pin,
+Host-running jobs use Node 24 for the selected OpenClaw 2026.9.6 source pin,
 which requires Node `>=24.16.0 <25 || >=26.1.0`. This includes Default Track
 static/container/isolated execution, dashboard tracks, Dependabot report
 refreshes, and manual ref static/diff/isolated execution. Host-free security
 and fixture-selection jobs remain on Node 22; Crabpot's private package engine
 remains `>=22`.
 
-Kitchen Sink 0.3.0 covers 42 hooks, 56 active registrars, and 22 manifest
-contracts. The host exposes 57 registrars; the fixture intentionally omits
+Kitchen Sink 0.4.0 requires OpenClaw `>=2026.9.5` and covers 42 hooks,
+56 active registrars, and 22 manifest contracts. The host exposes 57 registrars;
+the fixture intentionally omits
 `registerDetachedTaskRuntime` to avoid replacing the host's durable task owner.
 The generic generated mock surface still covers all 57 registrars.
 
