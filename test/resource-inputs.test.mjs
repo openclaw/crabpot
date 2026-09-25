@@ -43,9 +43,9 @@ test("prepared local bytes produce pins accepted by the campaign without executi
   assert.deepEqual(prepareResourceInputs({ ...f, archives: [] }, f.consumerRoot).artifacts, []);
 });
 
-for (const target of ["entry", "adapter", "archive"]) test(`campaign rejects ${target} mutation after preparation`, (t) => {
+for (const target of ["entry", "adapter", "archive", "helper"]) test(`campaign rejects ${target} mutation after preparation`, (t) => {
   const f = fixture(t); const pins = prepareResourceInputs(f, f.consumerRoot);
-  const file = target === "entry" ? path.join(f.hostRoot, "dist/index.mjs") : target === "adapter"
+  const file = target === "helper" ? path.join(f.consumerRoot, "scripts/resource-workloads/paired-node.mjs") : target === "entry" ? path.join(f.hostRoot, "dist/index.mjs") : target === "adapter"
     ? path.join(f.consumerRoot, "scripts/resource-workloads/present.mjs") : f.archives[0];
   writeFileSync(file, "changed");
   assert.throws(() => verifyPreparedInputs(pins, f.manifest.resourceWorkloads, f.inventory, f.hostRoot, f.consumerRoot), /changed/);
@@ -87,4 +87,12 @@ test("runtime admission rejects non-Linux, Bun and missing thread CPU observatio
     assert.equal(result.status, 1);
     assert.match(result.stderr, /requires Linux Node[\s\S]*\[resource-inputs\] FAILED \(exit 1\)/);
   }
+});
+
+
+test("preparation includes the shared peer owner and rejects its missing pin", (t) => {
+  const f = fixture(t); const pins = prepareResourceInputs(f, f.consumerRoot);
+  assert.equal(pins.files.crabpot["scripts/resource-workloads/paired-node.mjs"], digest("throw new Error('must not execute');"));
+  delete pins.files.crabpot["scripts/resource-workloads/paired-node.mjs"];
+  assert.throws(() => verifyPreparedInputs(pins, f.manifest.resourceWorkloads, f.inventory, f.hostRoot, f.consumerRoot), /Missing crabpot pin/);
 });

@@ -183,6 +183,7 @@ function readCalibration(report, inventory) {
 export function validateResourceWorkloadReport(report, inventory, definitions) {
   requireValue(record(report) && [1, 2].includes(report.schemaVersion) && report.kind === "plugin-resource-workload" && ["blocked", "failed", "exercised"].includes(report.status), "expected plugin resource workload v1 or v2");
   requireValue(typeof report.reason === "string" && report.reason.length > 0, "workload needs an outcome reason");
+  if (report.provenance?.pairedNodeSha256 !== undefined) requireValue(digest.test(report.provenance.pairedNodeSha256), "workload has an invalid paired-node helper identity");
   const definition = definitions.find(({ id }) => id === report.scenario?.id);
   requireValue(definition && definition.pluginId === report.scenario.pluginId, "unknown workload or plugin identity");
   const plans = resourceWorkloadPlan(definition);

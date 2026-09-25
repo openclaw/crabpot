@@ -346,6 +346,11 @@ after each invocation, and producer receipt hashes must agree.
 Postverification also runs after runner, receipt persistence or receipt validation
 failures; input drift prevents credit and stops subsequent invocations.
 Each receipt must match the requested scenario and the pinned Gateway runtime.
+Current prepared campaigns also require `pairedNodeSha256` to match the pinned
+shared node lifecycle helper. Standalone validation checks this digest when
+supplied; older receipts remain readable without inventing helper evidence.
+These reported hashes identify bytes but are not an independent attestation of
+all executed dependencies.
 The Node version comparison accounts only for `process.version`'s leading `v`;
 Gateway snapshots use `process.versions.node` without that prefix.
 
@@ -494,6 +499,25 @@ RPC. One first cycle and 20 warm cycles run after pairing completes. The mock
 node closes and joins before the final observation. Remote storage, source-side
 privacy/redaction, pairing cost and cross-host network behavior are unmeasured;
 the mock client's resources are outside the Gateway process measurements.
+
+File Transfer's `file-transfer-fetch-v1` uses the same paired-node lifecycle.
+Only File Transfer is active; the empty control has no active plugins. The node
+advertises only `file.fetch`, with an authored exact-node, exact-path read policy,
+no symlink following and a 64 KiB limit. One first fetch and 20 warm fetches each
+perform a real policy preflight and bound transfer, verify the saved binary bytes,
+and require both plugin audit records. All 42 node results must be accepted;
+stale/ignored acknowledgements fail the run. Unique invocation keys span both
+phases, and all 21 saved media paths must be distinct.
+
+The remote filesystem response is synthetic; pairing, Gateway authorization,
+integrity checks, media storage and audit writing are real. Peer clients drain
+and join before Gateway shutdown. The workload intentionally retains 21 files
+(1,376,256 bytes) and 42 audit records until the owned fixture root is removed.
+Only common phases have empty-host deltas; enabled fetch cost is absolute
+whole-Gateway work. This does not measure remote filesystem enforcement, streaming,
+writes, directories, cancellation, network throughput, steady state or leaks.
+Use the same per-scenario command with a separate output; qualify one complete
+pair before collecting repetitions.
 
 Add the receipt to the existing report from the Crabpot checkout:
 
