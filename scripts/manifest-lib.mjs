@@ -107,7 +107,7 @@ export function validateManifest(manifest) {
     paths.add(fixture.path);
 
     const hasRepo = typeof fixture.repo === "string";
-    const hasPackage = fixture.package && typeof fixture.package === "object";
+    const hasPackage = Boolean(fixture.package && typeof fixture.package === "object");
     if (hasRepo === hasPackage) {
       errors.push(`${fixture.id}: fixture must declare exactly one of repo or package`);
     }

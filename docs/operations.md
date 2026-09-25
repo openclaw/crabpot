@@ -11,6 +11,10 @@
 Repo-backed fixtures use `repo` and are pinned as shallow git submodules.
 Npm-only fixtures use `package.name` plus a pinned `package.version`; their code
 is unpacked into ignored `plugins/<id>` directories during materialization.
+Every fixture must declare exactly one acquisition source: `repo` or `package`.
+`node scripts/sync-fixtures.mjs --check` requires each repo-backed fixture's
+exact path and URL together in one unambiguous `.gitmodules` entry. Missing,
+commented-out, or mismatched entries fail validation before fixture checks run.
 
 Materialization collects requested npm pack failures, processes the remaining
 fixtures, and writes `reports/crabpot-package-availability.json` before exiting
