@@ -1304,7 +1304,7 @@
     {
       "fixture": "mattermost",
       "id": "cold-import.extension:mattermost:plugins-mattermost-crabpot-package-index-ts",
-      "status": "ts-loader-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/mattermost/.crabpot-package/index.ts",
       "packageManager": "npm",
       "loaderSource": "typescript-source",
@@ -1324,7 +1324,7 @@
     {
       "fixture": "mattermost",
       "id": "cold-import.setupEntry:mattermost:plugins-mattermost-crabpot-package-setup-entry-ts",
-      "status": "ts-loader-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/mattermost/.crabpot-package/setup-entry.ts",
       "packageManager": "npm",
       "loaderSource": "typescript-source",
@@ -1470,7 +1470,7 @@
     {
       "fixture": "codex",
       "id": "cold-import.runtimeExtension:codex:plugins-codex-crabpot-package-dist-index-js",
-      "status": "sdk-alias-required",
+      "status": "dependency-install-required",
       "entrypoint": "plugins/codex/.crabpot-package/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
