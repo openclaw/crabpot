@@ -19,7 +19,7 @@ const hostFiles = [
 const consumerFiles = [
   "crabpot.config.json", "scripts/run-resource-campaign.mjs", "scripts/run-resource-workload.mjs",
   "scripts/resource-workload-contract.mjs", "scripts/resource-coverage.mjs", "scripts/manifest-lib.mjs",
-  "scripts/import-screening.mjs",
+  "scripts/import-screening.mjs", "scripts/resource-workloads/paired-node.mjs",
 ];
 const entries = ["openclaw.mjs", "dist/index.mjs", "dist/index.js"];
 export { hostFiles as resourceHostFiles, consumerFiles as resourceConsumerFiles, entries as resourceHostEntries };
@@ -75,6 +75,7 @@ export function verifyPreparedInputs(pins, definitions, inventory, hostRoot, con
 }
 
 function verifyReceiptPins(report, pins) {
+  assert.equal(report.provenance.pairedNodeSha256, pins.files.crabpot["scripts/resource-workloads/paired-node.mjs"], "Receipt paired-node helper differs");
   assert.equal(report.provenance.consumerSha256, pins.files.crabpot["scripts/run-resource-workload.mjs"], "Receipt consumer differs");
   assert.equal(report.provenance.contractSha256, pins.files.crabpot["scripts/resource-workload-contract.mjs"], "Receipt contract differs");
   for (const item of report.cases) for (const phase of item.phases) {

@@ -67,6 +67,7 @@ test("planning never loads a host or earns workload coverage", async () => {
   assert.equal(report.reason, "execution-not-requested");
   assert.deepEqual(report.cases, []);
   assert.match(report.provenance.adapterSha256, /^[a-f0-9]{64}$/);
+  assert.equal(report.provenance.pairedNodeSha256, createHash("sha256").update(readFileSync(new URL("../scripts/resource-workloads/paired-node.mjs", import.meta.url))).digest("hex"));
 });
 
 test("execution keeps unavailable host prerequisites blocked", async () => {

@@ -269,6 +269,7 @@ test("receipt admission rejects missing activation, mismatched work, cleanup and
     (value) => { value.comparison.workloadPhases[0].processCpuMs = 10; },
     (value) => { value.comparison.workloadPhases = []; },
     (value) => { delete value.provenance.contractSha256; },
+    (value) => { value.provenance.pairedNodeSha256 = "invalid"; },
     (value) => { value.schemaVersion = 1; },
     (value) => { value.scenario.pairedWorkload = { dependencies: [], targetActivation: "startup" }; },
   ]) {

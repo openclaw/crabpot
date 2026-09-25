@@ -1,6 +1,8 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { approveNodeSurface, catalogCycle, nodeReply, runPairedNodeWorkload } from "../scripts/resource-workloads/session-share.mjs";
+import { catalogCycle, nodeReply, runPairedNodeWorkload } from "../scripts/resource-workloads/session-share.mjs";
+
+import { approveNodeSurface } from "../scripts/resource-workloads/paired-node.mjs";
 
 const nodeId = "synthetic-node";
 const request = (command, params) => ({ id: "invocation", nodeId, command, paramsJSON: JSON.stringify(params) });

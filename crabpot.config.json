@@ -8,6 +8,13 @@
   },
   "resourceWorkloads": [
     {
+      "id": "file-transfer-fetch-v1",
+      "pluginId": "file-transfer",
+      "adapter": "file-transfer",
+      "requiredOperations": { "first-use": 1, "warm-work": 20 },
+      "why": "Real paired-node file-fetch policy, preflight binding, integrity validation, saved media and plugin audit records over a fixed synthetic 64 KiB payload."
+    },
+    {
       "id": "memory-wiki-local-cycle-v1",
       "pluginId": "memory-wiki",
       "adapter": "memory-wiki",
