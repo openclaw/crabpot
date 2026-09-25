@@ -2,6 +2,8 @@
 
 ## 0.2.2 - Unreleased
 
+- Validate optional Kitchen Sink session creation and first/warm tool observations separately from legacy aggregate admission, preserving failed partial observations without credit.
+
 - Add an opt-in Memory Wiki local apply/compile/get/search workload with verified alternating writes, default publication and a fixed synthetic corpus; report enabled-cycle cost separately from empty-host overhead.
 
 - Admit pinned, qualified cold-import resource receipts into full-inventory screening while preserving separate workload outcomes and explicit gaps for plugins without evidence. Require the portable entry path while excluding retained local report paths from public coverage.

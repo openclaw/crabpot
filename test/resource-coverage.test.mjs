@@ -47,7 +47,20 @@ function calibration() {
     postDisposalResidual: { status: "unsupported", reason: "process exited" },
     cases: ["empty", "conformance"].map((name) => ({
       name, status: "exercised", activePlugins: name === "empty" ? [] : ["openclaw-kitchen-sink-fixture"],
-      phases: [phase("startup"), phase("idle"), phase("neutral-rpc", 20), phase("post-neutral"), ...(name === "conformance" ? [phase("plugin-tool", 20), phase("post-tool")] : [])],
+      phases: [phase("startup"), phase("idle"), phase("neutral-rpc", 20), phase("post-neutral"), ...(name === "conformance" ? [phase("plugin-tool", 20), phase("post-tool")] : [])].map((observation, index) => {
+        // Real phases are sequential cumulative observations, not overlapping
+        // copies of the same ten-millisecond interval.
+        const offset = index * 20000;
+        for (const sample of [observation.before, observation.after]) {
+          sample.atMonotonicMicros += offset;
+          for (const scope of ["process", "mainThread"]) for (const key of ["user", "system"]) sample[scope][key] += offset;
+          sample.cpuEnvironment = { availableParallelism: 2, affinity: "0-1" };
+        }
+        observation.cpu.startMonotonicMicros += offset;
+        observation.cpu.endMonotonicMicros += offset;
+        observation.cpu.cpuEnvironment = observation.before.cpuEnvironment;
+        return observation;
+      }),
       shutdown: { exited: true, exitCode: 0, signal: null, signals: ["SIGTERM"] },
     })),
   };
@@ -68,6 +81,166 @@ test("inventory coverage stays complete and separate from fixture subsets", () =
   assert.match(markdown, /160\*\* plugins/);
   assert.match(markdown, /59\*\*; selected: \*\*3/);
   assert.equal(markdown.split("| unsupported | no-workload-adapter |").length - 1, 160);
+});
+
+function splitCalibration() {
+  const report = calibration();
+  const phases = report.cases[1].phases;
+  const aggregate = phases[4];
+  const session = structuredClone(aggregate);
+  session.name = "session-create";
+  session.operations = { attempted: 1, completed: 1, failed: 0 };
+  session.processCpuMsPerCompletedOperation = 5;
+  for (const sample of [session.before, session.after]) {
+    sample.atMonotonicMicros -= 10000;
+    for (const scope of ["process", "mainThread"]) for (const key of ["user", "system"]) sample[scope][key] -= 10000;
+  }
+  session.cpu.startMonotonicMicros -= 10000;
+  session.cpu.endMonotonicMicros -= 10000;
+  phases.splice(4, 0, session);
+  const first = structuredClone(aggregate);
+  const warm = structuredClone(aggregate);
+  first.name = "plugin-tool-first";
+  warm.name = "plugin-tool-warm";
+  const midpoint = structuredClone(aggregate.before);
+  midpoint.atMonotonicMicros += 5000;
+  midpoint.process.user += 1000;
+  midpoint.process.system += 1000;
+  midpoint.mainThread.user += 500;
+  midpoint.memory.rss -= 40;
+  midpoint.memory.heapUsed -= 8;
+  midpoint.activeResources.Timeout = 0;
+  first.after = midpoint;
+  warm.before = midpoint;
+  for (const [child, count] of [[first, 1], [warm, 19]]) {
+    child.operations = { attempted: count, completed: count, failed: 0 };
+    child.cpu.startMonotonicMicros = child.before.atMonotonicMicros;
+    child.cpu.endMonotonicMicros = child.after.atMonotonicMicros;
+    child.cpu.wallMs = 5;
+    for (const scope of ["process", "mainThread"]) {
+      child.cpu[scope].userMs = (child.after[scope].user - child.before[scope].user) / 1000;
+      child.cpu[scope].systemMs = (child.after[scope].system - child.before[scope].system) / 1000;
+      child.cpu[scope].totalMs = child.cpu[scope].userMs + child.cpu[scope].systemMs;
+    }
+    for (const key of Object.keys(child.before.memory)) child.memoryChangeBytes[key] = child.after.memory[key] - child.before.memory[key];
+    child.activeResourceChanges.Timeout = child.after.activeResources.Timeout - child.before.activeResources.Timeout;
+    child.processCpuMsPerCompletedOperation = child.cpu.process.totalMs / count;
+  }
+  aggregate.breakdown = [first, warm];
+  return report;
+}
+
+test("session/first/warm admission is separate from legacy aggregate credit", () => {
+  const legacy = coverage(calibration());
+  assert.equal(legacy.calibration.status, "exercised");
+  assert.deepEqual(legacy.calibration.sessionToolBreakdown, { status: "blocked", reason: "legacy-aggregate-only" });
+  const report = splitCalibration();
+  const result = coverage(report);
+  assert.deepEqual(result.calibration.sessionToolBreakdown, { status: "exercised", reason: "validated-session-first-warm" });
+  assert.deepEqual(result.calibration.cases, report.cases);
+  assert.equal(result.summary.exercised, 0);
+  const [first, warm] = result.calibration.cases[1].phases[5].breakdown;
+  assert.equal(first.memoryChangeBytes.rss, -40);
+  assert.equal(warm.memoryChangeBytes.rss, -60);
+  assert.equal(first.processCpuMsPerCompletedOperation, 2);
+  assert.equal(warm.processCpuMsPerCompletedOperation, 3 / 19);
+  assert.match(renderResourceCoverageMarkdown(result), /Session\/first\/warm: \*\*exercised\*\*/);
+  assert.match(renderResourceCoverageMarkdown(legacy), /Session\/first\/warm: \*\*blocked\*\*/);
+});
+
+test("successful session/tool receipts reject missing, misplaced and nested observations", () => {
+  const changes = [
+    (r) => { r.cases[1].phases.splice(4, 1); },
+    (r) => { delete r.cases[1].phases[5].breakdown; },
+    (r) => { r.cases[0].phases.push(r.cases[1].phases[4]); },
+    (r) => { r.cases[0].phases[0].breakdown = []; },
+    (r) => { r.cases[1].phases[5].breakdown = []; },
+    (r) => { r.cases[1].phases[5].breakdown = [r.cases[1].phases[5].breakdown[0]]; },
+    (r) => { r.cases[1].phases[5].breakdown = [r.cases[1].phases[5].breakdown[1]]; },
+    (r) => { r.cases[1].phases[5].breakdown = "not observations"; },
+    (r) => { r.cases[1].phases[5].breakdown[0] = null; },
+    (r) => { r.cases[1].phases[5].breakdown.reverse(); },
+    (r) => { r.cases[1].phases[5].breakdown.push(r.cases[1].phases[5].breakdown[0]); },
+    (r) => { r.cases[1].phases[5].breakdown[1].name = "plugin-tool-first"; },
+    (r) => { r.cases[1].phases[5].breakdown[0].breakdown = []; },
+    (r) => { [r.cases[1].phases[4], r.cases[1].phases[5]] = [r.cases[1].phases[5], r.cases[1].phases[4]]; },
+    (r) => { r.measurement.pluginToolOperations = 1; },
+    (r) => { r.cases[1].phases[4].operations = { attempted: 0, completed: 0, failed: 0 }; r.cases[1].phases[4].processCpuMsPerCompletedOperation = null; },
+  ];
+  for (const change of changes) {
+    const report = splitCalibration(); change(report);
+    assert.throws(() => coverage(report), /resource coverage:/);
+  }
+});
+
+test("session/tool split validates child counters, raw arithmetic, identities and exact boundaries", () => {
+  const changes = [
+    (p) => { p.operations.attempted++; },
+    (p) => { p.operations = { attempted: 18, completed: 18, failed: 0 }; p.processCpuMsPerCompletedOperation = 3 / 18; },
+    (p) => { p.status = "failed"; },
+    (p) => { p.after = null; },
+    (p) => { p.cpu.process.totalMs++; },
+    (p) => { p.cpu.mainThread.userMs++; },
+    (p) => { p.cpu.wallMs++; },
+    (p) => { p.memoryChangeBytes.rss++; },
+    (p) => { p.activeResourceChanges.Timeout++; },
+    (p) => { p.processCpuMsPerCompletedOperation++; },
+    (p) => { p.before.pid = p.after.pid = p.cpu.pid = 2; },
+    (p) => { p.before.runtime.node = p.after.runtime.node = "v26.0.0"; },
+    (p) => { p.before.cpuEnvironment = p.after.cpuEnvironment = p.cpu.cpuEnvironment = { availableParallelism: 4 }; },
+    (p) => { delete p.before.activeResources; },
+    (p) => { p.before.memory.rss++; p.after.memory.rss++; },
+    (p) => { p.before.atMonotonicMicros++; p.after.atMonotonicMicros++; p.cpu.startMonotonicMicros++; p.cpu.endMonotonicMicros++; },
+  ];
+  for (const change of changes) {
+    const report = splitCalibration();
+    // Break shared JS references: the on-disk producer receipt is plain JSON.
+    const copy = JSON.parse(JSON.stringify(report));
+    change(copy.cases[1].phases[5].breakdown[1]);
+    assert.throws(() => coverage(copy), /resource coverage:/);
+  }
+  const overlap = splitCalibration();
+  const session = overlap.cases[1].phases[4];
+  session.before.atMonotonicMicros -= 1;
+  session.after.atMonotonicMicros -= 1;
+  session.cpu.startMonotonicMicros -= 1;
+  session.cpu.endMonotonicMicros -= 1;
+  assert.throws(() => coverage(overlap), /phases overlap/);
+  for (const change of [
+    (p) => { p.before.pid = p.after.pid = p.cpu.pid = 2; },
+    (p) => { p.before.runtime.node = p.after.runtime.node = "v26.0.0"; },
+    (p) => { p.before.cpuEnvironment = p.after.cpuEnvironment = p.cpu.cpuEnvironment = { availableParallelism: 4 }; },
+  ]) {
+    const report = splitCalibration(); change(report.cases[1].phases[4]);
+    assert.throws(() => coverage(report), /changed Gateway/);
+  }
+});
+
+test("failed partial splits preserve observations and earlier success without split credit", () => {
+  for (const kind of ["session", "first", "warm", "observation"]) {
+    const report = splitCalibration();
+    report.status = report.cases[1].status = "failed";
+    report.error = `synthetic ${kind} failure`;
+    const active = report.cases[1];
+    const aggregate = active.phases[5];
+    active.phases = active.phases.slice(0, kind === "session" ? 5 : 6);
+    const failed = kind === "session" ? active.phases[4] : aggregate;
+    failed.status = "failed";
+    failed.operations = kind === "warm" ? { attempted: 4, completed: 3, failed: 1 } : kind === "observation" ? { attempted: 1, completed: 1, failed: 0 } : { attempted: 1, completed: 0, failed: 1 };
+    failed.after = null;
+    if (kind !== "session") aggregate.breakdown = kind === "warm" || kind === "observation" ? [aggregate.breakdown[0]] : [];
+    const result = coverage(report);
+    assert.equal(result.calibration.status, "failed");
+    assert.deepEqual(result.calibration.sessionToolBreakdown, { status: "blocked", reason: "producer-failure" });
+    assert.deepEqual(result.calibration.cases, report.cases);
+    assert.equal(result.calibration.error, report.error);
+  }
+  const stale = splitCalibration();
+  stale.provenance.gateway.commit = "d".repeat(40);
+  const result = coverage(stale);
+  assert.equal(result.calibration.status, "blocked");
+  assert.deepEqual(result.calibration.sessionToolBreakdown, { status: "blocked", reason: "inventory-source-mismatch" });
+  assert.deepEqual(result.calibration.cases, stale.cases);
 });
 
 test("calibration work never earns workload credit for inventory plugins", () => {
@@ -293,7 +466,7 @@ test("successful workload rejects wrong identity, reduced work, lost samples and
     (report) => { report.cases[1].host.entrySha256 = "d".repeat(64); },
     (report) => {
       for (const sample of ["before", "after", "cpu"]) {
-        report.cases[1].phases[5][sample].cpuEnvironment = { availableParallelism: 2, affinity: "0-1" };
+        report.cases[1].phases[5][sample].cpuEnvironment = { availableParallelism: 4, affinity: "0-3" };
       }
     },
     (report) => { report.cases[1].phases[5].operations = { attempted: 19, completed: 19, failed: 0 }; },

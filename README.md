@@ -399,6 +399,16 @@ receive no workload credit. Kitchen Sink calibration appears
 outside that denominator. Failed receipts retain partial counts and errors;
 a different Gateway source commit blocks calibration for the selected inventory.
 
+Optional Kitchen Sink session/first/warm observations receive separate
+`sessionToolBreakdown` admission in JSON and Markdown. Successful new receipts
+must contain one session creation and the ordered first-call/warm-call split
+(1 + 19 = 20), with matching raw arithmetic, shared snapshots, runtime identity,
+phase order and clean Gateway shutdown. Original schema1 aggregate-only reports
+remain accepted without split credit. Failed partial receipts retain their
+observations, including an earlier successful first call, without split credit.
+The aggregate includes its children; do not add them together or interpret
+these whole-Gateway observations as isolated plugin cost.
+
 The reader validates inventory integrity and producer-reported identities. It
 does not independently attest artifact bytes, infer leaks from RSS, or upgrade
 unsupported disposal observations. These options leave default compatibility

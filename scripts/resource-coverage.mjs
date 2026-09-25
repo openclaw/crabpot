@@ -91,6 +91,39 @@ function validateSuccessfulPhase(phase, requireActiveResources = true) {
   requireValue(phase.processCpuMsPerCompletedOperation === (phase.operations.completed > 0 ? cpu.process.totalMs / phase.operations.completed : null), "phase per-operation CPU differs from completed work");
 }
 
+function validateCalibrationSplit(report) {
+  const present = report.cases.some(({ phases }) => phases.some((phase) => phase.name === "session-create" || phase.breakdown !== undefined));
+  if (!present) return false;
+  // This is the Kitchen Sink caller's fixed workload, not the measurement
+  // helper's generic split API. Legacy v1 reports keep aggregate-only credit.
+  requireValue(report.measurement.pluginToolOperations === 20, "session/tool split needs the declared 20-call workload");
+  for (const item of report.cases) {
+    const expected = ["startup", "idle", "neutral-rpc", "post-neutral", ...(item.name === "conformance" ? ["session-create", "plugin-tool", "post-tool"] : [])];
+    requireValue(stableJson(item.phases.map(({ name }) => name)) === stableJson(expected), "session/tool split has invalid case or phase order");
+    for (const [index, phase] of item.phases.entries()) {
+      validateSuccessfulPhase(phase);
+      const initial = item.phases[0].before;
+      requireValue(record(phase.before.cpuEnvironment) && phase.before.pid === initial.pid && stableJson(phase.before.runtime) === stableJson(initial.runtime) && stableJson(phase.before.cpuEnvironment) === stableJson(initial.cpuEnvironment), "session/tool split changed Gateway, runtime or CPU environment");
+      requireValue(stableJson(initial.runtime) === stableJson(report.cases[0].phases[0].before.runtime) && stableJson(initial.cpuEnvironment) === stableJson(report.cases[0].phases[0].before.cpuEnvironment), "session/tool split cases used different runtime or CPU environment");
+      requireValue(index === 0 || phase.before.atMonotonicMicros >= item.phases[index - 1].after.atMonotonicMicros, "session/tool split phases overlap");
+      requireValue(phase.name === "plugin-tool" || phase.breakdown === undefined, "session/tool split has an unexpected nested phase");
+    }
+  }
+  const [, active] = report.cases;
+  const session = active.phases.find(({ name }) => name === "session-create");
+  const aggregate = active.phases.find(({ name }) => name === "plugin-tool");
+  requireValue(session.operations.completed === 1 && aggregate.operations.completed === 20, "session/tool split has invalid session or aggregate completions");
+  requireValue(Array.isArray(aggregate.breakdown) && aggregate.breakdown.length === 2, "session/tool split needs first and warm observations");
+  for (const [index, child] of aggregate.breakdown.entries()) {
+    requireValue(record(child) && child.name === ["plugin-tool-first", "plugin-tool-warm"][index] && validateOperations(child.operations) && child.operations.completed === [1, 19][index] && child.breakdown === undefined, "session/tool split has invalid child order or counts");
+    validateSuccessfulPhase(child);
+  }
+  const [first, warm] = aggregate.breakdown;
+  requireValue(stableJson(aggregate.before) === stableJson(first.before) && stableJson(first.after) === stableJson(warm.before) && stableJson(warm.after) === stableJson(aggregate.after), "session/tool split snapshots do not share aggregate and midpoint boundaries");
+  requireValue(["attempted", "completed", "failed"].every((key) => aggregate.operations[key] === first.operations[key] + warm.operations[key]), "session/tool split counts do not reconcile with aggregate");
+  return true;
+}
+
 function readCalibration(report, inventory) {
   if (report === undefined) return { status: "blocked", reason: "not-run" };
   requireValue(record(report) && report.schemaVersion === 1 && ["failed", "exercised"].includes(report.status) && Array.isArray(report.cases), "expected Kitchen Sink resource report v1; collector/import reports are not workload receipts");
@@ -127,6 +160,8 @@ function readCalibration(report, inventory) {
     }
   }
   const matchesInventory = provenance.gateway.commit === inventory.source.commit;
+  // Failed producers retain partial observations verbatim, never split credit.
+  const splitValidated = report.status === "exercised" && validateCalibrationSplit(report);
   return {
     status: matchesInventory ? report.status : "blocked",
     reason: matchesInventory ? (report.status === "exercised" ? "measured-kitchen-sink-workload" : "producer-failure") : "inventory-source-mismatch",
@@ -135,6 +170,10 @@ function readCalibration(report, inventory) {
     provenance,
     measurement: report.measurement,
     producerStatus: report.status,
+    sessionToolBreakdown: {
+      status: matchesInventory && splitValidated ? "exercised" : "blocked",
+      reason: !matchesInventory ? "inventory-source-mismatch" : report.status === "failed" ? "producer-failure" : splitValidated ? "validated-session-first-warm" : "legacy-aggregate-only",
+    },
     cases: report.cases,
     postDisposalResidual: report.postDisposalResidual,
     ...(report.error ? { error: report.error } : {}),
@@ -285,6 +324,7 @@ export function renderResourceCoverageMarkdown(coverage) {
     "Import and collector results do not establish workload coverage. Kitchen Sink calibration is outside the plugin denominator.", "",
     `Cold-import screening: **${coverage.screening.summary.screened}** screened; **${coverage.screening.summary.blocked}** blocked. Missing receipts do not establish missing builds.`, "",
     `Calibration: **${coverage.calibration.status}** — ${cell(coverage.calibration.reason)}.`,
+    ...(coverage.calibration.sessionToolBreakdown ? [`Session/first/warm: **${coverage.calibration.sessionToolBreakdown.status}** — ${cell(coverage.calibration.sessionToolBreakdown.reason)}.`] : []),
     ...(coverage.calibration.postDisposalResidual ? [`Post-disposal residual: **${cell(coverage.calibration.postDisposalResidual.status)}** — ${cell(coverage.calibration.postDisposalResidual.reason)}.`] : []), "",
     "| Plugin | Distribution | Workload | Reason | Screening | Screening reason |", "| --- | --- | --- | --- | --- | --- |",
     ...coverage.plugins.map((plugin) => `| ${cell(plugin.id)} | ${plugin.distribution} | ${plugin.status} | ${plugin.scenario ? cell(plugin.reason) : plugin.reason} | ${plugin.screening.status} | ${plugin.screening.reason} |`),
