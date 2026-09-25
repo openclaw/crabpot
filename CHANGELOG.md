@@ -2,6 +2,7 @@
 
 ## 0.2.2 - Unreleased
 
+- Fixed fixture validation accepting missing acquisition sources and missing or mismatched submodule entries, while accepting valid quoted Git configuration.
 - Validate optional Kitchen Sink session creation and first/warm tool observations separately from legacy aggregate admission, preserving failed partial observations without credit.
 - Add an opt-in paired-node File Transfer fetch workload that verifies policy preflight, saved bytes and audit records, sharing a pinned node lifecycle with Session Share.
 
