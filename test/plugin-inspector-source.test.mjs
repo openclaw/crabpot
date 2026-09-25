@@ -13,7 +13,7 @@ import {
 } from "../scripts/plugin-inspector-source.mjs";
 
 test("plugin inspector source pin requires an exact prepared checkout", (t) => {
-  assert.equal(pluginInspectorRef, "bb655f516aba43e17a021dc22a148efb6e232cbd");
+  assert.equal(pluginInspectorRef, "e2f36f1cdf943826c37303e3632866e12eaf15ce");
 
   const checkoutDir = mkdtempSync(path.join(os.tmpdir(), "crabpot plugin inspector checkout "));
   t.after(() => rmSync(checkoutDir, { force: true, recursive: true }));
@@ -48,7 +48,7 @@ test("plugin inspector smoke defaults to the published npm package", () => {
     const invocation = resolvePluginInspectorCliInvocation();
 
     assert.equal(invocation.command, "npm");
-    assert.equal(pluginInspectorPackage, "@openclaw/plugin-inspector@0.3.25");
+    assert.equal(pluginInspectorPackage, "@openclaw/plugin-inspector@0.3.26");
     assert.deepEqual(invocation.args, ["exec", "--yes", "--package", pluginInspectorPackage, "--", "plugin-inspector"]);
     assert.equal(invocation.shell, process.platform === "win32");
   });
@@ -127,6 +127,33 @@ test("plugin inspector smoke check fails on a real missing registration", (t) =>
     assert.equal(report.breakages[0].code, "missing-expected-seam");
     assert.equal(result.status, check ? 1 : 0, result.stderr || result.stdout);
   }
+});
+
+test("resource smoke exercises the selected package's public collector export", () => {
+  const result = spawnSync(process.execPath, [
+    "test/fixtures/resource-profile-smoke.mjs", path.dirname(path.dirname(resolvePluginInspectorCliPath())),
+  ], { cwd: new URL("..", import.meta.url), env: {}, encoding: "utf8", timeout: 20_000 });
+  assert.ifError(result.error);
+  assert.equal(result.status, 0, result.stderr || result.stdout);
+  const report = JSON.parse(result.stdout);
+  assert.equal(report.coverage, "collector-contract-only");
+  assert.equal(report.samples.before.pid, result.pid);
+  assert.equal(report.deltas.allocation.activeResourceDelta.Timeout, 1);
+  assert.equal(report.deltas.disposal.activeResourceDelta.Timeout, -1);
+});
+
+test("resource smoke fails when the selected package does not export the collector", (t) => {
+  const root = mkdtempSync(path.join(os.tmpdir(), "crabpot-resource-export-"));
+  t.after(() => rmSync(root, { force: true, recursive: true }));
+  writeFileSync(path.join(root, "package.json"), JSON.stringify({
+    name: "@openclaw/plugin-inspector", exports: { ".": "./index.js" },
+  }));
+  const result = spawnSync(process.execPath, ["test/fixtures/resource-profile-smoke.mjs", root], {
+    cwd: new URL("..", import.meta.url), env: {}, encoding: "utf8", timeout: 20_000,
+  });
+  assert.ifError(result.error);
+  assert.equal(result.status, 1);
+  assert.match(result.stderr, /ERR_PACKAGE_PATH_NOT_EXPORTED/);
 });
 
 test("plugin inspector checkout head probe returns instead of blocking when git hangs", {

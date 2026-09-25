@@ -49,6 +49,11 @@ Then inspect the diff. A fixture update is only useful if it either:
 
 ## CI model
 
+Dependabot refreshes merge the current base and update its pinned submodules
+before resolving the OpenClaw host. Report generation uses the same plugin
+track as required CI: latest, beta, or source-packed development fixtures.
+Unit tests run separately against the complete manifest before that selection.
+
 Host-running jobs use Node 24 for the selected OpenClaw 2026.9.3 source pin,
 which requires Node `>=24.16.0 <25 || >=26.1.0`. This includes Default Track
 static/container/isolated execution, dashboard tracks, Dependabot report
@@ -151,10 +156,13 @@ npm run profile -- --check
 node scripts/check-contract-coverage.mjs --openclaw ../openclaw
 ```
 
-Source-backed reports and registration capture use inspector 0.3.25,
-including bounded capture/probes, CommonJS SDK mocks, serial service lifecycle
-probes, and Gateway response validation. `npm run plugin-inspector:smoke`
-uses the published `@openclaw/plugin-inspector@0.3.25` package by default.
+Source-backed reports and registration capture use Inspector source commit
+`1d27e6906e83e48bd613d49a1921d4d0cf4a4697` (after 0.3.26),
+with SDK discovery inside packaged `.setup` directories and composed Zod enums,
+including bundled SDK import classification, target-owned conversation contract
+proof, lazy runtime SDK loading, and method-scoped Gateway prerequisites.
+`npm run plugin-inspector:smoke` uses the published
+`@openclaw/plugin-inspector@0.3.26` package by default.
 Use
 `CRABPOT_PLUGIN_INSPECTOR_CLI=source npm run plugin-inspector:smoke` only when
 validating local inspector source changes. Set `CRABPOT_PLUGIN_INSPECTOR_DIR`

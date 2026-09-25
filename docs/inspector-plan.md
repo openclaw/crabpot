@@ -93,7 +93,7 @@ npm run plugin-inspector:smoke
 ```
 
 The smoke writes ignored artifacts under `.crabpot/plugin-inspector-smoke/`.
-By default the smoke runs the published `@openclaw/plugin-inspector@0.3.25`
+By default the smoke runs the published `@openclaw/plugin-inspector@0.3.26`
 package through `npm exec`. For local plugin-inspector development, set
 `CRABPOT_PLUGIN_INSPECTOR_CLI=source` to run the sibling or pinned source
 checkout instead. Set `CRABPOT_PLUGIN_INSPECTOR_DIR=/path/to/candidate` to select
@@ -101,11 +101,13 @@ an exact candidate checkout before its npm release. Set
 `CRABPOT_PLUGIN_INSPECTOR_BIN=/path/to/plugin-inspector`
 to test an arbitrary CLI binary.
 
-The pinned 0.3.25 source and published package recognize compiled CommonJS channel
-factory calls and classify widget presenters as metadata-only synthetic probes.
-Both include credential-free model-auth binding,
-bounded capture and synthetic probes, serial service lifecycle probes,
-CommonJS SDK mock capture, and Gateway response validation.
+The pinned source additionally discovers SDK imports inside packaged `.setup`
+directories and preserves mocked Zod enum options for composed schemas; the published pin stays at 0.3.26 until an upstream release.
+Both source and published package recognize bundled SDK imports,
+consume target-owned conversation contract proof, load retained-handler SDK
+imports and lazy runtimes, and preserve method-scoped Gateway prerequisites.
+They retain bounded capture and synthetic probes, CommonJS SDK mock capture,
+serial service lifecycle probes, and Gateway response validation.
 Run source-mode and package-mode smoke separately when validating a new release.
 
 Current migration state: `scripts/inspect-fixtures.mjs` delegates static source,

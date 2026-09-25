@@ -3,6 +3,69 @@
   "version": 1,
   "allowedBlocked": [
     {
+      "id": "voice-call-runtime-prerequisite",
+      "seam": "registerGatewayMethod",
+      "reasonIncludes": "captured voice-call method requires an enabled runtime and configured provider",
+      "decision": "allowed-blocked",
+      "until": "voice-call probes have an isolated enabled runtime and configured provider"
+    },
+    {
+      "id": "voice-call-active-call-prerequisite",
+      "seam": "registerGatewayMethod",
+      "reasonIncludes": "captured voice-call action requires an active call and command input",
+      "decision": "allowed-blocked",
+      "until": "voice-call action probes can create isolated calls and supply command input"
+    },
+    {
+      "id": "voice-call-continuation-prerequisite",
+      "seam": "registerGatewayMethod",
+      "reasonIncludes": "captured voice-call continuation query requires an existing continuation operation",
+      "decision": "allowed-blocked",
+      "until": "voice-call continuation probes can create and poll isolated operations"
+    },
+    {
+      "id": "matrix-verification-runtime-prerequisite",
+      "seam": "registerGatewayMethod",
+      "reasonIncludes": "captured Matrix verification requires a configured account and crypto runtime",
+      "decision": "allowed-blocked",
+      "until": "Matrix verification probes have an isolated configured account and crypto runtime"
+    },
+    {
+      "id": "account-usage-runtime-prerequisite",
+      "seam": "registerGatewayMethod",
+      "reasonIncludes": "captured account usage requires a saved subscription login and Gateway runtime",
+      "decision": "allowed-blocked",
+      "until": "account usage probes have an isolated saved subscription login and Gateway runtime"
+    },
+    {
+      "id": "meeting-transport-prerequisite",
+      "seam": "registerGatewayMethod",
+      "reasonIncludes": "captured meeting action requires a configured meeting and transport",
+      "decision": "allowed-blocked",
+      "until": "meeting probes have a configured meeting and isolated transport"
+    },
+    {
+      "id": "meeting-creation-prerequisite",
+      "seam": "registerGatewayMethod",
+      "reasonIncludes": "captured room creation requires configured OAuth or a live browser transport",
+      "decision": "allowed-blocked",
+      "until": "room creation probes have an isolated OAuth or browser transport"
+    },
+    {
+      "id": "meeting-session-prerequisite",
+      "seam": "registerGatewayMethod",
+      "reasonIncludes": "captured meeting action requires an active meeting session",
+      "decision": "allowed-blocked",
+      "until": "meeting session probes can create and tear down isolated session state"
+    },
+    {
+      "id": "meeting-oauth-prerequisite",
+      "seam": "registerGatewayMethod",
+      "reasonIncludes": "captured meeting query requires Google Meet OAuth credentials",
+      "decision": "allowed-blocked",
+      "until": "meeting query probes have explicit isolated OAuth credentials"
+    },
+    {
       "id": "channel-runtime-harness",
       "seam": "registerChannel",
       "reasonIncludes": "includeChannelRuntime=true",

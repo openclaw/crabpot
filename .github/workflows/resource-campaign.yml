@@ -1,0 +1,67 @@
+name: Plugin resource campaign
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "43 3 * * *"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: plugin-resource-campaign
+  cancel-in-progress: false
+
+# Fill only with a reviewed full commit containing the inventory and shared-host
+# APIs. An empty pin deliberately refuses execution; never fall back to main.
+env:
+  RESOURCE_HOST_SHA: "59a734b7358b6ccb62449b74346ff422a9e3fef7"
+
+jobs:
+  bundled:
+    if: github.repository == 'openclaw/crabpot' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          repository: openclaw/crabpot
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Require frozen host
+        shell: bash
+        run: |
+          mkdir -p reports/resource-campaign
+          if [[ ! "$RESOURCE_HOST_SHA" =~ ^[a-f0-9]{40}$ ]]; then
+            echo 'Resource campaign blocked: no qualified host commit pinned.' | tee reports/resource-campaign/preparation.log
+            exit 1
+          fi
+      - uses: actions/checkout@v7
+        with:
+          repository: openclaw/openclaw
+          ref: ${{ env.RESOURCE_HOST_SHA }}
+          path: .resource-host
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - name: Prepare and execute bundled workload campaign
+        shell: bash
+        timeout-minutes: 110
+        run: |
+          set -euo pipefail
+          {
+            corepack enable
+            corepack prepare "$(node -p "require('./.resource-host/package.json').packageManager.split('+')[0]")" --activate
+            pnpm --dir .resource-host install --frozen-lockfile
+            bash scripts/run-resource-campaign-docker.sh \
+              "$PWD/.resource-host" "$PWD/reports/resource-campaign" "$RESOURCE_HOST_SHA"
+          } 2>&1 | tee -a reports/resource-campaign/execution.log
+      - name: Retain report-only evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: plugin-resource-campaign-${{ github.run_id }}-${{ github.run_attempt }}
+          path: reports/resource-campaign/
+          if-no-files-found: error
+          retention-days: 14

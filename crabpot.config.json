@@ -6,6 +6,53 @@
     "minimumNode": "24",
     "defaultCheckoutPath": "../openclaw"
   },
+  "resourceWorkloads": [
+    {
+      "id": "file-transfer-fetch-v1",
+      "pluginId": "file-transfer",
+      "adapter": "file-transfer",
+      "requiredOperations": { "first-use": 1, "warm-work": 20 },
+      "why": "Real paired-node file-fetch policy, preflight binding, integrity validation, saved media and plugin audit records over a fixed synthetic 64 KiB payload."
+    },
+    {
+      "id": "memory-wiki-local-cycle-v1",
+      "pluginId": "memory-wiki",
+      "adapter": "memory-wiki",
+      "requiredOperations": {
+        "first-use": 1,
+        "warm-work": 20
+      },
+      "why": "Real local wiki mutation, default compilation/publication and verified page retrieval/search over a fixed synthetic corpus; no model or shared-memory backend."
+    },
+    {
+      "id": "beam-receiver-cycle-v1",
+      "pluginId": "beam",
+      "adapter": "beam",
+      "requiredOperations": { "first-use": 1, "warm-work": 20 },
+      "why": "Authenticated HTTP receiver, real plugin state and catalog read/archive through Gateway RPC."
+    },
+    {
+      "id": "session-share-receiver-v1",
+      "pluginId": "session-share",
+      "adapter": "session-share",
+      "requiredOperations": { "first-use": 1, "warm-work": 20 },
+      "why": "Real session catalog receiver and paired node invocation with deterministic remote session responses."
+    },
+    {
+      "id": "typesafe-systemone-decisions-v1",
+      "pluginId": "typesafe",
+      "adapter": "typesafe",
+      "requiredOperations": { "first-use": 1, "warm-work": 20 },
+      "why": "Source-checkout TypeSafe decision-provider lifecycle through the core decision tool and a strict local System One peer; no hosted credentials or model inference."
+    },
+    {
+      "id": "workboard-card-crud-v1",
+      "pluginId": "workboard",
+      "adapter": "workboard",
+      "requiredOperations": { "first-use": 1, "warm-work": 20 },
+      "why": "Real bundled plugin activation and SQLite-backed card CRUD through authenticated Gateway RPC."
+    }
+  ],
   "fixtures": [
     {
       "id": "agentchat",
@@ -533,6 +580,13 @@
           "registerChannel"
         ]
       },
+      "execution": {
+        "gatewayMethodPrerequisites": {
+          "matrix.verify.recoveryKey": "captured Matrix verification requires a configured account and crypto runtime",
+          "matrix.verify.bootstrap": "captured Matrix verification requires a configured account and crypto runtime",
+          "matrix.verify.status": "captured Matrix verification requires a configured account and crypto runtime"
+        }
+      },
       "why": "Official bundled OpenClaw Matrix channel package covering CLI setup, gateway methods, and subagent routing hooks; Crabpot source-packs it from the OpenClaw monorepo instead of requiring a separate npm dist-tag."
     },
     {
@@ -648,6 +702,19 @@
           "registerService",
           "registerTool"
         ]
+      },
+      "execution": {
+        "gatewayMethodPrerequisites": {
+          "voicecall.initiate": "captured voice-call method requires an enabled runtime and configured provider",
+          "voicecall.start": "captured voice-call method requires an enabled runtime and configured provider",
+          "voicecall.status": "captured voice-call method requires an enabled runtime and configured provider",
+          "voicecall.continue": "captured voice-call action requires an active call and command input",
+          "voicecall.continue.start": "captured voice-call action requires an active call and command input",
+          "voicecall.speak": "captured voice-call action requires an active call and command input",
+          "voicecall.dtmf": "captured voice-call action requires an active call and command input",
+          "voicecall.end": "captured voice-call action requires an active call and command input",
+          "voicecall.continue.result": "captured voice-call continuation query requires an existing continuation operation"
+        }
       },
       "why": "Official voice-call package covering gateway methods, service lifecycle, tool registration, config migration, CLI setup, and npm artifact packaging."
     },
@@ -920,6 +987,11 @@
           "webSearchProviders"
         ]
       },
+      "execution": {
+        "gatewayMethodPrerequisites": {
+          "codex.accountUsage": "captured account usage requires a saved subscription login and Gateway runtime"
+        }
+      },
       "why": "Official Codex package covering agent harness registration, hosted web search, media understanding, migrations, inbound claims, and npm artifact packaging."
     },
     {
@@ -981,6 +1053,23 @@
           "registerNodeHostCommand",
           "registerTool"
         ]
+      },
+      "execution": {
+        "gatewayMethodPrerequisites": {
+          "googlemeet.join": "captured meeting action requires a configured meeting and transport",
+          "googlemeet.create": "captured room creation requires configured OAuth or a live browser transport",
+          "googlemeet.transcript": "captured meeting action requires an active meeting session",
+          "googlemeet.latest": "captured meeting query requires Google Meet OAuth credentials",
+          "googlemeet.calendarEvents": "captured meeting query requires Google Meet OAuth credentials",
+          "googlemeet.artifacts": "captured meeting query requires Google Meet OAuth credentials",
+          "googlemeet.attendance": "captured meeting query requires Google Meet OAuth credentials",
+          "googlemeet.export": "captured meeting query requires Google Meet OAuth credentials",
+          "googlemeet.leave": "captured meeting action requires an active meeting session",
+          "googlemeet.endActiveConference": "captured meeting query requires Google Meet OAuth credentials",
+          "googlemeet.speak": "captured meeting action requires an active meeting session",
+          "googlemeet.testSpeech": "captured meeting action requires a configured meeting and transport",
+          "googlemeet.testListen": "captured meeting action requires a configured meeting and transport"
+        }
       },
       "why": "Official Google Meet package covering meeting tools, gateway methods, node host commands, CLI setup, and npm artifact packaging."
     },
@@ -1148,7 +1237,7 @@
             "seam": "capture",
             "errorIncludes": "src/offload-client/index.js",
             "exitCode": 1,
-            "outputPattern": "^file:\\/\\/\\/[^\\n]+inspector\\.js:\\d+\\n[\\s\\S]*Error: Error \\[ERR_MODULE_NOT_FOUND\\]: Cannot find module '[^'\\n]+/src/offload-client/index\\.js' imported from [^\\n]+/dist/index\\.js[\\s\\S]*failureClass: 'entrypoint-import-error',[\\s\\S]*\\[plugin-inspector:entrypoint-import-error\\]\\n\\s*Error \\[ERR_MODULE_NOT_FOUND\\]: Cannot find module '[^'\\n]+/src/offload-client/index\\.js' imported from [^\\n]+/dist/index\\.js[\\s\\S]*code: 1,[\\s\\S]*killed: false,[\\s\\S]*signal: null,[\\s\\S]*stdout: '',[\\s\\S]*Node\\.js v\\d+\\.\\d+\\.\\d+\\s*$",
+            "outputPattern": "^file:///[^\\n]+inspector\\.js:\\d+\\n  const wrapped = new Error\\(details\\.message, \\{ cause: error \\}\\);\\n +\\^\\n\\nError: Error \\[ERR_MODULE_NOT_FOUND\\]: Cannot find module '[^'\\n]+/memory-tencentdb/src/offload-client/index\\.js' imported from [^\\n]+/memory-tencentdb/dist/index\\.js\\n(?:    at [^\\n]+\\n)+  failureClass: 'entrypoint-import-error',\\n  \\[cause\\]: Error: Mock SDK capture child failed\\n(?:      at [^\\n]+\\n)+    exitCode: 1,\\n    timedOut: false,\\n    cancelled: false,\\n    timeoutMs: \\d+,\\n    signal: null,\\n    pid: \\d+,\\n    stdout: '',\\n    stderr: '\\[plugin-inspector:entrypoint-import-error\\]\\\\n' \\+\\n      \"Error \\[ERR_MODULE_NOT_FOUND\\]: Cannot find module '[^'\\n]+/memory-tencentdb/src/offload-client/index\\.js' imported from [^\\n]+/memory-tencentdb/dist/index\\.js\\\\n\" \\+\\n(?:      '    at [^'\\n]+\\\\n' \\+\\n)*      '    at [^'\\n]+\\\\n',\\n    outputTruncated: false\\n  \\}\\n\\}\\n\\nNode\\.js v\\d+\\.\\d+\\.\\d+\\s*$",
             "reason": "published TencentDB plugin dist imports an offload source module omitted from the package"
           },
           {
@@ -1236,7 +1325,7 @@
             "seam": "capture",
             "errorIncludes": "hapiBaseUrl must be a non-empty string",
             "exitCode": 1,
-            "outputPattern": "^file:\\/\\/\\/[^\\n]+inspector\\.js:\\d+\\n[\\s\\S]*Error: Error: Invalid hapi-openclaw config: hapiBaseUrl must be a non-empty string[\\s\\S]*failureClass: 'registration-execution-error',[\\s\\S]*\\[plugin-inspector:registration-execution-error\\]\\n\\s*Error: Invalid hapi-openclaw config: hapiBaseUrl must be a non-empty string[\\s\\S]*code: 1,[\\s\\S]*killed: false,[\\s\\S]*signal: null,[\\s\\S]*stdout: '',[\\s\\S]*Node\\.js v\\d+\\.\\d+\\.\\d+\\s*$",
+            "outputPattern": "^file:///[^\\n]+inspector\\.js:\\d+\\n  const wrapped = new Error\\(details\\.message, \\{ cause: error \\}\\);\\n +\\^\\n\\nError: Error: Invalid hapi-openclaw config: hapiBaseUrl must be a non-empty string\\n(?:    at [^\\n]+\\n)+  failureClass: 'registration-execution-error',\\n  \\[cause\\]: Error: Mock SDK capture child failed\\n(?:      at [^\\n]+\\n)+    exitCode: 1,\\n    timedOut: false,\\n    cancelled: false,\\n    timeoutMs: \\d+,\\n    signal: null,\\n    pid: \\d+,\\n    stdout: '',\\n    stderr: '\\[plugin-inspector:registration-execution-error\\]\\\\n' \\+\\n      'Error: Invalid hapi-openclaw config: hapiBaseUrl must be a non-empty string\\\\n' \\+\\n(?:      '    at [^'\\n]+\\\\n' \\+\\n)*      '    at [^'\\n]+\\\\n',\\n    outputTruncated: false\\n  \\}\\n\\}\\n\\nNode\\.js v\\d+\\.\\d+\\.\\d+\\s*$",
             "reason": "published HAPI plugin requires operator config before full registration capture"
           },
           {

@@ -10,68 +10,68 @@
 ## Reporting Data
 
 `main` follows a promoted green OpenClaw source pin plus npm `latest` plugin artifacts, with bundled fixtures source-packed from that pinned checkout. `crab-beta` follows beta npm dist-tags for externalized packages and source-packs bundled fixtures. `crab-development` checks `openclaw/openclaw` main against source-packed official plugin artifacts from that same OpenClaw checkout.
-- **Last dashboard update:** Sep 15, 2026, 00:22 UTC
+- **Last dashboard update:** Sep 25, 2026, 00:27 UTC
 <!-- crabpot-tracks:start -->
 - **Source:** `github-default-pin`
 - **OpenClaw version:** `2026.9.3`
 - **OpenClaw SHA:** `d9b899649800`
 - **Dashboard target:** `openclaw/openclaw@d9b899649800 + npm latest plugin artifacts`
 - **Plugin artifacts:** `npm latest fixture set plus bundled source-packed fixtures`
-- **GitHub report run:** [34911051625](https://github.com/openclaw/crabpot/actions/runs/34911051625)
+- **GitHub report run:** [36075252735](https://github.com/openclaw/crabpot/actions/runs/36075252735)
 <!-- crabpot-tracks:end -->
 
 <!-- crabpot-summary:start -->
 ## Dashboard
 
-| Metric                 | Result                                                                                                            |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| Fixtures               | 59                                                                                                                |
-| Hard breakages         | 0                                                                                                                 |
-| Warnings               | 128                                                                                                               |
-| Suggestions            | 237                                                                                                               |
-| Issues                 | 365                                                                                                               |
-| P0 issues              | [🔴 P0 7](reports/crabpot-issues.md#p0-live-issues)                                                               |
-| P1 issues              | [🟠 P1 116](reports/crabpot-issues.md#triage-summary)                                                             |
-| Live issues            | 7 total / 7 P0                                                                                                    |
-| Compat gaps            | 101                                                                                                               |
-| Deprecation warnings   | 22                                                                                                                |
-| Inspector gaps         | 156                                                                                                               |
-| Upstream metadata      | 79                                                                                                                |
-| Contract probes        | 260                                                                                                               |
-| Policy failures        | 0                                                                                                                 |
-| Policy warnings        | 1                                                                                                                 |
-| Ref diff failures      | 0                                                                                                                 |
-| Profile failures       | 0                                                                                                                 |
-| Execution probes       | 0 pass / 0 fail / 0 blocked                                                                                       |
-| Synthetic probes       | 498 ready / 10 blocked / 508 total                                                                                |
-| Cold import            | 5 ready / 114 blocked / 119 entrypoints                                                                           |
-| Workspace plan         | 119 entrypoints / 79 installs / 15 builds                                                                         |
-| Platform risks         | 17 Windows / 17 container                                                                                         |
-| Jiti loader candidates | 20                                                                                                                |
-| Import loop            | p50 2905ms / p95 2908ms / plugin delta RSS 1.1MB / plugin delta CPU 0ms / OpenClaw import 56.7ms / activate 0.5ms |
-| Runtime profile        | p50 5931ms / command p95 6229ms / max RSS 308.2MB / 3 samples/command                                             |
+| Metric                 | Result                                                                                                             |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Fixtures               | 59                                                                                                                 |
+| Hard breakages         | 0                                                                                                                  |
+| Warnings               | 105                                                                                                                |
+| Suggestions            | 165                                                                                                                |
+| Issues                 | 270                                                                                                                |
+| P0 issues              | [🔴 P0 7](reports/crabpot-issues.md#p0-live-issues)                                                                |
+| P1 issues              | [🟠 P1 35](reports/crabpot-issues.md#triage-summary)                                                               |
+| Live issues            | 7 total / 7 P0                                                                                                     |
+| Compat gaps            | 29                                                                                                                 |
+| Deprecation warnings   | 22                                                                                                                 |
+| Inspector gaps         | 148                                                                                                                |
+| Upstream metadata      | 64                                                                                                                 |
+| Contract probes        | 238                                                                                                                |
+| Policy failures        | 0                                                                                                                  |
+| Policy warnings        | 1                                                                                                                  |
+| Ref diff failures      | 0                                                                                                                  |
+| Profile failures       | 0                                                                                                                  |
+| Execution probes       | 0 pass / 0 fail / 0 blocked                                                                                        |
+| Synthetic probes       | 509 ready / 10 blocked / 519 total                                                                                 |
+| Cold import            | 5 ready / 114 blocked / 119 entrypoints                                                                            |
+| Workspace plan         | 119 entrypoints / 79 installs / 15 builds                                                                          |
+| Platform risks         | 17 Windows / 17 container                                                                                          |
+| Jiti loader candidates | 20                                                                                                                 |
+| Import loop            | p50 2992ms / p95 2998ms / plugin delta RSS 3.2MB / plugin delta CPU 11ms / OpenClaw import 60.3ms / activate 0.5ms |
+| Runtime profile        | p50 0ms / command p95 0ms / max RSS n/a / 1 sample/command                                                         |
 
 ### OpenClaw Lifecycle Probe
 
 | Phase                      | p50    | p95    |
 | -------------------------- | ------ | ------ |
-| Import (`full`)            | 56.7ms | 61.5ms |
-| Activate (`full:register`) | 0.5ms  | 0.6ms  |
+| Import (`full`)            | 60.3ms | 60.4ms |
+| Activate (`full:register`) | 0.5ms  | 0.7ms  |
 
 ### Top Discovered Issues
 
-| Severity | Class      | Fixture            | Code                      | Decision            | Title                                                                                                            |
-| -------- | ---------- | ------------------ | ------------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| 🔴 P0    | live-issue | aiwerk-mcp-bridge  | unknown-hook-name         | core-compat-adapter | [aiwerk-mcp-bridge: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)  |
-| 🔴 P0    | live-issue | connectclaw        | unknown-hook-name         | core-compat-adapter | [connectclaw: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)        |
-| 🔴 P0    | live-issue | honcho             | unknown-hook-name         | core-compat-adapter | [honcho: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)             |
-| 🔴 P0    | live-issue | honcho             | unknown-registration-name | core-compat-adapter | [honcho: fixture calls a registrar missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)       |
-| 🔴 P0    | live-issue | memos-cloud        | unknown-hook-name         | core-compat-adapter | [memos-cloud: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)        |
-| 🔴 P0    | live-issue | openclaw-telemetry | unknown-hook-name         | core-compat-adapter | [openclaw-telemetry: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues) |
-| 🔴 P0    | live-issue | opik-openclaw      | unknown-hook-name         | core-compat-adapter | [opik-openclaw: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)      |
-| 🟠 P1    | compat-gap | a2a-gateway        | missing-compat-record     | core-compat-adapter | [a2a-gateway: compat-dependent behavior lacks registry coverage](reports/crabpot-issues.md#compat-gaps)          |
-| 🟠 P1    | compat-gap | agentchat          | missing-compat-record     | core-compat-adapter | [agentchat: compat-dependent behavior lacks registry coverage](reports/crabpot-issues.md#compat-gaps)            |
-| 🟠 P1    | compat-gap | agentchat          | missing-compat-record     | core-compat-adapter | [agentchat: compat-dependent behavior lacks registry coverage](reports/crabpot-issues.md#compat-gaps)            |
+| Severity | Class      | Fixture            | Code                      | Decision            | Title                                                                                                                   |
+| -------- | ---------- | ------------------ | ------------------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| 🔴 P0    | live-issue | aiwerk-mcp-bridge  | unknown-hook-name         | core-compat-adapter | [aiwerk-mcp-bridge: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)         |
+| 🔴 P0    | live-issue | connectclaw        | unknown-hook-name         | core-compat-adapter | [connectclaw: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)               |
+| 🔴 P0    | live-issue | honcho             | unknown-hook-name         | core-compat-adapter | [honcho: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)                    |
+| 🔴 P0    | live-issue | honcho             | unknown-registration-name | core-compat-adapter | [honcho: fixture calls a registrar missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)              |
+| 🔴 P0    | live-issue | memos-cloud        | unknown-hook-name         | core-compat-adapter | [memos-cloud: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)               |
+| 🔴 P0    | live-issue | openclaw-telemetry | unknown-hook-name         | core-compat-adapter | [openclaw-telemetry: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)        |
+| 🔴 P0    | live-issue | opik-openclaw      | unknown-hook-name         | core-compat-adapter | [opik-openclaw: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)             |
+| 🟠 P1    | compat-gap | agentchat          | missing-compat-record     | core-compat-adapter | [agentchat: compat-dependent behavior lacks registry coverage](reports/crabpot-issues.md#compat-gaps)                   |
+| 🟠 P1    | compat-gap | bluebubbles        | sdk-export-missing        | core-compat-adapter | [bluebubbles: plugin SDK import aliases are missing from target package exports](reports/crabpot-issues.md#compat-gaps) |
+| 🟠 P1    | compat-gap | codex              | sdk-export-missing        | core-compat-adapter | [codex: plugin SDK import aliases are missing from target package exports](reports/crabpot-issues.md#compat-gaps)       |
 <!-- crabpot-summary:end -->
 ## What this tests
 
@@ -125,6 +125,45 @@ git submodule update --init --recursive
 That command mutates `.gitmodules` and `plugins/*`. Commit those changes when
 you intentionally pin or update fixture revisions.
 
+### Gateway probe prerequisites
+
+Fixture `execution.gatewayMethodPrerequisites` entries name the exact Gateway
+methods that require host state or live credentials. Synthetic runs record those
+methods as blocked before invoking them; they do not turn rejected responses
+into passes. Status methods without those prerequisites still execute. Each
+allowed blocker has a named follow-up in `crabpot.ci-policy.json`. Matrix recovery,
+bootstrap, and verification status require a configured account and crypto runtime;
+other Matrix methods keep their normal response checks. Voice Call declares its
+nine methods individually: runtime/provider setup, active call input, or a pending
+continuation operation must exist before the corresponding probe can run.
+
+Programmatic callers supplying isolated inputs and runtime can pass an explicit
+`gatewayMethodPrerequisites` map to the synthetic runner. Omit satisfied methods
+from that map; an empty map exercises every method with normal response checks.
+
+### Inspector resource contract smoke
+
+The source pin includes Inspector's process resource collector. On a trusted
+checkout, resolve that source and run the existing smoke with `--resources`:
+
+```bash
+inspector_root="$(node --input-type=module -e 'import path from "node:path"; import { resolvePluginInspectorCliPath } from "./scripts/plugin-inspector-source.mjs"; process.stdout.write(path.dirname(path.dirname(resolvePluginInspectorCliPath())));')"
+CRABPOT_PLUGIN_INSPECTOR_CLI=source CRABPOT_PLUGIN_INSPECTOR_DIR="$inspector_root" npm run plugin-inspector:smoke -- --resources
+```
+
+An explicit `CRABPOT_PLUGIN_INSPECTOR_DIR` selects the source or installed package
+under test; without it, the resolver can use a sibling checkout before the pin.
+The source and packed CI lanes exercise the public `resource-profile` export and
+write `plugin-inspector-resources.json` alongside the existing smoke reports.
+The published npm pin stays unchanged until a release includes this API; omit
+`--resources` when testing older packages.
+
+This checks collector observations in a fresh child: JSON-transported snapshots,
+a retained 1 MiB Buffer, and a timer added then removed. CPU/RSS cover the child
+process; other memory and active resources cover its main thread. It does not
+measure a plugin workload, peak memory, memory release, or a leak. The child uses
+an empty environment; that is not a network sandbox for external plugin code.
+
 ### Inspector command limits
 
 Inspector smoke and generated-surface commands default to 10 minutes. Inspector
@@ -132,6 +171,10 @@ checkout Git and npm commands and fixture-security npm audits default to 2 minut
 `CRABPOT_PLUGIN_INSPECTOR_TIMEOUT_MS`, `CRABPOT_GIT_TIMEOUT_MS`, or
 `CRABPOT_NPM_TIMEOUT_MS` to a decimal integer from 1 through 2147483647;
 zero, fractions, trailing text, and infinite timeouts are rejected.
+
+Static-suite steps default to 10 minutes when `CRABPOT_STATIC_STEP_TIMEOUT_MS`
+is unset or empty. Nonempty settings use the same decimal-integer range and
+reject malformed values before starting a step.
 
 Commands remain synchronous to callers, with a separate bounded supervisor for
 startup, execution, output, and descendant cleanup. Captured checkout and
@@ -180,6 +223,384 @@ future inspector tooling. The JSON is the contract; the Markdown is the review
 surface. `reports/crabpot-dashboard-data.json` is the compact machine-readable
 dashboard card used to compare `crab-beta` and `crab-development` against
 `main`.
+
+### Plugin resource coverage
+
+#### Report-only campaign runner
+
+`scripts/run-resource-campaign.mjs` runs every configured `resourceWorkloads`
+scenario sequentially, with 1–10 repetitions (default 3). Run it from the frozen
+built OpenClaw root inside an already isolated runner:
+
+```bash
+node /crabpot/scripts/run-resource-campaign.mjs \
+  --plugin-inventory /fixtures/inventory.json --inputs /fixtures/inputs.json \
+  --out /out/campaign-1 --repetitions 3 --execute
+```
+
+The output directory must not exist; its parent must exist. Omit `--execute`
+to enumerate the full inventory without importing adapters or starting hosts.
+Optionally pass `--distribution core`, `external` or `source` to run only configured
+scenarios in that inventory distribution. The full inventory remains in every
+repetition: excluded configured rows are blocked with
+`not-selected-for-this-campaign`; plugins without configured scenarios remain unsupported.
+Dependency activation does not earn workload coverage. `selection` records the
+chosen distribution, selected/excluded configured counts and its status/reason.
+The CLI labels this partial scope and exits zero only when at least one selected
+scenario exists, every selected repetition is exercised and no configured scenario
+is absent from the inventory. Selection planning therefore exits nonzero.
+Successful selected work leaves the overall campaign blocked while excluded work remains;
+omitting `--distribution` preserves the existing all-distributions behavior.
+This command does not build, download, provision isolation, configure credentials
+or install campaign prerequisites. The workload adapter still owns native local
+plugin installation. Prepare its archives and offline dependency cache first.
+The outer runner must enforce a minimal environment, network/resource limits and
+a deadline, then stop and join the whole sandbox on interruption or failure.
+
+Generate pins inside the final Linux image, using its Node runtime with
+`process.threadCpuUsage`, after the frozen host, consumer and archives are present:
+
+```bash
+node /crabpot/scripts/prepare-resource-inputs.mjs \
+  --plugin-inventory /fixtures/inventory.json --host-root /app \
+  --out /fixtures/inputs.json --archive /fixtures/plugin.tgz
+```
+
+Repeat `--archive` for each local archive; omit it for bundled-only workloads.
+The output must not exist and its parent must exist. The writer validates the
+inventory digest and matching build commit, reads this consumer's manifest,
+and hashes the required files, available configured adapters and archives.
+It does not build, download, install or run workloads.
+
+Cold-import screening is a separate, optional input to the coverage report. After
+running OpenClaw's `scripts/profile-extension-memory.mts` against a genuine,
+clean source checkout with matching built entries, add each qualified schema 2
+receipt to preparation:
+
+```bash
+node /crabpot/scripts/prepare-resource-inputs.mjs \
+  --plugin-inventory /fixtures/inventory.json --host-root /app \
+  --cold-import-report /fixtures/imports.json --out /fixtures/screening-inputs.json
+node scripts/generate-report.mjs --plugin-inventory /fixtures/inventory.json \
+  --import-screening-inputs /fixtures/screening-inputs.json
+```
+
+Both flags are repeatable. A receipt can select multiple plugins; each directory
+maps to the inventory's `path`, not its plugin ID. Each inventory plugin can
+appear only once across supplied receipts. Compare repetitions separately.
+Preparation hashes the receipt bytes, producer files, build metadata and selected
+built entries in the same runtime. Keep the prepared envelope private: it retains
+raw receipts. Reporting emits only selected measurements and supplied-evidence
+identities, not diagnostic streams or local artifact paths.
+
+Admission requires whole-report qualification, matching before/after source,
+build and entry snapshots, runtime identities, complete CPU/RSS counters, awaited
+import completion and joined cleanup. It recomputes signed baseline deltas;
+combined imports remain a separate process observation, never a sum of plugin
+rows. Gitless installations, package-local entries, Windows process-group gaps,
+stale inputs and failed receipts cannot earn screening credit. Missing evidence
+leaves every uncovered inventory row blocked with
+`no-qualified-built-entry-receipt`; absence from selection does not prove an
+entry was not built. Workload outcomes and their denominator remain unchanged.
+
+Schema 2 screening requires the portable `results[].relativeFile` field. The
+producer retains local `repoRoot` and absolute `results[].file` fields for older
+report readers; the public coverage projection does not include them. Raw receipts
+and prepared-input envelopes still contain those local paths: do not publish them
+without redaction.
+
+These are supplied cold-import observations, not activation/workload coverage,
+retention/leak proof, or an attested transitive dependency closure. Freeze the
+full build/dependency and execution inputs in the outer runner.
+
+The generated input-pins JSON has this shape (replace placeholders with real
+identities; do not copy the sample hashes):
+
+```json
+{
+  "schemaVersion": 1,
+  "hostCommit": "<full inventory/build commit>",
+  "runtime": { "node": "<exact process.version>", "platform": "linux", "arch": "x64" },
+  "files": {
+    "host": { "openclaw.mjs": "<sha256>", "dist/build-info.json": "<sha256>" },
+    "crabpot": { "crabpot.config.json": "<sha256>" }
+  },
+  "artifacts": [{ "path": "/fixtures/plugin.tgz", "sha256": "<sha256>" }]
+}
+```
+
+The abbreviated maps must also pin all four host instrumentation files:
+`scripts/e2e/kitchen-sink-rpc-walk.mts`,
+`scripts/e2e/lib/kitchen-sink-resources.mts`,
+`scripts/lib/gateway-bench-profile.ts`, and
+`scripts/lib/gateway-bench-profile-preload.ts`. The Crabpot map must include
+`scripts/run-resource-campaign.mjs`, `scripts/run-resource-workload.mjs`,
+`scripts/resource-workload-contract.mjs`, `scripts/resource-coverage.mjs`,
+`scripts/manifest-lib.mjs`, `scripts/import-screening.mjs` and every available configured adapter. Paths in these
+maps are relative to their respective roots. Pin the actual built entry
+(`openclaw.mjs`, `dist/index.mjs` or `dist/index.js`). Additional files may be
+pinned. Use an empty artifacts array for bundled-only scenarios. This verifies
+declared local bytes, not the entire build or dependency closure; freeze those
+inputs in the outer runner. Runtime, files and archives are checked before and
+after each invocation, and producer receipt hashes must agree.
+Postverification also runs after runner, receipt persistence or receipt validation
+failures; input drift prevents credit and stops subsequent invocations.
+Each receipt must match the requested scenario and the pinned Gateway runtime.
+Current prepared campaigns also require `pairedNodeSha256` to match the pinned
+shared node lifecycle helper. Standalone validation checks this digest when
+supplied; older receipts remain readable without inventing helper evidence.
+These reported hashes identify bytes but are not an independent attestation of
+all executed dependencies.
+The Node version comparison accounts only for `process.version`'s leading `v`;
+Gateway snapshots use `process.versions.node` without that prefix.
+
+`campaign.json` checkpoints one full-inventory outcome table per repetition;
+`repetition-N/<scenario>.json` retains each returned raw receipt before validation.
+Configured-but-unrun scenarios are blocked. Absent adapters, missing dependencies
+and configured IDs outside the inventory remain explicit gaps; unrelated plugins
+are unsupported, never healthy. Multiple scenarios for one plugin are rejected.
+Pass one repetition's validated receipts to the existing coverage report; never
+combine duplicate plugin receipts across repetitions as additional coverage.
+
+A blocked, failed, invalid or thrown execution stops admission of subsequent work. Later
+rows remain blocked and earlier receipts survive. An interrupted run retains its
+last checkpoint, including `execution-in-progress`; that is not completion or
+cleanup proof. An executed campaign exits nonzero for failures or configured
+blocked work. Unsupported rows do not fail the command. `complete` means all
+configured work completed, not that every inventory plugin was measured.
+Failures retain their stage (`preverify`, `run`, `receipt-write`,
+`receipt-validation` or `postverify`), a recognized error type/code and bounded,
+path-redacted validation context. Arbitrary runner exception text, stacks and
+assertion payloads are omitted; raw workload receipts remain separate evidence.
+If postverification also fails, `postverifyDiagnostic` retains that sanitized
+failure alongside the original `diagnostic` and reason.
+CPU/memory observations remain report-only: no resource thresholds, leak verdicts,
+automatic retries, cross-run aggregation, calibration execution or CI scheduling
+are added. Supply separately qualified calibration with matching frozen inputs.
+
+Add a committed OpenClaw plugin inventory to the existing report:
+
+```bash
+# In the OpenClaw source checkout, using the commit of the measured Gateway:
+pnpm --silent plugins:inventory:json --commit <full-commit-sha> > plugin-inventory.json
+
+# In Crabpot, with explicit paths to the exported inventory and optional pilot:
+npm run report -- --plugin-inventory <plugin-inventory.json> \
+  --kitchen-sink-resource-report <kitchen-sink-resource.json>
+```
+
+The inventory command requires an OpenClaw revision that provides
+`plugins:inventory:json`. The optional pilot is the existing OpenClaw
+`--resource-profile` Kitchen Sink report, not a collector or import report.
+Resource inputs stay separate from `--execution-results`.
+
+JSON and Markdown show the full source inventory independently of Crabpot's
+configured and selected compatibility fixtures. Plugins without workload
+adapters are explicitly `unsupported`. Configured workloads without a supplied
+receipt are `blocked` with reason `workload-report-not-supplied`; this does not
+infer whether they ran or why a receipt is missing. Supplied receipts retain
+their validated outcomes. Imports, registration captures, and collector checks
+receive no workload credit. Kitchen Sink calibration appears
+outside that denominator. Failed receipts retain partial counts and errors;
+a different Gateway source commit blocks calibration for the selected inventory.
+
+Optional Kitchen Sink session/first/warm observations receive separate
+`sessionToolBreakdown` admission in JSON and Markdown. Successful new receipts
+must contain one session creation and the ordered first-call/warm-call split
+(1 + 19 = 20), with matching raw arithmetic, shared snapshots, runtime identity,
+phase order and clean Gateway shutdown. Original schema1 aggregate-only reports
+remain accepted without split credit. Failed partial receipts retain their
+observations, including an earlier successful first call, without split credit.
+The aggregate includes its children; do not add them together or interpret
+these whole-Gateway observations as isolated plugin cost.
+
+The reader validates inventory integrity and producer-reported identities. It
+does not independently attest artifact bytes, infer leaks from RSS, or upgrade
+unsupported disposal observations. These options leave default compatibility
+reports unchanged and add no performance budget gate.
+
+Workload adapters live in `scripts/resource-workloads/`; their scenario IDs and
+required completion counts live in `crabpot.config.json` under `resourceWorkloads`.
+They exercise the real built Gateway through OpenClaw's source-checkout
+`runResourceGatewayCase` helper. An OpenClaw revision containing that helper and
+Linux Node with `process.threadCpuUsage()` are required. Missing prerequisites
+produce a blocked receipt, never plugin coverage.
+
+Prepare a container with one frozen built OpenClaw checkout, this Crabpot
+checkout, and the matching inventory. Run from the OpenClaw checkout root:
+
+```bash
+node /crabpot/scripts/run-resource-workload.mjs \
+  --scenario workboard-card-crud-v1 --plugin-inventory /fixtures/inventory.json \
+  --out /out/workboard.json --execute
+```
+
+Omit `--execute` for a plan without starting a Gateway. The runner must enforce
+network isolation, CPU/memory limits and an outer deadline, then stop and join
+the **whole container** on failure. Killing only this script can leave the
+Gateway's separate process group alive. A temporary HOME alone is not isolation.
+
+Workboard uses its real SQLite worker: one first CRUD cycle and 20 warm cycles,
+each asserting create/update/list/delete/list results and an empty final store.
+The first cycle follows an initial empty-store read; it does not measure first
+database activation. No cards can dispatch agent work. Each case also measures
+startup, idle and 20 neutral RPCs against an empty-host baseline. Main-isolate
+heap/thread CPU excludes the SQLite worker; process CPU/RSS includes it. Short
+windows do not establish periodic-service cost or disposal retention.
+
+Memory Wiki's `memory-wiki-local-cycle-v1` seeds one synthetic source page in
+its owned isolated vault, then runs one first and 20 warm apply/get/search cycles.
+The same synthesis title keeps the logical page set fixed. Alternating body and
+confidence ensure each cycle writes changed content, awaits real compilation and
+publication, and verifies current page and local-search results. Default automatic
+compilation, backlinks and dashboards stay enabled; first use includes initial
+source-sync compilation. Compilation history and state can grow even though the
+input corpus and page set stay fixed.
+
+Only `memory-wiki` is active in the enabled case; the control has no active
+plugins. Common startup/idle/neutral phases have empty-host deltas. Wiki cycle
+CPU/memory is an absolute enabled-host observation, not a paired-workload delta.
+Reads can use scan fallback, so success does not establish cache-hit rates. No
+model, embeddings, shared-memory search, bridge, URL ingestion or Obsidian is
+used. The host joins Gateway shutdown and removes its fixture root on success;
+short post-work samples do not establish disposal retention or leaks. Select
+this scenario with the same native per-scenario command above and its own output
+receipt. Qualify one complete empty/enabled pair before collecting repetitions.
+
+Beam's `beam-receiver-cycle-v1` uses one HTTP upload and four catalog RPCs per
+cycle. It verifies the stored two-message transcript, archives the snapshot and
+checks that the catalog is empty. One first cycle and 20 warm cycles stay below
+the receiver's normal rate limit. Mirroring is unconfigured; this does not cover
+remote publishing, continuation, expiry or concurrent uploads. Select this
+scenario with the same command and a separate output receipt.
+
+TypeSafe's `typesafe-systemone-decisions-v1` requires a genuine full OpenClaw
+source checkout with matching built `dist`, source inventory and qualified
+dependencies. Keep `src/`, `extensions/` and `pnpm-workspace.yaml` from that
+same revision: native discovery admits TypeSafe's `bundledDist: false` source
+plugin as bundled. Copying a plugin next to an installed package is not this
+route. The plugin's installed-host and plugin API requirements remain unchanged;
+this workload does not establish installed-package compatibility.
+
+The scenario selects `typesafe/kev-latest` for the decision role and invokes the
+real `decision_evaluate` core tool against a strict loopback `/v1/systemone`
+peer. Each of one first and 20 warm calls checks boolean, choice and score
+answers, host provenance and exactly one completed HTTP request. No hosted key
+or conversational model is configured. The empty-host case compares startup
+and neutral RPCs only; decision work is an absolute enabled-host observation,
+not an overhead delta. Model inference, hosted Jev behavior and model quality
+are unmeasured. Peer resources are outside the Gateway measurements; the peer
+closes after Gateway shutdown, including on preparation or workload failure.
+
+Session-share's `session-share-receiver-v1` connects a synthetic node through the
+public Gateway client and real device/node pairing. Each cycle lists and reads a
+fixed remote session, asserting both returned data and one node invocation per
+RPC. One first cycle and 20 warm cycles run after pairing completes. The mock
+node closes and joins before the final observation. Remote storage, source-side
+privacy/redaction, pairing cost and cross-host network behavior are unmeasured;
+the mock client's resources are outside the Gateway process measurements.
+
+File Transfer's `file-transfer-fetch-v1` uses the same paired-node lifecycle.
+Only File Transfer is active; the empty control has no active plugins. The node
+advertises only `file.fetch`, with an authored exact-node, exact-path read policy,
+no symlink following and a 64 KiB limit. One first fetch and 20 warm fetches each
+perform a real policy preflight and bound transfer, verify the saved binary bytes,
+and require both plugin audit records. All 42 node results must be accepted;
+stale/ignored acknowledgements fail the run. Unique invocation keys span both
+phases, and all 21 saved media paths must be distinct.
+
+The remote filesystem response is synthetic; pairing, Gateway authorization,
+integrity checks, media storage and audit writing are real. Peer clients drain
+and join before Gateway shutdown. The workload intentionally retains 21 files
+(1,376,256 bytes) and 42 audit records until the owned fixture root is removed.
+Only common phases have empty-host deltas; enabled fetch cost is absolute
+whole-Gateway work. This does not measure remote filesystem enforcement, streaming,
+writes, directories, cancellation, network throughput, steady state or leaks.
+Use the same per-scenario command with a separate output; qualify one complete
+pair before collecting repetitions.
+
+Add the receipt to the existing report from the Crabpot checkout:
+
+```bash
+npm run report -- --plugin-inventory /fixtures/inventory.json \
+  --resource-workload-report /out/workboard.json
+```
+
+Repeat the option for distinct plugins. Same-plugin repetitions belong in
+separate reports. Credit requires complete raw snapshots, matching derived
+measurements, configured completion counts, identical host artifacts, the
+expected active plugin and joined shutdown without forced termination. Failed
+receipts preserve partial work. Plugins without configured adapters remain
+`unsupported`; configured workloads without receipts remain `blocked`.
+
+Adapters that need a dependency plugin and a matched workload control declare
+`pairedWorkload` alongside `requiredOperations`:
+
+```json
+"pairedWorkload": {
+  "dependencies": ["provider-plugin"],
+  "targetActivation": "workload"
+}
+```
+
+Both isolated cases execute the same declared phases, in order, with identical
+completion counts. The baseline has only the dependencies active; the enabled
+case must activate the target during work (`workload`) or before work (`startup`).
+Use `scoped` for caller-owned registry handles that execute without publishing
+to the Gateway registry, such as lazy tool-result middleware. Both catalog
+observations must then equal the dependency set; receipts name this observation
+scope explicitly. Adapters must still assert the real target behavior and every
+declared operation. Catalog absence alone proves neither execution nor failure.
+This does not claim a root-registry transition or in-process handle disposal.
+Dependencies must be present in the source inventory. They do not earn separate
+coverage from another plugin's workload. Without this declaration, existing
+adapters retain their empty-host baseline and startup activation requirement.
+
+`prepare(context, { enabled, onCleanup })` runs in both paired cases before the
+Gateway starts. It may return case-local state. Install the same pinned fixture
+archive and configure the same synthetic workload inputs in both cases, changing
+only target enablement. Register each adapter-owned server or peer with
+`onCleanup(async () => { ... })` immediately after acquisition. The consumer runs
+these callbacks in reverse order after the host joins its Gateway, including
+preparation, startup and workload failures. A cleanup failure fails the receipt;
+callbacks must finish or reject within the outer runner's deadline.
+
+Registration is `open` during preparation, work and measurement drain. Before
+disposal it becomes `closing`, then `closed` after every registered callback
+settles. Registration during drain is accepted and disposed in reverse order.
+Registration while closing or closed throws synchronously and fails the case
+and in-memory receipt even if the caller catches the error. The rejected callback
+is not accepted or invoked: its caller retains cleanup ownership. Adapters must
+join their own background work before completion; a saved callback is not a
+resource lease after the run or permission to amend an already written receipt.
+
+`run(context, requirements, { enabled, state, onCleanup })` receives that state
+and the same `requirements` in both cases. Await each
+`context.measure(name, count, operation)` in `Object.entries(requirements)` order.
+Host phases always come first, including when workload phase names are numeric. Assert the
+operation's semantic outcome before resolving it. Every started measurement has
+an immediate rejection handler and is drained before the host can stop the
+Gateway. Returning with a pending measurement fails the contract; adapter and
+drained measurement failures are both retained. The baseline must prove the
+unmodified result, and the enabled case the target's effect. The consumer owns
+phase/count and before/after active-plugin checks; adapters own these semantic
+assertions. This contract adds no provider, process runner or plugin mocks.
+
+New receipts use `plugin-resource-workload` schema v2. Each case retains whole
+Gateway measurements and records expected/observed activation plus adapter
+cleanup. `comparison.hostPhases` compares startup and neutral observations;
+`comparison.workloadPhases` contains only matched workload deltas, calculated as
+enabled minus baseline, including CPU per completed operation. Signed deltas
+include run noise; they are not CPU allocations to plugin functions. Empty-host
+scenarios have no matched workload deltas. The reader still accepts published
+v1 empty-host receipts under their original contract, but v1 cannot satisfy a
+paired scenario. Kitchen Sink v1 calibration is unchanged. No SQLite changes or
+real-plugin workload coverage result from this orchestration contract alone.
+Paired v2 receipts require the host-recorded `fixtures` array in each case and
+matching archive SHA-256 multisets. Archive labels are validated; byte hashes,
+including multiplicity, bind installed inputs regardless of installation order.
+Both arrays may be empty for host-bundled plugins. Plugin IDs alone do not prove
+that the baseline and enabled case installed the same package bytes.
 
 ## Behavioral eval POC
 
@@ -313,3 +734,36 @@ than the fourth web-search wrapper.
 The first fixture set intentionally covers channels, dynamic tools, LLM
 observation, diagnostics, gateway-owned services, async jobs, provider
 capabilities, and security/policy hooks.
+
+### Nightly bundled resource campaign
+
+`.github/workflows/resource-campaign.yml` runs a report-only campaign daily at
+03:43 UTC and on manual dispatch from this repository's `main`. GitHub can delay
+scheduled runs. It never runs pull-request code. A reviewed full OpenClaw commit
+must be set in `RESOURCE_HOST_SHA`; an unset pin fails preparation instead of
+selecting a moving branch. The commit must contain the committed inventory
+export and shared resource Gateway host.
+
+Preparation installs the frozen source dependencies, uses core's Docker package
+builder and functional image, and records the host/archive/image/consumer
+identities. The native source harness is mounted into that installed image.
+Input pins are generated inside the actual Linux Node runtime. Measurement uses
+no network, two CPUs, 4 GiB memory with no extra swap, 512 PIDs, init, a minimal
+environment and a 20-minute command deadline. Core owns the Gateway lifecycle;
+the outer wrapper verifies that its exact named container is absent after a
+successful Docker daemon readback. Unknown closure fails the run, preserving
+both the original command exit and cleanup outcome.
+
+The campaign executes `--distribution core` with three sequential repetitions.
+The complete source inventory stays in every report: configured external or
+source-only scenarios are blocked by selection, and plugins without configured scenarios
+remain unsupported. A successful selected sweep is not full-inventory coverage.
+No CPU/memory threshold or leak verdict is enforced. Calibration is qualified
+separately; this campaign does not rerun the calibration controls. External
+archives are not prepared or installed by this workflow.
+
+Artifacts are uploaded on failure as well as success: preparation and execution
+logs, inventory, image/package provenance, runtime input pins, partial campaign
+receipts and `closure.json`. A missing closure receipt is unconfirmed termination,
+not a clean result. Hard runner loss can prevent finalization; retained evidence
+must not be interpreted as a successful campaign. Ordinary CI remains unchanged.

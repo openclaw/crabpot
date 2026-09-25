@@ -6,17 +6,17 @@
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 128,
-    "suggestions": 237,
-    "issues": 365,
+    "warnings": 105,
+    "suggestions": 165,
+    "issues": 270,
     "p0Issues": 7,
-    "p1Issues": 116,
+    "p1Issues": 35,
     "liveIssues": 7,
     "liveP0Issues": 7,
-    "compatGaps": 101,
+    "compatGaps": 29,
     "deprecationWarnings": 22,
-    "inspectorGaps": 156,
-    "upstreamIssues": 79,
+    "inspectorGaps": 148,
+    "upstreamIssues": 64,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
@@ -29,16 +29,16 @@
     "platformWindowsRisks": 17,
     "platformContainerRisks": 17,
     "loaderJitiCandidates": 20,
-    "importLoopP50Ms": 2905,
-    "importLoopP95Ms": 2908,
+    "importLoopP50Ms": 2992,
+    "importLoopP95Ms": 2998,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 56.7,
+    "importLoopOpenClawImportP50Ms": 60.3,
     "importLoopOpenClawActivationP50Ms": 0.5,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 1.1,
-    "importLoopMaxCpuMs": 0,
-    "importLoopRssSampleCount": 347,
-    "importLoopCpuSampleCount": 347
+    "importLoopMaxRssMb": 3.2,
+    "importLoopMaxCpuMs": 11,
+    "importLoopRssSampleCount": 357,
+    "importLoopCpuSampleCount": 357
   },
   "topIssues": [
     {
@@ -100,33 +100,9 @@
     {
       "severity": "P1",
       "issueClass": "compat-gap",
-      "fixture": "a2a-gateway",
-      "code": "missing-compat-record",
-      "title": "a2a-gateway: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
       "fixture": "agentchat",
       "code": "missing-compat-record",
       "title": "agentchat: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "agentchat",
-      "code": "missing-compat-record",
-      "title": "agentchat: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "bluebubbles",
-      "code": "missing-compat-record",
-      "title": "bluebubbles: compat-dependent behavior lacks registry coverage",
       "decision": "core-compat-adapter"
     },
     {
@@ -139,66 +115,90 @@
     },
     {
       "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "codex",
+      "code": "sdk-export-missing",
+      "title": "codex: plugin SDK import aliases are missing from target package exports",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "connectclaw",
+      "code": "missing-compat-record",
+      "title": "connectclaw: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "connectclaw",
+      "code": "missing-compat-record",
+      "title": "connectclaw: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "connectclaw",
+      "code": "sdk-export-missing",
+      "title": "connectclaw: plugin SDK import aliases are missing from target package exports",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "ddingtalk",
+      "code": "missing-compat-record",
+      "title": "ddingtalk: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "dingtalk-connector",
+      "code": "sdk-export-missing",
+      "title": "dingtalk-connector: plugin SDK import aliases are missing from target package exports",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
       "issueClass": "inspector-gap",
-      "fixture": "clawmetry",
-      "code": "conversation-access-hook",
-      "title": "clawmetry: conversation-access hooks need privacy-boundary probes",
+      "fixture": "dingtalk-doc",
+      "code": "before-tool-call-probe",
+      "title": "dingtalk-doc: before_tool_call needs terminal/block/approval probes",
       "decision": "inspector-follow-up"
     },
     {
       "severity": "P1",
       "issueClass": "compat-gap",
-      "fixture": "clawmetry",
+      "fixture": "dingtalk-doc",
       "code": "missing-compat-record",
-      "title": "clawmetry: compat-dependent behavior lacks registry coverage",
+      "title": "dingtalk-doc: compat-dependent behavior lacks registry coverage",
       "decision": "core-compat-adapter"
     },
     {
       "severity": "P1",
       "issueClass": "compat-gap",
-      "fixture": "clawmetry",
-      "code": "missing-compat-record",
-      "title": "clawmetry: compat-dependent behavior lacks registry coverage",
+      "fixture": "dingtalk-doc",
+      "code": "sdk-export-missing",
+      "title": "dingtalk-doc: plugin SDK import aliases are missing from target package exports",
       "decision": "core-compat-adapter"
     },
     {
       "severity": "P1",
       "issueClass": "compat-gap",
-      "fixture": "clawrouter",
+      "fixture": "hasdata",
       "code": "missing-compat-record",
-      "title": "clawrouter: compat-dependent behavior lacks registry coverage",
+      "title": "hasdata: compat-dependent behavior lacks registry coverage",
       "decision": "core-compat-adapter"
     },
     {
       "severity": "P1",
       "issueClass": "compat-gap",
-      "fixture": "codex",
+      "fixture": "honcho",
       "code": "missing-compat-record",
-      "title": "codex: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "codex-app-server",
-      "code": "missing-compat-record",
-      "title": "codex-app-server: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "connectclaw",
-      "code": "missing-compat-record",
-      "title": "connectclaw: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "connectclaw",
-      "code": "missing-compat-record",
-      "title": "connectclaw: compat-dependent behavior lacks registry coverage",
+      "title": "honcho: compat-dependent behavior lacks registry coverage",
       "decision": "core-compat-adapter"
     }
   ],
@@ -224,20 +224,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 389.3% over baseline",
+      "message": "p95WallMs regressed 504.2% over baseline",
       "baseline": 1273,
-      "current": 6229,
-      "delta": 4956,
-      "percent": 389.3
+      "current": 7692,
+      "delta": 6419,
+      "percent": 504.2
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 243.1 over baseline",
+      "message": "maxPeakRssMb regressed 692 over baseline",
       "baseline": 65.1,
-      "current": 308.2,
-      "delta": 243.1
+      "current": 757.1,
+      "delta": 692
     }
   ],
   "artifacts": {
@@ -249,7 +249,7 @@
     "platform": "reports/crabpot-platform-probes.json",
     "importLoop": "reports/crabpot-import-loop-profile.json",
     "execution": "reports/crabpot-execution-results.json",
-    "runtimeProfile": "reports/crabpot-runtime-profile.json",
+    "runtimeProfile": null,
     "refDiff": null,
     "profileDiff": "reports/crabpot-profile-diff.json",
     "ciPolicy": "reports/crabpot-ci-policy.json"

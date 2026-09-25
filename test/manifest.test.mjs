@@ -149,6 +149,13 @@ function destinationManifest(overrides = {}) {
   };
 }
 
+for (const gatewayMethodPrerequisites of [null, [], false, "reason", { "": "reason" }, { "fixture.account": " " }, { "fixture.account": false }]) {
+  test(`manifest rejects invalid Gateway prerequisites ${JSON.stringify(gatewayMethodPrerequisites)}`, () => {
+    assert.throws(() => validateManifest(destinationManifest({ execution: { gatewayMethodPrerequisites } })),
+      /gatewayMethodPrerequisites|gateway method prerequisites/);
+  });
+}
+
 for (const checkout of [
   "plugins/../../../tmp/crabpot-escape",
   "plugins/",

@@ -7,58 +7,58 @@ Status: PASS
 
 ## Counts
 
-| Metric                      | Value                                                                                                                   |
-| --------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| Breakages                   | 0                                                                                                                       |
-| Warnings                    | 128                                                                                                                     |
-| Suggestions                 | 237                                                                                                                     |
-| Issues                      | 365                                                                                                                     |
-| P0 issues                   | 7                                                                                                                       |
-| P1 issues                   | 116                                                                                                                     |
-| Live issues                 | 7                                                                                                                       |
-| Live P0 issues              | 7                                                                                                                       |
-| Compat gaps                 | 101                                                                                                                     |
-| Deprecation warnings        | 22                                                                                                                      |
-| Inspector gaps              | 156                                                                                                                     |
-| Upstream metadata           | 79                                                                                                                      |
-| Ref diff failures           | 0                                                                                                                       |
-| Ref diff warnings           | 0                                                                                                                       |
-| Policy failures             | 0                                                                                                                       |
-| Policy warnings             | 1                                                                                                                       |
-| Profile failures            | 0                                                                                                                       |
-| Profile warnings            | 2                                                                                                                       |
-| Execution pass              | 0                                                                                                                       |
-| Execution fail              | 0                                                                                                                       |
-| Execution blocked           | 0                                                                                                                       |
-| Windows portability risks   | 17                                                                                                                      |
-| Container portability risks | 17                                                                                                                      |
-| Jiti loader candidates      | 20                                                                                                                      |
-| Import loop                 | p50 2905 ms / p95 2908 ms / plugin delta RSS 1.1 MB / plugin delta CPU 0 ms / OpenClaw import 56.7 ms / activate 0.5 ms |
+| Metric                      | Value                                                                                                                    |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| Breakages                   | 0                                                                                                                        |
+| Warnings                    | 105                                                                                                                      |
+| Suggestions                 | 165                                                                                                                      |
+| Issues                      | 270                                                                                                                      |
+| P0 issues                   | 7                                                                                                                        |
+| P1 issues                   | 35                                                                                                                       |
+| Live issues                 | 7                                                                                                                        |
+| Live P0 issues              | 7                                                                                                                        |
+| Compat gaps                 | 29                                                                                                                       |
+| Deprecation warnings        | 22                                                                                                                       |
+| Inspector gaps              | 148                                                                                                                      |
+| Upstream metadata           | 64                                                                                                                       |
+| Ref diff failures           | 0                                                                                                                        |
+| Ref diff warnings           | 0                                                                                                                        |
+| Policy failures             | 0                                                                                                                        |
+| Policy warnings             | 1                                                                                                                        |
+| Profile failures            | 0                                                                                                                        |
+| Profile warnings            | 2                                                                                                                        |
+| Execution pass              | 0                                                                                                                        |
+| Execution fail              | 0                                                                                                                        |
+| Execution blocked           | 0                                                                                                                        |
+| Windows portability risks   | 17                                                                                                                       |
+| Container portability risks | 17                                                                                                                       |
+| Jiti loader candidates      | 20                                                                                                                       |
+| Import loop                 | p50 2992 ms / p95 2998 ms / plugin delta RSS 3.2 MB / plugin delta CPU 11 ms / OpenClaw import 60.3 ms / activate 0.5 ms |
 
 ## Top Issues
 
-| Severity | Class         | Fixture            | Code                      | Decision            | Title                                                                          |
-| -------- | ------------- | ------------------ | ------------------------- | ------------------- | ------------------------------------------------------------------------------ |
-| P0       | live-issue    | aiwerk-mcp-bridge  | unknown-hook-name         | core-compat-adapter | aiwerk-mcp-bridge: fixture uses a hook missing from target OpenClaw            |
-| P0       | live-issue    | connectclaw        | unknown-hook-name         | core-compat-adapter | connectclaw: fixture uses a hook missing from target OpenClaw                  |
-| P0       | live-issue    | honcho             | unknown-hook-name         | core-compat-adapter | honcho: fixture uses a hook missing from target OpenClaw                       |
-| P0       | live-issue    | honcho             | unknown-registration-name | core-compat-adapter | honcho: fixture calls a registrar missing from target OpenClaw                 |
-| P0       | live-issue    | memos-cloud        | unknown-hook-name         | core-compat-adapter | memos-cloud: fixture uses a hook missing from target OpenClaw                  |
-| P0       | live-issue    | openclaw-telemetry | unknown-hook-name         | core-compat-adapter | openclaw-telemetry: fixture uses a hook missing from target OpenClaw           |
-| P0       | live-issue    | opik-openclaw      | unknown-hook-name         | core-compat-adapter | opik-openclaw: fixture uses a hook missing from target OpenClaw                |
-| P1       | compat-gap    | a2a-gateway        | missing-compat-record     | core-compat-adapter | a2a-gateway: compat-dependent behavior lacks registry coverage                 |
-| P1       | compat-gap    | agentchat          | missing-compat-record     | core-compat-adapter | agentchat: compat-dependent behavior lacks registry coverage                   |
-| P1       | compat-gap    | agentchat          | missing-compat-record     | core-compat-adapter | agentchat: compat-dependent behavior lacks registry coverage                   |
-| P1       | compat-gap    | bluebubbles        | missing-compat-record     | core-compat-adapter | bluebubbles: compat-dependent behavior lacks registry coverage                 |
-| P1       | compat-gap    | bluebubbles        | sdk-export-missing        | core-compat-adapter | bluebubbles: plugin SDK import aliases are missing from target package exports |
-| P1       | inspector-gap | clawmetry          | conversation-access-hook  | inspector-follow-up | clawmetry: conversation-access hooks need privacy-boundary probes              |
-| P1       | compat-gap    | clawmetry          | missing-compat-record     | core-compat-adapter | clawmetry: compat-dependent behavior lacks registry coverage                   |
-| P1       | compat-gap    | clawmetry          | missing-compat-record     | core-compat-adapter | clawmetry: compat-dependent behavior lacks registry coverage                   |
-| P1       | compat-gap    | clawrouter         | missing-compat-record     | core-compat-adapter | clawrouter: compat-dependent behavior lacks registry coverage                  |
-| P1       | compat-gap    | codex              | missing-compat-record     | core-compat-adapter | codex: compat-dependent behavior lacks registry coverage                       |
-| P1       | compat-gap    | codex-app-server   | missing-compat-record     | core-compat-adapter | codex-app-server: compat-dependent behavior lacks registry coverage            |
-| P1       | compat-gap    | connectclaw        | missing-compat-record     | core-compat-adapter | connectclaw: compat-dependent behavior lacks registry coverage                 |
-| P1       | compat-gap    | connectclaw        | missing-compat-record     | core-compat-adapter | connectclaw: compat-dependent behavior lacks registry coverage                 |
+| Severity | Class         | Fixture            | Code                      | Decision            | Title                                                                                 |
+| -------- | ------------- | ------------------ | ------------------------- | ------------------- | ------------------------------------------------------------------------------------- |
+| P0       | live-issue    | aiwerk-mcp-bridge  | unknown-hook-name         | core-compat-adapter | aiwerk-mcp-bridge: fixture uses a hook missing from target OpenClaw                   |
+| P0       | live-issue    | connectclaw        | unknown-hook-name         | core-compat-adapter | connectclaw: fixture uses a hook missing from target OpenClaw                         |
+| P0       | live-issue    | honcho             | unknown-hook-name         | core-compat-adapter | honcho: fixture uses a hook missing from target OpenClaw                              |
+| P0       | live-issue    | honcho             | unknown-registration-name | core-compat-adapter | honcho: fixture calls a registrar missing from target OpenClaw                        |
+| P0       | live-issue    | memos-cloud        | unknown-hook-name         | core-compat-adapter | memos-cloud: fixture uses a hook missing from target OpenClaw                         |
+| P0       | live-issue    | openclaw-telemetry | unknown-hook-name         | core-compat-adapter | openclaw-telemetry: fixture uses a hook missing from target OpenClaw                  |
+| P0       | live-issue    | opik-openclaw      | unknown-hook-name         | core-compat-adapter | opik-openclaw: fixture uses a hook missing from target OpenClaw                       |
+| P1       | compat-gap    | agentchat          | missing-compat-record     | core-compat-adapter | agentchat: compat-dependent behavior lacks registry coverage                          |
+| P1       | compat-gap    | bluebubbles        | sdk-export-missing        | core-compat-adapter | bluebubbles: plugin SDK import aliases are missing from target package exports        |
+| P1       | compat-gap    | codex              | sdk-export-missing        | core-compat-adapter | codex: plugin SDK import aliases are missing from target package exports              |
+| P1       | compat-gap    | connectclaw        | missing-compat-record     | core-compat-adapter | connectclaw: compat-dependent behavior lacks registry coverage                        |
+| P1       | compat-gap    | connectclaw        | missing-compat-record     | core-compat-adapter | connectclaw: compat-dependent behavior lacks registry coverage                        |
+| P1       | compat-gap    | connectclaw        | sdk-export-missing        | core-compat-adapter | connectclaw: plugin SDK import aliases are missing from target package exports        |
+| P1       | compat-gap    | ddingtalk          | missing-compat-record     | core-compat-adapter | ddingtalk: compat-dependent behavior lacks registry coverage                          |
+| P1       | compat-gap    | dingtalk-connector | sdk-export-missing        | core-compat-adapter | dingtalk-connector: plugin SDK import aliases are missing from target package exports |
+| P1       | inspector-gap | dingtalk-doc       | before-tool-call-probe    | inspector-follow-up | dingtalk-doc: before_tool_call needs terminal/block/approval probes                   |
+| P1       | compat-gap    | dingtalk-doc       | missing-compat-record     | core-compat-adapter | dingtalk-doc: compat-dependent behavior lacks registry coverage                       |
+| P1       | compat-gap    | dingtalk-doc       | sdk-export-missing        | core-compat-adapter | dingtalk-doc: plugin SDK import aliases are missing from target package exports       |
+| P1       | compat-gap    | hasdata            | missing-compat-record     | core-compat-adapter | hasdata: compat-dependent behavior lacks registry coverage                            |
+| P1       | compat-gap    | honcho             | missing-compat-record     | core-compat-adapter | honcho: compat-dependent behavior lacks registry coverage                             |
 
 ## Ref Regressions
 
@@ -72,10 +72,10 @@ _none_
 
 ## Profile Findings
 
-| Action | ID               | Metric       | Baseline | Current | Message                                    |
-| ------ | ---------------- | ------------ | -------- | ------- | ------------------------------------------ |
-| warn   | profile.wall-p95 | p95WallMs    | 1273     | 6229    | p95WallMs regressed 389.3% over baseline   |
-| warn   | profile.peak-rss | maxPeakRssMb | 65.1     | 308.2   | maxPeakRssMb regressed 243.1 over baseline |
+| Action | ID               | Metric       | Baseline | Current | Message                                  |
+| ------ | ---------------- | ------------ | -------- | ------- | ---------------------------------------- |
+| warn   | profile.wall-p95 | p95WallMs    | 1273     | 7692    | p95WallMs regressed 504.2% over baseline |
+| warn   | profile.peak-rss | maxPeakRssMb | 65.1     | 757.1   | maxPeakRssMb regressed 692 over baseline |
 
 ## Artifacts
 
@@ -89,7 +89,7 @@ _none_
 | platform       | reports/crabpot-platform-probes.json     |
 | importLoop     | reports/crabpot-import-loop-profile.json |
 | execution      | reports/crabpot-execution-results.json   |
-| runtimeProfile | reports/crabpot-runtime-profile.json     |
+| runtimeProfile | -                                        |
 | refDiff        | -                                        |
 | profileDiff    | reports/crabpot-profile-diff.json        |
 | ciPolicy       | reports/crabpot-ci-policy.json           |

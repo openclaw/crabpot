@@ -6,6 +6,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { test } from "node:test";
 import { buildContractCapture } from "../scripts/capture-contracts.mjs";
+import { createCaptureApi } from "../scripts/capture-shim.mjs";
 import { readConfiguredManifest } from "../scripts/manifest-lib.mjs";
 import {
   applyFixtureSyntheticFailurePolicy,
@@ -16,6 +17,53 @@ import {
 } from "../scripts/synthetic-probes.mjs";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+
+test("fixture Gateway prerequisites are scoped to the owning fixture and method", async () => {
+  const manifest = await readConfiguredManifest({ fixtureSet: "codex,google-meet,matrix,voice-call" });
+  for (const fixture of manifest.fixtures) {
+    const api = createCaptureApi({ retainHandlers: true });
+    const methods = Object.keys(fixture.execution?.gatewayMethodPrerequisites ?? {});
+    assert.ok(methods.length > 0, `${fixture.id} must declare its Gateway prerequisites`);
+    let calls = 0;
+    for (const method of methods) {
+      api.registerGatewayMethod(method, () => { throw new Error("prerequisite must precede handler"); });
+    }
+    api.registerGatewayMethod("fixture.status", ({ respond }) => { calls += 1; respond(true, {}); });
+    api.registerGatewayMethod("fixture.failure", ({ respond }) => {
+      calls += 1;
+      respond(false, undefined, { code: "UNAVAILABLE", message: "real failure" });
+    });
+    const result = await runCapturedSyntheticProbes({
+      entrypoint: path.join(repoRoot, `.crabpot/workspaces/${fixture.id}/index.ts`),
+      status: "captured", captured: api.getCapturedContracts(), retained: api.getRetainedContracts(),
+    }, { manifest });
+    assert.deepEqual(result.summary, { probeCount: methods.length + 2, passCount: 1, failCount: 1, blockedCount: methods.length });
+    assert.equal(calls, 2);
+    assert.deepEqual(result.results.slice(0, methods.length).map((row) => row.method), methods);
+    assert.match(result.results.at(-1).error, /Gateway response error: real failure/);
+  }
+});
+
+test("same-name Gateway methods outside the fixture and explicitly configured probes still fail truthfully", async () => {
+  const manifest = await readConfiguredManifest({ fixtureSet: "google-meet,matrix,voice-call" });
+  for (const [fixtureId, method] of [["google-meet", "googlemeet.join"], ["matrix", "matrix.verify.status"], ["voice-call", "voicecall.status"]]) {
+    for (const [fixture, options] of [["unrelated", {}], [fixtureId, { gatewayMethodPrerequisites: {} }]]) {
+      const api = createCaptureApi({ retainHandlers: true });
+      let calls = 0;
+      api.registerGatewayMethod(method, ({ respond }) => {
+        calls += 1;
+        respond(false, undefined, { code: "INVALID_REQUEST", message: "Meeting input is required" });
+      });
+      const result = await runCapturedSyntheticProbes({
+        entrypoint: path.join(repoRoot, `.crabpot/workspaces/${fixture}/index.ts`),
+        status: "captured", captured: api.getCapturedContracts(), retained: api.getRetainedContracts(),
+      }, { ...options, manifest });
+      assert.equal(calls, 1);
+      assert.deepEqual(result.summary, { probeCount: 1, passCount: 0, failCount: 1, blockedCount: 0 });
+      assert.match(result.results[0].error, /Gateway response error: Meeting input is required/);
+    }
+  }
+});
 
 test("synthetic probe plan is generated from the current crabpot capture", async () => {
   const capture = await buildContractCapture();

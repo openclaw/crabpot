@@ -17,7 +17,13 @@ function runFixtureCheck(t, { fixtures = [fixture], gitmodules } = {}) {
   const root = mkdtempSync(path.join(os.tmpdir(), "crabpot-fixture-validation-"));
   t.after(() => rmSync(root, { recursive: true, force: true }));
   mkdirSync(path.join(root, "scripts"));
-  for (const script of ["sync-fixtures.mjs", "manifest-lib.mjs", "npm-pack-result.mjs", "package-availability.mjs"]) {
+  for (const script of [
+    "sync-fixtures.mjs",
+    "manifest-lib.mjs",
+    "resource-workload-contract.mjs",
+    "npm-pack-result.mjs",
+    "package-availability.mjs",
+  ]) {
     cpSync(new URL(`../scripts/${script}`, import.meta.url), path.join(root, "scripts", script));
   }
   writeFileSync(path.join(root, "crabpot.config.json"), JSON.stringify({ version: 1, submoduleRoot: "plugins", fixtures }));

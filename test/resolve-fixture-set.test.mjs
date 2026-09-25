@@ -148,3 +148,83 @@ test("fixture set resolver ignores manifest metadata-only changes", async () => 
   assert.equal(resolved.count, 0);
   assert.deepEqual(resolved.fixtures, []);
 });
+
+test("fixture materialization stays within known selections", async (t) => {
+  for (const [fixtureSet, extra, expected] of [
+    ["wecom", {}, ["wecom"]],
+    ["smoke", {}, ["opik-openclaw", "wecom"]],
+    ["wecom,hasdata", {}, ["hasdata", "wecom"]],
+    ["build", { policy: { fixtureSets: { build: ["wecom"] } } }, ["wecom"]],
+    ["changed-submodules", { changedPaths: ["plugins/hasdata/package.json"] }, ["hasdata"]],
+    ["all", {}, ["codex-app-server", "hasdata", "opik-openclaw", "wecom"]],
+  ]) {
+    await t.test(fixtureSet, async () => {
+      const acquisitions = [];
+      const resolved = await resolveFixtureSet({
+        fixtureSet, manifest, policy, plan, ...extra,
+        materialize: true,
+        openclawPath: "target checkout",
+        materializeFixtures: async (ids, options) => {
+          assert.equal(options.openclawPath, "target checkout");
+          acquisitions.push(ids);
+        },
+      });
+      assert.deepEqual(acquisitions, [expected]);
+      assert.deepEqual(resolved.fixtures.map((fixture) => fixture.id), expected);
+    });
+  }
+});
+
+test("capability selections inspect the payloads after materialization", async (t) => {
+  for (const [fixtureSet, expected] of [
+    ["ts", ["codex-app-server", "hasdata", "opik-openclaw"]],
+    ["build", ["opik-openclaw"]],
+    ["sdk-alias", ["codex-app-server"]],
+    ["side-effect-review", ["hasdata"]],
+    ["all-known-safe", ["codex-app-server", "opik-openclaw", "wecom"]],
+  ]) {
+    await t.test(fixtureSet, async () => {
+      const preparedPlan = { fixtures: [] };
+      let acquisitions = 0;
+      const resolved = await resolveFixtureSet({
+        fixtureSet, manifest, policy: {}, plan: preparedPlan,
+        materialize: true,
+        materializeFixtures: async (ids) => {
+          assert.deepEqual(ids, ["codex-app-server", "hasdata", "opik-openclaw", "wecom"]);
+          await Promise.resolve();
+          preparedPlan.fixtures = structuredClone(plan.fixtures);
+          acquisitions += 1;
+        },
+      });
+      assert.equal(acquisitions, 1);
+      assert.deepEqual(resolved.fixtures.map((fixture) => fixture.id), expected);
+      assert.ok(resolved.fixtures.every((fixture) => fixture.entrypointCount > 0));
+    });
+  }
+});
+
+test("empty or non-materializing selections acquire no payloads", async () => {
+  const materializeFixtures = () => assert.fail("unexpected payload acquisition");
+  for (const fixtureSet of ["none", "changed-submodules"]) {
+    const resolved = await resolveFixtureSet({
+      fixtureSet, manifest, policy, plan, materializeFixtures,
+      materialize: true, allowEmpty: true, changedPaths: [],
+    });
+    assert.equal(resolved.count, 0);
+  }
+  assert.equal((await resolveFixtureSet({
+    fixtureSet: "wecom", manifest, policy, plan, materializeFixtures,
+  })).count, 1);
+  await assert.rejects(() => resolveFixtureSet({
+    fixtureSet: "missing", manifest, policy, plan, materializeFixtures, materialize: true,
+  }), /unknown fixture/);
+});
+
+test("materialization failure stops before plan construction", async () => {
+  const failure = new Error("fixture pack failed");
+  await assert.rejects(() => resolveFixtureSet({
+    fixtureSet: "wecom", manifest, policy, materialize: true,
+    materializeFixtures: async () => { throw failure; },
+    get plan() { assert.fail("plan read after failed materialization"); },
+  }), (error) => error === failure);
+});

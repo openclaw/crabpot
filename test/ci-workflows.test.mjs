@@ -14,6 +14,53 @@ async function readOpenClawRefWorkflows() {
   ].join("\n");
 }
 
+test("PR checks supersede only the same workflow and pull request", async () => {
+  for (const file of ["check.yml", "openclaw-head-canary.yml"]) {
+    const workflow = await readWorkflow(`.github/workflows/${file}`);
+    const concurrency = workflow.match(/^concurrency:\n((?:  .*\n)+)/m)?.[1];
+
+    assert.ok(concurrency, `${file} must scope concurrency at workflow level`);
+    assert.equal(
+      concurrency,
+      "  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || format('run-{0}-{1}', github.run_id, github.run_attempt) }}\n" +
+        "  cancel-in-progress: ${{ github.event_name == 'pull_request' }}\n",
+    );
+    assert.doesNotMatch(workflow.slice(workflow.indexOf("jobs:")), /\n\s+concurrency:/);
+  }
+});
+
+test("cancelled checks keep existing artifacts without regenerating reports", async () => {
+  const check = await readWorkflow(".github/workflows/check.yml");
+  const canary = await readWorkflow(".github/workflows/openclaw-head-canary.yml");
+  const stepCondition = (workflow, name) => {
+    const block = workflow.match(new RegExp(`- name: ${name}\\n((?:        .*\\n)+)`))?.[1];
+    assert.ok(block, `missing step: ${name}`);
+    return block.match(/^        if: (.+)$/m)?.[1];
+  };
+
+  for (const [workflow, name] of [
+    [check, "Write CI summary artifacts"],
+    [check, "Reconcile compatibility report with runtime evidence"],
+    [check, "Run execution policy"],
+    [canary, "Write canary reports"],
+  ]) {
+    assert.equal(stepCondition(workflow, name), "${{ !cancelled() }}", name);
+  }
+  for (const [workflow, name] of [
+    [check, "Upload CI reports"],
+    [check, "Summarize execution artifacts"],
+    [check, "Write isolated summary"],
+    [check, "Upload isolated execution artifacts"],
+    [canary, "Upload HEAD canary reports"],
+  ]) {
+    assert.equal(stepCondition(workflow, name), "always()", name);
+  }
+  const aggregate = check.slice(check.indexOf("  default-track:"), check.indexOf("  dashboard:"));
+  assert.match(aggregate, /^    if: always\(\)$/m);
+  assert.match(aggregate, /test "\$\{MANIFEST_RESULT\}" = success/);
+  assert.match(aggregate, /test "\$\{CONTAINER_RESULT\}" = success/);
+});
+
 test("manual OpenClaw ref workflow accepts branch tag or SHA inputs", async () => {
   const workflow = await readOpenClawRefWorkflows();
   const staticBlock = workflow.slice(workflow.indexOf("  static-contract:"), workflow.indexOf("  ref-diff:"));
@@ -43,6 +90,11 @@ test("manual OpenClaw ref workflow keeps isolated fixture execution opt-in", asy
   assert.match(workflow, /fixture:/);
   assert.match(workflow, /fixture_set:/);
   assert.match(workflow, /Resolve fixture matrix/);
+  assert.match(planBlock, /node scripts\/resolve-fixture-set\.mjs[\s\S]*--materialize[\s\S]*--github-output/);
+  assert.match(
+    isolatedBlock,
+    /Materialize fixture payload[\s\S]*CRABPOT_FIXTURE_SET: \$\{\{ matrix\.id \}\}[\s\S]*node scripts\/sync-fixtures\.mjs --materialize --openclaw \.\/openclaw[\s\S]*Validate workspace plan[\s\S]*Execute fixture lane/,
+  );
   assert.match(workflow, /CRABPOT_EXECUTE_ISOLATED: "1"/);
   assert.match(workflow, /npm run workspace:execute -- --fixture/);
   assert.match(workflow, /npm run execution:report/);
@@ -312,6 +364,29 @@ test("workflows use current action majors and dependency caches", async () => {
   assert.match(workflows, /cache-dependency-path: \|/);
   assert.doesNotMatch(workflows, /actions\/(checkout|setup-node|upload-artifact)@v4/);
   assert.doesNotMatch(workflows, /FORCE_JAVASCRIPT_ACTIONS_TO_NODE24/);
+});
+
+test("dependabot refresh resolves the host and submodules after updating its base", async () => {
+  const workflow = await readWorkflow(".github/workflows/dependabot-auto-merge.yml");
+  const merge = workflow.indexOf('git merge --no-edit "origin/');
+  const sync = workflow.indexOf("git submodule sync --recursive", merge);
+  const submodules = workflow.indexOf("git submodule update --init --recursive", sync);
+  const resolveHost = workflow.indexOf("- name: Resolve pinned OpenClaw Default Track");
+
+  assert.ok(merge >= 0 && sync > merge && submodules > sync && resolveHost > submodules,
+    "the host pin and checked-out fixture sources must come from the merged base");
+});
+
+test("dependabot report refresh uses the selected track without filtering unit tests", async () => {
+  const workflow = await readWorkflow(".github/workflows/dependabot-auto-merge.yml");
+  const refresh = workflow.slice(workflow.indexOf("- name: Refresh compatibility reports"),
+    workflow.indexOf("- name: Commit refreshed reports"));
+
+  assert.match(refresh, /CRABPOT_OPENCLAW_TRACK: \$\{\{ steps\.openclaw-track\.outputs\.track \}\}/);
+  assert.match(refresh, /CRABPOT_PLUGIN_TRACK: \$\{\{ steps\.openclaw-track\.outputs\.track == 'development' && 'source-pack' \|\| steps\.openclaw-track\.outputs\.track \}\}/);
+  assert.match(refresh, /CRABPOT_FIXTURE_SET: \$\{\{ steps\.openclaw-track\.outputs\.track == 'development' && 'openclaw-beta' \|\| '' \}\}/);
+  assert.doesNotMatch(refresh, /npm test/);
+  assert.ok(workflow.indexOf("npm test") < workflow.indexOf("- name: Refresh compatibility reports"));
 });
 
 test("dependabot auto-merge refreshes reports after fixture pin updates", async () => {
