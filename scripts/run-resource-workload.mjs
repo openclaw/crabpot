@@ -47,6 +47,7 @@ export async function runResourceWorkload({ definition, inventory, execute, host
     provenance: {
       adapterSha256: hash(adapterUrl), consumerSha256: hash(fileURLToPath(import.meta.url)),
       contractSha256: hash(new URL("./resource-workload-contract.mjs", import.meta.url)),
+      pairedNodeSha256: hash(new URL("./resource-workloads/paired-node.mjs", import.meta.url)),
       runtime: { node: process.version, platform: process.platform, arch: process.arch, cpuModel: os.cpus()[0]?.model },
     },
     measurement: {
