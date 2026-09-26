@@ -2,6 +2,7 @@
 
 ## 0.2.2 - Unreleased
 
+- Print bounded stage, error type and code diagnostics for standalone resource workload failures without exposing raw exception payloads; preserve retained receipts and joined cleanup.
 - Adopt Kitchen Sink 0.4.0 with bounded resource calibration and transcription buffer fixes, promoting the green OpenClaw 2026.9.6 canary to satisfy its minimum host version of 2026.9.5.
 - Fixed fixture validation accepting missing acquisition sources and missing or mismatched submodule entries, while accepting valid quoted Git configuration.
 - Validate optional Kitchen Sink session creation and first/warm tool observations separately from legacy aggregate admission, preserving failed partial observations without credit.
