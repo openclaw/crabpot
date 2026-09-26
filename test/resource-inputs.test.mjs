@@ -43,9 +43,9 @@ test("prepared local bytes produce pins accepted by the campaign without executi
   assert.deepEqual(prepareResourceInputs({ ...f, archives: [] }, f.consumerRoot).artifacts, []);
 });
 
-for (const target of ["entry", "adapter", "archive", "helper"]) test(`campaign rejects ${target} mutation after preparation`, (t) => {
+for (const target of ["entry", "adapter", "archive", "helper", "diagnostics"]) test(`campaign rejects ${target} mutation after preparation`, (t) => {
   const f = fixture(t); const pins = prepareResourceInputs(f, f.consumerRoot);
-  const file = target === "helper" ? path.join(f.consumerRoot, "scripts/resource-workloads/paired-node.mjs") : target === "entry" ? path.join(f.hostRoot, "dist/index.mjs") : target === "adapter"
+  const file = target === "diagnostics" ? path.join(f.consumerRoot, "scripts/resource-failure-diagnostic.mjs") : target === "helper" ? path.join(f.consumerRoot, "scripts/resource-workloads/paired-node.mjs") : target === "entry" ? path.join(f.hostRoot, "dist/index.mjs") : target === "adapter"
     ? path.join(f.consumerRoot, "scripts/resource-workloads/present.mjs") : f.archives[0];
   writeFileSync(file, "changed");
   assert.throws(() => verifyPreparedInputs(pins, f.manifest.resourceWorkloads, f.inventory, f.hostRoot, f.consumerRoot), /changed/);
@@ -94,5 +94,12 @@ test("preparation includes the shared peer owner and rejects its missing pin", (
   const f = fixture(t); const pins = prepareResourceInputs(f, f.consumerRoot);
   assert.equal(pins.files.crabpot["scripts/resource-workloads/paired-node.mjs"], digest("throw new Error('must not execute');"));
   delete pins.files.crabpot["scripts/resource-workloads/paired-node.mjs"];
+  assert.throws(() => verifyPreparedInputs(pins, f.manifest.resourceWorkloads, f.inventory, f.hostRoot, f.consumerRoot), /Missing crabpot pin/);
+});
+
+test("preparation pins the diagnostic owner and rejects its missing pin", (t) => {
+  const f = fixture(t); const pins = prepareResourceInputs(f, f.consumerRoot);
+  assert.equal(pins.files.crabpot["scripts/resource-failure-diagnostic.mjs"], digest("throw new Error('must not execute');"));
+  delete pins.files.crabpot["scripts/resource-failure-diagnostic.mjs"];
   assert.throws(() => verifyPreparedInputs(pins, f.manifest.resourceWorkloads, f.inventory, f.hostRoot, f.consumerRoot), /Missing crabpot pin/);
 });

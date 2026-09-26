@@ -119,7 +119,7 @@ async function exercise({ scenario = definition, fault, enabledCpu = 3000, hooks
       };
       try {
         await prepare(context);
-        if (fault === "startup") throw new Error("startup failure");
+        if (fault === "startup" || fault === "startup-and-cleanup") throw new Error("startup failure");
         result.phases.push(summarizeResourcePhase("startup", await sample(), await sample(), { attempted: 0, completed: 0, failed: 0 }));
         await run(context);
         result.status = "exercised";
@@ -141,8 +141,9 @@ async function exercise({ scenario = definition, fault, enabledCpu = 3000, hooks
       onCleanup(async () => {
         events.push(`${name}:cleanup-second`);
         await hooks.duringCleanup?.({ name, onCleanup });
-        if (fault === "cleanup" || fault === "work-and-cleanup") throw new Error("peer cleanup failure");
+        if (["cleanup", "work-and-cleanup", "startup-and-cleanup"].includes(fault)) throw new Error("peer cleanup failure");
       });
+      await hooks.prepare?.();
       if (fault === "prepare") throw new Error("prepare failure");
       return { name };
     },
@@ -172,6 +173,44 @@ async function exercise({ scenario = definition, fault, enabledCpu = 3000, hooks
   await runResourceWorkloadCases({ report, definition: scenario, adapter, host, phases: { summarizeResourcePhase }, runtime: {} });
   return { report, events, completed, registrations };
 }
+
+for (const [stage, hook] of [["prepare", "prepare"], ["workload", "run"], ["cleanup", "duringCleanup"]]) {
+  test(`consumer records ${stage} metadata before host flattening and still joins peers`, async () => {
+    const error = Object.assign(new TypeError("Expected unlabelled-fixture-secret /private/fixture\nstack"), { code: "EIO" });
+    const { report, events } = await exercise({ hooks: { [hook]() { throw error; } } });
+    assert.equal(report.status, "failed");
+    assert.equal(report.cases[1].status, "blocked");
+    assert.match(report.error, /unlabelled-fixture-secret/); // Retained receipt compatibility.
+    assert.deepEqual(report.cases[0].diagnostics[stage], {
+      stage, type: "TypeError", code: "EIO", message: "Diagnostic payload omitted; inspect prepared inputs or retained receipt",
+    });
+    assert.ok(events.indexOf("baseline:host-joined") < events.indexOf("baseline:cleanup-second"));
+    assert.ok(events.includes("baseline:cleanup-first"));
+    assert.equal(report.cases[0].adapterCleanup.registration, "closed");
+  });
+}
+
+test("unawaited measurement diagnostics retain the observed rejection while draining before host join", async () => {
+  const { report, events } = await exercise({ fault: "unawaited-return", hooks: {
+    async operation() { throw Object.assign(new RangeError("unlabelled-fixture-secret"), { code: "EIO" }); },
+  } });
+  const diagnostic = report.cases[0].diagnostics.measurement;
+  assert.equal(diagnostic.type, "RangeError");
+  assert.equal(diagnostic.code, "EIO");
+  assert.ok(!JSON.stringify(diagnostic).includes("unlabelled-fixture-secret"));
+  assert.ok(events.indexOf("baseline:measurement-recorded") < events.indexOf("baseline:host-joined"));
+  assert.equal(report.cases[0].adapterCleanup.status, "complete");
+  assert.equal(report.cases[1].status, "blocked");
+});
+
+test("flattened host failures report unavailable metadata instead of guessing from text", async () => {
+  const { report, events } = await exercise({ fault: "startup" });
+  assert.deepEqual(report.cases[0].diagnostics, {
+    "host-case": { stage: "host-case", type: "UNKNOWN", code: "UNKNOWN", message: "Host case failed; inspect retained receipt" },
+  });
+  assert.ok(events.includes("baseline:host-joined"));
+  assert.equal(report.cases[0].adapterCleanup.status, "complete");
+});
 
 function validate(report, scenario = definition) {
   return validateResourceWorkloadReport(report, inventory(), [scenario]);
@@ -440,4 +479,18 @@ test("paired manifest validation rejects undeclared activation/dependencies and 
     assert.throws(() => validateManifest({ ...base, resourceWorkloads: [{ ...definition, pairedWorkload }] }), /pairedWorkload/);
   }
   assert.throws(() => validateManifest({ ...base, resourceWorkloads: [{ ...definition, requiredOperations: { startup: 1 } }] }), /non-reserved/);
+});
+
+test("host startup and peer cleanup failures both retain diagnostics after joined teardown", async () => {
+  const { report, events } = await exercise({ fault: "startup-and-cleanup" });
+  const result = report.cases[0];
+  assert.deepEqual(Object.keys(result.diagnostics), ["host-case", "cleanup"]);
+  assert.equal(result.diagnostics["host-case"].type, "UNKNOWN");
+  assert.equal(result.diagnostics["host-case"].code, "UNKNOWN");
+  assert.equal(result.diagnostics.cleanup.type, "Error");
+  assert.match(result.error, /startup failure.*peer cleanup failure/);
+  assert.equal(result.adapterCleanup.status, "failed");
+  assert.equal(result.adapterCleanup.registration, "closed");
+  assert.deepEqual(events.slice(-3), ["baseline:host-joined", "baseline:cleanup-second", "baseline:cleanup-first"]);
+  assert.equal(report.cases[1].status, "blocked");
 });

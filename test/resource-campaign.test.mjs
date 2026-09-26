@@ -21,7 +21,7 @@ const hostNames = ["openclaw.mjs", "dist/build-info.json", "scripts/e2e/kitchen-
   "scripts/e2e/lib/kitchen-sink-resources.mts", "scripts/lib/gateway-bench-profile.ts", "scripts/lib/gateway-bench-profile-preload.ts"];
 const consumerNames = ["crabpot.config.json", "scripts/run-resource-campaign.mjs", "scripts/run-resource-workload.mjs",
   "scripts/resource-workload-contract.mjs", "scripts/resource-coverage.mjs", "scripts/manifest-lib.mjs",
-  "scripts/import-screening.mjs", "scripts/resource-workloads/paired-node.mjs", "scripts/resource-workloads/a.mjs", "scripts/resource-workloads/b.mjs"];
+  "scripts/resource-failure-diagnostic.mjs", "scripts/import-screening.mjs", "scripts/resource-workloads/paired-node.mjs", "scripts/resource-workloads/a.mjs", "scripts/resource-workloads/b.mjs"];
 const pins = { schemaVersion: 1, hostCommit: commit,
   runtime: { node: process.version, platform: process.platform, arch: process.arch },
   files: { host: Object.fromEntries(hostNames.map((name) => [name, hash])), crabpot: Object.fromEntries(consumerNames.map((name) => [name, hash])) }, artifacts: [] };
@@ -50,7 +50,7 @@ function receipt(definition, sourceInventory = inventory) {
   return { schemaVersion: 2, kind: "plugin-resource-workload", status: "exercised", reason: "measured-plugin-workload",
     scenario: { id: definition.id, pluginId: definition.pluginId, requirements: definition.requiredOperations,
       ...(definition.pairedWorkload ? { pairedWorkload: definition.pairedWorkload } : {}) },
-    inventory: { source, sha256: sourceInventory.sha256 }, provenance: { adapterSha256: hash, consumerSha256: hash, contractSha256: hash, pairedNodeSha256: hash,
+    inventory: { source, sha256: sourceInventory.sha256 }, provenance: { adapterSha256: hash, consumerSha256: hash, contractSha256: hash, pairedNodeSha256: hash, diagnosticsSha256: hash,
       harnessSha256: Object.fromEntries(hostNames.filter((name) => name.startsWith("scripts/")).map((name) => [name, hash])) },
     measurement: {}, cases, comparison: resourceWorkloadComparison(cases, definition) };
 }
@@ -412,4 +412,18 @@ for (const helper of [undefined, "d".repeat(64)]) test(`current campaign rejects
   assert.equal(campaign.status, "failed");
   assert.equal(dispatched, 1);
   assert.match(campaign.repetitions[0].plugins[0].diagnostic.message, /Receipt paired-node helper differs/);
+});
+
+for (const value of [undefined, "d".repeat(64)]) test(`campaign rejects ${value ? "changed" : "missing"} diagnostic owner evidence`, async () => {
+  let dispatched = 0;
+  const { campaign } = await exercise({}, { async run({ definition }) {
+    dispatched++;
+    const report = receipt(definition);
+    if (value === undefined) delete report.provenance.diagnosticsSha256;
+    else report.provenance.diagnosticsSha256 = value;
+    return report;
+  } });
+  assert.equal(campaign.status, "failed");
+  assert.equal(dispatched, 1);
+  assert.match(campaign.repetitions[0].plugins[0].diagnostic.message, /Receipt diagnostic helper differs/);
 });

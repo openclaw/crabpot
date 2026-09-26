@@ -9,8 +9,14 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 import { readManifest } from "./manifest-lib.mjs";
 import { validatePluginInventory, validateResourceWorkloadReport } from "./resource-coverage.mjs";
 import { resourceWorkloadComparison, resourceWorkloadPlan } from "./resource-workload-contract.mjs";
+import { failureDiagnostic } from "./resource-failure-diagnostic.mjs";
 
 const hash = (file) => createHash("sha256").update(readFileSync(file)).digest("hex");
+// Fixed internal stages bound each receipt; keep the first failure at its owner
+// before host flattening or a later cleanup error loses the original metadata.
+function recordFailure(target, error, stage) {
+  (target.diagnostics ??= {})[stage] ??= failureDiagnostic(error, stage);
+}
 
 export function parseArgs(argv) {
   const args = { execute: false };
@@ -47,6 +53,7 @@ export async function runResourceWorkload({ definition, inventory, execute, host
     provenance: {
       adapterSha256: hash(adapterUrl), consumerSha256: hash(fileURLToPath(import.meta.url)),
       contractSha256: hash(new URL("./resource-workload-contract.mjs", import.meta.url)),
+      diagnosticsSha256: hash(new URL("./resource-failure-diagnostic.mjs", import.meta.url)),
       pairedNodeSha256: hash(new URL("./resource-workloads/paired-node.mjs", import.meta.url)),
       runtime: { node: process.version, platform: process.platform, arch: process.arch, cpuModel: os.cpus()[0]?.model },
     },
@@ -78,6 +85,7 @@ export async function runResourceWorkload({ definition, inventory, execute, host
       "scripts/lib/gateway-bench-profile.ts", "scripts/lib/gateway-bench-profile-preload.ts",
     ].map((file) => [file, hash(path.join(hostRoot, file))]));
   } catch (error) {
+    recordFailure(report, error, "host-prerequisite");
     report.reason = "host-prerequisite";
     report.error = String(error.message ?? error).slice(0, 2048);
     return report;
@@ -86,6 +94,7 @@ export async function runResourceWorkload({ definition, inventory, execute, host
   if (report.status === "exercised") {
     try { validateResourceWorkloadReport(report, inventory, [definition]); }
     catch (error) {
+      recordFailure(report, error, "workload-validation");
       report.status = "failed";
       report.reason = "invalid-workload-observation";
       report.error = String(error.message ?? error).slice(0, 2048);
@@ -115,6 +124,7 @@ export async function runResourceWorkloadCases({ report, definition, adapter, ho
       report.error = report.cases.filter((item) => item.error).map((item) => `${item.name}: ${item.error}`).join("; ").slice(0, 2048);
     };
     const failCleanup = (error) => {
+      recordFailure(result, error, "cleanup");
       cleanupErrors.add(String(error.message ?? error).slice(0, 2048));
       result.adapterCleanup.status = "failed";
       result.adapterCleanup.errors = [...cleanupErrors];
@@ -141,7 +151,8 @@ export async function runResourceWorkloadCases({ report, definition, adapter, ho
       await host.runResourceGatewayCase({
         result, runtime,
         prepare: async (context) => {
-          if (plan.runWorkload) state = await adapter.prepare(context, adapterOptions);
+          try { if (plan.runWorkload) state = await adapter.prepare(context, adapterOptions); }
+          catch (error) { recordFailure(result, error, "prepare"); throw error; }
         },
         run: async (context) => {
           const { rpc, sample, measure } = context;
@@ -182,7 +193,13 @@ export async function runResourceWorkloadCases({ report, definition, adapter, ho
               // a second, unhandled rejection when an adapter forgets to await.
               measurements.push(pending.then(
                 () => { measuring = false; return { ok: true }; },
-                (error) => { measuring = false; return { ok: false, error }; },
+                (error) => {
+                  // This is the host measurement rejection, which may already
+                  // have flattened the operation error; never infer its cause.
+                  recordFailure(result, error, "measurement");
+                  measuring = false;
+                  return { ok: false, error };
+                },
               ));
               return pending;
             };
@@ -190,7 +207,7 @@ export async function runResourceWorkloadCases({ report, definition, adapter, ho
             try {
               await adapter.run({ ...context, measure: measureWork }, definition.requiredOperations, { ...adapterOptions, state });
               assert.equal(nextPhase, expected.length, "adapter omitted a declared workload phase");
-            } catch (error) { errors.push(error); }
+            } catch (error) { recordFailure(result, error, "workload"); errors.push(error); }
             finally {
               measurementAdmission = false;
               if (measuring) errors.push(new Error("adapter must await workload measurements"));
@@ -206,7 +223,10 @@ export async function runResourceWorkloadCases({ report, definition, adapter, ho
           await observeActivation("after", plan.expectedAfter);
         },
       });
-    } catch (error) { fail(error); }
+      // Record flattened host failure before peer cleanup can add its own error.
+      // Its original type/code are unavailable; never reconstruct them from text.
+      if (result.status !== "exercised" && !result.diagnostics) recordFailure(result, undefined, "host-case");
+    } catch (error) { recordFailure(result, error, "host-call"); fail(error); }
     finally {
       // The host has joined its Gateway. Adapter-owned peers are independent
       // resources and must also close when preparation/startup/work failed.
@@ -229,6 +249,7 @@ export async function runResourceWorkloadCases({ report, definition, adapter, ho
   if (report.cases.some(({ status }) => status !== "exercised")) return report;
   try { report.comparison = resourceWorkloadComparison(report.cases, definition); }
   catch (error) {
+    recordFailure(report, error, "comparison");
     report.status = "failed";
     report.error = String(error.message ?? error).slice(0, 2048);
     return report;
@@ -251,6 +272,9 @@ async function main() {
   writeFileSync(output, `${JSON.stringify(report, null, 2)}\n`);
   console.log(`resource workload ${report.scenario.id}: ${report.status} (${report.reason})`);
   if (args.execute && report.status !== "exercised") {
+    for (const owner of [report, ...report.cases]) for (const diagnostic of Object.values(owner.diagnostics ?? {})) {
+      console.error(`[resource-workload] ${JSON.stringify(diagnostic)}`);
+    }
     console.error("[resource-workload] FAILED (exit 1)");
     process.exitCode = 1;
   }
@@ -258,7 +282,7 @@ async function main() {
 
 if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
   await main().catch((error) => {
-    console.error(error.message ?? error);
+    console.error(`[resource-workload] ${JSON.stringify(failureDiagnostic(error, "cli"))}`);
     console.error("[resource-workload] FAILED (exit 1)");
     process.exitCode = 1;
   });
