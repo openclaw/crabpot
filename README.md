@@ -270,7 +270,9 @@ Repeat `--archive` for each local archive; omit it for bundled-only workloads.
 The output must not exist and its parent must exist. The writer validates the
 inventory digest and matching build commit, reads this consumer's manifest,
 and hashes the required files, available configured adapters and archives.
-It does not build, download, install or run workloads.
+It does not build, download, install or run workloads. After updating the Crabpot
+consumer, regenerate saved inputs with this writer and a new `--out` path;
+existing inputs may lack required helper pins or contain stale hashes.
 
 Cold-import screening is a separate, optional input to the coverage report. After
 running OpenClaw's `scripts/profile-extension-memory.mts` against a genuine,
@@ -336,8 +338,10 @@ The abbreviated maps must also pin all four host instrumentation files:
 `scripts/lib/gateway-bench-profile-preload.ts`. The Crabpot map must include
 `scripts/run-resource-campaign.mjs`, `scripts/run-resource-workload.mjs`,
 `scripts/resource-workload-contract.mjs`, `scripts/resource-coverage.mjs`,
-`scripts/manifest-lib.mjs`, `scripts/import-screening.mjs` and every available configured adapter. Paths in these
-maps are relative to their respective roots. Pin the actual built entry
+`scripts/manifest-lib.mjs`, `scripts/resource-failure-diagnostic.mjs`,
+`scripts/import-screening.mjs`, `scripts/resource-workloads/paired-node.mjs`
+and every available configured adapter. Paths in these maps are relative to
+their respective roots. Pin the actual built entry
 (`openclaw.mjs`, `dist/index.mjs` or `dist/index.js`). Additional files may be
 pinned. Use an empty artifacts array for bundled-only scenarios. This verifies
 declared local bytes, not the entire build or dependency closure; freeze those
