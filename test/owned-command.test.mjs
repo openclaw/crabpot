@@ -279,6 +279,81 @@ test("Darwin zombie-only group reports EPERM until its parked parent reaps it", 
   t.diagnostic("native EPERM -> explicit reap/closure -> ESRCH; no historic first-failure sequence inferred");
 });
 
+test("Windows controller inherits its parent environment while the native command receives only its target environment", {
+  skip: process.platform !== "win32", timeout: 20_000,
+}, async (t) => {
+  const root = await mkdtemp(path.join(os.tmpdir(), "crabpot environment owner "));
+  let worker;
+  let result;
+  t.after(async () => {
+    await worker?.terminate();
+    // Worker exit alone does not prove helper/Job closure. Keep the copied
+    // owner and receipts when the native result leaves cleanup unknown.
+    if (!worker || (result && !result.error && !result.cleanupError && result.status === 0 && result.signal === null)) {
+      await rm(root, { recursive: true, force: true });
+    } else {
+      t.diagnostic("environment fixture retained: native cleanup unconfirmed");
+    }
+  });
+  const ownerPath = await copyOwner(root);
+  const helperReceipt = path.join(root, "helper-environment.json");
+  const original = await readFile(new URL("../scripts/owned-command-windows.ps1", import.meta.url), "utf8");
+  const entry = '$ErrorActionPreference = "Stop"';
+  assert.equal(original.split(entry).length, 2);
+  // Observe the actual controller before any cmdlet/module loading. Record only
+  // synthetic comparisons, then retain the real parser, compiler and Job owner.
+  await writeFile(path.join(root, "scripts/owned-command-windows.ps1"), original.replace(entry, `${entry}
+    $parentOnly = [Environment]::GetEnvironmentVariable("CRABPOT_OWNER_PARENT_ONLY") -ceq "parent-only"
+    $parentConflict = [Environment]::GetEnvironmentVariable("CRABPOT_OWNER_CONFLICT") -ceq "parent"
+    $targetAbsent = $null -eq [Environment]::GetEnvironmentVariable("CRABPOT_OWNER_TARGET_ONLY")
+    $observed = '{"parentOnly":' + $parentOnly.ToString().ToLowerInvariant() +
+        ',"parentConflict":' + $parentConflict.ToString().ToLowerInvariant() +
+        ',"targetAbsent":' + $targetAbsent.ToString().ToLowerInvariant() + '}'
+    [System.IO.File]::WriteAllText('${helperReceipt.replaceAll("'", "''")}', $observed)
+    if (-not ($parentOnly -and $parentConflict -and $targetAbsent)) { throw "controller environment boundary failed" }
+  `));
+  await copyFile(new URL("../scripts/owned-command-windows.cs", import.meta.url),
+    path.join(root, "scripts/owned-command-windows.cs"));
+  const systemRoot = Object.entries(process.env).find(([key]) => key.toUpperCase() === "SYSTEMROOT")?.[1];
+  assert.ok(systemRoot);
+  // Workers preserve key casing. Exercise parent lookup with a non-default case
+  // without changing the test process environment or the native target block.
+  const parentEnv = Object.fromEntries(Object.entries(process.env).filter(([key]) =>
+    key.toUpperCase() !== "SYSTEMROOT" && !key.toUpperCase().startsWith("CRABPOT_OWNER_")));
+  Object.assign(parentEnv, {
+    systemroot: systemRoot, CRABPOT_OWNER_PARENT_ONLY: "parent-only", CRABPOT_OWNER_CONFLICT: "parent",
+  });
+  worker = new Worker(`
+    const { parentPort, workerData } = require("node:worker_threads");
+    import(workerData.owner).then(({ runOwnedCommand }) => {
+      parentPort.postMessage(runOwnedCommand(process.execPath, ["-e", workerData.command], {
+        cwd: workerData.root, env: workerData.targetEnv, timeout: 5000, encoding: "utf8",
+      }));
+    });
+  `, { eval: true, env: parentEnv, workerData: {
+    owner: pathToFileURL(ownerPath).href, root,
+    targetEnv: { SystemRoot: systemRoot, CRABPOT_OWNER_CONFLICT: "target", CRABPOT_OWNER_TARGET_ONLY: "target-only" },
+    command: `process.stdout.write(JSON.stringify({
+      parentAbsent: process.env.CRABPOT_OWNER_PARENT_ONLY === undefined,
+      targetConflict: process.env.CRABPOT_OWNER_CONFLICT === "target",
+      targetOnly: process.env.CRABPOT_OWNER_TARGET_ONLY === "target-only",
+    }));`,
+  } });
+  result = await new Promise((resolve, reject) => {
+    worker.once("message", resolve);
+    worker.once("error", reject);
+    worker.once("exit", () => reject(new Error("environment fixture exited without a result")));
+  });
+  assert.deepEqual(JSON.parse(await readFile(helperReceipt, "utf8")), {
+    parentOnly: true, parentConflict: true, targetAbsent: true,
+  });
+  assert.ifError(result.error);
+  assert.ifError(result.cleanupError);
+  assert.equal(result.status, 0);
+  assert.equal(result.signal, null);
+  assert.deepEqual(JSON.parse(result.stdout), { parentAbsent: true, targetConflict: true, targetOnly: true });
+});
+
 test("Windows adapter setup failure never runs an uncontained command", {
   skip: process.platform !== "win32", timeout: 20_000,
 }, async (t) => {
