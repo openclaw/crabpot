@@ -541,12 +541,14 @@ function runWindows(command, args, options, result, observe, ready, fail, shared
   });
   server.listen(`\\\\.\\pipe\\${pipeName}`, () => {
     if (stopped) { finish(); return; }
-    const powershell = path.join(environmentValue(options.env, "SYSTEMROOT") ?? process.env.SystemRoot ?? "C:\\Windows",
+    // The controller needs its own runtime environment; only the native target
+    // receives the caller's environment serialized in the request above.
+    const powershell = path.join(environmentValue(process.env, "SYSTEMROOT") ?? "C:\\Windows",
       "System32", "WindowsPowerShell", "v1.0", "powershell.exe");
     helper = spawn(powershell, [
       "-NoLogo", "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass",
       "-File", fileURLToPath(new URL("./owned-command-windows.ps1", import.meta.url)), pipeName,
-    ], { cwd: options.cwd, env: options.env, windowsHide: true,
+    ], { cwd: options.cwd, env: process.env, windowsHide: true,
       stdio: options.inherit ? "inherit" : ["ignore", "pipe", "pipe"] });
     observe(helper);
     helper.once("spawn", () => Atomics.store(shared, 3, helper.pid));
