@@ -2,6 +2,7 @@
 
 ## 0.2.2 - Unreleased
 
+- Preserve exclusive Plugin Inspector checkout ownership across long installs and unconfirmed command cleanup; fail bounded lock contention without stealing another installer's lock.
 - Preserve the Windows command controller's parent environment when a caller supplies a restricted target environment, without changing the target's environment or cleanup guarantees.
 - Print bounded stage, error type and code diagnostics for standalone resource workload failures without exposing raw exception payloads; preserve retained receipts and joined cleanup.
 - Adopt Kitchen Sink 0.4.0 with bounded resource calibration and transcription buffer fixes, promoting the green OpenClaw 2026.9.6 canary to satisfy its minimum host version of 2026.9.5.

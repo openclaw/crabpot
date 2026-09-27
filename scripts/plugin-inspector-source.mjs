@@ -1,4 +1,5 @@
-import { existsSync, mkdirSync, rmSync, statSync, writeFileSync } from "node:fs";
+import { randomUUID } from "node:crypto";
+import { existsSync, mkdirSync, rmdirSync, rmSync, unlinkSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { repoRoot } from "./manifest-lib.mjs";
@@ -112,6 +113,7 @@ export function isPinnedCheckoutReady(checkoutDir, expectedRef = pluginInspector
 
 function withCheckoutLock(checkoutParent, callback) {
   const lockDir = path.join(checkoutParent, ".checkout.lock");
+  const ownerFile = path.join(lockDir, randomUUID());
   const startedAt = Date.now();
 
   while (true) {
@@ -122,26 +124,35 @@ function withCheckoutLock(checkoutParent, callback) {
       if (error?.code !== "EEXIST") {
         throw error;
       }
-      if (isStaleLock(lockDir) || Date.now() - startedAt > 120_000) {
-        rmSync(lockDir, { force: true, recursive: true });
-        continue;
+      if (Date.now() - startedAt > 120_000) {
+        throw new Error(`plugin-inspector checkout lock remained busy after 120000ms: ${lockDir}. Wait for the holder; remove the lock only after confirming its commands have stopped.`);
       }
       sleep(100);
     }
   }
 
+  let publishedOwner = false;
+  let failure;
   try {
+    writeFileSync(ownerFile, "", { flag: "wx" });
+    publishedOwner = true;
     callback();
+  } catch (error) {
+    failure = error;
+    throw error;
   } finally {
-    rmSync(lockDir, { force: true, recursive: true });
-  }
-}
-
-function isStaleLock(lockDir) {
-  try {
-    return Date.now() - statSync(lockDir).mtimeMs > 300_000;
-  } catch {
-    return true;
+    // A timed-out waiter cannot prove the mutator stopped. Keep ownership when
+    // the command supervisor could not confirm cleanup, even after failure.
+    if (!failure?.cleanupError) {
+      try {
+        // A replacement has another token; never recursively delete its lock.
+        if (publishedOwner) unlinkSync(ownerFile);
+        rmdirSync(lockDir);
+      } catch (error) {
+        if (failure) throw new AggregateError([failure, error], "checkout failed and lock release failed");
+        throw error;
+      }
+    }
   }
 }
 
@@ -160,6 +171,7 @@ function readGitHead(checkoutDir) {
     timeout,
   });
   if (result.error) {
+    if (result.cleanupError) result.error.cleanupError = result.cleanupError;
     if (result.error.code === "ETIMEDOUT" && !result.cleanupError) {
       throw new Error(`git rev-parse HEAD timed out after ${timeout}ms`);
     }
@@ -182,6 +194,7 @@ function run(command, commandArgs, cwd = repoRoot) {
     timeout,
   });
   if (result.error) {
+    if (result.cleanupError) result.error.cleanupError = result.cleanupError;
     if (result.error.code === "ETIMEDOUT" && !result.cleanupError) {
       throw new Error(`${command} ${commandArgs.join(" ")} timed out after ${timeout}ms`);
     }

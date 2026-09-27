@@ -189,6 +189,13 @@ supervisor Worker loss can leave descendants alive. The caller does not signal
 a cached process-group number after losing its owner. Permission errors are
 not proof of process-group extinction.
 
+Pinned Inspector checkout preparation waits up to two minutes for its checkout
+lock, then fails without taking ownership from another installer. Lock age is
+not evidence that an installer stopped. Unconfirmed command cleanup retains the
+lock and does not publish install readiness. Wait for the holder to finish; after
+a crash, confirm its checkout commands and descendants have stopped before
+removing `.crabpot/plugin-inspector/.checkout.lock` and retrying preparation.
+
 Windows requires 64-bit Windows 10/Server 2016 or newer and Windows PowerShell:
 commands enter their private Job at creation, and setup failures never fall back
 to uncontained execution. A separate helper Job contains bootstrap compiler
