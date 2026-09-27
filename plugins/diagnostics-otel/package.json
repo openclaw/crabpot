@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for OpenClaw diagnostics OpenTelemetry exporter.",
   "dependencies": {
-    "@openclaw/diagnostics-otel": "2026.9.5"
+    "@openclaw/diagnostics-otel": "2026.9.6"
   },
   "crabpot": {
     "fixture": "diagnostics-otel",
