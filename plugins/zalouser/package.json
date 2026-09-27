@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for OpenClaw Zalo Personal Account plugin via native zca-js integration.",
   "dependencies": {
-    "@openclaw/zalouser": "2026.9.5"
+    "@openclaw/zalouser": "2026.9.6"
   },
   "crabpot": {
     "fixture": "zalouser",
