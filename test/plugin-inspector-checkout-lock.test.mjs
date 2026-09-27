@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { once } from "node:events";
-import { copyFileSync, existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, utimesSync, writeFileSync } from "node:fs";
+import { copyFileSync, existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmdirSync, rmSync, utimesSync, writeFileSync } from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { test } from "node:test";
@@ -107,6 +107,24 @@ test("a waiting resolver rechecks readiness after the successful holder releases
   assert.equal(Atomics.load(shared, 0), 1);
   assert.equal(Atomics.load(shared, 3), 1, "checkout mutators never overlap");
   assert.equal(readFileSync(marker, "utf8"), `${pluginInspectorRef}\n`);
+  assert.equal(existsSync(lock), false);
+});
+
+test("a legacy empty lock requires verified manual recovery before preparation", async (t) => {
+  const { lock, marker, shared, start } = fixture(t);
+  mkdirSync(lock);
+  utimesSync(lock, new Date(0), new Date(0));
+  const result = await start("success", true).closed;
+  assert.match(result.error?.message ?? "", /checkout.*lock.*120000ms/i);
+  assert.deepEqual(readdirSync(lock), []);
+  assert.equal(Atomics.load(shared, 3), 0, "no checkout mutator was started");
+  assert.equal(existsSync(marker), false);
+  // This fixture created an ownerless lock and joined its only waiter above.
+  // Production recovery needs equivalent evidence, never just the lock's age.
+  rmdirSync(lock);
+  assert.equal((await start().closed).ok, true);
+  assert.equal(readFileSync(marker, "utf8"), `${pluginInspectorRef}\n`);
+  assert.equal(Atomics.load(shared, 0), 1);
   assert.equal(existsSync(lock), false);
 });
 
