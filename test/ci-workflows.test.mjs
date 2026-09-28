@@ -40,21 +40,20 @@ test("cancelled checks keep existing artifacts without regenerating reports", as
 
   for (const [workflow, name] of [
     [check, "Write CI summary artifacts"],
-    [check, "Reconcile compatibility report with runtime evidence"],
-    [check, "Run execution policy"],
+    [check, "Write isolated summary"],
     [canary, "Write canary reports"],
   ]) {
-    assert.equal(stepCondition(workflow, name), "${{ !cancelled() }}", name);
+    assert.equal(stepCondition(workflow, name), "always()", name);
+    const block = workflow.slice(workflow.indexOf(`- name: ${name}`)).split("\n      - ")[0];
+    assert.match(block, /node scripts\/write-ci-summary\.mjs --run-report/);
+    assert.doesNotMatch(block, /generate-report|capture-contracts|profile-contract-runtime|check-ci-policy/);
   }
   for (const [workflow, name] of [
-    [check, "Upload CI reports"],
-    [check, "Summarize execution artifacts"],
-    [check, "Write isolated summary"],
-    [check, "Upload isolated execution artifacts"],
+    [check, "Upload CI reports"], [check, "Upload isolated execution artifacts"],
     [canary, "Upload HEAD canary reports"],
-  ]) {
-    assert.equal(stepCondition(workflow, name), "always()", name);
-  }
+  ]) assert.equal(stepCondition(workflow, name), "always()", name);
+  assert.equal(stepCondition(check, "Reconcile compatibility report with runtime evidence"), "${{ !cancelled() && steps.execution.outcome == 'success' }}");
+  assert.equal(stepCondition(check, "Run execution policy"), "${{ !cancelled() && steps.compatibility.outcome == 'success' }}");
   const aggregate = check.slice(check.indexOf("  default-track:"), check.indexOf("  dashboard:"));
   assert.match(aggregate, /^    if: always\(\)$/m);
   assert.match(aggregate, /test "\$\{MANIFEST_RESULT\}" = success/);
@@ -74,7 +73,7 @@ test("manual OpenClaw ref workflow accepts branch tag or SHA inputs", async () =
   assert.match(workflow, /ref: \$\{\{ env\.TARGET_REF \}\}/);
   assert.match(workflow, /strict_contract:[\s\S]*default: true/);
   assert.match(workflow, /SUITE_POLICY: \$\{\{ needs\.request\.outputs\.strict_contract == 'true' && 'release' \|\| 'dashboard' \}\}/);
-  assert.match(workflow, /node scripts\/run-static-suite\.mjs --openclaw \.\/openclaw --policy "\$\{SUITE_POLICY\}"/);
+  assert.match(workflow, /node scripts\/run-static-suite\.mjs --write-reports --openclaw \.\/openclaw --policy "\$\{SUITE_POLICY\}"/);
   assert.match(workflow, /--plugin-inspector-smoke/);
   assert.match(workflow, /node scripts\/check-contract-coverage\.mjs --openclaw \.\/openclaw/);
 });
@@ -109,7 +108,7 @@ test("manual OpenClaw ref workflow has diff and profile modes", async () => {
   assert.match(workflow, /Compare base and head OpenClaw refs/);
   assert.match(workflow, /node scripts\/compare-openclaw-refs\.mjs/);
   assert.match(workflow, /node scripts\/compare-runtime-profile\.mjs/);
-  assert.match(workflow, /node scripts\/check-ci-policy\.mjs \$\{\{ needs\.request\.outputs\.strict_contract == 'true' && '--strict' \|\| '' \}\}/);
+  assert.match(workflow, /node scripts\/check-ci-policy\.mjs --run-report \$\{\{ needs\.request\.outputs\.strict_contract == 'true' && '--strict' \|\| '' \}\}/);
   assert.match(workflow, /node scripts\/write-ci-summary\.mjs/);
 });
 
@@ -301,9 +300,9 @@ test("HEAD canary is advisory, runs the Default Track suite on main, and uploads
   assert.match(workflow, /Run Default Track suite against HEAD/);
   assert.match(workflow, /--openclaw-track latest/);
   assert.match(workflow, /--plugin-track latest/);
-  assert.match(workflow, /run_report\(\)[\s\S]*report_failed=1/);
+  assert.match(workflow, /id: lifecycle[\s\S]*timeout-minutes: 10[\s\S]*ci-report-handoff\.mjs run lifecycle/);
   assert.match(workflow, /node scripts\/import-loop-profile\.mjs --openclaw \.\/openclaw --runs 3/);
-  assert.match(workflow, /exit "\$\{report_failed\}"/);
+  assert.match(workflow, /ci-report-handoff\.mjs run comparison node scripts\/compare-runtime-profile\.mjs/);
   assert.match(workflow, /Upload HEAD canary reports/);
   assert.match(workflow, /crabpot-openclaw-head-canary-\$\{\{ matrix\.os \}\}/);
 });
@@ -338,8 +337,8 @@ test("default check workflow resolves changed submodules into an isolated fixtur
   assert.match(workflow, /npm run workspace:execute -- --fixture "\$\{\{ matrix\.id \}\}" --allow-empty/);
   assert.match(workflow, /node scripts\/generate-report\.mjs --openclaw \.\/openclaw --execution-results reports\/crabpot-execution-results\.json --fixture-set "\$\{\{ matrix\.id \}\}"/);
   assert.match(workflow, /Fail if isolated policy failed/);
-  assert.match(workflow, /steps\.policy\.outcome == 'failure'/);
-  assert.doesNotMatch(workflow, /steps\.execute\.outcome == 'failure' \|\| steps\.policy\.outcome == 'failure'/);
+  assert.match(workflow, /steps\.policy\.outcome != 'success'/);
+  assert.doesNotMatch(workflow, /steps\.execute\.outcome == 'failure' \|\| steps\.policy\.outcome != 'success'/);
 });
 
 test("workflows use current action majors and dependency caches", async () => {
@@ -444,7 +443,7 @@ test("manual workflow enforces strict runtime profile policy before best-effort 
     assert.match(step, /node scripts\/compare-runtime-profile\.mjs \$\{\{ needs\.request\.outputs\.strict_perf == 'true' && '--strict' \|\| '' \}\}/);
     assert.doesNotMatch(step, /continue-on-error/);
   }
-  assert.ok(policySteps.some((step) => step.includes("node scripts/profile-contract-runtime.mjs --openclaw ./openclaw-head")));
+  assert.match(workflow, /id: profile[\s\S]*ci-report-handoff\.mjs run profile node scripts\/profile-contract-runtime\.mjs --openclaw \.\/openclaw-head/);
 });
 
 test("manual workflow writes OpenClaw lifecycle import profile artifacts", async () => {
@@ -464,5 +463,5 @@ test("manual workflow keeps isolated execution artifacts and failure policy wire
   assert.match(workflow, /id: policy[\s\S]*continue-on-error: true[\s\S]*node scripts\/check-ci-policy\.mjs/);
   assert.match(workflow, /node scripts\/generate-report\.mjs --openclaw \.\/openclaw --execution-results reports\/crabpot-execution-results\.json --fixture-set "\$\{\{ matrix\.id \}\}"/);
   assert.match(workflow, /path: \|[\s\S]*\.crabpot\/results\/[\s\S]*reports\/crabpot-execution-results\.\*[\s\S]*reports\/crabpot-ci-policy\.\*[\s\S]*reports\/crabpot-ci-summary\.\*/);
-  assert.match(workflow, /steps\.execute\.outcome == 'failure' \|\| steps\.policy\.outcome == 'failure'/);
+  assert.match(workflow, /steps\.execute\.outcome == 'failure' \|\| steps\.policy\.outcome != 'success'/);
 });

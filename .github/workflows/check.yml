@@ -85,7 +85,8 @@ jobs:
           repository: openclaw/openclaw
           ref: ${{ steps.openclaw-track.outputs.ref }}
           path: openclaw
-      - shell: bash
+      - id: suite
+        shell: bash
         timeout-minutes: 30
         run: |
           plugin_track="${{ steps.openclaw-track.outputs.track }}"
@@ -93,8 +94,9 @@ jobs:
           if [ "${{ steps.openclaw-track.outputs.track }}" = "development" ]; then
             extra_args=(--openclaw-track "${{ steps.openclaw-track.outputs.track }}" --fixture-set openclaw-beta --plugin-track source-pack)
           fi
-          node scripts/run-static-suite.mjs --openclaw ./openclaw --policy dashboard --profile-runs 3 --plugin-inspector-smoke "${extra_args[@]}"
+          node scripts/run-static-suite.mjs --write-reports --openclaw ./openclaw --policy dashboard --profile-runs 3 --plugin-inspector-smoke "${extra_args[@]}"
       - name: Smoke source and packed Plugin Inspector
+        id: inspector-smoke
         if: ${{ matrix.os == 'ubuntu-latest' }}
         shell: bash
         timeout-minutes: 10
@@ -112,26 +114,23 @@ jobs:
           tarball="$(node --input-type=module -e 'import { readFileSync } from "node:fs"; process.stdout.write(JSON.parse(readFileSync(process.argv[1], "utf8"))[0].filename);' "$packed_root/pack.json")"
           npm install --prefix "$packed_root/install" --ignore-scripts --no-audit --no-fund "$packed_root/$tarball"
           CRABPOT_PLUGIN_INSPECTOR_BIN="$packed_root/install/node_modules/.bin/plugin-inspector" CRABPOT_PLUGIN_INSPECTOR_DIR="$packed_root/install/node_modules/@openclaw/plugin-inspector" node scripts/run-plugin-inspector-smoke.mjs --check --runtime --resources --out reports/plugin-inspector-packed-smoke
+      - name: Compare current runtime profile
+        id: comparison
+        if: ${{ !cancelled() && steps.suite.outcome == 'success' }}
+        continue-on-error: true
+        timeout-minutes: 10
+        shell: bash
+        run: |
+          node scripts/ci-report-handoff.mjs run comparison node scripts/compare-runtime-profile.mjs
       - name: Write CI summary artifacts
-        if: ${{ !cancelled() }}
+        if: always()
         continue-on-error: true
         env:
-          CRABPOT_FIXTURE_SET: ${{ steps.openclaw-track.outputs.track == 'development' && 'openclaw-beta' || '' }}
-          CRABPOT_OPENCLAW_TRACK: ${{ steps.openclaw-track.outputs.track }}
-          CRABPOT_PLUGIN_TRACK: ${{ steps.openclaw-track.outputs.track == 'development' && 'source-pack' || steps.openclaw-track.outputs.track }}
-        run: |
-          node scripts/generate-report.mjs --openclaw ./openclaw
-          node scripts/capture-contracts.mjs --openclaw ./openclaw
-          node scripts/synthetic-probes.mjs --openclaw ./openclaw
-          node scripts/cold-import-readiness.mjs --openclaw ./openclaw
-          node scripts/workspace-plan.mjs --openclaw ./openclaw
-          node scripts/platform-probes.mjs --openclaw ./openclaw
-          node scripts/check-generated-surface-fixture.mjs --openclaw ./openclaw
-          node scripts/import-loop-profile.mjs
-          node scripts/profile-contract-runtime.mjs --openclaw ./openclaw --runs 3
-          node scripts/compare-runtime-profile.mjs
-          node scripts/check-ci-policy.mjs
-          node scripts/write-ci-summary.mjs --mode check --openclaw-label "${{ steps.openclaw-track.outputs.label }}" --github-step-summary
+          CRABPOT_CI_STEP_OUTCOMES: >-
+            {"suite": ${{ toJSON(steps.suite) }},
+             "comparison": ${{ toJSON(steps.comparison) }},
+             "inspector-smoke": ${{ matrix.os == 'ubuntu-latest' && toJSON(steps.inspector-smoke) || '{"outcome":"not-selected"}' }}}
+        run: node scripts/write-ci-summary.mjs --run-report --mode check --openclaw-label "${{ steps.openclaw-track.outputs.label }}" --github-step-summary
       - name: Upload CI reports
         if: always()
         uses: actions/upload-artifact@v7
@@ -258,36 +257,52 @@ jobs:
           repository: openclaw/openclaw
           ref: ${{ steps.openclaw-track.outputs.ref }}
           path: openclaw
+      - run: node scripts/ci-report-handoff.mjs start workspace execute execution compatibility policy
       - name: Materialize fixture payload
         env:
           CRABPOT_FIXTURE_SET: ${{ matrix.id }}
           CRABPOT_PLUGIN_TRACK: ${{ steps.openclaw-track.outputs.track == 'development' && 'source-pack' || steps.openclaw-track.outputs.track }}
         run: node scripts/sync-fixtures.mjs --materialize --openclaw ./openclaw
       - name: Validate workspace plan
-        run: node scripts/workspace-plan.mjs --check --openclaw ./openclaw
+        id: workspace
+        shell: bash
+        run: |
+          node scripts/ci-report-handoff.mjs run workspace node scripts/workspace-plan.mjs --check --write --openclaw ./openclaw
       - name: Execute fixture lane
         id: execute
         continue-on-error: true
         env:
           CRABPOT_EXECUTE_ISOLATED: "1"
-        run: npm run workspace:execute -- --fixture "${{ matrix.id }}" --allow-empty --openclaw ./openclaw
+        shell: bash
+        run: |
+          node scripts/ci-report-handoff.mjs run execute npm run workspace:execute -- --fixture "${{ matrix.id }}" --allow-empty --openclaw ./openclaw
       - name: Summarize execution artifacts
-        if: always()
+        id: execution
+        if: ${{ !cancelled() && (steps.execute.outcome == 'success' || steps.execute.outcome == 'failure') }}
         continue-on-error: true
-        run: npm run execution:report
+        shell: bash
+        run: |
+          node scripts/ci-report-handoff.mjs run execution npm run execution:report
       - name: Reconcile compatibility report with runtime evidence
-        if: ${{ !cancelled() }}
+        id: compatibility
+        if: ${{ !cancelled() && steps.execution.outcome == 'success' }}
         continue-on-error: true
-        run: node scripts/generate-report.mjs --openclaw ./openclaw --execution-results reports/crabpot-execution-results.json --fixture-set "${{ matrix.id }}"
+        shell: bash
+        run: |
+          node scripts/ci-report-handoff.mjs run compatibility node scripts/generate-report.mjs --openclaw ./openclaw --execution-results reports/crabpot-execution-results.json --fixture-set "${{ matrix.id }}"
       - name: Run execution policy
         id: policy
-        if: ${{ !cancelled() }}
+        if: ${{ !cancelled() && steps.compatibility.outcome == 'success' }}
         continue-on-error: true
-        run: node scripts/check-ci-policy.mjs
+        shell: bash
+        run: |
+          node scripts/ci-report-handoff.mjs run policy node scripts/check-ci-policy.mjs --run-report
       - name: Write isolated summary
         if: always()
         continue-on-error: true
-        run: node scripts/write-ci-summary.mjs --mode changed-isolated --openclaw-label "${{ steps.openclaw-track.outputs.label }}" --github-step-summary
+        env:
+          CRABPOT_CI_STEP_OUTCOMES: ${{ toJSON(steps) }}
+        run: node scripts/write-ci-summary.mjs --run-report --mode changed-isolated --openclaw-label "${{ steps.openclaw-track.outputs.label }}" --github-step-summary
       - name: Upload isolated execution artifacts
         if: always()
         uses: actions/upload-artifact@v7
@@ -300,9 +315,11 @@ jobs:
             reports/crabpot-execution-results.*
             reports/crabpot-ci-policy.*
             reports/crabpot-ci-summary.*
+            reports/crabpot-ci-run.json
+            reports/crabpot-workspace-plan.*
           if-no-files-found: warn
       - name: Fail if isolated policy failed
-        if: ${{ steps.policy.outcome == 'failure' }}
+        if: ${{ !cancelled() && steps.policy.outcome != 'success' }}
         run: exit 1
 
   default-track:

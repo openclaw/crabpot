@@ -71,45 +71,42 @@ jobs:
         continue-on-error: true
         run: node scripts/resolve-openclaw-track.mjs --track latest --warn-missing-tag
       - name: Run Default Track suite against HEAD
+        id: suite
         shell: bash
         timeout-minutes: 30
         run: |
-          node scripts/run-static-suite.mjs \
+          node scripts/run-static-suite.mjs --write-reports \
             --openclaw ./openclaw \
             --policy dashboard \
             --profile-runs 3 \
             --plugin-inspector-smoke \
             --openclaw-track latest \
             --plugin-track latest
-      - name: Write canary reports
-        if: ${{ !cancelled() }}
+      - name: Measure OpenClaw lifecycle imports
+        id: lifecycle
+        if: ${{ !cancelled() && steps.suite.outcome == 'success' }}
         continue-on-error: true
-        shell: bash
+        timeout-minutes: 10
         env:
           CRABPOT_OPENCLAW_TRACK: latest
           CRABPOT_PLUGIN_TRACK: latest
+        shell: bash
         run: |
-          report_failed=0
-          run_report() {
-            if "$@"; then
-              return
-            fi
-            echo "::warning::Canary report command failed: $*"
-            report_failed=1
-          }
-          run_report node scripts/generate-report.mjs --openclaw ./openclaw
-          run_report node scripts/capture-contracts.mjs --openclaw ./openclaw
-          run_report node scripts/synthetic-probes.mjs --openclaw ./openclaw
-          run_report node scripts/cold-import-readiness.mjs --openclaw ./openclaw
-          run_report node scripts/workspace-plan.mjs --openclaw ./openclaw
-          run_report node scripts/platform-probes.mjs --openclaw ./openclaw
-          run_report node scripts/check-generated-surface-fixture.mjs --openclaw ./openclaw
-          run_report node scripts/import-loop-profile.mjs --openclaw ./openclaw --runs 3
-          run_report node scripts/profile-contract-runtime.mjs --openclaw ./openclaw --runs 3
-          run_report node scripts/compare-runtime-profile.mjs
-          run_report node scripts/check-ci-policy.mjs
-          run_report node scripts/write-ci-summary.mjs --mode head-canary --openclaw-label "openclaw/openclaw@${{ needs.resolve-head.outputs.sha }}" --github-step-summary
-          exit "${report_failed}"
+          node scripts/ci-report-handoff.mjs run lifecycle node scripts/import-loop-profile.mjs --openclaw ./openclaw --runs 3
+      - name: Compare current runtime profile
+        id: comparison
+        if: ${{ !cancelled() && steps.suite.outcome == 'success' }}
+        continue-on-error: true
+        timeout-minutes: 10
+        shell: bash
+        run: |
+          node scripts/ci-report-handoff.mjs run comparison node scripts/compare-runtime-profile.mjs
+      - name: Write canary reports
+        if: always()
+        continue-on-error: true
+        env:
+          CRABPOT_CI_STEP_OUTCOMES: ${{ toJSON(steps) }}
+        run: node scripts/write-ci-summary.mjs --run-report --mode head-canary --openclaw-label "openclaw/openclaw@${{ needs.resolve-head.outputs.sha }}" --github-step-summary
       - name: Upload HEAD canary reports
         if: always()
         uses: actions/upload-artifact@v7

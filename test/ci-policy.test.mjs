@@ -1,5 +1,9 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
+import { mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import os from "node:os";
+import path from "node:path";
+import { ciReportPaths, executeCiStep, startCiRun } from "../scripts/ci-report-handoff.mjs";
 import {
   buildCiPolicyReport,
   renderCiPolicyMarkdown,
@@ -405,3 +409,27 @@ function emptyExecutionResults() {
     artifacts: [],
   };
 }
+
+test("current-run policy ignores unselected execution history but honors a selected failure", async (t) => {
+  const root = mkdtempSync(path.join(os.tmpdir(), "crabpot-current-policy-"));
+  t.after(() => rmSync(root, { recursive: true, force: true }));
+  for (const selected of [false, true]) {
+    const steps = [{ id: "compatibility", report: "compatibility" }, ...(selected ? [{ id: "execution", report: "execution" }] : [])];
+    const run = startCiRun(steps, root);
+    executeCiStep(run, run.steps[0], () => {
+      writeFileSync(path.join(root, ciReportPaths.compatibility), JSON.stringify(compatibilityReport()));
+      return 0;
+    }, root);
+    const failure = { ...executionResults([]), summary: { failCount: 1 } };
+    const writeExecution = () => {
+      writeFileSync(path.join(root, ciReportPaths.execution), JSON.stringify(failure));
+      return 1;
+    };
+    if (selected) executeCiStep(run, run.steps[1], writeExecution, root);
+    else writeExecution();
+    const report = await buildCiPolicyReport({ currentRun: true, root, policy });
+    assert.equal(report.status, selected ? "fail" : "pass");
+    assert.equal(report.checks.some((check) => check.id === "execution-results.failures" && check.action === "fail"), selected);
+    assert.equal(report.checks.some((check) => check.id === "execution-results.not-run"), !selected);
+  }
+});

@@ -1,10 +1,7 @@
 #!/usr/bin/env node
-import { spawnSync } from "node:child_process";
 import { pathToFileURL } from "node:url";
-import { configuredTimeoutMs } from "./owned-command.mjs";
-import { portableCommand } from "./portable-command.mjs";
-
-const defaultStepTimeoutMs = 10 * 60 * 1000;
+import { runStaticStep } from "./static-step.mjs";
+import { executeCiStep, reportKeyForCommand, startCiRun } from "./ci-report-handoff.mjs";
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   main();
@@ -29,12 +26,23 @@ function main() {
     openclawArgs,
     pluginInspectorSmoke,
     profileArgs,
+    writeReports: args.writeReports,
   });
+  process.exitCode = runStaticSuite(steps, { writeReports: args.writeReports });
+}
 
+export function runStaticSuite(steps, { writeReports = false, root = process.cwd(), execute = runStaticStep } = {}) {
+  const report = writeReports ? startCiRun(steps.map(([, args], index) => ({
+    id: `static-${index + 1}`, command: args.join(" "), report: reportKeyForCommand(args),
+  })), root) : null;
   for (let index = 0; index < steps.length; index += 1) {
-    const [command, commandArgs, env] = steps[index];
-    run(command, commandArgs, env, index + 1, steps.length);
+    const [command, args, env] = steps[index];
+    const step = report?.steps[index];
+    const callback = () => execute(command, args, env, index + 1, steps.length);
+    const status = step ? executeCiStep(report, step, callback, root) : callback();
+    if (status !== 0) return status;
   }
+  return 0;
 }
 
 export function buildStaticSuiteSteps({
@@ -43,8 +51,9 @@ export function buildStaticSuiteSteps({
   pluginInspectorSmoke = false,
   policyArgs = [],
   profileArgs = [],
+  writeReports = false,
 } = {}) {
-  return [
+  const steps = [
     ["node", ["scripts/check-openclaw-plugin-contracts.mjs"]],
     ["node", ["scripts/sync-fixtures.mjs", "--materialize", ...openclawArgs]],
     ["node", ["--test", "--test-concurrency=1", "test/*.test.mjs"]],
@@ -68,6 +77,10 @@ export function buildStaticSuiteSteps({
     ["node", ["scripts/check-contract-coverage.mjs", ...openclawArgs], fixtureEnv],
     ["node", ["scripts/check-ci-policy.mjs", "--check", ...policyArgs], fixtureEnv],
   ];
+  return writeReports ? steps.map(([command, args, env]) => [command,
+    reportKeyForCommand(args) && args.includes("--check")
+      ? [...args, "--write", ...(args[0] === "scripts/check-ci-policy.mjs" ? ["--run-report"] : [])]
+      : args, env]) : steps;
 }
 
 function parseArgs(argv) {
@@ -79,10 +92,15 @@ function parseArgs(argv) {
     pluginTrack: "",
     policy: "dashboard",
     profileRuns: "",
+    writeReports: false,
   };
 
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
+    if (arg === "--write-reports") {
+      args.writeReports = true;
+      continue;
+    }
     if (arg === "--openclaw") {
       args.openclawPath = argv[index + 1];
       index += 1;
@@ -126,29 +144,4 @@ function assertPolicy(policy) {
     throw new Error(`unknown static suite policy: ${policy}`);
   }
   return policy;
-}
-
-function run(command, args, env = {}, index = 1, total = 1) {
-  // An empty static-suite setting historically selects the default.
-  const timeout = process.env.CRABPOT_STATIC_STEP_TIMEOUT_MS === ""
-    ? defaultStepTimeoutMs
-    : configuredTimeoutMs("CRABPOT_STATIC_STEP_TIMEOUT_MS", defaultStepTimeoutMs);
-  const rendered = [command, ...args].join(" ");
-  console.log(`crabpot: static step ${index}/${total}: ${rendered}`);
-  const result = spawnSync(portableCommand(command), args, {
-    encoding: "utf8",
-    env: { ...process.env, ...env },
-    stdio: "inherit",
-    timeout,
-  });
-  if (result.error) {
-    if (result.error.code === "ETIMEDOUT") {
-      throw new Error(`static suite step timed out after ${timeout}ms: ${rendered}`);
-    }
-    throw result.error;
-  }
-  if (result.status !== 0) {
-    process.exit(result.status ?? 1);
-  }
-  console.log(`crabpot: static step ${index}/${total} complete`);
 }
