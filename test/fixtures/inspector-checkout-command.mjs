@@ -28,7 +28,9 @@ export function runOwnedCommand(command, args, options) {
     Atomics.add(shared, 0, 1);
     parentPort.postMessage({ type: "install" });
     if (mode === "npm-timeout") return {
-      ...success, status: null, error: Object.assign(new Error("timed out"), { code: "ETIMEDOUT" }),
+      ...success, status: null, error: Object.assign(new Error("timed out"), {
+        code: "ETIMEDOUT", startupTrace: [{ phase: "owner-started", atMs: 1, observedAtMs: 2 }],
+      }),
     };
     if (mode === "hold" && Atomics.wait(shared, 1, 0, 5000) === "timed-out") throw new Error("fixture release was not observed");
     if (mode.startsWith("replacement")) {

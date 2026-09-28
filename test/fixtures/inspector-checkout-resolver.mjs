@@ -18,5 +18,7 @@ try {
   parentPort.postMessage({ type: "result", ok: false, error: {
     name: error.name, message: error.message, code: error.code, cleanupError: error.cleanupError,
     errors: error.errors?.map((cause) => ({ message: cause.message, code: cause.code })),
+    cause: error.cause && { message: error.cause.message, code: error.cause.code,
+      startupTrace: error.cause.startupTrace },
   } });
 }
