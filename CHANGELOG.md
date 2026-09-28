@@ -2,6 +2,7 @@
 
 ## 0.2.2 - Unreleased
 
+- Arm Windows helper cancellation before request parsing so owner loss or startup expiry cannot leave a parser-blocked helper running.
 - Preserve exclusive Plugin Inspector checkout ownership across long installs and unconfirmed command cleanup; fail bounded lock contention without stealing another installer's lock.
 - Preserve the Windows command controller's parent environment when a caller supplies a restricted target environment, without changing the target's environment or cleanup guarantees.
 - Print bounded stage, error type and code diagnostics for standalone resource workload failures without exposing raw exception payloads; preserve retained receipts and joined cleanup.

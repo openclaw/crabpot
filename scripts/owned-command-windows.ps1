@@ -13,14 +13,14 @@ try {
     $writer.AutoFlush = $true
     $line = $reader.ReadLine()
     if ($null -eq $line) { exit 1 }
-    $request = $line | ConvertFrom-Json
-    # Direct .NET delegates do not depend on the PowerShell runspace while Add-Type blocks.
+    # Direct .NET delegates remain responsive while JSON parsing or compilation blocks.
     $ownerLost = [System.Threading.CancellationTokenSource]::new()
     $killSelf = [System.Delegate]::CreateDelegate([System.Action], [System.Diagnostics.Process]::GetCurrentProcess(), "Kill")
     $cancelOwner = [System.Delegate]::CreateDelegate([System.Action], $ownerLost, "Cancel")
     $bootstrapKill = $ownerLost.Token.Register($killSelf)
     $ownerRead = $reader.ReadLineAsync()
     $ownerRead.ConfigureAwait($false).GetAwaiter().OnCompleted($cancelOwner)
+    $request = $line | ConvertFrom-Json
     # CodeDOM starts csc.exe. Contain this dedicated helper before compiling the
     # command owner; emitting these five fixed declarations starts no compiler.
     if ([IntPtr]::Size -ne 8) { throw "Windows Job ownership requires a 64-bit Windows runtime" }

@@ -390,27 +390,67 @@ test("Windows command preserves the native process creation error", {
   t.diagnostic(`native error ${result.error.nativeCode} retains Node ${baseline.error.code}`);
 });
 
-for (const ownerLost of [false, true]) {
-  test(`Windows blocked bootstrap ${ownerLost ? "observes owner loss" : "has a deadline"} before native admission`, {
+for (const [phase, ownerLost, historicalOrder] of [
+  ["compilation", false, false], ["compilation", true, false],
+  ["parsing", false, false], ["parsing", true, false], ["parsing", true, true],
+]) {
+  test(`Windows blocked ${phase} ${historicalOrder ? "negative control survives owner loss" : ownerLost ? "observes owner loss" : "has a deadline"} before native admission`, {
     skip: process.platform !== "win32", timeout: 30_000,
   }, async (t) => {
     const root = await mkdtemp(path.join(os.tmpdir(), "crabpot bootstrap owner "));
+    const helperReady = path.join(root, "helper-ready.json");
+    const rescueFile = path.join(root, "helper-rescue");
+    const escapeFile = path.join(root, "helper-escape");
+    let worker;
+    let helper;
+    t.after(async () => {
+      let closed = !worker;
+      try {
+        await writeFile(rescueFile, "stop");
+        await worker?.terminate();
+        if (helper) closed = await waitForExit(helper.pid, 22_000);
+      } finally {
+        if (closed) await rm(root, { recursive: true, force: true });
+        else t.diagnostic("bootstrap fixture retained: helper closure unconfirmed");
+      }
+      if (helper) assert.equal(closed, true, "helper must close before fixture removal");
+    });
     const ownerPath = await copyOwner(root);
-    const pidFile = path.join(root, "helper-pid");
     const commandMarker = path.join(root, "command-started");
-    const original = await readFile(new URL("../scripts/owned-command-windows.ps1", import.meta.url), "utf8");
-    const compilation = 'Add-Type -Path (Join-Path $PSScriptRoot "owned-command-windows.cs")';
-    assert.equal(original.split(compilation).length, 2);
-    // Stall the real bootstrap at compilation, retaining its actual control-pipe
-    // ownership. The bounded fixture escape only runs after the assertions fail.
-    const blocked = original.replace(compilation, `
-        [System.IO.File]::WriteAllText('${pidFile.replaceAll("'", "''")}', [string]$PID)
-        Start-Sleep -Seconds 20
-        exit 99
+    const original = (await readFile(new URL("../scripts/owned-command-windows.ps1", import.meta.url), "utf8"))
+      .replaceAll("\r\n", "\n");
+    const parsing = "    $request = $line | ConvertFrom-Json\n";
+    const watcher = "    $ownerLost = [System.Threading.CancellationTokenSource]::new()\n";
+    assert.equal(original.split(parsing).length, 2);
+    assert.equal(original.split(watcher).length, 2);
+    const source = historicalOrder
+      ? original.replace(parsing, "").replace(watcher, parsing + watcher)
+      : original;
+    const gate = phase === "parsing" ? parsing.trim()
+      : 'Add-Type -Path (Join-Path $PSScriptRoot "owned-command-windows.cs")';
+    assert.equal(source.split(gate).length, 2);
+    const ps = (value) => `'${value.replaceAll("'", "''")}'`;
+    // Block the actual helper without loading a cmdlet. Neither cooperative
+    // rescue nor the independent fixture expiry may supply the asserted closure.
+    const blocked = source.replace(gate, `
+        $expiresAt = [DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds() + 20000
+        $fixtureClock = [System.Diagnostics.Stopwatch]::StartNew()
+        $observed = '{"pid":' + $PID + ',"expiresAtMs":' + $expiresAt + '}'
+        [System.IO.File]::WriteAllText(${ps(helperReady + ".pending")}, $observed)
+        [System.IO.File]::Move(${ps(helperReady + ".pending")}, ${ps(helperReady)})
+        while ($fixtureClock.ElapsedMilliseconds -lt 20000) {
+            if ([System.IO.File]::Exists(${ps(rescueFile)})) {
+                [System.IO.File]::WriteAllText(${ps(escapeFile)}, "rescued")
+                exit 99
+            }
+            [System.Threading.Thread]::Sleep(20)
+        }
+        [System.IO.File]::WriteAllText(${ps(escapeFile)}, "expired")
+        exit 98
     `);
     await writeFile(path.join(root, "scripts/owned-command-windows.ps1"), blocked);
     const resultFile = path.join(root, "result.json");
-    const worker = new Worker(`
+    worker = new Worker(`
       const { workerData } = require("node:worker_threads");
       import(workerData.owner).then(({ runOwnedCommand }) => {
         const result = runOwnedCommand(process.execPath, ["-e", workerData.command], { timeout: 1000 });
@@ -424,35 +464,27 @@ for (const ownerLost of [false, true]) {
     } });
     const errors = [];
     worker.on("error", (error) => errors.push(error));
-    let helperPid;
-    t.after(async () => {
-      await worker.terminate();
-      // Rescue does not signal a possibly recycled PID. The fixture expires itself.
-      if (helperPid) await waitForExit(helperPid, 22_000);
-      await rm(root, { recursive: true, force: true });
-    });
-    for (let attempt = 0; attempt < 150 && !helperPid; attempt += 1) {
-      try { helperPid = Number(await readFile(pidFile, "utf8")); } catch (error) {
-        if (error.code !== "ENOENT") throw error;
-      }
-      if (!helperPid) await delay(50);
-    }
-    assert.ok(helperPid, "the actual helper must reach the blocked bootstrap");
+    helper = await readReceipt(helperReady, 7500, () => errors.map(String).join("\n"));
+    assert.ok(Number.isSafeInteger(helper.pid) && helper.pid > 0);
+    assert.equal(process.kill(helper.pid, 0), true, "actual helper must be alive at interruption");
     if (ownerLost) {
       await worker.terminate();
-      assert.equal(await waitForExit(helperPid, 2000), true);
     } else {
-      let result;
-      for (let attempt = 0; attempt < 250 && !result; attempt += 1) {
-        try { result = JSON.parse(await readFile(resultFile, "utf8")); } catch (error) {
-          if (error.code !== "ENOENT") throw error;
-        }
-        if (!result) await delay(50);
-      }
-      assert.ok(result, "bootstrap must return before the fixture's independent escape");
-      assert.ok(result.error);
-      assert.equal(await waitForExit(helperPid, 100), true);
+      const result = await readReceipt(resultFile, 12_500, () => errors.map(String).join("\n"));
+      assert.equal(result.error?.code, "EOWNERSTART");
     }
+    const closed = await waitForExit(helper.pid, ownerLost ? 2000 : 100);
+    assert.ok(Date.now() < helper.expiresAtMs, "closure assertion must precede independent fixture expiry");
+    await assert.rejects(readFile(escapeFile), { code: "ENOENT" });
+    const requireClosure = () => assert.equal(closed, true, "helper must exit before fixture rescue");
+    if (historicalOrder) {
+      assert.throws(requireClosure, { code: "ERR_ASSERTION", message: /helper must exit before fixture rescue/ });
+      t.diagnostic("negative control: historical parser ordering left the actual helper alive after owner loss");
+      await writeFile(rescueFile, "stop");
+      assert.equal(await waitForExit(helper.pid, 2000), true, "negative-control helper must respond to rescue");
+      assert.ok(Date.now() < helper.expiresAtMs, "rescue must precede independent fixture expiry");
+      assert.equal(await readFile(escapeFile, "utf8"), "rescued");
+    } else requireClosure();
     assert.deepEqual(errors, []);
     await assert.rejects(readFile(commandMarker), { code: "ENOENT" });
   });
