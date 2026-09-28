@@ -20,7 +20,14 @@ try {
     $bootstrapKill = $ownerLost.Token.Register($killSelf)
     $ownerRead = $reader.ReadLineAsync()
     $ownerRead.ConfigureAwait($false).GetAwaiter().OnCompleted($cancelOwner)
+    # Best-effort phase observations never replace the owner-loss watcher or receipts.
+    function Write-Phase([string]$Name) {
+        try { $writer.WriteLine("PHASE " + $Name + " " + [DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds()) } catch {}
+    }
+    Write-Phase "request-read"
+    Write-Phase "parser-started"
     $request = $line | ConvertFrom-Json
+    Write-Phase "parser-completed"
     # CodeDOM starts csc.exe. Contain this dedicated helper before compiling the
     # command owner; emitting these five fixed declarations starts no compiler.
     if ([IntPtr]::Size -ne 8) { throw "Windows Job ownership requires a 64-bit Windows runtime" }
@@ -79,7 +86,10 @@ try {
     }
     # Keep the non-inheritable Job handle for this process's lifetime. Helper
     # death closes it and kills compiler descendants; that is not a success receipt.
+    Write-Phase "bootstrap-contained"
+    Write-Phase "compile-started"
     Add-Type -Path (Join-Path $PSScriptRoot "owned-command-windows.cs")
+    Write-Phase "compile-completed"
     [CrabpotCommandJob]::Run(
         $request.application, $request.commandLine, $request.cwd, $request.environment,
         [int]$request.timeout, [int]$request.cleanup, $ownerLost, $bootstrapKill, $writer)

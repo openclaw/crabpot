@@ -179,7 +179,13 @@ test("plugin inspector checkout head probe returns instead of blocking when git 
     const previousPath = process.env.PATH;
     process.env.PATH = `${hangDir}${path.delimiter}${previousPath}`;
     try {
-      assert.throws(() => isPinnedCheckoutReady(checkoutDir, "unused"), /timed out after 250ms/);
+      assert.throws(() => isPinnedCheckoutReady(checkoutDir, "unused"), (error) => {
+        assert.match(error.message, /timed out after 250ms/);
+        assert.equal(error.code, undefined);
+        assert.equal(error.cause.code, "ETIMEDOUT");
+        assert.ok(error.cause.startupTrace.some(({ phase }) => phase === "worker-entered"));
+        return true;
+      });
       assert.ok(Date.now() - startedAt < 4_000, "hung git rev-parse must return");
     } finally {
       process.env.PATH = previousPath;

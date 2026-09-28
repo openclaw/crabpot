@@ -73,7 +73,7 @@ function fixtureLockDirectories() {
 export function parseAuditResult(result, fixture, timeout) {
   if (result.error) {
     if (result.error.code === "ETIMEDOUT" && !result.cleanupError) {
-      throw new Error(`${fixture}: npm audit timed out after ${timeout}ms`);
+      throw new Error(`${fixture}: npm audit timed out after ${timeout}ms`, { cause: result.error });
     }
     throw result.error;
   }

@@ -189,6 +189,14 @@ supervisor Worker loss can leave descendants alive. The caller does not signal
 a cached process-group number after losing its owner. Permission errors are
 not proof of process-group extinction.
 
+Failed commands include a bounded `error.startupTrace` with fixed phase names,
+emission timestamps (`atMs`) and parent observation timestamps (`observedAtMs`).
+These are same-host wall-clock milliseconds, not CPU measurements or deadline
+extensions. Windows phases distinguish parsing, bootstrap containment, compilation
+and native process creation. Missing later phases remain unknown; a phase marker
+never proves Job extinction. The parent retains received phases if its Worker dies.
+Contextual timeout errors retain the original error as `cause`.
+
 Pinned Inspector checkout preparation waits up to two minutes for its checkout
 lock, then fails without taking ownership from another installer. Lock age is
 not evidence that an installer stopped. Unconfirmed command cleanup retains the

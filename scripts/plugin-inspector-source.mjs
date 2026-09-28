@@ -175,7 +175,7 @@ function readGitHead(checkoutDir) {
   if (result.error) {
     if (result.cleanupError) result.error.cleanupError = result.cleanupError;
     if (result.error.code === "ETIMEDOUT" && !result.cleanupError) {
-      throw new Error(`git rev-parse HEAD timed out after ${timeout}ms`);
+      throw new Error(`git rev-parse HEAD timed out after ${timeout}ms`, { cause: result.error });
     }
     throw result.error;
   }
@@ -198,7 +198,7 @@ function run(command, commandArgs, cwd = repoRoot) {
   if (result.error) {
     if (result.cleanupError) result.error.cleanupError = result.cleanupError;
     if (result.error.code === "ETIMEDOUT" && !result.cleanupError) {
-      throw new Error(`${command} ${commandArgs.join(" ")} timed out after ${timeout}ms`);
+      throw new Error(`${command} ${commandArgs.join(" ")} timed out after ${timeout}ms`, { cause: result.error });
     }
     throw result.error;
   }

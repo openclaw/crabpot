@@ -31,7 +31,7 @@ const result = runOwnedCommand(invocation.command, [...invocation.args, ...inspe
 
 if (result.error) {
   if (result.error.code === "ETIMEDOUT" && !result.cleanupError) {
-    throw new Error(`plugin-inspector smoke timed out after ${timeout}ms`);
+    throw new Error(`plugin-inspector smoke timed out after ${timeout}ms`, { cause: result.error });
   }
   throw result.error;
 }

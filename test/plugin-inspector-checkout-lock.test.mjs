@@ -136,6 +136,11 @@ for (const mode of ["git-failure", "npm-failure", "npm-timeout", "git-cleanup", 
     assert.equal(result.ok, false);
     assert.match(result.error.message, /failed with exit code 7|timed out|primary command failure/);
     assert.equal(result.error.cleanupError?.code, uncertain ? "EOWNERCLEANUP" : undefined);
+    if (mode === "npm-timeout") {
+      assert.equal(result.error.code, undefined, "outer timeout contract stays unchanged");
+      assert.deepEqual(result.error.cause, { message: "timed out", code: "ETIMEDOUT",
+        startupTrace: [{ phase: "owner-started", atMs: 1, observedAtMs: 2 }] });
+    }
     assert.equal(existsSync(lock), uncertain);
     if (uncertain) assert.equal(readdirSync(lock).length, 1, "retain the acquired owner token");
     assert.equal(existsSync(marker), false);

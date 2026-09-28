@@ -22,6 +22,7 @@ test("owned command preserves synchronous results, cwd, environment, and argumen
   });
   assert.equal(typeof result.then, "undefined");
   assert.ifError(result.error);
+  assert.equal(result.startupTrace, undefined, "successful results do not publish diagnostic traces");
   assert.equal(result.status, 7);
   assert.equal(result.signal, null);
   const observed = JSON.parse(result.stdout);
@@ -121,8 +122,46 @@ test("owned command bounds a missing Worker bootstrap without starting the reque
     require("node:fs").writeFileSync(${JSON.stringify(marker)}, "started");
   `], { timeout: 1000 });
   assert.equal(result.error?.code, "EOWNERSTART");
+  assert.deepEqual(tracePhases(result), ["owner-started"]);
+  assert.equal(result.cleanupError?.code, "EOWNERCLEANUP", "missing Worker result remains unconfirmed cleanup");
   assert.ok(performance.now() - started < 15_000);
   await assert.rejects(readFile(marker), { code: "ENOENT" });
+});
+
+test("parent drains bounded phase observations without delaying queued results or accepting arbitrary trace data", async (t) => {
+  const root = await temporaryRoot(t);
+  const ownerPath = await copyOwner(root);
+  const source = await readFile(ownerPath, "utf8");
+  const entry = 'if (workerData?.ownedCommand === true) {';
+  assert.equal(source.split(entry).length, 2);
+  await writeFile(ownerPath, source.replace(entry, `${entry}
+    const atMs = Date.now() - 100;
+    for (let i = 0; i < 1200; i++) {
+      workerData.port.postMessage({ type: "phase", phase: "worker-entered", atMs });
+    }
+    for (const observation of [
+      { phase: "arbitrary-private-value", atMs },
+      { phase: "compile-started", atMs: Infinity },
+      { phase: "compile-started", atMs: -1 },
+      { phase: "compile-started", atMs: 0.5 },
+    ]) workerData.port.postMessage({ type: "phase", ...observation });
+    workerData.port.postMessage({ type: "result", result: {
+      pid: 0, status: null, signal: null, stdout: Buffer.alloc(0), stderr: Buffer.alloc(0),
+      error: { code: "EOWNERTEST", message: "original fixture failure" },
+    } });
+    workerData.port.close();
+  } else if (false) {
+  `));
+  const { runOwnedCommand: invoke } = await import(pathToFileURL(ownerPath).href);
+  const started = performance.now();
+  const result = invoke(process.execPath, ["-e", "throw Error('must not execute')"], { timeout: 1000 });
+  assert.equal(result.error?.code, "EOWNERTEST");
+  assert.equal(result.error.message, "original fixture failure");
+  assert.equal(result.cleanupError, undefined);
+  assert.deepEqual(tracePhases(result), ["owner-started", "worker-entered"]);
+  const observation = result.error.startupTrace[1];
+  assert.ok(observation.observedAtMs > observation.atMs, "emission and receipt timestamps remain distinct");
+  assert.ok(performance.now() - started < 5000, "diagnostic duplicates cannot consume the startup budget");
 });
 
 for (const [fault, operation] of [
@@ -187,7 +226,7 @@ for (const [fault, operation] of [
         timeout: 1000, maxBuffer: 64, encoding: "utf8",
       });
       console.log(JSON.stringify({
-        error: result.error && { code: result.error.code, message: result.error.message },
+        error: result.error && { code: result.error.code, message: result.error.message, startupTrace: result.error.startupTrace },
         cleanupError: result.cleanupError,
         elapsed: performance.now() - started,
       }));
@@ -204,6 +243,7 @@ for (const [fault, operation] of [
     assert.equal(observed.error?.code, operation === "overflow" ? "ENOBUFS" : "ETIMEDOUT", JSON.stringify(observed));
     assert.ok(observed.error.message.startsWith(operation === "overflow"
       ? "command output exceeded maxBuffer" : "command timed out after 1000ms"), JSON.stringify(observed));
+    assert.deepEqual(tracePhases(observed), ["owner-started", "worker-entered"], "parent retains observations even without the Worker's terminal result");
     assert.ok(observed.elapsed < (fault === "worker-loss" ? 6500 : 4000), JSON.stringify(observed));
     if (fault === "signal" || fault === "none") {
       assert.equal(observed.cleanupError, undefined, "subsequent extinction must be observed");
@@ -387,6 +427,11 @@ test("Windows command preserves the native process creation error", {
   }, { code: baseline.error.code, operation: "CreateProcessW(JOB_LIST)" }, result.error?.message);
   assert.equal(result.error?.path, command);
   assert.deepEqual(result.error?.spawnargs, ["argument"]);
+  const phases = tracePhases(result);
+  assert.ok(phases.includes("create-process-pending"));
+  assert.equal(phases.includes("create-process-completed"), false);
+  assert.equal(phases.includes("ready-received"), false);
+  assert.equal(phases.includes("closed-received"), false);
   t.diagnostic(`native error ${result.error.nativeCode} retains Node ${baseline.error.code}`);
 });
 
@@ -472,6 +517,11 @@ for (const [phase, ownerLost, historicalOrder] of [
     } else {
       const result = await readReceipt(resultFile, 12_500, () => errors.map(String).join("\n"));
       assert.equal(result.error?.code, "EOWNERSTART");
+      const phases = tracePhases(result);
+      assert.ok(phases.includes(phase === "parsing" ? "parser-started" : "compile-started"));
+      assert.equal(phases.includes(phase === "parsing" ? "parser-completed" : "compile-completed"), false);
+      assert.equal(phases.includes("create-process-pending"), false);
+      assert.equal(result.cleanupError?.code, "EOWNERCLEANUP", "phase observations are not extinction receipts");
     }
     const closed = await waitForExit(helper.pid, ownerLost ? 2000 : 100);
     assert.ok(Date.now() < helper.expiresAtMs, "closure assertion must precede independent fixture expiry");
@@ -502,7 +552,7 @@ for (const phase of ["preconnection", "late connection"]) {
     const escapeFile = path.join(root, "helper-escape.json");
     const resultFile = path.join(root, "result.json");
     const commandMarker = path.join(root, "command-started");
-    const requestMarker = path.join(root, "request-issued");
+    const requestMarker = path.join(root, "request-write-attempted");
     const stopMarker = path.join(root, "stopped-before-connection");
     const original = await readFile(new URL("../scripts/owned-command-windows.ps1", import.meta.url), "utf8");
     const connection = "    $pipe.Connect(5000)";
@@ -586,6 +636,10 @@ for (const phase of ["preconnection", "late connection"]) {
     const result = await readReceipt(resultFile, 14_000, () => errors.map(String).join("\n"));
     assert.ok(result.error);
     if (phase === "preconnection") assert.equal(result.error.code, "EOWNERSTART");
+    const phases = tracePhases(result);
+    assert.ok(phases.includes("helper-spawned"));
+    assert.equal(phases.includes("pipe-connected"), phase === "late connection");
+    assert.equal(phases.includes("request-write-attempted"), false);
     const closed = await waitForExit(helperPid, 100);
     t.diagnostic(`phase=${phase}; error=${result.error.code}; helperClosedBeforeRescue=${closed}`);
     assert.ok(Date.now() < ready.expiresAtMs, "cleanup assertion must precede independent fixture expiry");
@@ -698,6 +752,11 @@ for (const [ownerLost, guarded] of [[false, true], [true, true], [false, false],
       const result = await readReceipt(resultFile, 14_000, observerError);
       assert.equal(result.error?.code, "EOWNERSTART");
       assert.equal(result.status, null);
+      const phases = tracePhases(result);
+      if (guarded) assert.ok(phases.includes("compile-started"));
+      assert.equal(phases.includes("compile-completed"), false);
+      assert.equal(phases.includes("create-process-pending"), false);
+      assert.equal(result.cleanupError?.code, "EOWNERCLEANUP");
     }
     assert.equal(await waitForExit(compiler.helperPid, 1000), true);
     const extinct = await waitForExit(compiler.pid, 2500);
@@ -769,6 +828,20 @@ async function temporaryRoot(t) {
   const root = await mkdtemp(path.join(os.tmpdir(), "crabpot command owner "));
   t.after(() => rm(root, { recursive: true, force: true }));
   return root;
+}
+
+function tracePhases(result) {
+  const trace = result.error?.startupTrace;
+  assert.ok(Array.isArray(trace) && trace.length > 0 && trace.length <= 16);
+  for (const entry of trace) {
+    assert.deepEqual(Object.keys(entry), ["phase", "atMs", "observedAtMs"]);
+    assert.match(entry.phase, /^[a-z-]+$/);
+    assert.ok(Number.isSafeInteger(entry.atMs) && entry.atMs >= 0);
+    assert.ok(Number.isSafeInteger(entry.observedAtMs) && entry.observedAtMs >= 0);
+  }
+  const phases = trace.map(({ phase }) => phase);
+  assert.equal(new Set(phases).size, phases.length);
+  return phases;
 }
 
 async function copyOwner(root) {
