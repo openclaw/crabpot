@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
-import { copyFileSync, existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { copyFileSync, existsSync, mkdirSync, mkdtempSync, readFileSync, realpathSync, rmSync, writeFileSync } from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { test } from "node:test";
@@ -13,7 +13,7 @@ import * as staticSuite from "../scripts/run-static-suite.mjs";
 const { buildStaticSuiteSteps, runStaticSuite } = staticSuite;
 
 function fixture(t) {
-  const parent = mkdtempSync(path.join(os.tmpdir(), "crabpot-report-handoff-"));
+  const parent = realpathSync(mkdtempSync(path.join(os.tmpdir(), "crabpot-report-handoff-")));
   const root = path.join(parent, "crabpot");
   mkdirSync(path.join(root, "reports"), { recursive: true });
   t.after(() => rmSync(parent, { recursive: true, force: true }));
