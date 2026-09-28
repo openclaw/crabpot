@@ -13,6 +13,12 @@ const startupMs = 10_000;
 const cleanupMs = 2_000;
 const termGraceMs = 200;
 const defaultMaxBuffer = 1024 * 1024;
+const startupPhases = new Set([
+  "owner-started", "worker-entered", "helper-spawned", "pipe-connected", "request-write-attempted",
+  "request-read",
+  "parser-started", "parser-completed", "bootstrap-contained", "compile-started", "compile-completed",
+  "native-entered", "create-process-pending", "create-process-completed", "ready-received", "closed-received",
+]);
 
 export function configuredTimeoutMs(name, fallback) {
   const raw = process.env[name];
@@ -36,6 +42,9 @@ export function runOwnedCommand(command, args, options = {}) {
   }
   const shared = new Int32Array(new SharedArrayBuffer(16));
   const { port1, port2 } = new MessageChannel();
+  const startedAtMs = Date.now();
+  const startupTrace = [{ phase: "owner-started", atMs: startedAtMs, observedAtMs: startedAtMs }];
+  const observedPhases = new Set(["owner-started"]);
   const worker = new Worker(new URL(import.meta.url), {
     execArgv: [],
     workerData: {
@@ -61,7 +70,13 @@ export function runOwnedCommand(command, args, options = {}) {
   let result;
   let firstFailure;
   const receive = (packet) => {
-    if (packet?.type === "ready") {
+    if (packet?.type === "phase") {
+      if (startupPhases.has(packet.phase) && !observedPhases.has(packet.phase) &&
+          Number.isSafeInteger(packet.atMs) && packet.atMs >= 0) {
+        observedPhases.add(packet.phase);
+        startupTrace.push({ phase: packet.phase, atMs: packet.atMs, observedAtMs: Date.now() });
+      }
+    } else if (packet?.type === "ready") {
       running = true;
       deadline = performance.now() + timeout + cleanupMs;
     } else if (packet?.type === "failure") {
@@ -71,16 +86,22 @@ export function runOwnedCommand(command, args, options = {}) {
       result.error ??= firstFailure;
     }
   };
+  // Diagnostics must not queue READY/result behind another polling interval.
+  // Each phase is emitted once; draining also preserves observations on Worker loss.
+  const drain = () => {
+    let packet;
+    while ((packet = receiveMessageOnPort(port1))) receive(packet.message);
+  };
   try {
     while (!result) {
-      receive(receiveMessageOnPort(port1)?.message);
+      drain();
       if (result) break;
       if (performance.now() >= deadline) {
         Atomics.store(shared, 1, 1);
         port1.postMessage({ type: "stop" });
         const end = performance.now() + cleanupMs;
         while (performance.now() < end) {
-          receive(receiveMessageOnPort(port1)?.message);
+          drain();
           if (result) break;
           Atomics.wait(shared, 0, Atomics.load(shared, 0), 10);
         }
@@ -137,7 +158,9 @@ export function runOwnedCommand(command, args, options = {}) {
     const error = result.error ?? result.cleanupError;
     result.error = { ...error, message: `${error.message}; command cleanup was not confirmed` };
   }
-  if (result.error) result.error = Object.assign(new Error(result.error.message), result.error);
+  // Wall-clock emission and parent observation times are diagnostic facts, not
+  // CPU measurements or cleanup receipts. Success keeps its existing result shape.
+  if (result.error) result.error = Object.assign(new Error(result.error.message), result.error, { startupTrace });
   return result;
 }
 
@@ -195,6 +218,17 @@ function groupRunning(pid) {
 }
 
 async function supervise({ command, args, options, port, shared }) {
+  const emittedPhases = new Set();
+  const phase = (name, atMs = Date.now()) => {
+    if (emittedPhases.has(name)) return;
+    emittedPhases.add(name);
+    try {
+      port.postMessage({ type: "phase", phase: name, atMs });
+      Atomics.add(shared, 0, 1);
+      Atomics.notify(shared, 0);
+    } catch { /* Owner loss must not turn diagnostic delivery into command state. */ }
+  };
+  phase("worker-entered");
   const result = emptyResult();
   const output = options.inherit ? null : {
     stdout: Buffer.allocUnsafe(options.maxBuffer), stderr: Buffer.allocUnsafe(options.maxBuffer),
@@ -250,7 +284,7 @@ async function supervise({ command, args, options, port, shared }) {
   port.on("close", onStop);
   try {
     const execution = process.platform === "win32"
-      ? runWindows(command, args, options, result, observe, ready, fail, shared, recordFailure)
+      ? runWindows(command, args, options, result, observe, ready, fail, shared, recordFailure, phase)
       : runPosix(command, args, options, result, observe, ready, fail);
     stop = execution.stop;
     await execution.completion;
@@ -373,7 +407,7 @@ function batchCommandLine(executable, args) {
   })].join(" ");
 }
 
-function runWindows(command, args, options, result, observe, ready, fail, shared, recordFailure) {
+function runWindows(command, args, options, result, observe, ready, fail, shared, recordFailure, phase) {
   const pipeName = `crabpot-command-${randomUUID()}`;
   const server = createServer();
   let socket;
@@ -462,6 +496,7 @@ function runWindows(command, args, options, result, observe, ready, fail, shared
   };
   server.on("error", (error) => { fail(error); finish(); });
   server.once("connection", (connection) => {
+    phase("pipe-connected");
     socket = connection;
     server.close();
     let pending = "";
@@ -478,13 +513,21 @@ function runWindows(command, args, options, result, observe, ready, fail, shared
       while ((end = pending.indexOf("\n")) !== -1) {
         const line = pending.slice(0, end).trimEnd();
         pending = pending.slice(end + 1);
-        if (/^READY \d+$/.test(line) && !admitted) {
+        const observation = /^PHASE ([a-z-]+) (\d+)$/.exec(line);
+        if (line.startsWith("PHASE ")) {
+          if (observation && startupPhases.has(observation[1]) &&
+              Number.isSafeInteger(Number(observation[2]))) {
+            phase(observation[1], Number(observation[2]));
+          }
+        } else if (/^READY \d+$/.test(line) && !admitted) {
+          phase("ready-received");
           admitted = true;
           clearTimeout(startupTimer);
           ready(Number(line.slice(6)));
         } else if (/^EXIT \d+$/.test(line) && admitted) {
           result.status = Number(line.slice(5));
         } else if (line === "CLOSED" && admitted) {
+          phase("closed-received");
           closedJob = true;
         } else if (line === "TIMEOUT" && admitted) {
           recordFailure({ code: "ETIMEDOUT", message: `command timed out after ${options.timeout}ms` });
@@ -535,6 +578,7 @@ function runWindows(command, args, options, result, observe, ready, fail, shared
       }
       // A throwing or partial write may still have issued a request.
       requestIssued = true;
+      phase("request-write-attempted");
       socket.write(request);
       if (stopped || Atomics.load(shared, 1)) socket.write("STOP\n");
     } catch (error) { fail(error); socket.destroy(); }
@@ -551,7 +595,10 @@ function runWindows(command, args, options, result, observe, ready, fail, shared
     ], { cwd: options.cwd, env: process.env, windowsHide: true,
       stdio: options.inherit ? "inherit" : ["ignore", "pipe", "pipe"] });
     observe(helper);
-    helper.once("spawn", () => Atomics.store(shared, 3, helper.pid));
+    helper.once("spawn", () => {
+      Atomics.store(shared, 3, helper.pid);
+      phase("helper-spawned");
+    });
     helper.once("error", (error) => { fail(error); finish(); });
     helper.once("close", (code, signal) => {
       Atomics.store(shared, 3, 0);

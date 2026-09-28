@@ -119,10 +119,18 @@ public static class CrabpotCommandJob
         }
     }
 
+    static void Phase(StreamWriter receipt, string name)
+    {
+        try { receipt.WriteLine("PHASE " + name + " " + DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()); }
+        catch (IOException) { }
+        catch (ObjectDisposedException) { }
+    }
+
     public static void Run(string application, string commandLine, string cwd, string environment,
         int timeout, int cleanup, CancellationTokenSource ownerLost,
         CancellationTokenRegistration bootstrapKill, StreamWriter receipt)
     {
+        Phase(receipt, "native-entered");
         if (IntPtr.Size != 8 || Marshal.SizeOf(typeof(StartupInfoEx)) != 112 ||
             Marshal.SizeOf(typeof(ExtendedLimits)) != 144 || Marshal.SizeOf(typeof(Accounting)) != 48)
             throw new PlatformNotSupportedException("Windows Job ownership requires a 64-bit Windows runtime");
@@ -175,12 +183,14 @@ public static class CrabpotCommandJob
             startup.Startup.Stderr = inherited[2];
             startup.Attributes = attributes;
             environmentBlock = Marshal.StringToHGlobalUni(environment);
+            Phase(receipt, "create-process-pending");
             if (ownerLost.IsCancellationRequested)
                 throw new IOException("command owner disconnected before admission");
             Check(CreateProcessW(application, new StringBuilder(commandLine), IntPtr.Zero,
                 IntPtr.Zero, true, 0x08080400, environmentBlock, cwd, ref startup, out child),
                 "CreateProcessW(JOB_LIST)");
             created = true;
+            Phase(receipt, "create-process-completed");
             receipt.WriteLine("READY " + child.ProcessId);
             // Backing HANDLE arrays stay alive through CreateProcess and attribute deletion.
             DeleteProcThreadAttributeList(attributes);

@@ -67,6 +67,7 @@ test("fixture security gate blocks only lock-refreshable critical and high findi
 test("fixture security gate treats npm audit timeouts as spawn errors", () => {
   const error = new Error("spawnSync npm ETIMEDOUT");
   error.code = "ETIMEDOUT";
+  error.startupTrace = [{ phase: "owner-started", atMs: 1, observedAtMs: 2 }];
   assert.throws(
     () =>
       parseAuditResult(
@@ -80,7 +81,12 @@ test("fixture security gate treats npm audit timeouts as spawn errors", () => {
         "fixture",
         250,
       ),
-    /fixture: npm audit timed out after 250ms/,
+    (thrown) => {
+      assert.equal(thrown.message, "fixture: npm audit timed out after 250ms");
+      assert.equal(thrown.code, undefined);
+      assert.equal(thrown.cause, error, "retain the same original Error and its trace");
+      return true;
+    },
   );
 });
 
