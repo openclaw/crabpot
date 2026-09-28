@@ -2,6 +2,7 @@
 
 ## 0.2.2 - Unreleased
 
+- Publish checked CI reports once and summarize only current-job outputs, preserving failed or interrupted coverage without rerunning fixture preparation.
 - Include bounded startup-phase observations on command failures without changing startup limits, native admission, or cleanup guarantees.
 - Arm Windows helper cancellation before request parsing so owner loss or startup expiry cannot leave a parser-blocked helper running.
 - Preserve exclusive Plugin Inspector checkout ownership across long installs and unconfirmed command cleanup; fail bounded lock contention without stealing another installer's lock.

@@ -67,6 +67,20 @@ the fixture intentionally omits
 `registerDetachedTaskRuntime` to avoid replacing the host's durable task owner.
 The generic generated mock surface still covers all 57 registrars.
 
+CI report-producing suites use `--write-reports` to publish their checked
+outputs once. `reports/crabpot-ci-run.json` binds selected steps and output
+hashes to the current job and attempt. Summary steps only read that handoff;
+they never provision Plugin Inspector or repeat inspection. Missing, changed,
+failed, skipped, or interrupted selected work is reported as incomplete, with
+no links to stale reports. Unselected reports are listed separately. If Inspector
+was not prepared, the summary records failure without a compatibility verdict.
+
+Canary and manual-ref jobs still run the separate OpenClaw lifecycle profile;
+its output replaces the fixture-only profile while retaining both step outcomes.
+Manual strict comparisons consume the freshly written runtime profile. Isolated
+jobs require the selected policy to succeed; a skipped or incomplete policy no
+longer qualifies. Default Track remains required and the HEAD canary advisory.
+
 Use a cheap default workflow first:
 
 - validate the manifest

@@ -1,5 +1,5 @@
 import { randomUUID } from "node:crypto";
-import { existsSync, mkdirSync, rmdirSync, rmSync, unlinkSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, rmdirSync, rmSync, unlinkSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { repoRoot } from "./manifest-lib.mjs";
@@ -21,8 +21,9 @@ export async function loadPluginInspector() {
   return import(pathToFileURL(advancedApiPath).href);
 }
 
-export async function loadPluginInspectorPublicApi() {
-  return import(pathToFileURL(resolvePluginInspectorPublicApiPath()).href);
+export async function loadPluginInspectorPublicApi({ prepare = true } = {}) {
+  const root = resolvePluginInspectorRoot({ prepare });
+  return root ? import(pathToFileURL(path.join(root, "src", "index.js")).href) : null;
 }
 
 export function resolvePluginInspectorCliInvocation(options = {}) {
@@ -56,11 +57,7 @@ function resolvePluginInspectorSourcePath() {
   return path.join(resolvePluginInspectorRoot(), "src", "advanced.js");
 }
 
-function resolvePluginInspectorPublicApiPath() {
-  return path.join(resolvePluginInspectorRoot(), "src", "index.js");
-}
-
-function resolvePluginInspectorRoot() {
+function resolvePluginInspectorRoot({ prepare = true } = {}) {
   if (process.env.CRABPOT_PLUGIN_INSPECTOR_DIR) {
     return path.resolve(repoRoot, process.env.CRABPOT_PLUGIN_INSPECTOR_DIR);
   }
@@ -70,7 +67,12 @@ function resolvePluginInspectorRoot() {
     return siblingRoot;
   }
 
-  return ensurePinnedInspectorCheckout();
+  if (prepare) return ensurePinnedInspectorCheckout();
+  // Failure reporting must never acquire a checkout lock, run Git, or install.
+  const pinnedRoot = path.join(repoRoot, ".crabpot", "plugin-inspector", pluginInspectorRef);
+  const marker = path.join(pinnedRoot, "node_modules", ".crabpot-install-ready");
+  return existsSync(path.join(pinnedRoot, "src", "index.js")) && existsSync(marker) &&
+    readFileSync(marker, "utf8").trim() === pluginInspectorRef ? pinnedRoot : null;
 }
 
 function ensurePinnedInspectorCheckout() {
