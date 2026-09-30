@@ -4,13 +4,14 @@ import { mkdir, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
+import { inspect } from "node:util";
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   try {
     await main();
     process.exit(0);
   } catch (error) {
-    console.error(error?.stack ?? String(error));
+    console.error(inspect(error, { depth: null }));
     process.exit(1);
   }
 }
@@ -58,6 +59,10 @@ async function captureOpenClawLifecycle(entrypoint) {
   const profileLines = [];
   const originalError = console.error;
   const originalEnv = snapshotLifecycleEnv();
+  const errors = [];
+  let result;
+  let retireHost;
+  let registryOwner;
 
   try {
     writeProbePlugin({
@@ -90,6 +95,33 @@ async function captureOpenClawLifecycle(entrypoint) {
     const { loadAndActivateRootPluginRegistry } = await import(
       pathToFileURL(path.join(openclawRoot, "src", "plugins", "loader.ts")).href
     );
+    const { createPluginRegistryOwner, getActivePluginRegistry } = await import(
+      pathToFileURL(path.join(openclawRoot, "src", "plugins", "runtime.ts")).href
+    );
+    const { getPluginCache, retirePluginCache } = await import(
+      pathToFileURL(path.join(openclawRoot, "src", "plugins", "plugin-cache.ts")).href
+    );
+    const cache = getPluginCache();
+    retireHost = async () => {
+      // Publication can fail after admission. The child also owns any root left active.
+      const active = getActivePluginRegistry();
+      registryOwner ??= active ? createPluginRegistryOwner(active, stateRoot) : undefined;
+      const registryCleanup = await registryOwner?.close();
+      const failures = [
+        ...(registryCleanup?.memoryErrors ?? []),
+        ...(registryCleanup?.pluginFailures ?? []).map((failure) => failure.error),
+      ];
+      // A rejected close may retain live consumers: never retire their cache underneath them.
+      try {
+        const cacheCleanup = await retirePluginCache(cache);
+        failures.push(...cacheCleanup.failures.map((failure) => failure.error));
+      } catch (error) {
+        failures.push(error);
+      }
+      if (failures.length > 0) {
+        throw new AggregateError(failures, "OpenClaw lifecycle teardown failed");
+      }
+    };
 
     const registry = loadAndActivateRootPluginRegistry({
       cache: false,
@@ -104,6 +136,7 @@ async function captureOpenClawLifecycle(entrypoint) {
         },
       },
     });
+    registryOwner = createPluginRegistryOwner(registry, stateRoot);
     const plugin = registry.plugins.find((entry) => entry.id === pluginId);
     const phases = profileLines.map(parseProfileLine).filter(Boolean);
     const importPhase = phases.find((phase) => phase.pluginId === pluginId && phase.phase === "full");
@@ -118,7 +151,7 @@ async function captureOpenClawLifecycle(entrypoint) {
           ]
         : [];
 
-    return {
+    result = {
       status: captured.length > 0 ? "captured" : "failed",
       entrypoint: lifecyclePathLabel(path.resolve(entrypoint)),
       captured,
@@ -134,12 +167,25 @@ async function captureOpenClawLifecycle(entrypoint) {
       },
       ...(plugin?.error ? { error: plugin.error } : {}),
     };
+  } catch (error) {
+    errors.push(error);
   } finally {
-    console.error = originalError;
-    restoreLifecycleEnv(originalEnv);
-    rmSync(pluginRoot, { recursive: true, force: true });
-    rmSync(stateRoot, { recursive: true, force: true });
+    try {
+      // Source-capture SQLite custody denies deletion on Windows until host retirement.
+      // Keep its environment and files intact through the joined owner cleanup.
+      await retireHost?.();
+      rmSync(pluginRoot, { recursive: true, force: true });
+      rmSync(stateRoot, { recursive: true, force: true });
+    } catch (error) {
+      errors.push(error);
+    } finally {
+      console.error = originalError;
+      restoreLifecycleEnv(originalEnv);
+    }
   }
+  if (errors.length === 1) throw errors[0];
+  if (errors.length > 1) throw new AggregateError(errors, "OpenClaw lifecycle capture and cleanup failed");
+  return result;
 }
 
 function snapshotLifecycleEnv() {
