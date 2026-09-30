@@ -494,7 +494,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/discord",
-        "ref": "9505f6eeab162026b1b5c14ef78fe7889549be8f"
+        "ref": "2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4"
       },
       "path": "plugins/discord",
       "priority": "medium",
@@ -565,7 +565,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/matrix",
-        "ref": "9505f6eeab162026b1b5c14ef78fe7889549be8f"
+        "ref": "2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4"
       },
       "path": "plugins/matrix",
       "priority": "medium",
@@ -785,7 +785,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/feishu",
-        "ref": "9505f6eeab162026b1b5c14ef78fe7889549be8f"
+        "ref": "2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4"
       },
       "path": "plugins/feishu",
       "priority": "medium",
