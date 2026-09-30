@@ -23,7 +23,7 @@
     "tsLoaderEntrypointCount": 20,
     "jitiAlternativeCount": 20,
     "missingBuildScriptCount": 0,
-    "sdkAliasRequiredCount": 20
+    "sdkAliasRequiredCount": 22
   },
   "fixtures": [
     {
@@ -553,7 +553,7 @@
           "entrypoint": "plugins/mcp-adapter/index.ts",
           "status": "ts-loader-required",
           "packageManager": "npm",
-          "lockfile": null,
+          "lockfile": "package-lock.json",
           "loaderStrategy": {
             "source": "typescript-source",
             "primary": "tsx",
@@ -972,7 +972,7 @@
           "entrypoint": "plugins/openclaw-telemetry/index.ts",
           "status": "sdk-alias-required",
           "packageManager": "npm",
-          "lockfile": null,
+          "lockfile": "package-lock.json",
           "loaderStrategy": {
             "source": "typescript-source",
             "primary": "tsx",
@@ -1381,7 +1381,7 @@
           "entrypoint": "plugins/composio/index.ts",
           "status": "ts-loader-required",
           "packageManager": "npm",
-          "lockfile": null,
+          "lockfile": "package-lock.json",
           "loaderStrategy": {
             "source": "typescript-source",
             "primary": "tsx",
@@ -4691,7 +4691,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@larksuiteoapi/node-sdk, mdast-util-from-markdown, mdast-util-gfm-table, micromark-extension-gfm-table, typebox, zod"
+              "evidence": "@larksuiteoapi/node-sdk, @openclaw/fs-safe, mdast-util-from-markdown, mdast-util-gfm-table, micromark-extension-gfm-table, typebox, zod"
             }
           ],
           "steps": [
@@ -4767,7 +4767,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@larksuiteoapi/node-sdk, mdast-util-from-markdown, mdast-util-gfm-table, micromark-extension-gfm-table, typebox, zod"
+              "evidence": "@larksuiteoapi/node-sdk, @openclaw/fs-safe, mdast-util-from-markdown, mdast-util-gfm-table, micromark-extension-gfm-table, typebox, zod"
             }
           ],
           "steps": [
@@ -4843,7 +4843,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@larksuiteoapi/node-sdk, mdast-util-from-markdown, mdast-util-gfm-table, micromark-extension-gfm-table, typebox, zod"
+              "evidence": "@larksuiteoapi/node-sdk, @openclaw/fs-safe, mdast-util-from-markdown, mdast-util-gfm-table, micromark-extension-gfm-table, typebox, zod"
             }
           ],
           "steps": [
@@ -6157,6 +6157,7 @@
           },
           "requiredCapabilities": [
             "capture-shim",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -6165,6 +6166,11 @@
               "code": "missing-entrypoint",
               "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/codex/.crabpot-package/index.ts"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/agent-harness-completion @ plugins/codex/.crabpot-package/dist/.setup/native-subagent-monitor-Dpsmf2wz.mjs:18"
             }
           ],
           "steps": [
@@ -6208,7 +6214,7 @@
           "packagePath": "plugins/codex/.crabpot-package/package.json",
           "packageName": "@openclaw/codex",
           "entrypoint": "plugins/codex/.crabpot-package/dist/index.js",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": "plugins/codex/package-lock.json",
           "loaderStrategy": {
@@ -6220,6 +6226,7 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
+            "sdk-alias-compat",
             "side-effect-sandbox",
             "synthetic-probes",
             "target-openclaw-link"
@@ -6233,7 +6240,12 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@openai/codex, semver, smol-toml, typebox, ws, zod"
+              "evidence": "@openai/codex, @openclaw/fs-safe, semver, smol-toml, typebox, ws, zod"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/agent-harness-completion @ plugins/codex/.crabpot-package/dist/.setup/native-subagent-monitor-Dpsmf2wz.mjs:18"
             }
           ],
           "steps": [
@@ -7519,7 +7531,7 @@
           "entrypoint": "plugins/dingtalk-connector/dist/index.mjs",
           "status": "build-required",
           "packageManager": "npm",
-          "lockfile": null,
+          "lockfile": "package-lock.json",
           "loaderStrategy": {
             "source": "native-node",
             "primary": "node",
@@ -8354,7 +8366,7 @@
           "entrypoint": "plugins/telnyx-sms/dist/index.js",
           "status": "build-required",
           "packageManager": "npm",
-          "lockfile": null,
+          "lockfile": "package-lock.json",
           "loaderStrategy": {
             "source": "native-node",
             "primary": "node",
@@ -8436,7 +8448,7 @@
           "entrypoint": "plugins/telnyx-sms/dist/setup-entry.js",
           "status": "build-required",
           "packageManager": "npm",
-          "lockfile": null,
+          "lockfile": "package-lock.json",
           "loaderStrategy": {
             "source": "native-node",
             "primary": "node",
@@ -8610,7 +8622,7 @@
           "entrypoint": "plugins/memu-engine/index.ts",
           "status": "ts-loader-required",
           "packageManager": "npm",
-          "lockfile": null,
+          "lockfile": "package-lock.json",
           "loaderStrategy": {
             "source": "typescript-source",
             "primary": "tsx",
@@ -8767,7 +8779,7 @@
           "entrypoint": "plugins/memos-cloud/index.js",
           "status": "review-required",
           "packageManager": "npm",
-          "lockfile": null,
+          "lockfile": "package-lock.json",
           "loaderStrategy": {
             "source": "native-node",
             "primary": "node",
@@ -8828,7 +8840,7 @@
           "entrypoint": "plugins/clawmetry/clawhub-plugin/index.ts",
           "status": "ts-loader-required",
           "packageManager": "npm",
-          "lockfile": null,
+          "lockfile": "package-lock.json",
           "loaderStrategy": {
             "source": "typescript-source",
             "primary": "tsx",
@@ -8893,7 +8905,7 @@
           "entrypoint": "plugins/clawmetry/clawhub-plugin/dist/index.js",
           "status": "ready",
           "packageManager": "npm",
-          "lockfile": null,
+          "lockfile": "package-lock.json",
           "loaderStrategy": {
             "source": "native-node",
             "primary": "node",

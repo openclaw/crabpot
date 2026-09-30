@@ -47,6 +47,19 @@ Then inspect the diff. A fixture update is only useful if it either:
 - reproduces a compatibility break,
 - or proves a contract migration path still works.
 
+Keep npm fixture source references in the manifest and shim aligned with the
+published artifact. When an official package omits `gitHead`, use its npm
+provenance build commit; the public release tag can point at a different commit.
+Regenerate reports against the pinned Default Track after changing fixture pins.
+The normal Default Track follows npm `latest`, so its observed package versions
+can advance beyond the shim pins used when tag resolution falls back. Treat
+those reports as evidence for the recorded artifact versions, not the fallback pins.
+When a moving artifact lacks a Git head, reports leave its evidence as a payload
+path instead of borrowing a different fallback version's source link. SDK export
+gaps outside the artifact's declared plugin API range remain visible at their
+original severity, with an inspector follow-up to recheck an eligible host before
+prescribing a core compatibility repair.
+
 ## CI model
 
 Dependabot refreshes merge the current base and update its pinned submodules
@@ -74,6 +87,9 @@ they never provision Plugin Inspector or repeat inspection. Missing, changed,
 failed, skipped, or interrupted selected work is reported as incomplete, with
 no links to stale reports. Unselected reports are listed separately. If Inspector
 was not prepared, the summary records failure without a compatibility verdict.
+The dashboard also uses that summary's available-artifact list for links and
+metrics, including retained failure evidence. Older report snapshots without
+coverage metadata keep their existing dashboard behavior.
 
 Canary and manual-ref jobs still run the separate OpenClaw lifecycle profile;
 its output replaces the fixture-only profile while retaining both step outcomes.

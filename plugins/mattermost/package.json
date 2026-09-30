@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for OpenClaw Mattermost channel plugin.",
   "dependencies": {
-    "@openclaw/mattermost": "2026.9.5"
+    "@openclaw/mattermost": "2026.9.6"
   },
   "crabpot": {
     "fixture": "mattermost",
@@ -12,6 +12,6 @@
     "package": "@openclaw/mattermost",
     "sourceRepo": "https://github.com/openclaw/openclaw.git",
     "sourcePath": "extensions/mattermost",
-    "sourceRef": "35a57bc940833a6c1f594b2308e349e5ee0148db"
+    "sourceRef": "9505f6eeab162026b1b5c14ef78fe7889549be8f"
   }
 }
