@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { mkdir, mkdtemp, readFile, writeFile } from "node:fs/promises";
+import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import { test } from "node:test";
@@ -12,6 +12,44 @@ import {
   updateReadmeSummary,
   writeDashboardData,
 } from "../scripts/update-readme-summary.mjs";
+
+test("current-run dashboards exclude stale reports and retain selected failure evidence", async (t) => {
+  const reportsDir = await mkdtemp(path.join(os.tmpdir(), "crabpot-current-dashboard-"));
+  t.after(() => rm(reportsDir, { recursive: true, force: true }));
+  const summaryPath = path.join(reportsDir, "crabpot-ci-summary.json");
+  const ciSummary = { status: "pass", coverage: { steps: [] }, artifacts: {} };
+  await writeFile(summaryPath, JSON.stringify(ciSummary));
+  await writeFile(path.join(reportsDir, "crabpot-execution-results.json"), JSON.stringify({
+    summary: { passCount: 50, failCount: 2, blockedCount: 3 },
+  }));
+  await writeFile(path.join(reportsDir, "crabpot-profile-diff.json"), JSON.stringify({
+    summary: { failCount: 9 },
+  }));
+  await writeFile(path.join(reportsDir, "crabpot-synthetic-probes.json"), JSON.stringify({
+    summary: { readyCount: 99, probeCount: 99 },
+  }));
+
+  const current = await buildReadmeSummary({ reportsDir });
+  for (const key of ["execution", "profileDiff", "synthetic"]) assert.equal(current.artifactPaths[key], null);
+  assert.equal(current.metrics.executionPass, 0);
+  assert.equal(current.metrics.executionFail, 0);
+  assert.equal(current.metrics.profileFailures, 0);
+  assert.equal(current.metrics.syntheticReady, 0);
+  assert.ok(current.artifactPaths.ciSummary);
+
+  ciSummary.status = "fail";
+  ciSummary.artifacts.execution = "reports/crabpot-execution-results.json";
+  await writeFile(summaryPath, JSON.stringify(ciSummary));
+  await writeFile(path.join(reportsDir, "crabpot-profile-diff.json"), "stale invalid JSON");
+  const failed = await buildReadmeSummary({ reportsDir });
+  assert.equal(failed.status, "fail");
+  assert.equal(failed.metrics.executionFail, 2);
+  assert.ok(failed.artifactPaths.execution);
+  assert.equal(failed.artifactPaths.profileDiff, null);
+
+  await writeFile(path.join(reportsDir, "crabpot-execution-results.json"), "current invalid JSON");
+  await assert.rejects(buildReadmeSummary({ reportsDir }), SyntaxError);
+});
 
 test("readme summary rolls up report counts and top issues", async () => {
   const summary = await buildReadmeSummary({

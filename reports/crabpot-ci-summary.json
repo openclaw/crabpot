@@ -2,43 +2,43 @@
   "generatedAt": "deterministic",
   "title": "Crabpot CI Summary",
   "mode": "check",
-  "openclawLabel": "openclaw/openclaw@10bb24270d8d (Default Track pin 2026-09-25)",
+  "openclawLabel": "github-default-pin",
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 85,
-    "suggestions": 165,
+    "warnings": 86,
+    "suggestions": 164,
     "issues": 250,
     "p0Issues": 7,
-    "p1Issues": 35,
+    "p1Issues": 36,
     "liveIssues": 7,
     "liveP0Issues": 7,
-    "compatGaps": 29,
+    "compatGaps": 28,
     "deprecationWarnings": 22,
-    "inspectorGaps": 148,
+    "inspectorGaps": 149,
     "upstreamIssues": 44,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
     "policyWarnings": 1,
     "profileFailures": 0,
-    "profileWarnings": 2,
+    "profileWarnings": 0,
     "executionPass": 0,
     "executionFail": 0,
     "executionBlocked": 0,
     "platformWindowsRisks": 17,
     "platformContainerRisks": 17,
     "loaderJitiCandidates": 20,
-    "importLoopP50Ms": 4443,
-    "importLoopP95Ms": 4484,
-    "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 110.4,
-    "importLoopOpenClawActivationP50Ms": 1.3,
+    "importLoopP50Ms": 139,
+    "importLoopP95Ms": 139,
+    "importLoopOpenClawLifecycleCount": 0,
+    "importLoopOpenClawImportP50Ms": 0,
+    "importLoopOpenClawActivationP50Ms": 0,
     "importLoopMetricBasis": "baseline-adjusted",
     "importLoopMaxRssMb": 0,
-    "importLoopMaxCpuMs": 0,
-    "importLoopRssSampleCount": 529,
-    "importLoopCpuSampleCount": 529
+    "importLoopMaxCpuMs": 28,
+    "importLoopRssSampleCount": 15,
+    "importLoopCpuSampleCount": 15
   },
   "topIssues": [
     {
@@ -112,6 +112,14 @@
       "code": "sdk-export-missing",
       "title": "bluebubbles: plugin SDK import aliases are missing from target package exports",
       "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "codex",
+      "code": "sdk-export-missing",
+      "title": "codex: SDK import coverage requires an eligible host",
+      "decision": "inspector-follow-up"
     },
     {
       "severity": "P1",
@@ -192,14 +200,6 @@
       "code": "missing-compat-record",
       "title": "honcho: compat-dependent behavior lacks registry coverage",
       "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "inworld-tts",
-      "code": "missing-compat-record",
-      "title": "inworld-tts: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
     }
   ],
   "refRegressions": [],
@@ -219,28 +219,10 @@
       ]
     }
   ],
-  "profileFindings": [
-    {
-      "id": "profile.wall-p95",
-      "action": "warn",
-      "metric": "p95WallMs",
-      "message": "p95WallMs regressed 504.2% over baseline",
-      "baseline": 1273,
-      "current": 7692,
-      "delta": 6419,
-      "percent": 504.2
-    },
-    {
-      "id": "profile.peak-rss",
-      "action": "warn",
-      "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 692 over baseline",
-      "baseline": 65.1,
-      "current": 757.1,
-      "delta": 692
-    }
-  ],
+  "profileFindings": [],
   "artifacts": {
+    "packageAvailability": "reports/crabpot-package-availability.json",
+    "generatedSurface": "reports/crabpot-generated-surface.json",
     "compatibility": "reports/crabpot-report.json",
     "capture": "reports/crabpot-capture.json",
     "synthetic": "reports/crabpot-synthetic-probes.json",
@@ -248,12 +230,138 @@
     "workspace": "reports/crabpot-workspace-plan.json",
     "platform": "reports/crabpot-platform-probes.json",
     "importLoop": "reports/crabpot-import-loop-profile.json",
-    "execution": "reports/crabpot-execution-results.json",
-    "runtimeProfile": null,
-    "refDiff": null,
-    "profileDiff": "reports/crabpot-profile-diff.json",
-    "ciPolicy": "reports/crabpot-ci-policy.json",
-    "generatedSurface": "reports/crabpot-generated-surface.json",
-    "packageAvailability": "reports/crabpot-package-availability.json"
+    "runtimeProfile": "reports/crabpot-runtime-profile.json",
+    "ciPolicy": "reports/crabpot-ci-policy.json"
+  },
+  "coverage": {
+    "steps": [
+      {
+        "id": "static-1",
+        "command": "scripts/check-openclaw-plugin-contracts.mjs",
+        "report": null,
+        "state": "passed"
+      },
+      {
+        "id": "static-2",
+        "command": "scripts/sync-fixtures.mjs --materialize --openclaw ./openclaw",
+        "report": "packageAvailability",
+        "state": "passed",
+        "sha256": "f758c40367ad292b734e58a0d674368b51c1ec71db64bc62873131fb4bb7ed46"
+      },
+      {
+        "id": "static-3",
+        "command": "--test --test-concurrency=1 test/*.test.mjs",
+        "report": null,
+        "state": "passed"
+      },
+      {
+        "id": "static-4",
+        "command": "scripts/sync-fixtures.mjs --materialize --openclaw ./openclaw",
+        "report": "packageAvailability",
+        "state": "passed",
+        "sha256": "39a7d2ab4b8431ba0cd5cd578575d286a1398a1d61713298b6cc8cc6a502f222"
+      },
+      {
+        "id": "static-5",
+        "command": "scripts/sync-fixtures.mjs --check",
+        "report": null,
+        "state": "passed"
+      },
+      {
+        "id": "static-6",
+        "command": "scripts/run-contract-smoke.mjs --strict --openclaw ./openclaw",
+        "report": null,
+        "state": "passed"
+      },
+      {
+        "id": "static-7",
+        "command": "scripts/inspect-fixtures.mjs --check",
+        "report": null,
+        "state": "passed"
+      },
+      {
+        "id": "static-8",
+        "command": "scripts/run-plugin-inspector-smoke.mjs --check",
+        "report": null,
+        "state": "passed"
+      },
+      {
+        "id": "static-9",
+        "command": "scripts/check-generated-surface-fixture.mjs --check --openclaw ./openclaw --write",
+        "report": "generatedSurface",
+        "state": "passed",
+        "sha256": "8c8559138e96a3b10f1a0356faee138d8d821c29745fe0765b52720c0aaadf34"
+      },
+      {
+        "id": "static-10",
+        "command": "scripts/generate-report.mjs --check --openclaw ./openclaw --write",
+        "report": "compatibility",
+        "state": "passed",
+        "sha256": "63e2eb49ecd620490c370673cad0c9b1f0f37d1650d2d3a68d9dd4e418cbcebc"
+      },
+      {
+        "id": "static-11",
+        "command": "scripts/capture-contracts.mjs --check --openclaw ./openclaw --write",
+        "report": "capture",
+        "state": "passed",
+        "sha256": "4b56aa81c47259e3f697227b215e4a9383063737120ade6d92d38cb8e037cd95"
+      },
+      {
+        "id": "static-12",
+        "command": "scripts/synthetic-probes.mjs --check --openclaw ./openclaw --write",
+        "report": "synthetic",
+        "state": "passed",
+        "sha256": "1f9bf7e22427a2b2f1d2d40369c1cee44e020f40954326bfd157ade1de2c1930"
+      },
+      {
+        "id": "static-13",
+        "command": "scripts/cold-import-readiness.mjs --check --openclaw ./openclaw --write",
+        "report": "coldImport",
+        "state": "passed",
+        "sha256": "94e8e3583165be8ea8e53d76fd06c56e65cbb3f024f093bfda69d3110f74d662"
+      },
+      {
+        "id": "static-14",
+        "command": "scripts/workspace-plan.mjs --check --openclaw ./openclaw --write",
+        "report": "workspace",
+        "state": "passed",
+        "sha256": "d7f9abce6f7a26ee57418b5a4ede35b566b9013b2ae61cebd0cd7e07444c285f"
+      },
+      {
+        "id": "static-15",
+        "command": "scripts/platform-probes.mjs --check --openclaw ./openclaw --write",
+        "report": "platform",
+        "state": "passed",
+        "sha256": "c23c4a1a8ec54b7d9880ef942b0814cd2cf349921d4f1d6f6d17b723ebadc75e"
+      },
+      {
+        "id": "static-16",
+        "command": "scripts/import-loop-profile.mjs --check --runs 3 --write",
+        "report": "importLoop",
+        "state": "passed",
+        "sha256": "3ef7229130ce29394bae04a77cdc06117088086a30f56bd7ad3a91cdc547b287"
+      },
+      {
+        "id": "static-17",
+        "command": "scripts/profile-contract-runtime.mjs --check --openclaw ./openclaw --runs 3 --write",
+        "report": "runtimeProfile",
+        "state": "passed",
+        "sha256": "ac8ce6036a16038e0b03afb3662ec6bc94e1cdfb31a62633f22ef986650fb30b"
+      },
+      {
+        "id": "static-18",
+        "command": "scripts/check-contract-coverage.mjs --openclaw ./openclaw",
+        "report": null,
+        "state": "passed"
+      },
+      {
+        "id": "static-19",
+        "command": "scripts/check-ci-policy.mjs --check --write --run-report",
+        "report": "ciPolicy",
+        "state": "passed",
+        "sha256": "4619bd2cbbd82d4ed14d9b307d2bf24c1e0b843ec405d86a8b9b5241f7e5b733"
+      }
+    ],
+    "findings": []
   }
 }

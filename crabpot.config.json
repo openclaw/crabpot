@@ -466,7 +466,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/diagnostics-otel",
-        "ref": "2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4"
+        "ref": "9505f6eeab162026b1b5c14ef78fe7889549be8f"
       },
       "path": "plugins/diagnostics-otel",
       "priority": "medium",
@@ -536,7 +536,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/lobster",
-        "ref": "2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4"
+        "ref": "9505f6eeab162026b1b5c14ef78fe7889549be8f"
       },
       "path": "plugins/lobster",
       "priority": "medium",
@@ -599,7 +599,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/msteams",
-        "ref": "2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4"
+        "ref": "9505f6eeab162026b1b5c14ef78fe7889549be8f"
       },
       "path": "plugins/msteams",
       "priority": "medium",
@@ -627,7 +627,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/nextcloud-talk",
-        "ref": "2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4"
+        "ref": "9505f6eeab162026b1b5c14ef78fe7889549be8f"
       },
       "path": "plugins/nextcloud-talk",
       "priority": "medium",
@@ -655,7 +655,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/nostr",
-        "ref": "2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4"
+        "ref": "9505f6eeab162026b1b5c14ef78fe7889549be8f"
       },
       "path": "plugins/nostr",
       "priority": "medium",
@@ -684,7 +684,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/voice-call",
-        "ref": "2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4"
+        "ref": "9505f6eeab162026b1b5c14ef78fe7889549be8f"
       },
       "path": "plugins/voice-call",
       "priority": "medium",
@@ -728,7 +728,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/zalo",
-        "ref": "2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4"
+        "ref": "9505f6eeab162026b1b5c14ef78fe7889549be8f"
       },
       "path": "plugins/zalo",
       "priority": "medium",
@@ -756,7 +756,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/zalouser",
-        "ref": "2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4"
+        "ref": "9505f6eeab162026b1b5c14ef78fe7889549be8f"
       },
       "path": "plugins/zalouser",
       "priority": "medium",
@@ -814,7 +814,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/tlon",
-        "ref": "2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4"
+        "ref": "9505f6eeab162026b1b5c14ef78fe7889549be8f"
       },
       "path": "plugins/tlon",
       "priority": "medium",
@@ -842,7 +842,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/twitch",
-        "ref": "2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4"
+        "ref": "9505f6eeab162026b1b5c14ef78fe7889549be8f"
       },
       "path": "plugins/twitch",
       "priority": "medium",
@@ -871,7 +871,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/mattermost",
-        "ref": "2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4"
+        "ref": "9505f6eeab162026b1b5c14ef78fe7889549be8f"
       },
       "path": "plugins/mattermost",
       "priority": "medium",
@@ -898,7 +898,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/synology-chat",
-        "ref": "2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4"
+        "ref": "9505f6eeab162026b1b5c14ef78fe7889549be8f"
       },
       "path": "plugins/synology-chat",
       "priority": "medium",
@@ -926,7 +926,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/brave",
-        "ref": "7ea3a421cde856dd1d0a2b8e8d256926976d7bff"
+        "ref": "9505f6eeab162026b1b5c14ef78fe7889549be8f"
       },
       "path": "plugins/brave-plugin",
       "priority": "medium",
@@ -958,7 +958,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/codex",
-        "ref": "7ea3a421cde856dd1d0a2b8e8d256926976d7bff"
+        "ref": "9505f6eeab162026b1b5c14ef78fe7889549be8f"
       },
       "path": "plugins/codex",
       "priority": "medium",
@@ -1004,7 +1004,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/diagnostics-prometheus",
-        "ref": "7ea3a421cde856dd1d0a2b8e8d256926976d7bff"
+        "ref": "9505f6eeab162026b1b5c14ef78fe7889549be8f"
       },
       "path": "plugins/diagnostics-prometheus",
       "priority": "medium",
@@ -1034,7 +1034,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/google-meet",
-        "ref": "7ea3a421cde856dd1d0a2b8e8d256926976d7bff"
+        "ref": "9505f6eeab162026b1b5c14ef78fe7889549be8f"
       },
       "path": "plugins/google-meet",
       "priority": "medium",
@@ -1059,6 +1059,8 @@
           "googlemeet.join": "captured meeting action requires a configured meeting and transport",
           "googlemeet.create": "captured room creation requires configured OAuth or a live browser transport",
           "googlemeet.transcript": "captured meeting action requires an active meeting session",
+          "googlemeet.participationContext": "captured meeting action requires an active meeting session",
+          "googlemeet.participate": "captured meeting action requires an active meeting session",
           "googlemeet.latest": "captured meeting query requires Google Meet OAuth credentials",
           "googlemeet.calendarEvents": "captured meeting query requires Google Meet OAuth credentials",
           "googlemeet.artifacts": "captured meeting query requires Google Meet OAuth credentials",
@@ -1083,7 +1085,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/diffs",
-        "ref": "7ea3a421cde856dd1d0a2b8e8d256926976d7bff"
+        "ref": "9505f6eeab162026b1b5c14ef78fe7889549be8f"
       },
       "path": "plugins/diffs",
       "priority": "medium",
@@ -1116,7 +1118,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/memory-lancedb",
-        "ref": "7ea3a421cde856dd1d0a2b8e8d256926976d7bff"
+        "ref": "9505f6eeab162026b1b5c14ef78fe7889549be8f"
       },
       "path": "plugins/memory-lancedb",
       "priority": "medium",
@@ -1168,7 +1170,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/whatsapp",
-        "ref": "7ea3a421cde856dd1d0a2b8e8d256926976d7bff"
+        "ref": "9505f6eeab162026b1b5c14ef78fe7889549be8f"
       },
       "path": "plugins/whatsapp",
       "priority": "medium",

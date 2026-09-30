@@ -18,6 +18,38 @@ import {
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
+test("Google Meet participation probes require session state and preserve configured failures", async () => {
+  const manifest = await readConfiguredManifest({ fixtureSet: "google-meet" });
+  for (const options of [{}, { gatewayMethodPrerequisites: {} }]) {
+    const api = createCaptureApi({ retainHandlers: true });
+    let participationCalls = 0;
+    for (const method of ["googlemeet.participationContext", "googlemeet.participate"]) {
+      api.registerGatewayMethod(method, ({ respond }) => {
+        participationCalls += 1;
+        respond(false, undefined, { code: "INVALID_REQUEST", message: "sessionId required" });
+      });
+    }
+    api.registerGatewayMethod("googlemeet.status", ({ respond }) => respond(true, {}));
+    api.registerGatewayMethod("googlemeet.unrelated", ({ respond }) => {
+      respond(false, undefined, { code: "UNAVAILABLE", message: "real failure" });
+    });
+    const result = await runCapturedSyntheticProbes({
+      entrypoint: path.join(repoRoot, ".crabpot/workspaces/google-meet/index.ts"),
+      status: "captured", captured: api.getCapturedContracts(), retained: api.getRetainedContracts(),
+    }, { manifest, ...options });
+    const configured = options.gatewayMethodPrerequisites !== undefined;
+    assert.equal(participationCalls, configured ? 2 : 0);
+    assert.deepEqual(result.summary, {
+      probeCount: 4, passCount: 1, failCount: configured ? 3 : 1, blockedCount: configured ? 0 : 2,
+    });
+    assert.match(result.results.at(-1).error, /Gateway response error: real failure/);
+    for (const row of result.results.slice(0, 2)) {
+      if (configured) assert.match(row.error, /Gateway response error: sessionId required/);
+      else assert.match(row.reason, /requires an active meeting session/);
+    }
+  }
+});
+
 test("fixture Gateway prerequisites are scoped to the owning fixture and method", async () => {
   const manifest = await readConfiguredManifest({ fixtureSet: "codex,google-meet,matrix,voice-call" });
   for (const fixture of manifest.fixtures) {
