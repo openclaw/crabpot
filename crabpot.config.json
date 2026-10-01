@@ -1058,7 +1058,9 @@
         "gatewayMethodPrerequisites": {
           "googlemeet.join": "captured meeting action requires a configured meeting and transport",
           "googlemeet.create": "captured room creation requires configured OAuth or a live browser transport",
-          "googlemeet.transcript": "captured meeting action requires an active meeting session",
+        "googlemeet.transcript": "captured meeting action requires an active meeting session",
+        "googlemeet.participationContext": "captured meeting action requires an active meeting session",
+        "googlemeet.participate": "captured meeting action requires an active meeting session",
           "googlemeet.latest": "captured meeting query requires Google Meet OAuth credentials",
           "googlemeet.calendarEvents": "captured meeting query requires Google Meet OAuth credentials",
           "googlemeet.artifacts": "captured meeting query requires Google Meet OAuth credentials",

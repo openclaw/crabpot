@@ -18,6 +18,25 @@ import {
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
+test("Google Meet participation probes require a live meeting session", async () => {
+  const manifest = await readConfiguredManifest({ fixtureSet: "google-meet" });
+  const api = createCaptureApi({ retainHandlers: true });
+  let calls = 0;
+  for (const method of ["googlemeet.participationContext", "googlemeet.participate"]) {
+    api.registerGatewayMethod(method, ({ respond }) => {
+      calls += 1;
+      respond(false, undefined, { code: "INVALID_REQUEST", message: "sessionId required" });
+    });
+  }
+  const result = await runCapturedSyntheticProbes({
+    entrypoint: path.join(repoRoot, ".crabpot/workspaces/google-meet/index.ts"),
+    status: "captured", captured: api.getCapturedContracts(), retained: api.getRetainedContracts(),
+  }, { manifest });
+  assert.equal(calls, 0);
+  assert.deepEqual(result.summary, { probeCount: 2, passCount: 0, failCount: 0, blockedCount: 2 });
+  for (const row of result.results) assert.match(row.reason, /active meeting session/);
+});
+
 test("fixture Gateway prerequisites are scoped to the owning fixture and method", async () => {
   const manifest = await readConfiguredManifest({ fixtureSet: "codex,google-meet,matrix,voice-call" });
   for (const fixture of manifest.fixtures) {
