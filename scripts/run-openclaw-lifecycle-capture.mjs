@@ -123,7 +123,7 @@ async function captureOpenClawLifecycle(entrypoint) {
       }
     };
 
-    const registry = loadAndActivateRootPluginRegistry({
+    const registry = await loadAndActivateRootPluginRegistry({
       cache: false,
       workspaceDir: stateRoot,
       config: {

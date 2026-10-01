@@ -95,7 +95,7 @@ test("import loop validation fails requested OpenClaw lifecycle profiles without
 
 async function lifecycleHost(t, {
   importMs = "2.0", activationMs = "1.0", status = "loaded", throws = false,
-  throwsAfterActivation = false, cleanupFailure = null,
+  throwsAfterActivation = false, cleanupFailure = null, asyncLoader = false,
 } = {}) {
   const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-openclaw-lifecycle-"));
   const openclawRoot = path.join(dir, "openclaw");
@@ -138,6 +138,8 @@ export const cache = {};
 let active;
 let roots;
 let db;
+let loadSettled = ${!asyncLoader};
+let ownerCreated = false;
 const failure = ${JSON.stringify(cleanupFailure)};
 function observe(event) {
   appendFileSync(${JSON.stringify(observationsPath)}, JSON.stringify({ event, ...roots }) + '\\n');
@@ -157,10 +159,29 @@ export function acquire(source, state) {
   db.exec('CREATE TABLE owner (value INTEGER); BEGIN IMMEDIATE; INSERT INTO owner VALUES (1)');
 }
 export function activate(registry) { active = registry; return registry; }
+export async function settleLoad(registry) {
+  const plugins = registry.plugins;
+  Object.defineProperty(registry, 'plugins', { get() {
+    assert.equal(loadSettled, true, 'registry reads must wait for loader settlement');
+    observe('registry-read');
+    return plugins;
+  } });
+  observe('load-pending');
+  await new Promise((resolve) => setImmediate(resolve));
+  assertOwned();
+  assert.equal(ownerCreated, false, 'owner adoption must wait for loader settlement');
+  loadSettled = true;
+  observe('load-settled');
+  if (${throwsAfterActivation}) throw new Error('lifecycle-loader-sentinel');
+  return registry;
+}
 export function getActivePluginRegistry() { return active; }
 export function createPluginRegistryOwner(registry, workspaceDir) {
+  assert.equal(loadSettled, true, 'owner adoption must wait for loader settlement');
   assert.equal(registry, active);
   assert.equal(workspaceDir, roots.state);
+  ownerCreated = true;
+  if (${asyncLoader}) observe('owner');
   return { async close() {
     assertOwned();
     await setTimeout(20);
@@ -196,7 +217,7 @@ export async function retirePluginCache(target) {
     path.join(openclawRoot, "src", "plugins", "loader.ts"),
     [
       "import assert from 'node:assert/strict';",
-      "import { acquire, activate } from './fixture.mjs';",
+      "import { acquire, activate, settleLoad } from './fixture.mjs';",
       "assert.equal(process.env.OPENCLAW_DIAGNOSTICS, 'plugin.load-profile');",
       "assert.equal(process.env.HOME, process.env.OPENCLAW_STATE_DIR);",
       "assert.match(process.env.HOME, /crabpot-openclaw-state-/);",
@@ -216,6 +237,7 @@ export async function retirePluginCache(target) {
       ]),
       "  setInterval(() => undefined, 1000);",
       `  const registry = activate({ plugins: [{ id: 'crabpot-lifecycle-probe', status: ${JSON.stringify(status)}, ${status === "error" ? "error: 'lifecycle-register-sentinel'" : ""} }] });`,
+      `  if (${asyncLoader}) return settleLoad(registry);`,
       `  if (${throwsAfterActivation}) throw new Error('lifecycle-loader-sentinel');`,
       "  return registry;",
       "}",
@@ -268,7 +290,8 @@ export async function retirePluginCache(target) {
         assert.equal(existsSync(path.dirname(source)), retained, source);
         assert.equal(existsSync(state), retained, state);
         assert.deepEqual(events.filter((event) => event.state === state).map(({ event }) => event),
-          throws ? ["load", "cache"] : cleanupFailure === "retained" ? ["load", "registry"] : ["load", "registry", "cache"]);
+          asyncLoader ? ["load", "load-pending", "load-settled", "owner", ...(throwsAfterActivation ? [] : ["registry-read"]), "registry", "cache"]
+            : throws ? ["load", "cache"] : cleanupFailure === "retained" ? ["load", "registry"] : ["load", "registry", "cache"]);
       }
       assert.equal(new Set(observations.map(({ state }) => state)).size, expectedCalls);
       if (retained || throws || throwsAfterActivation) assert.equal(existsSync(path.join(dir, "capture.json")), false);
@@ -289,6 +312,27 @@ test("OpenClaw lifecycle capture CLI retires SQLite custody before deleting root
   assert.equal(capture.openClawLifecycle.phases[0].source, "crabpot-lifecycle-probe/index.mjs");
   assert.equal(capture.openClawLifecycle.phases[1].source, "crabpot-lifecycle-probe/index.mjs");
   await host.assertCleanup(1);
+});
+
+test("OpenClaw lifecycle capture awaits asynchronous loader settlement before adoption and output", async (t) => {
+  for (const throwsAfterActivation of [false, true]) {
+    await t.test(throwsAfterActivation ? "rejected load" : "resolved load", async (t) => {
+      const host = await lifecycleHost(t, { asyncLoader: true, throwsAfterActivation });
+      const result = host.run({ output: true });
+      assert.equal(result.error?.code, undefined, result.error?.message);
+      assert.equal(result.status, throwsAfterActivation ? 1 : 0, result.stderr);
+      assert.equal(result.stdout, "");
+      if (throwsAfterActivation) {
+        assert.match(result.stderr, /lifecycle-loader-sentinel/);
+      } else {
+        const capture = JSON.parse(await readFile(path.join(host.dir, "capture.json"), "utf8"));
+        assert.equal(capture.status, "captured");
+        assert.equal(capture.openClawLifecycle.status, "loaded");
+        assert.equal(capture.captured.length, 2);
+      }
+      await host.assertCleanup(1);
+    });
+  }
 });
 
 test("OpenClaw lifecycle capture and parent require loaded status and valid phases", async (t) => {
