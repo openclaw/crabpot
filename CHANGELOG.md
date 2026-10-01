@@ -31,7 +31,7 @@
 - Run configured resource workloads as bounded sequential campaigns with pinned prepared inputs, full-inventory outcomes per repetition, retained partial receipts and fail-closed admission after execution failures. Verify inputs after failed invocations while preserving both workload and input-drift diagnostics. Keep numerical resource budgets and scheduling separate.
 - Support paired plugin workloads with identical dependency controls, before/after activation checks, adapter cleanup and signed resource deltas. Preserve published v1 empty-host receipts while emitting explicit v2 observations.
 - Add opt-in Workboard Gateway resource workloads and source-inventory coverage, preserving unsupported plugins and separating Kitchen Sink calibration from real workload credit.
-- Adopt Inspector source fixes for SDK discovery inside packaged `.setup` modules and composed Zod enums, preserving the published 0.3.26 package pin pending upstream release.
+- Adopt Plugin Inspector 0.3.27 in source and published-package modes with packaged `.setup` SDK discovery, composed Zod enums, resource snapshots, generated-workflow repairs, and plugin-controlled path checks.
 - Recognize exact HAPI and TencentDB blocker diagnostics from owned child processes, retaining raw failures and rejecting unrelated errors, timeouts, cancellations, and truncation.
 - Declare the exact Matrix verification and Voice Call Gateway prerequisites for credential-free probes; retain explicit gaps and normal failures for unrelated methods or configured overrides.
 

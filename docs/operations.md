@@ -171,13 +171,12 @@ npm run profile -- --check
 node scripts/check-contract-coverage.mjs --openclaw ../openclaw
 ```
 
-Source-backed reports and registration capture use Inspector source commit
-`1d27e6906e83e48bd613d49a1921d4d0cf4a4697` (after 0.3.26),
-with SDK discovery inside packaged `.setup` directories and composed Zod enums,
-including bundled SDK import classification, target-owned conversation contract
-proof, lazy runtime SDK loading, and method-scoped Gateway prerequisites.
+Source-backed reports and registration capture use the landed 0.3.27 source
+`b8321a836f69f44e42d51945dedd252ec4114f35`, including packaged
+`.setup` SDK discovery, composed Zod enums, in-process resource snapshots,
+generated package-manager workflow repairs, and plugin-controlled path checks.
 `npm run plugin-inspector:smoke` uses the published
-`@openclaw/plugin-inspector@0.3.26` package by default.
+`@openclaw/plugin-inspector@0.3.27` package by default.
 Use
 `CRABPOT_PLUGIN_INSPECTOR_CLI=source npm run plugin-inspector:smoke` only when
 validating local inspector source changes. Set `CRABPOT_PLUGIN_INSPECTOR_DIR`
