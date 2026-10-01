@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { mkdtemp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
@@ -275,12 +275,28 @@ export async function retirePluginCache(target) {
     captureCommand,
     run({ output = false } = {}) {
       const command = captureCommand({ outputPath: output ? path.join(dir, "capture.json") : undefined });
-      return spawnSync(command.command, command.args, {
+      const result = spawnSync(command.command, command.args, {
         cwd: command.cwd,
         encoding: "utf8",
         env: { ...process.env, ...command.env },
         timeout: 2_000,
       });
+      if (result.error) {
+        // Retain the child's last observed boundary before t.after removes its roots.
+        let observations;
+        try {
+          observations = readFileSync(observationsPath, "utf8").slice(-4096);
+        } catch (error) {
+          observations = `unavailable: ${error.code}`;
+        }
+        result.failureContext = JSON.stringify({
+          error: result.error.message, code: result.error.code,
+          pid: result.pid, status: result.status, signal: result.signal,
+          stdout: result.stdout?.slice(-4096), stderr: result.stderr?.slice(-4096),
+          observations,
+        });
+      }
+      return result;
     },
     async assertCleanup(expectedCalls, retained = false) {
       const events = await readObservations();
@@ -302,7 +318,7 @@ export async function retirePluginCache(target) {
 test("OpenClaw lifecycle capture CLI retires SQLite custody before deleting roots and writing output", async (t) => {
   const host = await lifecycleHost(t);
   const result = host.run({ output: true });
-  assert.equal(result.error?.code, undefined, result.error?.message);
+  assert.equal(result.error?.code, undefined, result.failureContext ?? result.error?.message);
   assert.equal(result.status, 0, result.stderr);
   const capture = JSON.parse(await readFile(path.join(host.dir, "capture.json"), "utf8"));
   assert.equal(capture.status, "captured");
@@ -319,7 +335,7 @@ test("OpenClaw lifecycle capture awaits asynchronous loader settlement before ad
     await t.test(throwsAfterActivation ? "rejected load" : "resolved load", async (t) => {
       const host = await lifecycleHost(t, { asyncLoader: true, throwsAfterActivation });
       const result = host.run({ output: true });
-      assert.equal(result.error?.code, undefined, result.error?.message);
+      assert.equal(result.error?.code, undefined, result.failureContext ?? result.error?.message);
       assert.equal(result.status, throwsAfterActivation ? 1 : 0, result.stderr);
       assert.equal(result.stdout, "");
       if (throwsAfterActivation) {
@@ -349,7 +365,7 @@ test("OpenClaw lifecycle capture and parent require loaded status and valid phas
     await t.test(name, async (t) => {
       const host = await lifecycleHost(t, options);
       const result = host.run();
-      assert.equal(result.error?.code, undefined, result.error?.message);
+      assert.equal(result.error?.code, undefined, result.failureContext ?? result.error?.message);
       assert.equal(result.status, 0, result.stderr);
       const capture = JSON.parse(result.stdout);
       const profile = await buildImportLoopProfile({
@@ -380,7 +396,7 @@ test("OpenClaw lifecycle capture and parent require loaded status and valid phas
 test("OpenClaw lifecycle capture CLI cleans up after a thrown loader exception", async (t) => {
   const host = await lifecycleHost(t, { throws: true });
   const result = host.run();
-  assert.equal(result.error?.code, undefined, result.error?.message);
+  assert.equal(result.error?.code, undefined, result.failureContext ?? result.error?.message);
   assert.equal(result.status, 1, result.stderr);
   assert.match(result.stderr, /lifecycle-loader-sentinel/);
   assert.equal(result.stdout, "");
@@ -390,7 +406,7 @@ test("OpenClaw lifecycle capture CLI cleans up after a thrown loader exception",
 test("OpenClaw lifecycle capture retires a root published before the loader throws", async (t) => {
   const host = await lifecycleHost(t, { throwsAfterActivation: true });
   const result = host.run({ output: true });
-  assert.equal(result.error?.code, undefined, result.error?.message);
+  assert.equal(result.error?.code, undefined, result.failureContext ?? result.error?.message);
   assert.equal(result.status, 1, result.stderr);
   assert.match(result.stderr, /lifecycle-loader-sentinel/);
   await host.assertCleanup(1);
@@ -409,7 +425,7 @@ test("OpenClaw lifecycle capture preserves failed teardown without publishing su
     await t.test(name, async (t) => {
       const host = await lifecycleHost(t, options);
       const result = host.run({ output: true });
-      assert.equal(result.error?.code, undefined, result.error?.message);
+      assert.equal(result.error?.code, undefined, result.failureContext ?? result.error?.message);
       assert.equal(result.status, 1, result.stderr);
       assert.equal(result.stdout, "");
       for (const sentinel of sentinels) assert.match(result.stderr, new RegExp(`lifecycle-${sentinel}-sentinel`));
