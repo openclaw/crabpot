@@ -158,6 +158,10 @@ write `plugin-inspector-resources.json` alongside the existing smoke reports.
 The published npm pin stays unchanged until a release includes this API; omit
 `--resources` when testing older packages.
 
+Source-mode checks also use the pinned Inspector revision to read current
+OpenClaw manifest contract keys. This source repair is independent of the
+published npm package used by the default CLI smoke.
+
 This checks collector observations in a fresh child: JSON-transported snapshots,
 a retained 1 MiB Buffer, and a timer added then removed. CPU/RSS cover the child
 process; other memory and active resources cover its main thread. It does not
