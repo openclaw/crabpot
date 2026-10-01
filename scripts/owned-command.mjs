@@ -15,6 +15,7 @@ const termGraceMs = 200;
 const defaultMaxBuffer = 1024 * 1024;
 const startupPhases = new Set([
   "owner-started", "worker-entered", "helper-spawned", "pipe-connected", "request-write-attempted",
+  "helper-entered", "pipe-connect-started", "pipe-connect-returned",
   "request-read",
   "parser-started", "parser-completed", "bootstrap-contained", "compile-started", "compile-completed",
   "native-entered", "create-process-pending", "create-process-completed", "ready-received", "closed-received",
@@ -161,6 +162,9 @@ export function runOwnedCommand(command, args, options = {}) {
   // Wall-clock emission and parent observation times are diagnostic facts, not
   // CPU measurements or cleanup receipts. Success keeps its existing result shape.
   if (result.error) result.error = Object.assign(new Error(result.error.message), result.error, { startupTrace });
+  // Diagnostic ref only: preserve emission/observation intervals on a
+  // non-reproduction too, without changing any owner decision or deadline.
+  result.startupTrace = startupTrace;
   return result;
 }
 
@@ -595,6 +599,28 @@ function runWindows(command, args, options, result, observe, ready, fail, shared
     ], { cwd: options.cwd, env: process.env, windowsHide: true,
       stdio: options.inherit ? "inherit" : ["ignore", "pipe", "pipe"] });
     observe(helper);
+    // Temporary diagnostic: pre-pipe observations use stderr without consuming
+    // its normal output or granting admission/closure authority to a marker.
+    let helperPhaseLine = "";
+    helper.stderr?.on("data", (chunk) => {
+      let start = 0;
+      for (;;) {
+        const end = chunk.indexOf(10, start);
+        const part = chunk.subarray(start, end < 0 ? chunk.length : end);
+        if (helperPhaseLine !== null) {
+          helperPhaseLine = helperPhaseLine.length + part.length <= 128
+            ? helperPhaseLine + part.toString("utf8") : null;
+        }
+        if (end < 0) break;
+        const observation = helperPhaseLine === null ? null
+          : /^CRABPOT_PHASE (helper-entered|pipe-connect-started|pipe-connect-returned) (\d{1,16})\r?$/.exec(helperPhaseLine);
+        if (observation && Number.isSafeInteger(Number(observation[2]))) {
+          phase(observation[1], Number(observation[2]));
+        }
+        helperPhaseLine = "";
+        start = end + 1;
+      }
+    });
     helper.once("spawn", () => {
       Atomics.store(shared, 3, helper.pid);
       phase("helper-spawned");

@@ -1,4 +1,5 @@
 param([string]$PipeName)
+try { [Console]::Error.WriteLine("CRABPOT_PHASE helper-entered " + [DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds()) } catch {}
 $ErrorActionPreference = "Stop"
 $pipe = [System.IO.Pipes.NamedPipeClientStream]::new(
     ".", $PipeName, [System.IO.Pipes.PipeDirection]::InOut, [System.IO.Pipes.PipeOptions]::Asynchronous)
@@ -6,7 +7,9 @@ $reader = $null
 $writer = $null
 $bootstrapKill = $null
 try {
+    try { [Console]::Error.WriteLine("CRABPOT_PHASE pipe-connect-started " + [DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds()) } catch {}
     $pipe.Connect(5000)
+    try { [Console]::Error.WriteLine("CRABPOT_PHASE pipe-connect-returned " + [DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds()) } catch {}
     $utf8 = [System.Text.UTF8Encoding]::new($false)
     $reader = [System.IO.StreamReader]::new($pipe, $utf8, $false, 4096, $true)
     $writer = [System.IO.StreamWriter]::new($pipe, $utf8, 4096, $true)
