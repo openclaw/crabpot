@@ -85,6 +85,13 @@ jobs:
           repository: openclaw/openclaw
           ref: ${{ steps.openclaw-track.outputs.ref }}
           path: openclaw
+      # Temporary PR405 observation; it must not prepare Inspector or warm its helper.
+      - name: Observe first Windows command startup
+        if: runner.os == 'Windows'
+        continue-on-error: true
+        timeout-minutes: 2
+        shell: cmd
+        run: node .github/scripts/start-windows-owner-trace.mjs
       - id: suite
         shell: bash
         timeout-minutes: 30
@@ -95,6 +102,21 @@ jobs:
             extra_args=(--openclaw-track "${{ steps.openclaw-track.outputs.track }}" --fixture-set openclaw-beta --plugin-track source-pack)
           fi
           node scripts/run-static-suite.mjs --write-reports --openclaw ./openclaw --policy dashboard --profile-runs 3 --plugin-inspector-smoke "${extra_args[@]}"
+      - name: Finish Windows startup observation
+        if: ${{ always() && runner.os == 'Windows' }}
+        continue-on-error: true
+        timeout-minutes: 2
+        shell: pwsh
+        run: ./.github/scripts/finish-windows-owner-trace.ps1
+      - name: Upload sanitized Windows startup observation
+        if: ${{ always() && runner.os == 'Windows' }}
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: crabpot-windows-owner-startup
+          path: ${{ runner.temp }}/crabpot-owner-startup.json
+          if-no-files-found: warn
+          retention-days: 3
       - name: Smoke source and packed Plugin Inspector
         id: inspector-smoke
         if: ${{ matrix.os == 'ubuntu-latest' }}
