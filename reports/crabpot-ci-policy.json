@@ -78,7 +78,7 @@
     {
       "id": "compatibility-report.inspector-gaps",
       "action": "pass",
-      "message": "148 inspector proof gaps tracked",
+      "message": "147 inspector proof gaps tracked",
       "evidence": [
         "dingtalk-doc:before-tool-call-probe",
         "kitchen-sink:before-tool-call-probe",
@@ -203,7 +203,6 @@
         "secureclaw:package-build-artifact-entrypoint",
         "secureclaw:package-dependency-install-required",
         "secureclaw:registration-capture-gap",
-        "synology-chat:channel-contract-probe",
         "synology-chat:package-dependency-install-required",
         "telnyx-sms:channel-contract-probe",
         "telnyx-sms:package-build-artifact-entrypoint",
@@ -233,10 +232,11 @@
     {
       "id": "compatibility-report.p1-issues",
       "action": "pass",
-      "message": "35 P1 issues tracked",
+      "message": "36 P1 issues tracked",
       "evidence": [
         "agentchat:missing-compat-record",
         "bluebubbles:sdk-export-missing",
+        "codex:sdk-export-missing",
         "connectclaw:missing-compat-record",
         "connectclaw:missing-compat-record",
         "connectclaw:sdk-export-missing",

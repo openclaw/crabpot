@@ -1,21 +1,21 @@
 {
   "generatedAt": "deterministic",
   "title": "Crabpot CI Summary",
-  "mode": "check",
+  "mode": "dependabot",
   "openclawLabel": "openclaw/openclaw@10bb24270d8d (Default Track pin 2026-09-25)",
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 85,
-    "suggestions": 165,
+    "warnings": 86,
+    "suggestions": 164,
     "issues": 250,
     "p0Issues": 7,
-    "p1Issues": 35,
+    "p1Issues": 36,
     "liveIssues": 7,
     "liveP0Issues": 7,
-    "compatGaps": 29,
+    "compatGaps": 30,
     "deprecationWarnings": 22,
-    "inspectorGaps": 148,
+    "inspectorGaps": 147,
     "upstreamIssues": 44,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
@@ -29,16 +29,16 @@
     "platformWindowsRisks": 17,
     "platformContainerRisks": 17,
     "loaderJitiCandidates": 20,
-    "importLoopP50Ms": 4443,
-    "importLoopP95Ms": 4484,
+    "importLoopP50Ms": 4302,
+    "importLoopP95Ms": 4317,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 110.4,
-    "importLoopOpenClawActivationP50Ms": 1.3,
+    "importLoopOpenClawImportP50Ms": 109.7,
+    "importLoopOpenClawActivationP50Ms": 1.2,
     "importLoopMetricBasis": "baseline-adjusted",
     "importLoopMaxRssMb": 0,
     "importLoopMaxCpuMs": 0,
-    "importLoopRssSampleCount": 529,
-    "importLoopCpuSampleCount": 529
+    "importLoopRssSampleCount": 509,
+    "importLoopCpuSampleCount": 509
   },
   "topIssues": [
     {
@@ -111,6 +111,14 @@
       "fixture": "bluebubbles",
       "code": "sdk-export-missing",
       "title": "bluebubbles: plugin SDK import aliases are missing from target package exports",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "codex",
+      "code": "sdk-export-missing",
+      "title": "codex: plugin SDK import aliases are missing from target package exports",
       "decision": "core-compat-adapter"
     },
     {
@@ -192,14 +200,6 @@
       "code": "missing-compat-record",
       "title": "honcho: compat-dependent behavior lacks registry coverage",
       "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "inworld-tts",
-      "code": "missing-compat-record",
-      "title": "inworld-tts: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
     }
   ],
   "refRegressions": [],
@@ -224,20 +224,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 504.2% over baseline",
+      "message": "p95WallMs regressed 824.3% over baseline",
       "baseline": 1273,
-      "current": 7692,
-      "delta": 6419,
-      "percent": 504.2
+      "current": 11766,
+      "delta": 10493,
+      "percent": 824.3
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 692 over baseline",
+      "message": "maxPeakRssMb regressed 691.6 over baseline",
       "baseline": 65.1,
-      "current": 757.1,
-      "delta": 692
+      "current": 756.7,
+      "delta": 691.6
     }
   ],
   "artifacts": {
@@ -249,7 +249,7 @@
     "platform": "reports/crabpot-platform-probes.json",
     "importLoop": "reports/crabpot-import-loop-profile.json",
     "execution": "reports/crabpot-execution-results.json",
-    "runtimeProfile": null,
+    "runtimeProfile": "reports/crabpot-runtime-profile.json",
     "refDiff": null,
     "profileDiff": "reports/crabpot-profile-diff.json",
     "ciPolicy": "reports/crabpot-ci-policy.json",
