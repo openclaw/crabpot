@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for OpenClaw Microsoft Teams channel plugin.",
   "dependencies": {
-    "@openclaw/msteams": "2026.9.5"
+    "@openclaw/msteams": "2026.9.7"
   },
   "crabpot": {
     "fixture": "msteams",
