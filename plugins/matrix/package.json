@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for OpenClaw Matrix channel plugin.",
   "dependencies": {
-    "@openclaw/matrix": "2026.9.5"
+    "@openclaw/matrix": "2026.9.8"
   },
   "crabpot": {
     "fixture": "matrix",
