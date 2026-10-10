@@ -2,6 +2,8 @@
 
 ## 0.2.2 - Unreleased
 
+- Advance the Plugin Inspector source pin to include packed OpenClaw manifest contract-key discovery; preserve the published-package pin until a release is available. Thanks @Bergschloss.
+
 - Publish checked CI reports once and summarize only current-job outputs, preserving failed or interrupted coverage without rerunning fixture preparation.
 - Include bounded startup-phase observations on command failures without changing startup limits, native admission, or cleanup guarantees.
 - Arm Windows helper cancellation before request parsing so owner loss or startup expiry cannot leave a parser-blocked helper running.
