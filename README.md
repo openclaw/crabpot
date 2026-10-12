@@ -786,3 +786,8 @@ logs, inventory, image/package provenance, runtime input pins, partial campaign
 receipts and `closure.json`. A missing closure receipt is unconfirmed termination,
 not a clean result. Hard runner loss can prevent finalization; retained evidence
 must not be interpreted as a successful campaign. Ordinary CI remains unchanged.
+
+## Releases
+
+Crabpot source releases use the signed-tag Actions workflow. See
+[RELEASING.md](RELEASING.md) for preparation, no-publish rehearsals, and verification.
