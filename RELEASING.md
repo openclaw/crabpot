@@ -16,7 +16,10 @@ section as `## X.Y.Z - YYYY-MM-DD`. Preserve credits and leave the next pending
 section above it. Do not release an `Unreleased` heading.
 
 Use the normal fixture-driven checks from README and `docs/operations.md` for
-the preparation PR. The independent push `Check` workflow exercises the full
+the preparation PR. The required `Default Track (pinned OpenClaw)` push check
+is the release gate; moving upstream HEAD canaries remain advisory. The shared
+workflow honors that existing protected-branch requirement (`strict-checks: false`).
+The independent push `Check` workflow exercises the full
 static suite across Linux, macOS, Windows, and the container lane with pinned
 OpenClaw and plugin fixtures. The release additionally checks retired contract
 names and runs synthetic static-suite, package-result, and argument-parsing

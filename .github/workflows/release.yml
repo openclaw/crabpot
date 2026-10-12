@@ -32,7 +32,9 @@ jobs:
       version: ${{ inputs.version || github.ref_name }}
       dry_run: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
       require-signed-tag: true
-      strict-checks: true
+      # The protected branch requires the full pinned Default Track gate.
+      # Moving upstream HEAD canaries are intentionally advisory.
+      strict-checks: false
       ci-check-events: '["push"]'
       source-archives: true
       test-command: |
