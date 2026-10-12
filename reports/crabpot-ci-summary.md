@@ -10,16 +10,16 @@ Status: PASS
 | Metric                      | Value                                                                                                                  |
 | --------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | Breakages                   | 0                                                                                                                      |
-| Warnings                    | 85                                                                                                                     |
-| Suggestions                 | 165                                                                                                                    |
+| Warnings                    | 86                                                                                                                     |
+| Suggestions                 | 164                                                                                                                    |
 | Issues                      | 250                                                                                                                    |
 | P0 issues                   | 7                                                                                                                      |
-| P1 issues                   | 35                                                                                                                     |
+| P1 issues                   | 36                                                                                                                     |
 | Live issues                 | 7                                                                                                                      |
 | Live P0 issues              | 7                                                                                                                      |
-| Compat gaps                 | 29                                                                                                                     |
+| Compat gaps                 | 30                                                                                                                     |
 | Deprecation warnings        | 22                                                                                                                     |
-| Inspector gaps              | 148                                                                                                                    |
+| Inspector gaps              | 147                                                                                                                    |
 | Upstream metadata           | 44                                                                                                                     |
 | Ref diff failures           | 0                                                                                                                      |
 | Ref diff warnings           | 0                                                                                                                      |
@@ -33,7 +33,7 @@ Status: PASS
 | Windows portability risks   | 17                                                                                                                     |
 | Container portability risks | 17                                                                                                                     |
 | Jiti loader candidates      | 20                                                                                                                     |
-| Import loop                 | p50 4443 ms / p95 4484 ms / plugin delta RSS 0 MB / plugin delta CPU 0 ms / OpenClaw import 110.4 ms / activate 1.3 ms |
+| Import loop                 | p50 4434 ms / p95 4507 ms / plugin delta RSS 1.5 MB / plugin delta CPU 0 ms / OpenClaw import 117 ms / activate 1.3 ms |
 
 ## Top Issues
 
@@ -48,6 +48,7 @@ Status: PASS
 | P0       | live-issue    | opik-openclaw      | unknown-hook-name         | core-compat-adapter | opik-openclaw: fixture uses a hook missing from target OpenClaw                       |
 | P1       | compat-gap    | agentchat          | missing-compat-record     | core-compat-adapter | agentchat: compat-dependent behavior lacks registry coverage                          |
 | P1       | compat-gap    | bluebubbles        | sdk-export-missing        | core-compat-adapter | bluebubbles: plugin SDK import aliases are missing from target package exports        |
+| P1       | compat-gap    | codex              | sdk-export-missing        | core-compat-adapter | codex: plugin SDK import aliases are missing from target package exports              |
 | P1       | compat-gap    | connectclaw        | missing-compat-record     | core-compat-adapter | connectclaw: compat-dependent behavior lacks registry coverage                        |
 | P1       | compat-gap    | connectclaw        | missing-compat-record     | core-compat-adapter | connectclaw: compat-dependent behavior lacks registry coverage                        |
 | P1       | compat-gap    | connectclaw        | sdk-export-missing        | core-compat-adapter | connectclaw: plugin SDK import aliases are missing from target package exports        |
@@ -58,7 +59,6 @@ Status: PASS
 | P1       | compat-gap    | dingtalk-doc       | sdk-export-missing        | core-compat-adapter | dingtalk-doc: plugin SDK import aliases are missing from target package exports       |
 | P1       | compat-gap    | hasdata            | missing-compat-record     | core-compat-adapter | hasdata: compat-dependent behavior lacks registry coverage                            |
 | P1       | compat-gap    | honcho             | missing-compat-record     | core-compat-adapter | honcho: compat-dependent behavior lacks registry coverage                             |
-| P1       | compat-gap    | inworld-tts        | missing-compat-record     | core-compat-adapter | inworld-tts: compat-dependent behavior lacks registry coverage                        |
 
 ## Ref Regressions
 
