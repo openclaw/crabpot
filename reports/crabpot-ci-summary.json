@@ -1,7 +1,7 @@
 {
   "generatedAt": "deterministic",
   "title": "Crabpot CI Summary",
-  "mode": "dependabot",
+  "mode": "check",
   "openclawLabel": "openclaw/openclaw@10bb24270d8d (Default Track pin 2026-09-25)",
   "status": "pass",
   "summary": {
@@ -29,16 +29,16 @@
     "platformWindowsRisks": 17,
     "platformContainerRisks": 17,
     "loaderJitiCandidates": 20,
-    "importLoopP50Ms": 4450,
-    "importLoopP95Ms": 4471,
+    "importLoopP50Ms": 4431,
+    "importLoopP95Ms": 4456,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 117.6,
-    "importLoopOpenClawActivationP50Ms": 1.4,
+    "importLoopOpenClawImportP50Ms": 114.8,
+    "importLoopOpenClawActivationP50Ms": 1.3,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 1.4,
-    "importLoopMaxCpuMs": 95,
-    "importLoopRssSampleCount": 530,
-    "importLoopCpuSampleCount": 530
+    "importLoopMaxRssMb": 2.9,
+    "importLoopMaxCpuMs": 0,
+    "importLoopRssSampleCount": 528,
+    "importLoopCpuSampleCount": 528
   },
   "topIssues": [
     {
@@ -224,20 +224,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 793.7% over baseline",
+      "message": "p95WallMs regressed 563.8% over baseline",
       "baseline": 1273,
-      "current": 11377,
-      "delta": 10104,
-      "percent": 793.7
+      "current": 8450,
+      "delta": 7177,
+      "percent": 563.8
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 446.20000000000005 over baseline",
+      "message": "maxPeakRssMb regressed 696 over baseline",
       "baseline": 65.1,
-      "current": 511.3,
-      "delta": 446.20000000000005
+      "current": 761.1,
+      "delta": 696
     }
   ],
   "artifacts": {
@@ -249,7 +249,7 @@
     "platform": "reports/crabpot-platform-probes.json",
     "importLoop": "reports/crabpot-import-loop-profile.json",
     "execution": "reports/crabpot-execution-results.json",
-    "runtimeProfile": "reports/crabpot-runtime-profile.json",
+    "runtimeProfile": null,
     "refDiff": null,
     "profileDiff": "reports/crabpot-profile-diff.json",
     "ciPolicy": "reports/crabpot-ci-policy.json",
