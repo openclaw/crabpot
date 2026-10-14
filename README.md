@@ -10,14 +10,14 @@
 ## Reporting Data
 
 `main` follows a promoted green OpenClaw source pin plus npm `latest` plugin artifacts, with bundled fixtures source-packed from that pinned checkout. `crab-beta` follows beta npm dist-tags for externalized packages and source-packs bundled fixtures. `crab-development` checks `openclaw/openclaw` main against source-packed official plugin artifacts from that same OpenClaw checkout.
-- **Last dashboard update:** Oct 14, 2026, 05:39 UTC
+- **Last dashboard update:** Oct 14, 2026, 07:46 UTC
 <!-- crabpot-tracks:start -->
 - **Source:** `github-default-pin`
 - **OpenClaw version:** `2026.9.6`
 - **OpenClaw SHA:** `10bb24270d8d`
 - **Dashboard target:** `openclaw/openclaw@10bb24270d8d + npm latest plugin artifacts`
 - **Plugin artifacts:** `npm latest fixture set plus bundled source-packed fixtures`
-- **GitHub report run:** [38515741375](https://github.com/openclaw/crabpot/actions/runs/38515741375)
+- **GitHub report run:** [38527659695](https://github.com/openclaw/crabpot/actions/runs/38527659695)
 <!-- crabpot-tracks:end -->
 
 <!-- crabpot-summary:start -->
@@ -33,9 +33,9 @@
 | P0 issues              | [🔴 P0 7](reports/crabpot-issues.md#p0-live-issues)                                                                 |
 | P1 issues              | [🟠 P1 36](reports/crabpot-issues.md#triage-summary)                                                                |
 | Live issues            | 7 total / 7 P0                                                                                                      |
-| Compat gaps            | 30                                                                                                                  |
+| Compat gaps            | 28                                                                                                                  |
 | Deprecation warnings   | 22                                                                                                                  |
-| Inspector gaps         | 147                                                                                                                 |
+| Inspector gaps         | 149                                                                                                                 |
 | Upstream metadata      | 44                                                                                                                  |
 | Contract probes        | 218                                                                                                                 |
 | Policy failures        | 0                                                                                                                   |
@@ -48,30 +48,30 @@
 | Workspace plan         | 119 entrypoints / 79 installs / 15 builds                                                                           |
 | Platform risks         | 17 Windows / 17 container                                                                                           |
 | Jiti loader candidates | 20                                                                                                                  |
-| Import loop            | p50 2703ms / p95 2711ms / plugin delta RSS 21.8MB / plugin delta CPU 73ms / OpenClaw import 81.5ms / activate 0.7ms |
-| Runtime profile        | p50 8337ms / command p95 8537ms / max RSS 760.9MB / 3 samples/command                                               |
+| Import loop            | p50 2905ms / p95 2939ms / plugin delta RSS 20.9MB / plugin delta CPU 37ms / OpenClaw import 75.9ms / activate 0.8ms |
+| Runtime profile        | p50 8171ms / command p95 8450ms / max RSS 761.1MB / 3 samples/command                                               |
 
 ### OpenClaw Lifecycle Probe
 
 | Phase                      | p50    | p95    |
 | -------------------------- | ------ | ------ |
-| Import (`full`)            | 81.5ms | 86.3ms |
-| Activate (`full:register`) | 0.7ms  | 0.8ms  |
+| Import (`full`)            | 75.9ms | 80.8ms |
+| Activate (`full:register`) | 0.8ms  | 0.8ms  |
 
 ### Top Discovered Issues
 
-| Severity | Class      | Fixture            | Code                      | Decision            | Title                                                                                                                   |
-| -------- | ---------- | ------------------ | ------------------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| 🔴 P0    | live-issue | aiwerk-mcp-bridge  | unknown-hook-name         | core-compat-adapter | [aiwerk-mcp-bridge: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)         |
-| 🔴 P0    | live-issue | connectclaw        | unknown-hook-name         | core-compat-adapter | [connectclaw: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)               |
-| 🔴 P0    | live-issue | honcho             | unknown-hook-name         | core-compat-adapter | [honcho: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)                    |
-| 🔴 P0    | live-issue | honcho             | unknown-registration-name | core-compat-adapter | [honcho: fixture calls a registrar missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)              |
-| 🔴 P0    | live-issue | memos-cloud        | unknown-hook-name         | core-compat-adapter | [memos-cloud: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)               |
-| 🔴 P0    | live-issue | openclaw-telemetry | unknown-hook-name         | core-compat-adapter | [openclaw-telemetry: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)        |
-| 🔴 P0    | live-issue | opik-openclaw      | unknown-hook-name         | core-compat-adapter | [opik-openclaw: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)             |
-| 🟠 P1    | compat-gap | agentchat          | missing-compat-record     | core-compat-adapter | [agentchat: compat-dependent behavior lacks registry coverage](reports/crabpot-issues.md#compat-gaps)                   |
-| 🟠 P1    | compat-gap | bluebubbles        | sdk-export-missing        | core-compat-adapter | [bluebubbles: plugin SDK import aliases are missing from target package exports](reports/crabpot-issues.md#compat-gaps) |
-| 🟠 P1    | compat-gap | codex              | sdk-export-missing        | core-compat-adapter | [codex: plugin SDK import aliases are missing from target package exports](reports/crabpot-issues.md#compat-gaps)       |
+| Severity | Class         | Fixture            | Code                      | Decision            | Title                                                                                                                   |
+| -------- | ------------- | ------------------ | ------------------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| 🔴 P0    | live-issue    | aiwerk-mcp-bridge  | unknown-hook-name         | core-compat-adapter | [aiwerk-mcp-bridge: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)         |
+| 🔴 P0    | live-issue    | connectclaw        | unknown-hook-name         | core-compat-adapter | [connectclaw: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)               |
+| 🔴 P0    | live-issue    | honcho             | unknown-hook-name         | core-compat-adapter | [honcho: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)                    |
+| 🔴 P0    | live-issue    | honcho             | unknown-registration-name | core-compat-adapter | [honcho: fixture calls a registrar missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)              |
+| 🔴 P0    | live-issue    | memos-cloud        | unknown-hook-name         | core-compat-adapter | [memos-cloud: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)               |
+| 🔴 P0    | live-issue    | openclaw-telemetry | unknown-hook-name         | core-compat-adapter | [openclaw-telemetry: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)        |
+| 🔴 P0    | live-issue    | opik-openclaw      | unknown-hook-name         | core-compat-adapter | [opik-openclaw: fixture uses a hook missing from target OpenClaw](reports/crabpot-issues.md#p0-live-issues)             |
+| 🟠 P1    | compat-gap    | agentchat          | missing-compat-record     | core-compat-adapter | [agentchat: compat-dependent behavior lacks registry coverage](reports/crabpot-issues.md#compat-gaps)                   |
+| 🟠 P1    | compat-gap    | bluebubbles        | sdk-export-missing        | core-compat-adapter | [bluebubbles: plugin SDK import aliases are missing from target package exports](reports/crabpot-issues.md#compat-gaps) |
+| 🟠 P1    | inspector-gap | codex              | sdk-export-missing        | inspector-follow-up | [codex: SDK import coverage requires an eligible host](reports/crabpot-issues.md#inspector-proof-gaps)                  |
 <!-- crabpot-summary:end -->
 ## What this tests
 
