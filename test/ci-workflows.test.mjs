@@ -1,6 +1,8 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
-import { readFile } from "node:fs/promises";
+import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import path from "node:path";
 import { test } from "node:test";
 
 async function readWorkflow(path) {
@@ -411,29 +413,36 @@ test("dependabot validates fixture pins before merging without rewriting reports
   assert.match(workflow, /failed status check\(s\); refusing auto-merge/);
 });
 
-test("dependabot merge stops on changed heads and passes only a confirmed merge to reports", async () => {
+test("dependabot merge stops on changed heads and passes only a confirmed merge to reports", async (t) => {
   const workflow = await readWorkflow(".github/workflows/dependabot-auto-merge.yml");
   const script = workflow.split("- name: Merge Dependabot PR")[1]
     .split("        run: |\n")[1].split("\n  dashboard:")[0].replace(/^          /gm, "");
   const stub = 'gh() { if [[ "$*" == *"--json mergeCommit"* ]]; then printf "%s\\n" "$MERGED_SHA"; elif [ "$2" = view ]; then printf "%s\\n" "$CHECK_STATE"; else printf "MERGE %s\\n" "$*"; fi; };\n';
   const mergedSha = "a".repeat(40);
-  const run = (state, merge = mergedSha) => spawnSync(process.platform === "win32" ? "bash" : "/bin/bash", ["-c", stub + script], {
-    encoding: "utf8",
-    env: { PATH: process.env.PATH, PR_NUMBER: "123", PR_HEAD_SHA: "reviewed-head", CHECK_STATE: state, MERGED_SHA: merge, GITHUB_OUTPUT: "/dev/stdout" },
-  });
-  const changed = run("new-head\tMERGEABLE\tCLEAN\t0\t0");
+  const dir = await mkdtemp(path.join(tmpdir(), "crabpot-merge-test-"));
+  t.after(() => rm(dir, { recursive: true, force: true }));
+  const outputPath = path.join(dir, "github-output");
+  const run = async (state, merge = mergedSha) => {
+    await writeFile(outputPath, "");
+    const result = spawnSync(process.platform === "win32" ? "bash" : "/bin/bash", ["-c", stub + script], {
+      encoding: "utf8",
+      env: { PATH: process.env.PATH, PR_NUMBER: "123", PR_HEAD_SHA: "reviewed-head", CHECK_STATE: state, MERGED_SHA: merge, GITHUB_OUTPUT: outputPath },
+    });
+    return { ...result, output: await readFile(outputPath, "utf8") };
+  };
+  const changed = await run("new-head\tMERGEABLE\tCLEAN\t0\t0");
   assert.equal(changed.status, 0);
-  assert.doesNotMatch(changed.stdout, /MERGE |merged-sha=/);
-  const failed = run("reviewed-head\tMERGEABLE\tBLOCKED\t0\t1");
+  assert.doesNotMatch(changed.stdout + changed.output, /MERGE |merged-sha=/);
+  const failed = await run("reviewed-head\tMERGEABLE\tBLOCKED\t0\t1");
   assert.equal(failed.status, 1);
-  assert.doesNotMatch(failed.stdout, /MERGE |merged-sha=/);
-  const ready = run("reviewed-head\tMERGEABLE\tCLEAN\t0\t0");
-  assert.equal(ready.status, 0);
+  assert.doesNotMatch(failed.stdout + failed.output, /MERGE |merged-sha=/);
+  const ready = await run("reviewed-head\tMERGEABLE\tCLEAN\t0\t0");
+  assert.equal(ready.status, 0, ready.stderr);
   assert.match(ready.stdout, /MERGE pr merge 123 --squash --delete-branch --match-head-commit reviewed-head/);
-  assert.ok(ready.stdout.includes("merged-sha=" + mergedSha));
-  const invalid = run("reviewed-head\tMERGEABLE\tCLEAN\t0\t0", "null");
+  assert.ok(ready.output.includes("merged-sha=" + mergedSha));
+  const invalid = await run("reviewed-head\tMERGEABLE\tCLEAN\t0\t0", "null");
   assert.equal(invalid.status, 1);
-  assert.doesNotMatch(invalid.stdout, /merged-sha=/);
+  assert.doesNotMatch(invalid.output, /merged-sha=/);
 });
 
 
