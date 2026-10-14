@@ -2,6 +2,7 @@
 
 ## 0.2.2 - Unreleased
 
+- Refresh the Feishu fallback to 2026.10.1 with its matching published source provenance, retaining the frozen host and explicit runtime compatibility gaps. Thanks @dependabot.
 - Refresh 19 official plugin fallback pins to their pending 2026.9.7–2026.9.9 updates and align each source reference with the published package provenance. Thanks @dependabot.
 - Adopt reviewed Inspector source for channel registration contracts and bounded runtime-import discovery through named `createRequire` handles, preserving explicit unsupported state operations and the published 0.3.26 CLI pin.
 - Adopt reviewed Inspector source fixes for compiled SDK namespaces and synchronous bundled-module loading, restoring current Nostr capture while retaining the published 0.3.26 CLI pin.
