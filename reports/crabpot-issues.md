@@ -118,7 +118,7 @@ _none_
   - **sdk-export-missing**: codex: plugin SDK import aliases are missing from target package exports
   - state: open · compat:untracked
   - evidence:
-    - [openclaw/plugin-sdk/agent-harness-completion @ native-subagent-monitor-wh_-K3Vo.mjs:22](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/codex/dist/.setup/native-subagent-monitor-wh_-K3Vo.mjs#L22)
+    - [openclaw/plugin-sdk/agent-harness-completion @ native-subagent-monitor-CkpiZfm0.mjs:22](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/codex/dist/.setup/native-subagent-monitor-CkpiZfm0.mjs#L22)
 
 - 🟠 P1 **connectclaw** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: connectclaw: compat-dependent behavior lacks registry coverage
@@ -2116,7 +2116,7 @@ _none_
   - **sdk-export-missing**: codex: plugin SDK import aliases are missing from target package exports
   - state: open · compat:untracked
   - evidence:
-    - [openclaw/plugin-sdk/agent-harness-completion @ native-subagent-monitor-wh_-K3Vo.mjs:22](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/codex/dist/.setup/native-subagent-monitor-wh_-K3Vo.mjs#L22)
+    - [openclaw/plugin-sdk/agent-harness-completion @ native-subagent-monitor-CkpiZfm0.mjs:22](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/codex/dist/.setup/native-subagent-monitor-CkpiZfm0.mjs#L22)
 
 - 🟠 P1 **connectclaw** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: connectclaw: compat-dependent behavior lacks registry coverage
@@ -4090,7 +4090,7 @@ _none_
   - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
   - id: `sdk.import.package-export-cold-import:codex`
   - evidence:
-    - [openclaw/plugin-sdk/agent-harness-completion @ native-subagent-monitor-wh_-K3Vo.mjs:22](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/codex/dist/.setup/native-subagent-monitor-wh_-K3Vo.mjs#L22)
+    - [openclaw/plugin-sdk/agent-harness-completion @ native-subagent-monitor-CkpiZfm0.mjs:22](https://github.com/openclaw/openclaw/blob/7ea3a421cde856dd1d0a2b8e8d256926976d7bff/extensions/codex/dist/.setup/native-subagent-monitor-CkpiZfm0.mjs#L22)
 
 - 🟠 P1 **connectclaw** `sdk-alias`
   - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
