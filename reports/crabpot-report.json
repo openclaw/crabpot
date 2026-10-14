@@ -32419,6 +32419,7 @@
         "openclaw/plugin-sdk/channel-entry-contract",
         "openclaw/plugin-sdk/channel-runtime",
         "openclaw/plugin-sdk/config-runtime",
+        "openclaw/plugin-sdk/core",
         "openclaw/plugin-sdk/setup"
       ],
       "sdkImportDetails": [
@@ -32523,6 +32524,12 @@
           "file": "plugins/dingtalk-connector/src/services/card-bridge.ts",
           "line": 339,
           "ref": "plugins/dingtalk-connector/src/services/card-bridge.ts:339"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/core",
+          "file": "plugins/dingtalk-connector/src/channel.ts",
+          "line": 551,
+          "ref": "plugins/dingtalk-connector/src/channel.ts:551"
         },
         {
           "specifier": "openclaw/plugin-sdk/setup",
@@ -34654,9 +34661,11 @@
       ],
       "sdkImports": [
         "openclaw/plugin-sdk/channel-reply-pipeline",
+        "openclaw/plugin-sdk/config-runtime",
         "openclaw/plugin-sdk/core",
         "openclaw/plugin-sdk/routing",
-        "openclaw/plugin-sdk/runtime-store"
+        "openclaw/plugin-sdk/runtime-store",
+        "openclaw/plugin-sdk/session-store-runtime"
       ],
       "sdkImportDetails": [
         {
@@ -34664,6 +34673,12 @@
           "file": "plugins/lightclawbot/.crabpot-package/dist/src/inbound.js",
           "line": 262,
           "ref": "plugins/lightclawbot/.crabpot-package/dist/src/inbound.js:262"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "file": "plugins/lightclawbot/.crabpot-package/dist/src/utils/openclaw-compat.js",
+          "line": 84,
+          "ref": "plugins/lightclawbot/.crabpot-package/dist/src/utils/openclaw-compat.js:84"
         },
         {
           "specifier": "openclaw/plugin-sdk/core",
@@ -34706,6 +34721,12 @@
           "file": "plugins/lightclawbot/.crabpot-package/dist/src/runtime.js",
           "line": 17,
           "ref": "plugins/lightclawbot/.crabpot-package/dist/src/runtime.js:17"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/session-store-runtime",
+          "file": "plugins/lightclawbot/.crabpot-package/dist/src/utils/openclaw-compat.js",
+          "line": 59,
+          "ref": "plugins/lightclawbot/.crabpot-package/dist/src/utils/openclaw-compat.js:59"
         }
       ],
       "sdkDeprecations": []
@@ -51540,9 +51561,11 @@
       "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
       "evidence": [
         "openclaw/plugin-sdk/channel-reply-pipeline",
+        "openclaw/plugin-sdk/config-runtime",
         "openclaw/plugin-sdk/core",
         "openclaw/plugin-sdk/routing",
-        "openclaw/plugin-sdk/runtime-store"
+        "openclaw/plugin-sdk/runtime-store",
+        "openclaw/plugin-sdk/session-store-runtime"
       ]
     },
     {

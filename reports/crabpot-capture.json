@@ -10,7 +10,7 @@
     "fixtureCount": 59,
     "registrationCount": 379,
     "hookCount": 132,
-    "sdkImportCount": 2824,
+    "sdkImportCount": 2827,
     "packageEntrypointCount": 119,
     "issueProbeCount": 218,
     "inspectorShimRequiredCount": 215,
@@ -39729,6 +39729,17 @@
           ]
         },
         {
+          "id": "sdk.openclaw/plugin-sdk/core:dingtalk-connector:plugins-dingtalk-connector-src-channel-ts-551",
+          "fixture": "dingtalk-connector",
+          "specifier": "openclaw/plugin-sdk/core",
+          "ref": "plugins/dingtalk-connector/src/channel.ts:551",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
           "id": "sdk.openclaw/plugin-sdk/setup:dingtalk-connector:plugins-dingtalk-connector-src-onboarding-ts-451",
           "fixture": "dingtalk-connector",
           "specifier": "openclaw/plugin-sdk/setup",
@@ -41070,6 +41081,17 @@
           ]
         },
         {
+          "id": "sdk.openclaw/plugin-sdk/config-runtime:lightclawbot:plugins-lightclawbot-crabpot-package-dist-src-utils-openclaw-compat-js-84",
+          "fixture": "lightclawbot",
+          "specifier": "openclaw/plugin-sdk/config-runtime",
+          "ref": "plugins/lightclawbot/.crabpot-package/dist/src/utils/openclaw-compat.js:84",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
           "id": "sdk.openclaw/plugin-sdk/core:lightclawbot:plugins-lightclawbot-crabpot-package-dist-index-js-10",
           "fixture": "lightclawbot",
           "specifier": "openclaw/plugin-sdk/core",
@@ -41140,6 +41162,17 @@
           "fixture": "lightclawbot",
           "specifier": "openclaw/plugin-sdk/runtime-store",
           "ref": "plugins/lightclawbot/.crabpot-package/dist/src/runtime.js:17",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/session-store-runtime:lightclawbot:plugins-lightclawbot-crabpot-package-dist-src-utils-openclaw-compat-js-59",
+          "fixture": "lightclawbot",
+          "specifier": "openclaw/plugin-sdk/session-store-runtime",
+          "ref": "plugins/lightclawbot/.crabpot-package/dist/src/utils/openclaw-compat.js:59",
           "support": "target-exported",
           "assertions": [
             "package export exists",

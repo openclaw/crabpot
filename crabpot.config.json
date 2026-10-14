@@ -599,7 +599,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/msteams",
-        "ref": "2b988ee83444f08ccaf37aa5e98f370726c75f6e"
+        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
       },
       "path": "plugins/msteams",
       "priority": "medium",
@@ -684,7 +684,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/voice-call",
-        "ref": "2b988ee83444f08ccaf37aa5e98f370726c75f6e"
+        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
       },
       "path": "plugins/voice-call",
       "priority": "medium",
@@ -728,7 +728,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/zalo",
-        "ref": "2b988ee83444f08ccaf37aa5e98f370726c75f6e"
+        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
       },
       "path": "plugins/zalo",
       "priority": "medium",
@@ -756,7 +756,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/zalouser",
-        "ref": "2b988ee83444f08ccaf37aa5e98f370726c75f6e"
+        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
       },
       "path": "plugins/zalouser",
       "priority": "medium",
@@ -814,7 +814,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/tlon",
-        "ref": "2b988ee83444f08ccaf37aa5e98f370726c75f6e"
+        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
       },
       "path": "plugins/tlon",
       "priority": "medium",
@@ -842,7 +842,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/twitch",
-        "ref": "2b988ee83444f08ccaf37aa5e98f370726c75f6e"
+        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
       },
       "path": "plugins/twitch",
       "priority": "medium",
@@ -926,7 +926,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/brave",
-        "ref": "2b988ee83444f08ccaf37aa5e98f370726c75f6e"
+        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
       },
       "path": "plugins/brave-plugin",
       "priority": "medium",
@@ -1004,7 +1004,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/diagnostics-prometheus",
-        "ref": "2b988ee83444f08ccaf37aa5e98f370726c75f6e"
+        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
       },
       "path": "plugins/diagnostics-prometheus",
       "priority": "medium",

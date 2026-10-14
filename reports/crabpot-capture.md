@@ -9,7 +9,7 @@ Generated: deterministic
 | Fixtures                | 59    |
 | Registrations           | 379   |
 | Hooks                   | 132   |
-| SDK imports             | 2824  |
+| SDK imports             | 2827  |
 | Package entrypoints     | 119   |
 | Issue probes            | 218   |
 | Inspector shim required | 215   |
@@ -3292,6 +3292,7 @@ Generated: deterministic
 | dingtalk-connector     | openclaw/plugin-sdk/config-runtime                          | target-exported       | plugins/dingtalk-connector/src/gateway-methods.ts:720                                              | package export exists; cold import resolves without plugin credentials |
 | dingtalk-connector     | openclaw/plugin-sdk/config-runtime                          | target-exported       | plugins/dingtalk-connector/src/services/card-bridge.ts:186                                         | package export exists; cold import resolves without plugin credentials |
 | dingtalk-connector     | openclaw/plugin-sdk/config-runtime                          | target-exported       | plugins/dingtalk-connector/src/services/card-bridge.ts:339                                         | package export exists; cold import resolves without plugin credentials |
+| dingtalk-connector     | openclaw/plugin-sdk/core                                    | target-exported       | plugins/dingtalk-connector/src/channel.ts:551                                                      | package export exists; cold import resolves without plugin credentials |
 | dingtalk-connector     | openclaw/plugin-sdk/setup                                   | target-exported       | plugins/dingtalk-connector/src/onboarding.ts:451                                                   | package export exists; cold import resolves without plugin credentials |
 | dingtalk-doc           | openclaw/plugin-sdk                                         | compat-alias-required | plugins/dingtalk-doc/index.ts:11                                                                   | package export exists; cold import resolves without plugin credentials |
 | mocrane-wecom          | openclaw/plugin-sdk                                         | compat-alias-required | plugins/mocrane-wecom/src/compat/plugin-sdk-shim.ts:30                                             | package export exists; cold import resolves without plugin credentials |
@@ -3346,6 +3347,7 @@ Generated: deterministic
 | openclaw-weixin        | openclaw/plugin-sdk/temp-path                               | target-exported       | plugins/openclaw-weixin/.crabpot-package/src/messaging/process-message.ts:4                        | package export exists; cold import resolves without plugin credentials |
 | openclaw-weixin        | openclaw/plugin-sdk/temp-path                               | target-exported       | plugins/openclaw-weixin/.crabpot-package/src/util/logger.ts:5                                      | package export exists; cold import resolves without plugin credentials |
 | lightclawbot           | openclaw/plugin-sdk/channel-reply-pipeline                  | target-exported       | plugins/lightclawbot/.crabpot-package/dist/src/inbound.js:262                                      | package export exists; cold import resolves without plugin credentials |
+| lightclawbot           | openclaw/plugin-sdk/config-runtime                          | target-exported       | plugins/lightclawbot/.crabpot-package/dist/src/utils/openclaw-compat.js:84                         | package export exists; cold import resolves without plugin credentials |
 | lightclawbot           | openclaw/plugin-sdk/core                                    | target-exported       | plugins/lightclawbot/.crabpot-package/dist/index.js:10                                             | package export exists; cold import resolves without plugin credentials |
 | lightclawbot           | openclaw/plugin-sdk/core                                    | target-exported       | plugins/lightclawbot/.crabpot-package/dist/setup-entry.js:17                                       | package export exists; cold import resolves without plugin credentials |
 | lightclawbot           | openclaw/plugin-sdk/core                                    | target-exported       | plugins/lightclawbot/.crabpot-package/dist/src/channel.js:22                                       | package export exists; cold import resolves without plugin credentials |
@@ -3353,6 +3355,7 @@ Generated: deterministic
 | lightclawbot           | openclaw/plugin-sdk/core                                    | target-exported       | plugins/lightclawbot/.crabpot-package/dist/src/shared.js:10                                        | package export exists; cold import resolves without plugin credentials |
 | lightclawbot           | openclaw/plugin-sdk/routing                                 | target-exported       | plugins/lightclawbot/.crabpot-package/dist/src/channel.js:23                                       | package export exists; cold import resolves without plugin credentials |
 | lightclawbot           | openclaw/plugin-sdk/runtime-store                           | target-exported       | plugins/lightclawbot/.crabpot-package/dist/src/runtime.js:17                                       | package export exists; cold import resolves without plugin credentials |
+| lightclawbot           | openclaw/plugin-sdk/session-store-runtime                   | target-exported       | plugins/lightclawbot/.crabpot-package/dist/src/utils/openclaw-compat.js:59                         | package export exists; cold import resolves without plugin credentials |
 | telnyx-sms             | openclaw/plugin-sdk/channel-config-helpers                  | target-exported       | plugins/telnyx-sms/src/channel.ts:5                                                                | package export exists; cold import resolves without plugin credentials |
 | telnyx-sms             | openclaw/plugin-sdk/channel-core                            | target-exported       | plugins/telnyx-sms/index.ts:1                                                                      | package export exists; cold import resolves without plugin credentials |
 | telnyx-sms             | openclaw/plugin-sdk/channel-core                            | target-exported       | plugins/telnyx-sms/setup-entry.ts:1                                                                | package export exists; cold import resolves without plugin credentials |
