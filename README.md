@@ -143,7 +143,9 @@ from that map; an empty map exercises every method with normal response checks.
 
 ### Inspector resource contract smoke
 
-The source pin includes Inspector's process resource collector. On a trusted
+The source pin includes Inspector's process resource collector, compiled SDK
+namespace discovery, and synchronous bundled-module loading used by current
+Nostr packages. On a trusted
 checkout, resolve that source and run the existing smoke with `--resources`:
 
 ```bash
