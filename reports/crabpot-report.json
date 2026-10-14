@@ -1069,12 +1069,12 @@
     "openP1IssueCount": 36,
     "liveIssueCount": 7,
     "liveP0IssueCount": 7,
-    "compatGapCount": 30,
+    "compatGapCount": 28,
     "deprecationWarningCount": 22,
-    "inspectorGapCount": 147,
+    "inspectorGapCount": 149,
     "upstreamIssueCount": 44,
     "fixtureRegressionCount": 0,
-    "openInspectorGapCount": 147,
+    "openInspectorGapCount": 149,
     "runtimeCoveredIssueCount": 0,
     "runtimePartiallyCoveredIssueCount": 0,
     "runtimeCoverageArtifactCount": 0,
@@ -31037,8 +31037,8 @@
         {
           "name": "after_tool_call",
           "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
-          "line": 1097,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1097"
+          "line": 1094,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1094"
         },
         {
           "name": "after_tool_call",
@@ -31049,26 +31049,26 @@
         {
           "name": "agent_end",
           "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
-          "line": 1098,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1098"
+          "line": 1095,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1095"
         },
         {
           "name": "agent_end",
           "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
-          "line": 1259,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1259"
+          "line": 1256,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1256"
         },
         {
           "name": "agent_end",
           "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
-          "line": 22335,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:22335"
+          "line": 21802,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:21802"
         },
         {
           "name": "agent_end",
           "file": "plugins/memory-tencentdb/.crabpot-package/index.ts",
-          "line": 809,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:809"
+          "line": 808,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:808"
         },
         {
           "name": "agent_end",
@@ -31085,32 +31085,32 @@
         {
           "name": "before_message_write",
           "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
-          "line": 22297,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:22297"
+          "line": 21764,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:21764"
         },
         {
           "name": "before_message_write",
           "file": "plugins/memory-tencentdb/.crabpot-package/index.ts",
-          "line": 773,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:773"
+          "line": 772,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:772"
         },
         {
           "name": "before_prompt_build",
           "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
-          "line": 1230,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1230"
+          "line": 1227,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1227"
         },
         {
           "name": "before_prompt_build",
           "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
-          "line": 22233,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:22233"
+          "line": 21700,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:21700"
         },
         {
           "name": "before_prompt_build",
           "file": "plugins/memory-tencentdb/.crabpot-package/index.ts",
-          "line": 682,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:682"
+          "line": 681,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:681"
         },
         {
           "name": "before_prompt_build",
@@ -31121,32 +31121,32 @@
         {
           "name": "gateway_stop",
           "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
-          "line": 1105,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1105"
+          "line": 1102,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1102"
         },
         {
           "name": "gateway_stop",
           "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
-          "line": 22407,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:22407"
+          "line": 21874,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:21874"
         },
         {
           "name": "gateway_stop",
           "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
-          "line": 22434,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:22434"
+          "line": 21901,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:21901"
         },
         {
           "name": "gateway_stop",
           "file": "plugins/memory-tencentdb/.crabpot-package/index.ts",
-          "line": 913,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:913"
+          "line": 912,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:912"
         },
         {
           "name": "gateway_stop",
           "file": "plugins/memory-tencentdb/.crabpot-package/index.ts",
-          "line": 966,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:966"
+          "line": 965,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:965"
         },
         {
           "name": "gateway_stop",
@@ -31164,20 +31164,20 @@
         {
           "name": "registerCli",
           "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
-          "line": 21831,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:21831"
+          "line": 21299,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:21299"
         },
         {
           "name": "registerCli",
           "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
-          "line": 22467,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:22467"
+          "line": 21934,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:21934"
         },
         {
           "name": "registerCli",
           "file": "plugins/memory-tencentdb/.crabpot-package/index.ts",
-          "line": 1015,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:1015"
+          "line": 1014,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:1014"
         },
         {
           "name": "registerCli",
@@ -31188,20 +31188,20 @@
         {
           "name": "registerContextEngine",
           "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
-          "line": 1110,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1110"
+          "line": 1107,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1107"
         },
         {
           "name": "registerContextEngine",
           "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
-          "line": 7750,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7750"
+          "line": 7704,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7704"
         },
         {
           "name": "registerContextEngine",
           "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
-          "line": 7761,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7761"
+          "line": 7715,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7715"
         },
         {
           "name": "registerContextEngine",
@@ -31224,56 +31224,56 @@
         {
           "name": "registerTool",
           "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
-          "line": 1160,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1160"
+          "line": 1157,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1157"
         },
         {
           "name": "registerTool",
           "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
-          "line": 1186,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1186"
+          "line": 1183,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1183"
         },
         {
           "name": "registerTool",
           "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
-          "line": 1212,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1212"
+          "line": 1209,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1209"
         },
         {
           "name": "registerTool",
           "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
-          "line": 21967,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:21967"
+          "line": 21434,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:21434"
         },
         {
           "name": "registerTool",
           "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
-          "line": 22059,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:22059"
+          "line": 21526,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:21526"
         },
         {
           "name": "registerTool",
           "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
-          "line": 22185,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:22185"
+          "line": 21652,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:21652"
         },
         {
           "name": "registerTool",
           "file": "plugins/memory-tencentdb/.crabpot-package/index.ts",
-          "line": 380,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:380"
+          "line": 379,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:379"
         },
         {
           "name": "registerTool",
           "file": "plugins/memory-tencentdb/.crabpot-package/index.ts",
-          "line": 467,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:467"
+          "line": 466,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:466"
         },
         {
           "name": "registerTool",
           "file": "plugins/memory-tencentdb/.crabpot-package/index.ts",
-          "line": 620,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:620"
+          "line": 619,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/index.ts:619"
         },
         {
           "name": "registerTool",
@@ -31340,6 +31340,7 @@
         "plugins/memory-tencentdb/.crabpot-package/scripts/migrate-sqlite-to-tcvdb/dist/src/core/store/types.js",
         "plugins/memory-tencentdb/.crabpot-package/scripts/migrate-sqlite-to-tcvdb/dist/src/core/types.js",
         "plugins/memory-tencentdb/.crabpot-package/scripts/migrate-sqlite-to-tcvdb/dist/src/utils/manifest.js",
+        "plugins/memory-tencentdb/.crabpot-package/scripts/migrate-sqlite-to-tcvdb/dist/src/utils/time.js",
         "plugins/memory-tencentdb/.crabpot-package/scripts/read-local-memory/dist/read-local-memory.js",
         "plugins/memory-tencentdb/.crabpot-package/src/adapters/index.ts",
         "plugins/memory-tencentdb/.crabpot-package/src/adapters/openclaw/host-adapter.ts",
@@ -31495,7 +31496,6 @@
         "plugins/memory-tencentdb/.crabpot-package/src/offload_server/prompts/l1-prompt.ts",
         "plugins/memory-tencentdb/.crabpot-package/src/offload_server/prompts/l15-prompt.ts",
         "plugins/memory-tencentdb/.crabpot-package/src/offload_server/prompts/l2-prompt.ts",
-        "plugins/memory-tencentdb/.crabpot-package/src/offload_server/read-ref-handler.ts",
         "plugins/memory-tencentdb/.crabpot-package/src/offload_server/router.ts",
         "plugins/memory-tencentdb/.crabpot-package/src/offload_server/schemas.ts",
         "plugins/memory-tencentdb/.crabpot-package/src/offload_server/session-utils.ts",
@@ -31506,7 +31506,6 @@
         "plugins/memory-tencentdb/.crabpot-package/src/utils/backup.ts",
         "plugins/memory-tencentdb/.crabpot-package/src/utils/checkpoint.ts",
         "plugins/memory-tencentdb/.crabpot-package/src/utils/clean-context-runner.ts",
-        "plugins/memory-tencentdb/.crabpot-package/src/utils/detached-work.ts",
         "plugins/memory-tencentdb/.crabpot-package/src/utils/ensure-hook-policy.ts",
         "plugins/memory-tencentdb/.crabpot-package/src/utils/env-config.ts",
         "plugins/memory-tencentdb/.crabpot-package/src/utils/env.ts",
@@ -31519,7 +31518,6 @@
         "plugins/memory-tencentdb/.crabpot-package/src/utils/sanitize.ts",
         "plugins/memory-tencentdb/.crabpot-package/src/utils/serial-queue.ts",
         "plugins/memory-tencentdb/.crabpot-package/src/utils/session-filter.ts",
-        "plugins/memory-tencentdb/.crabpot-package/src/utils/session-key.ts",
         "plugins/memory-tencentdb/.crabpot-package/src/utils/stateful-pipeline-manager.ts",
         "plugins/memory-tencentdb/.crabpot-package/src/utils/text-utils.ts"
       ],
@@ -31649,7 +31647,7 @@
         {
           "path": "plugins/memory-tencentdb/.crabpot-package/package.json",
           "name": "@tencentdb-agent-memory/memory-tencentdb",
-          "version": "1.0.3",
+          "version": "1.0.1",
           "type": "module",
           "main": "./dist/index.mjs",
           "npmPack": {
@@ -31773,46 +31771,20 @@
         }
       ],
       "sdkImports": [
-        "openclaw/plugin-sdk",
-        "openclaw/plugin-sdk/agent-runtime",
-        "openclaw/plugin-sdk/webhook-request-guards"
+        "openclaw/plugin-sdk"
       ],
       "sdkImportDetails": [
         {
           "specifier": "openclaw/plugin-sdk",
           "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
-          "line": 8523,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8523"
+          "line": 8466,
+          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8466"
         },
         {
           "specifier": "openclaw/plugin-sdk",
           "file": "plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts",
           "line": 2190,
           "ref": "plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:2190"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/agent-runtime",
-          "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
-          "line": 26,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:26"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/agent-runtime",
-          "file": "plugins/memory-tencentdb/.crabpot-package/src/adapters/openclaw/host-adapter.ts",
-          "line": 15,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/src/adapters/openclaw/host-adapter.ts:15"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/webhook-request-guards",
-          "file": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs",
-          "line": 8710,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8710"
-        },
-        {
-          "specifier": "openclaw/plugin-sdk/webhook-request-guards",
-          "file": "plugins/memory-tencentdb/.crabpot-package/src/utils/detached-work.ts",
-          "line": 43,
-          "ref": "plugins/memory-tencentdb/.crabpot-package/src/utils/detached-work.ts:43"
         }
       ],
       "sdkDeprecations": []
@@ -37665,11 +37637,13 @@
     {
       "fixture": "codex",
       "code": "sdk-export-missing",
-      "message": "fixture imports plugin SDK aliases that are not exported by the target OpenClaw package",
+      "message": "fixture imports plugin SDK aliases that are not exported by the target OpenClaw package; Host 2026.9.6 does not satisfy the declared plugin API range >=2026.10.3; recheck with an eligible host before assigning a core compatibility repair.",
       "evidence": [
-        "openclaw/plugin-sdk/agent-harness-completion @ plugins/codex/.crabpot-package/dist/.setup/native-subagent-monitor-CkpiZfm0.mjs:22"
+        "openclaw/plugin-sdk/agent-harness-completion @ plugins/codex/.crabpot-package/dist/.setup/native-subagent-monitor-CkpiZfm0.mjs:22",
+        "Host 2026.9.6 does not satisfy the declared plugin API range >=2026.10.3; recheck with an eligible host before assigning a core compatibility repair.",
+        "Unassessed SDK compatibility record: plugin-sdk-export-aliases"
       ],
-      "compatRecord": "plugin-sdk-export-aliases",
+      "compatRecord": null,
       "level": "warning"
     },
     {
@@ -37677,7 +37651,7 @@
       "code": "sdk-export-missing",
       "message": "fixture imports plugin SDK aliases that are not exported by the target OpenClaw package",
       "evidence": [
-        "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8523",
+        "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8466",
         "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:2190"
       ],
       "compatRecord": "plugin-sdk-export-aliases",
@@ -37698,7 +37672,7 @@
       "level": "warning",
       "message": "fixture imports the root plugin SDK barrel",
       "evidence": [
-        "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8523",
+        "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8466",
         "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:2190"
       ],
       "compatRecord": "legacy-root-sdk-import"
@@ -37939,11 +37913,13 @@
     {
       "fixture": "telnyx-sms",
       "code": "sdk-export-missing",
-      "message": "fixture imports plugin SDK aliases that are not exported by the target OpenClaw package",
+      "message": "fixture imports plugin SDK aliases that are not exported by the target OpenClaw package; Host 2026.9.6 does not satisfy the declared plugin API range 2026.4; recheck with an eligible host before assigning a core compatibility repair.",
       "evidence": [
-        "openclaw/plugin-sdk/direct-dm @ plugins/telnyx-sms/src/inbound.ts:2"
+        "openclaw/plugin-sdk/direct-dm @ plugins/telnyx-sms/src/inbound.ts:2",
+        "Host 2026.9.6 does not satisfy the declared plugin API range 2026.4; recheck with an eligible host before assigning a core compatibility repair.",
+        "Unassessed SDK compatibility record: plugin-sdk-export-aliases"
       ],
-      "compatRecord": "plugin-sdk-export-aliases",
+      "compatRecord": null,
       "level": "warning"
     },
     {
@@ -39187,9 +39163,9 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1110",
-        "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7750",
-        "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7761",
+        "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1107",
+        "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7704",
+        "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7715",
         "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/src/offload-client/index.ts:67",
         "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1235",
         "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1246"
@@ -40083,19 +40059,21 @@
       "id": "CRABPOT-6E9A6C9A",
       "fixture": "codex",
       "severity": "P1",
-      "owner": "core",
+      "owner": "inspector",
       "code": "sdk-export-missing",
-      "decision": "core-compat-adapter",
+      "decision": "inspector-follow-up",
       "status": "open",
-      "issueClass": "compat-gap",
+      "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
       "compatStatus": "untracked",
-      "title": "codex: plugin SDK import aliases are missing from target package exports",
+      "title": "codex: SDK import coverage requires an eligible host",
       "evidence": [
-        "openclaw/plugin-sdk/agent-harness-completion @ plugins/codex/.crabpot-package/dist/.setup/native-subagent-monitor-CkpiZfm0.mjs:22"
+        "openclaw/plugin-sdk/agent-harness-completion @ plugins/codex/.crabpot-package/dist/.setup/native-subagent-monitor-CkpiZfm0.mjs:22",
+        "Host 2026.9.6 does not satisfy the declared plugin API range >=2026.10.3; recheck with an eligible host before assigning a core compatibility repair.",
+        "Unassessed SDK compatibility record: plugin-sdk-export-aliases"
       ],
-      "compatRecord": "plugin-sdk-export-aliases",
+      "compatRecord": null,
       "runtimeCoverage": null
     },
     {
@@ -40385,7 +40363,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-6AF23407",
+      "id": "CRABPOT-F33EF960",
       "fixture": "memory-tencentdb",
       "severity": "P1",
       "owner": "core",
@@ -40398,7 +40376,7 @@
       "compatStatus": "untracked",
       "title": "memory-tencentdb: plugin SDK import aliases are missing from target package exports",
       "evidence": [
-        "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8523",
+        "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8466",
         "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:2190"
       ],
       "compatRecord": "plugin-sdk-export-aliases",
@@ -40675,19 +40653,21 @@
       "id": "CRABPOT-E351435B",
       "fixture": "telnyx-sms",
       "severity": "P1",
-      "owner": "core",
+      "owner": "inspector",
       "code": "sdk-export-missing",
-      "decision": "core-compat-adapter",
+      "decision": "inspector-follow-up",
       "status": "open",
-      "issueClass": "compat-gap",
+      "issueClass": "inspector-gap",
       "live": false,
       "deprecated": false,
       "compatStatus": "untracked",
-      "title": "telnyx-sms: plugin SDK import aliases are missing from target package exports",
+      "title": "telnyx-sms: SDK import coverage requires an eligible host",
       "evidence": [
-        "openclaw/plugin-sdk/direct-dm @ plugins/telnyx-sms/src/inbound.ts:2"
+        "openclaw/plugin-sdk/direct-dm @ plugins/telnyx-sms/src/inbound.ts:2",
+        "Host 2026.9.6 does not satisfy the declared plugin API range 2026.4; recheck with an eligible host before assigning a core compatibility repair.",
+        "Unassessed SDK compatibility record: plugin-sdk-export-aliases"
       ],
-      "compatRecord": "plugin-sdk-export-aliases",
+      "compatRecord": null,
       "runtimeCoverage": null
     },
     {
@@ -43298,7 +43278,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-A06004E2",
+      "id": "CRABPOT-E12EA53D",
       "fixture": "memory-tencentdb",
       "severity": "P2",
       "owner": "core",
@@ -43311,7 +43291,7 @@
       "compatStatus": "deprecated",
       "title": "memory-tencentdb: root plugin SDK barrel is still used by fixtures",
       "evidence": [
-        "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8523",
+        "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8466",
         "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:2190"
       ],
       "compatRecord": "legacy-root-sdk-import",
@@ -43383,7 +43363,7 @@
       }
     },
     {
-      "id": "CRABPOT-326C1041",
+      "id": "CRABPOT-D1C4ADF1",
       "fixture": "memory-tencentdb",
       "severity": "P2",
       "owner": "inspector",
@@ -43396,9 +43376,9 @@
       "compatStatus": "active",
       "title": "memory-tencentdb: runtime registrations need capture evidence before final contract judgment",
       "evidence": [
-        "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1110",
-        "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7750",
-        "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7761",
+        "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1107",
+        "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7704",
+        "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7715",
         "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/src/offload-client/index.ts:67",
         "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1235",
         "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1246"
@@ -45348,7 +45328,7 @@
       "target": "sdk-alias",
       "contract": "Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.",
       "evidence": [
-        "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8523",
+        "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8466",
         "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:2190"
       ]
     },
@@ -45551,9 +45531,9 @@
       "target": "inspector-capture-api",
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
-        "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1110",
-        "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7750",
-        "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7761",
+        "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1107",
+        "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7704",
+        "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7715",
         "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/src/offload-client/index.ts:67",
         "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1235",
         "registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1246"
@@ -46476,7 +46456,7 @@
       "target": "sdk-alias",
       "contract": "Root plugin SDK barrel remains importable or has a machine-readable migration path.",
       "evidence": [
-        "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8523",
+        "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8466",
         "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:2190"
       ]
     },
@@ -53766,9 +53746,9 @@
     },
     {
       "fixture": "codex",
-      "decision": "core-compat-adapter",
+      "decision": "inspector-follow-up",
       "seam": "sdk-alias",
-      "action": "Restore the package export alias or publish a versioned migration map before cold-importing old plugins.",
+      "action": "Host 2026.9.6 does not satisfy the declared plugin API range >=2026.10.3; recheck with an eligible host before assigning a core compatibility repair.",
       "evidence": "openclaw/plugin-sdk/agent-harness-completion"
     },
     {
@@ -54340,9 +54320,9 @@
     },
     {
       "fixture": "telnyx-sms",
-      "decision": "core-compat-adapter",
+      "decision": "inspector-follow-up",
       "seam": "sdk-alias",
-      "action": "Restore the package export alias or publish a versioned migration map before cold-importing old plugins.",
+      "action": "Host 2026.9.6 does not satisfy the declared plugin API range 2026.4; recheck with an eligible host before assigning a core compatibility repair.",
       "evidence": "openclaw/plugin-sdk/direct-dm"
     },
     {
