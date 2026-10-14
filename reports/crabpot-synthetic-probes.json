@@ -2418,7 +2418,7 @@
       "source": "plugins/nemoclaw/nemoclaw/src/index.ts:385"
     },
     {
-      "id": "hook.after_tool_call:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1097",
+      "id": "hook.after_tool_call:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1094",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "after_tool_call",
@@ -2435,7 +2435,7 @@
         "hook": "after_tool_call",
         "fixture": "memory-tencentdb"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1097"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1094"
     },
     {
       "id": "hook.after_tool_call:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-src-offload-client-index-ts-47",
@@ -2458,7 +2458,7 @@
       "source": "plugins/memory-tencentdb/.crabpot-package/src/offload-client/index.ts:47"
     },
     {
-      "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1098",
+      "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1095",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "agent_end",
@@ -2495,10 +2495,10 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1098"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1095"
     },
     {
-      "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1259",
+      "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1256",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "agent_end",
@@ -2535,10 +2535,10 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1259"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1256"
     },
     {
-      "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-22335",
+      "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-21802",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "agent_end",
@@ -2575,10 +2575,10 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:22335"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:21802"
     },
     {
-      "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-809",
+      "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-808",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "agent_end",
@@ -2615,7 +2615,7 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:809"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:808"
     },
     {
       "id": "hook.agent_end:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-openclaw-plugin-index-ts-209",
@@ -2698,7 +2698,7 @@
       "source": "plugins/memory-tencentdb/.crabpot-package/src/offload-client/index.ts:52"
     },
     {
-      "id": "hook.before_message_write:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-22297",
+      "id": "hook.before_message_write:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-21764",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "before_message_write",
@@ -2715,10 +2715,10 @@
         "hook": "before_message_write",
         "fixture": "memory-tencentdb"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:22297"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:21764"
     },
     {
-      "id": "hook.before_message_write:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-773",
+      "id": "hook.before_message_write:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-772",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "before_message_write",
@@ -2735,10 +2735,10 @@
         "hook": "before_message_write",
         "fixture": "memory-tencentdb"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:773"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:772"
     },
     {
-      "id": "hook.before_prompt_build:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1230",
+      "id": "hook.before_prompt_build:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1227",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "before_prompt_build",
@@ -2768,10 +2768,10 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1230"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1227"
     },
     {
-      "id": "hook.before_prompt_build:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-22233",
+      "id": "hook.before_prompt_build:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-21700",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "before_prompt_build",
@@ -2801,10 +2801,10 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:22233"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:21700"
     },
     {
-      "id": "hook.before_prompt_build:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-682",
+      "id": "hook.before_prompt_build:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-681",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "before_prompt_build",
@@ -2834,7 +2834,7 @@
         "sessionId": "session-fixture",
         "channelId": "fixture-channel"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:682"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:681"
     },
     {
       "id": "hook.before_prompt_build:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-openclaw-plugin-index-ts-173",
@@ -2870,7 +2870,7 @@
       "source": "plugins/memory-tencentdb/.crabpot-package/openclaw-plugin/index.ts:173"
     },
     {
-      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1105",
+      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1102",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "gateway_stop",
@@ -2887,10 +2887,10 @@
         "hook": "gateway_stop",
         "fixture": "memory-tencentdb"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1105"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1102"
     },
     {
-      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-22407",
+      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-21874",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "gateway_stop",
@@ -2907,10 +2907,10 @@
         "hook": "gateway_stop",
         "fixture": "memory-tencentdb"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:22407"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:21874"
     },
     {
-      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-22434",
+      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-21901",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "gateway_stop",
@@ -2927,10 +2927,10 @@
         "hook": "gateway_stop",
         "fixture": "memory-tencentdb"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:22434"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:21901"
     },
     {
-      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-913",
+      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-912",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "gateway_stop",
@@ -2947,10 +2947,10 @@
         "hook": "gateway_stop",
         "fixture": "memory-tencentdb"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:913"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:912"
     },
     {
-      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-966",
+      "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-965",
       "fixture": "memory-tencentdb",
       "kind": "hook",
       "seam": "gateway_stop",
@@ -2967,7 +2967,7 @@
         "hook": "gateway_stop",
         "fixture": "memory-tencentdb"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:966"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:965"
     },
     {
       "id": "hook.gateway_stop:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-src-offload-client-index-ts-61",
@@ -9759,7 +9759,7 @@
       "source": "plugins/nemoclaw/nemoclaw/src/index.ts:375"
     },
     {
-      "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-21831",
+      "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-21299",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerCli",
@@ -9788,10 +9788,10 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:21831"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:21299"
     },
     {
-      "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-22467",
+      "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-21934",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerCli",
@@ -9820,10 +9820,10 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:22467"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:21934"
     },
     {
-      "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-1015",
+      "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-1014",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerCli",
@@ -9852,7 +9852,7 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:1015"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:1014"
     },
     {
       "id": "registration.registerCli:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-160",
@@ -9887,7 +9887,7 @@
       "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:160"
     },
     {
-      "id": "registration.registerContextEngine:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1110",
+      "id": "registration.registerContextEngine:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1107",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerContextEngine",
@@ -9908,10 +9908,10 @@
         "callableProperties": [],
         "reason": "context engine factories are captured as registration metadata; engine startup remains isolated opt-in"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1110"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1107"
     },
     {
-      "id": "registration.registerContextEngine:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-7750",
+      "id": "registration.registerContextEngine:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-7704",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerContextEngine",
@@ -9932,10 +9932,10 @@
         "callableProperties": [],
         "reason": "context engine factories are captured as registration metadata; engine startup remains isolated opt-in"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7750"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7704"
     },
     {
-      "id": "registration.registerContextEngine:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-7761",
+      "id": "registration.registerContextEngine:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-7715",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerContextEngine",
@@ -9956,7 +9956,7 @@
         "callableProperties": [],
         "reason": "context engine factories are captured as registration metadata; engine startup remains isolated opt-in"
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7761"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7715"
     },
     {
       "id": "registration.registerContextEngine:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-src-offload-client-index-ts-67",
@@ -10031,7 +10031,7 @@
       "source": "plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:1246"
     },
     {
-      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1160",
+      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1157",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerTool",
@@ -10060,10 +10060,10 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1160"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1157"
     },
     {
-      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1186",
+      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1183",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerTool",
@@ -10092,10 +10092,10 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1186"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1183"
     },
     {
-      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1212",
+      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-1209",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerTool",
@@ -10124,10 +10124,10 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1212"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1209"
     },
     {
-      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-21967",
+      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-21434",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerTool",
@@ -10156,10 +10156,10 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:21967"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:21434"
     },
     {
-      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-22059",
+      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-21526",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerTool",
@@ -10188,10 +10188,10 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:22059"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:21526"
     },
     {
-      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-22185",
+      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-dist-index-mjs-21652",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerTool",
@@ -10220,10 +10220,10 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:22185"
+      "source": "plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:21652"
     },
     {
-      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-380",
+      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-379",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerTool",
@@ -10252,10 +10252,10 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:380"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:379"
     },
     {
-      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-467",
+      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-466",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerTool",
@@ -10284,10 +10284,10 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:467"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:466"
     },
     {
-      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-620",
+      "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-index-ts-619",
       "fixture": "memory-tencentdb",
       "kind": "registration",
       "seam": "registerTool",
@@ -10316,7 +10316,7 @@
           "execute"
         ]
       },
-      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:620"
+      "source": "plugins/memory-tencentdb/.crabpot-package/index.ts:619"
     },
     {
       "id": "registration.registerTool:memory-tencentdb:plugins-memory-tencentdb-crabpot-package-openclaw-plugin-index-ts-119",
