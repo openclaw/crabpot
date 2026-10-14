@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for OpenClaw Nostr channel plugin for NIP-04 encrypted DMs.",
   "dependencies": {
-    "@openclaw/nostr": "2026.9.6"
+    "@openclaw/nostr": "2026.9.8"
   },
   "crabpot": {
     "fixture": "nostr",
@@ -12,6 +12,6 @@
     "package": "@openclaw/nostr",
     "sourceRepo": "https://github.com/openclaw/openclaw.git",
     "sourcePath": "extensions/nostr",
-    "sourceRef": "9505f6eeab162026b1b5c14ef78fe7889549be8f"
+    "sourceRef": "aa6008ad198ef99c43f9d89dbd01694708712974"
   }
 }
