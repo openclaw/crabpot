@@ -1209,7 +1209,7 @@
       "name": "TencentDB Agent Memory",
       "package": {
         "name": "@tencentdb-agent-memory/memory-tencentdb",
-        "tag": "latest"
+        "version": "1.0.1"
       },
       "path": "plugins/memory-tencentdb",
       "priority": "high",

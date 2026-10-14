@@ -321,6 +321,9 @@ async function readNpmFixtureDependency(fixture) {
   if (!/^\d+\.\d+\.\d+/.test(declared)) {
     throw new Error(`${fixture.id}: ${fixture.package.name} must use an exact semver pin, got ${declared}`);
   }
+  if (fixture.package.version && fixture.package.version !== declared) {
+    throw new Error(`${fixture.id}: shim pin ${declared} does not match configured package version ${fixture.package.version}`);
+  }
   return {
     name: fixture.package.name,
     version: declared,

@@ -54,6 +54,8 @@ Regenerate reports against the pinned Default Track after changing fixture pins.
 The normal Default Track follows npm `latest`, so its observed package versions
 can advance beyond the shim pins used when tag resolution falls back. Treat
 those reports as evidence for the recorded artifact versions, not the fallback pins.
+TencentDB memory remains explicitly pinned to the reviewed 1.0.1 artifact; its
+moving npm tag is not part of that qualification.
 When a moving artifact lacks a Git head, reports leave its evidence as a payload
 path instead of borrowing a different fallback version's source link. SDK export
 gaps outside the artifact's declared plugin API range remain visible at their

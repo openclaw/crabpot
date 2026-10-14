@@ -2,38 +2,38 @@
 
 Generated: deterministic
 Mode: check
-OpenClaw: github-default-pin
+OpenClaw: openclaw/openclaw@10bb24270d8d (Default Track pin 2026-09-25)
 Status: PASS
 
 ## Counts
 
-| Metric                      | Value                                                                    |
-| --------------------------- | ------------------------------------------------------------------------ |
-| Breakages                   | 0                                                                        |
-| Warnings                    | 86                                                                       |
-| Suggestions                 | 164                                                                      |
-| Issues                      | 250                                                                      |
-| P0 issues                   | 7                                                                        |
-| P1 issues                   | 36                                                                       |
-| Live issues                 | 7                                                                        |
-| Live P0 issues              | 7                                                                        |
-| Compat gaps                 | 28                                                                       |
-| Deprecation warnings        | 22                                                                       |
-| Inspector gaps              | 149                                                                      |
-| Upstream metadata           | 44                                                                       |
-| Ref diff failures           | 0                                                                        |
-| Ref diff warnings           | 0                                                                        |
-| Policy failures             | 0                                                                        |
-| Policy warnings             | 1                                                                        |
-| Profile failures            | 0                                                                        |
-| Profile warnings            | 0                                                                        |
-| Execution pass              | 0                                                                        |
-| Execution fail              | 0                                                                        |
-| Execution blocked           | 0                                                                        |
-| Windows portability risks   | 17                                                                       |
-| Container portability risks | 17                                                                       |
-| Jiti loader candidates      | 20                                                                       |
-| Import loop                 | p50 139 ms / p95 139 ms / plugin delta RSS 0 MB / plugin delta CPU 28 ms |
+| Metric                      | Value                                                                                                                     |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| Breakages                   | 0                                                                                                                         |
+| Warnings                    | 86                                                                                                                        |
+| Suggestions                 | 164                                                                                                                       |
+| Issues                      | 250                                                                                                                       |
+| P0 issues                   | 7                                                                                                                         |
+| P1 issues                   | 36                                                                                                                        |
+| Live issues                 | 7                                                                                                                         |
+| Live P0 issues              | 7                                                                                                                         |
+| Compat gaps                 | 30                                                                                                                        |
+| Deprecation warnings        | 22                                                                                                                        |
+| Inspector gaps              | 147                                                                                                                       |
+| Upstream metadata           | 44                                                                                                                        |
+| Ref diff failures           | 0                                                                                                                         |
+| Ref diff warnings           | 0                                                                                                                         |
+| Policy failures             | 0                                                                                                                         |
+| Policy warnings             | 1                                                                                                                         |
+| Profile failures            | 0                                                                                                                         |
+| Profile warnings            | 2                                                                                                                         |
+| Execution pass              | 0                                                                                                                         |
+| Execution fail              | 0                                                                                                                         |
+| Execution blocked           | 0                                                                                                                         |
+| Windows portability risks   | 17                                                                                                                        |
+| Container portability risks | 17                                                                                                                        |
+| Jiti loader candidates      | 20                                                                                                                        |
+| Import loop                 | p50 2703 ms / p95 2711 ms / plugin delta RSS 21.8 MB / plugin delta CPU 73 ms / OpenClaw import 81.5 ms / activate 0.7 ms |
 
 ## Top Issues
 
@@ -48,7 +48,7 @@ Status: PASS
 | P0       | live-issue    | opik-openclaw      | unknown-hook-name         | core-compat-adapter | opik-openclaw: fixture uses a hook missing from target OpenClaw                       |
 | P1       | compat-gap    | agentchat          | missing-compat-record     | core-compat-adapter | agentchat: compat-dependent behavior lacks registry coverage                          |
 | P1       | compat-gap    | bluebubbles        | sdk-export-missing        | core-compat-adapter | bluebubbles: plugin SDK import aliases are missing from target package exports        |
-| P1       | inspector-gap | codex              | sdk-export-missing        | inspector-follow-up | codex: SDK import coverage requires an eligible host                                  |
+| P1       | compat-gap    | codex              | sdk-export-missing        | core-compat-adapter | codex: plugin SDK import aliases are missing from target package exports              |
 | P1       | compat-gap    | connectclaw        | missing-compat-record     | core-compat-adapter | connectclaw: compat-dependent behavior lacks registry coverage                        |
 | P1       | compat-gap    | connectclaw        | missing-compat-record     | core-compat-adapter | connectclaw: compat-dependent behavior lacks registry coverage                        |
 | P1       | compat-gap    | connectclaw        | sdk-export-missing        | core-compat-adapter | connectclaw: plugin SDK import aliases are missing from target package exports        |
@@ -72,14 +72,15 @@ _none_
 
 ## Profile Findings
 
-_none_
+| Action | ID               | Metric       | Baseline | Current | Message                                    |
+| ------ | ---------------- | ------------ | -------- | ------- | ------------------------------------------ |
+| warn   | profile.wall-p95 | p95WallMs    | 1273     | 8537    | p95WallMs regressed 570.6% over baseline   |
+| warn   | profile.peak-rss | maxPeakRssMb | 65.1     | 760.9   | maxPeakRssMb regressed 695.8 over baseline |
 
 ## Artifacts
 
 | Artifact            | Path                                      |
 | ------------------- | ----------------------------------------- |
-| packageAvailability | reports/crabpot-package-availability.json |
-| generatedSurface    | reports/crabpot-generated-surface.json    |
 | compatibility       | reports/crabpot-report.json               |
 | capture             | reports/crabpot-capture.json              |
 | synthetic           | reports/crabpot-synthetic-probes.json     |
@@ -87,29 +88,10 @@ _none_
 | workspace           | reports/crabpot-workspace-plan.json       |
 | platform            | reports/crabpot-platform-probes.json      |
 | importLoop          | reports/crabpot-import-loop-profile.json  |
+| execution           | reports/crabpot-execution-results.json    |
 | runtimeProfile      | reports/crabpot-runtime-profile.json      |
+| refDiff             | -                                         |
+| profileDiff         | reports/crabpot-profile-diff.json         |
 | ciPolicy            | reports/crabpot-ci-policy.json            |
-
-
-## Current-run coverage
-
-- static-1: passed — scripts/check-openclaw-plugin-contracts.mjs
-- static-2: passed — scripts/sync-fixtures.mjs --materialize --openclaw ./openclaw
-- static-3: passed — --test --test-concurrency=1 test/*.test.mjs
-- static-4: passed — scripts/sync-fixtures.mjs --materialize --openclaw ./openclaw
-- static-5: passed — scripts/sync-fixtures.mjs --check
-- static-6: passed — scripts/run-contract-smoke.mjs --strict --openclaw ./openclaw
-- static-7: passed — scripts/inspect-fixtures.mjs --check
-- static-8: passed — scripts/run-plugin-inspector-smoke.mjs --check
-- static-9: passed — scripts/check-generated-surface-fixture.mjs --check --openclaw ./openclaw --write
-- static-10: passed — scripts/generate-report.mjs --check --openclaw ./openclaw --write
-- static-11: passed — scripts/capture-contracts.mjs --check --openclaw ./openclaw --write
-- static-12: passed — scripts/synthetic-probes.mjs --check --openclaw ./openclaw --write
-- static-13: passed — scripts/cold-import-readiness.mjs --check --openclaw ./openclaw --write
-- static-14: passed — scripts/workspace-plan.mjs --check --openclaw ./openclaw --write
-- static-15: passed — scripts/platform-probes.mjs --check --openclaw ./openclaw --write
-- static-16: passed — scripts/import-loop-profile.mjs --check --runs 3 --write
-- static-17: passed — scripts/profile-contract-runtime.mjs --check --openclaw ./openclaw --runs 3 --write
-- static-18: passed — scripts/check-contract-coverage.mjs --openclaw ./openclaw
-- static-19: passed — scripts/check-ci-policy.mjs --check --write --run-report
-- Not selected: execution, refDiff, profileDiff
+| generatedSurface    | reports/crabpot-generated-surface.json    |
+| packageAvailability | reports/crabpot-package-availability.json |

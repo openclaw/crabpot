@@ -2,10 +2,14 @@
 
 ## 0.2.2 - Unreleased
 
-- Refresh official plugin fixture pins to 2026.9.6, align source references with their published build provenance, and refresh TencentDB's Undici locks to remove a high-severity finding. Thanks @dependabot.
+- Refresh official plugin fixture pins to 2026.9.6 and align source references with their published build provenance. Thanks @dependabot.
+- Keep TencentDB memory qualification on its reviewed 1.0.1 artifact instead of following the moving npm tag.
+- Reject mismatched explicit fixture versions before package acquisition so a shim update cannot silently change a pinned artifact.
 - Declare active-session prerequisites for Google Meet participation probes, keeping status checks and configured failures visible while restoring the credential-free development dashboard.
 - Keep dashboard links and metrics scoped to the current CI summary's available artifacts, excluding stale execution and comparison reports while preserving current failure evidence.
 - Avoid attributing moving npm artifacts to a different fallback version's source, and qualify SDK gaps outside a plugin's declared host range before prescribing a core repair; retain the observed imports and their severity.
+- Refresh TencentDB memory fixture transitive gRPC and Undici patches to clear lock-fixable security advisories while retaining the current plugin release.
+
 - Publish checked CI reports once and summarize only current-job outputs, preserving failed or interrupted coverage without rerunning fixture preparation.
 - Include bounded startup-phase observations on command failures without changing startup limits, native admission, or cleanup guarantees.
 - Arm Windows helper cancellation before request parsing so owner loss or startup expiry cannot leave a parser-blocked helper running.

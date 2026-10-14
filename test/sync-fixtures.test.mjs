@@ -491,6 +491,34 @@ for (const fail of [false, true]) {
   });
 }
 
+for (const pluginTrack of [undefined, "manifest", "latest"]) {
+  test(`an explicit third-party version avoids floating tag resolution with ${pluginTrack ?? "default"} track`, async (t) => {
+    const item = fixture();
+    item.package.version = "1.0.0";
+    const repo = await miniatureRepo(t, [item], [pack(item, "1.0.0")]);
+    const result = repo.run("sync-fixtures.mjs", ["--materialize",
+      ...(pluginTrack ? ["--plugin-track", pluginTrack] : []),
+    ]);
+    await repo.assertNpmComplete();
+    assert.equal(result.status, 0, result.stderr);
+    assert.equal((await repo.readJson(`${item.path}/.crabpot-package/package.json`)).version, "1.0.0");
+    assert.deepEqual((await repo.readJson(availabilityPath)).failures, []);
+  });
+
+  test(`a mismatched explicit version rejects before acquisition with ${pluginTrack ?? "default"} track`, async (t) => {
+    const item = fixture();
+    item.package.version = "1.0.1";
+    const repo = await miniatureRepo(t, [item]);
+    const result = repo.run("sync-fixtures.mjs", ["--materialize",
+      ...(pluginTrack ? ["--plugin-track", pluginTrack] : []),
+    ]);
+    assert.notEqual(result.status, 0);
+    assert.match(result.stderr, /shim pin 1\.0\.0 does not match configured package version 1\.0\.1/);
+    assert.deepEqual(await repo.assertNpmComplete(), []);
+    assert.equal(existsSync(repo.payload()), false);
+  });
+}
+
 for (const seeded of [false, true]) {
   test(`suppressed report ${seeded ? "preserves existing bytes" : "stays absent"} without allowing pack failure`, async (t) => {
     const item = fixture();
