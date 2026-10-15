@@ -7,18 +7,18 @@
     "runs": 3,
     "entrypoint": ".crabpot/import-loop/baseline-plugin.mjs",
     "reference": {
-      "wallMs": 4354,
-      "peakRssMb": 529.5,
-      "cpuMsEstimate": 6099
+      "wallMs": 4518,
+      "peakRssMb": 528.5,
+      "cpuMsEstimate": 6256
     },
     "max": {
-      "wallMs": 9770,
-      "peakRssMb": 724.4,
-      "cpuMsEstimate": 9172
+      "wallMs": 11237,
+      "peakRssMb": 733.1,
+      "cpuMsEstimate": 10292
     },
-    "statSampleCount": 733,
-    "rssSampleCount": 733,
-    "cpuSampleCount": 733,
+    "statSampleCount": 804,
+    "rssSampleCount": 804,
+    "cpuSampleCount": 804,
     "failCount": 0,
     "samples": [
       {
@@ -33,31 +33,31 @@
           "pluginId": "crabpot-lifecycle-probe",
           "importPhase": "full",
           "activationPhase": "full:register",
-          "importMs": 53.9,
-          "activationMs": 1.3,
+          "importMs": 67.7,
+          "activationMs": 1.6,
           "openclawPath": "./openclaw",
           "phases": [
             {
               "phase": "full",
               "pluginId": "crabpot-lifecycle-probe",
-              "elapsedMs": 53.9,
+              "elapsedMs": 67.7,
               "source": "crabpot-lifecycle-probe/index.mjs"
             },
             {
               "phase": "full:register",
               "pluginId": "crabpot-lifecycle-probe",
-              "elapsedMs": 1.3,
+              "elapsedMs": 1.6,
               "source": "crabpot-lifecycle-probe/index.mjs"
             }
           ]
         },
-        "wallMs": 9770,
-        "peakRssMb": 724.4,
-        "peakCpuPercent": 140,
-        "cpuMsEstimate": 9172,
-        "statSampleCount": 388,
-        "rssSampleCount": 388,
-        "cpuSampleCount": 388,
+        "wallMs": 11237,
+        "peakRssMb": 733.1,
+        "peakCpuPercent": 130,
+        "cpuMsEstimate": 10292,
+        "statSampleCount": 447,
+        "rssSampleCount": 447,
+        "cpuSampleCount": 447,
         "stderrPreview": ""
       },
       {
@@ -72,14 +72,14 @@
           "pluginId": "crabpot-lifecycle-probe",
           "importPhase": "full",
           "activationPhase": "full:register",
-          "importMs": 109.7,
+          "importMs": 118.7,
           "activationMs": 1.3,
           "openclawPath": "./openclaw",
           "phases": [
             {
               "phase": "full",
               "pluginId": "crabpot-lifecycle-probe",
-              "elapsedMs": 109.7,
+              "elapsedMs": 118.7,
               "source": "crabpot-lifecycle-probe/index.mjs"
             },
             {
@@ -90,13 +90,13 @@
             }
           ]
         },
-        "wallMs": 4329,
-        "peakRssMb": 529.5,
-        "peakCpuPercent": 172,
-        "cpuMsEstimate": 5955,
-        "statSampleCount": 172,
-        "rssSampleCount": 172,
-        "cpuSampleCount": 172,
+        "wallMs": 4518,
+        "peakRssMb": 528.5,
+        "peakCpuPercent": 167,
+        "cpuMsEstimate": 6256,
+        "statSampleCount": 179,
+        "rssSampleCount": 179,
+        "cpuSampleCount": 179,
         "stderrPreview": ""
       },
       {
@@ -111,31 +111,31 @@
           "pluginId": "crabpot-lifecycle-probe",
           "importPhase": "full",
           "activationPhase": "full:register",
-          "importMs": 114.6,
-          "activationMs": 1.4,
+          "importMs": 121.5,
+          "activationMs": 1.3,
           "openclawPath": "./openclaw",
           "phases": [
             {
               "phase": "full",
               "pluginId": "crabpot-lifecycle-probe",
-              "elapsedMs": 114.6,
+              "elapsedMs": 121.5,
               "source": "crabpot-lifecycle-probe/index.mjs"
             },
             {
               "phase": "full:register",
               "pluginId": "crabpot-lifecycle-probe",
-              "elapsedMs": 1.4,
+              "elapsedMs": 1.3,
               "source": "crabpot-lifecycle-probe/index.mjs"
             }
           ]
         },
-        "wallMs": 4354,
-        "peakRssMb": 528.9,
-        "peakCpuPercent": 178,
-        "cpuMsEstimate": 6099,
-        "statSampleCount": 173,
-        "rssSampleCount": 173,
-        "cpuSampleCount": 173,
+        "wallMs": 4484,
+        "peakRssMb": 527.2,
+        "peakCpuPercent": 172,
+        "cpuMsEstimate": 6205,
+        "statSampleCount": 178,
+        "rssSampleCount": 178,
+        "cpuSampleCount": 178,
         "stderrPreview": ""
       }
     ]
@@ -144,25 +144,25 @@
     "runs": 3,
     "baselineRuns": 3,
     "baselineFailCount": 0,
-    "p50WallMs": 4362,
-    "p95WallMs": 4368,
-    "p50PluginWallDeltaMs": 8,
-    "p95PluginWallDeltaMs": 14,
+    "p50WallMs": 4404,
+    "p95WallMs": 4470,
+    "p50PluginWallDeltaMs": 0,
+    "p95PluginWallDeltaMs": 0,
     "openClawLifecycleCount": 3,
-    "p50OpenClawImportMs": 110.6,
-    "p95OpenClawImportMs": 112.7,
+    "p50OpenClawImportMs": 114.4,
+    "p95OpenClawImportMs": 116.3,
     "p50OpenClawActivationMs": 1.3,
-    "p95OpenClawActivationMs": 1.3,
-    "maxPeakRssMb": 531.4,
-    "maxCpuMsEstimate": 6100,
-    "maxPluginPeakRssDeltaMb": 1.9,
-    "maxPluginCpuDeltaMsEstimate": 1,
-    "baselineReferenceWallMs": 4354,
-    "baselineReferencePeakRssMb": 529.5,
-    "baselineReferenceCpuMsEstimate": 6099,
-    "statSampleCount": 518,
-    "rssSampleCount": 518,
-    "cpuSampleCount": 518,
+    "p95OpenClawActivationMs": 1.5,
+    "maxPeakRssMb": 529.3,
+    "maxCpuMsEstimate": 6219,
+    "maxPluginPeakRssDeltaMb": 0.8,
+    "maxPluginCpuDeltaMsEstimate": 0,
+    "baselineReferenceWallMs": 4518,
+    "baselineReferencePeakRssMb": 528.5,
+    "baselineReferenceCpuMsEstimate": 6256,
+    "statSampleCount": 527,
+    "rssSampleCount": 527,
+    "cpuSampleCount": 527,
     "capturedCount": 6,
     "failCount": 0
   },
@@ -179,14 +179,14 @@
         "pluginId": "crabpot-lifecycle-probe",
         "importPhase": "full",
         "activationPhase": "full:register",
-        "importMs": 110.6,
+        "importMs": 114.4,
         "activationMs": 1.3,
         "openclawPath": "./openclaw",
         "phases": [
           {
             "phase": "full",
             "pluginId": "crabpot-lifecycle-probe",
-            "elapsedMs": 110.6,
+            "elapsedMs": 114.4,
             "source": "crabpot-lifecycle-probe/index.mjs"
           },
           {
@@ -197,15 +197,15 @@
           }
         ]
       },
-      "wallMs": 4362,
-      "peakRssMb": 527.1,
+      "wallMs": 4391,
+      "peakRssMb": 508.4,
       "peakCpuPercent": 161,
-      "cpuMsEstimate": 5937,
-      "statSampleCount": 173,
-      "rssSampleCount": 173,
-      "cpuSampleCount": 173,
+      "cpuMsEstimate": 6026,
+      "statSampleCount": 174,
+      "rssSampleCount": 174,
+      "cpuSampleCount": 174,
       "stderrPreview": "",
-      "pluginWallDeltaMs": 8,
+      "pluginWallDeltaMs": 0,
       "pluginPeakRssDeltaMb": 0,
       "pluginCpuDeltaMsEstimate": 0
     },
@@ -221,14 +221,14 @@
         "pluginId": "crabpot-lifecycle-probe",
         "importPhase": "full",
         "activationPhase": "full:register",
-        "importMs": 107.7,
+        "importMs": 113.2,
         "activationMs": 1.3,
         "openclawPath": "./openclaw",
         "phases": [
           {
             "phase": "full",
             "pluginId": "crabpot-lifecycle-probe",
-            "elapsedMs": 107.7,
+            "elapsedMs": 113.2,
             "source": "crabpot-lifecycle-probe/index.mjs"
           },
           {
@@ -239,16 +239,16 @@
           }
         ]
       },
-      "wallMs": 4327,
-      "peakRssMb": 526.4,
-      "peakCpuPercent": 180,
-      "cpuMsEstimate": 6072,
-      "statSampleCount": 172,
-      "rssSampleCount": 172,
-      "cpuSampleCount": 172,
+      "wallMs": 4404,
+      "peakRssMb": 529.3,
+      "peakCpuPercent": 160,
+      "cpuMsEstimate": 5995,
+      "statSampleCount": 175,
+      "rssSampleCount": 175,
+      "cpuSampleCount": 175,
       "stderrPreview": "",
       "pluginWallDeltaMs": 0,
-      "pluginPeakRssDeltaMb": 0,
+      "pluginPeakRssDeltaMb": 0.8,
       "pluginCpuDeltaMsEstimate": 0
     },
     {
@@ -263,35 +263,35 @@
         "pluginId": "crabpot-lifecycle-probe",
         "importPhase": "full",
         "activationPhase": "full:register",
-        "importMs": 112.7,
-        "activationMs": 1.3,
+        "importMs": 116.3,
+        "activationMs": 1.5,
         "openclawPath": "./openclaw",
         "phases": [
           {
             "phase": "full",
             "pluginId": "crabpot-lifecycle-probe",
-            "elapsedMs": 112.7,
+            "elapsedMs": 116.3,
             "source": "crabpot-lifecycle-probe/index.mjs"
           },
           {
             "phase": "full:register",
             "pluginId": "crabpot-lifecycle-probe",
-            "elapsedMs": 1.3,
+            "elapsedMs": 1.5,
             "source": "crabpot-lifecycle-probe/index.mjs"
           }
         ]
       },
-      "wallMs": 4368,
-      "peakRssMb": 531.4,
-      "peakCpuPercent": 180,
-      "cpuMsEstimate": 6100,
-      "statSampleCount": 173,
-      "rssSampleCount": 173,
-      "cpuSampleCount": 173,
+      "wallMs": 4470,
+      "peakRssMb": 526.9,
+      "peakCpuPercent": 173,
+      "cpuMsEstimate": 6219,
+      "statSampleCount": 178,
+      "rssSampleCount": 178,
+      "cpuSampleCount": 178,
       "stderrPreview": "",
-      "pluginWallDeltaMs": 14,
-      "pluginPeakRssDeltaMb": 1.9,
-      "pluginCpuDeltaMsEstimate": 1
+      "pluginWallDeltaMs": 0,
+      "pluginPeakRssDeltaMb": 0,
+      "pluginCpuDeltaMsEstimate": 0
     }
   ]
 }

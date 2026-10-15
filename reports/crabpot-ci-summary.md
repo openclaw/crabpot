@@ -1,7 +1,7 @@
 # Crabpot CI Summary
 
 Generated: deterministic
-Mode: check
+Mode: dependabot
 OpenClaw: openclaw/openclaw@10bb24270d8d (Default Track pin 2026-09-25)
 Status: PASS
 
@@ -33,7 +33,7 @@ Status: PASS
 | Windows portability risks   | 17                                                                                                                       |
 | Container portability risks | 17                                                                                                                       |
 | Jiti loader candidates      | 20                                                                                                                       |
-| Import loop                 | p50 4362 ms / p95 4368 ms / plugin delta RSS 1.9 MB / plugin delta CPU 1 ms / OpenClaw import 110.6 ms / activate 1.3 ms |
+| Import loop                 | p50 4404 ms / p95 4470 ms / plugin delta RSS 0.8 MB / plugin delta CPU 0 ms / OpenClaw import 114.4 ms / activate 1.3 ms |
 
 ## Top Issues
 
@@ -72,10 +72,10 @@ _none_
 
 ## Profile Findings
 
-| Action | ID               | Metric       | Baseline | Current | Message                                  |
-| ------ | ---------------- | ------------ | -------- | ------- | ---------------------------------------- |
-| warn   | profile.wall-p95 | p95WallMs    | 1273     | 8450    | p95WallMs regressed 563.8% over baseline |
-| warn   | profile.peak-rss | maxPeakRssMb | 65.1     | 761.1   | maxPeakRssMb regressed 696 over baseline |
+| Action | ID               | Metric       | Baseline | Current | Message                                    |
+| ------ | ---------------- | ------------ | -------- | ------- | ------------------------------------------ |
+| warn   | profile.wall-p95 | p95WallMs    | 1273     | 17241   | p95WallMs regressed 1254.4% over baseline  |
+| warn   | profile.peak-rss | maxPeakRssMb | 65.1     | 498.2   | maxPeakRssMb regressed 433.1 over baseline |
 
 ## Artifacts
 
@@ -89,7 +89,7 @@ _none_
 | platform            | reports/crabpot-platform-probes.json      |
 | importLoop          | reports/crabpot-import-loop-profile.json  |
 | execution           | reports/crabpot-execution-results.json    |
-| runtimeProfile      | -                                         |
+| runtimeProfile      | reports/crabpot-runtime-profile.json      |
 | refDiff             | -                                         |
 | profileDiff         | reports/crabpot-profile-diff.json         |
 | ciPolicy            | reports/crabpot-ci-policy.json            |
