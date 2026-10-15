@@ -190,12 +190,12 @@ node scripts/check-contract-coverage.mjs --openclaw ../openclaw
 ```
 
 Source-backed reports and registration capture use Inspector source commit
-`1d27e6906e83e48bd613d49a1921d4d0cf4a4697` (after 0.3.26),
+`943148854bf51b1e6cfa5d8b12047cfec8642297` (0.4.0),
 with SDK discovery inside packaged `.setup` directories and composed Zod enums,
 including bundled SDK import classification, target-owned conversation contract
 proof, lazy runtime SDK loading, and method-scoped Gateway prerequisites.
 `npm run plugin-inspector:smoke` uses the published
-`@openclaw/plugin-inspector@0.3.26` package by default.
+`@openclaw/plugin-inspector@0.4.0` package by default.
 Use
 `CRABPOT_PLUGIN_INSPECTOR_CLI=source npm run plugin-inspector:smoke` only when
 validating local inspector source changes. Set `CRABPOT_PLUGIN_INSPECTOR_DIR`
@@ -205,6 +205,10 @@ For a published-package check, unset `CRABPOT_PLUGIN_INSPECTOR_BIN`,
 fresh `npm_config_cache`. Run this separately from the source-mode smoke.
 The npm smoke forwards `--check`, so reported compatibility breakages produce
 a failing exit status. Direct wrapper calls without `--check` only write reports.
+CI also installs the exact published package pin and runs `--retirements` against
+that installation, alongside source and locally packed smoke. This verifies
+non-blocking deprecated-member notices, replacement guidance, and the final
+compatibility day through both source and packed OpenClaw targets.
 
 Issue severity means:
 

@@ -148,9 +148,19 @@ malformed responses, and handler failures still fail. Both captured and entrypoi
 runners apply the owning fixture's declarations; callers may explicitly replace
 the map. Reports retain bounded expected/observed response booleans, not payloads.
 DingTalk's empty-config declarations verify its twelve credential/argument guards;
-they do not qualify live messaging, documents, cards, or channel startup. Source
-and locally packed Inspector qualification must use the updated source pin;
-the published `0.3.26` CLI does not include this API.
+they do not qualify live messaging, documents, cards, or channel startup. The
+source and published-package pins both include this API in Inspector 0.4.0.
+
+### Inspector retirement notice smoke
+
+Both pins use Inspector 0.4.0. Add `--retirements` with an explicit
+`CRABPOT_PLUGIN_INSPECTOR_DIR` to verify a synthetic deprecated SQLite member
+through the package's public API. Source, packed, and published-package CI smoke assert
+`deprecatedApi`, `replacement`, and `removeAfter: "2026-12-31"`, the final
+compatibility day, in a non-blocking author-facing warning, using both a source
+registry and a ClawHub-style declaration-only OpenClaw target. The default smoke
+uses the published `@openclaw/plugin-inspector@0.4.0` package; set
+`CRABPOT_PLUGIN_INSPECTOR_CLI=source` to exercise the pinned source instead.
 
 ### Inspector resource contract smoke
 
