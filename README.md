@@ -152,6 +152,17 @@ they do not qualify live messaging, documents, cards, or channel startup. Source
 and locally packed Inspector qualification must use the updated source pin;
 the published `0.3.26` CLI does not include this API.
 
+### Inspector retirement notice smoke
+
+The source pin prepares Inspector 0.4.0. Add `--retirements` with an explicit
+`CRABPOT_PLUGIN_INSPECTOR_DIR` to verify a synthetic deprecated SQLite member
+through the package's public API. Source and packed CI smoke assert
+`deprecatedApi`, `replacement`, and `removeAfter: "2026-12-31"`, the final
+compatibility day, in a non-blocking author-facing warning, using both a source
+registry and a ClawHub-style declaration-only OpenClaw target. The npm package pin
+stays at its published version until the coordinator publishes 0.4.0; then update
+`pluginInspectorPackage` and run the published-package smoke.
+
 ### Inspector resource contract smoke
 
 The source pin includes Inspector's process resource collector, SDK namespace
