@@ -1247,7 +1247,7 @@
             "seam": "synthetic-probe",
             "errorIncludes": "src/offload-client/index.js",
             "exitCode": 1,
-            "outputPattern": "^file:\\/\\/\\/[^\\n]+inspector\\.js:\\d+\\n[\\s\\S]*Error: Cannot find module '[^'\\n]+/src/offload-client/index\\.js' imported from [^\\n]+/dist/index\\.js[\\s\\S]*failureClass: 'entrypoint-import-error',[\\s\\S]*code: 'ERR_MODULE_NOT_FOUND',[\\s\\S]*url: 'file:\\/\\/\\/[^'\\n]+/src/offload-client/index\\.js'[\\s\\S]*Node\\.js v\\d+\\.\\d+\\.\\d+\\s*$",
+            "outputPattern": "^(?:\\(node:\\d+\\) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\\n\\(Use `node --trace-warnings \\.\\.\\.` to show where the warning was created\\)\\n)?file:\\/\\/\\/[^\\n]+inspector\\.js:\\d+\\n[\\s\\S]*Error: Cannot find module '[^'\\n]+/src/offload-client/index\\.js' imported from [^\\n]+/dist/index\\.js[\\s\\S]*failureClass: 'entrypoint-import-error',[\\s\\S]*code: 'ERR_MODULE_NOT_FOUND',[\\s\\S]*url: 'file:\\/\\/\\/[^'\\n]+/src/offload-client/index\\.js'[\\s\\S]*Node\\.js v\\d+\\.\\d+\\.\\d+\\s*$",
             "reason": "published TencentDB plugin synthetic probe reaches the same omitted offload source module"
           },
           {
