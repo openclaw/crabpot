@@ -3,6 +3,7 @@
 ## 0.2.2 - Unreleased
 
 - Refresh the Weixin fallback to 2.4.10 while keeping OpenClaw host peers out of its fixture lock. Thanks @dependabot.
+- Refresh 13 official plugin fallback pins to 2026.10.1 and pair their published source provenance, preserving the frozen host, source-pack selectors, and explicit compatibility gaps. Thanks @dependabot.
 - Refresh the Feishu fallback to 2026.10.1 with its matching published source provenance, retaining the frozen host and explicit runtime compatibility gaps. Thanks @dependabot.
 - Refresh eight official plugin fallback pins to 2026.10.1 and pair them with their published source provenance, retaining the frozen host and its reported compatibility limits. Thanks @dependabot.
 - Refresh 19 official plugin fallback pins to their pending 2026.9.7–2026.9.9 updates and align each source reference with the published package provenance. Thanks @dependabot.

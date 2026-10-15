@@ -466,7 +466,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/diagnostics-otel",
-        "ref": "9505f6eeab162026b1b5c14ef78fe7889549be8f"
+        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
       },
       "path": "plugins/diagnostics-otel",
       "priority": "medium",
@@ -494,7 +494,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/discord",
-        "ref": "2b4055f8dd703e9c09985940dce9a9c6fc3c29bf"
+        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
       },
       "path": "plugins/discord",
       "priority": "medium",
@@ -536,7 +536,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/lobster",
-        "ref": "2b988ee83444f08ccaf37aa5e98f370726c75f6e"
+        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
       },
       "path": "plugins/lobster",
       "priority": "medium",
@@ -565,7 +565,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/matrix",
-        "ref": "2b988ee83444f08ccaf37aa5e98f370726c75f6e"
+        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
       },
       "path": "plugins/matrix",
       "priority": "medium",
@@ -627,7 +627,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/nextcloud-talk",
-        "ref": "2b988ee83444f08ccaf37aa5e98f370726c75f6e"
+        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
       },
       "path": "plugins/nextcloud-talk",
       "priority": "medium",
@@ -655,7 +655,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/nostr",
-        "ref": "aa6008ad198ef99c43f9d89dbd01694708712974"
+        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
       },
       "path": "plugins/nostr",
       "priority": "medium",
@@ -871,7 +871,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/mattermost",
-        "ref": "9505f6eeab162026b1b5c14ef78fe7889549be8f"
+        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
       },
       "path": "plugins/mattermost",
       "priority": "medium",
@@ -898,7 +898,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/synology-chat",
-        "ref": "2b4055f8dd703e9c09985940dce9a9c6fc3c29bf"
+        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
       },
       "path": "plugins/synology-chat",
       "priority": "medium",
@@ -958,7 +958,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/codex",
-        "ref": "aa6008ad198ef99c43f9d89dbd01694708712974"
+        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
       },
       "path": "plugins/codex",
       "priority": "medium",
@@ -1034,7 +1034,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/google-meet",
-        "ref": "2b988ee83444f08ccaf37aa5e98f370726c75f6e"
+        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
       },
       "path": "plugins/google-meet",
       "priority": "medium",
@@ -1085,7 +1085,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/diffs",
-        "ref": "2b4055f8dd703e9c09985940dce9a9c6fc3c29bf"
+        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
       },
       "path": "plugins/diffs",
       "priority": "medium",
@@ -1118,7 +1118,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/memory-lancedb",
-        "ref": "aa6008ad198ef99c43f9d89dbd01694708712974"
+        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
       },
       "path": "plugins/memory-lancedb",
       "priority": "medium",
@@ -1170,7 +1170,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/whatsapp",
-        "ref": "9505f6eeab162026b1b5c14ef78fe7889549be8f"
+        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
       },
       "path": "plugins/whatsapp",
       "priority": "medium",
