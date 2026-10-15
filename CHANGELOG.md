@@ -24,6 +24,7 @@
 
 - Publish checked CI reports once and summarize only current-job outputs, preserving failed or interrupted coverage without rerunning fixture preparation.
 - Include bounded startup-phase observations on command failures without changing startup limits, native admission, or cleanup guarantees.
+- Avoid Windows command startup failures caused by per-command compiler and JSON cmdlet loading, preserving the startup budget, atomic Job admission and confirmed cleanup before checkout reuse. Thanks @vincentkoc.
 - Arm Windows helper cancellation before request parsing so owner loss or startup expiry cannot leave a parser-blocked helper running.
 - Preserve exclusive Plugin Inspector checkout ownership across long installs and unconfirmed command cleanup; fail bounded lock contention without stealing another installer's lock.
 - Preserve the Windows command controller's parent environment when a caller supplies a restricted target environment, without changing the target's environment or cleanup guarantees.

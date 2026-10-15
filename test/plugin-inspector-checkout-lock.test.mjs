@@ -172,3 +172,79 @@ test("lock release failure retains the original command failure and foreign owne
   assert.equal(readFileSync(path.join(lock, "foreign-owner"), "utf8"), "retained");
   assert.equal(existsSync(marker), false);
 });
+
+test("Windows preparation expiry releases only a nonadmitted checkout before the next resolver", {
+  skip: process.platform !== "win32", timeout: 60_000,
+}, async (t) => {
+  const root = mkdtempSync(path.join(os.tmpdir(), "crabpot-native-checkout-"));
+  const scripts = path.join(root, "scripts");
+  mkdirSync(scripts);
+  const sourceUrl = new URL("../scripts/", import.meta.url);
+  for (const name of ["plugin-inspector-source.mjs", "owned-command.mjs", "owned-command-windows.ps1", "portable-command.mjs"]) {
+    copyFileSync(new URL(name, sourceUrl), path.join(scripts, name));
+  }
+  writeFileSync(path.join(root, "package.json"), '{"type":"module"}\n');
+  writeFileSync(path.join(scripts, "manifest-lib.mjs"), "export const repoRoot = " + JSON.stringify(root) + ";\n");
+  const resolver = path.join(scripts, "plugin-inspector-source.mjs");
+  // Replace Git/npm payloads only. The real resolver, owner Worker, named pipe,
+  // native admission, handles, cleanup receipts and checkout token stay intact.
+  writeFileSync(resolver, readFileSync(resolver, "utf8").replace('from "./owned-command.mjs"', 'from "./checkout-command.mjs"'));
+  writeFileSync(path.join(scripts, "checkout-command.mjs"), [
+    'import { runOwnedCommand as native, configuredTimeoutMs } from "./owned-command.mjs";',
+    'export { configuredTimeoutMs };',
+    'export function runOwnedCommand(command, args, options) {',
+    '  return native(process.execPath, [' + JSON.stringify(path.join(scripts, "checkout-target.mjs")) + ', command, ...args], options);',
+    '}',
+  ].join("\n"));
+  const calls = path.join(root, "target-calls.jsonl");
+  writeFileSync(path.join(scripts, "checkout-target.mjs"), [
+    'import { appendFileSync, mkdirSync, writeFileSync } from "node:fs";',
+    'import path from "node:path";',
+    'const [command, ...args] = process.argv.slice(2);',
+    'appendFileSync(' + JSON.stringify(calls) + ', JSON.stringify({ pid: process.pid, command, args }) + "\\n");',
+    'if (args.includes("rev-parse")) process.stdout.write(' + JSON.stringify(pluginInspectorRef + "\n") + ');',
+    'else if (command === "git" && args[0] === "init") mkdirSync(args[1], { recursive: true });',
+    'else if (command === "git" && args.includes("checkout")) {',
+    '  mkdirSync(path.join(args[1], "src"), { recursive: true });',
+    '  writeFileSync(path.join(args[1], "src/index.js"), "export {};\\n");',
+    '} else if (command === "npm") mkdirSync(path.join(process.cwd(), "node_modules"), { recursive: true });',
+  ].join("\n"));
+  const helperPath = path.join(scripts, "owned-command-windows.ps1");
+  const helper = readFileSync(helperPath, "utf8");
+  const seam = '    Write-Phase "preparation-started"';
+  assert.equal(helper.split(seam).length, 2);
+  const helperPidFile = path.join(root, "helper-pid");
+  const escaped = path.join(root, "helper-expired");
+  const ps = (value) => "'" + value.replaceAll("'", "''") + "'";
+  writeFileSync(helperPath, helper.replace(seam, seam + "\n" + [
+    '[System.IO.File]::WriteAllText(' + ps(helperPidFile) + ', [string]$PID)',
+    '[System.Threading.Thread]::Sleep(20000)',
+    '[System.IO.File]::WriteAllText(' + ps(escaped) + ', "fixture expired")',
+  ].map((line) => "    " + line).join("\n")));
+  let helperPid;
+  t.after(() => {
+    if (helperPid) assert.throws(() => process.kill(helperPid, 0), { code: "ESRCH" }, "exact helper must close before removal");
+    rmSync(root, { recursive: true, force: true });
+  });
+  const { resolvePluginInspectorCliPath } = await import(pathToFileURL(resolver).href);
+  let failure;
+  try { resolvePluginInspectorCliPath(); } catch (error) { failure = error; }
+  helperPid = Number(readFileSync(helperPidFile, "utf8"));
+  assert.equal(failure?.code, "EOWNERSTART");
+  assert.equal(failure.cleanupError, undefined);
+  assert.throws(() => process.kill(helperPid, 0), { code: "ESRCH" }, "helper closure precedes the second resolver");
+  const parent = path.join(root, ".crabpot/plugin-inspector");
+  const lock = path.join(parent, ".checkout.lock");
+  const marker = path.join(parent, pluginInspectorRef, "node_modules/.crabpot-install-ready");
+  assert.equal(existsSync(lock), false);
+  assert.equal(existsSync(marker), false);
+  assert.equal(existsSync(calls), false, "the interrupted preparation admitted no checkout payload");
+  assert.equal(existsSync(escaped), false, "fixture expiry cannot provide closure");
+  writeFileSync(helperPath, helper);
+  assert.equal(resolvePluginInspectorCliPath(), path.join(parent, pluginInspectorRef, "src/cli.js"));
+  assert.equal(existsSync(lock), false);
+  assert.equal(readFileSync(marker, "utf8"), pluginInspectorRef + "\n");
+  const observed = readFileSync(calls, "utf8").trim().split("\n").map(JSON.parse);
+  assert.deepEqual(observed.map(({ command }) => command), ["git", "git", "git", "npm", "git"]);
+  for (const { pid } of observed) assert.throws(() => process.kill(pid, 0), { code: "ESRCH" });
+});
