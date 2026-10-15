@@ -466,7 +466,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/diagnostics-otel",
-        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
+        "ref": "2040d1b71db98e8b2a5d740770c37e17f64316ba"
       },
       "path": "plugins/diagnostics-otel",
       "priority": "medium",
@@ -494,7 +494,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/discord",
-        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
+        "ref": "2040d1b71db98e8b2a5d740770c37e17f64316ba"
       },
       "path": "plugins/discord",
       "priority": "medium",
@@ -536,7 +536,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/lobster",
-        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
+        "ref": "2040d1b71db98e8b2a5d740770c37e17f64316ba"
       },
       "path": "plugins/lobster",
       "priority": "medium",
@@ -565,7 +565,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/matrix",
-        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
+        "ref": "2040d1b71db98e8b2a5d740770c37e17f64316ba"
       },
       "path": "plugins/matrix",
       "priority": "medium",
@@ -599,7 +599,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/msteams",
-        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
+        "ref": "2040d1b71db98e8b2a5d740770c37e17f64316ba"
       },
       "path": "plugins/msteams",
       "priority": "medium",
@@ -627,7 +627,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/nextcloud-talk",
-        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
+        "ref": "2040d1b71db98e8b2a5d740770c37e17f64316ba"
       },
       "path": "plugins/nextcloud-talk",
       "priority": "medium",
@@ -655,7 +655,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/nostr",
-        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
+        "ref": "2040d1b71db98e8b2a5d740770c37e17f64316ba"
       },
       "path": "plugins/nostr",
       "priority": "medium",
@@ -684,7 +684,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/voice-call",
-        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
+        "ref": "2040d1b71db98e8b2a5d740770c37e17f64316ba"
       },
       "path": "plugins/voice-call",
       "priority": "medium",
@@ -728,7 +728,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/zalo",
-        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
+        "ref": "2040d1b71db98e8b2a5d740770c37e17f64316ba"
       },
       "path": "plugins/zalo",
       "priority": "medium",
@@ -756,7 +756,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/zalouser",
-        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
+        "ref": "2040d1b71db98e8b2a5d740770c37e17f64316ba"
       },
       "path": "plugins/zalouser",
       "priority": "medium",
@@ -814,7 +814,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/tlon",
-        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
+        "ref": "2040d1b71db98e8b2a5d740770c37e17f64316ba"
       },
       "path": "plugins/tlon",
       "priority": "medium",
@@ -842,7 +842,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/twitch",
-        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
+        "ref": "2040d1b71db98e8b2a5d740770c37e17f64316ba"
       },
       "path": "plugins/twitch",
       "priority": "medium",
@@ -871,7 +871,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/mattermost",
-        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
+        "ref": "2040d1b71db98e8b2a5d740770c37e17f64316ba"
       },
       "path": "plugins/mattermost",
       "priority": "medium",
@@ -898,7 +898,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/synology-chat",
-        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
+        "ref": "2040d1b71db98e8b2a5d740770c37e17f64316ba"
       },
       "path": "plugins/synology-chat",
       "priority": "medium",
@@ -926,7 +926,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/brave",
-        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
+        "ref": "2040d1b71db98e8b2a5d740770c37e17f64316ba"
       },
       "path": "plugins/brave-plugin",
       "priority": "medium",
@@ -1004,7 +1004,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/diagnostics-prometheus",
-        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
+        "ref": "2040d1b71db98e8b2a5d740770c37e17f64316ba"
       },
       "path": "plugins/diagnostics-prometheus",
       "priority": "medium",
@@ -1034,7 +1034,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/google-meet",
-        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
+        "ref": "2040d1b71db98e8b2a5d740770c37e17f64316ba"
       },
       "path": "plugins/google-meet",
       "priority": "medium",
@@ -1085,7 +1085,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/diffs",
-        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
+        "ref": "2040d1b71db98e8b2a5d740770c37e17f64316ba"
       },
       "path": "plugins/diffs",
       "priority": "medium",
@@ -1118,7 +1118,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/memory-lancedb",
-        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
+        "ref": "2040d1b71db98e8b2a5d740770c37e17f64316ba"
       },
       "path": "plugins/memory-lancedb",
       "priority": "medium",
@@ -1170,7 +1170,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/whatsapp",
-        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
+        "ref": "2040d1b71db98e8b2a5d740770c37e17f64316ba"
       },
       "path": "plugins/whatsapp",
       "priority": "medium",
