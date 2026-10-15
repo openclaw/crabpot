@@ -2,6 +2,7 @@
 
 ## 0.2.2 - Unreleased
 
+- Refresh the Weixin fallback to 2.4.10 while keeping OpenClaw host peers out of its fixture lock. Thanks @dependabot and @vincentkoc.
 - Recognize Node's exact experimental TypeScript warning before TencentDB's known missing-module diagnostic, retaining unrelated errors as failures.
 
 - Patch Codex and TencentDB fixture lock dependencies for TOML, baggage parsing, and query-string advisories while retaining their qualified plugin versions.

@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for OpenClaw Weixin.",
   "dependencies": {
-    "@tencent-weixin/openclaw-weixin": "2.4.9"
+    "@tencent-weixin/openclaw-weixin": "2.4.10"
   },
   "crabpot": {
     "fixture": "openclaw-weixin",

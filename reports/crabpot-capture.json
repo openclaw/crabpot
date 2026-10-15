@@ -41070,10 +41070,10 @@
       "hooks": [],
       "sdkImports": [
         {
-          "id": "sdk.openclaw/plugin-sdk/channel-reply-pipeline:lightclawbot:plugins-lightclawbot-crabpot-package-dist-src-inbound-js-262",
+          "id": "sdk.openclaw/plugin-sdk/channel-reply-pipeline:lightclawbot:plugins-lightclawbot-crabpot-package-dist-src-inbound-js-264",
           "fixture": "lightclawbot",
           "specifier": "openclaw/plugin-sdk/channel-reply-pipeline",
-          "ref": "plugins/lightclawbot/.crabpot-package/dist/src/inbound.js:262",
+          "ref": "plugins/lightclawbot/.crabpot-package/dist/src/inbound.js:264",
           "support": "target-exported",
           "assertions": [
             "package export exists",
