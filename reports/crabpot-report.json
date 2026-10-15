@@ -37388,6 +37388,8 @@
         "plugins/lightclawbot/.crabpot-package/dist/src/shared.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/socket/events/agents-request.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/socket/events/chat-request.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/socket/events/custom-request.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/socket/events/exec-request.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/socket/events/file-download.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/socket/events/group-abort.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/socket/events/group-history.js",
@@ -37406,12 +37408,16 @@
         "plugins/lightclawbot/.crabpot-package/dist/src/socket/service/chat-delete.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/socket/service/chat-list.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/socket/service/chat-update.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/socket/service/custom-config.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/socket/service/exec-dedup.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/socket/service/exec-scheduler.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/socket/service/group-abort.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/socket/service/group-history.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/socket/service/group-member.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/socket/service/group.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/socket/service/history.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/socket/service/index.js",
+        "plugins/lightclawbot/.crabpot-package/dist/src/socket/service/scripts-exec.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/socket/types/index.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/socket/types/request.js",
         "plugins/lightclawbot/.crabpot-package/dist/src/socket/types/service.js",
@@ -37472,7 +37478,7 @@
       "package": {
         "path": "plugins/lightclawbot/.crabpot-package/package.json",
         "name": "lightclawbot",
-        "version": "1.3.0",
+        "version": "1.3.1",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -37534,7 +37540,7 @@
         {
           "path": "plugins/lightclawbot/.crabpot-package/package.json",
           "name": "lightclawbot",
-          "version": "1.3.0",
+          "version": "1.3.1",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -37625,8 +37631,8 @@
         {
           "specifier": "openclaw/plugin-sdk/channel-reply-pipeline",
           "file": "plugins/lightclawbot/.crabpot-package/dist/src/inbound.js",
-          "line": 262,
-          "ref": "plugins/lightclawbot/.crabpot-package/dist/src/inbound.js:262"
+          "line": 264,
+          "ref": "plugins/lightclawbot/.crabpot-package/dist/src/inbound.js:264"
         },
         {
           "specifier": "openclaw/plugin-sdk/config-runtime",
@@ -63071,7 +63077,7 @@
       "evidence": [
         "plugins/lightclawbot/.crabpot-package/package.json",
         "lightclawbot",
-        "version:1.3.0"
+        "version:1.3.1"
       ]
     },
     {
