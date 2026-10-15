@@ -719,6 +719,7 @@ for (const [ownerLost, guarded] of [[false, true], [true, true], [false, false],
       "Add-Type -Path " + ps(sourceFile) + "\n" +
       "[System.IO.File]::WriteAllText(" + ps(commandMarker) + ", 'compiled')\n");
     const powershell = path.join(process.env.SystemRoot, "System32/WindowsPowerShell/v1.0/powershell.exe");
+    const observerAdmissionStartedAt = performance.now();
     const observer = new Worker(`
       const { workerData, parentPort } = require("node:worker_threads");
       import(workerData.owner).then(({ runOwnedCommand }) => {
@@ -772,7 +773,13 @@ for (const [ownerLost, guarded] of [[false, true], [true, true], [false, false],
         }
       }
     });
+    // Bound admission separately from the observer's own C# setup.
+    const observerStarted = await readReceipt(path.join(root, "observer-started"), 10_000, observerError);
+    assert.ok(observerStarted.pid > 0, "observer command must be admitted before its compiler setup");
+    t.diagnostic(`compiler observer admitted in ${Math.round(performance.now() - observerAdmissionStartedAt)}ms`);
+    const observerPreparationStartedAt = performance.now();
     await readReceipt(path.join(root, "observer-ready"), 10_000, observerError);
+    t.diagnostic(`compiler observer preparation completed in ${Math.round(performance.now() - observerPreparationStartedAt)}ms`);
     worker = new Worker(`
       const { workerData } = require("node:worker_threads");
       import(workerData.owner).then(({ runOwnedCommand }) => {

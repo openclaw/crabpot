@@ -1,5 +1,9 @@
 param([string]$Root)
 $ErrorActionPreference = "Stop"
+# Admission and observer compilation are separate bounded stages.
+$started = [System.IO.Path]::Combine($Root, "observer-started")
+[System.IO.File]::WriteAllText($started + ".pending", '{"pid":' + $PID + '}')
+[System.IO.File]::Move($started + ".pending", $started)
 Add-Type -TypeDefinition @'
 using System;
 using System.Collections.Generic;
