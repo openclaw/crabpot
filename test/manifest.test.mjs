@@ -2,6 +2,36 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import { readConfiguredManifest, readManifest, validateManifest } from "../scripts/manifest-lib.mjs";
 
+test("DingTalk declares twelve explicit negative contracts and rejects malformed declarations", async () => {
+  const manifest = await readManifest();
+  const fixture = manifest.fixtures.find((item) => item.id === "dingtalk-connector");
+  const expectations = fixture.execution.gatewayMethodExpectations;
+  assert.equal(Object.keys(expectations).length, 12);
+  assert.deepEqual(expectations["dingtalk-connector.card.update"], {
+    ok: false, payload: { error: "cardInstanceId is required" },
+  });
+  assert.equal(expectations["dingtalk-connector.probe"].payload.error, "Not configured");
+  assert.equal(Object.values(expectations).filter((value) => value.payload.error === "DingTalk not configured").length, 9);
+  assert.equal(expectations["dingtalk-connector.status"], undefined);
+  for (const invalid of [[], { "": { ok: false } }, { method: { ok: "false" } }, { method: { ok: false, extra: true } }]) {
+    const copy = structuredClone(manifest);
+    copy.fixtures.find((item) => item.id === fixture.id).execution.gatewayMethodExpectations = invalid;
+    assert.throws(() => validateManifest(copy), /gateway.*expectation/i);
+  }
+  for (const error of [null, [], {}, { code: "", message: "no" }, { code: "NO", message: "" },
+    { code: "NO", message: "no", retryable: 1 }, { code: "NO", message: "no", retryAfterMs: -1 },
+    { code: "NO", message: "no", retryAfterMs: 0.5 }, { code: "NO", message: "no", extra: true },
+  ]) {
+    const copy = structuredClone(manifest);
+    copy.fixtures.find((item) => item.id === fixture.id).execution.gatewayMethodExpectations = {
+      "fixture.error": { ok: false, error },
+    };
+    assert.throws(() => validateManifest(copy), /invalid error frame/);
+  }
+  fixture.execution.gatewayMethodPrerequisites = { "dingtalk-connector.probe": "live credentials" };
+  assert.throws(() => validateManifest(manifest), /conflicts with a prerequisite/);
+});
+
 test("fixture manifest is valid and seam-rich", async () => {
   const manifest = await readManifest();
 

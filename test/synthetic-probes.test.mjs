@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
-import { mkdtemp, writeFile } from "node:fs/promises";
+import { mkdir, mkdtemp, rm, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -13,10 +13,47 @@ import {
   buildSyntheticProbePlan,
   renderSyntheticProbeMarkdown,
   runCapturedSyntheticProbes,
+  runEntrypointSyntheticProbes,
   validateSyntheticProbePlan,
 } from "../scripts/synthetic-probes.mjs";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+
+test("Gateway response declarations apply to captured and entrypoint probes without waiving mismatches", async (t) => {
+  const manifest = { fixtures: [{ id: "fixture-contract", execution: {
+    gatewayMethodExpectations: { "fixture.guard": { ok: false, payload: { error: "missing account" } } },
+  } }] };
+  const api = createCaptureApi({ retainHandlers: true });
+  api.registerGatewayMethod("fixture.guard", ({ respond }) => respond(false, { error: "missing account" }));
+  api.registerGatewayMethod("fixture.unexpected", ({ respond }) => respond(false, { error: "unexpected" }));
+  const capture = {
+    entrypoint: path.join(repoRoot, ".crabpot/workspaces/fixture-contract/index.mjs"),
+    status: "captured", captured: api.getCapturedContracts(), retained: api.getRetainedContracts(),
+  };
+  const result = await runCapturedSyntheticProbes(capture, { manifest });
+  assert.deepEqual(result.results.map((row) => row.status), ["pass", "fail"]);
+  assert.deepEqual(result.results[0].gatewayResponse, {
+    method: "fixture.guard", expectedOk: false, observedOk: false, matched: true,
+  });
+  const overridden = await runCapturedSyntheticProbes(capture, { manifest, gatewayMethodExpectations: {} });
+  assert.equal(overridden.summary.failCount, 2);
+  const unrelated = await runCapturedSyntheticProbes({ ...capture, entrypoint: "/fixture/other/index.mjs" }, { manifest });
+  assert.equal(unrelated.summary.failCount, 2);
+  const mismatched = await runCapturedSyntheticProbes(capture, { manifest, gatewayMethodExpectations: {
+    "fixture.guard": { ok: false, payload: { error: "different contract" } },
+  } });
+  assert.equal(mismatched.summary.failCount, 2);
+
+  const root = await mkdtemp(path.join(os.tmpdir(), "crabpot-response-contract-"));
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const directory = path.join(root, ".crabpot/workspaces/fixture-contract");
+  await mkdir(directory, { recursive: true });
+  const entrypoint = path.join(directory, "index.mjs");
+  await writeFile(entrypoint, 'export function register(api) { api.registerGatewayMethod("fixture.guard", ({respond}) => respond(false, {error:"missing account"})); }');
+  const entryResult = await runEntrypointSyntheticProbes(entrypoint, { manifest, mockSdk: false });
+  assert.equal(entryResult.summary.passCount, 1);
+  assert.equal(entryResult.results[0].gatewayResponse.matched, true);
+});
 
 test("Google Meet participation probes require session state and preserve configured failures", async () => {
   const manifest = await readConfiguredManifest({ fixtureSet: "google-meet" });

@@ -1292,6 +1292,22 @@
       "expect": {
         "registrations": ["registerChannel", "registerGatewayMethod"]
       },
+      "execution": {
+        "gatewayMethodExpectations": {
+          "dingtalk-connector.sendToUser": { "ok": false, "payload": { "error": "DingTalk not configured" } },
+          "dingtalk-connector.sendToGroup": { "ok": false, "payload": { "error": "DingTalk not configured" } },
+          "dingtalk-connector.send": { "ok": false, "payload": { "error": "DingTalk not configured" } },
+          "dingtalk-connector.docs.read": { "ok": false, "payload": { "error": "DingTalk not configured" } },
+          "dingtalk-connector.docs.create": { "ok": false, "payload": { "error": "DingTalk not configured" } },
+          "dingtalk-connector.docs.append": { "ok": false, "payload": { "error": "DingTalk not configured" } },
+          "dingtalk-connector.docs.search": { "ok": false, "payload": { "error": "DingTalk not configured" } },
+          "dingtalk-connector.docs.list": { "ok": false, "payload": { "error": "DingTalk not configured" } },
+          "dingtalk-connector.fixStuckCards": { "ok": false, "payload": { "error": "DingTalk not configured" } },
+          "dingtalk-connector.probe": { "ok": false, "payload": { "error": "Not configured" } },
+          "dingtalk-connector.card.create": { "ok": false, "payload": { "error": "target is required (user:<userId>, group:<openConversationId>, or cid...)" } },
+          "dingtalk-connector.card.update": { "ok": false, "payload": { "error": "cardInstanceId is required" } }
+        }
+      },
       "why": "Official DingTalk connector fixture covering Stream-mode channel ingress, AI Card replies, multi-account access policy, gateway RPC methods, and packaged channel skills."
     },
     {

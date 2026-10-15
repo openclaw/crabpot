@@ -120,6 +120,31 @@
                 "propertyNames": { "type": "string", "pattern": "\\S" },
                 "additionalProperties": { "type": "string", "pattern": "\\S" }
               },
+              "gatewayMethodExpectations": {
+                "type": "object",
+                "propertyNames": { "type": "string", "pattern": "\\S", "maxLength": 256 },
+                "additionalProperties": {
+                  "type": "object",
+                  "required": ["ok"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "ok": { "type": "boolean" },
+                    "payload": {},
+                    "error": {
+                      "type": "object",
+                      "required": ["code", "message"],
+                      "additionalProperties": false,
+                      "properties": {
+                        "code": { "type": "string", "minLength": 1 },
+                        "message": { "type": "string", "minLength": 1 },
+                        "details": {},
+                        "retryable": { "type": "boolean" },
+                        "retryAfterMs": { "type": "integer", "minimum": 0 }
+                      }
+                    }
+                  }
+                }
+              },
               "blockedFailures": {
                 "type": "array",
                 "minItems": 1,

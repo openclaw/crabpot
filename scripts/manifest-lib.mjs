@@ -178,6 +178,32 @@ export function validateManifest(manifest) {
         }
       }
     }
+    const gatewayExpectations = fixture.execution?.gatewayMethodExpectations;
+    if (gatewayExpectations !== undefined) {
+      if (!gatewayExpectations || typeof gatewayExpectations !== "object" || Array.isArray(gatewayExpectations)) {
+        errors.push(`${fixture.id}: execution.gatewayMethodExpectations must be an object`);
+      } else {
+        for (const [method, expected] of Object.entries(gatewayExpectations)) {
+          if (!method.trim() || method.length > 256 || !expected || typeof expected !== "object" ||
+              Array.isArray(expected) || typeof expected.ok !== "boolean" ||
+              Object.keys(expected).some((key) => !["ok", "payload", "error"].includes(key))) {
+            errors.push(`${fixture.id}: gateway response expectations require a method and response frame`);
+          }
+          if (Object.hasOwn(gatewayPrerequisites ?? {}, method)) {
+            errors.push(`${fixture.id}: gateway response expectation conflicts with a prerequisite`);
+          }
+          const error = expected?.error;
+          if (error !== undefined && (!error || typeof error !== "object" || Array.isArray(error) ||
+              typeof error.code !== "string" || !error.code.length ||
+              typeof error.message !== "string" || !error.message.length ||
+              (error.retryable !== undefined && typeof error.retryable !== "boolean") ||
+              (error.retryAfterMs !== undefined && (!Number.isInteger(error.retryAfterMs) || error.retryAfterMs < 0)) ||
+              Object.keys(error).some((key) => !["code", "message", "details", "retryable", "retryAfterMs"].includes(key)))) {
+            errors.push(`${fixture.id}: gateway response expectation has an invalid error frame`);
+          }
+        }
+      }
+    }
     const blockedFailures = fixture.execution?.blockedFailures;
     if (blockedFailures !== undefined) {
       if (!Array.isArray(blockedFailures) || blockedFailures.length === 0) {

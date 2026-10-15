@@ -141,6 +141,17 @@ Programmatic callers supplying isolated inputs and runtime can pass an explicit
 `gatewayMethodPrerequisites` map to the synthetic runner. Omit satisfied methods
 from that map; an empty map exercises every method with normal response checks.
 
+Fixture `execution.gatewayMethodExpectations` entries assert exact serialized
+`ok`, `payload`, and optional `error` values from the first response. They execute
+the handler; they do not waive failed probes. Missing methods, mismatches,
+malformed responses, and handler failures still fail. Both captured and entrypoint
+runners apply the owning fixture's declarations; callers may explicitly replace
+the map. Reports retain bounded expected/observed response booleans, not payloads.
+DingTalk's empty-config declarations verify its twelve credential/argument guards;
+they do not qualify live messaging, documents, cards, or channel startup. Source
+and locally packed Inspector qualification must use the updated source pin;
+the published `0.3.26` CLI does not include this API.
+
 ### Inspector resource contract smoke
 
 The source pin includes Inspector's process resource collector, SDK namespace
