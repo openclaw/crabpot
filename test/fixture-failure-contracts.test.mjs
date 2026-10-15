@@ -33,3 +33,29 @@ for (const [fixtureId, blockerId] of [
     assert.equal(classifyWorkspaceStepResult({ exitCode: 1, timedOut: true, failureOutput: output }, { kind: "capture" }, rules).exitCode, 1);
   });
 }
+
+
+test("TencentDB synthetic blocker retains Node's exact TypeScript warning preamble", async () => {
+  const manifest = await readManifest();
+  const rules = manifest.fixtures.find((fixture) => fixture.id === "memory-tencentdb").execution.blockedFailures;
+  const output = await readFile(new URL("./fixtures/memory-tencentdb-synthetic-error.txt", import.meta.url), "utf8");
+  const classify = (failureOutput, extra = {}, kind = "synthetic-probe") =>
+    classifyWorkspaceStepResult({ exitCode: 1, failureOutput, ...extra }, { kind }, rules);
+  for (const observed of [output, output.split("\n").slice(2).join("\n")]) {
+    const result = classify(observed);
+    assert.equal(result.exitCode, 0);
+    assert.equal(result.rawExitCode, 1);
+    assert.equal(result.blockedBy, "memory-tencentdb-published-missing-offload-synthetic");
+  }
+  for (const unexpected of [
+    output.replace("stripTypeScriptTypes", "unrelatedFeature"),
+    `Error: unrelated failure\n${output}`,
+    `${output}Error: unrelated failure\n`,
+    output.replaceAll("offload-client/index.js", "other-client/index.js"),
+    output.replaceAll("entrypoint-import-error", "other-import-error"),
+    output.replace("code: 'ERR_MODULE_NOT_FOUND'", "code: 'OTHER_ERROR'"),
+  ]) assert.equal(classify(unexpected).exitCode, 1);
+  assert.equal(classify(output, { timedOut: true }).exitCode, 1);
+  assert.equal(classify(output, { exitCode: 2 }).exitCode, 2);
+  assert.equal(classify(output, {}, "install").exitCode, 1);
+});
