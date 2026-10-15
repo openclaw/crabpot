@@ -65,9 +65,10 @@ try {
     $startupExType = Define-Struct "StartupInfoEx" @(@("Startup", $startupType), @("Attributes", [IntPtr]))
     $processType = Define-Struct "ProcessInfo" @(
         @("Process", [IntPtr]), @("Thread", [IntPtr]), @("ProcessId", [uint32]), @("ThreadId", [uint32]))
-    if ([System.Runtime.InteropServices.Marshal]::SizeOf($startupExType) -ne 112 -or
-        [System.Runtime.InteropServices.Marshal]::SizeOf($limitsType) -ne 144 -or
-        [System.Runtime.InteropServices.Marshal]::SizeOf($accountingType) -ne 48) { throw "Windows Job ownership ABI mismatch" }
+    # Explicit Type casts avoid PowerShell selecting SizeOf<T>(T) for RuntimeType.
+    if ([System.Runtime.InteropServices.Marshal]::SizeOf([type]$startupExType) -ne 112 -or
+        [System.Runtime.InteropServices.Marshal]::SizeOf([type]$limitsType) -ne 144 -or
+        [System.Runtime.InteropServices.Marshal]::SizeOf([type]$accountingType) -ne 48) { throw "Windows Job ownership ABI mismatch" }
     $builder = $module.DefineType("CrabpotCommandNative", [System.Reflection.TypeAttributes]"Public, Abstract, Sealed")
     $dllImport = [System.Runtime.InteropServices.DllImportAttribute]
     $attribute = [System.Reflection.Emit.CustomAttributeBuilder]::new(

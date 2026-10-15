@@ -747,6 +747,7 @@ for (const [ownerLost, guarded] of [[false, true], [true, true], [false, false],
     let worker;
     let compiler;
     t.after(async () => {
+      let rescued = false;
       try {
         await writeFile(path.join(root, "observer-rescue"), "stop");
         await worker?.terminate();
@@ -756,12 +757,19 @@ for (const [ownerLost, guarded] of [[false, true], [true, true], [false, false],
           assert.equal(observerResult?.status, 0, observerError());
           assert.ifError(observerResult.error);
           assert.equal(await waitForExit(compiler.pid, 1000), true, "fixture rescue must leave no compiler process");
+          assert.equal(await waitForExit(compiler.targetPid, 1000), true, "fixture rescue must leave no target process");
         }
+        rescued = completed && observerResult?.status === 0 && !observerResult?.error;
       } finally {
-        await observer.terminate();
         sentinel.kill();
         await sentinelClosed;
-        await rm(root, { recursive: true, force: true });
+        if (rescued) {
+          await observer.terminate();
+          await rm(root, { recursive: true, force: true });
+        } else {
+          // Do not interrupt a still-running retained-handle rescue on failure.
+          t.diagnostic("compiler fixture retained: native rescue closure unconfirmed");
+        }
       }
     });
     await readReceipt(path.join(root, "observer-ready"), 10_000, observerError);

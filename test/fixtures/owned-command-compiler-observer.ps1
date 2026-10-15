@@ -32,8 +32,6 @@ public static class CompilerObserver
     [DllImport("kernel32.dll")]
     static extern uint SuspendThread(IntPtr thread);
     [DllImport("kernel32.dll")]
-    static extern uint ResumeThread(IntPtr thread);
-    [DllImport("kernel32.dll")]
     static extern bool CloseHandle(IntPtr handle);
 
     static int CompilerChild(int parent)
@@ -117,16 +115,31 @@ public static class CompilerObserver
         }
         finally
         {
-            foreach (IntPtr thread in threads) { ResumeThread(thread); CloseHandle(thread); }
-            if (compiler != null)
+            try
             {
-                if (!compiler.WaitForExit(3000)) { compiler.Kill(); compiler.WaitForExit(3000); }
-                compiler.Dispose();
+                // Rescue is deliberately after the extinction assertion receipt.
+                // Kill only these retained process handles, including the target
+                // that intentionally escaped the negative control's missing Job.
+                foreach (Process process in new Process[] { compiler, target })
+                {
+                    if (process == null) continue;
+                    try { if (!process.HasExited) process.Kill(); }
+                    catch (InvalidOperationException) { }
+                    catch (System.ComponentModel.Win32Exception) { }
+                }
+                Stopwatch rescue = Stopwatch.StartNew();
+                while ((compiler != null && !compiler.HasExited) || (target != null && !target.HasExited))
+                {
+                    if (rescue.ElapsedMilliseconds >= 3000)
+                        throw new InvalidOperationException("retained compilation processes did not close after rescue");
+                    Thread.Sleep(10);
+                }
             }
-            if (target != null)
+            finally
             {
-                if (!target.WaitForExit(1000)) { target.Kill(); target.WaitForExit(3000); }
-                target.Dispose();
+                foreach (IntPtr thread in threads) CloseHandle(thread);
+                if (compiler != null) compiler.Dispose();
+                if (target != null) target.Dispose();
             }
         }
     }
