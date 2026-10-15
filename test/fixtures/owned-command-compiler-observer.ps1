@@ -66,12 +66,13 @@ public static class CompilerObserver
     public static void Run(string root)
     {
         Process compiler = null;
+        Process target = null;
         List<IntPtr> threads = new List<IntPtr>();
         Stopwatch clock = Stopwatch.StartNew();
         try
         {
             Publish(root, "observer-ready", "{}");
-            string helperFile = Path.Combine(root, "helper-pid");
+            string helperFile = Path.Combine(root, "target-pid");
             string rescueFile = Path.Combine(root, "observer-rescue");
             int helper = 0;
             while (helper == 0 && clock.ElapsedMilliseconds < 15000 && !File.Exists(rescueFile))
@@ -79,7 +80,11 @@ public static class CompilerObserver
                 if (File.Exists(helperFile)) Int32.TryParse(File.ReadAllText(helperFile), out helper);
                 if (helper == 0) Thread.Sleep(5);
             }
-            if (helper == 0) throw new InvalidOperationException("helper was not observed");
+            if (helper == 0) throw new InvalidOperationException("target was not observed");
+            target = Process.GetProcessById(helper);
+            IntPtr targetHeld = target.Handle;
+            if (target.ProcessName != "powershell" || target.HasExited)
+                throw new InvalidOperationException("compilation target identity changed");
             int pid = 0;
             while (pid == 0 && clock.ElapsedMilliseconds < 20000 && !File.Exists(rescueFile))
             {
@@ -102,7 +107,7 @@ public static class CompilerObserver
             if (threads.Count == 0 || compiler.HasExited)
                 throw new InvalidOperationException("compiler was not alive and suspended");
             Publish(root, "compiler-suspended.json",
-                "{\"helperPid\":" + helper + ",\"pid\":" + pid + ",\"name\":\"csc.exe\",\"suspended\":true}");
+                "{\"targetPid\":" + helper + ",\"pid\":" + pid + ",\"name\":\"csc.exe\",\"suspended\":true}");
             while (!compiler.WaitForExit(20) && clock.ElapsedMilliseconds < 25000 &&
                 !File.Exists(rescueFile)) { }
             bool rescued = !compiler.HasExited;
@@ -117,6 +122,11 @@ public static class CompilerObserver
             {
                 if (!compiler.WaitForExit(3000)) { compiler.Kill(); compiler.WaitForExit(3000); }
                 compiler.Dispose();
+            }
+            if (target != null)
+            {
+                if (!target.WaitForExit(1000)) { target.Kill(); target.WaitForExit(3000); }
+                target.Dispose();
             }
         }
     }

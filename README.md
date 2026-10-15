@@ -215,7 +215,7 @@ not proof of process-group extinction.
 Failed commands include a bounded `error.startupTrace` with fixed phase names,
 emission timestamps (`atMs`) and parent observation timestamps (`observedAtMs`).
 These are same-host wall-clock milliseconds, not CPU measurements or deadline
-extensions. Windows phases distinguish parsing, bootstrap containment, compilation
+extensions. Windows phases distinguish native binding preparation, request parsing
 and native process creation. Missing later phases remain unknown; a phase marker
 never proves Job extinction. The parent retains received phases if its Worker dies.
 Contextual timeout errors retain the original error as `cause`.
@@ -229,8 +229,10 @@ removing `.crabpot/plugin-inspector/.checkout.lock` and retrying preparation.
 
 Windows requires 64-bit Windows 10/Server 2016 or newer and Windows PowerShell:
 commands enter their private Job at creation, and setup failures never fall back
-to uncontained execution. A separate helper Job contains bootstrap compiler
-children too. Native Git runs directly; only batch commands use `cmd.exe`.
+to uncontained execution. Native bindings and framework JSON serialization prepare
+without loading cmdlets or starting a compiler; the parent then issues one request.
+A definite failed admission releases checkout custody only after setup cleanup,
+helper closure and control-pipe drain. Missing or invalid terminal receipts retain it. Native Git runs directly; only batch commands use `cmd.exe`.
 Windows Jobs retain owner-loss cleanup independently of the Worker.
 This process ownership is not a sandbox for hostile plugin code.
 

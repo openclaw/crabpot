@@ -12,13 +12,13 @@ import { runOwnedCommand } from "../scripts/owned-command.mjs";
 
 test("owned command preserves synchronous results, cwd, environment, and argument bytes", async (t) => {
   const root = await temporaryRoot(t);
-  const args = ["space here", 'embedded"quote', "trailing\\", "\u03a9", "%PATH%", "&"];
+  const args = ["space here", 'embedded"quote', "trailing\\", "\u03a9", "汉字🦊", "", "line\nbreak", "\t", "%PATH%", "&"];
   const result = runOwnedCommand(process.execPath, ["-e", `
     process.stdout.write(JSON.stringify({ cwd: process.cwd(), env: process.env.OWNER_TEST, args: process.argv.slice(1) }));
     process.stderr.write("retained stderr");
     process.exitCode = 7;
   `, ...args], {
-    cwd: root, env: { ...process.env, OWNER_TEST: "retained value" }, timeout: 5000, encoding: "utf8",
+    cwd: root, env: { ...process.env, OWNER_TEST: "retained value 汉字🦊\nsecond line" }, timeout: 5000, encoding: "utf8",
   });
   assert.equal(typeof result.then, "undefined");
   assert.ifError(result.error);
@@ -27,7 +27,7 @@ test("owned command preserves synchronous results, cwd, environment, and argumen
   assert.equal(result.signal, null);
   const observed = JSON.parse(result.stdout);
   observed.cwd = await realpath(observed.cwd);
-  assert.deepEqual(observed, { cwd: await realpath(root), env: "retained value", args });
+  assert.deepEqual(observed, { cwd: await realpath(root), env: "retained value 汉字🦊\nsecond line", args });
   assert.equal(result.stderr, "retained stderr");
 });
 
@@ -141,9 +141,9 @@ test("parent drains bounded phase observations without delaying queued results o
     }
     for (const observation of [
       { phase: "arbitrary-private-value", atMs },
-      { phase: "compile-started", atMs: Infinity },
-      { phase: "compile-started", atMs: -1 },
-      { phase: "compile-started", atMs: 0.5 },
+      { phase: "preparation-started", atMs: Infinity },
+      { phase: "preparation-started", atMs: -1 },
+      { phase: "preparation-started", atMs: 0.5 },
     ]) workerData.port.postMessage({ type: "phase", ...observation });
     workerData.port.postMessage({ type: "result", result: {
       pid: 0, status: null, signal: null, stdout: Buffer.alloc(0), stderr: Buffer.alloc(0),
@@ -341,7 +341,7 @@ test("Windows controller inherits its parent environment while the native comman
   const entry = '$ErrorActionPreference = "Stop"';
   assert.equal(original.split(entry).length, 2);
   // Observe the actual controller before any cmdlet/module loading. Record only
-  // synthetic comparisons, then retain the real parser, compiler and Job owner.
+  // synthetic comparisons, then retain the real serializer and Job owner.
   await writeFile(path.join(root, "scripts/owned-command-windows.ps1"), original.replace(entry, `${entry}
     $parentOnly = [Environment]::GetEnvironmentVariable("CRABPOT_OWNER_PARENT_ONLY") -ceq "parent-only"
     $parentConflict = [Environment]::GetEnvironmentVariable("CRABPOT_OWNER_CONFLICT") -ceq "parent"
@@ -352,8 +352,6 @@ test("Windows controller inherits its parent environment while the native comman
     [System.IO.File]::WriteAllText('${helperReceipt.replaceAll("'", "''")}', $observed)
     if (-not ($parentOnly -and $parentConflict -and $targetAbsent)) { throw "controller environment boundary failed" }
   `));
-  await copyFile(new URL("../scripts/owned-command-windows.cs", import.meta.url),
-    path.join(root, "scripts/owned-command-windows.cs"));
   const systemRoot = Object.entries(process.env).find(([key]) => key.toUpperCase() === "SYSTEMROOT")?.[1];
   assert.ok(systemRoot);
   // Workers preserve key casing. Exercise parent lookup with a non-default case
@@ -409,6 +407,44 @@ test("Windows adapter setup failure never runs an uncontained command", {
   await assert.rejects(readFile(marker), { code: "ENOENT" });
 });
 
+
+test("Windows emitted Job structs match the native x64 ABI", {
+  skip: process.platform !== "win32", timeout: 20_000,
+}, async (t) => {
+  const root = await temporaryRoot(t);
+  const ownerPath = await copyOwner(root);
+  const abiFile = path.join(root, "native-abi.json");
+  const source = await readFile(new URL("../scripts/owned-command-windows.ps1", import.meta.url), "utf8");
+  const prepared = '    $writer.WriteLine("PREPARED")';
+  assert.equal(source.split(prepared).length, 2);
+  const probe = [
+    '$abi = [System.Collections.Generic.Dictionary[string,object]]::new()',
+    '$abi["startupEx"] = [System.Runtime.InteropServices.Marshal]::SizeOf([type]$startupExType)',
+    '$abi["limits"] = [System.Runtime.InteropServices.Marshal]::SizeOf([type]$limitsType)',
+    '$abi["accounting"] = [System.Runtime.InteropServices.Marshal]::SizeOf([type]$accountingType)',
+    '$abi["process"] = [System.Runtime.InteropServices.Marshal]::SizeOf([type]$processType)',
+    '$abi["limitFlags"] = [System.Runtime.InteropServices.Marshal]::OffsetOf($basicType, "Flags").ToInt32()',
+    '$abi["attributes"] = [System.Runtime.InteropServices.Marshal]::OffsetOf($startupExType, "Attributes").ToInt32()',
+    '$abi["stdin"] = [System.Runtime.InteropServices.Marshal]::OffsetOf($startupType, "Stdin").ToInt32()',
+    '$abi["activeProcesses"] = [System.Runtime.InteropServices.Marshal]::OffsetOf($accountingType, "ActiveProcesses").ToInt32()',
+    '$abiStream = [System.IO.MemoryStream]::new()',
+    '$serializer.WriteObject($abiStream, $abi)',
+    '[System.IO.File]::WriteAllBytes(' + "'" + abiFile.replaceAll("'", "''") + "'" + ', $abiStream.ToArray())',
+    '$abiStream.Dispose()',
+  ].map((line) => "    " + line).join("\n");
+  await writeFile(path.join(root, "scripts/owned-command-windows.ps1"), source.replace(prepared, probe + "\n" + prepared));
+  const { runOwnedCommand: invoke } = await import(pathToFileURL(ownerPath).href);
+  const result = invoke(process.execPath, ["-e", 'process.stdout.write("native ABI checked")'], { timeout: 1000, encoding: "utf8" });
+  assert.ifError(result.error);
+  assert.ifError(result.cleanupError);
+  assert.equal(result.status, 0);
+  assert.equal(result.stdout, "native ABI checked");
+  assert.deepEqual(JSON.parse(await readFile(abiFile, "utf8")), {
+    startupEx: 112, limits: 144, accounting: 48, process: 24,
+    limitFlags: 16, attributes: 104, stdin: 80, activeProcesses: 40,
+  });
+});
+
 test("Windows command preserves the native process creation error", {
   skip: process.platform !== "win32", timeout: 20_000,
 }, async (t) => {
@@ -432,11 +468,13 @@ test("Windows command preserves the native process creation error", {
   assert.equal(phases.includes("create-process-completed"), false);
   assert.equal(phases.includes("ready-received"), false);
   assert.equal(phases.includes("closed-received"), false);
+  assert.ok(phases.includes("not-admitted-received"));
+  assert.equal(result.cleanupError, undefined, "a definite failed spawn with released setup is safe to retry");
   t.diagnostic(`native error ${result.error.nativeCode} retains Node ${baseline.error.code}`);
 });
 
 for (const [phase, ownerLost, historicalOrder] of [
-  ["compilation", false, false], ["compilation", true, false],
+  ["preparation", false, false], ["preparation", true, false],
   ["parsing", false, false], ["parsing", true, false], ["parsing", true, true],
 ]) {
   test(`Windows blocked ${phase} ${historicalOrder ? "negative control survives owner loss" : ownerLost ? "observes owner loss" : "has a deadline"} before native admission`, {
@@ -464,7 +502,8 @@ for (const [phase, ownerLost, historicalOrder] of [
     const commandMarker = path.join(root, "command-started");
     const original = (await readFile(new URL("../scripts/owned-command-windows.ps1", import.meta.url), "utf8"))
       .replaceAll("\r\n", "\n");
-    const parsing = "    $request = $line | ConvertFrom-Json\n";
+    const parsing = "    $inputStream = [System.IO.MemoryStream]::new($utf8.GetBytes($line))\n" +
+      "    try { $request = $serializer.ReadObject($inputStream) } finally { $inputStream.Dispose() }\n";
     const watcher = "    $ownerLost = [System.Threading.CancellationTokenSource]::new()\n";
     assert.equal(original.split(parsing).length, 2);
     assert.equal(original.split(watcher).length, 2);
@@ -472,12 +511,13 @@ for (const [phase, ownerLost, historicalOrder] of [
       ? original.replace(parsing, "").replace(watcher, parsing + watcher)
       : original;
     const gate = phase === "parsing" ? parsing.trim()
-      : 'Add-Type -Path (Join-Path $PSScriptRoot "owned-command-windows.cs")';
+      : 'Write-Phase "preparation-started"';
     assert.equal(source.split(gate).length, 2);
     const ps = (value) => `'${value.replaceAll("'", "''")}'`;
     // Block the actual helper without loading a cmdlet. Neither cooperative
     // rescue nor the independent fixture expiry may supply the asserted closure.
     const blocked = source.replace(gate, `
+        ${phase === "preparation" ? gate : ""}
         $expiresAt = [DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds() + 20000
         $fixtureClock = [System.Diagnostics.Stopwatch]::StartNew()
         $observed = '{"pid":' + $PID + ',"expiresAtMs":' + $expiresAt + '}'
@@ -518,10 +558,11 @@ for (const [phase, ownerLost, historicalOrder] of [
       const result = await readReceipt(resultFile, 12_500, () => errors.map(String).join("\n"));
       assert.equal(result.error?.code, "EOWNERSTART");
       const phases = tracePhases(result);
-      assert.ok(phases.includes(phase === "parsing" ? "parser-started" : "compile-started"));
-      assert.equal(phases.includes(phase === "parsing" ? "parser-completed" : "compile-completed"), false);
+      assert.ok(phases.includes(phase === "parsing" ? "parser-started" : "preparation-started"));
+      assert.equal(phases.includes(phase === "parsing" ? "parser-completed" : "prepared-received"), false);
       assert.equal(phases.includes("create-process-pending"), false);
-      assert.equal(result.cleanupError?.code, "EOWNERCLEANUP", "phase observations are not extinction receipts");
+      assert.equal(result.cleanupError?.code, phase === "parsing" ? "EOWNERCLEANUP" : undefined,
+        "only preparation before any issued request has known nonadmission");
     }
     const closed = await waitForExit(helper.pid, ownerLost ? 2000 : 100);
     assert.ok(Date.now() < helper.expiresAtMs, "closure assertion must precede independent fixture expiry");
@@ -565,23 +606,21 @@ for (const phase of ["preconnection", "late connection"]) {
         $fixtureRegistration = $fixtureExpiry.Token.Register($fixtureKill)
         $expiresAt = [DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds() + 20000
         $fixtureExpiry.CancelAfter(20000)
-        $live = @{ pid = $PID; phase = "preconnection"; expiresAtMs = $expiresAt } | ConvertTo-Json -Compress
+        $live = '{"pid":' + $PID + ',"phase":"preconnection","expiresAtMs":' + $expiresAt + '}'
         [System.IO.File]::WriteAllText(${ps(helperReady + ".pending")}, $live)
         [System.IO.File]::Move(${ps(helperReady + ".pending")}, ${ps(helperReady)})
         while (-not [System.IO.File]::Exists(${ps(releaseFile)})) {
             if ([System.IO.File]::Exists(${ps(rescueFile)})) {
-                $escape = @{ rescued = $true } | ConvertTo-Json -Compress
+                $escape = '{"rescued":true}'
                 [System.IO.File]::WriteAllText(${ps(escapeFile + ".pending")}, $escape)
                 [System.IO.File]::Move(${ps(escapeFile + ".pending")}, ${ps(escapeFile)})
                 exit 99
             }
-            Start-Sleep -Milliseconds 20
+            [System.Threading.Thread]::Sleep(20)
         }
         ${connection}
     `);
     await writeFile(path.join(root, "scripts/owned-command-windows.ps1"), blocked);
-    await copyFile(new URL("../scripts/owned-command-windows.cs", import.meta.url),
-      path.join(root, "scripts/owned-command-windows.cs"));
     if (phase === "late connection") {
       const owner = await readFile(ownerPath, "utf8");
       const accept = '  server.once("connection", (connection) => {';
@@ -656,31 +695,29 @@ for (const phase of ["preconnection", "late connection"]) {
 }
 
 for (const [ownerLost, guarded] of [[false, true], [true, true], [false, false], [true, false]]) {
-  test(`Windows actual compiler ${guarded ? "exits" : "negative control survives"} on ${ownerLost ? "owner loss" : "startup expiry"}`, {
+  test(`Windows actual compiler ${guarded ? "exits" : "negative control survives"} on ${ownerLost ? "owner loss" : "command timeout"}`, {
     skip: process.platform !== "win32", timeout: 45_000,
   }, async (t) => {
     const root = await mkdtemp(path.join(os.tmpdir(), "crabpot compiler owner "));
     const ownerPath = await copyOwner(root);
-    const pidFile = path.join(root, "helper-pid");
+    const pidFile = path.join(root, "target-pid");
     const commandMarker = path.join(root, "command-started");
     const resultFile = path.join(root, "result.json");
     const original = await readFile(new URL("../scripts/owned-command-windows.ps1", import.meta.url), "utf8");
-    const compilation = 'Add-Type -Path (Join-Path $PSScriptRoot "owned-command-windows.cs")';
-    assert.equal(original.split(compilation).length, 2);
-    const guardStart = original.indexOf("    # CodeDOM starts csc.exe.");
-    const guardEnd = original.indexOf(`    ${compilation}`);
-    assert.ok(guardStart > 0 && guardEnd > guardStart);
-    const helperSource = guarded ? original : original.slice(0, guardStart) + original.slice(guardEnd);
-    await writeFile(path.join(root, "scripts/owned-command-windows.ps1"), helperSource.replace(compilation, `
-      [System.IO.File]::WriteAllText('${pidFile.replaceAll("'", "''")}', [string]$PID)
-      ${compilation}
-    `));
-    const native = await readFile(new URL("../scripts/owned-command-windows.cs", import.meta.url), "utf8");
-    // Keep a real CodeDOM compilation active long enough for native observation,
-    // without replacing the compiler or introducing a production test seam.
-    const source = native + Array.from({ length: 10_000 }, (_, index) =>
-      `\ninternal class CompilerObservation${index} { }`).join("");
-    await writeFile(path.join(root, "scripts/owned-command-windows.cs"), source);
+    const admission = '        Check-Native ($native::UpdateProcThreadAttribute($attributes, 0, [IntPtr]::new(0x2000d), $jobList, [IntPtr]::new(8), [IntPtr]::Zero, [IntPtr]::Zero)) "JOB_LIST"';
+    assert.equal(original.split(admission).length, 2);
+    // The negative control removes only atomic Job admission. The real target,
+    // real CodeDOM compiler, owner-loss watcher and retained-handle rescue remain.
+    await writeFile(path.join(root, "scripts/owned-command-windows.ps1"), guarded ? original : original.replace(admission, ""));
+    const sourceFile = path.join(root, "target-compilation.cs");
+    const targetScript = path.join(root, "compile-target.ps1");
+    const ps = (value) => "'" + value.replaceAll("'", "''") + "'";
+    await writeFile(sourceFile, Array.from({ length: 10_000 }, (_, index) =>
+      "internal class CompilerObservation" + index + " { }").join("\n"));
+    await writeFile(targetScript,
+      "[System.IO.File]::WriteAllText(" + ps(pidFile) + ", [string]$PID)\n" +
+      "Add-Type -Path " + ps(sourceFile) + "\n" +
+      "[System.IO.File]::WriteAllText(" + ps(commandMarker) + ", 'compiled')\n");
     const powershell = path.join(process.env.SystemRoot, "System32/WindowsPowerShell/v1.0/powershell.exe");
     const observer = new Worker(`
       const { workerData, parentPort } = require("node:worker_threads");
@@ -731,34 +768,39 @@ for (const [ownerLost, guarded] of [[false, true], [true, true], [false, false],
     worker = new Worker(`
       const { workerData } = require("node:worker_threads");
       import(workerData.owner).then(({ runOwnedCommand }) => {
-        const result = runOwnedCommand(process.execPath, ["-e", workerData.command], { timeout: 1000 });
+        // Compilation previously ran inside the unchanged 10s startup window.
+        // Give the controlled target that same window; cleanup assertions stay bounded.
+        const result = runOwnedCommand(workerData.command, workerData.args, { timeout: 10000 });
         const fs = require("node:fs");
         fs.writeFileSync(workerData.result + ".pending", JSON.stringify(result));
         fs.renameSync(workerData.result + ".pending", workerData.result);
       });
     `, { eval: true, workerData: {
       owner: pathToFileURL(ownerPath).href, result: resultFile,
-      command: `require("node:fs").writeFileSync(${JSON.stringify(commandMarker)}, "started")`,
+      command: powershell, args: ["-NoLogo", "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass", "-File", targetScript],
     } });
     worker.on("error", (error) => errors.push(error));
     compiler = await readReceipt(path.join(root, "compiler-suspended.json"), 8000, observerError);
     assert.equal(compiler.name, "csc.exe");
     assert.equal(compiler.suspended, true);
-    assert.ok(compiler.pid > 0 && compiler.helperPid > 0);
+    assert.ok(compiler.pid > 0 && compiler.targetPid > 0);
     assert.equal(process.kill(compiler.pid, 0), true, "actual compiler must be alive at interruption");
     if (ownerLost) {
       await worker.terminate();
     } else {
       const result = await readReceipt(resultFile, 14_000, observerError);
-      assert.equal(result.error?.code, "EOWNERSTART");
-      assert.equal(result.status, null);
+      assert.equal(result.error?.code, "ETIMEDOUT");
       const phases = tracePhases(result);
-      if (guarded) assert.ok(phases.includes("compile-started"));
-      assert.equal(phases.includes("compile-completed"), false);
-      assert.equal(phases.includes("create-process-pending"), false);
-      assert.equal(result.cleanupError?.code, "EOWNERCLEANUP");
+      assert.ok(phases.includes("prepared-received"));
+      assert.ok(phases.includes("create-process-completed"));
+      assert.ok(phases.includes("ready-received"));
+      if (guarded) {
+        assert.ok(phases.includes("closed-received"));
+        assert.equal(result.cleanupError, undefined);
+      }
     }
-    assert.equal(await waitForExit(compiler.helperPid, 1000), true);
+    if (guarded) assert.equal(await waitForExit(compiler.targetPid, 1000), true);
+    else assert.equal(process.kill(compiler.targetPid, 0), true, "uncontained target survives with its suspended compiler");
     const extinct = await waitForExit(compiler.pid, 2500);
     const requireExtinction = () => assert.equal(extinct, true, "actual compiler must exit before fixture rescue");
     if (guarded) {
@@ -769,13 +811,96 @@ for (const [ownerLost, guarded] of [[false, true], [true, true], [false, false],
       assert.throws(requireExtinction, {
         code: "ERR_ASSERTION", message: /actual compiler must exit before fixture rescue/,
       });
-      t.diagnostic("negative control: helper exited; real csc.exe survived; extinction assertion failed before rescue");
+      t.diagnostic("negative control: uncontained target and real csc.exe survived; extinction assertion failed before rescue");
     }
     assert.equal(sentinel.exitCode, null);
     assert.equal(sentinel.signalCode, null);
     assert.equal(process.kill(sentinel.pid, 0), true);
     await assert.rejects(readFile(commandMarker), { code: "ENOENT" });
     assert.deepEqual(errors, []);
+  });
+}
+
+
+for (const cancellation of ["stop", "shared stop", "Worker loss"]) {
+  test("Windows PREPARED " + cancellation + " never issues the first request", {
+    skip: process.platform !== "win32", timeout: 30_000,
+  }, async (t) => {
+    const root = await mkdtemp(path.join(os.tmpdir(), "crabpot prepared owner "));
+    const ownerPath = await copyOwner(root);
+    const helperPidFile = path.join(root, "helper-pid");
+    const requestMarker = path.join(root, "request-issued");
+    const commandMarker = path.join(root, "command-started");
+    const ps = (value) => "'" + value.replaceAll("'", "''") + "'";
+    const helper = await readFile(new URL("../scripts/owned-command-windows.ps1", import.meta.url), "utf8");
+    const prepared = '    $writer.WriteLine("PREPARED")';
+    assert.equal(helper.split(prepared).length, 2);
+    await writeFile(path.join(root, "scripts/owned-command-windows.ps1"), helper.replace(prepared,
+      "    [System.IO.File]::WriteAllText(" + ps(helperPidFile) + ", [string]$PID)\n" + prepared));
+    const source = await readFile(ownerPath, "utf8");
+    const receipt = '          phase("prepared-received");';
+    const send = '      socket.write(request);';
+    assert.equal(source.split(receipt).length, 2);
+    assert.equal(source.split(send).length, 2);
+    const cancel = cancellation === "stop" ? "stop();" : cancellation === "shared stop"
+      ? "Atomics.store(shared, 1, 1);" : "process.exit(71);";
+    await writeFile(ownerPath, 'import { writeFileSync } from "node:fs";\n' +
+      source.replace(receipt, receipt + "\n          " + cancel).replace(send,
+        "      writeFileSync(" + JSON.stringify(requestMarker) + ', "issued");\n' + send));
+    const { runOwnedCommand: invoke } = await import(pathToFileURL(ownerPath).href);
+    let helperPid;
+    t.after(async () => {
+      if (helperPid) assert.equal(await waitForExit(helperPid, 2000), true, "EOF/STOP must close the exact helper");
+      await rm(root, { recursive: true, force: true });
+    });
+    const result = invoke(process.execPath, ["-e",
+      'require("node:fs").writeFileSync(' + JSON.stringify(commandMarker) + ', "started")'], { timeout: 1000 });
+    helperPid = Number(await readFile(helperPidFile, "utf8"));
+    assert.ok(helperPid > 0);
+    assert.ok(result.error);
+    assert.ok(tracePhases(result).includes("prepared-received"));
+    assert.equal(tracePhases(result).includes("request-write-attempted"), false);
+    assert.equal(result.cleanupError?.code, cancellation === "Worker loss" ? "EOWNERCLEANUP" : undefined);
+    assert.equal(await waitForExit(helperPid, 100), true, "helper must close without fixture rescue");
+    await assert.rejects(readFile(requestMarker), { code: "ENOENT" });
+    await assert.rejects(readFile(commandMarker), { code: "ENOENT" });
+  });
+}
+
+for (const corruption of ["duplicate prepared", "early closed", "early not admitted", "duplicate not admitted", "trailing partial"]) {
+  test("Windows rejects " + corruption + " instead of accepting a cleanup receipt", {
+    skip: process.platform !== "win32", timeout: 20_000,
+  }, async (t) => {
+    const root = await temporaryRoot(t);
+    const ownerPath = await copyOwner(root);
+    let helper = await readFile(new URL("../scripts/owned-command-windows.ps1", import.meta.url), "utf8");
+    const prepared = '    $writer.WriteLine("PREPARED")';
+    const parser = '    try { $request = $serializer.ReadObject($inputStream) } finally { $inputStream.Dispose() }';
+    const terminal = '                $writer.WriteLine("NOT_ADMITTED")';
+    for (const seam of [prepared, parser, terminal]) assert.equal(helper.split(seam).length, 2);
+    if (corruption === "duplicate prepared") helper = helper.replace(prepared,
+      prepared + '\n    $writer.WriteLine("PREPARED")\n    exit 1');
+    else if (corruption === "early closed") helper = helper.replace(prepared, '    $writer.WriteLine("CLOSED")\n    exit 1');
+    else if (corruption === "early not admitted") helper = helper.replace(parser, '    $writer.WriteLine("NOT_ADMITTED")\n    exit 1');
+    else helper = helper.replace(terminal, terminal + (corruption === "duplicate not admitted"
+      ? '\n                $writer.WriteLine("NOT_ADMITTED")' : '\n                $writer.Write("partial")'));
+    await writeFile(path.join(root, "scripts/owned-command-windows.ps1"), helper);
+    const command = path.join(root, "invalid executable.exe");
+    await writeFile(command, "not a Windows executable\n");
+    const { runOwnedCommand: invoke } = await import(pathToFileURL(ownerPath).href);
+    const result = invoke(command, [], { timeout: 1000 });
+    assert.ok(result.error);
+    assert.equal(result.status, null);
+    if (corruption === "early closed") {
+      assert.equal(result.error.code, "EOWNERPROTOCOL");
+      assert.equal(result.cleanupError, undefined, "no request plus helper closure remains known nonadmission");
+    } else {
+      assert.equal(result.cleanupError?.code, "EOWNERCLEANUP");
+      assert.equal(result.cleanupError.cause?.code, "EOWNERPROTOCOL");
+      if (["duplicate not admitted", "trailing partial"].includes(corruption)) {
+        assert.ok([193, 216].includes(result.error.nativeCode), "keep the original native spawn error");
+      } else assert.equal(result.error.code, "EOWNERPROTOCOL");
+    }
   });
 }
 

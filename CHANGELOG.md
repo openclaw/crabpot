@@ -2,6 +2,8 @@
 
 ## 0.2.2 - Unreleased
 
+- Avoid Windows command startup failures caused by per-command compiler and JSON cmdlet loading, preserving the startup budget, atomic Job admission and confirmed cleanup before checkout reuse.
+
 - Adopt published Plugin Inspector 0.4.0 and qualify retirement notices in source, packed, and published-package smoke: deprecated SDK member, replacement guidance, and final compatibility day remain non-blocking and author-facing. Refresh executable workspace-plan helper paths and operating docs to the release pin.
 
 - Assert DingTalk's explicit credential-free Gateway rejection contracts through method-scoped Inspector expectations, preserving unexpected response and handler failures.
