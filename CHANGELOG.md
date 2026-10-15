@@ -2,7 +2,23 @@
 
 ## 0.2.2 - Unreleased
 
-- Preserve Dependabot PR heads during validation so generated reports cannot invalidate required CI or conflict across dependency updates; publish reports through the shared dashboard owner after exact-commit validation or a confirmed bot merge.
+- Preserve Dependabot PR heads during validation so generated reports cannot invalidate required CI or conflict across dependency updates; publish reports through the shared dashboard owner after exact-commit validation or a confirmed bot merge. Thanks @vincentkoc.
+- Adopt published Plugin Inspector 0.4.0 and qualify retirement notices in source, packed, and published-package smoke: deprecated SDK member, replacement guidance, and final compatibility day remain non-blocking and author-facing. Refresh executable workspace-plan helper paths and operating docs to the release pin.
+
+- Assert DingTalk's explicit credential-free Gateway rejection contracts through method-scoped Inspector expectations, preserving unexpected response and handler failures.
+
+- Refresh 13 official plugin fallback pins to 2026.10.1 and pair their published source provenance, preserving the frozen host, source-pack selectors, and explicit compatibility gaps. Thanks @dependabot.
+- Refresh the Feishu fallback to 2026.10.1 with its matching published source provenance, retaining the frozen host and explicit runtime compatibility gaps. Thanks @dependabot.
+- Refresh eight official plugin fallback pins to 2026.10.1 and pair them with their published source provenance, retaining the frozen host and its reported compatibility limits. Thanks @dependabot.
+- Refresh 19 official plugin fallback pins to their pending 2026.9.7–2026.9.9 updates and align each source reference with the published package provenance. Thanks @dependabot.
+- Adopt reviewed Inspector source for channel registration contracts and bounded runtime-import discovery through named `createRequire` handles, preserving explicit unsupported state operations and the published 0.3.26 CLI pin.
+- Adopt reviewed Inspector source fixes for compiled SDK namespaces and synchronous bundled-module loading, restoring current Nostr capture while retaining the published 0.3.26 CLI pin.
+- Refresh official plugin fixture pins to 2026.9.6 and align source references with their published build provenance. Thanks @dependabot.
+- Keep TencentDB memory qualification on its reviewed 1.0.1 artifact instead of following the moving npm tag.
+- Reject mismatched explicit fixture versions before package acquisition so a shim update cannot silently change a pinned artifact.
+- Declare active-session prerequisites for Google Meet participation probes, keeping status checks and configured failures visible while restoring the credential-free development dashboard.
+- Keep dashboard links and metrics scoped to the current CI summary's available artifacts, excluding stale execution and comparison reports while preserving current failure evidence.
+- Avoid attributing moving npm artifacts to a different fallback version's source, and qualify SDK gaps outside a plugin's declared host range before prescribing a core repair; retain the observed imports and their severity.
 - Refresh TencentDB memory fixture transitive gRPC and Undici patches to clear lock-fixable security advisories while retaining the current plugin release.
 
 - Publish checked CI reports once and summarize only current-job outputs, preserving failed or interrupted coverage without rerunning fixture preparation.

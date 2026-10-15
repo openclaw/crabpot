@@ -15,8 +15,8 @@ const outIndex = args.indexOf("--out");
 const outDir = outIndex === -1 ? ".crabpot/plugin-inspector-smoke" : args[outIndex + 1];
 const configIndex = args.indexOf("--config");
 const configPath = configIndex === -1 ? "crabpot.config.json" : args[configIndex + 1];
-if ((args.includes("--runtime") || args.includes("--resources")) && !process.env.CRABPOT_PLUGIN_INSPECTOR_DIR) {
-  throw new Error("runtime/resource smoke requires CRABPOT_PLUGIN_INSPECTOR_DIR to identify the source or installed package");
+if ((args.includes("--runtime") || args.includes("--resources") || args.includes("--retirements")) && !process.env.CRABPOT_PLUGIN_INSPECTOR_DIR) {
+  throw new Error("runtime/resource/retirement smoke requires CRABPOT_PLUGIN_INSPECTOR_DIR to identify the source or installed package");
 }
 
 const inspectorArgs = ["report", "--config", configPath, "--out", outDir, ...(args.includes("--check") ? ["--check"] : [])];
@@ -75,4 +75,17 @@ if (result.status === 0 && args.includes("--resources")) {
   writeFileSync(path.resolve(repoRoot, outDir, "plugin-inspector-resources.json"),
     `${JSON.stringify(report, null, 2)}\n`);
   console.log("plugin-inspector resource smoke: PASS (collector contract only; no plugin workload)");
+}
+
+if (result.status === 0 && args.includes("--retirements")) {
+  const retirement = runOwnedCommand(process.execPath, [
+    "test/fixtures/sdk-retirement-smoke.mjs",
+    path.resolve(repoRoot, process.env.CRABPOT_PLUGIN_INSPECTOR_DIR),
+  ], { cwd: repoRoot, env: { TMPDIR: process.env.TMPDIR }, encoding: "utf8", timeout });
+  assert.ifError(retirement.error);
+  assert.ifError(retirement.cleanupError);
+  assert.equal(retirement.status, 0, retirement.stderr || retirement.stdout);
+  const report = JSON.parse(retirement.stdout);
+  writeFileSync(path.resolve(repoRoot, outDir, "plugin-inspector-retirements.json"), `${JSON.stringify(report, null, 2)}\n`);
+  console.log("plugin-inspector retirement smoke: PASS (nonblocking member notice, replacement, final compatibility day)");
 }

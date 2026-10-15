@@ -47,6 +47,21 @@ Then inspect the diff. A fixture update is only useful if it either:
 - reproduces a compatibility break,
 - or proves a contract migration path still works.
 
+Keep npm fixture source references in the manifest and shim aligned with the
+published artifact. When an official package omits `gitHead`, use its npm
+provenance build commit; the public release tag can point at a different commit.
+Regenerate reports against the pinned Default Track after changing fixture pins.
+The normal Default Track follows npm `latest`, so its observed package versions
+can advance beyond the shim pins used when tag resolution falls back. Treat
+those reports as evidence for the recorded artifact versions, not the fallback pins.
+TencentDB memory remains explicitly pinned to the reviewed 1.0.1 artifact; its
+moving npm tag is not part of that qualification.
+When a moving artifact lacks a Git head, reports leave its evidence as a payload
+path instead of borrowing a different fallback version's source link. SDK export
+gaps outside the artifact's declared plugin API range remain visible at their
+original severity, with an inspector follow-up to recheck an eligible host before
+prescribing a core compatibility repair.
+
 ## CI model
 
 Dependabot refreshes merge the current base and update its pinned submodules
@@ -74,6 +89,9 @@ they never provision Plugin Inspector or repeat inspection. Missing, changed,
 failed, skipped, or interrupted selected work is reported as incomplete, with
 no links to stale reports. Unselected reports are listed separately. If Inspector
 was not prepared, the summary records failure without a compatibility verdict.
+The dashboard also uses that summary's available-artifact list for links and
+metrics, including retained failure evidence. Older report snapshots without
+coverage metadata keep their existing dashboard behavior.
 
 Canary and manual-ref jobs still run the separate OpenClaw lifecycle profile;
 its output replaces the fixture-only profile while retaining both step outcomes.
@@ -172,12 +190,12 @@ node scripts/check-contract-coverage.mjs --openclaw ../openclaw
 ```
 
 Source-backed reports and registration capture use Inspector source commit
-`1d27e6906e83e48bd613d49a1921d4d0cf4a4697` (after 0.3.26),
+`943148854bf51b1e6cfa5d8b12047cfec8642297` (0.4.0),
 with SDK discovery inside packaged `.setup` directories and composed Zod enums,
 including bundled SDK import classification, target-owned conversation contract
 proof, lazy runtime SDK loading, and method-scoped Gateway prerequisites.
 `npm run plugin-inspector:smoke` uses the published
-`@openclaw/plugin-inspector@0.3.26` package by default.
+`@openclaw/plugin-inspector@0.4.0` package by default.
 Use
 `CRABPOT_PLUGIN_INSPECTOR_CLI=source npm run plugin-inspector:smoke` only when
 validating local inspector source changes. Set `CRABPOT_PLUGIN_INSPECTOR_DIR`
@@ -187,6 +205,10 @@ For a published-package check, unset `CRABPOT_PLUGIN_INSPECTOR_BIN`,
 fresh `npm_config_cache`. Run this separately from the source-mode smoke.
 The npm smoke forwards `--check`, so reported compatibility breakages produce
 a failing exit status. Direct wrapper calls without `--check` only write reports.
+CI also installs the exact published package pin and runs `--retirements` against
+that installation, alongside source and locally packed smoke. This verifies
+non-blocking deprecated-member notices, replacement guidance, and the final
+compatibility day through both source and packed OpenClaw targets.
 
 Issue severity means:
 

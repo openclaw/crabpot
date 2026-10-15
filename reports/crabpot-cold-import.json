@@ -2027,7 +2027,7 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-harness-completion @ plugins/codex/.crabpot-package/dist/.setup/native-subagent-monitor-wh_-K3Vo.mjs:22"
+              "evidence": "openclaw/plugin-sdk/agent-harness-completion @ plugins/codex/.crabpot-package/dist/.setup/native-subagent-monitor-CkpiZfm0.mjs:22"
             }
           ],
           "assertions": [
@@ -2057,7 +2057,7 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-harness-completion @ plugins/codex/.crabpot-package/dist/.setup/native-subagent-monitor-wh_-K3Vo.mjs:22"
+              "evidence": "openclaw/plugin-sdk/agent-harness-completion @ plugins/codex/.crabpot-package/dist/.setup/native-subagent-monitor-CkpiZfm0.mjs:22"
             }
           ],
           "assertions": [
@@ -2372,7 +2372,7 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8523"
+              "evidence": "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8466"
             },
             {
               "code": "sdk-alias-required",
@@ -2408,7 +2408,7 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8523"
+              "evidence": "openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8466"
             },
             {
               "code": "sdk-alias-required",

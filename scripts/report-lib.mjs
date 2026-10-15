@@ -14,6 +14,7 @@ import {
 import { loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
 import { defaultExecutionResultsJsonPath } from "./summarize-execution-results.mjs";
 import { readResourceCoverage, renderResourceCoverageMarkdown } from "./resource-coverage.mjs";
+import { packageEvidenceRef, qualifySdkHostRanges } from "./report-provenance.mjs";
 
 export const defaultReportDir = path.join(repoRoot, "reports");
 export const defaultMarkdownReportPath = path.join(defaultReportDir, "crabpot-report.md");
@@ -35,7 +36,7 @@ export async function buildReport(options = {}) {
     options.executionResults ?? readOptionalExecutionResults(options.executionResultsPath);
   const packageAvailability =
     options.packageAvailability ?? readDefaultPackageAvailability(options.packageAvailabilityPath);
-  const report = await pluginInspector.inspectCompatibilityFixtureSetConfig({
+  const inspected = await pluginInspector.inspectCompatibilityFixtureSetConfig({
     config: {
       ...manifest,
       rootDir: repoRoot,
@@ -43,6 +44,15 @@ export async function buildReport(options = {}) {
     generatedAt,
     executionResults,
     openclawPath: options.openclawPath,
+  });
+  const hostPackage = inspected.targetOpenClaw?.packagePath;
+  const report = qualifySdkHostRanges(inspected, {
+    hostVersion: hostPackage ? readJsonFile(path.resolve(repoRoot, hostPackage))?.version : null,
+    satisfies: (targetVersion, range) => pluginInspector.openClawTargets.satisfiesCompatibilityRange({
+      targetVersion,
+      eligibilityVersion: pluginInspector.openClawTargets.eligibilityVersion(targetVersion),
+      range,
+    }),
   });
   const packageIssues = packageAvailabilityIssues(packageAvailability, { manifest });
   const packageDecisions = packageAvailabilityDecisions(packageAvailability, { manifest });
@@ -287,7 +297,7 @@ function submoduleLinkTargetsForRepo() {
     .filter((fixture) => fixture.source)
     .map((fixture) => ({
       path: fixture.package ? path.posix.join(fixture.path, ".crabpot-package") : fixture.path,
-      sha: fixture.package ? readPackagePayloadGitHead(fixture) || fixture.source.ref : fixture.source.ref,
+      sha: fixture.package ? readPackagePayloadSourceRef(fixture) : fixture.source.ref,
       sourcePath: normalizeRepoPath(fixture.source.path),
       webUrl: githubWebUrl(fixture.source.repo),
     }))
@@ -306,13 +316,16 @@ function submoduleLinkTargetsForRepo() {
   return submoduleLinkTargets;
 }
 
-function readPackagePayloadGitHead(fixture) {
+function readPackagePayloadSourceRef(fixture) {
   const sidecar = readJsonFile(path.join(repoRoot, fixture.path, ".crabpot-package", ".crabpot-source.json"));
-  if (/^[0-9a-f]{40}$/i.test(sidecar?.gitHead ?? "")) {
-    return sidecar.gitHead;
-  }
   const pkg = readJsonFile(path.join(repoRoot, fixture.path, ".crabpot-package", "package.json"));
-  return /^[0-9a-f]{40}$/i.test(pkg?.gitHead ?? "") ? pkg.gitHead : "";
+  const shim = readJsonFile(path.join(repoRoot, fixture.path, "package.json"));
+  return packageEvidenceRef({
+    gitHead: /^[0-9a-f]{40}$/i.test(sidecar?.gitHead ?? "") ? sidecar.gitHead : pkg?.gitHead,
+    payloadVersion: pkg?.version,
+    pinnedVersion: shim?.dependencies?.[fixture.package.name] ?? shim?.devDependencies?.[fixture.package.name] ?? shim?.optionalDependencies?.[fixture.package.name],
+    pinnedRef: fixture.source.ref,
+  });
 }
 
 function readJsonFile(jsonPath) {
