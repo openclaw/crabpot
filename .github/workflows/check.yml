@@ -95,7 +95,7 @@ jobs:
             extra_args=(--openclaw-track "${{ steps.openclaw-track.outputs.track }}" --fixture-set openclaw-beta --plugin-track source-pack)
           fi
           node scripts/run-static-suite.mjs --write-reports --openclaw ./openclaw --policy dashboard --profile-runs 3 --plugin-inspector-smoke "${extra_args[@]}"
-      - name: Smoke source and packed Plugin Inspector
+      - name: Smoke source, packed, and published Plugin Inspector
         id: inspector-smoke
         if: ${{ matrix.os == 'ubuntu-latest' }}
         shell: bash
@@ -114,6 +114,9 @@ jobs:
           tarball="$(node --input-type=module -e 'import { readFileSync } from "node:fs"; process.stdout.write(JSON.parse(readFileSync(process.argv[1], "utf8"))[0].filename);' "$packed_root/pack.json")"
           npm install --prefix "$packed_root/install" --ignore-scripts --no-audit --no-fund "$packed_root/$tarball"
           CRABPOT_PLUGIN_INSPECTOR_BIN="$packed_root/install/node_modules/.bin/plugin-inspector" CRABPOT_PLUGIN_INSPECTOR_DIR="$packed_root/install/node_modules/@openclaw/plugin-inspector" node scripts/run-plugin-inspector-smoke.mjs --check --runtime --resources --retirements --out reports/plugin-inspector-packed-smoke
+          inspector_package="$(node --input-type=module -e 'import { pluginInspectorPackage } from "./scripts/plugin-inspector-source.mjs"; process.stdout.write(pluginInspectorPackage);')"
+          npm install --prefix "$packed_root/published" --ignore-scripts --no-audit --no-fund "$inspector_package"
+          CRABPOT_PLUGIN_INSPECTOR_BIN="$packed_root/published/node_modules/.bin/plugin-inspector" CRABPOT_PLUGIN_INSPECTOR_DIR="$packed_root/published/node_modules/@openclaw/plugin-inspector" node scripts/run-plugin-inspector-smoke.mjs --check --runtime --resources --retirements --out reports/plugin-inspector-published-smoke
       - name: Compare current runtime profile
         id: comparison
         if: ${{ !cancelled() && steps.suite.outcome == 'success' }}

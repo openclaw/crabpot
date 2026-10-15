@@ -155,7 +155,7 @@ source and published-package pins both include this API in Inspector 0.4.0.
 
 Both pins use Inspector 0.4.0. Add `--retirements` with an explicit
 `CRABPOT_PLUGIN_INSPECTOR_DIR` to verify a synthetic deprecated SQLite member
-through the package's public API. Source and packed CI smoke assert
+through the package's public API. Source, packed, and published-package CI smoke assert
 `deprecatedApi`, `replacement`, and `removeAfter: "2026-12-31"`, the final
 compatibility day, in a non-blocking author-facing warning, using both a source
 registry and a ClawHub-style declaration-only OpenClaw target. The default smoke
