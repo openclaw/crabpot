@@ -16,15 +16,18 @@ concurrency:
 
 jobs:
   refresh-and-automerge:
-    name: Refresh reports and enable auto-merge
+    name: Validate fixtures and merge
     if: ${{ github.event.pull_request.user.login == 'dependabot[bot]' && github.event.pull_request.head.repo.full_name == github.repository }}
     runs-on: ubuntu-latest
+    outputs:
+      merged-sha: ${{ steps.merge.outputs.merged-sha }}
     steps:
       - name: Checkout Dependabot branch
         uses: actions/checkout@v7
         with:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
-          ref: ${{ github.event.pull_request.head.ref }}
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
           token: ${{ github.token }}
           submodules: recursive
           fetch-depth: 0
@@ -38,20 +41,6 @@ jobs:
 
       - name: Install Crabpot dependencies
         run: npm install --no-package-lock
-
-      - name: Configure git author
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-      - name: Update Dependabot branch with base
-        shell: bash
-        run: |
-          set -euo pipefail
-          git fetch origin "${{ github.event.pull_request.base.ref }}"
-          git merge --no-edit "origin/${{ github.event.pull_request.base.ref }}"
-          git submodule sync --recursive
-          git submodule update --init --recursive
 
       - name: Resolve pinned OpenClaw Default Track
         id: openclaw-track
@@ -102,55 +91,29 @@ jobs:
           CRABPOT_TEST_OPENCLAW_PATH: ./openclaw
         run: npm test
 
-      - name: Refresh compatibility reports
+      - name: Validate fixture compatibility
         env:
-          CRABPOT_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          CRABPOT_OPENCLAW_TRACK: ${{ steps.openclaw-track.outputs.track }}
-          CRABPOT_PLUGIN_TRACK: ${{ steps.openclaw-track.outputs.track == 'development' && 'source-pack' || steps.openclaw-track.outputs.track }}
           CRABPOT_FIXTURE_SET: ${{ steps.openclaw-track.outputs.track == 'development' && 'openclaw-beta' || '' }}
+          CRABPOT_PLUGIN_TRACK: ${{ steps.openclaw-track.outputs.track == 'development' && 'source-pack' || steps.openclaw-track.outputs.track }}
         run: |
-          CRABPOT_SUMMARY_GENERATED_AT="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
-          export CRABPOT_SUMMARY_GENERATED_AT
           node scripts/sync-fixtures.mjs --materialize --openclaw ./openclaw
           node scripts/sync-fixtures.mjs --check
           node scripts/run-contract-smoke.mjs --strict --openclaw ./openclaw
           node scripts/inspect-fixtures.mjs --check
-          node scripts/generate-report.mjs --openclaw ./openclaw
-          node scripts/capture-contracts.mjs --openclaw ./openclaw
-          node scripts/synthetic-probes.mjs --openclaw ./openclaw
-          node scripts/cold-import-readiness.mjs --openclaw ./openclaw
-          node scripts/workspace-plan.mjs --openclaw ./openclaw
-          node scripts/platform-probes.mjs --openclaw ./openclaw
-          node scripts/import-loop-profile.mjs --openclaw ./openclaw --runs 3
-          node scripts/profile-contract-runtime.mjs --openclaw ./openclaw --runs 3
-          node scripts/compare-runtime-profile.mjs
-          node scripts/check-ci-policy.mjs
-          node scripts/write-ci-summary.mjs --mode dependabot --openclaw-label "${{ steps.openclaw-track.outputs.label }}"
-          node scripts/update-track-metadata.mjs --default-pin-openclaw ./openclaw
-          baseline_args=()
-          if [ -f .crabpot/baseline/main-dashboard-data.json ]; then
-            baseline_args=(--baseline-data .crabpot/baseline/main-dashboard-data.json)
-          fi
-          node scripts/update-readme-summary.mjs "${baseline_args[@]}"
-
-      - name: Commit refreshed reports
-        run: |
-          if ! git diff --quiet README.md reports/; then
-            git add README.md reports/
-            git commit -m "chore(reports): refresh dependabot compatibility reports"
-            git push
-          fi
 
       - name: Merge Dependabot PR
+        id: merge
         env:
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
           GH_TOKEN: ${{ github.token }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
         shell: bash
         run: |
           set -euo pipefail
           for attempt in {1..18}; do
-            state="$(gh pr view "${PR_NUMBER}" --json mergeable,mergeStateStatus,statusCheckRollup --jq '
+            state="$(gh pr view "${PR_NUMBER}" --json headRefOid,mergeable,mergeStateStatus,statusCheckRollup --jq '
               [
+                .headRefOid,
                 .mergeable,
                 .mergeStateStatus,
                 ([.statusCheckRollup[]?
@@ -163,14 +126,24 @@ jobs:
                 ] | length)
               ] | @tsv
             ')"
-            read -r mergeable merge_state pending_checks failed_checks <<< "${state}"
+            read -r current_head mergeable merge_state pending_checks failed_checks <<< "${state}"
+            if [ "${current_head}" != "${PR_HEAD_SHA}" ]; then
+              echo "PR ${PR_NUMBER} moved; its newer workflow owns validation and merge"
+              exit 0
+            fi
             if [ "${failed_checks}" != "0" ]; then
               echo "::error::PR ${PR_NUMBER} has ${failed_checks} failed status check(s); refusing auto-merge"
               gh pr view "${PR_NUMBER}" --json url,mergeable,mergeStateStatus,statusCheckRollup
               exit 1
             fi
             if [ "${mergeable}" = "MERGEABLE" ] && [ "${pending_checks}" = "0" ]; then
-              gh pr merge "${PR_NUMBER}" --squash --delete-branch
+              gh pr merge "${PR_NUMBER}" --squash --delete-branch --match-head-commit "${PR_HEAD_SHA}"
+              merge_sha="$(gh pr view "${PR_NUMBER}" --json mergeCommit --jq .mergeCommit.oid)"
+              if ! [[ "${merge_sha}" =~ ^[0-9a-f]{40}$ ]]; then
+                echo "::error::Merged PR ${PR_NUMBER} has no confirmed commit; refusing report publication"
+                exit 1
+              fi
+              echo "merged-sha=${merge_sha}" >> "$GITHUB_OUTPUT"
               exit 0
             fi
             echo "PR ${PR_NUMBER} mergeable=${mergeable} mergeStateStatus=${merge_state} pendingChecks=${pending_checks}; waiting for mergeability and green checks (${attempt}/18)"
@@ -178,3 +151,14 @@ jobs:
           done
           gh pr view "${PR_NUMBER}" --json url,mergeable,mergeStateStatus,statusCheckRollup
           exit 1
+
+  dashboard:
+    needs: refresh-and-automerge
+    if: ${{ needs.refresh-and-automerge.outputs.merged-sha != '' }}
+    permissions:
+      contents: write
+      statuses: write
+    uses: ./.github/workflows/publish-dashboard.yml
+    with:
+      source-sha: ${{ needs.refresh-and-automerge.outputs.merged-sha }}
+      target-branch: ${{ github.event.pull_request.base.ref }}

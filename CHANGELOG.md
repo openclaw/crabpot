@@ -87,6 +87,8 @@
 - Kept each track dashboard independent from unrelated OpenClaw release metadata failures.
 - Recorded dashboard metadata from the exact OpenClaw checkout exercised by the run.
 
+- Preserve Dependabot PR heads during validation so generated reports cannot invalidate required CI or conflict across dependency updates; publish reports through the shared dashboard owner after exact-commit validation or a confirmed bot merge. Thanks @vincentkoc.
+
 ## 0.2.1 - 2026-07-06
 
 - Fixed synthetic gateway probes to start services before compatibility checks and stop them afterward, eliminating false failures for lifecycle-sensitive plugins.
