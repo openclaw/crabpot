@@ -2,7 +2,7 @@
 
 ## 0.2.2 - Unreleased
 
-- Qualify Plugin Inspector 0.4.0 retirement notices in source and packed-package smoke: deprecated SDK member, replacement guidance, and final compatibility day remain non-blocking and author-facing. Keep the npm pin pending publication.
+- Adopt published Plugin Inspector 0.4.0 and qualify retirement notices in source and package smoke: deprecated SDK member, replacement guidance, and final compatibility day remain non-blocking and author-facing.
 
 - Assert DingTalk's explicit credential-free Gateway rejection contracts through method-scoped Inspector expectations, preserving unexpected response and handler failures.
 
