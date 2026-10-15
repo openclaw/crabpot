@@ -2,6 +2,8 @@
 
 ## 0.2.2 - Unreleased
 
+- Patch Codex and TencentDB fixture lock dependencies for TOML, baggage parsing, and query-string advisories while retaining their qualified plugin versions.
+
 - Adopt published Plugin Inspector 0.4.0 and qualify retirement notices in source, packed, and published-package smoke: deprecated SDK member, replacement guidance, and final compatibility day remain non-blocking and author-facing. Refresh executable workspace-plan helper paths and operating docs to the release pin.
 
 - Assert DingTalk's explicit credential-free Gateway rejection contracts through method-scoped Inspector expectations, preserving unexpected response and handler failures.
