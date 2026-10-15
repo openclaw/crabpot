@@ -2,7 +2,8 @@
 
 ## 0.2.2 - Unreleased
 
-- Preserve Dependabot PR heads during validation so generated reports cannot invalidate required CI or conflict across dependency updates; publish reports through the shared dashboard owner after exact-commit validation or a confirmed bot merge. Thanks @vincentkoc.
+- Refresh 20 official plugin fallback pins to 2026.10.2 and pair both source references with their published build provenance, preserving the frozen host, track and source-pack selectors, and explicit compatibility gaps. Thanks @dependabot.
+
 - Adopt published Plugin Inspector 0.4.0 and qualify retirement notices in source, packed, and published-package smoke: deprecated SDK member, replacement guidance, and final compatibility day remain non-blocking and author-facing. Refresh executable workspace-plan helper paths and operating docs to the release pin.
 
 - Assert DingTalk's explicit credential-free Gateway rejection contracts through method-scoped Inspector expectations, preserving unexpected response and handler failures.
@@ -82,6 +83,8 @@
 - Split CI into a required pinned OpenClaw Default Track, an advisory artifact-producing HEAD canary, and a 14-day pin-promotion SLA.
 - Kept each track dashboard independent from unrelated OpenClaw release metadata failures.
 - Recorded dashboard metadata from the exact OpenClaw checkout exercised by the run.
+
+- Preserve Dependabot PR heads during validation so generated reports cannot invalidate required CI or conflict across dependency updates; publish reports through the shared dashboard owner after exact-commit validation or a confirmed bot merge. Thanks @vincentkoc.
 
 ## 0.2.1 - 2026-07-06
 
