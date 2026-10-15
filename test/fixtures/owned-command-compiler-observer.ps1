@@ -1,5 +1,9 @@
 param([string]$Root)
 $ErrorActionPreference = "Stop"
+# Admission and observer compilation are separate bounded stages.
+$started = [System.IO.Path]::Combine($Root, "observer-started")
+[System.IO.File]::WriteAllText($started + ".pending", '{"pid":' + $PID + '}')
+[System.IO.File]::Move($started + ".pending", $started)
 Add-Type -TypeDefinition @'
 using System;
 using System.Collections.Generic;
@@ -31,8 +35,6 @@ public static class CompilerObserver
     static extern IntPtr OpenThread(uint access, bool inherit, uint id);
     [DllImport("kernel32.dll")]
     static extern uint SuspendThread(IntPtr thread);
-    [DllImport("kernel32.dll")]
-    static extern uint ResumeThread(IntPtr thread);
     [DllImport("kernel32.dll")]
     static extern bool CloseHandle(IntPtr handle);
 
@@ -66,12 +68,13 @@ public static class CompilerObserver
     public static void Run(string root)
     {
         Process compiler = null;
+        Process target = null;
         List<IntPtr> threads = new List<IntPtr>();
         Stopwatch clock = Stopwatch.StartNew();
         try
         {
             Publish(root, "observer-ready", "{}");
-            string helperFile = Path.Combine(root, "helper-pid");
+            string helperFile = Path.Combine(root, "target-pid");
             string rescueFile = Path.Combine(root, "observer-rescue");
             int helper = 0;
             while (helper == 0 && clock.ElapsedMilliseconds < 15000 && !File.Exists(rescueFile))
@@ -79,7 +82,11 @@ public static class CompilerObserver
                 if (File.Exists(helperFile)) Int32.TryParse(File.ReadAllText(helperFile), out helper);
                 if (helper == 0) Thread.Sleep(5);
             }
-            if (helper == 0) throw new InvalidOperationException("helper was not observed");
+            if (helper == 0) throw new InvalidOperationException("target was not observed");
+            target = Process.GetProcessById(helper);
+            IntPtr targetHeld = target.Handle;
+            if (target.ProcessName != "powershell" || target.HasExited)
+                throw new InvalidOperationException("compilation target identity changed");
             int pid = 0;
             while (pid == 0 && clock.ElapsedMilliseconds < 20000 && !File.Exists(rescueFile))
             {
@@ -102,7 +109,7 @@ public static class CompilerObserver
             if (threads.Count == 0 || compiler.HasExited)
                 throw new InvalidOperationException("compiler was not alive and suspended");
             Publish(root, "compiler-suspended.json",
-                "{\"helperPid\":" + helper + ",\"pid\":" + pid + ",\"name\":\"csc.exe\",\"suspended\":true}");
+                "{\"targetPid\":" + helper + ",\"pid\":" + pid + ",\"name\":\"csc.exe\",\"suspended\":true}");
             while (!compiler.WaitForExit(20) && clock.ElapsedMilliseconds < 25000 &&
                 !File.Exists(rescueFile)) { }
             bool rescued = !compiler.HasExited;
@@ -112,11 +119,31 @@ public static class CompilerObserver
         }
         finally
         {
-            foreach (IntPtr thread in threads) { ResumeThread(thread); CloseHandle(thread); }
-            if (compiler != null)
+            try
             {
-                if (!compiler.WaitForExit(3000)) { compiler.Kill(); compiler.WaitForExit(3000); }
-                compiler.Dispose();
+                // Rescue is deliberately after the extinction assertion receipt.
+                // Kill only these retained process handles, including the target
+                // that intentionally escaped the negative control's missing Job.
+                foreach (Process process in new Process[] { compiler, target })
+                {
+                    if (process == null) continue;
+                    try { if (!process.HasExited) process.Kill(); }
+                    catch (InvalidOperationException) { }
+                    catch (System.ComponentModel.Win32Exception) { }
+                }
+                Stopwatch rescue = Stopwatch.StartNew();
+                while ((compiler != null && !compiler.HasExited) || (target != null && !target.HasExited))
+                {
+                    if (rescue.ElapsedMilliseconds >= 3000)
+                        throw new InvalidOperationException("retained compilation processes did not close after rescue");
+                    Thread.Sleep(10);
+                }
+            }
+            finally
+            {
+                foreach (IntPtr thread in threads) CloseHandle(thread);
+                if (compiler != null) compiler.Dispose();
+                if (target != null) target.Dispose();
             }
         }
     }
