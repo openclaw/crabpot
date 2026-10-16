@@ -785,7 +785,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/feishu",
-        "ref": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
+        "ref": "2040d1b71db98e8b2a5d740770c37e17f64316ba"
       },
       "path": "plugins/feishu",
       "priority": "medium",
