@@ -82,7 +82,7 @@ function parseArgs(argv) {
 export async function buildWorkspacePlan(options = {}) {
   const config = options.report
     ? undefined
-    : {
+    : options.config ?? {
         ...(await readConfiguredManifest()),
         rootDir: repoRoot,
       };
