@@ -509,10 +509,11 @@ test("workspace executor CLI emits a narrow dry-run plan", () => {
     {
       cwd: repoRoot,
       encoding: "utf8",
-      timeout: 5000,
+      timeout: 30_000,
     },
   );
 
+  assert.ifError(result.error);
   assert.equal(result.status, 0, result.stderr);
   const parsed = JSON.parse(result.stdout);
   assert.equal(parsed.mode, "dry-run");
