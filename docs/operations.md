@@ -194,7 +194,7 @@ Source-backed reports and registration capture use Inspector source commit
 with SDK discovery inside packaged `.setup` directories and composed Zod enums,
 including bundled SDK import classification, target-owned conversation contract
 proof, lazy runtime SDK loading, and method-scoped Gateway prerequisites.
-The source pin also preserves entrypoint and referenced host-type resolution on Windows.
+Both pins preserve entrypoint and referenced host-type resolution on Windows.
 `npm run plugin-inspector:smoke` uses the published
 package pinned by `pluginInspectorPackage` in `scripts/plugin-inspector-source.mjs`
 by default. Use
@@ -211,11 +211,11 @@ that installation, alongside source and locally packed smoke. This verifies
 non-blocking deprecated-member notices, replacement guidance, and the final
 compatibility day through both source and packed OpenClaw targets.
 
-Both source mode and the published 0.4.2 package include the additive `sdkUsage`
+Both source mode and the published 0.4.3 package include the additive `sdkUsage`
 inventory alongside existing findings.
 
 `npm test` and the static suite run cheap unit tests followed by separate host,
-no-host, beta-subset, and runtime-evidence corpus steps. Each process keeps the
+no-host, beta-subset, and runtime-evidence corpus steps. Each test process keeps the
 2 GiB V8 heap limit and each step keeps the 600-second deadline. All fixture
 assertions remain required; the aggregate suite can take more than 600 seconds.
 Before publication, use `CRABPOT_PLUGIN_INSPECTOR_BIN` to smoke-test a locally
