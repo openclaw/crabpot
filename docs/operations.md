@@ -212,6 +212,11 @@ compatibility day through both source and packed OpenClaw targets.
 
 Both source mode and the published 0.4.2 package include the additive `sdkUsage`
 inventory alongside existing findings.
+
+`npm test` and the static suite run cheap unit tests followed by separate host,
+no-host, beta-subset, and runtime-evidence corpus steps. Each process keeps the
+2 GiB V8 heap limit and each step keeps the 600-second deadline. All fixture
+assertions remain required; the aggregate suite can take more than 600 seconds.
 Before publication, use `CRABPOT_PLUGIN_INSPECTOR_BIN` to smoke-test a locally
 packed and installed candidate without implying it is available from npm.
 
