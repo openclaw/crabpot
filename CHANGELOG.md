@@ -2,6 +2,7 @@
 
 ## 0.2.2 - Unreleased
 
+- Refresh the Codex fallback to 2026.10.2 with its matching published source provenance, retaining the frozen host, selectors and explicit compatibility gaps. Thanks @dependabot.
 - Refresh the Weixin fallback to 2.4.10 while keeping OpenClaw host peers out of its fixture lock. Thanks @dependabot and @vincentkoc.
 - Recognize Node's exact experimental TypeScript warning before TencentDB's known missing-module diagnostic, retaining unrelated errors as failures.
 
