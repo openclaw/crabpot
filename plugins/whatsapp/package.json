@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for OpenClaw WhatsApp channel plugin.",
   "dependencies": {
-    "@openclaw/whatsapp": "2026.10.1"
+    "@openclaw/whatsapp": "2026.10.2"
   },
   "crabpot": {
     "fixture": "whatsapp",
@@ -12,7 +12,7 @@
     "package": "@openclaw/whatsapp",
     "sourceRepo": "https://github.com/openclaw/openclaw.git",
     "sourcePath": "extensions/whatsapp",
-    "sourceRef": "9cf7fc279c26cf3493b75e703aeadac6d0deb5ee"
+    "sourceRef": "2040d1b71db98e8b2a5d740770c37e17f64316ba"
   },
   "overrides": {
     "ws": "8.21.3"

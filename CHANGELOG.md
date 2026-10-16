@@ -2,6 +2,12 @@
 
 ## 0.2.2 - Unreleased
 
+- Refresh the Weixin fallback to 2.4.10 while keeping OpenClaw host peers out of its fixture lock. Thanks @dependabot and @vincentkoc.
+- Recognize Node's exact experimental TypeScript warning before TencentDB's known missing-module diagnostic, retaining unrelated errors as failures.
+
+- Patch Codex and TencentDB fixture lock dependencies for TOML, baggage parsing, and query-string advisories while retaining their qualified plugin versions.
+- Refresh 20 official plugin fallback pins to 2026.10.2 and pair both source references with their published build provenance, preserving the frozen host, track and source-pack selectors, and explicit compatibility gaps. Thanks @dependabot and @vincentkoc.
+
 - Adopt published Plugin Inspector 0.4.0 and qualify retirement notices in source, packed, and published-package smoke: deprecated SDK member, replacement guidance, and final compatibility day remain non-blocking and author-facing. Refresh executable workspace-plan helper paths and operating docs to the release pin.
 
 - Assert DingTalk's explicit credential-free Gateway rejection contracts through method-scoped Inspector expectations, preserving unexpected response and handler failures.
@@ -22,6 +28,7 @@
 
 - Publish checked CI reports once and summarize only current-job outputs, preserving failed or interrupted coverage without rerunning fixture preparation.
 - Include bounded startup-phase observations on command failures without changing startup limits, native admission, or cleanup guarantees.
+- Avoid Windows command startup failures caused by per-command compiler and JSON cmdlet loading, preserving the startup budget, atomic Job admission and confirmed cleanup before checkout reuse. Thanks @vincentkoc.
 - Arm Windows helper cancellation before request parsing so owner loss or startup expiry cannot leave a parser-blocked helper running.
 - Preserve exclusive Plugin Inspector checkout ownership across long installs and unconfirmed command cleanup; fail bounded lock contention without stealing another installer's lock.
 - Preserve the Windows command controller's parent environment when a caller supplies a restricted target environment, without changing the target's environment or cleanup guarantees.
@@ -81,6 +88,8 @@
 - Split CI into a required pinned OpenClaw Default Track, an advisory artifact-producing HEAD canary, and a 14-day pin-promotion SLA.
 - Kept each track dashboard independent from unrelated OpenClaw release metadata failures.
 - Recorded dashboard metadata from the exact OpenClaw checkout exercised by the run.
+
+- Preserve Dependabot PR heads during validation so generated reports cannot invalidate required CI or conflict across dependency updates; publish reports through the shared dashboard owner after exact-commit validation or a confirmed bot merge. Thanks @vincentkoc.
 
 ## 0.2.1 - 2026-07-06
 
