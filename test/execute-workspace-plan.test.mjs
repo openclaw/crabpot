@@ -509,9 +509,11 @@ test("workspace executor CLI emits a narrow dry-run plan", () => {
     {
       cwd: repoRoot,
       encoding: "utf8",
+      timeout: 30_000,
     },
   );
 
+  assert.ifError(result.error);
   assert.equal(result.status, 0, result.stderr);
   const parsed = JSON.parse(result.stdout);
   assert.equal(parsed.mode, "dry-run");
@@ -529,9 +531,19 @@ test("workspace executor CLI rejects broad dry-runs before materializing work", 
     {
       cwd: repoRoot,
       encoding: "utf8",
+      timeout: 5000,
     },
   );
 
   assert.notEqual(result.status, 0);
   assert.match(result.stderr, /workspace execution requires --fixture/);
+});
+
+test("workspace executor CLI rejects unknown fixtures before inspecting the corpus", () => {
+  const result = spawnSync(process.execPath, [
+    "scripts/execute-workspace-plan.mjs", "--fixture", "not-a-fixture", "--dry-run", "--no-openclaw",
+  ], { cwd: repoRoot, encoding: "utf8", timeout: 5000 });
+  assert.ifError(result.error);
+  assert.notEqual(result.status, 0);
+  assert.match(result.stderr, /workspace execution selected unknown fixture: not-a-fixture/);
 });

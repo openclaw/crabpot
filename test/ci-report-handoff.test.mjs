@@ -190,7 +190,7 @@ function reportingFixture(t) {
   const { root } = value;
   const scripts = path.join(root, "scripts");
   mkdirSync(scripts);
-  for (const name of ["plugin-inspector-source", "ci-report-handoff", "write-ci-summary", "run-static-suite", "portable-command", "static-step", "check-ci-policy"]) {
+  for (const name of ["plugin-inspector-source", "ci-report-handoff", "write-ci-summary", "run-static-suite", "portable-command", "static-step", "runtime-profile-plan", "check-ci-policy"]) {
     copyFileSync(new URL(`../scripts/${name}.mjs`, import.meta.url), path.join(scripts, `${name}.mjs`));
   }
   writeFileSync(path.join(scripts, "manifest-lib.mjs"), `export const repoRoot = ${JSON.stringify(root)};`);

@@ -83,3 +83,34 @@ test("runtime profile records boot time and target registry surface", async () =
   assert.match(renderRuntimeProfileMarkdown(profile), /Category Rollups/);
   assert.match(renderRuntimeProfileMarkdown(profile), /CPU estimate/);
 });
+
+test("runtime profile applies the static command deadline to every sample and preserves failures", async () => {
+  const previous = process.env.CRABPOT_STATIC_STEP_TIMEOUT_MS;
+  process.env.CRABPOT_STATIC_STEP_TIMEOUT_MS = "100";
+  try {
+    const profile = await buildRuntimeProfile({
+      commands: [{ id: "slow-command", args: ["-e", "setTimeout(() => {}, 400)"], openclaw: false }],
+      runs: 3,
+      report: { fixtures: [] },
+      inspection: { inspections: [] },
+    });
+    assert.equal(profile.commands[0].samples.length, 3, "retain every requested sample");
+    assert.ok(profile.commands[0].samples.every((sample) => sample.timedOut && sample.exitCode !== 0));
+    assert.match(validateRuntimeProfile(profile).join("\n"), /slow-command: nonzero exit code/);
+  } finally {
+    if (previous === undefined) delete process.env.CRABPOT_STATIC_STEP_TIMEOUT_MS;
+    else process.env.CRABPOT_STATIC_STEP_TIMEOUT_MS = previous;
+  }
+});
+
+test("runtime profile children preserve Node options and enforce the 2 GiB heap", async () => {
+  const profile = await buildRuntimeProfile({
+    commands: [{ id: "heap-options", args: ["-e", "console.log(process.env.NODE_OPTIONS); setTimeout(() => {}, 75)"], openclaw: false }],
+    env: { NODE_OPTIONS: "--conditions=crabpot-profile --max-old-space-size=4096" },
+    report: { fixtures: [] },
+    inspection: { inspections: [] },
+  });
+  assert.deepEqual(validateRuntimeProfile(profile), []);
+  assert.match(profile.commands[0].samples[0].stdoutPreview,
+    /--conditions=crabpot-profile --max-old-space-size=4096 --max-old-space-size=2048/);
+});

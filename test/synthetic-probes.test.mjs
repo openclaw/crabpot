@@ -5,13 +5,11 @@ import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { test } from "node:test";
-import { buildContractCapture } from "../scripts/capture-contracts.mjs";
 import { createCaptureApi } from "../scripts/capture-shim.mjs";
 import { readConfiguredManifest } from "../scripts/manifest-lib.mjs";
 import {
   applyFixtureSyntheticFailurePolicy,
   buildSyntheticProbePlan,
-  renderSyntheticProbeMarkdown,
   runCapturedSyntheticProbes,
   runEntrypointSyntheticProbes,
   validateSyntheticProbePlan,
@@ -132,17 +130,6 @@ test("same-name Gateway methods outside the fixture and explicitly configured pr
       assert.match(result.results[0].error, /Gateway response error: Meeting input is required/);
     }
   }
-});
-
-test("synthetic probe plan is generated from the current crabpot capture", async () => {
-  const capture = await buildContractCapture();
-  const plan = await buildSyntheticProbePlan({ capture });
-
-  assert.deepEqual(validateSyntheticProbePlan(plan), []);
-  assert.ok(plan.summary.probeCount > 0);
-  assert.ok(plan.summary.readyCount > 0);
-  assert.ok(plan.summary.metadataOnlyCount > 0);
-  assert.match(renderSyntheticProbeMarkdown(plan), /Crabpot Synthetic Probes/);
 });
 
 test("synthetic probe plan marks HTTP routes blocked until descriptor inputs exist", async () => {

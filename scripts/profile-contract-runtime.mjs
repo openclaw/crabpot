@@ -5,77 +5,13 @@ import { inspectManifest } from "./inspect-fixtures.mjs";
 import { repoRoot } from "./manifest-lib.mjs";
 import { loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
 import { buildReport } from "./report-lib.mjs";
+import { profileCommands } from "./runtime-profile-plan.mjs";
+import { staticStepTimeoutMs, boundedNodeOptions } from "./static-step.mjs";
 
 export const defaultProfileJsonPath = path.join(repoRoot, "reports/crabpot-runtime-profile.json");
 export const defaultProfileMarkdownPath = path.join(repoRoot, "reports/crabpot-runtime-profile.md");
 
 const pluginInspector = await loadPluginInspectorPublicApi();
-
-const profileCommands = [
-  {
-    id: "node-boot",
-    label: "Node boot",
-    category: "baseline",
-    args: ["-e", "0"],
-    openclaw: false,
-  },
-  {
-    id: "fixture-inspection",
-    label: "Fixture inspection",
-    category: "fixture-scan",
-    args: ["scripts/inspect-fixtures.mjs", "--check"],
-    openclaw: false,
-  },
-  {
-    id: "compat-report-registry",
-    label: "Compatibility report plus target registry parse",
-    category: "target-registry",
-    args: ["scripts/generate-report.mjs", "--check"],
-    openclaw: true,
-  },
-  {
-    id: "contract-capture",
-    label: "Contract capture inventory",
-    category: "contract-capture",
-    args: ["scripts/capture-contracts.mjs", "--check"],
-    openclaw: true,
-  },
-  {
-    id: "synthetic-probe-plan",
-    label: "Synthetic probe plan",
-    category: "synthetic-probes",
-    args: ["scripts/synthetic-probes.mjs", "--check"],
-    openclaw: true,
-  },
-  {
-    id: "cold-import-readiness",
-    label: "Cold import readiness",
-    category: "cold-import",
-    args: ["scripts/cold-import-readiness.mjs", "--check"],
-    openclaw: true,
-  },
-  {
-    id: "workspace-plan",
-    label: "Workspace execution plan",
-    category: "workspace-plan",
-    args: ["scripts/workspace-plan.mjs", "--check"],
-    openclaw: true,
-  },
-  {
-    id: "platform-probes",
-    label: "Platform and loader probes",
-    category: "platform-probes",
-    args: ["scripts/platform-probes.mjs", "--check"],
-    openclaw: true,
-  },
-  {
-    id: "import-loop-profile",
-    label: "Repeated cold import capture loop",
-    category: "import-loop",
-    args: ["scripts/import-loop-profile.mjs", "--check", "--runs", "2"],
-    openclaw: false,
-  },
-];
 
 const crabpotRuntimeProfileOptions = {
   commands: profileCommands,
@@ -167,12 +103,18 @@ function readOptionValue(argv, index, flagName) {
 }
 
 export async function buildRuntimeProfile(options = {}) {
+  const timeoutMs = options.timeoutMs ?? staticStepTimeoutMs();
   const report = options.report ?? (await buildReport({ openclawPath: options.openclawPath }));
   const inspection = options.inspection ?? (await inspectManifest());
   return pluginInspector.buildRuntimeProfile({
     ...crabpotRuntimeProfileOptions,
     ...options,
-    env: { CRABPOT_REPORT_GENERATED_AT: "deterministic", ...options.env },
+    timeoutMs,
+    env: {
+      CRABPOT_REPORT_GENERATED_AT: "deterministic",
+      ...options.env,
+      NODE_OPTIONS: boundedNodeOptions(options.env?.NODE_OPTIONS),
+    },
     inspection,
     report,
     rootDir: options.rootDir ?? crabpotRuntimeProfileOptions.rootDir,
