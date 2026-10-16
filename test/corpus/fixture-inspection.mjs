@@ -5,7 +5,7 @@ import { readManifest } from "../../scripts/manifest-lib.mjs";
 
 test("fixture inspections satisfy expected hooks and registrations", async () => {
   const manifest = await readManifest();
-  const report = await buildCorpusReport({ generatedAt: "test", openclawPath: false });
+  const report = await buildCorpusReport({ fixtureSet: "all", generatedAt: "test", openclawPath: false });
 
   for (const fixture of manifest.fixtures) {
     const inspection = report.fixtures.find((item) => item.id === fixture.id);

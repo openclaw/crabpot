@@ -5,3 +5,4 @@ import "./corpus/cold-import-readiness.mjs";
 import "./corpus/workspace-plan.mjs";
 import "./corpus/contract-coverage.mjs";
 import "./corpus/fixture-inspection.mjs";
+import "./corpus/synthetic-probes.mjs";
