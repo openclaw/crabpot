@@ -190,7 +190,7 @@ node scripts/check-contract-coverage.mjs --openclaw ../openclaw
 ```
 
 Source-backed reports and registration capture use Inspector source commit
-`6df1dcee6516d62f29c3ea12f1d962cf0885bf3c` (0.4.2 candidate),
+`6df1dcee6516d62f29c3ea12f1d962cf0885bf3c` (0.4.2),
 with SDK discovery inside packaged `.setup` directories and composed Zod enums,
 including bundled SDK import classification, target-owned conversation contract
 proof, lazy runtime SDK loading, and method-scoped Gateway prerequisites.
@@ -210,7 +210,7 @@ that installation, alongside source and locally packed smoke. This verifies
 non-blocking deprecated-member notices, replacement guidance, and the final
 compatibility day through both source and packed OpenClaw targets.
 
-Both source mode and the published 0.4.1 package include the additive `sdkUsage`
+Both source mode and the published 0.4.2 package include the additive `sdkUsage`
 inventory alongside existing findings.
 Before publication, use `CRABPOT_PLUGIN_INSPECTOR_BIN` to smoke-test a locally
 packed and installed candidate without implying it is available from npm.
