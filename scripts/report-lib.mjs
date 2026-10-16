@@ -30,12 +30,15 @@ export const issueId = pluginInspector.issueId;
 export const targetOpenClawPathCandidates = pluginInspector.openClawTargetPathCandidates;
 
 export async function buildReport(options = {}) {
+  return buildReportFromInspection(await inspectReport(options), options);
+}
+
+/** Inspect the selected immutable inputs once; callers may compose several reports. */
+export async function inspectReport(options = {}) {
   const generatedAt = options.generatedAt ?? process.env.CRABPOT_REPORT_GENERATED_AT ?? "deterministic";
   const manifest = await readConfiguredManifest({ fixtureSet: options.fixtureSet });
   const executionResults =
     options.executionResults ?? readOptionalExecutionResults(options.executionResultsPath);
-  const packageAvailability =
-    options.packageAvailability ?? readDefaultPackageAvailability(options.packageAvailabilityPath);
   const inspected = await pluginInspector.inspectCompatibilityFixtureSetConfig({
     config: {
       ...manifest,
@@ -45,6 +48,14 @@ export async function buildReport(options = {}) {
     executionResults,
     openclawPath: options.openclawPath,
   });
+  return { inspected, manifest, executionResults, executionResultsPath: options.executionResultsPath, openclawPath: options.openclawPath };
+}
+
+/** Add Crabpot metadata and resource coverage without repeating source inspection. */
+export async function buildReportFromInspection(input, options = {}) {
+  const { inspected, manifest, executionResults, executionResultsPath, openclawPath } = input;
+  const packageAvailability =
+    options.packageAvailability ?? readDefaultPackageAvailability(options.packageAvailabilityPath);
   const hostPackage = inspected.targetOpenClaw?.packagePath;
   const report = qualifySdkHostRanges(inspected, {
     hostVersion: hostPackage ? readJsonFile(path.resolve(repoRoot, hostPackage))?.version : null,
@@ -76,9 +87,9 @@ export async function buildReport(options = {}) {
     decisions: [...packageDecisions, ...(report.decisions ?? [])],
     crabpotContext: buildReportContext({
       executionResults,
-      executionResultsPath: options.executionResultsPath,
+      executionResultsPath,
       manifest,
-      openclawPath: options.openclawPath,
+      openclawPath,
       packageAvailability,
       packageAvailabilityActionableFailures: packageAvailabilityActionableFailures(packageAvailability, { manifest }),
       packageAvailabilityPath: options.packageAvailabilityPath,

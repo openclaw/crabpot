@@ -33,6 +33,7 @@ jobs:
   head-canary:
     name: HEAD Canary (advisory, ${{ matrix.os }})
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 360
     needs: resolve-head
     continue-on-error: true
     strategy:
@@ -73,7 +74,8 @@ jobs:
       - name: Run Default Track suite against HEAD
         id: suite
         shell: bash
-        timeout-minutes: 30
+        # Full-corpus profiling owns 27 individually bounded command samples.
+        timeout-minutes: 360
         run: |
           node scripts/run-static-suite.mjs --write-reports \
             --openclaw ./openclaw \

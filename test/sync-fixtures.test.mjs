@@ -7,6 +7,7 @@ import path from "node:path";
 import { test } from "node:test";
 import { pathToFileURL } from "node:url";
 import { resolvePluginInspectorCliPath } from "../scripts/plugin-inspector-source.mjs";
+import { buildTestSteps } from "../scripts/run-tests.mjs";
 
 const repoRoot = path.resolve(import.meta.dirname, "..");
 const sourceRef = "a".repeat(40);
@@ -643,6 +644,11 @@ for (const selected of [false, true]) {
       '  assert.equal(process.env.CRABPOT_FIXTURE_SET, undefined);',
       '});',
     ].join("\n"));
+    for (const [, args] of buildTestSteps().slice(1)) {
+      const file = path.join(repo.root, args.at(-1));
+      await mkdir(path.dirname(file), { recursive: true });
+      await writeFile(file, 'import { test } from "node:test"; test("corpus sentinel", () => {});\n');
+    }
     const result = repo.run("run-static-suite.mjs",
       selected ? ["--fixture-set", item.id, "--plugin-track", "beta"] : []);
     await repo.assertNpmComplete();
@@ -650,6 +656,7 @@ for (const selected of [false, true]) {
     assert.match(result.stdout, /contract sentinel/);
     assert.match(result.stderr, /ETARGET/);
     assert.equal(result.stdout.includes("unit sentinel"), selected, result.stdout);
+    assert.equal(result.stdout.includes("corpus sentinel"), selected, result.stdout);
     assert.doesNotMatch(result.stdout, /dependent sentinel/);
     const report = await repo.readJson(availabilityPath);
     assert.equal(report.pluginTrack, selected ? "beta" : "manifest");

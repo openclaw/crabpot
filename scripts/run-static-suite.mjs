@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { pathToFileURL } from "node:url";
 import { runStaticStep } from "./static-step.mjs";
+import { buildTestSteps } from "./run-tests.mjs";
 import { executeCiStep, reportKeyForCommand, startCiRun } from "./ci-report-handoff.mjs";
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
@@ -56,7 +57,7 @@ export function buildStaticSuiteSteps({
   const steps = [
     ["node", ["scripts/check-openclaw-plugin-contracts.mjs"]],
     ["node", ["scripts/sync-fixtures.mjs", "--materialize", ...openclawArgs]],
-    ["node", ["--test", "--test-concurrency=1", "test/*.test.mjs"]],
+    ...buildTestSteps(),
     ...(Object.keys(fixtureEnv).length > 0
       ? [["node", ["scripts/sync-fixtures.mjs", "--materialize", ...openclawArgs], fixtureEnv]]
       : []),

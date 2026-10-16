@@ -93,15 +93,16 @@ npm run plugin-inspector:smoke
 ```
 
 The smoke writes ignored artifacts under `.crabpot/plugin-inspector-smoke/`.
-By default the smoke runs the published `@openclaw/plugin-inspector@0.4.0`
-package through `npm exec`. For local plugin-inspector development, set
+By default the smoke runs the published package pinned by `pluginInspectorPackage`
+in `scripts/plugin-inspector-source.mjs` through `npm exec`. For local development, set
 `CRABPOT_PLUGIN_INSPECTOR_CLI=source` to run the sibling or pinned source
 checkout instead. Set `CRABPOT_PLUGIN_INSPECTOR_DIR=/path/to/candidate` to select
 an exact candidate checkout before its npm release. Set
 `CRABPOT_PLUGIN_INSPECTOR_BIN=/path/to/plugin-inspector`
 to test an arbitrary CLI binary.
 
-Both pins use Inspector 0.4.0, including SDK imports inside packaged `.setup`
+Both pins use Inspector 0.4.3 with Windows entrypoint and host-type fixes,
+including SDK imports inside packaged `.setup`
 directories, mocked Zod enum options for composed schemas, and non-blocking SDK
 member retirement notices with replacement guidance and the final compatibility
 day. CI runs the retirement smoke against source, locally packed, and exact

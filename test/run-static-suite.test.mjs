@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
-import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -98,7 +98,45 @@ test("static suite can focus operational report steps without filtering unit tes
   const testStep = steps.find(([, args]) => args.join(" ") === "--test --test-concurrency=1 test/*.test.mjs");
   const reportStep = steps.find(([, args]) => args.join(" ") === "scripts/generate-report.mjs --check");
 
-  assert.deepEqual(testStep[2], undefined);
+  assert.equal(testStep[2].CRABPOT_FIXTURE_SET, undefined);
+  assert.equal(testStep[2].CRABPOT_PLUGIN_TRACK, undefined);
   assert.equal(reportStep[2].CRABPOT_FIXTURE_SET, "openclaw-beta");
   assert.equal(reportStep[2].CRABPOT_PLUGIN_TRACK, "source-pack");
+});
+
+
+test("static suite runs every corpus input in its own bounded integration step", () => {
+  const steps = buildStaticSuiteSteps();
+  const testSteps = steps.filter(([, args]) => args.includes("--test"));
+  assert.deepEqual(testSteps.map(([, args]) => args.at(-1)), [
+    "test/*.test.mjs",
+    "test/corpus/host.test.mjs",
+    "test/corpus/no-host.test.mjs",
+    "test/corpus/beta.test.mjs",
+    "test/corpus/runtime.test.mjs",
+  ]);
+  for (const [, args, env] of testSteps) {
+    assert.ok(args.includes("--test-concurrency=1"));
+    assert.match(env.NODE_OPTIONS, /(?:^| )--max-old-space-size=2048$/);
+    assert.equal(env.CRABPOT_FIXTURE_SET, undefined);
+    if (!args.at(-1).includes("*")) assert.ok(existsSync(new URL(`../${args.at(-1)}`, import.meta.url)));
+  }
+  const packageJson = JSON.parse(readFileSync(new URL("../package.json", import.meta.url), "utf8"));
+  assert.match(packageJson.scripts.test, /node scripts\/run-tests\.mjs$/);
+});
+
+
+test("test steps preserve Node options while enforcing their heap budget", () => {
+  const previous = process.env.NODE_OPTIONS;
+  process.env.NODE_OPTIONS = "--conditions=crabpot-test --max-old-space-size=4096";
+  try {
+    const testSteps = buildStaticSuiteSteps().filter(([, args]) => args.includes("--test"));
+    assert.equal(testSteps.length, 5);
+    for (const [, , env] of testSteps) {
+      assert.equal(env.NODE_OPTIONS, "--conditions=crabpot-test --max-old-space-size=4096 --max-old-space-size=2048");
+    }
+  } finally {
+    if (previous === undefined) delete process.env.NODE_OPTIONS;
+    else process.env.NODE_OPTIONS = previous;
+  }
 });

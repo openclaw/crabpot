@@ -190,13 +190,14 @@ node scripts/check-contract-coverage.mjs --openclaw ../openclaw
 ```
 
 Source-backed reports and registration capture use Inspector source commit
-`943148854bf51b1e6cfa5d8b12047cfec8642297` (0.4.0),
+`724ead08e10a13a151ecba88e9c035faa2ddbd6a` (0.4.3),
 with SDK discovery inside packaged `.setup` directories and composed Zod enums,
 including bundled SDK import classification, target-owned conversation contract
 proof, lazy runtime SDK loading, and method-scoped Gateway prerequisites.
+Both pins preserve entrypoint and referenced host-type resolution on Windows.
 `npm run plugin-inspector:smoke` uses the published
-`@openclaw/plugin-inspector@0.4.0` package by default.
-Use
+package pinned by `pluginInspectorPackage` in `scripts/plugin-inspector-source.mjs`
+by default. Use
 `CRABPOT_PLUGIN_INSPECTOR_CLI=source npm run plugin-inspector:smoke` only when
 validating local inspector source changes. Set `CRABPOT_PLUGIN_INSPECTOR_DIR`
 to the candidate checkout to avoid selecting a different sibling checkout.
@@ -209,6 +210,31 @@ CI also installs the exact published package pin and runs `--retirements` agains
 that installation, alongside source and locally packed smoke. This verifies
 non-blocking deprecated-member notices, replacement guidance, and the final
 compatibility day through both source and packed OpenClaw targets.
+
+Both source mode and the published 0.4.3 package include the additive `sdkUsage`
+inventory alongside existing findings.
+
+`npm test` and the static suite run cheap unit tests followed by separate host,
+no-host, beta-subset, and runtime-evidence corpus steps. Each test process keeps the
+2 GiB V8 heap limit and each step keeps the 600-second deadline. All fixture
+assertions remain required; the aggregate suite can take more than 600 seconds.
+Runtime profiling retains all nine commands and all requested samples (three
+per command in CI). Each profiled child now uses the static command's 600-second
+deadline instead of Inspector's 30-second default, with a 2 GiB V8 heap. Full
+59-plugin commands measured 118–178 seconds, so the old child deadline could
+not complete them. The profiler wrapper allows `(2 + 9 × runs) × 600` seconds
+for two metadata inspections and every sample: 290 minutes at three runs.
+Ordinary static and test steps still have their own 600-second deadlines.
+
+Check and HEAD Canary now have explicit 360-minute outer step/job limits,
+replacing their 30-minute aggregate step limits. These are orchestration
+ceilings, not expected runtimes. The source/packed/published Inspector smoke
+step allows 40 minutes instead of 10 for its three complete artifact checks,
+package preparation and runtime/resource/retirement probes; each inspection
+and probe retains its own 600-second command deadline. No samples, fixtures,
+assertions or artifact forms are omitted.
+Before publication, use `CRABPOT_PLUGIN_INSPECTOR_BIN` to smoke-test a locally
+packed and installed candidate without implying it is available from npm.
 
 Issue severity means:
 
