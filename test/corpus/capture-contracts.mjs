@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { buildContractCapture } from "../scripts/capture-contracts.mjs";
-import { buildReport } from "../scripts/report-lib.mjs";
+import { buildContractCapture } from "../../scripts/capture-contracts.mjs";
+import { buildCorpusReport as buildReport, testReportOptions } from "./report-fixture.mjs";
 
 test("contract capture turns observed seams into executable probe assertions", async () => {
   const report = await buildReport(testReportOptions());
@@ -28,13 +28,6 @@ test("contract capture turns observed seams into executable probe assertions", a
     assertNoSdkProbe(capture, "compat-alias-required");
   }
 });
-
-function testReportOptions() {
-  return {
-    generatedAt: "test",
-    openclawPath: process.env.CRABPOT_TEST_OPENCLAW_PATH,
-  };
-}
 
 function assertHasRegistrationCapture(capture, fixtureId, registrar, support) {
   const fixture = capture.fixtures.find((item) => item.id === fixtureId);
