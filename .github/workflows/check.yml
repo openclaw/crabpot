@@ -63,6 +63,7 @@ jobs:
   manifest:
     name: Default Track / Static checks (${{ matrix.os }})
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 360
     strategy:
       fail-fast: false
       matrix:
@@ -87,7 +88,8 @@ jobs:
           path: openclaw
       - id: suite
         shell: bash
-        timeout-minutes: 30
+        # Full-corpus profiling owns 27 individually bounded command samples.
+        timeout-minutes: 360
         run: |
           plugin_track="${{ steps.openclaw-track.outputs.track }}"
           extra_args=(--openclaw-track "${{ steps.openclaw-track.outputs.track }}" --plugin-track "${plugin_track}")
@@ -99,8 +101,10 @@ jobs:
         id: inspector-smoke
         if: ${{ matrix.os == 'ubuntu-latest' }}
         shell: bash
-        timeout-minutes: 10
+        # Three complete artifact inspections retain individual 600s limits.
+        timeout-minutes: 40
         env:
+          NODE_OPTIONS: --max-old-space-size=2048
           CRABPOT_FIXTURE_SET: ${{ steps.openclaw-track.outputs.track == 'development' && 'openclaw-beta' || '' }}
           CRABPOT_OPENCLAW_TRACK: ${{ steps.openclaw-track.outputs.track }}
           CRABPOT_PLUGIN_TRACK: ${{ steps.openclaw-track.outputs.track == 'development' && 'source-pack' || steps.openclaw-track.outputs.track }}
@@ -145,6 +149,7 @@ jobs:
   container-smoke:
     name: Default Track / Container static checks
     runs-on: ubuntu-latest
+    timeout-minutes: 360
     container:
       image: node:24-bookworm
     steps:
@@ -161,7 +166,7 @@ jobs:
           path: openclaw
       - run: node --version
       - shell: bash
-        timeout-minutes: 30
+        timeout-minutes: 360
         run: |
           plugin_track="${{ steps.openclaw-track.outputs.track }}"
           extra_args=(--openclaw-track "${{ steps.openclaw-track.outputs.track }}" --plugin-track "${plugin_track}")

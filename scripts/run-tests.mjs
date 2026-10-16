@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 import { pathToFileURL } from "node:url";
-import { runStaticStep } from "./static-step.mjs";
+import { runStaticStep, boundedNodeOptions } from "./static-step.mjs";
 
 // Distinct real corpus inputs have separate deadlines; every assertion remains
 // required. No process may overlap another or exceed the 2 GiB V8 heap budget.
 export function buildTestSteps() {
   const env = {
-    NODE_OPTIONS: [process.env.NODE_OPTIONS, "--max-old-space-size=2048"].filter(Boolean).join(" "),
+    NODE_OPTIONS: boundedNodeOptions(),
   };
   return [
     "test/*.test.mjs",

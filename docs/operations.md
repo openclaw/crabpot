@@ -218,6 +218,21 @@ inventory alongside existing findings.
 no-host, beta-subset, and runtime-evidence corpus steps. Each test process keeps the
 2 GiB V8 heap limit and each step keeps the 600-second deadline. All fixture
 assertions remain required; the aggregate suite can take more than 600 seconds.
+Runtime profiling retains all nine commands and all requested samples (three
+per command in CI). Each profiled child now uses the static command's 600-second
+deadline instead of Inspector's 30-second default, with a 2 GiB V8 heap. Full
+59-plugin commands measured 118–178 seconds, so the old child deadline could
+not complete them. The profiler wrapper allows `(2 + 9 × runs) × 600` seconds
+for two metadata inspections and every sample: 290 minutes at three runs.
+Ordinary static and test steps still have their own 600-second deadlines.
+
+Check and HEAD Canary now have explicit 360-minute outer step/job limits,
+replacing their 30-minute aggregate step limits. These are orchestration
+ceilings, not expected runtimes. The source/packed/published Inspector smoke
+step allows 40 minutes instead of 10 for its three complete artifact checks,
+package preparation and runtime/resource/retirement probes; each inspection
+and probe retains its own 600-second command deadline. No samples, fixtures,
+assertions or artifact forms are omitted.
 Before publication, use `CRABPOT_PLUGIN_INSPECTOR_BIN` to smoke-test a locally
 packed and installed candidate without implying it is available from npm.
 
