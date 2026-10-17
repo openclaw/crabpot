@@ -2,6 +2,8 @@
 
 ## 0.2.2 - Unreleased
 
+- Refresh AgentChat, ClawMetry, Honcho, MemOS Cloud and NemoClaw fixture pins; track Honcho's additive prompt supplement and LLM observation contracts. Thanks @dependabot.
+
 - Adopt Plugin Inspector 0.4.3 with serialized SDK inventory coverage, reuse real corpus inspections across derived-report tests, and bound test stages and profiler samples independently while preserving full-corpus checks. Thanks @Patrick-Erichsen.
 - Refresh the Codex fallback to 2026.10.2 with its matching published source provenance, retaining the frozen host, selectors and explicit compatibility gaps. Thanks @dependabot and @vincentkoc.
 - Refresh the Feishu fallback to 2026.10.2 with its published source provenance, retaining the frozen host and explicit runtime compatibility gaps. Thanks @dependabot.
