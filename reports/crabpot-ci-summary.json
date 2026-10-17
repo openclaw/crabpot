@@ -29,16 +29,16 @@
     "platformWindowsRisks": 17,
     "platformContainerRisks": 17,
     "loaderJitiCandidates": 20,
-    "importLoopP50Ms": 4393,
-    "importLoopP95Ms": 4432,
+    "importLoopP50Ms": 2443,
+    "importLoopP95Ms": 2519,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 115.3,
-    "importLoopOpenClawActivationP50Ms": 1.3,
+    "importLoopOpenClawImportP50Ms": 69.8,
+    "importLoopOpenClawActivationP50Ms": 0.7,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 0,
-    "importLoopMaxCpuMs": 0,
-    "importLoopRssSampleCount": 526,
-    "importLoopCpuSampleCount": 526
+    "importLoopMaxRssMb": 0.5,
+    "importLoopMaxCpuMs": 2,
+    "importLoopRssSampleCount": 293,
+    "importLoopCpuSampleCount": 293
   },
   "topIssues": [
     {
