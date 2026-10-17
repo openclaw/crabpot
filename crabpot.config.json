@@ -533,7 +533,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/lobster",
-        "ref": "2040d1b71db98e8b2a5d740770c37e17f64316ba"
+        "ref": "59cb44796b0f1f0daa0e37af8b1495abb45d9bc1"
       },
       "path": "plugins/lobster",
       "priority": "medium",
