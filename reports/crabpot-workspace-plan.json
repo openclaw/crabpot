@@ -7171,7 +7171,7 @@
           "id": "cold-import.extension:nemoclaw:plugins-nemoclaw-nemoclaw-dist-index-js",
           "fixture": "nemoclaw",
           "packagePath": "plugins/nemoclaw/nemoclaw/package.json",
-          "packageName": "nemoclaw",
+          "packageName": "nemoclaw-plugin",
           "entrypoint": "plugins/nemoclaw/nemoclaw/dist/index.js",
           "status": "build-required",
           "packageManager": "npm",
