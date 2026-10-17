@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for OpenClaw diff viewer plugin.",
   "dependencies": {
-    "@openclaw/diffs": "2026.10.2"
+    "@openclaw/diffs": "2026.10.3"
   },
   "crabpot": {
     "fixture": "diffs",
