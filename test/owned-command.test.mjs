@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { spawn, spawnSync } from "node:child_process";
-import { copyFile, mkdir, mkdtemp, readFile, realpath, rm, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, mkdtemp, readFile, realpath, rename, rm, stat, writeFile } from "node:fs/promises";
 import { createConnection } from "node:net";
 import os from "node:os";
 import path from "node:path";
@@ -694,155 +694,215 @@ for (const phase of ["preconnection", "late connection"]) {
   });
 }
 
-for (const [ownerLost, guarded] of [[false, true], [true, true], [false, false], [true, false]]) {
-  test(`Windows actual compiler ${guarded ? "exits" : "negative control survives"} on ${ownerLost ? "owner loss" : "command timeout"}`, {
-    skip: process.platform !== "win32", timeout: 45_000,
-  }, async (t) => {
-    const root = await mkdtemp(path.join(os.tmpdir(), "crabpot compiler owner "));
-    const ownerPath = await copyOwner(root);
-    const pidFile = path.join(root, "target-pid");
-    const commandMarker = path.join(root, "command-started");
-    const resultFile = path.join(root, "result.json");
-    const original = await readFile(new URL("../scripts/owned-command-windows.ps1", import.meta.url), "utf8");
-    const admission = '        Check-Native ($native::UpdateProcThreadAttribute($attributes, 0, [IntPtr]::new(0x2000d), $jobList, [IntPtr]::new(8), [IntPtr]::Zero, [IntPtr]::Zero)) "JOB_LIST"';
-    assert.equal(original.split(admission).length, 2);
-    // The negative control removes only atomic Job admission. The real target,
-    // real CodeDOM compiler, owner-loss watcher and retained-handle rescue remain.
-    await writeFile(path.join(root, "scripts/owned-command-windows.ps1"), guarded ? original : original.replace(admission, ""));
-    const sourceFile = path.join(root, "target-compilation.cs");
-    const targetScript = path.join(root, "compile-target.ps1");
-    const ps = (value) => "'" + value.replaceAll("'", "''") + "'";
-    await writeFile(sourceFile, Array.from({ length: 10_000 }, (_, index) =>
-      "internal class CompilerObservation" + index + " { }").join("\n"));
-    await writeFile(targetScript,
-      "[System.IO.File]::WriteAllText(" + ps(pidFile) + ", [string]$PID)\n" +
-      "Add-Type -Path " + ps(sourceFile) + "\n" +
-      "[System.IO.File]::WriteAllText(" + ps(commandMarker) + ", 'compiled')\n");
-    const powershell = path.join(process.env.SystemRoot, "System32/WindowsPowerShell/v1.0/powershell.exe");
-    const observerAdmissionStartedAt = performance.now();
-    const observer = new Worker(`
-      const { workerData, parentPort } = require("node:worker_threads");
-      const errorDetail = (${compilerObserverError.toString()});
-      import(workerData.owner).then(({ runOwnedCommand }) => {
-        const result = runOwnedCommand(workerData.command, workerData.args, {
-          timeout: 35000, maxBuffer: 8192, encoding: "utf8",
-        });
-        // Error structured cloning drops the owner's custom code and startup trace.
-        result.error = errorDetail(result.error);
-        result.cleanupError = errorDetail(result.cleanupError);
-        parentPort.postMessage(result);
-      });
-    `, { eval: true, workerData: {
-      owner: new URL("../scripts/owned-command.mjs", import.meta.url).href,
-      command: powershell, args: [
-        "-NoLogo", "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass",
-        "-File", fileURLToPath(new URL("./fixtures/owned-command-compiler-observer.ps1", import.meta.url)), root,
-      ],
-    } });
-    let observerResult;
-    let observerExitCode;
-    const observerClosed = new Promise((resolve) => {
-      observer.once("message", (result) => { observerResult = result; resolve(); });
-      observer.once("exit", (code) => { observerExitCode = code; resolve(); });
-    });
-    const observerError = () => observerResult?.stderr ?? "";
-    const sentinel = spawn(process.execPath, ["-e", "setInterval(() => {}, 1000)"], { stdio: "ignore" });
-    const sentinelClosed = new Promise((resolve) => sentinel.once("close", resolve));
-    const errors = [];
-    observer.on("error", (error) => errors.push(error));
-    sentinel.on("error", (error) => errors.push(error));
-    let worker;
-    let compiler;
-    t.after(async () => {
-      // Capture the failed observation before rescue changes process state.
-      t.diagnostic(await compilerObserverDiagnostic(root, observerResult, observerExitCode, errors));
-      let rescued = false;
-      try {
-        await writeFile(path.join(root, "observer-rescue"), "stop");
-        await worker?.terminate();
-        const completed = await Promise.race([observerClosed.then(() => true), delay(6000).then(() => false)]);
-        if (compiler) {
-          assert.equal(completed, true, "owned compiler rescue must complete before observer termination");
-          assert.equal(observerResult?.status, 0, observerError());
-          assert.ifError(observerResult.error);
-          assert.equal(await waitForExit(compiler.pid, 1000), true, "fixture rescue must leave no compiler process");
-          assert.equal(await waitForExit(compiler.targetPid, 1000), true, "fixture rescue must leave no target process");
-        }
-        rescued = completed && observerResult?.status === 0 && !observerResult?.error;
-      } finally {
-        sentinel.kill();
-        await sentinelClosed;
-        if (rescued) {
-          await observer.terminate();
-          await rm(root, { recursive: true, force: true });
-        } else {
-          // Do not interrupt a still-running retained-handle rescue on failure.
-          t.diagnostic("compiler fixture retained: native rescue closure unconfirmed");
-        }
-      }
-    });
-    // Bound admission separately from the observer's own C# setup.
-    const observerStarted = await readReceipt(path.join(root, "observer-started"), 10_000, observerError);
-    assert.ok(observerStarted.pid > 0, "observer command must be admitted before its compiler setup");
-    t.diagnostic(`compiler observer admitted in ${Math.round(performance.now() - observerAdmissionStartedAt)}ms`);
-    const observerPreparationStartedAt = performance.now();
-    await readReceipt(path.join(root, "observer-ready"), 10_000, observerError);
-    t.diagnostic(`compiler observer preparation completed in ${Math.round(performance.now() - observerPreparationStartedAt)}ms`);
-    worker = new Worker(`
-      const { workerData } = require("node:worker_threads");
-      import(workerData.owner).then(({ runOwnedCommand }) => {
-        // Compilation previously ran inside the unchanged 10s startup window.
-        // Give the controlled target that same window; cleanup assertions stay bounded.
-        const result = runOwnedCommand(workerData.command, workerData.args, { timeout: 10000 });
-        const fs = require("node:fs");
-        fs.writeFileSync(workerData.result + ".pending", JSON.stringify(result));
-        fs.renameSync(workerData.result + ".pending", workerData.result);
-      });
-    `, { eval: true, workerData: {
-      owner: pathToFileURL(ownerPath).href, result: resultFile,
-      command: powershell, args: ["-NoLogo", "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass", "-File", targetScript],
-    } });
-    worker.on("error", (error) => errors.push(error));
-    compiler = await readReceipt(path.join(root, "compiler-suspended.json"), 8000, observerError);
-    assert.equal(compiler.name, "csc.exe");
-    assert.equal(compiler.suspended, true);
-    assert.ok(compiler.pid > 0 && compiler.targetPid > 0);
-    assert.equal(process.kill(compiler.pid, 0), true, "actual compiler must be alive at interruption");
-    if (ownerLost) {
-      await worker.terminate();
-    } else {
-      const result = await readReceipt(resultFile, 14_000, observerError);
-      assert.equal(result.error?.code, "ETIMEDOUT");
-      const phases = tracePhases(result);
-      assert.ok(phases.includes("prepared-received"));
-      assert.ok(phases.includes("create-process-completed"));
-      assert.ok(phases.includes("ready-received"));
-      if (guarded) {
-        assert.ok(phases.includes("closed-received"));
-        assert.equal(result.cleanupError, undefined);
-      }
+test("Windows actual compiler lifecycle", {
+  skip: process.platform !== "win32", timeout: 4 * 45_000, concurrency: false,
+}, async (t) => {
+  const preparationRoot = await mkdtemp(path.join(os.tmpdir(), "crabpot observer assembly "));
+  const assembly = path.join(preparationRoot, "observer.dll");
+  const powershell = path.join(process.env.SystemRoot, "System32/WindowsPowerShell/v1.0/powershell.exe");
+  const preparations = [];
+  const observers = [];
+  t.after(async () => {
+    // Parent after hooks can precede timed-out children's rescue. Keep the DLL
+    // until every native owner and its Worker have positively closed.
+    for (const owner of preparations) {
+      if (owner.exitCode === undefined) await owner.worker.terminate();
     }
-    if (guarded) assert.equal(await waitForExit(compiler.targetPid, 1000), true);
-    else assert.equal(process.kill(compiler.targetPid, 0), true, "uncontained target survives with its suspended compiler");
-    const extinct = await waitForExit(compiler.pid, 2500);
-    const requireExtinction = () => assert.equal(extinct, true, "actual compiler must exit before fixture rescue");
-    if (guarded) {
-      requireExtinction();
-      const exited = await readReceipt(path.join(root, "compiler-exited.json"), 1000, observerError);
-      assert.deepEqual(exited, { pid: compiler.pid, exited: true, rescued: false });
+    if ([...preparations, ...observers].every((owner) => owner.nativeClosed)) {
+      await rm(preparationRoot, { recursive: true, force: true });
     } else {
-      assert.throws(requireExtinction, {
-        code: "ERR_ASSERTION", message: /actual compiler must exit before fixture rescue/,
-      });
-      t.diagnostic("negative control: uncontained target and real csc.exe survived; extinction assertion failed before rescue");
+      assert.fail("observer assembly retained: native closure unconfirmed");
     }
-    assert.equal(sentinel.exitCode, null);
-    assert.equal(sentinel.signalCode, null);
-    assert.equal(process.kill(sentinel.pid, 0), true);
-    await assert.rejects(readFile(commandMarker), { code: "ENOENT" });
-    assert.deepEqual(errors, []);
   });
-}
+  const prepare = async (root, source) => {
+    t.signal.throwIfAborted();
+    const owner = startCompilerObserverCommand(powershell, [
+      "-NoLogo", "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass",
+      "-File", fileURLToPath(new URL("./fixtures/owned-command-compiler-observer-build.ps1", import.meta.url)), root, source,
+    ]);
+    preparations.push(owner);
+    try {
+      await waitForCompilerObserver(owner, t.signal);
+    } finally {
+      t.diagnostic(await compilerObserverDiagnostic(root, owner.result, owner.exitCode, owner.errors));
+    }
+    owner.nativeClosed = compilerObserverCommandClosed(owner);
+    assert.equal(owner.nativeClosed, true, "assembly preparation must return confirmed native closure");
+    assert.equal(owner.result.status, 0, owner.result.stderr);
+    assert.deepEqual(JSON.parse(await readFile(path.join(root, "observer-compile-result"), "utf8")), { status: "compiled" });
+    const pending = path.join(root, "observer.pending.dll");
+    const info = await stat(pending);
+    assert.ok(info.isFile() && info.size > 0, "compilation must produce a nonempty assembly");
+    await rename(pending, path.join(root, "observer.dll"));
+  };
+  await prepare(preparationRoot, fileURLToPath(new URL("./fixtures/owned-command-compiler-observer.cs", import.meta.url)));
+  for (const [ownerLost, guarded] of [[false, true], [true, true], [false, false], [true, false]]) {
+    t.signal.throwIfAborted();
+    await t.test(`Windows actual compiler ${guarded ? "exits" : "negative control survives"} on ${ownerLost ? "owner loss" : "command timeout"}`, {
+      timeout: 45_000, signal: t.signal,
+    }, async (t) => {
+      const root = await mkdtemp(path.join(os.tmpdir(), "crabpot compiler owner "));
+      const ownerPath = await copyOwner(root);
+      const pidFile = path.join(root, "target-pid");
+      const commandMarker = path.join(root, "command-started");
+      const resultFile = path.join(root, "result.json");
+      const original = await readFile(new URL("../scripts/owned-command-windows.ps1", import.meta.url), "utf8");
+      const admission = '        Check-Native ($native::UpdateProcThreadAttribute($attributes, 0, [IntPtr]::new(0x2000d), $jobList, [IntPtr]::new(8), [IntPtr]::Zero, [IntPtr]::Zero)) "JOB_LIST"';
+      assert.equal(original.split(admission).length, 2);
+      // The negative control removes only atomic Job admission. The real target,
+      // real CodeDOM compiler, owner-loss watcher and retained-handle rescue remain.
+      await writeFile(path.join(root, "scripts/owned-command-windows.ps1"), guarded ? original : original.replace(admission, ""));
+      const sourceFile = path.join(root, "target-compilation.cs");
+      const targetScript = path.join(root, "compile-target.ps1");
+      const ps = (value) => "'" + value.replaceAll("'", "''") + "'";
+      await writeFile(sourceFile, Array.from({ length: 10_000 }, (_, index) =>
+        "internal class CompilerObservation" + index + " { }").join("\n"));
+      await writeFile(targetScript,
+        "[System.IO.File]::WriteAllText(" + ps(pidFile) + ", [string]$PID)\n" +
+        "Add-Type -Path " + ps(sourceFile) + "\n" +
+        "[System.IO.File]::WriteAllText(" + ps(commandMarker) + ", 'compiled')\n");
+      t.signal.throwIfAborted();
+      const observerAdmissionStartedAt = performance.now();
+      const observer = startCompilerObserverCommand(powershell, [
+        "-NoLogo", "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass",
+        "-File", fileURLToPath(new URL("./fixtures/owned-command-compiler-observer.ps1", import.meta.url)), root, assembly,
+      ]);
+      observers.push(observer);
+      const observerError = () => observer.result?.stderr ?? "";
+      const sentinel = spawn(process.execPath, ["-e", "setInterval(() => {}, 1000)"], { stdio: "ignore" });
+      const sentinelClosed = new Promise((resolve) => sentinel.once("close", resolve));
+      const errors = observer.errors;
+      sentinel.on("error", (error) => errors.push(error));
+      let worker;
+      let compiler;
+      t.after(async () => {
+        // Capture the failed observation before rescue changes process state.
+        t.diagnostic(await compilerObserverDiagnostic(preparationRoot, observer.result, observer.exitCode, errors));
+        let rescued = false;
+        try {
+          await writeFile(path.join(root, "observer-rescue"), "stop");
+          await worker?.terminate();
+          const completed = await Promise.race([observer.closed.then(() => true), delay(6000).then(() => false)]);
+          if (compiler) {
+            assert.equal(completed, true, "owned compiler rescue must complete before observer termination");
+            assert.equal(observer.result?.status, 0, observerError());
+            assert.ifError(observer.result.error);
+            assert.equal(await waitForExit(compiler.pid, 1000), true, "fixture rescue must leave no compiler process");
+            assert.equal(await waitForExit(compiler.targetPid, 1000), true, "fixture rescue must leave no target process");
+          }
+          rescued = completed && observer.result?.status === 0 && compilerObserverCommandClosed(observer);
+        } finally {
+          sentinel.kill();
+          await sentinelClosed;
+          if (rescued) {
+            observer.nativeClosed = true;
+            await rm(root, { recursive: true, force: true });
+          } else {
+            // Do not interrupt a still-running retained-handle rescue on failure.
+            t.diagnostic("compiler fixture retained: native rescue closure unconfirmed");
+          }
+        }
+      });
+      // Readiness loads the prepared assembly without compiling it.
+      const observerStarted = await readReceipt(path.join(root, "observer-started"), 10_000, observerError);
+      assert.ok(observerStarted.pid > 0, "observer command must be admitted before loading its prepared assembly");
+      t.diagnostic(`compiler observer admitted in ${Math.round(performance.now() - observerAdmissionStartedAt)}ms`);
+      const observerPreparationStartedAt = performance.now();
+      await readReceipt(path.join(root, "observer-ready"), 10_000, observerError);
+      t.diagnostic(`compiler observer preparation completed in ${Math.round(performance.now() - observerPreparationStartedAt)}ms`);
+      t.signal.throwIfAborted();
+      worker = new Worker(`
+        const { workerData } = require("node:worker_threads");
+        import(workerData.owner).then(({ runOwnedCommand }) => {
+          // Compilation previously ran inside the unchanged 10s startup window.
+          // Give the controlled target that same window; cleanup assertions stay bounded.
+          const result = runOwnedCommand(workerData.command, workerData.args, { timeout: 10000 });
+          const fs = require("node:fs");
+          fs.writeFileSync(workerData.result + ".pending", JSON.stringify(result));
+          fs.renameSync(workerData.result + ".pending", workerData.result);
+        });
+      `, { eval: true, workerData: {
+        owner: pathToFileURL(ownerPath).href, result: resultFile,
+        command: powershell, args: ["-NoLogo", "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass", "-File", targetScript],
+      } });
+      worker.on("error", (error) => errors.push(error));
+      compiler = await readReceipt(path.join(root, "compiler-suspended.json"), 8000, observerError);
+      assert.equal(compiler.name, "csc.exe");
+      assert.equal(compiler.suspended, true);
+      assert.ok(compiler.pid > 0 && compiler.targetPid > 0);
+      assert.equal(process.kill(compiler.pid, 0), true, "actual compiler must be alive at interruption");
+      if (ownerLost) {
+        await worker.terminate();
+      } else {
+        const result = await readReceipt(resultFile, 14_000, observerError);
+        assert.equal(result.error?.code, "ETIMEDOUT");
+        const phases = tracePhases(result);
+        assert.ok(phases.includes("prepared-received"));
+        assert.ok(phases.includes("create-process-completed"));
+        assert.ok(phases.includes("ready-received"));
+        if (guarded) {
+          assert.ok(phases.includes("closed-received"));
+          assert.equal(result.cleanupError, undefined);
+        }
+      }
+      if (guarded) assert.equal(await waitForExit(compiler.targetPid, 1000), true);
+      else assert.equal(process.kill(compiler.targetPid, 0), true, "uncontained target survives with its suspended compiler");
+      const extinct = await waitForExit(compiler.pid, 2500);
+      const requireExtinction = () => assert.equal(extinct, true, "actual compiler must exit before fixture rescue");
+      if (guarded) {
+        requireExtinction();
+        const exited = await readReceipt(path.join(root, "compiler-exited.json"), 1000, observerError);
+        assert.deepEqual(exited, { pid: compiler.pid, exited: true, rescued: false });
+      } else {
+        assert.throws(requireExtinction, {
+          code: "ERR_ASSERTION", message: /actual compiler must exit before fixture rescue/,
+        });
+        t.diagnostic("negative control: uncontained target and real csc.exe survived; extinction assertion failed before rescue");
+      }
+      assert.equal(sentinel.exitCode, null);
+      assert.equal(sentinel.signalCode, null);
+      assert.equal(process.kill(sentinel.pid, 0), true);
+      await assert.rejects(readFile(commandMarker), { code: "ENOENT" });
+      assert.deepEqual(errors, []);
+    });
+  }
+
+  t.signal.throwIfAborted();
+  await t.test("invalid observer source cannot publish an assembly", { signal: t.signal }, async () => {
+    const root = path.join(preparationRoot, "invalid-source");
+    await mkdir(root);
+    const source = path.join(root, "invalid.cs");
+    await writeFile(source, "this is not valid C#;");
+    await assert.rejects(prepare(root, source), { code: "ERR_ASSERTION" });
+    assert.equal(preparations.at(-1).nativeClosed, true, "failed compilation must still close its native owner");
+    const receipt = JSON.parse(await readFile(path.join(root, "observer-compile-result"), "utf8"));
+    assert.equal(receipt.status, "failed");
+    assert.ok(receipt.message.length > 0 && receipt.message.length <= 1024);
+    await assert.rejects(readFile(path.join(root, "observer.dll")), { code: "ENOENT" });
+    await assert.rejects(readFile(path.join(root, "observer-ready")), { code: "ENOENT" });
+    await assert.rejects(readFile(path.join(root, "target-pid")), { code: "ENOENT" });
+  });
+  t.signal.throwIfAborted();
+  await t.test("missing observer assembly fails before observation or target admission", { signal: t.signal }, async () => {
+    const root = path.join(preparationRoot, "missing-assembly");
+    await mkdir(root);
+    t.signal.throwIfAborted();
+    const owner = startCompilerObserverCommand(powershell, [
+      "-NoLogo", "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass",
+      "-File", fileURLToPath(new URL("./fixtures/owned-command-compiler-observer.ps1", import.meta.url)), root, path.join(root, "missing.dll"),
+    ]);
+    preparations.push(owner);
+    await waitForCompilerObserver(owner, t.signal);
+    owner.nativeClosed = compilerObserverCommandClosed(owner);
+    assert.equal(owner.nativeClosed, true);
+    assert.notEqual(owner.result.status, 0);
+    assert.match(owner.result.stderr, /LoadFrom/);
+    const started = JSON.parse(await readFile(path.join(root, "observer-started"), "utf8"));
+    assert.ok(started.pid > 0);
+    await assert.rejects(readFile(path.join(root, "observer-ready")), { code: "ENOENT" });
+    await assert.rejects(readFile(path.join(root, "target-pid")), { code: "ENOENT" });
+  });
+});
 
 
 for (const cancellation of ["stop", "shared stop", "Worker loss"]) {
@@ -976,6 +1036,51 @@ async function temporaryRoot(t) {
   const root = await mkdtemp(path.join(os.tmpdir(), "crabpot command owner "));
   t.after(() => rm(root, { recursive: true, force: true }));
   return root;
+}
+
+function startCompilerObserverCommand(command, args) {
+  const owner = { errors: [], nativeClosed: false };
+  owner.worker = new Worker(`
+    const { workerData, parentPort } = require("node:worker_threads");
+    const errorDetail = (${compilerObserverError.toString()});
+    import(workerData.owner).then(({ runOwnedCommand }) => {
+      const result = runOwnedCommand(workerData.command, workerData.args, {
+        timeout: 35000, maxBuffer: 8192, encoding: "utf8",
+      });
+      // Error structured cloning drops the owner's custom code and startup trace.
+      result.error = errorDetail(result.error);
+      result.cleanupError = errorDetail(result.cleanupError);
+      parentPort.postMessage(result);
+    });
+  `, { eval: true, workerData: {
+    owner: new URL("../scripts/owned-command.mjs", import.meta.url).href, command, args,
+  } });
+  owner.worker.once("message", (result) => { owner.result = result; });
+  owner.worker.on("error", (error) => owner.errors.push(error));
+  owner.closed = new Promise((resolve) => {
+    owner.worker.once("exit", (code) => { owner.exitCode = code; resolve(); });
+  });
+  return owner;
+}
+
+function compilerObserverCommandClosed(owner) {
+  return owner.exitCode === 0 && owner.errors.length === 0 &&
+    Number.isInteger(owner.result?.status) && !owner.result.error && !owner.result.cleanupError;
+}
+
+async function waitForCompilerObserver(owner, signal) {
+  signal.throwIfAborted();
+  let abort;
+  const aborted = new Promise((_, reject) => {
+    abort = () => reject(signal.reason);
+    signal.addEventListener("abort", abort, { once: true });
+  });
+  try {
+    await Promise.race([owner.closed, aborted]);
+    signal.throwIfAborted();
+  } finally {
+    signal.removeEventListener("abort", abort);
+  }
 }
 
 function compilerObserverError(error) {
