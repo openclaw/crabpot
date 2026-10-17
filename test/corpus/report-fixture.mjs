@@ -23,7 +23,7 @@ export async function buildCorpusReport(options = {}) {
   };
   const key = JSON.stringify(input);
   if (!inspections.has(key)) {
-    inspections.set(key, inspectReport(input).then((inspection) => structuredClone(inspection)));
+    inspections.set(key, inspectReport(input));
   }
   // Tests may mutate derived reports; neither the shared input nor other tests
   // should inherit those mutations. Decoration files are read fresh each time.
