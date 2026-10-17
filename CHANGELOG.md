@@ -2,7 +2,6 @@
 
 ## 0.2.2 - Unreleased
 
-- Avoid a redundant full-corpus copy while caching test inspections; retain a fresh mutable report for each test without increasing the 2 GiB heap limit.
 - Refresh AgentChat, ClawMetry, Honcho, MemOS Cloud and NemoClaw fixture pins; track Honcho's additive prompt supplement and LLM observation contracts. Thanks @dependabot.
 
 - Adopt Plugin Inspector 0.4.3 with serialized SDK inventory coverage, reuse real corpus inspections across derived-report tests, and bound test stages and profiler samples independently while preserving full-corpus checks. Thanks @Patrick-Erichsen.
