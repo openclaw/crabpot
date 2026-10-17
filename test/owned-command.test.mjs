@@ -722,10 +722,15 @@ for (const [ownerLost, guarded] of [[false, true], [true, true], [false, false],
     const observerAdmissionStartedAt = performance.now();
     const observer = new Worker(`
       const { workerData, parentPort } = require("node:worker_threads");
+      const errorDetail = (${compilerObserverError.toString()});
       import(workerData.owner).then(({ runOwnedCommand }) => {
-        parentPort.postMessage(runOwnedCommand(workerData.command, workerData.args, {
+        const result = runOwnedCommand(workerData.command, workerData.args, {
           timeout: 35000, maxBuffer: 8192, encoding: "utf8",
-        }));
+        });
+        // Error structured cloning drops the owner's custom code and startup trace.
+        result.error = errorDetail(result.error);
+        result.cleanupError = errorDetail(result.cleanupError);
+        parentPort.postMessage(result);
       });
     `, { eval: true, workerData: {
       owner: new URL("../scripts/owned-command.mjs", import.meta.url).href,
@@ -735,9 +740,10 @@ for (const [ownerLost, guarded] of [[false, true], [true, true], [false, false],
       ],
     } });
     let observerResult;
+    let observerExitCode;
     const observerClosed = new Promise((resolve) => {
       observer.once("message", (result) => { observerResult = result; resolve(); });
-      observer.once("exit", resolve);
+      observer.once("exit", (code) => { observerExitCode = code; resolve(); });
     });
     const observerError = () => observerResult?.stderr ?? "";
     const sentinel = spawn(process.execPath, ["-e", "setInterval(() => {}, 1000)"], { stdio: "ignore" });
@@ -748,6 +754,8 @@ for (const [ownerLost, guarded] of [[false, true], [true, true], [false, false],
     let worker;
     let compiler;
     t.after(async () => {
+      // Capture the failed observation before rescue changes process state.
+      t.diagnostic(await compilerObserverDiagnostic(root, observerResult, observerExitCode, errors));
       let rescued = false;
       try {
         await writeFile(path.join(root, "observer-rescue"), "stop");
@@ -969,6 +977,99 @@ async function temporaryRoot(t) {
   t.after(() => rm(root, { recursive: true, force: true }));
   return root;
 }
+
+function compilerObserverError(error) {
+  if (!error) return undefined;
+  const detail = {
+    code: error.code === undefined ? undefined : String(error.code).slice(0, 128),
+    message: String(error.message ?? error).slice(0, 1024),
+  };
+  if (Array.isArray(error.startupTrace)) {
+    detail.startupTrace = error.startupTrace.slice(0, 16).map(({ phase, atMs, observedAtMs }) => ({
+      phase: String(phase).slice(0, 64),
+      atMs: Number.isSafeInteger(atMs) && atMs >= 0 ? atMs : "invalid",
+      observedAtMs: Number.isSafeInteger(observedAtMs) && observedAtMs >= 0 ? observedAtMs : "invalid",
+    }));
+  }
+  return detail;
+}
+
+async function compilerObserverDiagnostic(root, result, exitCode, errors) {
+  const compilation = {};
+  for (const stage of ["observer-compile-started", "observer-compile-completed"]) {
+    try {
+      const { atMs } = JSON.parse(await readFile(path.join(root, stage), "utf8"));
+      compilation[stage] = Number.isSafeInteger(atMs) && atMs >= 0 ? atMs : "invalid";
+    } catch (error) {
+      compilation[stage] = error.code === "ENOENT" ? "absent" : compilerObserverError(error);
+    }
+  }
+  return JSON.stringify({
+    compilation, workerExitCode: exitCode ?? "pending",
+    result: result ? {
+      status: result.status, signal: result.signal,
+      error: compilerObserverError(result.error), cleanupError: compilerObserverError(result.cleanupError),
+      stdout: String(result.stdout ?? "").slice(0, 1024),
+      stderr: String(result.stderr ?? "").slice(0, 1024),
+    } : "pending",
+    errors: errors.slice(0, 4).map(compilerObserverError),
+  });
+}
+
+test("compiler observer diagnostics retain bounded setup and terminal failure evidence", { timeout: 5000 }, async (t) => {
+  const root = await temporaryRoot(t);
+  await writeFile(path.join(root, "observer-compile-started"), '{"atMs":123}');
+  const failure = Object.assign(new Error("x".repeat(2048)), { code: "EOBSERVATION" });
+  // Construct the Error inside the Worker so this covers the actual transport boundary.
+  const worker = new Worker(`
+    const { parentPort } = require("node:worker_threads");
+    const errorDetail = (${compilerObserverError.toString()});
+    const error = Object.assign(new Error("x".repeat(2048)), {
+      code: "EOWNERSTART",
+      startupTrace: Array.from({ length: 20 }, (_, index) => ({
+        phase: "p".repeat(128), atMs: index, observedAtMs: -1,
+      })),
+    });
+    parentPort.postMessage({
+      status: 1, signal: null, error: errorDetail(error),
+      cleanupError: errorDetail(Object.assign(new Error("cleanup unknown"), { code: "EOWNERCLEANUP" })),
+      stdout: "o".repeat(2048), stderr: "e".repeat(2048),
+    });
+  `, { eval: true });
+  t.after(() => worker.terminate());
+  const result = await new Promise((resolve, reject) => {
+    worker.once("message", resolve);
+    worker.once("error", reject);
+    worker.once("exit", (code) => reject(new Error(`diagnostic Worker exited without a result (${code})`)));
+  });
+  const observed = JSON.parse(await compilerObserverDiagnostic(root, result, 1, Array(6).fill(failure)));
+  assert.deepEqual(observed.compilation, {
+    "observer-compile-started": 123, "observer-compile-completed": "absent",
+  });
+  assert.equal(observed.workerExitCode, 1);
+  assert.equal(observed.result.status, 1);
+  assert.equal(observed.result.signal, null);
+  assert.deepEqual(observed.result.error, {
+    code: "EOWNERSTART", message: "x".repeat(1024),
+    startupTrace: Array.from({ length: 16 }, (_, index) => ({
+      phase: "p".repeat(64), atMs: index, observedAtMs: "invalid",
+    })),
+  });
+  assert.deepEqual(observed.result.cleanupError, { code: "EOWNERCLEANUP", message: "cleanup unknown" });
+  assert.equal(observed.result.stdout, "o".repeat(1024));
+  assert.equal(observed.result.stderr, "e".repeat(1024));
+  assert.equal(observed.errors.length, 4);
+  assert.deepEqual(observed.errors[0], { code: "EOBSERVATION", message: "x".repeat(1024) });
+  assert.equal(compilerObserverError({ code: "c".repeat(256) }).code.length, 128);
+  await writeFile(path.join(root, "observer-compile-completed"), '{"atMs":456}');
+  const pending = JSON.parse(await compilerObserverDiagnostic(root, undefined, undefined, []));
+  assert.equal(pending.compilation["observer-compile-completed"], 456);
+  assert.equal(pending.workerExitCode, "pending");
+  assert.equal(pending.result, "pending");
+  await writeFile(path.join(root, "observer-compile-completed"), '{"atMs":"invalid timestamp"}');
+  const invalid = JSON.parse(await compilerObserverDiagnostic(root, undefined, undefined, []));
+  assert.equal(invalid.compilation["observer-compile-completed"], "invalid");
+});
 
 function tracePhases(result) {
   const trace = result.error?.startupTrace;
