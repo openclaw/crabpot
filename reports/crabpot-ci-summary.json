@@ -6,14 +6,14 @@
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 282,
-    "suggestions": 164,
-    "issues": 446,
-    "p0Issues": 7,
-    "p1Issues": 36,
-    "liveIssues": 7,
-    "liveP0Issues": 7,
-    "compatGaps": 28,
+    "warnings": 280,
+    "suggestions": 163,
+    "issues": 443,
+    "p0Issues": 5,
+    "p1Issues": 35,
+    "liveIssues": 5,
+    "liveP0Issues": 5,
+    "compatGaps": 27,
     "deprecationWarnings": 218,
     "inspectorGaps": 149,
     "upstreamIssues": 44,
@@ -29,16 +29,16 @@
     "platformWindowsRisks": 17,
     "platformContainerRisks": 17,
     "loaderJitiCandidates": 20,
-    "importLoopP50Ms": 2443,
-    "importLoopP95Ms": 2519,
+    "importLoopP50Ms": 4039,
+    "importLoopP95Ms": 4063,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 69.8,
-    "importLoopOpenClawActivationP50Ms": 0.7,
+    "importLoopOpenClawImportP50Ms": 105.5,
+    "importLoopOpenClawActivationP50Ms": 1.1,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 0.5,
-    "importLoopMaxCpuMs": 2,
-    "importLoopRssSampleCount": 293,
-    "importLoopCpuSampleCount": 293
+    "importLoopMaxRssMb": 1.2,
+    "importLoopMaxCpuMs": 0,
+    "importLoopRssSampleCount": 480,
+    "importLoopCpuSampleCount": 480
   },
   "topIssues": [
     {
@@ -55,22 +55,6 @@
       "fixture": "connectclaw",
       "code": "unknown-hook-name",
       "title": "connectclaw: fixture uses a hook missing from target OpenClaw",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P0",
-      "issueClass": "live-issue",
-      "fixture": "honcho",
-      "code": "unknown-hook-name",
-      "title": "honcho: fixture uses a hook missing from target OpenClaw",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P0",
-      "issueClass": "live-issue",
-      "fixture": "honcho",
-      "code": "unknown-registration-name",
-      "title": "honcho: fixture calls a registrar missing from target OpenClaw",
       "decision": "core-compat-adapter"
     },
     {
@@ -196,9 +180,25 @@
     {
       "severity": "P1",
       "issueClass": "compat-gap",
-      "fixture": "honcho",
+      "fixture": "inworld-tts",
       "code": "missing-compat-record",
-      "title": "honcho: compat-dependent behavior lacks registry coverage",
+      "title": "inworld-tts: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "kitchen-sink",
+      "code": "before-tool-call-probe",
+      "title": "kitchen-sink: before_tool_call needs terminal/block/approval probes",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "matrix",
+      "code": "sdk-export-missing",
+      "title": "matrix: plugin SDK import aliases are missing from target package exports",
       "decision": "core-compat-adapter"
     }
   ],
@@ -207,12 +207,10 @@
     {
       "id": "compatibility-report.live-p0-issues",
       "action": "warn",
-      "message": "7 live P0 issues tracked",
+      "message": "5 live P0 issues tracked",
       "evidence": [
         "aiwerk-mcp-bridge:unknown-hook-name:none",
         "connectclaw:unknown-hook-name:none",
-        "honcho:unknown-hook-name:none",
-        "honcho:unknown-registration-name:none",
         "memos-cloud:unknown-hook-name:none",
         "openclaw-telemetry:unknown-hook-name:none",
         "opik-openclaw:unknown-hook-name:none"

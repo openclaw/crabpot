@@ -8,12 +8,12 @@
   },
   "summary": {
     "fixtureCount": 59,
-    "registrationCount": 379,
-    "hookCount": 132,
-    "sdkImportCount": 2827,
+    "registrationCount": 378,
+    "hookCount": 129,
+    "sdkImportCount": 2830,
     "packageEntrypointCount": 119,
-    "issueProbeCount": 218,
-    "inspectorShimRequiredCount": 215,
+    "issueProbeCount": 217,
+    "inspectorShimRequiredCount": 214,
     "compatAliasRequiredCount": 23
   },
   "fixtures": [
@@ -22,10 +22,10 @@
       "priority": "high",
       "registrations": [
         {
-          "id": "registration.defineChannelPluginEntry:agentchat:plugins-agentchat-src-channel-ts-351",
+          "id": "registration.defineChannelPluginEntry:agentchat:plugins-agentchat-src-channel-ts-355",
           "fixture": "agentchat",
           "registrar": "defineChannelPluginEntry",
-          "ref": "plugins/agentchat/src/channel.ts:351",
+          "ref": "plugins/agentchat/src/channel.ts:355",
           "support": "inspector-shim-required",
           "assertions": [
             "channel id is stable",
@@ -99,10 +99,10 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/setup:agentchat:plugins-agentchat-src-channel-wizard-ts-40",
+          "id": "sdk.openclaw/plugin-sdk/setup:agentchat:plugins-agentchat-src-channel-wizard-ts-48",
           "fixture": "agentchat",
           "specifier": "openclaw/plugin-sdk/setup",
-          "ref": "plugins/agentchat/src/channel.wizard.ts:40",
+          "ref": "plugins/agentchat/src/channel.wizard.ts:48",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -2197,10 +2197,10 @@
       "priority": "high",
       "registrations": [
         {
-          "id": "registration.definePluginEntry:honcho:plugins-honcho-index-ts-85",
+          "id": "registration.definePluginEntry:honcho:plugins-honcho-index-ts-109",
           "fixture": "honcho",
           "registrar": "definePluginEntry",
-          "ref": "plugins/honcho/index.ts:85",
+          "ref": "plugins/honcho/index.ts:109",
           "support": "inspector-shim-required",
           "assertions": [
             "entrypoint register function is callable",
@@ -2236,37 +2236,16 @@
           ]
         },
         {
-          "id": "registration.registerMemoryPromptSection:honcho:plugins-honcho-index-ts-97",
+          "id": "registration.registerMemoryPromptSupplement:honcho:plugins-honcho-index-ts-119",
           "fixture": "honcho",
-          "registrar": "registerMemoryPromptSection",
-          "ref": "plugins/honcho/index.ts:97",
+          "registrar": "registerMemoryPromptSupplement",
+          "ref": "plugins/honcho/index.ts:119",
           "support": "inspector-shim-required",
           "assertions": [
-            "memory prompt section id is stable",
-            "render metadata is captured"
+            "registration arguments are captured"
           ],
           "syntheticArguments": [
-            {
-              "id": "fixture-memory-section",
-              "render": "function"
-            }
-          ]
-        },
-        {
-          "id": "registration.registerMemoryRuntime:honcho:plugins-honcho-runtime-ts-239",
-          "fixture": "honcho",
-          "registrar": "registerMemoryRuntime",
-          "ref": "plugins/honcho/runtime.ts:239",
-          "support": "inspector-shim-required",
-          "assertions": [
-            "memory runtime id is stable",
-            "runtime factory metadata is captured"
-          ],
-          "syntheticArguments": [
-            {
-              "id": "fixture-memory-runtime",
-              "create": "function"
-            }
+            {}
           ]
         },
         {
@@ -2426,10 +2405,10 @@
       ],
       "hooks": [
         {
-          "id": "hook.agent_end:honcho:plugins-honcho-hooks-capture-ts-184",
+          "id": "hook.agent_end:honcho:plugins-honcho-hooks-capture-ts-137",
           "fixture": "honcho",
           "hook": "agent_end",
-          "ref": "plugins/honcho/hooks/capture.ts:184",
+          "ref": "plugins/honcho/hooks/capture.ts:137",
           "support": "synthetic-event-required",
           "assertions": [
             "final conversation payload is redacted as expected",
@@ -2461,86 +2440,6 @@
             "agentId": "agent-fixture",
             "sessionId": "session-fixture",
             "channelId": "fixture-channel"
-          }
-        },
-        {
-          "id": "hook.agent_end:honcho:plugins-honcho-hooks-subagent-ts-34",
-          "fixture": "honcho",
-          "hook": "agent_end",
-          "ref": "plugins/honcho/hooks/subagent.ts:34",
-          "support": "synthetic-event-required",
-          "assertions": [
-            "final conversation payload is redacted as expected",
-            "agent id and run metadata are present"
-          ],
-          "syntheticEvent": {
-            "runId": "run-fixture",
-            "agentId": "agent-fixture",
-            "conversationId": "conversation-fixture",
-            "success": true,
-            "durationMs": 1,
-            "error": null,
-            "messages": [
-              {
-                "role": "assistant",
-                "content": "[redacted fixture output]"
-              }
-            ],
-            "status": "completed",
-            "transcript": [
-              {
-                "role": "assistant",
-                "content": "[redacted fixture output]"
-              }
-            ]
-          },
-          "syntheticContext": {
-            "runId": "run-fixture",
-            "agentId": "agent-fixture",
-            "sessionId": "session-fixture",
-            "channelId": "fixture-channel"
-          }
-        },
-        {
-          "id": "hook.before_agent_start:honcho:plugins-honcho-hooks-subagent-ts-18",
-          "fixture": "honcho",
-          "hook": "before_agent_start",
-          "ref": "plugins/honcho/hooks/subagent.ts:18",
-          "support": "synthetic-event-required",
-          "assertions": [
-            "legacy startup hook payload is accepted",
-            "migration metadata can map to prompt/model hooks"
-          ],
-          "syntheticEvent": {
-            "agentId": "agent-fixture",
-            "runId": "run-fixture",
-            "prompt": "fixture prompt",
-            "config": {
-              "source": "plugin-inspector"
-            }
-          },
-          "syntheticContext": {
-            "runId": "run-fixture",
-            "agentId": "agent-fixture",
-            "sessionId": "session-fixture"
-          }
-        },
-        {
-          "id": "hook.before_compaction:honcho:plugins-honcho-hooks-capture-ts-213",
-          "fixture": "honcho",
-          "hook": "before_compaction",
-          "ref": "plugins/honcho/hooks/capture.ts:213",
-          "support": "synthetic-event-required",
-          "assertions": [
-            "hook payload and return value are captured"
-          ],
-          "syntheticEvent": {
-            "hook": "before_compaction",
-            "fixture": "honcho"
-          },
-          "syntheticContext": {
-            "hook": "before_compaction",
-            "fixture": "honcho"
           }
         },
         {
@@ -2575,28 +2474,10 @@
           }
         },
         {
-          "id": "hook.before_reset:honcho:plugins-honcho-hooks-capture-ts-230",
-          "fixture": "honcho",
-          "hook": "before_reset",
-          "ref": "plugins/honcho/hooks/capture.ts:230",
-          "support": "synthetic-event-required",
-          "assertions": [
-            "hook payload and return value are captured"
-          ],
-          "syntheticEvent": {
-            "hook": "before_reset",
-            "fixture": "honcho"
-          },
-          "syntheticContext": {
-            "hook": "before_reset",
-            "fixture": "honcho"
-          }
-        },
-        {
-          "id": "hook.gateway_start:honcho:plugins-honcho-hooks-gateway-ts-6",
+          "id": "hook.gateway_start:honcho:plugins-honcho-hooks-gateway-ts-92",
           "fixture": "honcho",
           "hook": "gateway_start",
-          "ref": "plugins/honcho/hooks/gateway.ts:6",
+          "ref": "plugins/honcho/hooks/gateway.ts:92",
           "support": "synthetic-event-required",
           "assertions": [
             "hook payload and return value are captured"
@@ -2611,10 +2492,34 @@
           }
         },
         {
-          "id": "hook.subagent_spawned:honcho:plugins-honcho-hooks-subagent-ts-24",
+          "id": "hook.llm_output:honcho:plugins-honcho-hooks-telemetry-ts-31",
+          "fixture": "honcho",
+          "hook": "llm_output",
+          "ref": "plugins/honcho/hooks/telemetry.ts:31",
+          "support": "synthetic-event-required",
+          "assertions": [
+            "model output payload is redacted as expected",
+            "model and agent metadata are present"
+          ],
+          "syntheticEvent": {
+            "agentId": "agent-fixture",
+            "model": "gpt-5.4",
+            "output": {
+              "role": "assistant",
+              "content": "[redacted fixture output]"
+            }
+          },
+          "syntheticContext": {
+            "runId": "run-fixture",
+            "agentId": "agent-fixture",
+            "sessionId": "session-fixture"
+          }
+        },
+        {
+          "id": "hook.subagent_spawned:honcho:plugins-honcho-hooks-subagent-ts-13",
           "fixture": "honcho",
           "hook": "subagent_spawned",
-          "ref": "plugins/honcho/hooks/subagent.ts:24",
+          "ref": "plugins/honcho/hooks/subagent.ts:13",
           "support": "synthetic-event-required",
           "assertions": [
             "spawn payload is preserved",
@@ -2634,6 +2539,28 @@
       ],
       "sdkImports": [
         {
+          "id": "sdk.openclaw/plugin-sdk/cli-runtime:honcho:plugins-honcho-honcho-client-ts-11",
+          "fixture": "honcho",
+          "specifier": "openclaw/plugin-sdk/cli-runtime",
+          "ref": "plugins/honcho/honcho-client.ts:11",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/extension-shared:honcho:plugins-honcho-honcho-client-ts-13",
+          "fixture": "honcho",
+          "specifier": "openclaw/plugin-sdk/extension-shared",
+          "ref": "plugins/honcho/honcho-client.ts:13",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
           "id": "sdk.openclaw/plugin-sdk/plugin-entry:honcho:plugins-honcho-index-ts-9",
           "fixture": "honcho",
           "specifier": "openclaw/plugin-sdk/plugin-entry",
@@ -2645,10 +2572,21 @@
           ]
         },
         {
-          "id": "sdk.openclaw/plugin-sdk/routing:honcho:plugins-honcho-helpers-ts-8",
+          "id": "sdk.openclaw/plugin-sdk/routing:honcho:plugins-honcho-helpers-ts-9",
           "fixture": "honcho",
           "specifier": "openclaw/plugin-sdk/routing",
-          "ref": "plugins/honcho/helpers.ts:8",
+          "ref": "plugins/honcho/helpers.ts:9",
+          "support": "target-exported",
+          "assertions": [
+            "package export exists",
+            "cold import resolves without plugin credentials"
+          ]
+        },
+        {
+          "id": "sdk.openclaw/plugin-sdk/routing:honcho:plugins-honcho-hooks-subagent-ts-4",
+          "fixture": "honcho",
+          "specifier": "openclaw/plugin-sdk/routing",
+          "ref": "plugins/honcho/hooks/subagent.ts:4",
           "support": "target-exported",
           "assertions": [
             "package export exists",
@@ -37893,10 +37831,10 @@
       "priority": "high",
       "registrations": [
         {
-          "id": "registration.registerCommand:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-348",
+          "id": "registration.registerCommand:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-322",
           "fixture": "nemoclaw",
           "registrar": "registerCommand",
-          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:348",
+          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:322",
           "support": "inspector-shim-required",
           "assertions": [
             "command id is stable",
@@ -37910,10 +37848,10 @@
           ]
         },
         {
-          "id": "registration.registerProvider:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-375",
+          "id": "registration.registerProvider:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-349",
           "fixture": "nemoclaw",
           "registrar": "registerProvider",
-          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:375",
+          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:349",
           "support": "target-captured",
           "assertions": [
             "registration arguments are captured"
@@ -37956,10 +37894,10 @@
           }
         },
         {
-          "id": "hook.before_tool_call:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-385",
+          "id": "hook.before_tool_call:nemoclaw:plugins-nemoclaw-nemoclaw-src-index-ts-359",
           "fixture": "nemoclaw",
           "hook": "before_tool_call",
-          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:385",
+          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:359",
           "support": "synthetic-event-required",
           "assertions": [
             "block/allow return shapes are preserved",
@@ -42072,10 +42010,10 @@
       "priority": "medium",
       "registrations": [
         {
-          "id": "registration.registerHook:memos-cloud:plugins-memos-cloud-index-js-732",
+          "id": "registration.registerHook:memos-cloud:plugins-memos-cloud-index-js-787",
           "fixture": "memos-cloud",
           "registrar": "registerHook",
-          "ref": "plugins/memos-cloud/index.js:732",
+          "ref": "plugins/memos-cloud/index.js:787",
           "support": "inspector-shim-required",
           "assertions": [
             "legacy hook name is stable",
@@ -42089,10 +42027,10 @@
       ],
       "hooks": [
         {
-          "id": "hook.agent_end:memos-cloud:plugins-memos-cloud-index-js-805",
+          "id": "hook.agent_end:memos-cloud:plugins-memos-cloud-index-js-860",
           "fixture": "memos-cloud",
           "hook": "agent_end",
-          "ref": "plugins/memos-cloud/index.js:805",
+          "ref": "plugins/memos-cloud/index.js:860",
           "support": "synthetic-event-required",
           "assertions": [
             "final conversation payload is redacted as expected",
@@ -42127,10 +42065,10 @@
           }
         },
         {
-          "id": "hook.before_agent_start:memos-cloud:plugins-memos-cloud-index-js-802",
+          "id": "hook.before_agent_start:memos-cloud:plugins-memos-cloud-index-js-857",
           "fixture": "memos-cloud",
           "hook": "before_agent_start",
-          "ref": "plugins/memos-cloud/index.js:802",
+          "ref": "plugins/memos-cloud/index.js:857",
           "support": "synthetic-event-required",
           "assertions": [
             "legacy startup hook payload is accepted",
@@ -42151,10 +42089,10 @@
           }
         },
         {
-          "id": "hook.before_prompt_build:memos-cloud:plugins-memos-cloud-index-js-800",
+          "id": "hook.before_prompt_build:memos-cloud:plugins-memos-cloud-index-js-855",
           "fixture": "memos-cloud",
           "hook": "before_prompt_build",
-          "ref": "plugins/memos-cloud/index.js:800",
+          "ref": "plugins/memos-cloud/index.js:855",
           "support": "synthetic-event-required",
           "assertions": [
             "prompt mutation result is preserved",
@@ -43021,7 +42959,7 @@
       "priority": "P1",
       "target": "hook-runner",
       "evidence": [
-        "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:385"
+        "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:359"
       ],
       "assertions": [
         "synthetic event payload is accepted",
@@ -43308,8 +43246,7 @@
       "priority": "P2",
       "target": "inspector-capture-api",
       "evidence": [
-        "registerMemoryPromptSection @ plugins/honcho/index.ts:97",
-        "registerMemoryRuntime @ plugins/honcho/runtime.ts:239"
+        "registerMemoryPromptSupplement @ plugins/honcho/index.ts:119"
       ],
       "assertions": [
         "registration arguments are recorded",
@@ -43449,7 +43386,7 @@
       "priority": "P2",
       "target": "inspector-capture-api",
       "evidence": [
-        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:348"
+        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:322"
       ],
       "assertions": [
         "registration arguments are recorded",
@@ -43544,7 +43481,7 @@
       "priority": "P2",
       "target": "channel-runtime",
       "evidence": [
-        "defineChannelPluginEntry @ plugins/agentchat/src/channel.ts:351"
+        "defineChannelPluginEntry @ plugins/agentchat/src/channel.ts:355"
       ],
       "assertions": [
         "message envelope is stable",
@@ -43664,19 +43601,6 @@
       "target": "hook-runner",
       "evidence": [
         "before_agent_start @ plugins/connectclaw/packages/plugin/src/hooks.ts:17"
-      ],
-      "assertions": [
-        "synthetic event payload is accepted",
-        "return semantics are preserved"
-      ]
-    },
-    {
-      "id": "hook.compat.before-agent-start-migration:honcho",
-      "fixture": "honcho",
-      "priority": "P2",
-      "target": "hook-runner",
-      "evidence": [
-        "before_agent_start @ plugins/honcho/hooks/subagent.ts:18"
       ],
       "assertions": [
         "synthetic event payload is accepted",
@@ -44254,6 +44178,7 @@
       "priority": "P2",
       "target": "package-loader",
       "evidence": [
+        "@honcho-ai/harness-plugin-core @ plugins/honcho/package.json",
         "@honcho-ai/sdk @ plugins/honcho/package.json",
         "@sinclair/typebox @ plugins/honcho/package.json"
       ],
@@ -44956,7 +44881,7 @@
       "priority": "P3",
       "target": "inspector-capture-api",
       "evidence": [
-        "registerHook @ plugins/memos-cloud/index.js:732"
+        "registerHook @ plugins/memos-cloud/index.js:787"
       ],
       "assertions": [
         "registration arguments are recorded",
@@ -45208,7 +45133,7 @@
       "priority": "P3",
       "target": "hook-runner",
       "evidence": [
-        "before_agent_start @ plugins/memos-cloud/index.js:802"
+        "before_agent_start @ plugins/memos-cloud/index.js:857"
       ],
       "assertions": [
         "synthetic event payload is accepted",
