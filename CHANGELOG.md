@@ -2,6 +2,8 @@
 
 ## 0.2.2 - Unreleased
 
+- Retain bounded child errors and truncation metadata in runtime-profile JSON through reviewed Inspector source, preserving the published 0.4.3 npm pin, command order, heap limits, and deadlines.
+
 - Refresh AgentChat, ClawMetry, Honcho, MemOS Cloud and NemoClaw fixture pins; track Honcho's additive prompt supplement and LLM observation contracts. Thanks @dependabot.
 
 - Adopt Plugin Inspector 0.4.3 with serialized SDK inventory coverage, reuse real corpus inspections across derived-report tests, and bound test stages and profiler samples independently while preserving full-corpus checks. Thanks @Patrick-Erichsen.
