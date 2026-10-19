@@ -231,6 +231,23 @@ and native process creation. Missing later phases remain unknown; a phase marker
 never proves Job extinction. The parent retains received phases if its Worker dies.
 Contextual timeout errors retain the original error as `cause`.
 
+Captured Windows failures also retain `error.windowsHelper`: at most four fixed
+phase-keyed bootstrap observations (`entry`, `connect-attempt`, `connected`, `failure`) with
+wall-clock timestamps, preparation stage, exception category and numeric codes.
+They do not require the control pipe or JSON serializer to be ready. The internal
+helper tag, exception messages, paths, arguments and environment are excluded.
+Records are limited to 256 bytes each; `truncated` marks excess observations,
+which remain subject to the ordinary stderr capture limit. Other stderr bytes
+and target output keep their existing capture budget and contents.
+
+The observed helper close event supplies `terminal.exitCode`, `signal` and
+`requestIssued`; a null terminal means no close event was received, not successful
+cleanup. These facts travel through the Worker onto the returned Error, including
+when a caller throws it. Inherited stdio keeps its native descriptors and has
+`captured: false` with no bootstrap observations. Missing events remain unknown;
+diagnostics do not establish a startup cause or change admission, deadlines or
+cleanup guarantees.
+
 Pinned Inspector checkout preparation waits up to two minutes for its checkout
 lock, then fails without taking ownership from another installer. Lock age is
 not evidence that an installer stopped. Unconfirmed command cleanup retains the

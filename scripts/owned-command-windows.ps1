@@ -1,7 +1,6 @@
-param([string]$PipeName)
+param([string]$PipeName, [string]$BootstrapCapture)
 $ErrorActionPreference = "Stop"
-$pipe = [System.IO.Pipes.NamedPipeClientStream]::new(
-    ".", $PipeName, [System.IO.Pipes.PipeDirection]::InOut, [System.IO.Pipes.PipeOptions]::Asynchronous)
+$pipe = $null
 $reader = $null
 $writer = $null
 $bootstrapKill = $null
@@ -9,8 +8,40 @@ $attempted = $false
 $nativeReturned = $false
 $created = $false
 $setupReleased = $true
+$bootstrapStage = "entry"
+# This channel needs neither the control pipe nor JSON preparation. Fixed facts
+# deliberately exclude exception messages, paths, command arguments and input.
+function Write-Bootstrap([string]$Phase, [System.Exception]$Failure = $null) {
+    if ($BootstrapCapture -ne "capture") { return }
+    try {
+        $kind = "none"
+        $hresult = 0
+        $nativeCode = 0
+        if ($null -ne $Failure) {
+            while ($null -ne $Failure.InnerException) { $Failure = $Failure.InnerException }
+            $kind = "other"
+            if ($Failure -is [System.TimeoutException]) { $kind = "timeout" }
+            elseif ($Failure -is [System.UnauthorizedAccessException]) { $kind = "access" }
+            elseif ($Failure -is [System.ArgumentException]) { $kind = "argument" }
+            elseif ($Failure -is [System.IO.IOException]) { $kind = "io" }
+            $hresult = $Failure.HResult
+            if ($Failure -is [System.ComponentModel.Win32Exception]) { $nativeCode = $Failure.NativeErrorCode }
+        }
+        [Console]::Error.WriteLine("CRABPOT_BOOTSTRAP " + $PipeName + " " + $Phase + " " +
+            [DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds() + " " + $bootstrapStage + " " + $kind + " " + $hresult + " " + $nativeCode)
+        [Console]::Error.Flush()
+    } catch {}
+}
 try {
+    Write-Bootstrap "entry"
+    $bootstrapStage = "pipe-create"
+    $pipe = [System.IO.Pipes.NamedPipeClientStream]::new(
+        ".", $PipeName, [System.IO.Pipes.PipeDirection]::InOut, [System.IO.Pipes.PipeOptions]::Asynchronous)
+    $bootstrapStage = "pipe-connect"
+    Write-Bootstrap "connect-attempt"
     $pipe.Connect(5000)
+    Write-Bootstrap "connected"
+    $bootstrapStage = "pipe-setup"
     $utf8 = [System.Text.UTF8Encoding]::new($false)
     $reader = [System.IO.StreamReader]::new($pipe, $utf8, $false, 4096, $true)
     $writer = [System.IO.StreamWriter]::new($pipe, $utf8, 4096, $true)
@@ -32,6 +63,7 @@ try {
                 [System.Runtime.InteropServices.Marshal]::GetLastWin32Error(), $Operation)
         }
     }
+    $bootstrapStage = "preparation"
     Write-Phase "preparation-started"
     if ([IntPtr]::Size -ne 8) { throw "Windows Job ownership requires a 64-bit Windows runtime" }
     $assembly = [AppDomain]::CurrentDomain.DefineDynamicAssembly(
@@ -260,6 +292,7 @@ try {
     if (-not $setupReleased) { throw "Windows command setup handles did not close" }
     $writer.WriteLine("CLOSED")
 } catch {
+    if ($null -eq $serializer) { Write-Bootstrap "failure" $_.Exception }
     if ($null -ne $bootstrapKill) { $bootstrapKill.Dispose(); $bootstrapKill = $null }
     if ($null -ne $writer -and $null -ne $serializer) {
         $failure = $_.Exception
@@ -286,5 +319,5 @@ try {
     if ($null -ne $bootstrapKill) { $bootstrapKill.Dispose() }
     if ($null -ne $writer) { $writer.Dispose() }
     if ($null -ne $reader) { $reader.Dispose() }
-    $pipe.Dispose()
+    if ($null -ne $pipe) { $pipe.Dispose() }
 }

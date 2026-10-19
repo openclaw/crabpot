@@ -2,6 +2,8 @@
 
 ## 0.2.2 - Unreleased
 
+- Retain bounded, private-safe Windows helper bootstrap and terminal observations on command errors, including failures before pipe connection or serializer preparation. Preserve deadlines, output limits and native cleanup; the intermittent startup cause remains unresolved.
+
 - Retain bounded child errors and truncation metadata in runtime-profile JSON through reviewed Inspector source, preserving the published 0.4.3 npm pin, command order, heap limits, and deadlines.
 
 - Refresh AgentChat, ClawMetry, Honcho, MemOS Cloud and NemoClaw fixture pins; track Honcho's additive prompt supplement and LLM observation contracts. Thanks @dependabot.
