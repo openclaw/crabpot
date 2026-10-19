@@ -1680,19 +1680,19 @@
     "fixtureCount": 59,
     "highPriorityFixtures": 22,
     "breakageCount": 0,
-    "warningCount": 282,
-    "suggestionCount": 164,
-    "decisionCount": 267,
-    "logCount": 602,
-    "issueCount": 446,
-    "openIssueCount": 446,
-    "p0IssueCount": 7,
-    "p1IssueCount": 36,
-    "openP0IssueCount": 7,
-    "openP1IssueCount": 36,
-    "liveIssueCount": 7,
-    "liveP0IssueCount": 7,
-    "compatGapCount": 28,
+    "warningCount": 280,
+    "suggestionCount": 163,
+    "decisionCount": 265,
+    "logCount": 605,
+    "issueCount": 443,
+    "openIssueCount": 443,
+    "p0IssueCount": 5,
+    "p1IssueCount": 35,
+    "openP0IssueCount": 5,
+    "openP1IssueCount": 35,
+    "liveIssueCount": 5,
+    "liveP0IssueCount": 5,
+    "compatGapCount": 27,
     "deprecationWarningCount": 218,
     "inspectorGapCount": 149,
     "upstreamIssueCount": 44,
@@ -1701,7 +1701,7 @@
     "runtimeCoveredIssueCount": 0,
     "runtimePartiallyCoveredIssueCount": 0,
     "runtimeCoverageArtifactCount": 0,
-    "contractProbeCount": 218
+    "contractProbeCount": 217
   },
   "fixtures": [
     {
@@ -1726,8 +1726,8 @@
         {
           "name": "defineChannelPluginEntry",
           "file": "plugins/agentchat/src/channel.ts",
-          "line": 351,
-          "ref": "plugins/agentchat/src/channel.ts:351"
+          "line": 355,
+          "ref": "plugins/agentchat/src/channel.ts:355"
         }
       ],
       "manifestContracts": [],
@@ -1762,6 +1762,7 @@
         "plugins/agentchat/src/channel.setup.ts",
         "plugins/agentchat/src/channel.ts",
         "plugins/agentchat/src/channel.wizard.ts",
+        "plugins/agentchat/src/client-identity.ts",
         "plugins/agentchat/src/config-schema.ts",
         "plugins/agentchat/src/configured-state.ts",
         "plugins/agentchat/src/credentials/read-env.ts",
@@ -1788,7 +1789,7 @@
           "path": "plugins/agentchat/openclaw.plugin.json",
           "id": "agentchat",
           "name": "AgentChat",
-          "version": "0.7.821",
+          "version": "0.7.8211111",
           "keys": [
             "channelConfigs",
             "channelEnvVars",
@@ -1817,7 +1818,7 @@
       "package": {
         "path": "plugins/agentchat/package.json",
         "name": "@agentchatme/openclaw",
-        "version": "0.7.821",
+        "version": "0.7.8211111",
         "type": "module",
         "main": "./dist/index.cjs",
         "npmPack": {
@@ -1888,7 +1889,7 @@
         {
           "path": "plugins/agentchat/package.json",
           "name": "@agentchatme/openclaw",
-          "version": "0.7.821",
+          "version": "0.7.8211111",
           "type": "module",
           "main": "./dist/index.cjs",
           "npmPack": {
@@ -1998,8 +1999,8 @@
         {
           "specifier": "openclaw/plugin-sdk/setup",
           "file": "plugins/agentchat/src/channel.wizard.ts",
-          "line": 40,
-          "ref": "plugins/agentchat/src/channel.wizard.ts:40"
+          "line": 48,
+          "ref": "plugins/agentchat/src/channel.wizard.ts:48"
         },
         {
           "specifier": "openclaw/plugin-sdk/simple-completion-runtime",
@@ -2015,8 +2016,8 @@
         "inputKind": "source",
         "status": "complete",
         "coverage": {
-          "filesDiscovered": 92,
-          "filesAnalyzed": 48,
+          "filesDiscovered": 93,
+          "filesAnalyzed": 49,
           "filesExcluded": 44
         },
         "entries": [
@@ -2638,12 +2639,12 @@
               },
               {
                 "path": "src/channel.ts",
-                "line": 350,
+                "line": 354,
                 "snippet": "typeof defineChannelPluginEntry<typeof agentchatPlugin>"
               },
               {
                 "path": "src/channel.ts",
-                "line": 351,
+                "line": 355,
                 "snippet": "> = defineChannelPluginEntry({"
               }
             ],
@@ -2753,12 +2754,12 @@
             "evidence": [
               {
                 "path": "src/channel.wizard.ts",
-                "line": 43,
+                "line": 51,
                 "snippet": "type ChannelSetupWizard,"
               },
               {
                 "path": "src/channel.wizard.ts",
-                "line": 528,
+                "line": 819,
                 "snippet": "export const agentchatSetupWizard: ChannelSetupWizard = {"
               }
             ],
@@ -2776,32 +2777,42 @@
             "evidence": [
               {
                 "path": "src/channel.wizard.ts",
-                "line": 44,
+                "line": 52,
                 "snippet": "type OpenClawConfig,"
               },
               {
                 "path": "src/channel.wizard.ts",
-                "line": 103,
+                "line": 117,
                 "snippet": "function hasConfiguredKey(cfg: OpenClawConfig | undefined, accountId: string): boolean {"
               },
               {
                 "path": "src/channel.wizard.ts",
-                "line": 188,
+                "line": 217,
                 "snippet": "cfg: OpenClawConfig"
               },
               {
                 "path": "src/channel.wizard.ts",
-                "line": 191,
+                "line": 220,
                 "snippet": "}): Promise<{ cfg: OpenClawConfig } | undefined> {"
               },
               {
                 "path": "src/channel.wizard.ts",
-                "line": 246,
+                "line": 279,
                 "snippet": "| { cfg: OpenClawConfig; credentialValues: ChannelSetupWizardCredentialValues }"
               },
               {
                 "path": "src/channel.wizard.ts",
-                "line": 251,
+                "line": 335,
+                "snippet": "cfg: OpenClawConfig"
+              },
+              {
+                "path": "src/channel.wizard.ts",
+                "line": 604,
+                "snippet": "| { cfg: OpenClawConfig; credentialValues: ChannelSetupWizardCredentialValues }"
+              },
+              {
+                "path": "src/channel.wizard.ts",
+                "line": 624,
                 "snippet": "cfg: OpenClawConfig"
               }
             ],
@@ -2818,7 +2829,7 @@
             "evidence": [
               {
                 "path": "src/channel.wizard.ts",
-                "line": 41,
+                "line": 49,
                 "snippet": "WizardCancelledError,"
               }
             ],
@@ -2836,32 +2847,42 @@
             "evidence": [
               {
                 "path": "src/channel.wizard.ts",
-                "line": 45,
+                "line": 53,
                 "snippet": "type WizardPrompter,"
               },
               {
                 "path": "src/channel.wizard.ts",
-                "line": 116,
-                "snippet": "async function promptEmail(prompter: WizardPrompter): Promise<string> {"
-              },
-              {
-                "path": "src/channel.wizard.ts",
                 "line": 131,
-                "snippet": "async function promptHandle(prompter: WizardPrompter): Promise<string> {"
+                "snippet": "prompter: WizardPrompter,"
               },
               {
                 "path": "src/channel.wizard.ts",
-                "line": 159,
+                "line": 152,
+                "snippet": "prompter: WizardPrompter,"
+              },
+              {
+                "path": "src/channel.wizard.ts",
+                "line": 188,
                 "snippet": "async function promptDisplayName(prompter: WizardPrompter): Promise<string> {"
               },
               {
                 "path": "src/channel.wizard.ts",
-                "line": 190,
+                "line": 219,
                 "snippet": "prompter: WizardPrompter"
               },
               {
                 "path": "src/channel.wizard.ts",
-                "line": 253,
+                "line": 310,
+                "snippet": "prompter: WizardPrompter,"
+              },
+              {
+                "path": "src/channel.wizard.ts",
+                "line": 337,
+                "snippet": "prompter: WizardPrompter"
+              },
+              {
+                "path": "src/channel.wizard.ts",
+                "line": 626,
                 "snippet": "prompter: WizardPrompter"
               }
             ],
@@ -2879,12 +2900,12 @@
             "evidence": [
               {
                 "path": "src/channel.wizard.ts",
-                "line": 42,
+                "line": 50,
                 "snippet": "setSetupChannelEnabled,"
               },
               {
                 "path": "src/channel.wizard.ts",
-                "line": 822,
+                "line": 1160,
                 "snippet": "return setSetupChannelEnabled(cfg, AGENTCHAT_CHANNEL_ID, false)"
               }
             ],
@@ -3135,27 +3156,27 @@
             "evidence": [
               {
                 "path": "src/channel.wizard.ts",
-                "line": 41,
+                "line": 49,
                 "snippet": "WizardCancelledError,"
               },
               {
                 "path": "src/channel.wizard.ts",
-                "line": 42,
+                "line": 50,
                 "snippet": "setSetupChannelEnabled,"
               },
               {
                 "path": "src/channel.wizard.ts",
-                "line": 43,
+                "line": 51,
                 "snippet": "type ChannelSetupWizard,"
               },
               {
                 "path": "src/channel.wizard.ts",
-                "line": 44,
+                "line": 52,
                 "snippet": "type OpenClawConfig,"
               },
               {
                 "path": "src/channel.wizard.ts",
-                "line": 45,
+                "line": 53,
                 "snippet": "type WizardPrompter,"
               }
             ],
@@ -21251,47 +21272,28 @@
       "name": "Honcho OpenClaw",
       "priority": "high",
       "seams": [
-        "memory-runtime",
+        "external-memory",
         "prompt-mutation",
+        "llm-observer",
         "gateway-lifecycle",
         "subagent-routing",
         "sdk-compat"
       ],
-      "why": "Memory-runtime fixture covering plugin-entry aliases, memory runtime/prompt-section registration, gateway lifecycle, subagent capture, and managed external memory tools.",
+      "why": "Additive external-memory fixture covering plugin-entry aliases, prompt supplements beside the host memory slot, gateway lifecycle, subagent capture, LLM observation, and managed external memory tools.",
       "status": "ok",
       "hooks": [
         "agent_end",
-        "before_agent_start",
-        "before_compaction",
         "before_prompt_build",
-        "before_reset",
         "gateway_start",
+        "llm_output",
         "subagent_spawned"
       ],
       "hookDetails": [
         {
           "name": "agent_end",
           "file": "plugins/honcho/hooks/capture.ts",
-          "line": 184,
-          "ref": "plugins/honcho/hooks/capture.ts:184"
-        },
-        {
-          "name": "agent_end",
-          "file": "plugins/honcho/hooks/subagent.ts",
-          "line": 34,
-          "ref": "plugins/honcho/hooks/subagent.ts:34"
-        },
-        {
-          "name": "before_agent_start",
-          "file": "plugins/honcho/hooks/subagent.ts",
-          "line": 18,
-          "ref": "plugins/honcho/hooks/subagent.ts:18"
-        },
-        {
-          "name": "before_compaction",
-          "file": "plugins/honcho/hooks/capture.ts",
-          "line": 213,
-          "ref": "plugins/honcho/hooks/capture.ts:213"
+          "line": 137,
+          "ref": "plugins/honcho/hooks/capture.ts:137"
         },
         {
           "name": "before_prompt_build",
@@ -21300,37 +21302,36 @@
           "ref": "plugins/honcho/hooks/context.ts:7"
         },
         {
-          "name": "before_reset",
-          "file": "plugins/honcho/hooks/capture.ts",
-          "line": 230,
-          "ref": "plugins/honcho/hooks/capture.ts:230"
-        },
-        {
           "name": "gateway_start",
           "file": "plugins/honcho/hooks/gateway.ts",
-          "line": 6,
-          "ref": "plugins/honcho/hooks/gateway.ts:6"
+          "line": 92,
+          "ref": "plugins/honcho/hooks/gateway.ts:92"
+        },
+        {
+          "name": "llm_output",
+          "file": "plugins/honcho/hooks/telemetry.ts",
+          "line": 31,
+          "ref": "plugins/honcho/hooks/telemetry.ts:31"
         },
         {
           "name": "subagent_spawned",
           "file": "plugins/honcho/hooks/subagent.ts",
-          "line": 24,
-          "ref": "plugins/honcho/hooks/subagent.ts:24"
+          "line": 13,
+          "ref": "plugins/honcho/hooks/subagent.ts:13"
         }
       ],
       "registrations": [
         "definePluginEntry",
         "registerCli",
-        "registerMemoryPromptSection",
-        "registerMemoryRuntime",
+        "registerMemoryPromptSupplement",
         "registerTool"
       ],
       "registrationDetails": [
         {
           "name": "definePluginEntry",
           "file": "plugins/honcho/index.ts",
-          "line": 85,
-          "ref": "plugins/honcho/index.ts:85"
+          "line": 109,
+          "ref": "plugins/honcho/index.ts:109"
         },
         {
           "name": "registerCli",
@@ -21339,16 +21340,10 @@
           "ref": "plugins/honcho/commands/cli.ts:38"
         },
         {
-          "name": "registerMemoryPromptSection",
+          "name": "registerMemoryPromptSupplement",
           "file": "plugins/honcho/index.ts",
-          "line": 97,
-          "ref": "plugins/honcho/index.ts:97"
-        },
-        {
-          "name": "registerMemoryRuntime",
-          "file": "plugins/honcho/runtime.ts",
-          "line": 239,
-          "ref": "plugins/honcho/runtime.ts:239"
+          "line": 119,
+          "ref": "plugins/honcho/index.ts:119"
         },
         {
           "name": "registerTool",
@@ -21403,10 +21398,12 @@
         "plugins/honcho/commands/cli.ts",
         "plugins/honcho/config.ts",
         "plugins/honcho/helpers.ts",
+        "plugins/honcho/honcho-client.ts",
         "plugins/honcho/hooks/capture.ts",
         "plugins/honcho/hooks/context.ts",
         "plugins/honcho/hooks/gateway.ts",
         "plugins/honcho/hooks/subagent.ts",
+        "plugins/honcho/hooks/telemetry.ts",
         "plugins/honcho/index.ts",
         "plugins/honcho/install.js",
         "plugins/honcho/peers.ts",
@@ -21429,7 +21426,6 @@
             "configSchema",
             "contracts",
             "id",
-            "kind",
             "name",
             "setup",
             "uiHints"
@@ -21446,7 +21442,7 @@
       "package": {
         "path": "plugins/honcho/package.json",
         "name": "@honcho-ai/openclaw-honcho",
-        "version": "1.5.2",
+        "version": "1.7.0",
         "type": "module",
         "main": "dist/index.js",
         "npmPack": {
@@ -21462,6 +21458,7 @@
           "invalidFileSpecs": []
         },
         "dependencies": [
+          "@honcho-ai/harness-plugin-core",
           "@honcho-ai/sdk",
           "@sinclair/typebox"
         ],
@@ -21476,8 +21473,8 @@
           "runtimeExtensions": [],
           "setupEntry": null,
           "runtimeSetupEntry": null,
-          "compatPluginApi": ">=2026.3.22",
-          "buildOpenClawVersion": ">=2026.3.22",
+          "compatPluginApi": ">=2026.4.7",
+          "buildOpenClawVersion": ">=2026.4.7",
           "buildPluginSdkVersion": null,
           "install": null,
           "release": null,
@@ -21497,7 +21494,7 @@
         {
           "path": "plugins/honcho/package.json",
           "name": "@honcho-ai/openclaw-honcho",
-          "version": "1.5.2",
+          "version": "1.7.0",
           "type": "module",
           "main": "dist/index.js",
           "npmPack": {
@@ -21513,6 +21510,7 @@
             "invalidFileSpecs": []
           },
           "dependencies": [
+            "@honcho-ai/harness-plugin-core",
             "@honcho-ai/sdk",
             "@sinclair/typebox"
           ],
@@ -21527,8 +21525,8 @@
             "runtimeExtensions": [],
             "setupEntry": null,
             "runtimeSetupEntry": null,
-            "compatPluginApi": ">=2026.3.22",
-            "buildOpenClawVersion": ">=2026.3.22",
+            "compatPluginApi": ">=2026.4.7",
+            "buildOpenClawVersion": ">=2026.4.7",
             "buildPluginSdkVersion": null,
             "install": null,
             "release": null,
@@ -21546,10 +21544,24 @@
         }
       ],
       "sdkImports": [
+        "openclaw/plugin-sdk/cli-runtime",
+        "openclaw/plugin-sdk/extension-shared",
         "openclaw/plugin-sdk/plugin-entry",
         "openclaw/plugin-sdk/routing"
       ],
       "sdkImportDetails": [
+        {
+          "specifier": "openclaw/plugin-sdk/cli-runtime",
+          "file": "plugins/honcho/honcho-client.ts",
+          "line": 11,
+          "ref": "plugins/honcho/honcho-client.ts:11"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/extension-shared",
+          "file": "plugins/honcho/honcho-client.ts",
+          "line": 13,
+          "ref": "plugins/honcho/honcho-client.ts:13"
+        },
         {
           "specifier": "openclaw/plugin-sdk/plugin-entry",
           "file": "plugins/honcho/index.ts",
@@ -21559,20 +21571,39 @@
         {
           "specifier": "openclaw/plugin-sdk/routing",
           "file": "plugins/honcho/helpers.ts",
-          "line": 8,
-          "ref": "plugins/honcho/helpers.ts:8"
+          "line": 9,
+          "ref": "plugins/honcho/helpers.ts:9"
+        },
+        {
+          "specifier": "openclaw/plugin-sdk/routing",
+          "file": "plugins/honcho/hooks/subagent.ts",
+          "line": 4,
+          "ref": "plugins/honcho/hooks/subagent.ts:4"
         }
       ],
-      "sdkDeprecations": [],
+      "sdkDeprecations": [
+        {
+          "code": "sdk-deprecated-api",
+          "symbol": "openclaw/plugin-sdk/cli-runtime",
+          "surface": "openclaw/plugin-sdk/cli-runtime",
+          "deprecatedApi": "openclaw/plugin-sdk/cli-runtime",
+          "replacement": "focused plugin SDK subpaths for each runtime capability",
+          "removeAfter": "2026-10-01",
+          "docsPath": "/plugins/sdk-migration#compatibility-policy",
+          "compatRecord": "plugin-sdk-broad-runtime-barrels",
+          "ref": "plugins/honcho/honcho-client.ts:11",
+          "message": "openclaw/plugin-sdk/cli-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability"
+        }
+      ],
       "sdkUsage": {
         "schemaVersion": 1,
         "analysisVersion": "1",
         "inputKind": "source",
         "status": "complete",
         "coverage": {
-          "filesDiscovered": 41,
-          "filesAnalyzed": 20,
-          "filesExcluded": 21
+          "filesDiscovered": 53,
+          "filesAnalyzed": 22,
+          "filesExcluded": 31
         },
         "entries": [
           {
@@ -21586,17 +21617,17 @@
             "evidence": [
               {
                 "path": "state.ts",
-                "line": 116,
+                "line": 121,
                 "snippet": "const agents = api.config?.agents?.list;"
               },
               {
                 "path": "state.ts",
-                "line": 117,
+                "line": 122,
                 "snippet": "if (!Array.isArray(agents) || agents.length === 0) return \"main\";"
               },
               {
                 "path": "state.ts",
-                "line": 118,
+                "line": 123,
                 "snippet": "const defaultAgent = agents.find((a: { default?: boolean }) => a?.default) ?? agents[0];"
               }
             ],
@@ -21613,7 +21644,7 @@
             "evidence": [
               {
                 "path": "state.ts",
-                "line": 118,
+                "line": 123,
                 "snippet": "const defaultAgent = agents.find((a: { default?: boolean }) => a?.default) ?? agents[0];"
               }
             ],
@@ -21631,8 +21662,31 @@
             "evidence": [
               {
                 "path": "state.ts",
-                "line": 119,
+                "line": 124,
                 "snippet": "return (defaultAgent?.id ?? \"main\").toLowerCase().trim() || \"main\";"
+              }
+            ],
+            "deprecationCodes": []
+          },
+          {
+            "key": "api-member:api.logger",
+            "kind": "api-member",
+            "identity": "api.logger",
+            "classification": "mixed",
+            "referenceKinds": [
+              "member-access",
+              "type-reference"
+            ],
+            "evidence": [
+              {
+                "path": "hooks/gateway.ts",
+                "line": 61,
+                "snippet": "async function checkForUpdate(logger: OpenClawPluginApi[\"logger\"]): Promise<void> {"
+              },
+              {
+                "path": "hooks/gateway.ts",
+                "line": 95,
+                "snippet": "void checkForUpdate(api.logger);"
               }
             ],
             "deprecationCodes": []
@@ -21647,28 +21701,13 @@
             ],
             "evidence": [
               {
-                "path": "hooks/capture.ts",
-                "line": 97,
-                "snippet": "api.logger.debug?.(`[honcho] User message without sender_id (hasConvInfo=${hasConvInfo}, contentLen=${rawContent.length})`);"
-              },
-              {
-                "path": "hooks/capture.ts",
-                "line": 101,
-                "snippet": "api.logger.debug?.(`[honcho] Resolved ${senderIds.size} unique sender(s) from ${userMsgCount} user message(s)`);"
-              },
-              {
-                "path": "hooks/capture.ts",
-                "line": 219,
-                "snippet": "api.logger.debug?.(`[honcho] Flushed ${saved} messages before compaction`);"
-              },
-              {
-                "path": "hooks/capture.ts",
-                "line": 236,
-                "snippet": "api.logger.debug?.(`[honcho] Flushed ${saved} messages before session reset`);"
+                "path": "hooks/telemetry.ts",
+                "line": 38,
+                "snippet": "api.logger.debug?.(`[honcho] telemetry model capture skipped: ${error}`);"
               },
               {
                 "path": "index.ts",
-                "line": 123,
+                "line": 138,
                 "snippet": "api.logger.debug(\"Honcho memory plugin registered for workspace\");"
               }
             ],
@@ -21685,27 +21724,27 @@
             "evidence": [
               {
                 "path": "hooks/capture.ts",
-                "line": 190,
+                "line": 143,
                 "snippet": "api.logger.error(`[honcho] Failed to save messages to Honcho: ${error}`);"
               },
               {
                 "path": "hooks/capture.ts",
-                "line": 192,
+                "line": 145,
                 "snippet": "api.logger.error(`[honcho] Stack: ${error.stack}`);"
               },
               {
                 "path": "hooks/capture.ts",
-                "line": 194,
+                "line": 147,
                 "snippet": "if (anyError.status) api.logger.error(`[honcho] Status: ${anyError.status}`);"
               },
               {
                 "path": "hooks/capture.ts",
-                "line": 195,
+                "line": 148,
                 "snippet": "if (anyError.body) api.logger.error(`[honcho] Body: ${JSON.stringify(anyError.body)}`);"
               },
               {
                 "path": "hooks/gateway.ts",
-                "line": 17,
+                "line": 107,
                 "snippet": "api.logger.error(`Failed to initialize Honcho at ${state.cfg.baseUrl}: ${error}`);"
               }
             ],
@@ -21722,22 +21761,32 @@
             "evidence": [
               {
                 "path": "hooks/gateway.ts",
-                "line": 7,
+                "line": 41,
+                "snippet": "api.logger.info("
+              },
+              {
+                "path": "hooks/gateway.ts",
+                "line": 81,
+                "snippet": "logger.info("
+              },
+              {
+                "path": "hooks/gateway.ts",
+                "line": 97,
                 "snippet": "api.logger.info(\"Initializing Honcho memory...\");"
               },
               {
                 "path": "hooks/gateway.ts",
-                "line": 11,
+                "line": 101,
                 "snippet": "api.logger.info("
               },
               {
                 "path": "index.ts",
-                "line": 120,
+                "line": 135,
                 "snippet": "api.logger.info(\"Honcho memory plugin loaded\");"
               },
               {
                 "path": "state.ts",
-                "line": 224,
+                "line": 229,
                 "snippet": "api.logger.info(`[honcho] Recovered peer \"${peerId}\" for renamed agent \"${id}\"`);"
               }
             ],
@@ -21753,23 +21802,23 @@
             ],
             "evidence": [
               {
-                "path": "hooks/capture.ts",
-                "line": 222,
-                "snippet": "api.logger.warn?.(`[honcho] Failed to flush messages before compaction: ${error}`);"
-              },
-              {
-                "path": "hooks/capture.ts",
-                "line": 239,
-                "snippet": "api.logger.warn?.(`[honcho] Failed to flush messages before reset: ${error}`);"
-              },
-              {
                 "path": "hooks/context.ts",
-                "line": 87,
+                "line": 92,
                 "snippet": "api.logger.warn?.(`Failed to fetch Honcho context: ${error}`);"
               },
               {
+                "path": "hooks/gateway.ts",
+                "line": 18,
+                "snippet": "api.logger.warn("
+              },
+              {
+                "path": "hooks/gateway.ts",
+                "line": 46,
+                "snippet": "api.logger.warn("
+              },
+              {
                 "path": "state.ts",
-                "line": 74,
+                "line": 79,
                 "snippet": "api.logger.warn("
               }
             ],
@@ -21786,18 +21835,8 @@
             "evidence": [
               {
                 "path": "hooks/capture.ts",
-                "line": 184,
+                "line": 137,
                 "snippet": "api.on(\"agent_end\", async (event, ctx) => {"
-              },
-              {
-                "path": "hooks/capture.ts",
-                "line": 213,
-                "snippet": "api.on(\"before_compaction\", async (event, ctx) => {"
-              },
-              {
-                "path": "hooks/capture.ts",
-                "line": 230,
-                "snippet": "api.on(\"before_reset\", async (event, ctx) => {"
               },
               {
                 "path": "hooks/context.ts",
@@ -21806,23 +21845,18 @@
               },
               {
                 "path": "hooks/gateway.ts",
-                "line": 6,
+                "line": 92,
                 "snippet": "api.on(\"gateway_start\", async (_event, _ctx) => {"
               },
               {
                 "path": "hooks/subagent.ts",
-                "line": 18,
-                "snippet": "api.on(\"before_agent_start\", (_event, ctx) => {"
+                "line": 13,
+                "snippet": "api.on(\"subagent_spawned\", (_event, ctx) => {"
               },
               {
-                "path": "hooks/subagent.ts",
-                "line": 24,
-                "snippet": "api.on(\"subagent_spawned\", async (_event, ctx: PluginHookSubagentContext) => {"
-              },
-              {
-                "path": "hooks/subagent.ts",
-                "line": 34,
-                "snippet": "api.on(\"agent_end\", (_event, ctx) => {"
+                "path": "hooks/telemetry.ts",
+                "line": 31,
+                "snippet": "api.on(\"llm_output\", async (event) => {"
               }
             ],
             "deprecationCodes": []
@@ -21838,7 +21872,7 @@
             "evidence": [
               {
                 "path": "state.ts",
-                "line": 69,
+                "line": 74,
                 "snippet": "const cfg = honchoConfigSchema.parse(api.pluginConfig);"
               }
             ],
@@ -21855,17 +21889,17 @@
             "evidence": [
               {
                 "path": "config.ts",
-                "line": 28,
+                "line": 75,
                 "snippet": "return value.replace(/\\$\\{([^}]+)\\}/g, (_, envVar) => {"
               },
               {
                 "path": "config.ts",
-                "line": 43,
+                "line": 90,
                 "snippet": "if (typeof cfg.apiKey === \"string\" && cfg.apiKey.length > 0) {"
               },
               {
                 "path": "config.ts",
-                "line": 44,
+                "line": 91,
                 "snippet": "apiKey = resolveEnvVars(cfg.apiKey);"
               }
             ],
@@ -21882,38 +21916,60 @@
             "evidence": [
               {
                 "path": "config.ts",
-                "line": 67,
+                "line": 114,
                 "snippet": "typeof cfg.baseUrl === \"string\" && cfg.baseUrl.length > 0"
               },
               {
                 "path": "config.ts",
-                "line": 68,
+                "line": 115,
                 "snippet": "? cfg.baseUrl"
               },
               {
+                "path": "honcho-client.ts",
+                "line": 60,
+                "snippet": "baseURL: options.baseUrl,"
+              },
+              {
                 "path": "hooks/gateway.ts",
-                "line": 17,
+                "line": 107,
                 "snippet": "api.logger.error(`Failed to initialize Honcho at ${state.cfg.baseUrl}: ${error}`);"
               },
               {
                 "path": "runtime.ts",
-                "line": 199,
+                "line": 203,
                 "snippet": "provider: isManagedHonchoCloud(state.cfg.baseUrl) ? \"honcho\" : \"honcho-selfhosted\","
               },
               {
                 "path": "runtime.ts",
-                "line": 205,
+                "line": 209,
                 "snippet": "baseUrl: state.cfg.baseUrl,"
               },
               {
                 "path": "state.ts",
-                "line": 71,
+                "line": 76,
                 "snippet": "const selfHosted = !isManagedHonchoCloud(cfg.baseUrl);"
               },
               {
                 "path": "state.ts",
-                "line": 81,
-                "snippet": "baseURL: cfg.baseUrl,"
+                "line": 86,
+                "snippet": "baseUrl: cfg.baseUrl,"
+              }
+            ],
+            "deprecationCodes": []
+          },
+          {
+            "key": "api-member:api.pluginConfig.captureSystemRuns",
+            "kind": "api-member",
+            "identity": "api.pluginConfig.captureSystemRuns",
+            "classification": "runtime",
+            "referenceKinds": [
+              "member-access"
+            ],
+            "evidence": [
+              {
+                "path": "config.ts",
+                "line": 132,
+                "snippet": "captureSystemRuns: cfg.captureSystemRuns === true,"
               }
             ],
             "deprecationCodes": []
@@ -21929,17 +21985,17 @@
             "evidence": [
               {
                 "path": "config.ts",
-                "line": 83,
+                "line": 130,
                 "snippet": "crossSessionSearch: typeof cfg.crossSessionSearch === \"boolean\" ? cfg.crossSessionSearch : true,"
               },
               {
                 "path": "runtime.ts",
-                "line": 138,
+                "line": 142,
                 "snippet": "const crossSession = opts.crossSessionSearch ?? state.cfg.crossSessionSearch;"
               },
               {
                 "path": "runtime.ts",
-                "line": 185,
+                "line": 189,
                 "snippet": "if (!state.cfg.crossSessionSearch && activeSessionKey && !matchesSessionScope(sessionId, activeSessionKey)) {"
               }
             ],
@@ -21956,8 +22012,25 @@
             "evidence": [
               {
                 "path": "config.ts",
-                "line": 49,
+                "line": 96,
                 "snippet": "const disableDefaultNoisePatterns = cfg.disableDefaultNoisePatterns === true;"
+              }
+            ],
+            "deprecationCodes": []
+          },
+          {
+            "key": "api-member:api.pluginConfig.enableMemoryCompatibilityTools",
+            "kind": "api-member",
+            "identity": "api.pluginConfig.enableMemoryCompatibilityTools",
+            "classification": "runtime",
+            "referenceKinds": [
+              "member-access"
+            ],
+            "evidence": [
+              {
+                "path": "config.ts",
+                "line": 131,
+                "snippet": "enableMemoryCompatibilityTools: cfg.enableMemoryCompatibilityTools === true,"
               }
             ],
             "deprecationCodes": []
@@ -21974,12 +22047,12 @@
             "evidence": [
               {
                 "path": "config.ts",
-                "line": 50,
+                "line": 97,
                 "snippet": "const userPatterns = Array.isArray(cfg.noisePatterns)"
               },
               {
                 "path": "config.ts",
-                "line": 51,
+                "line": 98,
                 "snippet": "? (cfg.noisePatterns as unknown[])"
               }
             ],
@@ -21996,18 +22069,101 @@
             "evidence": [
               {
                 "path": "config.ts",
-                "line": 82,
+                "line": 129,
                 "snippet": "ownerObserveOthers: typeof cfg.ownerObserveOthers === \"boolean\" ? cfg.ownerObserveOthers : false,"
               },
               {
                 "path": "hooks/capture.ts",
-                "line": 116,
-                "snippet": "peerConfigMap.set(OWNER_ID, { observeMe: true, observeOthers: state.cfg.ownerObserveOthers });"
+                "line": 102,
+                "snippet": "[OWNER_ID, { observeMe: true, observeOthers: state.cfg.ownerObserveOthers }],"
               },
               {
                 "path": "hooks/capture.ts",
-                "line": 119,
-                "snippet": "peerConfigMap.set(peer.id, { observeMe: true, observeOthers: state.cfg.ownerObserveOthers });"
+                "line": 110,
+                "snippet": ": { observeMe: true, observeOthers: state.cfg.ownerObserveOthers },"
+              }
+            ],
+            "deprecationCodes": []
+          },
+          {
+            "key": "api-member:api.pluginConfig.recall",
+            "kind": "api-member",
+            "identity": "api.pluginConfig.recall",
+            "classification": "runtime",
+            "referenceKinds": [
+              "member-access"
+            ],
+            "evidence": [
+              {
+                "path": "config.ts",
+                "line": 134,
+                "snippet": "const raw = (cfg.recall ?? {}) as Record<string, unknown>;"
+              }
+            ],
+            "deprecationCodes": []
+          },
+          {
+            "key": "api-member:api.pluginConfig.recall.ask",
+            "kind": "api-member",
+            "identity": "api.pluginConfig.recall.ask",
+            "classification": "runtime",
+            "referenceKinds": [
+              "member-access"
+            ],
+            "evidence": [
+              {
+                "path": "config.ts",
+                "line": 147,
+                "snippet": "ask: resolve(raw.ask, \"workspace\"),"
+              },
+              {
+                "path": "tools/ask.ts",
+                "line": 58,
+                "snippet": "...peerRecallOptions(state.cfg.recall.ask, state.cfg.recall.scopeName, sessionKey),"
+              }
+            ],
+            "deprecationCodes": []
+          },
+          {
+            "key": "api-member:api.pluginConfig.recall.automatic",
+            "kind": "api-member",
+            "identity": "api.pluginConfig.recall.automatic",
+            "classification": "runtime",
+            "referenceKinds": [
+              "member-access"
+            ],
+            "evidence": [
+              {
+                "path": "config.ts",
+                "line": 146,
+                "snippet": "automatic: resolve(raw.automatic, \"workspace\"),"
+              },
+              {
+                "path": "hooks/context.ts",
+                "line": 48,
+                "snippet": "state.cfg.recall.automatic,"
+              }
+            ],
+            "deprecationCodes": []
+          },
+          {
+            "key": "api-member:api.pluginConfig.recall.scopeName",
+            "kind": "api-member",
+            "identity": "api.pluginConfig.recall.scopeName",
+            "classification": "runtime",
+            "referenceKinds": [
+              "member-access"
+            ],
+            "evidence": [
+              {
+                "path": "config.ts",
+                "line": 136,
+                "snippet": "typeof raw.scopeName === \"string\" && raw.scopeName.trim().length > 0"
+              },
+              {
+                "path": "config.ts",
+                "line": 137,
+                "snippet": "? raw.scopeName.trim()"
               }
             ],
             "deprecationCodes": []
@@ -22023,18 +22179,23 @@
             "evidence": [
               {
                 "path": "config.ts",
-                "line": 71,
+                "line": 118,
                 "snippet": "if (typeof cfg.timeoutMs === \"number\" && Number.isFinite(cfg.timeoutMs) && cfg.timeoutMs > 0) {"
               },
               {
                 "path": "config.ts",
-                "line": 72,
+                "line": 119,
                 "snippet": "return cfg.timeoutMs;"
               },
               {
+                "path": "honcho-client.ts",
+                "line": 62,
+                "snippet": "timeout: options.timeoutMs,"
+              },
+              {
                 "path": "state.ts",
-                "line": 83,
-                "snippet": "timeout: cfg.timeoutMs,"
+                "line": 88,
+                "snippet": "timeoutMs: cfg.timeoutMs,"
               }
             ],
             "deprecationCodes": []
@@ -22050,27 +22211,32 @@
             "evidence": [
               {
                 "path": "commands/cli.ts",
-                "line": 442,
+                "line": 466,
                 "snippet": "console.log(`  Workspace: ${state.cfg.workspaceId}`);"
               },
               {
                 "path": "config.ts",
-                "line": 63,
+                "line": 110,
                 "snippet": "typeof cfg.workspaceId === \"string\" && cfg.workspaceId.length > 0"
               },
               {
                 "path": "config.ts",
-                "line": 64,
+                "line": 111,
                 "snippet": "? cfg.workspaceId"
               },
               {
+                "path": "honcho-client.ts",
+                "line": 61,
+                "snippet": "workspaceId: options.workspaceId,"
+              },
+              {
                 "path": "runtime.ts",
-                "line": 204,
+                "line": 208,
                 "snippet": "workspaceId: state.cfg.workspaceId,"
               },
               {
                 "path": "state.ts",
-                "line": 82,
+                "line": 87,
                 "snippet": "workspaceId: cfg.workspaceId,"
               }
             ],
@@ -22094,9 +22260,9 @@
             "deprecationCodes": []
           },
           {
-            "key": "api-member:api.registerMemoryPromptSection",
+            "key": "api-member:api.registerMemoryPromptSupplement",
             "kind": "api-member",
-            "identity": "api.registerMemoryPromptSection",
+            "identity": "api.registerMemoryPromptSupplement",
             "classification": "runtime",
             "referenceKinds": [
               "call"
@@ -22104,31 +22270,8 @@
             "evidence": [
               {
                 "path": "index.ts",
-                "line": 97,
-                "snippet": "api.registerMemoryPromptSection(buildPromptSection);"
-              }
-            ],
-            "deprecationCodes": []
-          },
-          {
-            "key": "api-member:api.registerMemoryRuntime",
-            "kind": "api-member",
-            "identity": "api.registerMemoryRuntime",
-            "classification": "runtime",
-            "referenceKinds": [
-              "call",
-              "member-access"
-            ],
-            "evidence": [
-              {
-                "path": "runtime.ts",
-                "line": 235,
-                "snippet": "if (typeof api?.registerMemoryRuntime !== \"function\") {"
-              },
-              {
-                "path": "runtime.ts",
-                "line": 239,
-                "snippet": "api.registerMemoryRuntime({"
+                "line": 119,
+                "snippet": "api.registerMemoryPromptSupplement(buildPromptSection);"
               }
             ],
             "deprecationCodes": []
@@ -22191,47 +22334,8 @@
             "evidence": [
               {
                 "path": "hooks/capture.ts",
-                "line": 184,
+                "line": 137,
                 "snippet": "api.on(\"agent_end\", async (event, ctx) => {"
-              },
-              {
-                "path": "hooks/subagent.ts",
-                "line": 34,
-                "snippet": "api.on(\"agent_end\", (_event, ctx) => {"
-              }
-            ],
-            "deprecationCodes": []
-          },
-          {
-            "key": "hook:hook.before_agent_start",
-            "kind": "hook",
-            "identity": "hook.before_agent_start",
-            "classification": "runtime",
-            "referenceKinds": [
-              "hook-registration"
-            ],
-            "evidence": [
-              {
-                "path": "hooks/subagent.ts",
-                "line": 18,
-                "snippet": "api.on(\"before_agent_start\", (_event, ctx) => {"
-              }
-            ],
-            "deprecationCodes": []
-          },
-          {
-            "key": "hook:hook.before_compaction",
-            "kind": "hook",
-            "identity": "hook.before_compaction",
-            "classification": "runtime",
-            "referenceKinds": [
-              "hook-registration"
-            ],
-            "evidence": [
-              {
-                "path": "hooks/capture.ts",
-                "line": 213,
-                "snippet": "api.on(\"before_compaction\", async (event, ctx) => {"
               }
             ],
             "deprecationCodes": []
@@ -22254,23 +22358,6 @@
             "deprecationCodes": []
           },
           {
-            "key": "hook:hook.before_reset",
-            "kind": "hook",
-            "identity": "hook.before_reset",
-            "classification": "runtime",
-            "referenceKinds": [
-              "hook-registration"
-            ],
-            "evidence": [
-              {
-                "path": "hooks/capture.ts",
-                "line": 230,
-                "snippet": "api.on(\"before_reset\", async (event, ctx) => {"
-              }
-            ],
-            "deprecationCodes": []
-          },
-          {
             "key": "hook:hook.gateway_start",
             "kind": "hook",
             "identity": "hook.gateway_start",
@@ -22281,8 +22368,25 @@
             "evidence": [
               {
                 "path": "hooks/gateway.ts",
-                "line": 6,
+                "line": 92,
                 "snippet": "api.on(\"gateway_start\", async (_event, _ctx) => {"
+              }
+            ],
+            "deprecationCodes": []
+          },
+          {
+            "key": "hook:hook.llm_output",
+            "kind": "hook",
+            "identity": "hook.llm_output",
+            "classification": "runtime",
+            "referenceKinds": [
+              "hook-registration"
+            ],
+            "evidence": [
+              {
+                "path": "hooks/telemetry.ts",
+                "line": 31,
+                "snippet": "api.on(\"llm_output\", async (event) => {"
               }
             ],
             "deprecationCodes": []
@@ -22298,8 +22402,8 @@
             "evidence": [
               {
                 "path": "hooks/subagent.ts",
-                "line": 24,
-                "snippet": "api.on(\"subagent_spawned\", async (_event, ctx: PluginHookSubagentContext) => {"
+                "line": 13,
+                "snippet": "api.on(\"subagent_spawned\", (_event, ctx) => {"
               }
             ],
             "deprecationCodes": []
@@ -22315,7 +22419,7 @@
             "evidence": [
               {
                 "path": "openclaw.plugin.json",
-                "line": 18,
+                "line": 19,
                 "snippet": "\"honcho_ask\","
               }
             ],
@@ -22332,7 +22436,7 @@
             "evidence": [
               {
                 "path": "openclaw.plugin.json",
-                "line": 16,
+                "line": 17,
                 "snippet": "\"honcho_context\","
               }
             ],
@@ -22349,7 +22453,7 @@
             "evidence": [
               {
                 "path": "openclaw.plugin.json",
-                "line": 17,
+                "line": 18,
                 "snippet": "\"honcho_search_conclusions\","
               }
             ],
@@ -22366,7 +22470,7 @@
             "evidence": [
               {
                 "path": "openclaw.plugin.json",
-                "line": 19,
+                "line": 20,
                 "snippet": "\"honcho_search_messages\","
               }
             ],
@@ -22383,7 +22487,7 @@
             "evidence": [
               {
                 "path": "openclaw.plugin.json",
-                "line": 15,
+                "line": 16,
                 "snippet": "\"honcho_session\","
               }
             ],
@@ -22400,7 +22504,7 @@
             "evidence": [
               {
                 "path": "openclaw.plugin.json",
-                "line": 21,
+                "line": 22,
                 "snippet": "\"memory_get\""
               }
             ],
@@ -22417,16 +22521,97 @@
             "evidence": [
               {
                 "path": "openclaw.plugin.json",
-                "line": 20,
+                "line": 21,
                 "snippet": "\"memory_search\","
               }
             ],
             "deprecationCodes": []
           },
           {
-            "key": "sdk-export:openclaw/plugin-sdk#OpenClawPluginApi",
+            "key": "runtime-member:runtime.config.current",
+            "kind": "runtime-member",
+            "identity": "runtime.config.current",
+            "classification": "runtime",
+            "referenceKinds": [
+              "call"
+            ],
+            "evidence": [
+              {
+                "path": "hooks/gateway.ts",
+                "line": 14,
+                "snippet": "const config = api.runtime.config.current();"
+              },
+              {
+                "path": "hooks/gateway.ts",
+                "line": 28,
+                "snippet": "if (api.runtime.config.current().plugins?.slots?.memory !== PLUGIN_ID) return;"
+              }
+            ],
+            "deprecationCodes": []
+          },
+          {
+            "key": "runtime-member:runtime.config.mutateConfigFile",
+            "kind": "runtime-member",
+            "identity": "runtime.config.mutateConfigFile",
+            "classification": "runtime",
+            "referenceKinds": [
+              "call"
+            ],
+            "evidence": [
+              {
+                "path": "hooks/gateway.ts",
+                "line": 31,
+                "snippet": "const committed = await api.runtime.config.mutateConfigFile({"
+              }
+            ],
+            "deprecationCodes": []
+          },
+          {
+            "key": "sdk-export:openclaw/plugin-sdk/cli-runtime#VERSION",
             "kind": "sdk-export",
-            "identity": "openclaw/plugin-sdk#OpenClawPluginApi",
+            "identity": "openclaw/plugin-sdk/cli-runtime#VERSION",
+            "classification": "runtime",
+            "referenceKinds": [
+              "import"
+            ],
+            "evidence": [
+              {
+                "path": "honcho-client.ts",
+                "line": 11,
+                "snippet": "import { VERSION as OPENCLAW_VERSION } from \"openclaw/plugin-sdk/cli-runtime\";"
+              }
+            ],
+            "deprecationCodes": [
+              "sdk-deprecated-api"
+            ]
+          },
+          {
+            "key": "sdk-export:openclaw/plugin-sdk/core#MemoryPluginCapability",
+            "kind": "sdk-export",
+            "identity": "openclaw/plugin-sdk/core#MemoryPluginCapability",
+            "classification": "type",
+            "referenceKinds": [
+              "type-import",
+              "type-reference"
+            ],
+            "evidence": [
+              {
+                "path": "index.ts",
+                "line": 12,
+                "snippet": "MemoryPluginCapability,"
+              },
+              {
+                "path": "index.ts",
+                "line": 36,
+                "snippet": "export const buildPromptSection: NonNullable<MemoryPluginCapability[\"promptBuilder\"]> = ({"
+              }
+            ],
+            "deprecationCodes": []
+          },
+          {
+            "key": "sdk-export:openclaw/plugin-sdk/core#OpenClawPluginApi",
+            "kind": "sdk-export",
+            "identity": "openclaw/plugin-sdk/core#OpenClawPluginApi",
             "classification": "type",
             "referenceKinds": [
               "type-import",
@@ -22436,7 +22621,7 @@
               {
                 "path": "commands/cli.ts",
                 "line": 8,
-                "snippet": "import type { OpenClawPluginApi } from \"openclaw/plugin-sdk\";"
+                "snippet": "import type { OpenClawPluginApi } from \"openclaw/plugin-sdk/core\";"
               },
               {
                 "path": "commands/cli.ts",
@@ -22446,22 +22631,22 @@
               {
                 "path": "hooks/capture.ts",
                 "line": 2,
-                "snippet": "import type { OpenClawPluginApi } from \"openclaw/plugin-sdk\";"
+                "snippet": "import type { OpenClawPluginApi } from \"openclaw/plugin-sdk/core\";"
               },
               {
                 "path": "hooks/capture.ts",
-                "line": 22,
+                "line": 28,
                 "snippet": "api: OpenClawPluginApi,"
               },
               {
                 "path": "hooks/capture.ts",
-                "line": 180,
+                "line": 136,
                 "snippet": "export function registerCaptureHook(api: OpenClawPluginApi, state: PluginState): void {"
               },
               {
                 "path": "hooks/context.ts",
                 "line": 2,
-                "snippet": "import type { OpenClawPluginApi } from \"openclaw/plugin-sdk\";"
+                "snippet": "import type { OpenClawPluginApi } from \"openclaw/plugin-sdk/core\";"
               },
               {
                 "path": "hooks/context.ts",
@@ -22471,58 +22656,35 @@
               {
                 "path": "hooks/gateway.ts",
                 "line": 2,
-                "snippet": "import type { OpenClawPluginApi } from \"openclaw/plugin-sdk\";"
+                "snippet": "import type { OpenClawPluginApi } from \"openclaw/plugin-sdk/core\";"
               },
               {
                 "path": "hooks/gateway.ts",
-                "line": 5,
+                "line": 13,
+                "snippet": "function warnIfConversationAccessMissing(api: OpenClawPluginApi): void {"
+              },
+              {
+                "path": "hooks/gateway.ts",
+                "line": 27,
+                "snippet": "async function clearLegacyMemorySlot(api: OpenClawPluginApi): Promise<void> {"
+              },
+              {
+                "path": "hooks/gateway.ts",
+                "line": 61,
+                "snippet": "async function checkForUpdate(logger: OpenClawPluginApi[\"logger\"]): Promise<void> {"
+              },
+              {
+                "path": "hooks/gateway.ts",
+                "line": 91,
                 "snippet": "export function registerGatewayHook(api: OpenClawPluginApi, state: PluginState): void {"
-              },
-              {
-                "path": "hooks/subagent.ts",
-                "line": 2,
-                "snippet": "import type { OpenClawPluginApi, PluginHookSubagentContext } from \"openclaw/plugin-sdk\";"
-              },
-              {
-                "path": "hooks/subagent.ts",
-                "line": 17,
-                "snippet": "export function registerSubagentHooks(api: OpenClawPluginApi): void {"
-              },
-              {
-                "path": "state.ts",
-                "line": 9,
-                "snippet": "import type { OpenClawPluginApi } from \"openclaw/plugin-sdk\";"
               }
             ],
             "deprecationCodes": []
           },
           {
-            "key": "sdk-export:openclaw/plugin-sdk#PluginHookSubagentContext",
+            "key": "sdk-export:openclaw/plugin-sdk/core#OpenClawPluginDefinition",
             "kind": "sdk-export",
-            "identity": "openclaw/plugin-sdk#PluginHookSubagentContext",
-            "classification": "type",
-            "referenceKinds": [
-              "type-import",
-              "type-reference"
-            ],
-            "evidence": [
-              {
-                "path": "hooks/subagent.ts",
-                "line": 2,
-                "snippet": "import type { OpenClawPluginApi, PluginHookSubagentContext } from \"openclaw/plugin-sdk\";"
-              },
-              {
-                "path": "hooks/subagent.ts",
-                "line": 24,
-                "snippet": "api.on(\"subagent_spawned\", async (_event, ctx: PluginHookSubagentContext) => {"
-              }
-            ],
-            "deprecationCodes": []
-          },
-          {
-            "key": "sdk-export:openclaw/plugin-sdk/memory-core#MemoryPromptSectionBuilder",
-            "kind": "sdk-export",
-            "identity": "openclaw/plugin-sdk/memory-core#MemoryPromptSectionBuilder",
+            "identity": "openclaw/plugin-sdk/core#OpenClawPluginDefinition",
             "classification": "type",
             "referenceKinds": [
               "type-import",
@@ -22531,13 +22693,36 @@
             "evidence": [
               {
                 "path": "index.ts",
-                "line": 11,
-                "snippet": "import type { MemoryPromptSectionBuilder } from \"openclaw/plugin-sdk/memory-core\";"
+                "line": 14,
+                "snippet": "OpenClawPluginDefinition,"
               },
               {
                 "path": "index.ts",
-                "line": 32,
-                "snippet": "export const buildPromptSection: MemoryPromptSectionBuilder = ({"
+                "line": 109,
+                "snippet": "const honchoPlugin: OpenClawPluginDefinition = definePluginEntry({"
+              }
+            ],
+            "deprecationCodes": []
+          },
+          {
+            "key": "sdk-export:openclaw/plugin-sdk/extension-shared#readPluginPackageVersion",
+            "kind": "sdk-export",
+            "identity": "openclaw/plugin-sdk/extension-shared#readPluginPackageVersion",
+            "classification": "runtime",
+            "referenceKinds": [
+              "call",
+              "import"
+            ],
+            "evidence": [
+              {
+                "path": "honcho-client.ts",
+                "line": 13,
+                "snippet": "import { readPluginPackageVersion } from \"openclaw/plugin-sdk/extension-shared\";"
+              },
+              {
+                "path": "honcho-client.ts",
+                "line": 23,
+                "snippet": "const version = readPluginPackageVersion({"
               }
             ],
             "deprecationCodes": []
@@ -22559,8 +22744,8 @@
               },
               {
                 "path": "index.ts",
-                "line": 85,
-                "snippet": "export default definePluginEntry({"
+                "line": 109,
+                "snippet": "const honchoPlugin: OpenClawPluginDefinition = definePluginEntry({"
               }
             ],
             "deprecationCodes": []
@@ -22577,12 +22762,12 @@
             "evidence": [
               {
                 "path": "helpers.ts",
-                "line": 9,
+                "line": 10,
                 "snippet": "isCronSessionKey,"
               },
               {
                 "path": "helpers.ts",
-                "line": 59,
+                "line": 60,
                 "snippet": "if (isCronSessionKey(sessionKey)) return \"cron\";"
               }
             ],
@@ -22600,26 +22785,68 @@
             "evidence": [
               {
                 "path": "helpers.ts",
-                "line": 10,
+                "line": 11,
                 "snippet": "isSubagentSessionKey,"
               },
               {
                 "path": "helpers.ts",
-                "line": 58,
+                "line": 59,
                 "snippet": "if (isSubagentSessionKey(sessionKey)) return \"subagent\";"
               },
               {
                 "path": "helpers.ts",
-                "line": 120,
+                "line": 121,
                 "snippet": "return isSubagentSessionKey(ctx?.sessionKey);"
               }
             ],
             "deprecationCodes": []
           },
           {
-            "key": "sdk-module:openclaw/plugin-sdk",
+            "key": "sdk-export:openclaw/plugin-sdk/routing#parseAgentSessionKey",
+            "kind": "sdk-export",
+            "identity": "openclaw/plugin-sdk/routing#parseAgentSessionKey",
+            "classification": "runtime",
+            "referenceKinds": [
+              "call",
+              "import"
+            ],
+            "evidence": [
+              {
+                "path": "hooks/subagent.ts",
+                "line": 4,
+                "snippet": "import { parseAgentSessionKey } from \"openclaw/plugin-sdk/routing\";"
+              },
+              {
+                "path": "hooks/subagent.ts",
+                "line": 16,
+                "snippet": "const parentAgentId = parseAgentSessionKey(requesterSessionKey)?.agentId;"
+              }
+            ],
+            "deprecationCodes": []
+          },
+          {
+            "key": "sdk-module:openclaw/plugin-sdk/cli-runtime",
             "kind": "sdk-module",
-            "identity": "openclaw/plugin-sdk",
+            "identity": "openclaw/plugin-sdk/cli-runtime",
+            "classification": "runtime",
+            "referenceKinds": [
+              "import"
+            ],
+            "evidence": [
+              {
+                "path": "honcho-client.ts",
+                "line": 11,
+                "snippet": "import { VERSION as OPENCLAW_VERSION } from \"openclaw/plugin-sdk/cli-runtime\";"
+              }
+            ],
+            "deprecationCodes": [
+              "sdk-deprecated-api"
+            ]
+          },
+          {
+            "key": "sdk-module:openclaw/plugin-sdk/core",
+            "kind": "sdk-module",
+            "identity": "openclaw/plugin-sdk/core",
             "classification": "type",
             "referenceKinds": [
               "type-import"
@@ -22628,79 +22855,79 @@
               {
                 "path": "commands/cli.ts",
                 "line": 8,
-                "snippet": "import type { OpenClawPluginApi } from \"openclaw/plugin-sdk\";"
+                "snippet": "import type { OpenClawPluginApi } from \"openclaw/plugin-sdk/core\";"
               },
               {
                 "path": "hooks/capture.ts",
                 "line": 2,
-                "snippet": "import type { OpenClawPluginApi } from \"openclaw/plugin-sdk\";"
+                "snippet": "import type { OpenClawPluginApi } from \"openclaw/plugin-sdk/core\";"
               },
               {
                 "path": "hooks/context.ts",
                 "line": 2,
-                "snippet": "import type { OpenClawPluginApi } from \"openclaw/plugin-sdk\";"
+                "snippet": "import type { OpenClawPluginApi } from \"openclaw/plugin-sdk/core\";"
               },
               {
                 "path": "hooks/gateway.ts",
                 "line": 2,
-                "snippet": "import type { OpenClawPluginApi } from \"openclaw/plugin-sdk\";"
+                "snippet": "import type { OpenClawPluginApi } from \"openclaw/plugin-sdk/core\";"
               },
               {
                 "path": "hooks/subagent.ts",
                 "line": 2,
-                "snippet": "import type { OpenClawPluginApi, PluginHookSubagentContext } from \"openclaw/plugin-sdk\";"
+                "snippet": "import type { OpenClawPluginApi } from \"openclaw/plugin-sdk/core\";"
+              },
+              {
+                "path": "hooks/telemetry.ts",
+                "line": 2,
+                "snippet": "import type { OpenClawPluginApi } from \"openclaw/plugin-sdk/core\";"
+              },
+              {
+                "path": "index.ts",
+                "line": 12,
+                "snippet": "MemoryPluginCapability,"
+              },
+              {
+                "path": "index.ts",
+                "line": 13,
+                "snippet": "OpenClawPluginApi,"
+              },
+              {
+                "path": "index.ts",
+                "line": 14,
+                "snippet": "OpenClawPluginDefinition,"
               },
               {
                 "path": "state.ts",
-                "line": 9,
-                "snippet": "import type { OpenClawPluginApi } from \"openclaw/plugin-sdk\";"
+                "line": 10,
+                "snippet": "import type { OpenClawPluginApi } from \"openclaw/plugin-sdk/core\";"
               },
               {
                 "path": "tools/ask.ts",
                 "line": 3,
-                "snippet": "import type { OpenClawPluginApi } from \"openclaw/plugin-sdk\";"
+                "snippet": "import type { OpenClawPluginApi } from \"openclaw/plugin-sdk/core\";"
               },
               {
                 "path": "tools/context.ts",
                 "line": 3,
-                "snippet": "import type { OpenClawPluginApi } from \"openclaw/plugin-sdk\";"
-              },
-              {
-                "path": "tools/memory-passthrough.ts",
-                "line": 3,
-                "snippet": "import type { OpenClawPluginApi } from \"openclaw/plugin-sdk\";"
-              },
-              {
-                "path": "tools/message-search.ts",
-                "line": 3,
-                "snippet": "import type { OpenClawPluginApi } from \"openclaw/plugin-sdk\";"
-              },
-              {
-                "path": "tools/search.ts",
-                "line": 3,
-                "snippet": "import type { OpenClawPluginApi } from \"openclaw/plugin-sdk\";"
-              },
-              {
-                "path": "tools/session.ts",
-                "line": 3,
-                "snippet": "import type { OpenClawPluginApi } from \"openclaw/plugin-sdk\";"
+                "snippet": "import type { OpenClawPluginApi } from \"openclaw/plugin-sdk/core\";"
               }
             ],
             "deprecationCodes": []
           },
           {
-            "key": "sdk-module:openclaw/plugin-sdk/memory-core",
+            "key": "sdk-module:openclaw/plugin-sdk/extension-shared",
             "kind": "sdk-module",
-            "identity": "openclaw/plugin-sdk/memory-core",
-            "classification": "type",
+            "identity": "openclaw/plugin-sdk/extension-shared",
+            "classification": "runtime",
             "referenceKinds": [
-              "type-import"
+              "import"
             ],
             "evidence": [
               {
-                "path": "index.ts",
-                "line": 11,
-                "snippet": "import type { MemoryPromptSectionBuilder } from \"openclaw/plugin-sdk/memory-core\";"
+                "path": "honcho-client.ts",
+                "line": 13,
+                "snippet": "import { readPluginPackageVersion } from \"openclaw/plugin-sdk/extension-shared\";"
               }
             ],
             "deprecationCodes": []
@@ -22733,13 +22960,18 @@
             "evidence": [
               {
                 "path": "helpers.ts",
-                "line": 9,
+                "line": 10,
                 "snippet": "isCronSessionKey,"
               },
               {
                 "path": "helpers.ts",
-                "line": 10,
+                "line": 11,
                 "snippet": "isSubagentSessionKey,"
+              },
+              {
+                "path": "hooks/subagent.ts",
+                "line": 4,
+                "snippet": "import { parseAgentSessionKey } from \"openclaw/plugin-sdk/routing\";"
               }
             ],
             "deprecationCodes": []
@@ -202774,8 +203006,8 @@
         {
           "name": "before_tool_call",
           "file": "plugins/nemoclaw/nemoclaw/src/index.ts",
-          "line": 385,
-          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:385"
+          "line": 359,
+          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:359"
         }
       ],
       "registrations": [
@@ -202786,14 +203018,14 @@
         {
           "name": "registerCommand",
           "file": "plugins/nemoclaw/nemoclaw/src/index.ts",
-          "line": 348,
-          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:348"
+          "line": 322,
+          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:322"
         },
         {
           "name": "registerProvider",
           "file": "plugins/nemoclaw/nemoclaw/src/index.ts",
-          "line": 375,
-          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:375"
+          "line": 349,
+          "ref": "plugins/nemoclaw/nemoclaw/src/index.ts:349"
         }
       ],
       "manifestContracts": [],
@@ -202803,29 +203035,41 @@
       "sourceFiles": [
         "plugins/nemoclaw/commitlint.config.js",
         "plugins/nemoclaw/nemoclaw/src/banner.ts",
+        "plugins/nemoclaw/nemoclaw/src/blueprint/openshell-policy.ts",
         "plugins/nemoclaw/nemoclaw/src/blueprint/private-networks.ts",
+        "plugins/nemoclaw/nemoclaw/src/blueprint/runner-mock-fixtures.ts",
         "plugins/nemoclaw/nemoclaw/src/blueprint/runner-test-fixtures.ts",
         "plugins/nemoclaw/nemoclaw/src/blueprint/runner.ts",
+        "plugins/nemoclaw/nemoclaw/src/blueprint/runtime-identity.ts",
         "plugins/nemoclaw/nemoclaw/src/blueprint/snapshot-command.ts",
         "plugins/nemoclaw/nemoclaw/src/blueprint/snapshot-delete-helper.ts",
+        "plugins/nemoclaw/nemoclaw/src/blueprint/snapshot-directory.ts",
         "plugins/nemoclaw/nemoclaw/src/blueprint/snapshot-management.ts",
         "plugins/nemoclaw/nemoclaw/src/blueprint/snapshot.ts",
         "plugins/nemoclaw/nemoclaw/src/blueprint/ssrf.ts",
         "plugins/nemoclaw/nemoclaw/src/blueprint/state.ts",
         "plugins/nemoclaw/nemoclaw/src/commands/config-show.ts",
+        "plugins/nemoclaw/nemoclaw/src/commands/migration-state-sanitizer-test-fixture.ts",
+        "plugins/nemoclaw/nemoclaw/src/commands/migration-state-test-fixtures.ts",
         "plugins/nemoclaw/nemoclaw/src/commands/migration-state.ts",
-        "plugins/nemoclaw/nemoclaw/src/commands/shields-status.ts",
         "plugins/nemoclaw/nemoclaw/src/commands/slash.ts",
         "plugins/nemoclaw/nemoclaw/src/index.ts",
         "plugins/nemoclaw/nemoclaw/src/lib/ports.ts",
         "plugins/nemoclaw/nemoclaw/src/lib/subprocess-env.ts",
         "plugins/nemoclaw/nemoclaw/src/onboard/config.ts",
+        "plugins/nemoclaw/nemoclaw/src/plugin-config.ts",
         "plugins/nemoclaw/nemoclaw/src/runtime-context.ts",
+        "plugins/nemoclaw/nemoclaw/src/security/credential-filter.ts",
         "plugins/nemoclaw/nemoclaw/src/security/safe-resolve-path.ts",
         "plugins/nemoclaw/nemoclaw/src/security/secret-scanner.ts",
+        "plugins/nemoclaw/nemoclaw/src/security/snapshot-sanitizer.ts",
         "plugins/nemoclaw/nemoclaw/src/shared/object-record.ts",
+        "plugins/nemoclaw/nemoclaw/src/shared/openshell-gateway-health-sdk.ts",
         "plugins/nemoclaw/nemoclaw/vitest.config.ts",
         "plugins/nemoclaw/nemoclaw/vitest.project.ts",
+        "plugins/nemoclaw/oxc.ignore-patterns.ts",
+        "plugins/nemoclaw/oxfmt.config.ts",
+        "plugins/nemoclaw/oxlint.config.ts",
         "plugins/nemoclaw/vitest.config.ts"
       ],
       "pluginManifests": [
@@ -202854,7 +203098,7 @@
       "securityManifests": [],
       "package": {
         "path": "plugins/nemoclaw/nemoclaw/package.json",
-        "name": "nemoclaw",
+        "name": "nemoclaw-plugin",
         "version": "0.1.0",
         "type": "module",
         "main": "dist/index.js",
@@ -202903,7 +203147,7 @@
       "packages": [
         {
           "path": "plugins/nemoclaw/nemoclaw/package.json",
-          "name": "nemoclaw",
+          "name": "nemoclaw-plugin",
           "version": "0.1.0",
           "type": "module",
           "main": "dist/index.js",
@@ -202970,6 +203214,55 @@
           "openclaw": null
         },
         {
+          "path": "plugins/nemoclaw/agents/hermes/agent-browser-runtime/package.json",
+          "name": "nemoclaw-hermes-agent-browser-runtime",
+          "version": "1.0.0",
+          "type": null,
+          "main": null,
+          "npmPack": {
+            "advertised": false,
+            "private": true,
+            "filesMode": "implicit",
+            "files": [],
+            "invalidFileSpecs": []
+          },
+          "dependencies": [
+            "agent-browser"
+          ],
+          "peerDependencies": [],
+          "optionalDependencies": [],
+          "openclaw": null
+        },
+        {
+          "path": "plugins/nemoclaw/agents/openclaw/managed-image-messaging-runtime/package.json",
+          "name": "nemoclaw-managed-image-messaging-runtime",
+          "version": "0.0.0",
+          "type": null,
+          "main": null,
+          "npmPack": {
+            "advertised": false,
+            "private": true,
+            "filesMode": "implicit",
+            "files": [],
+            "invalidFileSpecs": []
+          },
+          "dependencies": [
+            "@openclaw/discord",
+            "@openclaw/googlechat",
+            "@openclaw/msteams",
+            "@openclaw/slack",
+            "@openclaw/whatsapp",
+            "@tencent-weixin/openclaw-weixin",
+            "agent-base",
+            "axios",
+            "https-proxy-agent",
+            "undici"
+          ],
+          "peerDependencies": [],
+          "optionalDependencies": [],
+          "openclaw": null
+        },
+        {
           "path": "plugins/nemoclaw/agents/openclaw/mcporter-runtime/package.json",
           "name": "nemoclaw-mcporter-runtime",
           "version": "0.0.0",
@@ -203030,6 +203323,26 @@
           "openclaw": null
         },
         {
+          "path": "plugins/nemoclaw/agents/pi/pi-runtime/package.json",
+          "name": "nemoclaw-pi-runtime",
+          "version": "0.0.0",
+          "type": null,
+          "main": null,
+          "npmPack": {
+            "advertised": false,
+            "private": true,
+            "filesMode": "implicit",
+            "files": [],
+            "invalidFileSpecs": []
+          },
+          "dependencies": [
+            "@earendil-works/pi-coding-agent"
+          ],
+          "peerDependencies": [],
+          "optionalDependencies": [],
+          "openclaw": null
+        },
+        {
           "path": "plugins/nemoclaw/package.json",
           "name": "nemoclaw",
           "version": "0.1.0",
@@ -203041,14 +203354,23 @@
             "filesMode": "allowlist",
             "files": [
               ".version",
+              ".source-revision",
+              "agents/*/manifest.yaml",
+              "agents/hermes/host",
+              "agents/nemocua/Dockerfile",
+              "agents/nemocua/policy-additions.yaml",
               "bin",
+              "ci/reviewed-npm-audit.json",
               "dist",
               "src/lib/messaging/channels/**/policy/*.{yaml,yml}",
+              "src/lib/messaging/channels/**/provider-profile/*.{yaml,yml}",
               "nemoclaw/dist",
               "nemoclaw/openclaw.plugin.json",
               "nemoclaw/package.json",
               "nemoclaw-blueprint",
+              "managed-inference",
               "schemas/network-policy.schema.json",
+              "schemas/nemoclaw-config-v1.schema.json",
               "schemas/sandbox-policy.schema.json",
               "scripts",
               "docs/resources/local-credential-form.html",
@@ -203066,10 +203388,17 @@
             "p-retry",
             "qrcode-terminal",
             "smol-toml",
+            "typebox",
+            "undici",
             "yaml"
           ],
           "peerDependencies": [],
-          "optionalDependencies": [],
+          "optionalDependencies": [
+            "@bufbuild/protobuf",
+            "@connectrpc/connect",
+            "@connectrpc/connect-node",
+            "@nvidia/openshell-sdk"
+          ],
           "openclaw": null
         },
         {
@@ -203120,9 +203449,9 @@
         "inputKind": "source",
         "status": "complete",
         "coverage": {
-          "filesDiscovered": 56,
-          "filesAnalyzed": 26,
-          "filesExcluded": 30
+          "filesDiscovered": 92,
+          "filesAnalyzed": 43,
+          "filesExcluded": 49
         },
         "entries": [
           {
@@ -203136,8 +203465,8 @@
             "evidence": [
               {
                 "path": "src/index.ts",
-                "line": 358,
-                "snippet": "const activeModel = readOpenClawPrimaryModel(api.logger) || onboardCfg?.model || \"\";"
+                "line": 332,
+                "snippet": "const activeModel = readOpenClawPrimaryModel(api.logger) || (onboardCfg?.model ?? \"\");"
               }
             ],
             "deprecationCodes": []
@@ -203153,7 +203482,7 @@
             "evidence": [
               {
                 "path": "src/index.ts",
-                "line": 232,
+                "line": 233,
                 "snippet": "logger?.debug("
               },
               {
@@ -203175,17 +203504,17 @@
             "evidence": [
               {
                 "path": "src/index.ts",
-                "line": 365,
+                "line": 339,
                 "snippet": "api.logger.warn("
               },
               {
                 "path": "src/index.ts",
-                "line": 414,
+                "line": 388,
                 "snippet": "api.logger.warn(`[SECURITY] Blocked memory write to ${filePath} — secrets detected`);"
               },
               {
                 "path": "src/index.ts",
-                "line": 426,
+                "line": 400,
                 "snippet": "api.logger.warn("
               }
             ],
@@ -203202,7 +203531,7 @@
             "evidence": [
               {
                 "path": "src/index.ts",
-                "line": 385,
+                "line": 359,
                 "snippet": "api.on("
               },
               {
@@ -203223,8 +203552,8 @@
             ],
             "evidence": [
               {
-                "path": "src/index.ts",
-                "line": 318,
+                "path": "src/plugin-config.ts",
+                "line": 14,
                 "snippet": "const raw = api.pluginConfig ?? {};"
               }
             ],
@@ -203240,13 +203569,13 @@
             ],
             "evidence": [
               {
-                "path": "src/index.ts",
-                "line": 325,
+                "path": "src/plugin-config.ts",
+                "line": 21,
                 "snippet": "typeof raw[\"blueprintRegistry\"] === \"string\""
               },
               {
-                "path": "src/index.ts",
-                "line": 326,
+                "path": "src/plugin-config.ts",
+                "line": 22,
                 "snippet": "? raw[\"blueprintRegistry\"]"
               }
             ],
@@ -203262,13 +203591,13 @@
             ],
             "evidence": [
               {
-                "path": "src/index.ts",
-                "line": 321,
+                "path": "src/plugin-config.ts",
+                "line": 17,
                 "snippet": "typeof raw[\"blueprintVersion\"] === \"string\""
               },
               {
-                "path": "src/index.ts",
-                "line": 322,
+                "path": "src/plugin-config.ts",
+                "line": 18,
                 "snippet": "? raw[\"blueprintVersion\"]"
               }
             ],
@@ -203284,13 +203613,13 @@
             ],
             "evidence": [
               {
-                "path": "src/index.ts",
-                "line": 333,
+                "path": "src/plugin-config.ts",
+                "line": 29,
                 "snippet": "typeof raw[\"inferenceProvider\"] === \"string\""
               },
               {
-                "path": "src/index.ts",
-                "line": 334,
+                "path": "src/plugin-config.ts",
+                "line": 30,
                 "snippet": "? raw[\"inferenceProvider\"]"
               }
             ],
@@ -203307,17 +203636,17 @@
             "evidence": [
               {
                 "path": "src/commands/slash.ts",
-                "line": 81,
+                "line": 70,
                 "snippet": "const { sandboxName } = getPluginConfig(api);"
               },
               {
-                "path": "src/index.ts",
-                "line": 329,
+                "path": "src/plugin-config.ts",
+                "line": 25,
                 "snippet": "typeof raw[\"sandboxName\"] === \"string\""
               },
               {
-                "path": "src/index.ts",
-                "line": 330,
+                "path": "src/plugin-config.ts",
+                "line": 26,
                 "snippet": "? raw[\"sandboxName\"]"
               },
               {
@@ -203349,7 +203678,7 @@
             "evidence": [
               {
                 "path": "src/index.ts",
-                "line": 348,
+                "line": 322,
                 "snippet": "api.registerCommand({"
               }
             ],
@@ -203366,7 +203695,7 @@
             "evidence": [
               {
                 "path": "src/index.ts",
-                "line": 375,
+                "line": 349,
                 "snippet": "api.registerProvider(registeredProviderForConfig(activeModel, providerCredentialEnv));"
               }
             ],
@@ -203423,7 +203752,7 @@
             "evidence": [
               {
                 "path": "src/index.ts",
-                "line": 386,
+                "line": 360,
                 "snippet": "\"before_tool_call\","
               }
             ],
@@ -226043,20 +226372,20 @@
         {
           "name": "agent_end",
           "file": "plugins/memos-cloud/index.js",
-          "line": 805,
-          "ref": "plugins/memos-cloud/index.js:805"
+          "line": 860,
+          "ref": "plugins/memos-cloud/index.js:860"
         },
         {
           "name": "before_agent_start",
           "file": "plugins/memos-cloud/index.js",
-          "line": 802,
-          "ref": "plugins/memos-cloud/index.js:802"
+          "line": 857,
+          "ref": "plugins/memos-cloud/index.js:857"
         },
         {
           "name": "before_prompt_build",
           "file": "plugins/memos-cloud/index.js",
-          "line": 800,
-          "ref": "plugins/memos-cloud/index.js:800"
+          "line": 855,
+          "ref": "plugins/memos-cloud/index.js:855"
         }
       ],
       "registrations": [
@@ -226066,8 +226395,8 @@
         {
           "name": "registerHook",
           "file": "plugins/memos-cloud/index.js",
-          "line": 732,
-          "ref": "plugins/memos-cloud/index.js:732"
+          "line": 787,
+          "ref": "plugins/memos-cloud/index.js:787"
         }
       ],
       "manifestContracts": [],
@@ -226076,6 +226405,9 @@
       ],
       "sourceFiles": [
         "plugins/memos-cloud/.github/scripts/draft-cloud-plugin-release-notes.mjs",
+        "plugins/memos-cloud/.github/scripts/validate-github-release-inventory.mjs",
+        "plugins/memos-cloud/.github/scripts/validate-release-confirmation.mjs",
+        "plugins/memos-cloud/.github/scripts/validate-release-source-version.mjs",
         "plugins/memos-cloud/index.js",
         "plugins/memos-cloud/lib/arms-reporter.js",
         "plugins/memos-cloud/lib/check-update.js",
@@ -226092,7 +226424,7 @@
           "path": "plugins/memos-cloud/openclaw.plugin.json",
           "id": "memos-cloud-openclaw-plugin",
           "name": "MemOS Cloud OpenClaw Plugin",
-          "version": "0.1.19",
+          "version": "0.1.20",
           "keys": [
             "activation",
             "configSchema",
@@ -226117,7 +226449,7 @@
       "package": {
         "path": "plugins/memos-cloud/package.json",
         "name": "@memtensor/memos-cloud-openclaw-plugin",
-        "version": "0.1.19",
+        "version": "0.1.20",
         "type": "module",
         "main": null,
         "npmPack": {
@@ -226165,7 +226497,7 @@
         {
           "path": "plugins/memos-cloud/package.json",
           "name": "@memtensor/memos-cloud-openclaw-plugin",
-          "version": "0.1.19",
+          "version": "0.1.20",
           "type": "module",
           "main": null,
           "npmPack": {
@@ -226219,9 +226551,9 @@
         "inputKind": "source",
         "status": "partial",
         "coverage": {
-          "filesDiscovered": 32,
-          "filesAnalyzed": 13,
-          "filesExcluded": 19
+          "filesDiscovered": 43,
+          "filesAnalyzed": 16,
+          "filesExcluded": 27
         },
         "entries": [
           {
@@ -226235,12 +226567,12 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 686,
+                "line": 741,
                 "snippet": "const ready = await waitForGatewayReady(api.config, log);"
               },
               {
                 "path": "index.js",
-                "line": 695,
+                "line": 750,
                 "snippet": "const policyResult = ensurePluginHookPolicy(api.config, log);"
               }
             ],
@@ -226325,7 +226657,7 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 729,
+                "line": 784,
                 "snippet": "if (api.config?.hooks?.internal?.enabled !== true) {"
               }
             ],
@@ -226410,7 +226742,7 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 658,
+                "line": 713,
                 "snippet": "const log = api.logger ?? console;"
               }
             ],
@@ -226444,38 +226776,43 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 638,
+                "line": 693,
                 "snippet": "log.info?.("
               },
               {
                 "path": "index.js",
-                "line": 720,
+                "line": 775,
                 "snippet": "log.info?.(`[memos-cloud] Multi-agent mode enabled. Allowed agents: [${cfg.allowedAgents.join(\", \")}]`);"
               },
               {
                 "path": "index.js",
-                "line": 725,
+                "line": 780,
                 "snippet": "log.info?.(`[memos-cloud] Per-agent overrides configured for: [${overrideAgentIds.join(\", \")}]`);"
               },
               {
                 "path": "index.js",
-                "line": 754,
+                "line": 809,
                 "snippet": "log.info?.(`[memos-cloud] recall skipped: system event detected (heartbeat=${isHeartbeat}, command=${isSystemCommand}, systemPrompt=${isSystemPrompt}, prompt=\"${prompt.substring(0, 50)}...\")`);"
               },
               {
                 "path": "index.js",
-                "line": 759,
+                "line": 814,
                 "snippet": "log.info?.(`[memos-cloud] recall skipped: agent \"${ctx?.agentId}\" not in allowedAgents [${cfg.allowedAgents?.join(\", \")}]`);"
               },
               {
                 "path": "index.js",
-                "line": 817,
+                "line": 873,
                 "snippet": "log.info?.(`[memos-cloud] add skipped: system event detected (heartbeat=${isHeartbeat}, command=${isSystemCommand}, systemPrompt=${isSystemPrompt}, content=\"${lastUserContent.substring(0, 50)}...\")`);"
               },
               {
                 "path": "index.js",
-                "line": 822,
+                "line": 878,
                 "snippet": "log.info?.(`[memos-cloud] add skipped: agent \"${ctx?.agentId}\" not in allowedAgents [${cfg.allowedAgents?.join(\", \")}]`);"
+              },
+              {
+                "path": "index.js",
+                "line": 914,
+                "snippet": "log.info?.(\"[memos-cloud] add skipped: duplicate agent_end snapshot\");"
               },
               {
                 "path": "lib/check-update.js",
@@ -226496,11 +226833,6 @@
                 "path": "lib/check-update.js",
                 "line": 136,
                 "snippet": "log.info?.(`${ANSI.CYAN}📦 Current version : ${updateStatus.currentVersion}${ANSI.RESET}`);"
-              },
-              {
-                "path": "lib/check-update.js",
-                "line": 137,
-                "snippet": "log.info?.(`${ANSI.GREEN}✨ Latest version  : ${updateStatus.latestVersion}${ANSI.RESET}`);"
               }
             ],
             "deprecationCodes": []
@@ -226516,52 +226848,52 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 61,
+                "line": 65,
                 "snippet": "log.warn?.("
               },
               {
                 "path": "index.js",
-                "line": 624,
+                "line": 679,
                 "snippet": "log.warn?.(\"[memos-cloud] recall filter enabled but missing recallFilterBaseUrl/recallFilterModel; skip filter\");"
               },
               {
                 "path": "index.js",
-                "line": 645,
+                "line": 700,
                 "snippet": "log.warn?.(`[memos-cloud] recall filter failed: ${String(err)}`);"
               },
               {
                 "path": "index.js",
-                "line": 697,
+                "line": 752,
                 "snippet": "log.warn?.("
               },
               {
                 "path": "index.js",
-                "line": 702,
+                "line": 757,
                 "snippet": "log.warn?.("
               },
               {
                 "path": "index.js",
-                "line": 710,
+                "line": 765,
                 "snippet": "log.warn?.(`[memos-cloud] config UI failed to start: ${String(error)}`);"
               },
               {
                 "path": "index.js",
-                "line": 716,
+                "line": 771,
                 "snippet": "log.warn?.(`[memos-cloud] No .env found in ${searchPaths}; falling back to process env or plugin config.`);"
               },
               {
                 "path": "index.js",
-                "line": 730,
+                "line": 785,
                 "snippet": "log.warn?.(\"[memos-cloud] command:new hook requires hooks.internal.enabled = true\");"
               },
               {
                 "path": "index.js",
-                "line": 787,
+                "line": 842,
                 "snippet": "log.warn?.(`[memos-cloud] recall failed: ${String(err)}`);"
               },
               {
                 "path": "index.js",
-                "line": 850,
+                "line": 920,
                 "snippet": "log.warn?.(`[memos-cloud] add failed: ${String(err)}`);"
               },
               {
@@ -226588,17 +226920,17 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 800,
+                "line": 855,
                 "snippet": "api.on(\"before_prompt_build\", runRecall);"
               },
               {
                 "path": "index.js",
-                "line": 802,
+                "line": 857,
                 "snippet": "api.on(\"before_agent_start\", runRecall);"
               },
               {
                 "path": "index.js",
-                "line": 805,
+                "line": 860,
                 "snippet": "api.on(\"agent_end\", async (event, ctx) => {"
               }
             ],
@@ -226615,7 +226947,7 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 657,
+                "line": 712,
                 "snippet": "const cfg = buildConfig(api.pluginConfig);"
               },
               {
@@ -226654,12 +226986,12 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 90,
+                "line": 94,
                 "snippet": "return cfg.agentId;"
               },
               {
                 "path": "index.js",
-                "line": 92,
+                "line": 96,
                 "snippet": "const agentId = ctx?.agentId || cfg.agentId;"
               },
               {
@@ -226669,7 +227001,7 @@
               },
               {
                 "path": "lib/memos-cloud-api.js",
-                "line": 450,
+                "line": 451,
                 "snippet": "const agentId = ctx?.agentId || cfg.agentId || \"main\";"
               }
             ],
@@ -226686,7 +227018,7 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 723,
+                "line": 778,
                 "snippet": "const overrideAgentIds = Object.keys(cfg._agentOverrides || {});"
               },
               {
@@ -226713,7 +227045,7 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 203,
+                "line": 207,
                 "snippet": "if (cfg.allowKnowledgebaseIds?.length) payload.allow_knowledgebase_ids = cfg.allowKnowledgebaseIds;"
               },
               {
@@ -226735,7 +227067,7 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 202,
+                "line": 206,
                 "snippet": "payload.allow_public = cfg.allowPublic;"
               },
               {
@@ -226779,12 +227111,12 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 766,
+                "line": 821,
                 "snippet": "if (!agentCfg.apiKey) {"
               },
               {
                 "path": "index.js",
-                "line": 828,
+                "line": 884,
                 "snippet": "if (!agentCfg.apiKey) {"
               },
               {
@@ -226811,7 +227143,7 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 191,
+                "line": 195,
                 "snippet": "if (cfg.appId) payload.app_id = cfg.appId;"
               },
               {
@@ -226833,7 +227165,7 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 204,
+                "line": 208,
                 "snippet": "payload.async_mode = cfg.asyncMode;"
               },
               {
@@ -226877,7 +227209,12 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 841,
+                "line": 896,
+                "snippet": "agentCfg.captureStrategy === \"full_session\""
+              },
+              {
+                "path": "index.js",
+                "line": 900,
                 "snippet": "agentCfg.captureStrategy === \"full_session\""
               },
               {
@@ -226899,8 +227236,13 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 112,
+                "line": 116,
                 "snippet": "if (cfg.conversationId) return cfg.conversationId;"
+              },
+              {
+                "path": "index.js",
+                "line": 473,
+                "snippet": "payload.conversation_id,"
               },
               {
                 "path": "lib/memos-cloud-api.js",
@@ -226921,7 +227263,7 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 117,
+                "line": 121,
                 "snippet": "const prefix = cfg.conversationIdPrefix || \"\";"
               },
               {
@@ -226943,7 +227285,7 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 118,
+                "line": 122,
                 "snippet": "const suffix = cfg.conversationIdSuffix || \"\";"
               },
               {
@@ -226965,12 +227307,12 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 116,
+                "line": 120,
                 "snippet": "const dynamicSuffix = cfg.conversationSuffixMode === \"counter\" ? getCounterSuffix(ctx?.sessionKey) : \"\";"
               },
               {
                 "path": "index.js",
-                "line": 728,
+                "line": 783,
                 "snippet": "if (cfg.conversationSuffixMode === \"counter\" && cfg.resetOnNew) {"
               },
               {
@@ -227048,7 +227390,7 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 198,
+                "line": 202,
                 "snippet": "...(cfg.info || {}),"
               },
               {
@@ -227070,7 +227412,7 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 169,
+                "line": 173,
                 "snippet": "if (cfg.knowledgebaseIds?.length) payload.knowledgebase_ids = cfg.knowledgebaseIds;"
               },
               {
@@ -227092,7 +227434,7 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 781,
+                "line": 836,
                 "snippet": "maxItemChars: agentCfg.maxItemChars,"
               },
               {
@@ -227102,12 +227444,12 @@
               },
               {
                 "path": "lib/memos-cloud-api.js",
-                "line": 703,
+                "line": 704,
                 "snippet": "const maxChars = options.maxItemChars;"
               },
               {
                 "path": "lib/memos-cloud-api.js",
-                "line": 713,
+                "line": 714,
                 "snippet": "const maxChars = options.maxItemChars;"
               }
             ],
@@ -227124,17 +227466,17 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 227,
+                "line": 231,
                 "snippet": "result.content = truncate(textContent, cfg.maxMessageChars);"
               },
               {
                 "path": "index.js",
-                "line": 278,
+                "line": 282,
                 "snippet": "const text = truncate(String(raw ?? \"\"), cfg.maxMessageChars);"
               },
               {
                 "path": "index.js",
-                "line": 397,
+                "line": 401,
                 "snippet": "return { role: \"user\", content: truncate(content, cfg.maxMessageChars) };"
               },
               {
@@ -227156,12 +227498,12 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 127,
+                "line": 131,
                 "snippet": "Number.isFinite(cfg.maxQueryChars) && cfg.maxQueryChars > 0"
               },
               {
                 "path": "index.js",
-                "line": 128,
+                "line": 132,
                 "snippet": "? queryRaw.slice(0, cfg.maxQueryChars)"
               },
               {
@@ -227183,7 +227525,7 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 171,
+                "line": 175,
                 "snippet": "payload.memory_limit_number = cfg.memoryLimitNumber;"
               },
               {
@@ -227205,12 +227547,12 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 89,
+                "line": 93,
                 "snippet": "if (!cfg.multiAgentMode) {"
               },
               {
                 "path": "index.js",
-                "line": 719,
+                "line": 774,
                 "snippet": "if (cfg.multiAgentMode && cfg.allowedAgents?.length > 0) {"
               },
               {
@@ -227220,7 +227562,7 @@
               },
               {
                 "path": "lib/memos-cloud-api.js",
-                "line": 448,
+                "line": 449,
                 "snippet": "if (!cfg.multiAgentMode) return true;"
               }
             ],
@@ -227237,7 +227579,7 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 173,
+                "line": 177,
                 "snippet": "payload.preference_limit_number = cfg.preferenceLimitNumber;"
               },
               {
@@ -227259,7 +227601,7 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 125,
+                "line": 129,
                 "snippet": "const queryRaw = `${cfg.queryPrefix || \"\"}${cleanPrompt}`;"
               },
               {
@@ -227298,12 +227640,12 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 546,
+                "line": 601,
                 "snippet": "if (cfg.recallFilterApiKey) {"
               },
               {
                 "path": "index.js",
-                "line": 547,
+                "line": 602,
                 "snippet": "headers.Authorization = `Bearer ${cfg.recallFilterApiKey}`;"
               },
               {
@@ -227360,12 +227702,12 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 622,
+                "line": 677,
                 "snippet": "if (!cfg.recallFilterEnabled) return data;"
               },
               {
                 "path": "index.js",
-                "line": 635,
+                "line": 690,
                 "snippet": "reportRumEvent(\"recall_filter\", { recall_filter_enable: cfg.recallFilterEnabled }, cfg, ctx, log);"
               },
               {
@@ -227387,7 +227729,7 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 646,
+                "line": 701,
                 "snippet": "return cfg.recallFilterFailOpen ? data : { ...data, memory_detail_list: [], preference_detail_list: [], tool_memory_detail_list: [] };"
               },
               {
@@ -227426,12 +227768,12 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 564,
+                "line": 619,
                 "snippet": "model: cfg.recallFilterModel,"
               },
               {
                 "path": "index.js",
-                "line": 623,
+                "line": 678,
                 "snippet": "if (!cfg.recallFilterBaseUrl || !cfg.recallFilterModel) {"
               },
               {
@@ -227487,7 +227829,7 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 137,
+                "line": 141,
                 "snippet": "if (!cfg.recallGlobal) {"
               },
               {
@@ -227509,7 +227851,7 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 176,
+                "line": 180,
                 "snippet": "payload.relativity = cfg.relativity;"
               },
               {
@@ -227531,7 +227873,7 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 728,
+                "line": 783,
                 "snippet": "if (cfg.conversationSuffixMode === \"counter\" && cfg.resetOnNew) {"
               },
               {
@@ -227597,7 +227939,7 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 192,
+                "line": 196,
                 "snippet": "if (cfg.tags?.length) payload.tags = cfg.tags;"
               },
               {
@@ -227619,7 +227961,7 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 834,
+                "line": 890,
                 "snippet": "if (agentCfg.throttleMs && now - lastCaptureTime < agentCfg.throttleMs) {"
               },
               {
@@ -227663,7 +228005,7 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 175,
+                "line": 179,
                 "snippet": "payload.tool_memory_limit_number = cfg.toolMemoryLimitNumber;"
               },
               {
@@ -227685,7 +228027,7 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 106,
+                "line": 110,
                 "snippet": "if (!cfg?.useDirectSessionUserId) return fallback;"
               },
               {
@@ -227707,8 +228049,13 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 105,
+                "line": 109,
                 "snippet": "const fallback = cfg?.userId || \"openclaw-user\";"
+              },
+              {
+                "path": "index.js",
+                "line": 472,
+                "snippet": "payload.user_id,"
               },
               {
                 "path": "lib/memos-cloud-api.js",
@@ -227729,7 +228076,7 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 732,
+                "line": 787,
                 "snippet": "api.registerHook("
               }
             ],
@@ -227746,7 +228093,7 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 805,
+                "line": 860,
                 "snippet": "api.on(\"agent_end\", async (event, ctx) => {"
               }
             ],
@@ -227763,7 +228110,7 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 802,
+                "line": 857,
                 "snippet": "api.on(\"before_agent_start\", runRecall);"
               }
             ],
@@ -227780,7 +228127,7 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 800,
+                "line": 855,
                 "snippet": "api.on(\"before_prompt_build\", runRecall);"
               }
             ],
@@ -227797,7 +228144,7 @@
             "evidence": [
               {
                 "path": "index.js",
-                "line": 733,
+                "line": 788,
                 "snippet": "[\"command:new\"],"
               }
             ],
@@ -227904,6 +228251,7 @@
         "plugins/clawmetry/clawmetry/static/js/gw-setup.js",
         "plugins/clawmetry/clawmetry/static/js/i18n.js",
         "plugins/clawmetry/clawmetry/static/js/nav-dropdown.js",
+        "plugins/clawmetry/clawmetry/static/js/onboarding.js",
         "plugins/clawmetry/clawmetry/static/js/runtime-logos.js",
         "plugins/clawmetry/clawmetry/static/vendor/marked.min.js",
         "plugins/clawmetry/clawmetry/static/vendor/purify.min.js",
@@ -228121,9 +228469,9 @@
         "inputKind": "source",
         "status": "partial",
         "coverage": {
-          "filesDiscovered": 1275,
-          "filesAnalyzed": 47,
-          "filesExcluded": 1228
+          "filesDiscovered": 1393,
+          "filesAnalyzed": 48,
+          "filesExcluded": 1345
         },
         "entries": [
           {
@@ -228202,8 +228550,8 @@
         "unknowns": [
           {
             "path": "clawmetry/static/js/app.js",
-            "line": 1232,
-            "expression": "visibilitySetInterval",
+            "line": 2571,
+            "expression": "content",
             "reason": "SDK provenance analysis exceeded its per-plugin limit of 2,000,000 steps; usage inventory may be incomplete"
           }
         ]
@@ -233269,32 +233617,21 @@
     },
     {
       "fixture": "honcho",
-      "code": "unknown-hook-name",
-      "message": "fixture registers hooks that are not present in the target OpenClaw hook registry",
-      "evidence": [
-        "before_agent_start @ plugins/honcho/hooks/subagent.ts:18"
-      ],
-      "level": "warning"
-    },
-    {
-      "fixture": "honcho",
-      "code": "unknown-registration-name",
-      "message": "fixture calls api.register* methods that are not present in the target OpenClaw plugin API builder",
-      "evidence": [
-        "registerMemoryPromptSection @ plugins/honcho/index.ts:97",
-        "registerMemoryRuntime @ plugins/honcho/runtime.ts:239"
-      ],
-      "level": "warning"
-    },
-    {
-      "fixture": "honcho",
-      "code": "legacy-before-agent-start",
+      "code": "sdk-deprecated-api",
       "level": "warning",
-      "message": "fixture uses deprecated before_agent_start hook compatibility",
+      "message": "openclaw/plugin-sdk/cli-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability",
       "evidence": [
-        "before_agent_start @ plugins/honcho/hooks/subagent.ts:18"
+        "openclaw/plugin-sdk/cli-runtime @ plugins/honcho/honcho-client.ts:11"
       ],
-      "compatRecord": "legacy-before-agent-start"
+      "compatRecord": "plugin-sdk-broad-runtime-barrels",
+      "deprecatedApi": "openclaw/plugin-sdk/cli-runtime",
+      "replacement": "focused plugin SDK subpaths for each runtime capability",
+      "removeAfter": "2026-10-01",
+      "authorRemediation": {
+        "summary": "openclaw/plugin-sdk/cli-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability",
+        "docsUrl": "https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy"
+      },
+      "authorRemediationDocs": false
     },
     {
       "fixture": "composio",
@@ -237182,7 +237519,7 @@
       "code": "unknown-hook-name",
       "message": "fixture registers hooks that are not present in the target OpenClaw hook registry",
       "evidence": [
-        "before_agent_start @ plugins/memos-cloud/index.js:802"
+        "before_agent_start @ plugins/memos-cloud/index.js:857"
       ],
       "level": "warning"
     },
@@ -237210,7 +237547,7 @@
       "level": "warning",
       "message": "fixture uses deprecated before_agent_start hook compatibility",
       "evidence": [
-        "before_agent_start @ plugins/memos-cloud/index.js:802"
+        "before_agent_start @ plugins/memos-cloud/index.js:857"
       ],
       "compatRecord": "legacy-before-agent-start"
     },
@@ -237274,7 +237611,7 @@
       "level": "suggestion",
       "message": "add channel envelope, config-schema, and runtime metadata probes",
       "evidence": [
-        "defineChannelPluginEntry @ plugins/agentchat/src/channel.ts:351"
+        "defineChannelPluginEntry @ plugins/agentchat/src/channel.ts:355"
       ],
       "compatRecord": "channel.runtime.envelope-config-metadata"
     },
@@ -237671,6 +238008,7 @@
       "level": "suggestion",
       "message": "package declares runtime dependencies that must be installed before cold import",
       "evidence": [
+        "@honcho-ai/harness-plugin-core @ plugins/honcho/package.json",
         "@honcho-ai/sdk @ plugins/honcho/package.json",
         "@sinclair/typebox @ plugins/honcho/package.json"
       ]
@@ -237681,8 +238019,7 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerMemoryPromptSection @ plugins/honcho/index.ts:97",
-        "registerMemoryRuntime @ plugins/honcho/runtime.ts:239"
+        "registerMemoryPromptSupplement @ plugins/honcho/index.ts:119"
       ],
       "compatRecord": "api.capture.runtime-registrars"
     },
@@ -238316,7 +238653,7 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:348"
+        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:322"
       ],
       "compatRecord": "api.capture.runtime-registrars"
     },
@@ -238326,7 +238663,7 @@
       "level": "suggestion",
       "message": "add contract probes for before_tool_call terminal, block, and approval semantics",
       "evidence": [
-        "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:385"
+        "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:359"
       ],
       "compatRecord": "hook.before_tool_call.terminal-block-approval"
     },
@@ -238803,7 +239140,7 @@
       "level": "suggestion",
       "message": "future inspector capture API should record lifecycle, route, gateway, command, and interactive registrations",
       "evidence": [
-        "registerHook @ plugins/memos-cloud/index.js:732"
+        "registerHook @ plugins/memos-cloud/index.js:787"
       ],
       "compatRecord": "api.capture.runtime-registrars"
     },
@@ -238975,16 +239312,6 @@
       "compatRecord": "legacy-before-agent-start"
     },
     {
-      "fixture": "honcho",
-      "code": "missing-compat-record",
-      "level": "suggestion",
-      "message": "fixture depends on a compatibility behavior that is not represented in the target compat registry",
-      "evidence": [
-        "legacy-before-agent-start"
-      ],
-      "compatRecord": "legacy-before-agent-start"
-    },
-    {
       "fixture": "memory-tencentdb",
       "code": "missing-compat-record",
       "level": "suggestion",
@@ -239106,46 +239433,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-661658BA",
-      "fixture": "honcho",
-      "severity": "P0",
-      "owner": "core",
-      "code": "unknown-hook-name",
-      "decision": "core-compat-adapter",
-      "status": "blocking",
-      "issueClass": "live-issue",
-      "live": true,
-      "deprecated": false,
-      "compatStatus": "none",
-      "title": "honcho: fixture uses a hook missing from target OpenClaw",
-      "evidence": [
-        "before_agent_start @ plugins/honcho/hooks/subagent.ts:18"
-      ],
-      "compatRecord": null,
-      "runtimeCoverage": null
-    },
-    {
-      "id": "CRABPOT-53155FC5",
-      "fixture": "honcho",
-      "severity": "P0",
-      "owner": "core",
-      "code": "unknown-registration-name",
-      "decision": "core-compat-adapter",
-      "status": "blocking",
-      "issueClass": "live-issue",
-      "live": true,
-      "deprecated": false,
-      "compatStatus": "none",
-      "title": "honcho: fixture calls a registrar missing from target OpenClaw",
-      "evidence": [
-        "registerMemoryPromptSection @ plugins/honcho/index.ts:97",
-        "registerMemoryRuntime @ plugins/honcho/runtime.ts:239"
-      ],
-      "compatRecord": null,
-      "runtimeCoverage": null
-    },
-    {
-      "id": "CRABPOT-23239ED9",
+      "id": "CRABPOT-D923E411",
       "fixture": "memos-cloud",
       "severity": "P0",
       "owner": "core",
@@ -239158,7 +239446,7 @@
       "compatStatus": "none",
       "title": "memos-cloud: fixture uses a hook missing from target OpenClaw",
       "evidence": [
-        "before_agent_start @ plugins/memos-cloud/index.js:802"
+        "before_agent_start @ plugins/memos-cloud/index.js:857"
       ],
       "compatRecord": null,
       "runtimeCoverage": null
@@ -239439,25 +239727,6 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-85353B1E",
-      "fixture": "honcho",
-      "severity": "P1",
-      "owner": "core",
-      "code": "missing-compat-record",
-      "decision": "core-compat-adapter",
-      "status": "open",
-      "issueClass": "compat-gap",
-      "live": false,
-      "deprecated": false,
-      "compatStatus": "missing",
-      "title": "honcho: compat-dependent behavior lacks registry coverage",
-      "evidence": [
-        "legacy-before-agent-start"
-      ],
-      "compatRecord": "legacy-before-agent-start",
-      "runtimeCoverage": null
-    },
-    {
       "id": "CRABPOT-98351D43",
       "fixture": "inworld-tts",
       "severity": "P1",
@@ -239631,7 +239900,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-D4217A12",
+      "id": "CRABPOT-D5CC08BB",
       "fixture": "nemoclaw",
       "severity": "P1",
       "owner": "inspector",
@@ -239644,7 +239913,7 @@
       "compatStatus": "active",
       "title": "nemoclaw: before_tool_call needs terminal/block/approval probes",
       "evidence": [
-        "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:385"
+        "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:359"
       ],
       "compatRecord": "hook.before_tool_call.terminal-block-approval",
       "runtimeCoverage": null
@@ -240033,7 +240302,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-E738C07A",
+      "id": "CRABPOT-E34E5339",
       "fixture": "agentchat",
       "severity": "P2",
       "owner": "inspector",
@@ -240046,7 +240315,7 @@
       "compatStatus": "active",
       "title": "agentchat: channel runtime needs envelope/config probes",
       "evidence": [
-        "defineChannelPluginEntry @ plugins/agentchat/src/channel.ts:351"
+        "defineChannelPluginEntry @ plugins/agentchat/src/channel.ts:355"
       ],
       "compatRecord": "channel.runtime.envelope-config-metadata",
       "runtimeCoverage": null
@@ -244685,29 +244954,6 @@
       }
     },
     {
-      "id": "CRABPOT-4A5B0532",
-      "fixture": "honcho",
-      "severity": "P2",
-      "owner": "core",
-      "code": "legacy-before-agent-start",
-      "decision": "core-compat-adapter",
-      "status": "open",
-      "issueClass": "deprecation-warning",
-      "live": false,
-      "deprecated": true,
-      "compatStatus": "deprecated",
-      "title": "honcho: legacy before_agent_start hook compatibility is still used",
-      "evidence": [
-        "before_agent_start @ plugins/honcho/hooks/subagent.ts:18"
-      ],
-      "compatRecord": "legacy-before-agent-start",
-      "runtimeCoverage": null,
-      "authorRemediation": {
-        "summary": "Replace the legacy before_agent_start hook with the current prompt/model hooks.",
-        "docsUrl": "https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-before-agent-start"
-      }
-    },
-    {
       "id": "CRABPOT-DD3A3689",
       "fixture": "honcho",
       "severity": "P2",
@@ -244727,7 +244973,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-3C107B65",
+      "id": "CRABPOT-E8340915",
       "fixture": "honcho",
       "severity": "P2",
       "owner": "inspector",
@@ -244740,6 +244986,7 @@
       "compatStatus": "none",
       "title": "honcho: cold import requires dependency installation in an isolated workspace",
       "evidence": [
+        "@honcho-ai/harness-plugin-core @ plugins/honcho/package.json",
         "@honcho-ai/sdk @ plugins/honcho/package.json",
         "@sinclair/typebox @ plugins/honcho/package.json"
       ],
@@ -244747,7 +244994,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-E2F369D4",
+      "id": "CRABPOT-E9A13742",
       "fixture": "honcho",
       "severity": "P2",
       "owner": "inspector",
@@ -244760,11 +245007,36 @@
       "compatStatus": "active",
       "title": "honcho: runtime registrations need capture evidence before final contract judgment",
       "evidence": [
-        "registerMemoryPromptSection @ plugins/honcho/index.ts:97",
-        "registerMemoryRuntime @ plugins/honcho/runtime.ts:239"
+        "registerMemoryPromptSupplement @ plugins/honcho/index.ts:119"
       ],
       "compatRecord": "api.capture.runtime-registrars",
       "runtimeCoverage": null
+    },
+    {
+      "id": "CRABPOT-22DF859C",
+      "fixture": "honcho",
+      "severity": "P2",
+      "owner": "plugin",
+      "code": "sdk-deprecated-api",
+      "decision": "plugin-upstream-fix",
+      "status": "open",
+      "issueClass": "deprecation-warning",
+      "live": false,
+      "deprecated": true,
+      "compatStatus": "deprecated",
+      "title": "honcho: deprecated SDK API is still used",
+      "evidence": [
+        "openclaw/plugin-sdk/cli-runtime @ plugins/honcho/honcho-client.ts:11"
+      ],
+      "compatRecord": "plugin-sdk-broad-runtime-barrels",
+      "deprecatedApi": "openclaw/plugin-sdk/cli-runtime",
+      "replacement": "focused plugin SDK subpaths for each runtime capability",
+      "removeAfter": "2026-10-01",
+      "runtimeCoverage": null,
+      "authorRemediation": {
+        "summary": "openclaw/plugin-sdk/cli-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability",
+        "docsUrl": "https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy"
+      }
     },
     {
       "id": "CRABPOT-989C019E",
@@ -246276,7 +246548,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-B065B36C",
+      "id": "CRABPOT-1218EE76",
       "fixture": "memos-cloud",
       "severity": "P2",
       "owner": "core",
@@ -246289,7 +246561,7 @@
       "compatStatus": "deprecated",
       "title": "memos-cloud: legacy before_agent_start hook compatibility is still used",
       "evidence": [
-        "before_agent_start @ plugins/memos-cloud/index.js:802"
+        "before_agent_start @ plugins/memos-cloud/index.js:857"
       ],
       "compatRecord": "legacy-before-agent-start",
       "runtimeCoverage": null,
@@ -246345,7 +246617,7 @@
       }
     },
     {
-      "id": "CRABPOT-CF79ABF1",
+      "id": "CRABPOT-79A30142",
       "fixture": "memos-cloud",
       "severity": "P2",
       "owner": "inspector",
@@ -246358,7 +246630,7 @@
       "compatStatus": "active",
       "title": "memos-cloud: runtime registrations need capture evidence before final contract judgment",
       "evidence": [
-        "registerHook @ plugins/memos-cloud/index.js:732"
+        "registerHook @ plugins/memos-cloud/index.js:787"
       ],
       "compatRecord": "api.capture.runtime-registrars",
       "runtimeCoverage": null
@@ -246834,7 +247106,7 @@
       "runtimeCoverage": null
     },
     {
-      "id": "CRABPOT-9765A6B7",
+      "id": "CRABPOT-10B55FC2",
       "fixture": "nemoclaw",
       "severity": "P2",
       "owner": "inspector",
@@ -246847,7 +247119,7 @@
       "compatStatus": "active",
       "title": "nemoclaw: runtime registrations need capture evidence before final contract judgment",
       "evidence": [
-        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:348"
+        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:322"
       ],
       "compatRecord": "api.capture.runtime-registrars",
       "runtimeCoverage": null
@@ -249451,7 +249723,7 @@
       "target": "hook-runner",
       "contract": "Hook returns preserve terminal, block, and approval semantics.",
       "evidence": [
-        "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:385"
+        "before_tool_call @ plugins/nemoclaw/nemoclaw/src/index.ts:359"
       ]
     },
     {
@@ -249678,8 +249950,7 @@
       "target": "inspector-capture-api",
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
-        "registerMemoryPromptSection @ plugins/honcho/index.ts:97",
-        "registerMemoryRuntime @ plugins/honcho/runtime.ts:239"
+        "registerMemoryPromptSupplement @ plugins/honcho/index.ts:119"
       ]
     },
     {
@@ -249798,7 +250069,7 @@
       "target": "inspector-capture-api",
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
-        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:348"
+        "registerCommand @ plugins/nemoclaw/nemoclaw/src/index.ts:322"
       ]
     },
     {
@@ -249872,7 +250143,7 @@
       "target": "channel-runtime",
       "contract": "Channel setup, message envelope, sender metadata, and config schema remain stable.",
       "evidence": [
-        "defineChannelPluginEntry @ plugins/agentchat/src/channel.ts:351"
+        "defineChannelPluginEntry @ plugins/agentchat/src/channel.ts:355"
       ]
     },
     {
@@ -249965,16 +250236,6 @@
       "contract": "Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.",
       "evidence": [
         "before_agent_start @ plugins/connectclaw/packages/plugin/src/hooks.ts:17"
-      ]
-    },
-    {
-      "id": "hook.compat.before-agent-start-migration:honcho",
-      "fixture": "honcho",
-      "priority": "P2",
-      "target": "hook-runner",
-      "contract": "Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.",
-      "evidence": [
-        "before_agent_start @ plugins/honcho/hooks/subagent.ts:18"
       ]
     },
     {
@@ -250423,6 +250684,7 @@
       "target": "package-loader",
       "contract": "Inspector installs package dependencies in an isolated workspace before cold import.",
       "evidence": [
+        "@honcho-ai/harness-plugin-core @ plugins/honcho/package.json",
         "@honcho-ai/sdk @ plugins/honcho/package.json",
         "@sinclair/typebox @ plugins/honcho/package.json"
       ]
@@ -250981,7 +251243,7 @@
       "target": "inspector-capture-api",
       "contract": "External inspector capture records service, route, gateway, command, and interactive registrations.",
       "evidence": [
-        "registerHook @ plugins/memos-cloud/index.js:732"
+        "registerHook @ plugins/memos-cloud/index.js:787"
       ]
     },
     {
@@ -251176,7 +251438,7 @@
       "target": "hook-runner",
       "contract": "Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.",
       "evidence": [
-        "before_agent_start @ plugins/memos-cloud/index.js:802"
+        "before_agent_start @ plugins/memos-cloud/index.js:857"
       ]
     },
     {
@@ -251941,7 +252203,7 @@
       "evidence": [
         "plugins/agentchat/package.json",
         "@agentchatme/openclaw",
-        "version:0.7.821"
+        "version:0.7.8211111"
       ]
     },
     {
@@ -252599,21 +252861,42 @@
       "fixture": "honcho",
       "code": "seam-inventory",
       "level": "log",
-      "message": "observed 7 hooks, 5 registrations, and 1 manifest contracts",
+      "message": "observed 5 hooks, 4 registrations, and 1 manifest contracts",
       "evidence": [
         "hook:agent_end",
-        "hook:before_agent_start",
-        "hook:before_compaction",
         "hook:before_prompt_build",
-        "hook:before_reset",
         "hook:gateway_start",
+        "hook:llm_output",
         "hook:subagent_spawned",
         "registration:definePluginEntry",
         "registration:registerCli",
-        "registration:registerMemoryPromptSection",
-        "registration:registerMemoryRuntime",
+        "registration:registerMemoryPromptSupplement",
         "registration:registerTool",
         "manifestContract:tools"
+      ]
+    },
+    {
+      "fixture": "honcho",
+      "code": "hook-names-present",
+      "level": "log",
+      "message": "all observed hooks exist in the target OpenClaw hook registry",
+      "evidence": [
+        "agent_end",
+        "before_prompt_build",
+        "gateway_start",
+        "llm_output",
+        "subagent_spawned"
+      ]
+    },
+    {
+      "fixture": "honcho",
+      "code": "api-registrars-present",
+      "level": "log",
+      "message": "all observed api.register* calls exist in the target OpenClaw plugin API builder",
+      "evidence": [
+        "registerCli",
+        "registerMemoryPromptSupplement",
+        "registerTool"
       ]
     },
     {
@@ -252622,6 +252905,8 @@
       "level": "log",
       "message": "all observed plugin SDK imports exist in target OpenClaw package exports",
       "evidence": [
+        "openclaw/plugin-sdk/cli-runtime",
+        "openclaw/plugin-sdk/extension-shared",
         "openclaw/plugin-sdk/plugin-entry",
         "openclaw/plugin-sdk/routing"
       ]
@@ -252643,7 +252928,7 @@
       "evidence": [
         "plugins/honcho/package.json",
         "@honcho-ai/openclaw-honcho",
-        "version:1.5.2"
+        "version:1.7.0"
       ]
     },
     {
@@ -255281,7 +255566,7 @@
       "message": "selected package metadata for plugin contract checks",
       "evidence": [
         "plugins/nemoclaw/nemoclaw/package.json",
-        "nemoclaw",
+        "nemoclaw-plugin",
         "version:0.1.0"
       ]
     },
@@ -256069,7 +256354,7 @@
       "evidence": [
         "plugins/memos-cloud/package.json",
         "@memtensor/memos-cloud-openclaw-plugin",
-        "version:0.1.19"
+        "version:0.1.20"
       ]
     },
     {
@@ -256373,6 +256658,17 @@
     },
     {
       "fixture": "wecom",
+      "code": "compat-record-present",
+      "level": "log",
+      "message": "target OpenClaw checkout has a matching compat registry record",
+      "evidence": [
+        "plugin-sdk-broad-runtime-barrels",
+        "status:deprecated"
+      ],
+      "compatRecord": "plugin-sdk-broad-runtime-barrels"
+    },
+    {
+      "fixture": "honcho",
       "code": "compat-record-present",
       "level": "log",
       "message": "target OpenClaw checkout has a matching compat registry record",
@@ -259763,21 +260059,14 @@
       "decision": "inspector-follow-up",
       "seam": "cold-import",
       "action": "Install runtime dependencies in an isolated workspace before executing this fixture entrypoint.",
-      "evidence": "@honcho-ai/sdk, @sinclair/typebox"
-    },
-    {
-      "fixture": "honcho",
-      "decision": "core-compat-adapter",
-      "seam": "hook-compat",
-      "action": "Keep before_agent_start wired while plugin authors migrate to before_model_resolve and before_prompt_build.",
-      "evidence": "before_agent_start @ plugins/honcho/hooks/subagent.ts:18"
+      "evidence": "@honcho-ai/harness-plugin-core, @honcho-ai/sdk, @sinclair/typebox"
     },
     {
       "fixture": "honcho",
       "decision": "inspector-follow-up",
       "seam": "registration-capture",
       "action": "Expose or mirror a full public API capture shim before treating these runtime-only seams as covered.",
-      "evidence": "registerMemoryPromptSection, registerMemoryRuntime"
+      "evidence": "registerMemoryPromptSupplement"
     },
     {
       "fixture": "honcho",
@@ -260869,7 +261158,7 @@
       "decision": "core-compat-adapter",
       "seam": "hook-compat",
       "action": "Keep before_agent_start wired while plugin authors migrate to before_model_resolve and before_prompt_build.",
-      "evidence": "before_agent_start @ plugins/memos-cloud/index.js:802"
+      "evidence": "before_agent_start @ plugins/memos-cloud/index.js:857"
     },
     {
       "fixture": "memos-cloud",
@@ -261034,13 +261323,6 @@
     },
     {
       "fixture": "connectclaw",
-      "decision": "core-compat-adapter",
-      "seam": "compat-registry",
-      "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",
-      "evidence": "legacy-before-agent-start"
-    },
-    {
-      "fixture": "honcho",
       "decision": "core-compat-adapter",
       "seam": "compat-registry",
       "action": "Add or restore a machine-readable OpenClaw compat record before changing this plugin-facing behavior.",

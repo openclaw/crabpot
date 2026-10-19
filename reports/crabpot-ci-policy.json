@@ -29,12 +29,10 @@
     {
       "id": "compatibility-report.live-p0-issues",
       "action": "warn",
-      "message": "7 live P0 issues tracked",
+      "message": "5 live P0 issues tracked",
       "evidence": [
         "aiwerk-mcp-bridge:unknown-hook-name:none",
         "connectclaw:unknown-hook-name:none",
-        "honcho:unknown-hook-name:none",
-        "honcho:unknown-registration-name:none",
         "memos-cloud:unknown-hook-name:none",
         "openclaw-telemetry:unknown-hook-name:none",
         "opik-openclaw:unknown-hook-name:none"
@@ -179,7 +177,7 @@
         "hapi-openclaw:sdk-session-file-helper",
         "hapi-openclaw:sdk-session-store-write",
         "hasdata:provider-auth-env-vars",
-        "honcho:legacy-before-agent-start",
+        "honcho:sdk-deprecated-api",
         "inworld-tts:provider-auth-env-vars",
         "kitchen-sink:sdk-deprecated-api",
         "lossless-claw:sdk-load-session-store",
@@ -430,7 +428,7 @@
     {
       "id": "compatibility-report.p1-issues",
       "action": "pass",
-      "message": "36 P1 issues tracked",
+      "message": "35 P1 issues tracked",
       "evidence": [
         "agentchat:missing-compat-record",
         "bluebubbles:sdk-export-missing",
@@ -444,7 +442,6 @@
         "dingtalk-doc:missing-compat-record",
         "dingtalk-doc:sdk-export-missing",
         "hasdata:missing-compat-record",
-        "honcho:missing-compat-record",
         "inworld-tts:missing-compat-record",
         "kitchen-sink:before-tool-call-probe",
         "matrix:sdk-export-missing",
