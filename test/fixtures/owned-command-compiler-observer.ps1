@@ -1,8 +1,8 @@
-param([string]$Root)
+param([string]$Root, [string]$Assembly)
 $ErrorActionPreference = "Stop"
-# Admission and observer compilation are separate bounded stages.
+# The parent prepares this assembly before starting the observation deadline.
 $started = [System.IO.Path]::Combine($Root, "observer-started")
 [System.IO.File]::WriteAllText($started + ".pending", '{"pid":' + $PID + '}')
 [System.IO.File]::Move($started + ".pending", $started)
-Add-Type -Path ([System.IO.Path]::Combine($PSScriptRoot, 'owned-command-compiler-observer.cs'))
+[void][System.Reflection.Assembly]::LoadFrom($Assembly)
 [CompilerObserver]::Run($Root)

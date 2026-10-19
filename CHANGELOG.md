@@ -4,7 +4,9 @@
 
 - Move both macOS compatibility matrices to the Xcode 27 Apple Silicon runner.
 - Record Voice Call steering's active-call and caller prerequisites for credential-free probes while keeping explicitly configured failures visible.
-- Refresh 24 npm fixture pins, pairing official package source references with their publication qualifications, thanks @dependabot and @vincentkoc.
+- Refresh 23 npm fixture pins, pairing official package source references with their publication qualifications, thanks @dependabot and @vincentkoc.
+- Retain bounded child errors and truncation metadata in runtime-profile JSON through reviewed Inspector source, preserving the published 0.4.3 npm pin, command order, heap limits, and deadlines.
+
 - Refresh AgentChat, ClawMetry, Honcho, MemOS Cloud and NemoClaw fixture pins; track Honcho's additive prompt supplement and LLM observation contracts. Thanks @dependabot.
 
 - Adopt Plugin Inspector 0.4.3 with serialized SDK inventory coverage, reuse real corpus inspections across derived-report tests, and bound test stages and profiler samples independently while preserving full-corpus checks. Thanks @Patrick-Erichsen.

@@ -1207,7 +1207,7 @@
       "name": "TencentDB Agent Memory",
       "package": {
         "name": "@tencentdb-agent-memory/memory-tencentdb",
-        "version": "1.0.2"
+        "version": "1.0.1"
       },
       "path": "plugins/memory-tencentdb",
       "priority": "high",
