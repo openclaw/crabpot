@@ -14,30 +14,30 @@ Status: PASS
 
 | Metric                     | Value |
 | -------------------------- | ----- |
-| Issue findings             | 446   |
-| Open issue findings        | 446   |
+| Issue findings             | 443   |
+| Open issue findings        | 443   |
 | Runtime-covered findings   | 0     |
 | Runtime-partial findings   | 0     |
-| 🔴 P0                      | 7     |
-| 🟠 P1                      | 36    |
-| Open 🔴 P0                 | 7     |
-| Open 🟠 P1                 | 36    |
-| Live issues                | 7     |
-| Live P0 issues             | 7     |
-| Compat gaps                | 28    |
+| 🔴 P0                      | 5     |
+| 🟠 P1                      | 35    |
+| Open 🔴 P0                 | 5     |
+| Open 🟠 P1                 | 35    |
+| Live issues                | 5     |
+| Live P0 issues             | 5     |
+| Compat gaps                | 27    |
 | Deprecation warnings       | 218   |
 | Inspector gaps             | 149   |
 | Open inspector gaps        | 149   |
 | Runtime coverage artifacts | 0     |
 | Upstream metadata          | 44    |
-| Contract probes            | 218   |
+| Contract probes            | 217   |
 
 ## Triage Overview
 
 | Class               | Count | P0 | Meaning                                                                                                                                                  |
 | ------------------- | ----- | -- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| live-issue          | 7     | 7  | Potential runtime breakage in the target OpenClaw/plugin pair. P0 only when it is not a deprecated compat seam.                                          |
-| compat-gap          | 28    | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                                                                   |
+| live-issue          | 5     | 5  | Potential runtime breakage in the target OpenClaw/plugin pair. P0 only when it is not a deprecated compat seam.                                          |
+| compat-gap          | 27    | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                                                                   |
 | deprecation-warning | 218   | -  | Plugin uses a supported but deprecated compatibility seam; keep it wired while migration exists.                                                         |
 | inspector-gap       | 149   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments. Runtime-covered rows are proof-backed and not open report work. |
 | upstream-metadata   | 44    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.                                                 |
@@ -58,24 +58,11 @@ Status: PASS
   - evidence:
     - [before_agent_start @ hooks.ts:17](https://github.com/osipov-anton/connectclaw/blob/7a4e2646e914de075435b3837123cc03c3edae36/packages/plugin/src/hooks.ts#L17)
 
-- 🔴 P0 **honcho** `live-issue` `core-compat-adapter`
-  - **unknown-hook-name**: honcho: fixture uses a hook missing from target OpenClaw
-  - state: blocking · compat:none · live
-  - evidence:
-    - [before_agent_start @ subagent.ts:18](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/hooks/subagent.ts#L18)
-
-- 🔴 P0 **honcho** `live-issue` `core-compat-adapter`
-  - **unknown-registration-name**: honcho: fixture calls a registrar missing from target OpenClaw
-  - state: blocking · compat:none · live
-  - evidence:
-    - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/index.ts#L97)
-    - [registerMemoryRuntime @ runtime.ts:239](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/runtime.ts#L239)
-
 - 🔴 P0 **memos-cloud** `live-issue` `core-compat-adapter`
   - **unknown-hook-name**: memos-cloud: fixture uses a hook missing from target OpenClaw
   - state: blocking · compat:none · live
   - evidence:
-    - [before_agent_start @ index.js:802](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/fd4bad4cbe66bb767d33d08d681eaea03ccb353a/index.js#L802)
+    - [before_agent_start @ index.js:857](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/a317661691bda94054d3d35f8c226e8bfe0018f7/index.js#L857)
 
 - 🔴 P0 **openclaw-telemetry** `live-issue` `core-compat-adapter`
   - **unknown-hook-name**: openclaw-telemetry: fixture uses a hook missing from target OpenClaw
@@ -161,12 +148,6 @@ _none_
   - state: open · compat:missing
   - evidence:
     - provider-auth-env-vars
-
-- 🟠 P1 **honcho** `compat-gap` `core-compat-adapter`
-  - **missing-compat-record**: honcho: compat-dependent behavior lacks registry coverage
-  - state: open · compat:missing
-  - evidence:
-    - legacy-before-agent-start
 
 - 🟠 P1 **inworld-tts** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: inworld-tts: compat-dependent behavior lacks registry coverage
@@ -1427,14 +1408,14 @@ _none_
     - Move legacy provider authentication environment variables into current provider setup metadata.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#provider-auth-env-vars
 
-- 🟡 P2 **honcho** `deprecation-warning` `core-compat-adapter`
-  - **legacy-before-agent-start**: honcho: legacy before_agent_start hook compatibility is still used
+- 🟡 P2 **honcho** `deprecation-warning` `plugin-upstream-fix`
+  - **sdk-deprecated-api**: honcho: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [before_agent_start @ subagent.ts:18](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/hooks/subagent.ts#L18)
+    - [openclaw/plugin-sdk/cli-runtime @ honcho-client.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/25f644cfd985f437951cc085b91138be22e42388/honcho-client.ts#L11)
   - author remediation:
-    - Replace the legacy before_agent_start hook with the current prompt/model hooks.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-before-agent-start
+    - openclaw/plugin-sdk/cli-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
+    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
 
 - 🟡 P2 **inworld-tts** `deprecation-warning` `core-compat-adapter`
   - **provider-auth-env-vars**: inworld-tts: providerAuthEnvVars legacy manifest metadata must stay covered
@@ -1707,7 +1688,7 @@ _none_
   - **legacy-before-agent-start**: memos-cloud: legacy before_agent_start hook compatibility is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [before_agent_start @ index.js:802](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/fd4bad4cbe66bb767d33d08d681eaea03ccb353a/index.js#L802)
+    - [before_agent_start @ index.js:857](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/a317661691bda94054d3d35f8c226e8bfe0018f7/index.js#L857)
   - author remediation:
     - Replace the legacy before_agent_start hook with the current prompt/model hooks.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-before-agent-start
@@ -2270,7 +2251,7 @@ _none_
   - **before-tool-call-probe**: nemoclaw: before_tool_call needs terminal/block/approval probes
   - state: open · compat:active
   - evidence:
-    - [before_tool_call @ index.ts:385](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/src/index.ts#L385)
+    - [before_tool_call @ index.ts:359](https://github.com/NVIDIA/NemoClaw/blob/37ca4cb4220265c2a12b9d9b8a120d0d23a338dd/nemoclaw/src/index.ts#L359)
 
 - 🟠 P1 **openclaw-telemetry** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: openclaw-telemetry: before_tool_call needs terminal/block/approval probes
@@ -2326,24 +2307,24 @@ _none_
   - **channel-contract-probe**: agentchat: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [defineChannelPluginEntry @ channel.ts:351](https://github.com/agentchatme/agentchat-openclaw/blob/042feceb630c756fedc0e3fa6e97369da40bf4ed/src/channel.ts#L351)
+    - [defineChannelPluginEntry @ channel.ts:355](https://github.com/agentchatme/agentchat-openclaw/blob/caee25ad8ed7a38cc4281bda397c7e0e7e90ce6a/src/channel.ts#L355)
 
 - 🟡 P2 **agentchat** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: agentchat: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/agentchatme/agentchat-openclaw/blob/042feceb630c756fedc0e3fa6e97369da40bf4ed/dist/index.js)
-    - [setupEntry:./dist/setup-entry.js @ setup-entry.js](https://github.com/agentchatme/agentchat-openclaw/blob/042feceb630c756fedc0e3fa6e97369da40bf4ed/dist/setup-entry.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/agentchatme/agentchat-openclaw/blob/caee25ad8ed7a38cc4281bda397c7e0e7e90ce6a/dist/index.js)
+    - [setupEntry:./dist/setup-entry.js @ setup-entry.js](https://github.com/agentchatme/agentchat-openclaw/blob/caee25ad8ed7a38cc4281bda397c7e0e7e90ce6a/dist/setup-entry.js)
 
 - 🟡 P2 **agentchat** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: agentchat: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@sinclair/typebox @ package.json](https://github.com/agentchatme/agentchat-openclaw/blob/042feceb630c756fedc0e3fa6e97369da40bf4ed/package.json)
-    - [agentchatme @ package.json](https://github.com/agentchatme/agentchat-openclaw/blob/042feceb630c756fedc0e3fa6e97369da40bf4ed/package.json)
-    - [pino @ package.json](https://github.com/agentchatme/agentchat-openclaw/blob/042feceb630c756fedc0e3fa6e97369da40bf4ed/package.json)
-    - [ws @ package.json](https://github.com/agentchatme/agentchat-openclaw/blob/042feceb630c756fedc0e3fa6e97369da40bf4ed/package.json)
-    - [zod @ package.json](https://github.com/agentchatme/agentchat-openclaw/blob/042feceb630c756fedc0e3fa6e97369da40bf4ed/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/agentchatme/agentchat-openclaw/blob/caee25ad8ed7a38cc4281bda397c7e0e7e90ce6a/package.json)
+    - [agentchatme @ package.json](https://github.com/agentchatme/agentchat-openclaw/blob/caee25ad8ed7a38cc4281bda397c7e0e7e90ce6a/package.json)
+    - [pino @ package.json](https://github.com/agentchatme/agentchat-openclaw/blob/caee25ad8ed7a38cc4281bda397c7e0e7e90ce6a/package.json)
+    - [ws @ package.json](https://github.com/agentchatme/agentchat-openclaw/blob/caee25ad8ed7a38cc4281bda397c7e0e7e90ce6a/package.json)
+    - [zod @ package.json](https://github.com/agentchatme/agentchat-openclaw/blob/caee25ad8ed7a38cc4281bda397c7e0e7e90ce6a/package.json)
 
 - 🟡 P2 **aiwerk-mcp-bridge** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: aiwerk-mcp-bridge: cold import requires dependency installation in an isolated workspace
@@ -2392,13 +2373,13 @@ _none_
   - **package-typescript-source-entrypoint**: clawmetry: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/382605c169d64f03049d0c2dad8cdd4cbf9eb5b8/clawhub-plugin/index.ts)
+    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/72714376a4b358dcb2b62e6c3ae05140903bcdff/clawhub-plugin/index.ts)
 
 - 🟡 P2 **clawmetry** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: clawmetry: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/382605c169d64f03049d0c2dad8cdd4cbf9eb5b8/clawhub-plugin/index.ts#L20)
+    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/72714376a4b358dcb2b62e6c3ae05140903bcdff/clawhub-plugin/index.ts#L20)
 
 - 🟡 P2 **clawrouter** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: clawrouter: cold import requires dependency installation in an isolated workspace
@@ -2735,21 +2716,21 @@ _none_
   - **package-build-artifact-entrypoint**: honcho: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/plastic-labs/openclaw-honcho/blob/25f644cfd985f437951cc085b91138be22e42388/dist/index.js)
 
 - 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: honcho: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@honcho-ai/sdk @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/package.json)
-    - [@sinclair/typebox @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/package.json)
+    - [@honcho-ai/harness-plugin-core @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/25f644cfd985f437951cc085b91138be22e42388/package.json)
+    - [@honcho-ai/sdk @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/25f644cfd985f437951cc085b91138be22e42388/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/25f644cfd985f437951cc085b91138be22e42388/package.json)
 
 - 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: honcho: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/index.ts#L97)
-    - [registerMemoryRuntime @ runtime.ts:239](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/runtime.ts#L239)
+    - [registerMemoryPromptSupplement @ index.ts:119](https://github.com/plastic-labs/openclaw-honcho/blob/25f644cfd985f437951cc085b91138be22e42388/index.ts#L119)
 
 - 🟡 P2 **hyperspell** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: hyperspell: cold import requires package build output
@@ -3005,7 +2986,7 @@ _none_
   - **registration-capture-gap**: memos-cloud: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerHook @ index.js:732](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/fd4bad4cbe66bb767d33d08d681eaea03ccb353a/index.js#L732)
+    - [registerHook @ index.js:787](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/a317661691bda94054d3d35f8c226e8bfe0018f7/index.js#L787)
 
 - 🟡 P2 **memu-engine** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: memu-engine: cold import needs TypeScript source entrypoint support
@@ -3075,22 +3056,22 @@ _none_
   - **package-build-artifact-entrypoint**: nemoclaw: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/37ca4cb4220265c2a12b9d9b8a120d0d23a338dd/nemoclaw/dist/index.js)
 
 - 🟡 P2 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: nemoclaw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/package.json)
-    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/package.json)
-    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/package.json)
-    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/package.json)
+    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/37ca4cb4220265c2a12b9d9b8a120d0d23a338dd/nemoclaw/package.json)
+    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/37ca4cb4220265c2a12b9d9b8a120d0d23a338dd/nemoclaw/package.json)
+    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/37ca4cb4220265c2a12b9d9b8a120d0d23a338dd/nemoclaw/package.json)
+    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/37ca4cb4220265c2a12b9d9b8a120d0d23a338dd/nemoclaw/package.json)
 
 - 🟡 P2 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: nemoclaw: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ index.ts:348](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/src/index.ts#L348)
+    - [registerCommand @ index.ts:322](https://github.com/NVIDIA/NemoClaw/blob/37ca4cb4220265c2a12b9d9b8a120d0d23a338dd/nemoclaw/src/index.ts#L322)
 
 - 🟡 P2 **nextcloud-talk** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: nextcloud-talk: channel runtime needs envelope/config probes
@@ -3444,7 +3425,7 @@ _none_
   - **manifest-unknown-fields**: agentchat: manifest uses unsupported top-level fields
   - state: open · compat:none
   - evidence:
-    - [channelEnvVars @ openclaw.plugin.json](https://github.com/agentchatme/agentchat-openclaw/blob/042feceb630c756fedc0e3fa6e97369da40bf4ed/openclaw.plugin.json)
+    - [channelEnvVars @ openclaw.plugin.json](https://github.com/agentchatme/agentchat-openclaw/blob/caee25ad8ed7a38cc4281bda397c7e0e7e90ce6a/openclaw.plugin.json)
   - author remediation:
     - Move unsupported top-level manifest fields into supported package metadata or remove them.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
@@ -3647,7 +3628,7 @@ _none_
   - **manifest-unknown-fields**: memos-cloud: manifest uses unsupported top-level fields
   - state: open · compat:none
   - evidence:
-    - [main @ openclaw.plugin.json](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/fd4bad4cbe66bb767d33d08d681eaea03ccb353a/openclaw.plugin.json)
+    - [main @ openclaw.plugin.json](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/a317661691bda94054d3d35f8c226e8bfe0018f7/openclaw.plugin.json)
   - author remediation:
     - Move unsupported top-level manifest fields into supported package metadata or remove them.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
@@ -3656,7 +3637,7 @@ _none_
   - **package-plugin-api-compat-missing**: memos-cloud: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - [package.json](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/fd4bad4cbe66bb767d33d08d681eaea03ccb353a/package.json)
+    - [package.json](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/a317661691bda94054d3d35f8c226e8bfe0018f7/package.json)
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
@@ -3830,24 +3811,11 @@ _none_
   - evidence:
     - [before_agent_start @ hooks.ts:17](https://github.com/osipov-anton/connectclaw/blob/7a4e2646e914de075435b3837123cc03c3edae36/packages/plugin/src/hooks.ts#L17)
 
-- 🔴 P0 **honcho** `live-issue` `core-compat-adapter`
-  - **unknown-hook-name**: honcho: fixture uses a hook missing from target OpenClaw
-  - state: blocking · compat:none · live
-  - evidence:
-    - [before_agent_start @ subagent.ts:18](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/hooks/subagent.ts#L18)
-
-- 🔴 P0 **honcho** `live-issue` `core-compat-adapter`
-  - **unknown-registration-name**: honcho: fixture calls a registrar missing from target OpenClaw
-  - state: blocking · compat:none · live
-  - evidence:
-    - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/index.ts#L97)
-    - [registerMemoryRuntime @ runtime.ts:239](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/runtime.ts#L239)
-
 - 🔴 P0 **memos-cloud** `live-issue` `core-compat-adapter`
   - **unknown-hook-name**: memos-cloud: fixture uses a hook missing from target OpenClaw
   - state: blocking · compat:none · live
   - evidence:
-    - [before_agent_start @ index.js:802](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/fd4bad4cbe66bb767d33d08d681eaea03ccb353a/index.js#L802)
+    - [before_agent_start @ index.js:857](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/a317661691bda94054d3d35f8c226e8bfe0018f7/index.js#L857)
 
 - 🔴 P0 **openclaw-telemetry** `live-issue` `core-compat-adapter`
   - **unknown-hook-name**: openclaw-telemetry: fixture uses a hook missing from target OpenClaw
@@ -3942,12 +3910,6 @@ _none_
   - evidence:
     - provider-auth-env-vars
 
-- 🟠 P1 **honcho** `compat-gap` `core-compat-adapter`
-  - **missing-compat-record**: honcho: compat-dependent behavior lacks registry coverage
-  - state: open · compat:missing
-  - evidence:
-    - legacy-before-agent-start
-
 - 🟠 P1 **inworld-tts** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: inworld-tts: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
@@ -4008,7 +3970,7 @@ _none_
   - **before-tool-call-probe**: nemoclaw: before_tool_call needs terminal/block/approval probes
   - state: open · compat:active
   - evidence:
-    - [before_tool_call @ index.ts:385](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/src/index.ts#L385)
+    - [before_tool_call @ index.ts:359](https://github.com/NVIDIA/NemoClaw/blob/37ca4cb4220265c2a12b9d9b8a120d0d23a338dd/nemoclaw/src/index.ts#L359)
 
 - 🟠 P1 **openclaw-telemetry** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: openclaw-telemetry: before_tool_call needs terminal/block/approval probes
@@ -4147,7 +4109,7 @@ _none_
   - **channel-contract-probe**: agentchat: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - [defineChannelPluginEntry @ channel.ts:351](https://github.com/agentchatme/agentchat-openclaw/blob/042feceb630c756fedc0e3fa6e97369da40bf4ed/src/channel.ts#L351)
+    - [defineChannelPluginEntry @ channel.ts:355](https://github.com/agentchatme/agentchat-openclaw/blob/caee25ad8ed7a38cc4281bda397c7e0e7e90ce6a/src/channel.ts#L355)
 
 - 🟡 P2 **agentchat** `deprecation-warning` `core-compat-adapter`
   - **channel-env-vars**: agentchat: channelEnvVars legacy manifest metadata must stay covered
@@ -4162,7 +4124,7 @@ _none_
   - **manifest-unknown-fields**: agentchat: manifest uses unsupported top-level fields
   - state: open · compat:none
   - evidence:
-    - [channelEnvVars @ openclaw.plugin.json](https://github.com/agentchatme/agentchat-openclaw/blob/042feceb630c756fedc0e3fa6e97369da40bf4ed/openclaw.plugin.json)
+    - [channelEnvVars @ openclaw.plugin.json](https://github.com/agentchatme/agentchat-openclaw/blob/caee25ad8ed7a38cc4281bda397c7e0e7e90ce6a/openclaw.plugin.json)
   - author remediation:
     - Move unsupported top-level manifest fields into supported package metadata or remove them.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
@@ -4171,18 +4133,18 @@ _none_
   - **package-build-artifact-entrypoint**: agentchat: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/agentchatme/agentchat-openclaw/blob/042feceb630c756fedc0e3fa6e97369da40bf4ed/dist/index.js)
-    - [setupEntry:./dist/setup-entry.js @ setup-entry.js](https://github.com/agentchatme/agentchat-openclaw/blob/042feceb630c756fedc0e3fa6e97369da40bf4ed/dist/setup-entry.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/agentchatme/agentchat-openclaw/blob/caee25ad8ed7a38cc4281bda397c7e0e7e90ce6a/dist/index.js)
+    - [setupEntry:./dist/setup-entry.js @ setup-entry.js](https://github.com/agentchatme/agentchat-openclaw/blob/caee25ad8ed7a38cc4281bda397c7e0e7e90ce6a/dist/setup-entry.js)
 
 - 🟡 P2 **agentchat** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: agentchat: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@sinclair/typebox @ package.json](https://github.com/agentchatme/agentchat-openclaw/blob/042feceb630c756fedc0e3fa6e97369da40bf4ed/package.json)
-    - [agentchatme @ package.json](https://github.com/agentchatme/agentchat-openclaw/blob/042feceb630c756fedc0e3fa6e97369da40bf4ed/package.json)
-    - [pino @ package.json](https://github.com/agentchatme/agentchat-openclaw/blob/042feceb630c756fedc0e3fa6e97369da40bf4ed/package.json)
-    - [ws @ package.json](https://github.com/agentchatme/agentchat-openclaw/blob/042feceb630c756fedc0e3fa6e97369da40bf4ed/package.json)
-    - [zod @ package.json](https://github.com/agentchatme/agentchat-openclaw/blob/042feceb630c756fedc0e3fa6e97369da40bf4ed/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/agentchatme/agentchat-openclaw/blob/caee25ad8ed7a38cc4281bda397c7e0e7e90ce6a/package.json)
+    - [agentchatme @ package.json](https://github.com/agentchatme/agentchat-openclaw/blob/caee25ad8ed7a38cc4281bda397c7e0e7e90ce6a/package.json)
+    - [pino @ package.json](https://github.com/agentchatme/agentchat-openclaw/blob/caee25ad8ed7a38cc4281bda397c7e0e7e90ce6a/package.json)
+    - [ws @ package.json](https://github.com/agentchatme/agentchat-openclaw/blob/caee25ad8ed7a38cc4281bda397c7e0e7e90ce6a/package.json)
+    - [zod @ package.json](https://github.com/agentchatme/agentchat-openclaw/blob/caee25ad8ed7a38cc4281bda397c7e0e7e90ce6a/package.json)
 
 - 🟡 P2 **aiwerk-mcp-bridge** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: aiwerk-mcp-bridge: manifest uses unsupported top-level fields
@@ -4332,13 +4294,13 @@ _none_
   - **package-typescript-source-entrypoint**: clawmetry: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/382605c169d64f03049d0c2dad8cdd4cbf9eb5b8/clawhub-plugin/index.ts)
+    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/72714376a4b358dcb2b62e6c3ae05140903bcdff/clawhub-plugin/index.ts)
 
 - 🟡 P2 **clawmetry** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: clawmetry: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/382605c169d64f03049d0c2dad8cdd4cbf9eb5b8/clawhub-plugin/index.ts#L20)
+    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/72714376a4b358dcb2b62e6c3ae05140903bcdff/clawhub-plugin/index.ts#L20)
 
 - 🟡 P2 **clawrouter** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: clawrouter: cold import requires dependency installation in an isolated workspace
@@ -5851,34 +5813,34 @@ _none_
     - Move legacy provider authentication environment variables into current provider setup metadata.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#provider-auth-env-vars
 
-- 🟡 P2 **honcho** `deprecation-warning` `core-compat-adapter`
-  - **legacy-before-agent-start**: honcho: legacy before_agent_start hook compatibility is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [before_agent_start @ subagent.ts:18](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/hooks/subagent.ts#L18)
-  - author remediation:
-    - Replace the legacy before_agent_start hook with the current prompt/model hooks.
-    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-before-agent-start
-
 - 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: honcho: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/plastic-labs/openclaw-honcho/blob/25f644cfd985f437951cc085b91138be22e42388/dist/index.js)
 
 - 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: honcho: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@honcho-ai/sdk @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/package.json)
-    - [@sinclair/typebox @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/package.json)
+    - [@honcho-ai/harness-plugin-core @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/25f644cfd985f437951cc085b91138be22e42388/package.json)
+    - [@honcho-ai/sdk @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/25f644cfd985f437951cc085b91138be22e42388/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/25f644cfd985f437951cc085b91138be22e42388/package.json)
 
 - 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: honcho: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/index.ts#L97)
-    - [registerMemoryRuntime @ runtime.ts:239](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/runtime.ts#L239)
+    - [registerMemoryPromptSupplement @ index.ts:119](https://github.com/plastic-labs/openclaw-honcho/blob/25f644cfd985f437951cc085b91138be22e42388/index.ts#L119)
+
+- 🟡 P2 **honcho** `deprecation-warning` `plugin-upstream-fix`
+  - **sdk-deprecated-api**: honcho: deprecated SDK API is still used
+  - state: open · compat:deprecated · deprecated
+  - evidence:
+    - [openclaw/plugin-sdk/cli-runtime @ honcho-client.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/25f644cfd985f437951cc085b91138be22e42388/honcho-client.ts#L11)
+  - author remediation:
+    - openclaw/plugin-sdk/cli-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
+    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
 
 - 🟡 P2 **hyperspell** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: hyperspell: cold import requires package build output
@@ -6457,7 +6419,7 @@ _none_
   - **legacy-before-agent-start**: memos-cloud: legacy before_agent_start hook compatibility is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - [before_agent_start @ index.js:802](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/fd4bad4cbe66bb767d33d08d681eaea03ccb353a/index.js#L802)
+    - [before_agent_start @ index.js:857](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/a317661691bda94054d3d35f8c226e8bfe0018f7/index.js#L857)
   - author remediation:
     - Replace the legacy before_agent_start hook with the current prompt/model hooks.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-before-agent-start
@@ -6466,7 +6428,7 @@ _none_
   - **manifest-unknown-fields**: memos-cloud: manifest uses unsupported top-level fields
   - state: open · compat:none
   - evidence:
-    - [main @ openclaw.plugin.json](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/fd4bad4cbe66bb767d33d08d681eaea03ccb353a/openclaw.plugin.json)
+    - [main @ openclaw.plugin.json](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/a317661691bda94054d3d35f8c226e8bfe0018f7/openclaw.plugin.json)
   - author remediation:
     - Move unsupported top-level manifest fields into supported package metadata or remove them.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
@@ -6475,7 +6437,7 @@ _none_
   - **package-plugin-api-compat-missing**: memos-cloud: plugin API compatibility range is missing
   - state: open · compat:none
   - evidence:
-    - [package.json](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/fd4bad4cbe66bb767d33d08d681eaea03ccb353a/package.json)
+    - [package.json](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/a317661691bda94054d3d35f8c226e8bfe0018f7/package.json)
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
@@ -6484,7 +6446,7 @@ _none_
   - **registration-capture-gap**: memos-cloud: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerHook @ index.js:732](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/fd4bad4cbe66bb767d33d08d681eaea03ccb353a/index.js#L732)
+    - [registerHook @ index.js:787](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/a317661691bda94054d3d35f8c226e8bfe0018f7/index.js#L787)
 
 - 🟡 P2 **memu-engine** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: memu-engine: plugin API compatibility range is missing
@@ -6644,22 +6606,22 @@ _none_
   - **package-build-artifact-entrypoint**: nemoclaw: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/37ca4cb4220265c2a12b9d9b8a120d0d23a338dd/nemoclaw/dist/index.js)
 
 - 🟡 P2 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: nemoclaw: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/package.json)
-    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/package.json)
-    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/package.json)
-    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/package.json)
+    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/37ca4cb4220265c2a12b9d9b8a120d0d23a338dd/nemoclaw/package.json)
+    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/37ca4cb4220265c2a12b9d9b8a120d0d23a338dd/nemoclaw/package.json)
+    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/37ca4cb4220265c2a12b9d9b8a120d0d23a338dd/nemoclaw/package.json)
+    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/37ca4cb4220265c2a12b9d9b8a120d0d23a338dd/nemoclaw/package.json)
 
 - 🟡 P2 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: nemoclaw: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:active
   - evidence:
-    - [registerCommand @ index.ts:348](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/src/index.ts#L348)
+    - [registerCommand @ index.ts:322](https://github.com/NVIDIA/NemoClaw/blob/37ca4cb4220265c2a12b9d9b8a120d0d23a338dd/nemoclaw/src/index.ts#L322)
 
 - 🟡 P2 **nextcloud-talk** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: nextcloud-talk: channel runtime needs envelope/config probes
@@ -7589,7 +7551,7 @@ _none_
   - contract: Hook returns preserve terminal, block, and approval semantics.
   - id: `hook.before_tool_call.terminal-block-approval:nemoclaw`
   - evidence:
-    - [before_tool_call @ index.ts:385](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/src/index.ts#L385)
+    - [before_tool_call @ index.ts:359](https://github.com/NVIDIA/NemoClaw/blob/37ca4cb4220265c2a12b9d9b8a120d0d23a338dd/nemoclaw/src/index.ts#L359)
 
 - 🟠 P1 **openclaw-telemetry** `hook-runner`
   - contract: Hook returns preserve terminal, block, and approval semantics.
@@ -7736,8 +7698,7 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:honcho`
   - evidence:
-    - [registerMemoryPromptSection @ index.ts:97](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/index.ts#L97)
-    - [registerMemoryRuntime @ runtime.ts:239](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/runtime.ts#L239)
+    - [registerMemoryPromptSupplement @ index.ts:119](https://github.com/plastic-labs/openclaw-honcho/blob/25f644cfd985f437951cc085b91138be22e42388/index.ts#L119)
 
 - 🟡 P2 **hyperspell** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -7828,7 +7789,7 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:nemoclaw`
   - evidence:
-    - [registerCommand @ index.ts:348](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/src/index.ts#L348)
+    - [registerCommand @ index.ts:322](https://github.com/NVIDIA/NemoClaw/blob/37ca4cb4220265c2a12b9d9b8a120d0d23a338dd/nemoclaw/src/index.ts#L322)
 
 - 🟡 P2 **openclaw-telemetry** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -7874,7 +7835,7 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:agentchat`
   - evidence:
-    - [defineChannelPluginEntry @ channel.ts:351](https://github.com/agentchatme/agentchat-openclaw/blob/042feceb630c756fedc0e3fa6e97369da40bf4ed/src/channel.ts#L351)
+    - [defineChannelPluginEntry @ channel.ts:355](https://github.com/agentchatme/agentchat-openclaw/blob/caee25ad8ed7a38cc4281bda397c7e0e7e90ce6a/src/channel.ts#L355)
 
 - 🟡 P2 **ddingtalk** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -7931,12 +7892,6 @@ _none_
   - id: `hook.compat.before-agent-start-migration:connectclaw`
   - evidence:
     - [before_agent_start @ hooks.ts:17](https://github.com/osipov-anton/connectclaw/blob/7a4e2646e914de075435b3837123cc03c3edae36/packages/plugin/src/hooks.ts#L17)
-
-- 🟡 P2 **honcho** `hook-runner`
-  - contract: Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.
-  - id: `hook.compat.before-agent-start-migration:honcho`
-  - evidence:
-    - [before_agent_start @ subagent.ts:18](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/hooks/subagent.ts#L18)
 
 - 🟡 P2 **openclaw-telemetry** `hook-runner`
   - contract: Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.
@@ -8002,7 +7957,7 @@ _none_
   - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
   - id: `manifest.schema.top-level-fields:agentchat`
   - evidence:
-    - [channelEnvVars @ openclaw.plugin.json](https://github.com/agentchatme/agentchat-openclaw/blob/042feceb630c756fedc0e3fa6e97369da40bf4ed/openclaw.plugin.json)
+    - [channelEnvVars @ openclaw.plugin.json](https://github.com/agentchatme/agentchat-openclaw/blob/caee25ad8ed7a38cc4281bda397c7e0e7e90ce6a/openclaw.plugin.json)
 
 - 🟡 P2 **ddingtalk** `manifest-loader`
   - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
@@ -8112,8 +8067,8 @@ _none_
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
   - id: `package.entrypoint.build-before-cold-import:agentchat`
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/agentchatme/agentchat-openclaw/blob/042feceb630c756fedc0e3fa6e97369da40bf4ed/dist/index.js)
-    - [setupEntry:./dist/setup-entry.js @ setup-entry.js](https://github.com/agentchatme/agentchat-openclaw/blob/042feceb630c756fedc0e3fa6e97369da40bf4ed/dist/setup-entry.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/agentchatme/agentchat-openclaw/blob/caee25ad8ed7a38cc4281bda397c7e0e7e90ce6a/dist/index.js)
+    - [setupEntry:./dist/setup-entry.js @ setup-entry.js](https://github.com/agentchatme/agentchat-openclaw/blob/caee25ad8ed7a38cc4281bda397c7e0e7e90ce6a/dist/setup-entry.js)
 
 - 🟡 P2 **ddingtalk** `package-loader`
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
@@ -8131,7 +8086,7 @@ _none_
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
   - id: `package.entrypoint.build-before-cold-import:honcho`
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/plastic-labs/openclaw-honcho/blob/25f644cfd985f437951cc085b91138be22e42388/dist/index.js)
 
 - 🟡 P2 **hyperspell** `package-loader`
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
@@ -8155,7 +8110,7 @@ _none_
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
   - id: `package.entrypoint.build-before-cold-import:nemoclaw`
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/NVIDIA/NemoClaw/blob/37ca4cb4220265c2a12b9d9b8a120d0d23a338dd/nemoclaw/dist/index.js)
 
 - 🟡 P2 **opik-openclaw** `package-loader`
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
@@ -8179,11 +8134,11 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:agentchat`
   - evidence:
-    - [@sinclair/typebox @ package.json](https://github.com/agentchatme/agentchat-openclaw/blob/042feceb630c756fedc0e3fa6e97369da40bf4ed/package.json)
-    - [agentchatme @ package.json](https://github.com/agentchatme/agentchat-openclaw/blob/042feceb630c756fedc0e3fa6e97369da40bf4ed/package.json)
-    - [pino @ package.json](https://github.com/agentchatme/agentchat-openclaw/blob/042feceb630c756fedc0e3fa6e97369da40bf4ed/package.json)
-    - [ws @ package.json](https://github.com/agentchatme/agentchat-openclaw/blob/042feceb630c756fedc0e3fa6e97369da40bf4ed/package.json)
-    - [zod @ package.json](https://github.com/agentchatme/agentchat-openclaw/blob/042feceb630c756fedc0e3fa6e97369da40bf4ed/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/agentchatme/agentchat-openclaw/blob/caee25ad8ed7a38cc4281bda397c7e0e7e90ce6a/package.json)
+    - [agentchatme @ package.json](https://github.com/agentchatme/agentchat-openclaw/blob/caee25ad8ed7a38cc4281bda397c7e0e7e90ce6a/package.json)
+    - [pino @ package.json](https://github.com/agentchatme/agentchat-openclaw/blob/caee25ad8ed7a38cc4281bda397c7e0e7e90ce6a/package.json)
+    - [ws @ package.json](https://github.com/agentchatme/agentchat-openclaw/blob/caee25ad8ed7a38cc4281bda397c7e0e7e90ce6a/package.json)
+    - [zod @ package.json](https://github.com/agentchatme/agentchat-openclaw/blob/caee25ad8ed7a38cc4281bda397c7e0e7e90ce6a/package.json)
 
 - 🟡 P2 **ddingtalk** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -8213,8 +8168,9 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:honcho`
   - evidence:
-    - [@honcho-ai/sdk @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/package.json)
-    - [@sinclair/typebox @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/09ed774a451ec354636e367ea92b604045878091/package.json)
+    - [@honcho-ai/harness-plugin-core @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/25f644cfd985f437951cc085b91138be22e42388/package.json)
+    - [@honcho-ai/sdk @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/25f644cfd985f437951cc085b91138be22e42388/package.json)
+    - [@sinclair/typebox @ package.json](https://github.com/plastic-labs/openclaw-honcho/blob/25f644cfd985f437951cc085b91138be22e42388/package.json)
 
 - 🟡 P2 **hyperspell** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -8256,10 +8212,10 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:nemoclaw`
   - evidence:
-    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/package.json)
-    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/package.json)
-    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/package.json)
-    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/a47ddd896eb1bae3d0ecc4136c7e039d2f822eaa/nemoclaw/package.json)
+    - [execa @ package.json](https://github.com/NVIDIA/NemoClaw/blob/37ca4cb4220265c2a12b9d9b8a120d0d23a338dd/nemoclaw/package.json)
+    - [json5 @ package.json](https://github.com/NVIDIA/NemoClaw/blob/37ca4cb4220265c2a12b9d9b8a120d0d23a338dd/nemoclaw/package.json)
+    - [tar @ package.json](https://github.com/NVIDIA/NemoClaw/blob/37ca4cb4220265c2a12b9d9b8a120d0d23a338dd/nemoclaw/package.json)
+    - [yaml @ package.json](https://github.com/NVIDIA/NemoClaw/blob/37ca4cb4220265c2a12b9d9b8a120d0d23a338dd/nemoclaw/package.json)
 
 - 🟡 P2 **openclaw-weixin** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -8452,7 +8408,7 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:clawmetry`
   - evidence:
-    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/382605c169d64f03049d0c2dad8cdd4cbf9eb5b8/clawhub-plugin/index.ts#L20)
+    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/72714376a4b358dcb2b62e6c3ae05140903bcdff/clawhub-plugin/index.ts#L20)
 
 - 🟢 P3 **clawrouter** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -8579,7 +8535,7 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:memos-cloud`
   - evidence:
-    - [registerHook @ index.js:732](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/fd4bad4cbe66bb767d33d08d681eaea03ccb353a/index.js#L732)
+    - [registerHook @ index.js:787](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/a317661691bda94054d3d35f8c226e8bfe0018f7/index.js#L787)
 
 - 🟢 P3 **nostr** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -8698,7 +8654,7 @@ _none_
   - contract: Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.
   - id: `hook.compat.before-agent-start-migration:memos-cloud`
   - evidence:
-    - [before_agent_start @ index.js:802](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/fd4bad4cbe66bb767d33d08d681eaea03ccb353a/index.js#L802)
+    - [before_agent_start @ index.js:857](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/a317661691bda94054d3d35f8c226e8bfe0018f7/index.js#L857)
 
 - 🟢 P3 **telnyx-sms** `manifest-loader`
   - contract: Legacy channel env metadata continues to map into channel setup/help surfaces.
@@ -8741,7 +8697,7 @@ _none_
   - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
   - id: `manifest.schema.top-level-fields:memos-cloud`
   - evidence:
-    - [main @ openclaw.plugin.json](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/fd4bad4cbe66bb767d33d08d681eaea03ccb353a/openclaw.plugin.json)
+    - [main @ openclaw.plugin.json](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/a317661691bda94054d3d35f8c226e8bfe0018f7/openclaw.plugin.json)
 
 - 🟢 P3 **telnyx-sms** `manifest-loader`
   - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
@@ -8777,7 +8733,7 @@ _none_
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
   - id: `package.compat.plugin-api-range:memos-cloud`
   - evidence:
-    - [package.json](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/fd4bad4cbe66bb767d33d08d681eaea03ccb353a/package.json)
+    - [package.json](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/a317661691bda94054d3d35f8c226e8bfe0018f7/package.json)
 
 - 🟢 P3 **memu-engine** `package-loader`
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.
@@ -9080,7 +9036,7 @@ _none_
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:clawmetry`
   - evidence:
-    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/382605c169d64f03049d0c2dad8cdd4cbf9eb5b8/clawhub-plugin/index.ts)
+    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/72714376a4b358dcb2b62e6c3ae05140903bcdff/clawhub-plugin/index.ts)
 
 - 🟢 P3 **codex-app-server** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
