@@ -2,6 +2,8 @@
 
 ## 0.2.2 - Unreleased
 
+- Refresh 18 official plugin fallback pins to 2026.10.4 with verified publication-source references; retain the four metadata-only updates previously declined and the frozen host compatibility gaps. Thanks @dependabot.
+
 - Move both macOS compatibility matrices to the Xcode 27 Apple Silicon runner.
 - Record Voice Call steering's active-call and caller prerequisites for credential-free probes while keeping explicitly configured failures visible.
 - Refresh 23 npm fixture pins, pairing official package source references with their publication qualifications, thanks @dependabot and @vincentkoc.

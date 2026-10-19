@@ -51,6 +51,12 @@ Keep npm fixture source references in the manifest and shim aligned with the
 published artifact. When an official package omits `gitHead`, verify the prepared
 package source SHA in its publication qualification and artifact manifest. The
 release workflow SHA and public release tag can identify different commits.
+The 2026.10.4 fallback refresh uses prepared source
+`383c124cc32ffee3f8e56f549b88da94d269a4af`, verified against the immutable
+publication manifests and registry tarball integrities from run `38821779281`.
+Brave, Diffs, Google Meet, and Memory LanceDB retain their reviewed 2026.10.3
+fallbacks: their metadata-only updates were declined without a demonstrated
+runtime benefit. Moving track selection is unchanged.
 Regenerate reports against the pinned Default Track after changing fixture pins.
 The normal Default Track follows npm `latest`, so its observed package versions
 can advance beyond the shim pins used when tag resolution falls back. Treat
