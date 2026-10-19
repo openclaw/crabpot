@@ -48,8 +48,9 @@ Then inspect the diff. A fixture update is only useful if it either:
 - or proves a contract migration path still works.
 
 Keep npm fixture source references in the manifest and shim aligned with the
-published artifact. When an official package omits `gitHead`, use its npm
-provenance build commit; the public release tag can point at a different commit.
+published artifact. When an official package omits `gitHead`, verify the prepared
+package source SHA in its publication qualification and artifact manifest. The
+release workflow SHA and public release tag can identify different commits.
 Regenerate reports against the pinned Default Track after changing fixture pins.
 The normal Default Track follows npm `latest`, so its observed package versions
 can advance beyond the shim pins used when tag resolution falls back. Treat

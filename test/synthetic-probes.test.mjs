@@ -111,6 +111,29 @@ test("fixture Gateway prerequisites are scoped to the owning fixture and method"
   }
 });
 
+test("Voice Call steering blocks missing prerequisites but executes explicit probes", async () => {
+  const manifest = await readConfiguredManifest({ fixtureSet: "voice-call" });
+  const api = createCaptureApi({ retainHandlers: true });
+  let calls = 0;
+  api.registerGatewayMethod("voicecall.steer", ({ respond }) => {
+    calls += 1;
+    respond(false, undefined, { code: "UNAVAILABLE", message: "active call required" });
+  });
+  const capture = {
+    entrypoint: path.join(repoRoot, ".crabpot/workspaces/voice-call/index.ts"),
+    status: "captured", captured: api.getCapturedContracts(), retained: api.getRetainedContracts(),
+  };
+  const blocked = await runCapturedSyntheticProbes(capture, { manifest });
+  assert.deepEqual(blocked.summary, { probeCount: 1, passCount: 0, failCount: 0, blockedCount: 1 });
+  assert.equal(calls, 0);
+  assert.equal(blocked.results[0].method, "voicecall.steer");
+
+  const explicit = await runCapturedSyntheticProbes(capture, { manifest, gatewayMethodPrerequisites: {} });
+  assert.equal(explicit.summary.failCount, 1);
+  assert.equal(calls, 1);
+  assert.match(explicit.results[0].error, /Gateway response error: active call required/);
+});
+
 test("same-name Gateway methods outside the fixture and explicitly configured probes still fail truthfully", async () => {
   const manifest = await readConfiguredManifest({ fixtureSet: "google-meet,matrix,voice-call" });
   for (const [fixtureId, method] of [["google-meet", "googlemeet.join"], ["matrix", "matrix.verify.status"], ["voice-call", "voicecall.status"]]) {

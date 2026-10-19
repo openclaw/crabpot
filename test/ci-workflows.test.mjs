@@ -264,7 +264,7 @@ test("default check workflow runs OS and container static lanes", async () => {
   assert.match(workflow, /FIXTURE_SECURITY_RESULT: \$\{\{ needs\.fixture-security\.result \}\}/);
   assert.match(workflow, /test "\$\{FIXTURE_SECURITY_RESULT\}" = success/);
   assert.match(workflow, /name: Default Track \/ Static checks \(\$\{\{ matrix\.os \}\}\)/);
-  assert.match(workflow, /os: \[ubuntu-latest, macos-15, windows-latest\]/);
+  assert.match(workflow, /os: \[ubuntu-latest, xcode-27, windows-latest\]/);
   assert.match(workflow, /container-smoke:/);
   assert.match(workflow, /image: node:24-bookworm/);
   assert.match(workflow, /node scripts\/openclaw-pin\.mjs --github-output/);
