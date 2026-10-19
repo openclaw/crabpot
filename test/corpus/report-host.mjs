@@ -130,7 +130,7 @@ test("compatibility report classifies current fixture seams", async () => {
   assertHasProbe(report.contractProbes, "package.entrypoint.typescript-loader:a2a-gateway");
   assertHasProbe(report.contractProbes, "package.entrypoint.isolated-dependency-install:wecom");
   assertHasProbe(report.contractProbes, "api.capture.runtime-registrars:hyperspell");
-  assertHasProbe(report.contractProbes, "hook.compat.before-agent-start-migration:honcho");
+  assertMissingProbePrefix(report.contractProbes, "hook.compat.before-agent-start-migration:honcho");
   assertHasProbe(report.contractProbes, "package.compat.plugin-api-range:secureclaw");
 });
 
