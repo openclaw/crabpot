@@ -3,6 +3,7 @@
 ## 0.2.2 - Unreleased
 
 - Refresh 18 official plugin fallback pins to 2026.10.4 with verified publication-source references; retain the four metadata-only updates previously declined and the frozen host compatibility gaps. Thanks @dependabot.
+- Retain bounded, private-safe Windows helper bootstrap and terminal observations on command errors, including failures before pipe connection or serializer preparation. Preserve deadlines, output limits and native cleanup; the intermittent startup cause remains unresolved.
 
 - Move both macOS compatibility matrices to the Xcode 27 Apple Silicon runner.
 - Record Voice Call steering's active-call and caller prerequisites for credential-free probes while keeping explicitly configured failures visible.

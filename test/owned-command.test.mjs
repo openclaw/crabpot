@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { spawn, spawnSync } from "node:child_process";
+import { EventEmitter } from "node:events";
 import { copyFile, mkdir, mkdtemp, readFile, realpath, rename, rm, stat, writeFile } from "node:fs/promises";
 import { createConnection } from "node:net";
 import os from "node:os";
@@ -7,6 +8,7 @@ import path from "node:path";
 import { test } from "node:test";
 import { setTimeout as delay } from "node:timers/promises";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import { inspect } from "node:util";
 import { Worker } from "node:worker_threads";
 import { runOwnedCommand } from "../scripts/owned-command.mjs";
 
@@ -23,6 +25,7 @@ test("owned command preserves synchronous results, cwd, environment, and argumen
   assert.equal(typeof result.then, "undefined");
   assert.ifError(result.error);
   assert.equal(result.startupTrace, undefined, "successful results do not publish diagnostic traces");
+  assert.equal(result.windowsHelper, undefined, "successful results retain their existing shape");
   assert.equal(result.status, 7);
   assert.equal(result.signal, null);
   const observed = JSON.parse(result.stdout);
@@ -163,6 +166,176 @@ test("parent drains bounded phase observations without delaying queued results o
   assert.ok(observation.observedAtMs > observation.atMs, "emission and receipt timestamps remain distinct");
   assert.ok(performance.now() - started < 5000, "diagnostic duplicates cannot consume the startup budget");
 });
+
+test("bootstrap diagnostic framing preserves arbitrary stderr bytes across chunk boundaries and bounds excess records", async (t) => {
+  const root = await temporaryRoot(t);
+  const ownerPath = await copyOwner(root);
+  await writeFile(ownerPath, (await readFile(ownerPath, "utf8")) + "\nexport { bootstrapFilter };\n");
+  const { bootstrapFilter } = await import(pathToFileURL(ownerPath).href);
+  const token = "crabpot-command-test-only";
+  const record = (phase, stage, kind = "none") => Buffer.from(`CRABPOT_BOOTSTRAP ${token} ${phase} 123 ${stage} ${kind} 0 0\r\n`);
+  const events = [record("entry", "entry"), record("connect-attempt", "pipe-connect"),
+    record("connected", "pipe-connect"), record("failure", "preparation", "io")];
+  const ordinary = Buffer.concat([Buffer.from("binary\0\xff", "latin1"), Buffer.alloc(300, 0x80), Buffer.from("\r\n"),
+    Buffer.from("CRABPOT_BOOTSTRAP other-helper entry 123 entry none 0 0\n"),
+    record("private-arbitrary-phase", "entry"), Buffer.from("unterminated stderr")]);
+  for (const width of [1, 7, 4096]) {
+    const diagnostics = { captured: true, events: [], truncated: false, terminal: null };
+    const publications = [];
+    const filter = bootstrapFilter(token, diagnostics, (value) => publications.push(structuredClone(value)));
+    const input = Buffer.concat([...events, ...Array(12).fill(events[0]), ordinary]);
+    const output = [];
+    for (let offset = 0; offset < input.length; offset += width) output.push(filter.write(input.subarray(offset, offset + width)));
+    output.push(filter.end());
+    assert.deepEqual(Buffer.concat(output), Buffer.concat([...Array(12).fill(events[0]), ordinary]));
+    assert.deepEqual(diagnostics.events.map(({ phase }) => phase), ["entry", "connect-attempt", "connected", "failure"]);
+    assert.equal(diagnostics.truncated, true);
+    assert.equal(publications.length, 5, "duplicates cannot flood the Worker port or evade the ordinary stderr budget");
+    assert.doesNotMatch(JSON.stringify(diagnostics), /crabpot-command-test-only|private-arbitrary-phase/);
+  }
+});
+
+test("captured stderr survives destroy without end and completion before close, exactly once within the combined cap", async (t) => {
+  const root = await temporaryRoot(t);
+  const ownerPath = await copyOwner(root);
+  const source = await readFile(ownerPath, "utf8");
+  const selection = 'const execution = process.platform === "win32"';
+  const execution = ': runPosix(command, args, options, result, observe, ready, fail);';
+  assert.equal(source.split(selection).length, 2);
+  assert.equal(source.split(execution).length, 2);
+  // Replace only process creation/completion. Real Readables traverse the
+  // production observer, filter, failure recorder and final buffer snapshot.
+  await writeFile(ownerPath, source.replace(selection, "const execution = false")
+    .replace(execution, ": observeFixture(args, result, observe, fail);") + `
+    import { Readable } from "node:stream";
+    import { once } from "node:events";
+    export const streams = [];
+    function observeFixture(args, result, observe, fail) {
+      const [mode, fill, cleanupFailure] = args;
+      const stdout = new Readable({ read() {} });
+      const stderr = new Readable({ read() {}, destroy(error, done) { setTimeout(() => done(error), 20); } });
+      const state = { events: [], closed: once(stderr, "close") };
+      streams.push(state);
+      stderr.on("data", () => state.events.push("data"));
+      stderr.on("end", () => state.events.push("end"));
+      stderr.on("close", () => state.events.push("close"));
+      observe({ stdout, stderr }, bootstrapFilter("fixture-helper", { events: [], truncated: false }, () => {}));
+      const completion = (async () => {
+        if (fill) {
+          const observed = once(stdout, "data");
+          stdout.push(Buffer.from(fill));
+          await observed;
+        }
+        const observed = once(stderr, "data");
+        stderr.push(Buffer.from("C"));
+        await observed;
+        stderr.destroy();
+        stdout.destroy();
+        if (cleanupFailure) fail({ code: "EOWNERCLEANUP", message: "fixture cleanup uncertainty" });
+        if (mode === "after-close") await state.closed;
+      })();
+      return { completion, stop() {} };
+    }
+    export { supervise };
+  `);
+  const { supervise, streams } = await import(pathToFileURL(ownerPath).href);
+  for (const mode of ["after-close", "before-close"]) {
+    for (const [maxBuffer, fill, cleanupFailure] of [[1, "", true], [2, "o", false], [1, "o", false]]) {
+      const port = new EventEmitter();
+      port.postMessage = () => {};
+      const result = await supervise({ command: "fixture-only", args: [mode, fill, cleanupFailure],
+        options: { inherit: false, maxBuffer, timeout: 1000 }, port, shared: new Int32Array(new SharedArrayBuffer(16)) });
+      const state = streams.at(-1);
+      assert.equal(state.events.includes("close"), mode === "after-close", "exercise completion on both sides of actual stream closure");
+      assert.equal(state.events.includes("end"), false);
+      assert.equal(result.stdout.toString(), fill);
+      assert.equal(result.stderr.toString(), maxBuffer === 1 && fill ? "" : "C");
+      assert.equal(result.error?.code, cleanupFailure ? "EOWNERCLEANUP" : maxBuffer === 1 ? "ENOBUFS" : undefined);
+      assert.ok(result.stdout.length + result.stderr.length <= maxBuffer);
+      const captured = Buffer.from(result.stderr);
+      await state.closed;
+      assert.deepEqual(state.events, ["data", "close"]);
+      assert.deepEqual(result.stderr, captured, "late closure cannot duplicate the already finalized tail");
+    }
+  }
+});
+
+test("Worker bootstrap observations survive throwing the returned failure without exposing unvalidated fields", async (t) => {
+  const root = await temporaryRoot(t);
+  const ownerPath = await copyOwner(root);
+  const source = await readFile(ownerPath, "utf8");
+  const entry = 'if (workerData?.ownedCommand === true) {';
+  const diagnostics = { captured: true, events: [
+    { phase: "entry", atMs: 1, stage: "entry", kind: "none", hresult: 0, nativeCode: 0 },
+    { phase: "failure", atMs: 2, stage: "pipe-create", kind: "argument", hresult: -2147024809, nativeCode: 0 },
+  ], truncated: false, terminal: { exitCode: 1, signal: null, requestIssued: false } };
+  await writeFile(ownerPath, source.replace(entry, `${entry}
+    const diagnostics = ${JSON.stringify(diagnostics)};
+    workerData.port.postMessage({ type: "helper", diagnostics: { ...diagnostics, privateToken: "not-public" } });
+    workerData.port.postMessage({ type: "helper", diagnostics: { ...diagnostics, events: Array(100).fill(diagnostics.events[0]) } });
+    workerData.port.postMessage({ type: "result", result: {
+      pid: 0, status: null, signal: null, stdout: Buffer.alloc(0), stderr: Buffer.alloc(0),
+      error: { code: "EOWNERNATIVE", message: "Windows adapter failed (1)" },
+    } });
+    workerData.port.close();
+  } else if (false) {
+  `));
+  const { runOwnedCommand: invoke } = await import(pathToFileURL(ownerPath).href);
+  assert.throws(() => {
+    const result = invoke(process.execPath, ["-e", "throw Error('must not execute')"], { timeout: 1000 });
+    assert.equal(result.cleanupError, undefined);
+    throw result.error;
+  }, (error) => {
+    assert.equal(error.code, "EOWNERNATIVE");
+    assert.deepEqual(error.windowsHelper, { captured: true,
+      entry: { atMs: 1, stage: "entry", kind: "none", hresult: 0, nativeCode: 0 },
+      failure: { atMs: 2, stage: "pipe-create", kind: "argument", hresult: -2147024809, nativeCode: 0 },
+      truncated: false, terminal: diagnostics.terminal });
+    assert.match(inspect(error), /stage: 'pipe-create'/);
+    assert.match(inspect(error), /kind: 'argument'/);
+    assert.match(inspect(error), /hresult: -2147024809/);
+    assert.doesNotMatch(JSON.stringify(error), /not-public|privateToken/);
+    return true;
+  });
+});
+
+for (const [stage, inherit] of [["pipe-create", false], ["pipe-connect", false], ["preparation", false], ["pipe-create", true]]) {
+  test(`Windows pre-serializer ${stage} failure with ${inherit ? "inherited" : "captured"} stdio reaches the returned Error without admitting a target`, {
+    skip: process.platform !== "win32", timeout: 20_000,
+  }, async (t) => {
+    const root = await temporaryRoot(t);
+    const ownerPath = await copyOwner(root);
+    const original = await readFile(new URL("../scripts/owned-command-windows.ps1", import.meta.url), "utf8");
+    const constructor = '\".\", $PipeName, [System.IO.Pipes.PipeDirection]::InOut';
+    assert.equal(original.split(constructor).length, 2);
+    const helper = stage === "preparation"
+      ? original.replace('$bootstrapStage = "preparation"', '$bootstrapStage = "preparation"\n    throw [System.IO.IOException]::new("private fixture exception text")')
+      : original.replace(constructor, stage === "pipe-create"
+        ? '\".\", $null, [System.IO.Pipes.PipeDirection]::InOut'
+        : '\".\", ($PipeName + "-absent"), [System.IO.Pipes.PipeDirection]::InOut');
+    await writeFile(path.join(root, "scripts/owned-command-windows.ps1"), helper);
+    const { runOwnedCommand: invoke } = await import(pathToFileURL(ownerPath).href);
+    const marker = path.join(root, "target-started");
+    const result = invoke(process.execPath, ["-e", `require("node:fs").writeFileSync(${JSON.stringify(marker)}, "started")`], {
+      timeout: 1000, encoding: "utf8", ...(inherit ? { stdio: "inherit" } : {}),
+    });
+    assert.equal(result.error?.code, "EOWNERNATIVE");
+    assert.equal(result.cleanupError, undefined);
+    assert.equal(result.stdout, inherit ? null : "");
+    assert.equal(result.stderr, inherit ? null : "", "captured fixed internal frames are removed; inherited descriptors remain untouched");
+    assert.equal(result.error.windowsHelper.captured, !inherit);
+    if (inherit) assert.deepEqual(Object.keys(result.error.windowsHelper), ["captured", "truncated", "terminal"]);
+    else {
+      const diagnostic = result.error.windowsHelper.failure;
+      assert.equal(diagnostic.stage, stage);
+      assert.equal(diagnostic.kind, { "pipe-create": "argument", "pipe-connect": "timeout", preparation: "io" }[stage]);
+    }
+    assert.deepEqual(result.error.windowsHelper.terminal, { exitCode: 1, signal: null, requestIssued: false });
+    assert.equal(tracePhases(result).includes("request-write-attempted"), false);
+    assert.doesNotMatch(JSON.stringify(result.error.windowsHelper), /private fixture|crabpot-command-|target-started/);
+    await assert.rejects(readFile(marker), { code: "ENOENT" });
+  });
+}
 
 for (const [fault, operation] of [
   ["signal", "overflow"], ["probe", "overflow"], ["worker-loss", "overflow"],
@@ -677,6 +850,9 @@ for (const phase of ["preconnection", "late connection"]) {
     if (phase === "preconnection") assert.equal(result.error.code, "EOWNERSTART");
     const phases = tracePhases(result);
     assert.ok(phases.includes("helper-spawned"));
+    assert.ok(result.error.windowsHelper.entry);
+    assert.ok(result.error.windowsHelper["connect-attempt"]);
+    assert.equal(result.error.windowsHelper.terminal?.requestIssued, false);
     assert.equal(phases.includes("pipe-connected"), phase === "late connection");
     assert.equal(phases.includes("request-write-attempted"), false);
     const closed = await waitForExit(helperPid, 100);
