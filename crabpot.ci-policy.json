@@ -17,6 +17,13 @@
       "until": "voice-call action probes can create isolated calls and supply command input"
     },
     {
+      "id": "voice-call-steering-prerequisite",
+      "seam": "registerGatewayMethod",
+      "reasonIncludes": "captured voice-call steering requires an active realtime call, steering input, and authorized caller",
+      "decision": "allowed-blocked",
+      "until": "steering probes can create isolated realtime calls and supply the owning session or operator authority"
+    },
+    {
       "id": "voice-call-continuation-prerequisite",
       "seam": "registerGatewayMethod",
       "reasonIncludes": "captured voice-call continuation query requires an existing continuation operation",

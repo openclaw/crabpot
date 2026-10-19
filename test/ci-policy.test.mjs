@@ -63,6 +63,23 @@ test("ci policy allows known blocked probes but fails unknown blockers", async (
   assert.match(renderCiPolicyMarkdown(report), /Crabpot CI Policy/);
 });
 
+test("default ci policy retains Voice Call steering blockers without waiving failures", async () => {
+  const inputs = executionResults([{
+    seam: "registerGatewayMethod",
+    reason: "captured voice-call steering requires an active realtime call, steering input, and authorized caller",
+  }]);
+  const report = await buildCiPolicyReport({ compatibilityReport: compatibilityReport(), executionResults: inputs });
+  assert.equal(report.status, "pass");
+  assert.equal(report.checks.find((check) => check.id.startsWith("execution-results.blocked."))?.action, "warn");
+
+  const failure = await buildCiPolicyReport({
+    compatibilityReport: compatibilityReport(),
+    executionResults: { ...inputs, summary: { ...inputs.summary, failCount: 1 } },
+  });
+  assert.equal(failure.status, "fail");
+  assert.ok(validateCiPolicyReport(failure).some((error) => error.includes("failed synthetic probes")));
+});
+
 test("default ci policy classifies opt-in kitchen-sink blockers", async () => {
   const report = await buildCiPolicyReport({
     compatibilityReport: compatibilityReport(),
