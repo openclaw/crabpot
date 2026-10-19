@@ -705,6 +705,7 @@
           "voicecall.initiate": "captured voice-call method requires an enabled runtime and configured provider",
           "voicecall.start": "captured voice-call method requires an enabled runtime and configured provider",
           "voicecall.status": "captured voice-call method requires an enabled runtime and configured provider",
+          "voicecall.steer": "captured voice-call steering requires an active realtime call, nonempty callId and message, and requester-session or operator authority",
           "voicecall.continue": "captured voice-call action requires an active call and command input",
           "voicecall.continue.start": "captured voice-call action requires an active call and command input",
           "voicecall.speak": "captured voice-call action requires an active call and command input",

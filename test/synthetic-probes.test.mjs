@@ -85,6 +85,27 @@ test("Google Meet participation probes require session state and preserve config
   }
 });
 
+test("Voice Call steering is visibly blocked before invoking a handler without active call authority", async () => {
+  const manifest = await readConfiguredManifest({ fixtureSet: "voice-call" });
+  const api = createCaptureApi({ retainHandlers: true });
+  let calls = 0;
+  api.registerGatewayMethod("voicecall.steer", ({ respond }) => {
+    calls += 1;
+    respond(false, undefined, { code: "INVALID_REQUEST", message: "callId and message required" });
+  });
+  const result = await runCapturedSyntheticProbes({
+    entrypoint: path.join(repoRoot, ".crabpot/workspaces/voice-call/index.ts"),
+    status: "captured", captured: api.getCapturedContracts(), retained: api.getRetainedContracts(),
+  }, { manifest });
+  assert.equal(calls, 0);
+  assert.deepEqual(result.summary, { probeCount: 1, passCount: 0, failCount: 0, blockedCount: 1 });
+  assert.equal(result.results[0].status, "blocked");
+  assert.equal(result.results[0].method, "voicecall.steer");
+  assert.match(result.results[0].reason, /active realtime call/);
+  assert.match(result.results[0].reason, /nonempty callId and message/);
+  assert.match(result.results[0].reason, /requester-session or operator authority/);
+});
+
 test("fixture Gateway prerequisites are scoped to the owning fixture and method", async () => {
   const manifest = await readConfiguredManifest({ fixtureSet: "codex,google-meet,matrix,voice-call" });
   for (const fixture of manifest.fixtures) {
@@ -113,7 +134,7 @@ test("fixture Gateway prerequisites are scoped to the owning fixture and method"
 
 test("same-name Gateway methods outside the fixture and explicitly configured probes still fail truthfully", async () => {
   const manifest = await readConfiguredManifest({ fixtureSet: "google-meet,matrix,voice-call" });
-  for (const [fixtureId, method] of [["google-meet", "googlemeet.join"], ["matrix", "matrix.verify.status"], ["voice-call", "voicecall.status"]]) {
+  for (const [fixtureId, method] of [["google-meet", "googlemeet.join"], ["matrix", "matrix.verify.status"], ["voice-call", "voicecall.status"], ["voice-call", "voicecall.steer"]]) {
     for (const [fixture, options] of [["unrelated", {}], [fixtureId, { gatewayMethodPrerequisites: {} }]]) {
       const api = createCaptureApi({ retainHandlers: true });
       let calls = 0;

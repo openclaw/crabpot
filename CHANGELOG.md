@@ -2,6 +2,8 @@
 
 ## 0.2.2 - Unreleased
 
+- Declare active realtime call and caller-authority prerequisites for Voice Call steering probes, preserving visible blocked coverage and failures for configured or unrelated methods.
+
 - Retain bounded child errors and truncation metadata in runtime-profile JSON through reviewed Inspector source, preserving the published 0.4.3 npm pin, command order, heap limits, and deadlines.
 
 - Refresh AgentChat, ClawMetry, Honcho, MemOS Cloud and NemoClaw fixture pins; track Honcho's additive prompt supplement and LLM observation contracts. Thanks @dependabot.
