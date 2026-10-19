@@ -6170,7 +6170,7 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-harness-completion @ plugins/codex/.crabpot-package/dist/.setup/native-subagent-monitor-BXClJlaW.mjs:22"
+              "evidence": "openclaw/plugin-sdk/agent-harness-completion @ plugins/codex/.crabpot-package/dist/.setup/native-subagent-monitor-gqu3TQOv.mjs:24"
             }
           ],
           "steps": [
@@ -6245,7 +6245,7 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-harness-completion @ plugins/codex/.crabpot-package/dist/.setup/native-subagent-monitor-BXClJlaW.mjs:22"
+              "evidence": "openclaw/plugin-sdk/agent-harness-completion @ plugins/codex/.crabpot-package/dist/.setup/native-subagent-monitor-gqu3TQOv.mjs:24"
             }
           ],
           "steps": [

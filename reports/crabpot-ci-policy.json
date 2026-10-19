@@ -3,7 +3,7 @@
   "status": "pass",
   "strict": false,
   "policy": {
-    "allowedBlocked": 25,
+    "allowedBlocked": 26,
     "expectedWarnings": 1,
     "fixtureSets": [
       "build",
@@ -47,7 +47,7 @@
     {
       "id": "compatibility-report.deprecation-warnings",
       "action": "pass",
-      "message": "218 deprecated compat seams tracked",
+      "message": "217 deprecated compat seams tracked",
       "evidence": [
         "agentchat:channel-env-vars",
         "bluebubbles:sdk-deprecated-api",
@@ -131,7 +131,6 @@
         "diffs:sdk-deprecated-api",
         "diffs:sdk-deprecated-api",
         "dingtalk-doc:legacy-root-sdk-import",
-        "discord:sdk-deprecated-api",
         "discord:sdk-deprecated-api",
         "discord:sdk-deprecated-api",
         "discord:sdk-deprecated-api",
