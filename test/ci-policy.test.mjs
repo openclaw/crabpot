@@ -1,8 +1,12 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
 import os from "node:os";
 import path from "node:path";
+import { createCaptureApi } from "../scripts/capture-shim.mjs";
+import { readConfiguredManifest, repoRoot } from "../scripts/manifest-lib.mjs";
+import { buildExecutionResultsReport } from "../scripts/summarize-execution-results.mjs";
+import { runCapturedSyntheticProbes } from "../scripts/synthetic-probes.mjs";
 import { ciReportPaths, executeCiStep, startCiRun } from "../scripts/ci-report-handoff.mjs";
 import {
   buildCiPolicyReport,
@@ -210,6 +214,50 @@ test("default ci policy classifies beta dashboard harness blockers", async () =>
     ["warn", "warn", "warn", "warn", "warn", "warn"],
   );
   assert.equal(validateCiPolicyReport(report).length, 0);
+});
+
+test("Voice Call steering blockers survive execution reporting and default CI classification", async (t) => {
+  const root = mkdtempSync(path.join(os.tmpdir(), "crabpot-steering-policy-"));
+  t.after(() => rmSync(root, { recursive: true, force: true }));
+  const fixtureDir = path.join(root, "voice-call");
+  mkdirSync(fixtureDir);
+  const manifest = await readConfiguredManifest({ fixtureSet: "voice-call" });
+  for (const scenario of ["declared", "unknown-blocker", "undeclared", "override"]) {
+    const api = createCaptureApi({ retainHandlers: true });
+    let calls = 0;
+    const method = scenario === "undeclared" ? "voicecall.unexpected" : "voicecall.steer";
+    api.registerGatewayMethod(method, ({ respond }) => {
+      calls += 1;
+      respond(false, undefined, { code: "INVALID_REQUEST", message: "callId and message required" });
+    });
+    const options = scenario === "unknown-blocker"
+      ? { gatewayMethodPrerequisites: { [method]: "unrecognized steering prerequisite" } }
+      : scenario === "override" ? { gatewayMethodPrerequisites: {} } : {};
+    const result = await runCapturedSyntheticProbes({
+      entrypoint: path.join(repoRoot, ".crabpot/workspaces/voice-call/index.ts"),
+      status: "captured", captured: api.getCapturedContracts(), retained: api.getRetainedContracts(),
+    }, { manifest, ...options });
+    writeFileSync(path.join(fixtureDir, "entry.synthetic.json"), JSON.stringify(result));
+    const execution = await buildExecutionResultsReport({ resultsDir: root });
+    const blocked = scenario === "declared" || scenario === "unknown-blocker";
+    assert.equal(calls, blocked ? 0 : 1, scenario);
+    assert.equal(execution.summary.passCount, 0, scenario);
+    assert.equal(execution.summary.blockedCount, blocked ? 1 : 0, scenario);
+    assert.equal(execution.summary.failCount, blocked ? 0 : 1, scenario);
+    for (const strict of [false, true]) {
+      const report = await buildCiPolicyReport({
+        strict, compatibilityReport: compatibilityReport(), executionResults: execution,
+      });
+      assert.equal(report.status, scenario === "declared" && !strict ? "pass" : "fail", scenario);
+      if (blocked) {
+        const check = report.checks.find((row) => row.id.startsWith("execution-results.blocked."));
+        assert.equal(check.action, scenario === "declared" && !strict ? "warn" : "fail", scenario);
+        assert.equal(check.evidence.at(-1), scenario === "declared" ? "voice-call-steering-prerequisite" : "unclassified");
+      } else {
+        assert.ok(report.checks.some((row) => row.id === "execution-results.failures" && row.action === "fail"), scenario);
+      }
+    }
+  }
 });
 
 test("ci policy fails ref diff hard regressions", async () => {
