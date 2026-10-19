@@ -63,7 +63,7 @@ jobs:
   manifest:
     name: Default Track / Static checks (${{ matrix.os }})
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 360
+    timeout-minutes: 240
     strategy:
       fail-fast: false
       matrix:
@@ -88,8 +88,8 @@ jobs:
           path: openclaw
       - id: suite
         shell: bash
-        # Full-corpus profiling owns 27 individually bounded command samples.
-        timeout-minutes: 360
+        # Leave time for Inspector smoke and artifacts after the full-corpus suite.
+        timeout-minutes: 225
         run: |
           plugin_track="${{ steps.openclaw-track.outputs.track }}"
           extra_args=(--openclaw-track "${{ steps.openclaw-track.outputs.track }}" --plugin-track "${plugin_track}")
@@ -149,7 +149,7 @@ jobs:
   container-smoke:
     name: Default Track / Container static checks
     runs-on: ubuntu-latest
-    timeout-minutes: 360
+    timeout-minutes: 240
     container:
       image: node:24-bookworm
     steps:
@@ -166,7 +166,7 @@ jobs:
           path: openclaw
       - run: node --version
       - shell: bash
-        timeout-minutes: 360
+        timeout-minutes: 225
         run: |
           plugin_track="${{ steps.openclaw-track.outputs.track }}"
           extra_args=(--openclaw-track "${{ steps.openclaw-track.outputs.track }}" --plugin-track "${plugin_track}")

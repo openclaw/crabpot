@@ -240,10 +240,14 @@ not complete them. The profiler wrapper allows `(2 + 9 × runs) × 600` seconds
 for two metadata inspections and every sample: 290 minutes at three runs.
 Ordinary static and test steps still have their own 600-second deadlines.
 
-Check and HEAD Canary now have explicit 360-minute outer step/job limits,
-replacing their 30-minute aggregate step limits. These are orchestration
-ceilings, not expected runtimes. The source/packed/published Inspector smoke
-step allows 40 minutes instead of 10 for its three complete artifact checks,
+Required Check jobs have a 240-minute job limit and a 225-minute static-suite
+step limit. Recent green runs took about 122 minutes in the container and
+150–217 minutes on the host runners, including the separate Ubuntu Inspector
+smoke. The full-corpus profiler is silent between its 27 samples; that alone
+does not indicate a hang. These ceilings retain every sample while bounding
+stalled jobs below GitHub's six-hour limit. HEAD Canary retains its existing
+360-minute ceiling. The source/packed/published Inspector smoke step allows
+40 minutes for its three complete artifact checks,
 package preparation and runtime/resource/retirement probes; each inspection
 and probe retains its own 600-second command deadline. No samples, fixtures,
 assertions or artifact forms are omitted.
