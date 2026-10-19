@@ -2,8 +2,6 @@
 
 ## 0.2.2 - Unreleased
 
-- Install HEAD-canary lifecycle dependencies after static inspection so runtime dependency resolution cannot inflate the source-only corpus heap.
-
 - Move both macOS compatibility matrices to the Xcode 27 Apple Silicon runner.
 - Record Voice Call steering's active-call and caller prerequisites for credential-free probes while keeping explicitly configured failures visible.
 - Refresh 23 npm fixture pins, pairing official package source references with their publication qualifications, thanks @dependabot and @vincentkoc.

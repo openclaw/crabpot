@@ -302,11 +302,6 @@ test("HEAD canary is advisory, runs the Default Track suite on main, and uploads
   assert.match(workflow, /pnpm --dir openclaw install --frozen-lockfile --ignore-scripts/);
   assert.match(workflow, /Check npm latest metadata[\s\S]*continue-on-error: true[\s\S]*node scripts\/resolve-openclaw-track\.mjs --track latest --warn-missing-tag/);
   assert.match(workflow, /Run Default Track suite against HEAD/);
-  const suiteIndex = workflow.indexOf("- name: Run Default Track suite against HEAD");
-  const installIndex = workflow.indexOf("- name: Install OpenClaw lifecycle dependencies");
-  const lifecycleIndex = workflow.indexOf("- name: Measure OpenClaw lifecycle imports");
-  assert.ok(suiteIndex < installIndex && installIndex < lifecycleIndex, "install runtime dependencies only after source inspection");
-  assert.match(workflow.slice(installIndex, lifecycleIndex), /if: \$\{\{ !cancelled\(\) && steps\.suite\.outcome == 'success' \}\}/);
   assert.match(workflow, /--openclaw-track latest/);
   assert.match(workflow, /--plugin-track latest/);
   assert.match(workflow, /id: lifecycle[\s\S]*timeout-minutes: 10[\s\S]*ci-report-handoff\.mjs run lifecycle/);

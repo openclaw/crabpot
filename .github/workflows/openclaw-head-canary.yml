@@ -61,6 +61,12 @@ jobs:
           sha="$(git -C openclaw rev-parse HEAD)"
           test "${sha}" = "${{ needs.resolve-head.outputs.sha }}"
           echo "OpenClaw HEAD: ${sha}"
+      - name: Install OpenClaw lifecycle dependencies
+        shell: bash
+        run: |
+          corepack enable
+          corepack prepare "$(node -p "require('./openclaw/package.json').packageManager.split('+')[0]")" --activate
+          pnpm --dir openclaw install --frozen-lockfile --ignore-scripts
       - name: Check npm latest metadata
         if: ${{ matrix.os == 'ubuntu-latest' }}
         continue-on-error: true
@@ -78,14 +84,6 @@ jobs:
             --plugin-inspector-smoke \
             --openclaw-track latest \
             --plugin-track latest
-      - name: Install OpenClaw lifecycle dependencies
-        if: ${{ !cancelled() && steps.suite.outcome == 'success' }}
-        shell: bash
-        # Keep runtime dependency resolution out of source-only inspection.
-        run: |
-          corepack enable
-          corepack prepare "$(node -p "require('./openclaw/package.json').packageManager.split('+')[0]")" --activate
-          pnpm --dir openclaw install --frozen-lockfile --ignore-scripts
       - name: Measure OpenClaw lifecycle imports
         id: lifecycle
         if: ${{ !cancelled() && steps.suite.outcome == 'success' }}
