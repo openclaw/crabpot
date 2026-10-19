@@ -96,6 +96,8 @@ coverage metadata keep their existing dashboard behavior.
 
 Canary and manual-ref jobs still run the separate OpenClaw lifecycle profile;
 its output replaces the fixture-only profile while retaining both step outcomes.
+The HEAD canary installs lifecycle dependencies after the source-only static suite,
+so runtime dependency resolution stays outside static corpus inspection.
 Manual strict comparisons consume the freshly written runtime profile. Isolated
 jobs require the selected policy to succeed; a skipped or incomplete policy no
 longer qualifies. Default Track remains required and the HEAD canary advisory.
