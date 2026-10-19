@@ -232,6 +232,11 @@ test("Windows preparation expiry releases only a nonadmitted checkout before the
   helperPid = Number(readFileSync(helperPidFile, "utf8"));
   assert.equal(failure?.code, "EOWNERSTART");
   assert.equal(failure.cleanupError, undefined);
+  assert.deepEqual(Object.keys(failure.windowsHelper), ["captured", "entry", "connect-attempt", "connected", "truncated", "terminal"]);
+  assert.equal(failure.windowsHelper.captured, true);
+  assert.equal(failure.windowsHelper.truncated, false);
+  assert.equal(failure.windowsHelper.terminal?.requestIssued, false, "the real resolver's throw retains the closed helper's nonadmission fact");
+  assert.doesNotMatch(JSON.stringify(failure.windowsHelper), /crabpot-command-|helper-pid/);
   assert.throws(() => process.kill(helperPid, 0), { code: "ESRCH" }, "helper closure precedes the second resolver");
   const parent = path.join(root, ".crabpot/plugin-inspector");
   const lock = path.join(parent, ".checkout.lock");

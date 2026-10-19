@@ -13,6 +13,9 @@ const startupMs = 10_000;
 const cleanupMs = 2_000;
 const termGraceMs = 200;
 const defaultMaxBuffer = 1024 * 1024;
+const bootstrapPhases = ["entry", "connect-attempt", "connected", "failure"];
+const bootstrapStages = ["entry", "pipe-create", "pipe-connect", "pipe-setup", "preparation"];
+const bootstrapKinds = ["none", "timeout", "io", "argument", "access", "other"];
 const startupPhases = new Set([
   "owner-started", "worker-entered", "helper-spawned", "pipe-connected", "request-write-attempted",
   "request-read",
@@ -69,6 +72,7 @@ export function runOwnedCommand(command, args, options = {}) {
   let running = false;
   let result;
   let firstFailure;
+  let windowsHelper;
   const receive = (packet) => {
     if (packet?.type === "phase") {
       if (startupPhases.has(packet.phase) && !observedPhases.has(packet.phase) &&
@@ -76,6 +80,8 @@ export function runOwnedCommand(command, args, options = {}) {
         observedPhases.add(packet.phase);
         startupTrace.push({ phase: packet.phase, atMs: packet.atMs, observedAtMs: Date.now() });
       }
+    } else if (packet?.type === "helper") {
+      windowsHelper = helperObservation(packet.diagnostics) ?? windowsHelper;
     } else if (packet?.type === "ready") {
       running = true;
       deadline = performance.now() + timeout + cleanupMs;
@@ -160,7 +166,9 @@ export function runOwnedCommand(command, args, options = {}) {
   }
   // Wall-clock emission and parent observation times are diagnostic facts, not
   // CPU measurements or cleanup receipts. Success keeps its existing result shape.
-  if (result.error) result.error = Object.assign(new Error(result.error.message), result.error, { startupTrace });
+  if (result.error) result.error = Object.assign(new Error(result.error.message), result.error, {
+    startupTrace, ...(windowsHelper ? { windowsHelper } : {}),
+  });
   return result;
 }
 
@@ -234,6 +242,7 @@ async function supervise({ command, args, options, port, shared }) {
     stdout: Buffer.allocUnsafe(options.maxBuffer), stderr: Buffer.allocUnsafe(options.maxBuffer),
   };
   const lengths = { stdout: 0, stderr: 0 };
+  let flushStderr = () => {};
   let used = 0;
   let child;
   let stop;
@@ -262,17 +271,25 @@ async function supervise({ command, args, options, port, shared }) {
     }, options.timeout);
     if (Atomics.load(shared, 1)) stop();
   };
-  const observe = (process) => {
+  const observe = (process, stderrFilter) => {
     child = process;
     if (output) {
       for (const stream of ["stdout", "stderr"]) {
-        child[stream].on("data", (chunk) => {
+        const capture = (chunk) => {
           const keep = Math.min(chunk.length, options.maxBuffer - used);
           chunk.copy(output[stream], lengths[stream], 0, keep);
           lengths[stream] += keep;
           used += keep;
           if (keep < chunk.length) fail(Object.assign(new Error("command output exceeded maxBuffer"), { code: "ENOBUFS" }));
-        });
+        };
+        child[stream].on("data", (chunk) => capture(stream === "stderr" && stderrFilter ? stderrFilter.write(chunk) : chunk));
+        if (stream === "stderr" && stderrFilter) {
+          // Destroy may close without end, and immediate completion may beat
+          // both events. Finalize once before any captured-buffer snapshot.
+          flushStderr = () => capture(stderrFilter.end());
+          child[stream].once("end", flushStderr);
+          child[stream].once("close", flushStderr);
+        }
         child[stream].on("error", fail);
       }
     }
@@ -284,7 +301,11 @@ async function supervise({ command, args, options, port, shared }) {
   port.on("close", onStop);
   try {
     const execution = process.platform === "win32"
-      ? runWindows(command, args, options, result, observe, ready, fail, shared, recordFailure, phase)
+      ? runWindows(command, args, options, result, observe, ready, fail, shared, recordFailure, phase, (diagnostics) => {
+        port.postMessage({ type: "helper", diagnostics });
+        Atomics.add(shared, 0, 1);
+        Atomics.notify(shared, 0);
+      })
       : runPosix(command, args, options, result, observe, ready, fail);
     stop = execution.stop;
     await execution.completion;
@@ -296,6 +317,7 @@ async function supervise({ command, args, options, port, shared }) {
     port.removeListener("message", onStop);
     port.removeListener("close", onStop);
   }
+  flushStderr();
   for (const stream of ["stdout", "stderr"]) {
     result[stream] = output ? output[stream].subarray(0, lengths[stream]) : null;
   }
@@ -407,8 +429,83 @@ function batchCommandLine(executable, args) {
   })].join(" ");
 }
 
-function runWindows(command, args, options, result, observe, ready, fail, shared, recordFailure, phase) {
+function helperObservation(value) {
+  const int32 = (number) => Number.isInteger(number) && number >= -2_147_483_648 && number <= 2_147_483_647;
+  if (!value || typeof value.captured !== "boolean" || typeof value.truncated !== "boolean" ||
+      !Array.isArray(value.events) || value.events.length > 4) return;
+  const events = [];
+  for (const event of value.events) {
+    if (!event || !bootstrapPhases.includes(event.phase) || !bootstrapStages.includes(event.stage) ||
+        !bootstrapKinds.includes(event.kind) || !Number.isSafeInteger(event.atMs) || event.atMs < 0 ||
+        !int32(event.hresult) || !int32(event.nativeCode) || events.some(({ phase }) => phase === event.phase)) return;
+    events.push({ phase: event.phase, atMs: event.atMs, stage: event.stage, kind: event.kind,
+      hresult: event.hresult, nativeCode: event.nativeCode });
+  }
+  const terminal = value.terminal;
+  if (terminal !== null && (!terminal || typeof terminal.requestIssued !== "boolean" ||
+      !(terminal.exitCode === null || (Number.isInteger(terminal.exitCode) && terminal.exitCode >= -2_147_483_648 && terminal.exitCode <= 0xffffffff)) ||
+      !(terminal.signal === null || Object.hasOwn(os.constants.signals, terminal.signal)))) return;
+  // Keep observations one level deep: default Error inspection otherwise
+  // replaces a nested array's diagnostic bodies with [Object] in caller logs.
+  return { captured: value.captured, ...Object.fromEntries(events.map(({ phase, ...event }) => [phase, event])), truncated: value.truncated,
+    terminal: terminal === null ? null : { exitCode: terminal.exitCode, signal: terminal.signal, requestIssued: terminal.requestIssued } };
+}
+
+// Only this helper knows the random tag. Its four fixed records precede target
+// admission, but stderr and the control pipe can be delivered in either order.
+// Untagged, malformed and overlong bytes retain the ordinary capture contract.
+function bootstrapFilter(token, diagnostics, publish) {
+  const prefix = `CRABPOT_BOOTSTRAP ${token} `;
+  let pending = Buffer.alloc(0);
+  let passing = false;
+  return {
+    write(chunk) {
+      const output = [];
+      while (chunk.length) {
+        const newline = chunk.indexOf(10);
+        const part = chunk.subarray(0, newline < 0 ? chunk.length : newline + 1);
+        chunk = chunk.subarray(part.length);
+        if (passing || pending.length + part.length > 256) {
+          output.push(pending, part);
+          pending = Buffer.alloc(0);
+          passing = newline < 0;
+          continue;
+        }
+        pending = Buffer.concat([pending, part]);
+        const text = pending.toString("utf8");
+        if (!prefix.startsWith(text) && !text.startsWith(prefix)) {
+          output.push(pending);
+          pending = Buffer.alloc(0);
+          passing = newline < 0;
+          continue;
+        }
+        if (newline < 0) continue;
+        const fields = text.startsWith(prefix)
+          ? /^([a-z-]+) (\d+) ([a-z-]+) ([a-z-]+) (-?\d+) (-?\d+)\r?\n$/.exec(text.slice(prefix.length)) : null;
+        if (fields && bootstrapPhases.includes(fields[1]) && bootstrapStages.includes(fields[3]) &&
+            bootstrapKinds.includes(fields[4]) && Number.isSafeInteger(Number(fields[2])) &&
+            [fields[5], fields[6]].every((value) => Number.isInteger(Number(value)) && Number(value) >= -2_147_483_648 && Number(value) <= 2_147_483_647)) {
+          if (diagnostics.events.length < 4 && !diagnostics.events.some(({ phase }) => phase === fields[1])) {
+            diagnostics.events.push({ phase: fields[1], atMs: Number(fields[2]), stage: fields[3],
+              kind: fields[4], hresult: Number(fields[5]), nativeCode: Number(fields[6]) });
+            publish(diagnostics);
+          } else {
+            if (!diagnostics.truncated) { diagnostics.truncated = true; publish(diagnostics); }
+            output.push(pending);
+          }
+        } else output.push(pending);
+        pending = Buffer.alloc(0);
+      }
+      return Buffer.concat(output);
+    },
+    end() { const tail = pending; pending = Buffer.alloc(0); return tail; },
+  };
+}
+
+function runWindows(command, args, options, result, observe, ready, fail, shared, recordFailure, phase, publish) {
   const pipeName = `crabpot-command-${randomUUID()}`;
+  const diagnostics = { captured: !options.inherit, events: [], truncated: false, terminal: null };
+  publish(diagnostics);
   const server = createServer();
   let socket;
   let helper;
@@ -634,9 +731,10 @@ function runWindows(command, args, options, result, observe, ready, fail, shared
     helper = spawn(powershell, [
       "-NoLogo", "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass",
       "-File", fileURLToPath(new URL("./owned-command-windows.ps1", import.meta.url)), pipeName,
+      ...(options.inherit ? [] : ["capture"]),
     ], { cwd: options.cwd, env: process.env, windowsHide: true,
       stdio: options.inherit ? "inherit" : ["ignore", "pipe", "pipe"] });
-    observe(helper);
+    observe(helper, options.inherit ? undefined : bootstrapFilter(pipeName, diagnostics, publish));
     helper.once("spawn", () => {
       Atomics.store(shared, 3, helper.pid);
       phase("helper-spawned");
@@ -644,6 +742,8 @@ function runWindows(command, args, options, result, observe, ready, fail, shared
     helper.once("error", (error) => { fail(error); finish(); });
     helper.once("close", (code, signal) => {
       Atomics.store(shared, 3, 0);
+      diagnostics.terminal = { exitCode: code, signal, requestIssued };
+      publish(diagnostics);
       if (code !== 0 || signal !== null) {
         helperExitError = { code: "EOWNERNATIVE", message: `Windows adapter failed (${signal ?? code})` };
       }
