@@ -65,7 +65,7 @@ test("generated surface fixture verifies target OpenClaw surface", async () => {
       pluginRoot,
     });
 
-    assert.equal(report.status, "pass");
+    assert.equal(report.status, "pass", report.errors.join("\n"));
     assert.deepEqual(report.expected.hooks, ["before_tool_call", "llm_input"]);
     assert.deepEqual(report.expected.registrars, ["registerService", "registerTool"]);
     assert.deepEqual(report.expected.directCallbacks, ["onConversationBindingResolved"]);
@@ -77,6 +77,19 @@ test("generated surface fixture verifies target OpenClaw surface", async () => {
     assert.doesNotMatch(sdkSource, /import type/);
     assert.equal(report.summary.missingStaticCount, 0);
     assert.equal(report.summary.missingRuntimeCount, 0);
+    const inspectorReport = JSON.parse(await readFile(path.join(pluginRoot, "reports/plugin-inspector-report.json"), "utf8"));
+    const inventory = inspectorReport.sdkUsage ?? inspectorReport.fixtures[0]?.sdkUsage;
+    assert.equal(inventory?.schemaVersion, 1);
+    assert.equal(inventory.status, "complete");
+    const keys = new Set(inventory.entries.map(entry => entry.key));
+    for (const key of [
+      "sdk-module:openclaw/plugin-sdk",
+      "sdk-module:openclaw/plugin-sdk/runtime",
+      "api-member:api.registerTool",
+      "api-member:api.registerService",
+      "hook:hook.before_tool_call",
+      "hook:hook.llm_input",
+    ]) assert.ok(keys.has(key), `Generated SDK surface missing from actual inventory: ${key}`);
     const previousBin = process.env.CRABPOT_PLUGIN_INSPECTOR_BIN;
     const previousTimeout = process.env.CRABPOT_PLUGIN_INSPECTOR_TIMEOUT_MS;
     process.env.CRABPOT_PLUGIN_INSPECTOR_BIN = writeHangCommand(tempDir);

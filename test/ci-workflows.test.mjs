@@ -1,5 +1,8 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { spawnSync } from "node:child_process";
+import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import path from "node:path";
 import { test } from "node:test";
 
 async function readWorkflow(path) {
@@ -40,21 +43,20 @@ test("cancelled checks keep existing artifacts without regenerating reports", as
 
   for (const [workflow, name] of [
     [check, "Write CI summary artifacts"],
-    [check, "Reconcile compatibility report with runtime evidence"],
-    [check, "Run execution policy"],
+    [check, "Write isolated summary"],
     [canary, "Write canary reports"],
   ]) {
-    assert.equal(stepCondition(workflow, name), "${{ !cancelled() }}", name);
+    assert.equal(stepCondition(workflow, name), "always()", name);
+    const block = workflow.slice(workflow.indexOf(`- name: ${name}`)).split("\n      - ")[0];
+    assert.match(block, /node scripts\/write-ci-summary\.mjs --run-report/);
+    assert.doesNotMatch(block, /generate-report|capture-contracts|profile-contract-runtime|check-ci-policy/);
   }
   for (const [workflow, name] of [
-    [check, "Upload CI reports"],
-    [check, "Summarize execution artifacts"],
-    [check, "Write isolated summary"],
-    [check, "Upload isolated execution artifacts"],
+    [check, "Upload CI reports"], [check, "Upload isolated execution artifacts"],
     [canary, "Upload HEAD canary reports"],
-  ]) {
-    assert.equal(stepCondition(workflow, name), "always()", name);
-  }
+  ]) assert.equal(stepCondition(workflow, name), "always()", name);
+  assert.equal(stepCondition(check, "Reconcile compatibility report with runtime evidence"), "${{ !cancelled() && steps.execution.outcome == 'success' }}");
+  assert.equal(stepCondition(check, "Run execution policy"), "${{ !cancelled() && steps.compatibility.outcome == 'success' }}");
   const aggregate = check.slice(check.indexOf("  default-track:"), check.indexOf("  dashboard:"));
   assert.match(aggregate, /^    if: always\(\)$/m);
   assert.match(aggregate, /test "\$\{MANIFEST_RESULT\}" = success/);
@@ -74,7 +76,7 @@ test("manual OpenClaw ref workflow accepts branch tag or SHA inputs", async () =
   assert.match(workflow, /ref: \$\{\{ env\.TARGET_REF \}\}/);
   assert.match(workflow, /strict_contract:[\s\S]*default: true/);
   assert.match(workflow, /SUITE_POLICY: \$\{\{ needs\.request\.outputs\.strict_contract == 'true' && 'release' \|\| 'dashboard' \}\}/);
-  assert.match(workflow, /node scripts\/run-static-suite\.mjs --openclaw \.\/openclaw --policy "\$\{SUITE_POLICY\}"/);
+  assert.match(workflow, /node scripts\/run-static-suite\.mjs --write-reports --openclaw \.\/openclaw --policy "\$\{SUITE_POLICY\}"/);
   assert.match(workflow, /--plugin-inspector-smoke/);
   assert.match(workflow, /node scripts\/check-contract-coverage\.mjs --openclaw \.\/openclaw/);
 });
@@ -109,7 +111,7 @@ test("manual OpenClaw ref workflow has diff and profile modes", async () => {
   assert.match(workflow, /Compare base and head OpenClaw refs/);
   assert.match(workflow, /node scripts\/compare-openclaw-refs\.mjs/);
   assert.match(workflow, /node scripts\/compare-runtime-profile\.mjs/);
-  assert.match(workflow, /node scripts\/check-ci-policy\.mjs \$\{\{ needs\.request\.outputs\.strict_contract == 'true' && '--strict' \|\| '' \}\}/);
+  assert.match(workflow, /node scripts\/check-ci-policy\.mjs --run-report \$\{\{ needs\.request\.outputs\.strict_contract == 'true' && '--strict' \|\| '' \}\}/);
   assert.match(workflow, /node scripts\/write-ci-summary\.mjs/);
 });
 
@@ -146,15 +148,16 @@ test("manual OpenClaw ref execution uses a branch-scoped cache boundary", async 
 });
 
 test("default check workflow uploads policy and summary reports", async () => {
-  const workflow = await readWorkflow(".github/workflows/check.yml");
+  const check = await readWorkflow(".github/workflows/check.yml");
+  const dashboardBlock = await readWorkflow(".github/workflows/publish-dashboard.yml");
+  const workflow = check + "\n" + dashboardBlock;
 
   assert.match(workflow, /node scripts\/run-static-suite\.mjs[\s\S]*--openclaw \.\/openclaw[\s\S]*--plugin-inspector-smoke/);
   assert.match(workflow, /node scripts\/check-ci-policy\.mjs/);
   assert.match(workflow, /node scripts\/write-ci-summary\.mjs/);
   assert.match(workflow, /node scripts\/update-track-metadata\.mjs --default-pin-openclaw \.\/openclaw/);
-  const dashboardBlock = workflow.slice(workflow.indexOf("  dashboard:"));
   assert.match(dashboardBlock, /^\s+node-version: 24$/m);
-  assert.match(dashboardBlock, /if: \$\{\{ !cancelled\(\) && github\.event_name != 'pull_request'/);
+  assert.match(check, /if: \$\{\{ !cancelled\(\) && github\.event_name != 'pull_request'/);
   assert.match(dashboardBlock, /permissions:[\s\S]*contents: write[\s\S]*statuses: write/);
   assert.match(dashboardBlock, /pnpm --dir openclaw install --frozen-lockfile --ignore-scripts/);
   assert.match(dashboardBlock, /run_profile_step 180 "OpenClaw lifecycle import-loop profile failed or timed out; falling back to fixture-only import-loop profile" node scripts\/import-loop-profile\.mjs --openclaw \.\/openclaw --runs 3/);
@@ -171,7 +174,7 @@ test("default check workflow uploads policy and summary reports", async () => {
   assert.match(dashboardBlock, /git push origin "HEAD:refs\/heads\/\$\{staging_branch\}"/);
   assert.match(dashboardBlock, /gh api --method POST "repos\/\$\{GITHUB_REPOSITORY\}\/statuses\/\$\{dashboard_sha\}"[\s\S]*context="Default Track \(pinned OpenClaw\)"/);
   assert.match(dashboardBlock, /git push origin --delete "\$\{staging_branch\}"/);
-  assert.match(dashboardBlock, /git push origin "HEAD:refs\/heads\/\$\{GITHUB_REF_NAME\}"/);
+  assert.match(dashboardBlock, /git push origin "HEAD:refs\/heads\/\$\{DASHBOARD_TARGET_BRANCH\}"/);
   assert.match(workflow, /Skipped stale dashboard push/);
   assert.match(workflow, /actions\/upload-artifact@v7/);
 });
@@ -261,7 +264,7 @@ test("default check workflow runs OS and container static lanes", async () => {
   assert.match(workflow, /FIXTURE_SECURITY_RESULT: \$\{\{ needs\.fixture-security\.result \}\}/);
   assert.match(workflow, /test "\$\{FIXTURE_SECURITY_RESULT\}" = success/);
   assert.match(workflow, /name: Default Track \/ Static checks \(\$\{\{ matrix\.os \}\}\)/);
-  assert.match(workflow, /os: \[ubuntu-latest, macos-15, windows-latest\]/);
+  assert.match(workflow, /os: \[ubuntu-latest, xcode-27, windows-latest\]/);
   assert.match(workflow, /container-smoke:/);
   assert.match(workflow, /image: node:24-bookworm/);
   assert.match(workflow, /node scripts\/openclaw-pin\.mjs --github-output/);
@@ -301,9 +304,9 @@ test("HEAD canary is advisory, runs the Default Track suite on main, and uploads
   assert.match(workflow, /Run Default Track suite against HEAD/);
   assert.match(workflow, /--openclaw-track latest/);
   assert.match(workflow, /--plugin-track latest/);
-  assert.match(workflow, /run_report\(\)[\s\S]*report_failed=1/);
+  assert.match(workflow, /id: lifecycle[\s\S]*timeout-minutes: 10[\s\S]*ci-report-handoff\.mjs run lifecycle/);
   assert.match(workflow, /node scripts\/import-loop-profile\.mjs --openclaw \.\/openclaw --runs 3/);
-  assert.match(workflow, /exit "\$\{report_failed\}"/);
+  assert.match(workflow, /ci-report-handoff\.mjs run comparison node scripts\/compare-runtime-profile\.mjs/);
   assert.match(workflow, /Upload HEAD canary reports/);
   assert.match(workflow, /crabpot-openclaw-head-canary-\$\{\{ matrix\.os \}\}/);
 });
@@ -338,8 +341,8 @@ test("default check workflow resolves changed submodules into an isolated fixtur
   assert.match(workflow, /npm run workspace:execute -- --fixture "\$\{\{ matrix\.id \}\}" --allow-empty/);
   assert.match(workflow, /node scripts\/generate-report\.mjs --openclaw \.\/openclaw --execution-results reports\/crabpot-execution-results\.json --fixture-set "\$\{\{ matrix\.id \}\}"/);
   assert.match(workflow, /Fail if isolated policy failed/);
-  assert.match(workflow, /steps\.policy\.outcome == 'failure'/);
-  assert.doesNotMatch(workflow, /steps\.execute\.outcome == 'failure' \|\| steps\.policy\.outcome == 'failure'/);
+  assert.match(workflow, /steps\.policy\.outcome != 'success'/);
+  assert.doesNotMatch(workflow, /steps\.execute\.outcome == 'failure' \|\| steps\.policy\.outcome != 'success'/);
 });
 
 test("workflows use current action majors and dependency caches", async () => {
@@ -366,41 +369,82 @@ test("workflows use current action majors and dependency caches", async () => {
   assert.doesNotMatch(workflows, /FORCE_JAVASCRIPT_ACTIONS_TO_NODE24/);
 });
 
-test("dependabot auto-merge refreshes reports after fixture pin updates", async () => {
+test("normal pushes and bot merges share an exact-commit dashboard owner", async () => {
+  const workflow = await readWorkflow(".github/workflows/dependabot-auto-merge.yml");
+  const check = await readWorkflow(".github/workflows/check.yml");
+  const dashboard = await readWorkflow(".github/workflows/publish-dashboard.yml");
+
+  assert.match(workflow, /ref: \$\{\{ github\.event\.pull_request\.head\.sha \}\}/);
+  assert.match(workflow, /persist-credentials: false/);
+  assert.doesNotMatch(workflow, /git (?:merge|commit|push|add|config)/);
+  for (const caller of [workflow, check]) {
+    assert.match(caller, /uses: \.\/\.github\/workflows\/publish-dashboard\.yml/);
+  }
+  assert.match(check, /needs: \[default-track\]/);
+  assert.match(workflow, /if: \$\{\{ needs\.refresh-and-automerge\.outputs\.merged-sha != '' \}\}/);
+  assert.match(workflow, /source-sha: \$\{\{ needs\.refresh-and-automerge\.outputs\.merged-sha \}\}/);
+  assert.match(workflow, /target-branch: \$\{\{ github\.event\.pull_request\.base\.ref \}\}/);
+  assert.match(dashboard, /workflow_call:/);
+  assert.doesNotMatch(dashboard, /workflow_dispatch:|schedule:|github\.actor|npm publish|gh release/);
+  assert.match(dashboard, /ref: \$\{\{ inputs\.source-sha \}\}/);
+  assert.match(dashboard, /git push origin "HEAD:refs\/heads\/\$\{DASHBOARD_TARGET_BRANCH\}"/);
+  assert.match(workflow, /gh pr merge "\$\{PR_NUMBER\}" --squash --delete-branch --match-head-commit "\$\{PR_HEAD_SHA\}"/);
+  assert.doesNotMatch(workflow, /--admin|--auto/);
+});
+
+test("dependabot validates fixture pins before merging without rewriting reports", async () => {
   const workflow = await readWorkflow(".github/workflows/dependabot-auto-merge.yml");
 
-  assert.match(workflow, /^\s+node-version: 24$/m);
   assert.match(workflow, /pull_request_target:/);
-  assert.match(workflow, /group: crabpot-dependabot-automerge-\$\{\{ github\.event\.pull_request\.base\.ref \}\}/);
-  assert.match(workflow, /cancel-in-progress: false/);
   assert.match(workflow, /dependabot\[bot\]/);
   assert.match(workflow, /github\.event\.pull_request\.head\.repo\.full_name == github\.repository/);
-  assert.match(workflow, /Install Crabpot dependencies[\s\S]*npm install --no-package-lock/);
-  assert.match(workflow, /Update Dependabot branch with base/);
-  assert.match(workflow, /git merge --no-edit "origin\/\$\{\{ github\.event\.pull_request\.base\.ref \}\}"/);
   assert.match(workflow, /Verify Dependabot changed only fixture pins and generated reports/);
-  assert.ok(workflow.includes('"$file" == "README.md"'));
-  assert.ok(workflow.includes('^reports/'));
   assert.ok(workflow.includes("^plugins/[^/]+$"));
   assert.ok(workflow.includes("^plugins/[^/]+/package(-lock)?\\.json$"));
-  assert.match(workflow, /node scripts\/sync-fixtures\.mjs --materialize/);
   assert.match(workflow, /Resolve pinned OpenClaw Default Track[\s\S]*node scripts\/openclaw-pin\.mjs --github-output/);
-  assert.doesNotMatch(workflow, /node scripts\/resolve-openclaw-track\.mjs/);
-  assert.match(workflow, /node scripts\/generate-report\.mjs --openclaw \.\/openclaw/);
   assert.match(workflow, /CRABPOT_TEST_OPENCLAW_PATH: \.\/openclaw/);
   assert.match(workflow, /pnpm --dir openclaw install --frozen-lockfile --ignore-scripts/);
-  assert.match(workflow, /node scripts\/import-loop-profile\.mjs --openclaw \.\/openclaw --runs 3/);
-  assert.match(workflow, /node scripts\/update-track-metadata\.mjs --default-pin-openclaw \.\/openclaw/);
-  assert.match(workflow, /--baseline-data \.crabpot\/baseline\/main-dashboard-data\.json/);
-  assert.match(workflow, /node scripts\/update-readme-summary\.mjs "\$\{baseline_args\[@\]\}"/);
-  assert.match(workflow, /git add README\.md reports\//);
-  assert.match(workflow, /gh pr view "\$\{PR_NUMBER\}" --json mergeable,mergeStateStatus,statusCheckRollup/);
-  assert.match(workflow, /\(\.workflowName \/\/ ""\) != "Dependabot Auto Merge"/);
+  assert.match(workflow, /node scripts\/sync-fixtures\.mjs --check/);
+  assert.match(workflow, /node scripts\/run-contract-smoke\.mjs --strict --openclaw \.\/openclaw/);
+  const validation = workflow.split("- name: Validate fixture compatibility")[1].split("- name: Merge Dependabot PR")[0];
+  assert.match(validation, /CRABPOT_FIXTURE_SET: \$\{\{ steps\.openclaw-track\.outputs\.track == 'development' && 'openclaw-beta' \|\| '' \}\}/);
+  assert.match(validation, /CRABPOT_PLUGIN_TRACK: \$\{\{ steps\.openclaw-track\.outputs\.track == 'development' && 'source-pack' \|\| steps\.openclaw-track\.outputs\.track \}\}/);
+  assert.ok(workflow.indexOf("npm test") < workflow.indexOf("- name: Merge Dependabot PR"));
   assert.match(workflow, /failed status check\(s\); refusing auto-merge/);
-  assert.match(workflow, /waiting for mergeability and green checks/);
-  assert.match(workflow, /gh pr merge "\$\{PR_NUMBER\}" --squash --delete-branch/);
-  assert.doesNotMatch(workflow, /gh pr merge "\$\{PR_NUMBER\}" --squash --auto/);
 });
+
+test("dependabot merge stops on changed heads and passes only a confirmed merge to reports", async (t) => {
+  const workflow = await readWorkflow(".github/workflows/dependabot-auto-merge.yml");
+  const script = workflow.split("- name: Merge Dependabot PR")[1]
+    .split("        run: |\n")[1].split("\n  dashboard:")[0].replace(/^          /gm, "");
+  const stub = 'gh() { if [[ "$*" == *"--json mergeCommit"* ]]; then printf "%s\\n" "$MERGED_SHA"; elif [ "$2" = view ]; then printf "%s\\n" "$CHECK_STATE"; else printf "MERGE %s\\n" "$*"; fi; };\n';
+  const mergedSha = "a".repeat(40);
+  const dir = await mkdtemp(path.join(tmpdir(), "crabpot-merge-test-"));
+  t.after(() => rm(dir, { recursive: true, force: true }));
+  const outputPath = path.join(dir, "github-output");
+  const run = async (state, merge = mergedSha) => {
+    await writeFile(outputPath, "");
+    const result = spawnSync(process.platform === "win32" ? "bash" : "/bin/bash", ["-c", stub + script], {
+      encoding: "utf8",
+      env: { PATH: process.env.PATH, PR_NUMBER: "123", PR_HEAD_SHA: "reviewed-head", CHECK_STATE: state, MERGED_SHA: merge, GITHUB_OUTPUT: outputPath },
+    });
+    return { ...result, output: await readFile(outputPath, "utf8") };
+  };
+  const changed = await run("new-head\tMERGEABLE\tCLEAN\t0\t0");
+  assert.equal(changed.status, 0);
+  assert.doesNotMatch(changed.stdout + changed.output, /MERGE |merged-sha=/);
+  const failed = await run("reviewed-head\tMERGEABLE\tBLOCKED\t0\t1");
+  assert.equal(failed.status, 1);
+  assert.doesNotMatch(failed.stdout + failed.output, /MERGE |merged-sha=/);
+  const ready = await run("reviewed-head\tMERGEABLE\tCLEAN\t0\t0");
+  assert.equal(ready.status, 0, ready.stderr);
+  assert.match(ready.stdout, /MERGE pr merge 123 --squash --delete-branch --match-head-commit reviewed-head/);
+  assert.ok(ready.output.includes("merged-sha=" + mergedSha));
+  const invalid = await run("reviewed-head\tMERGEABLE\tCLEAN\t0\t0", "null");
+  assert.equal(invalid.status, 1);
+  assert.doesNotMatch(invalid.output, /merged-sha=/);
+});
+
 
 test("crabbox hydrate validates the job key before writing state", async () => {
   const workflow = await readWorkflow(".github/workflows/crabbox-hydrate.yml");
@@ -421,7 +465,7 @@ test("manual workflow enforces strict runtime profile policy before best-effort 
     assert.match(step, /node scripts\/compare-runtime-profile\.mjs \$\{\{ needs\.request\.outputs\.strict_perf == 'true' && '--strict' \|\| '' \}\}/);
     assert.doesNotMatch(step, /continue-on-error/);
   }
-  assert.ok(policySteps.some((step) => step.includes("node scripts/profile-contract-runtime.mjs --openclaw ./openclaw-head")));
+  assert.match(workflow, /id: profile[\s\S]*ci-report-handoff\.mjs run profile node scripts\/profile-contract-runtime\.mjs --openclaw \.\/openclaw-head/);
 });
 
 test("manual workflow writes OpenClaw lifecycle import profile artifacts", async () => {
@@ -441,5 +485,5 @@ test("manual workflow keeps isolated execution artifacts and failure policy wire
   assert.match(workflow, /id: policy[\s\S]*continue-on-error: true[\s\S]*node scripts\/check-ci-policy\.mjs/);
   assert.match(workflow, /node scripts\/generate-report\.mjs --openclaw \.\/openclaw --execution-results reports\/crabpot-execution-results\.json --fixture-set "\$\{\{ matrix\.id \}\}"/);
   assert.match(workflow, /path: \|[\s\S]*\.crabpot\/results\/[\s\S]*reports\/crabpot-execution-results\.\*[\s\S]*reports\/crabpot-ci-policy\.\*[\s\S]*reports\/crabpot-ci-summary\.\*/);
-  assert.match(workflow, /steps\.execute\.outcome == 'failure' \|\| steps\.policy\.outcome == 'failure'/);
+  assert.match(workflow, /steps\.execute\.outcome == 'failure' \|\| steps\.policy\.outcome != 'success'/);
 });

@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for OpenClaw Codex harness and model provider plugin.",
   "dependencies": {
-    "@openclaw/codex": "2026.8.1-beta.3"
+    "@openclaw/codex": "2026.10.3"
   },
   "crabpot": {
     "fixture": "codex",
@@ -12,13 +12,14 @@
     "package": "@openclaw/codex",
     "sourceRepo": "https://github.com/openclaw/openclaw.git",
     "sourcePath": "extensions/codex",
-    "sourceRef": "7ea3a421cde856dd1d0a2b8e8d256926976d7bff"
+    "sourceRef": "59cb44796b0f1f0daa0e37af8b1495abb45d9bc1"
   },
   "overrides": {
-    "brace-expansion": "5.0.9",
-    "fast-uri": "3.1.6",
+    "brace-expansion": "5.0.12",
+    "fast-uri": "3.1.8",
     "fast-xml-builder": "1.3.1",
     "protobufjs": "7.6.6",
-    "ws": "8.21.3"
+    "ws": "8.21.3",
+    "smol-toml": "1.9.0"
   }
 }

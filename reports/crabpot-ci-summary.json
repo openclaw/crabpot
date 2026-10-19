@@ -1,22 +1,22 @@
 {
   "generatedAt": "deterministic",
   "title": "Crabpot CI Summary",
-  "mode": "dependabot",
-  "openclawLabel": "openclaw/openclaw@d9b899649800 (Default Track pin 2026-09-10)",
+  "mode": "check",
+  "openclawLabel": "openclaw/openclaw@10bb24270d8d (Default Track pin 2026-09-25)",
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 102,
-    "suggestions": 165,
-    "issues": 267,
-    "p0Issues": 7,
-    "p1Issues": 33,
-    "liveIssues": 7,
-    "liveP0Issues": 7,
+    "warnings": 280,
+    "suggestions": 163,
+    "issues": 443,
+    "p0Issues": 5,
+    "p1Issues": 35,
+    "liveIssues": 5,
+    "liveP0Issues": 5,
     "compatGaps": 27,
-    "deprecationWarnings": 22,
-    "inspectorGaps": 148,
-    "upstreamIssues": 63,
+    "deprecationWarnings": 218,
+    "inspectorGaps": 149,
+    "upstreamIssues": 44,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
@@ -29,16 +29,16 @@
     "platformWindowsRisks": 17,
     "platformContainerRisks": 17,
     "loaderJitiCandidates": 20,
-    "importLoopP50Ms": 3181,
-    "importLoopP95Ms": 3277,
+    "importLoopP50Ms": 4039,
+    "importLoopP95Ms": 4063,
     "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 65.9,
-    "importLoopOpenClawActivationP50Ms": 0.5,
+    "importLoopOpenClawImportP50Ms": 105.5,
+    "importLoopOpenClawActivationP50Ms": 1.1,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 2.8,
-    "importLoopMaxCpuMs": 93,
-    "importLoopRssSampleCount": 381,
-    "importLoopCpuSampleCount": 381
+    "importLoopMaxRssMb": 1.2,
+    "importLoopMaxCpuMs": 0,
+    "importLoopRssSampleCount": 480,
+    "importLoopCpuSampleCount": 480
   },
   "topIssues": [
     {
@@ -55,22 +55,6 @@
       "fixture": "connectclaw",
       "code": "unknown-hook-name",
       "title": "connectclaw: fixture uses a hook missing from target OpenClaw",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P0",
-      "issueClass": "live-issue",
-      "fixture": "honcho",
-      "code": "unknown-hook-name",
-      "title": "honcho: fixture uses a hook missing from target OpenClaw",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P0",
-      "issueClass": "live-issue",
-      "fixture": "honcho",
-      "code": "unknown-registration-name",
-      "title": "honcho: fixture calls a registrar missing from target OpenClaw",
       "decision": "core-compat-adapter"
     },
     {
@@ -115,6 +99,14 @@
     },
     {
       "severity": "P1",
+      "issueClass": "inspector-gap",
+      "fixture": "codex",
+      "code": "sdk-export-missing",
+      "title": "codex: SDK import coverage requires an eligible host",
+      "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
       "issueClass": "compat-gap",
       "fixture": "connectclaw",
       "code": "missing-compat-record",
@@ -143,6 +135,14 @@
       "fixture": "ddingtalk",
       "code": "missing-compat-record",
       "title": "ddingtalk: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "dingtalk-connector",
+      "code": "sdk-export-missing",
+      "title": "dingtalk-connector: plugin SDK import aliases are missing from target package exports",
       "decision": "core-compat-adapter"
     },
     {
@@ -180,14 +180,6 @@
     {
       "severity": "P1",
       "issueClass": "compat-gap",
-      "fixture": "honcho",
-      "code": "missing-compat-record",
-      "title": "honcho: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
       "fixture": "inworld-tts",
       "code": "missing-compat-record",
       "title": "inworld-tts: compat-dependent behavior lacks registry coverage",
@@ -200,6 +192,14 @@
       "code": "before-tool-call-probe",
       "title": "kitchen-sink: before_tool_call needs terminal/block/approval probes",
       "decision": "inspector-follow-up"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "matrix",
+      "code": "sdk-export-missing",
+      "title": "matrix: plugin SDK import aliases are missing from target package exports",
+      "decision": "core-compat-adapter"
     }
   ],
   "refRegressions": [],
@@ -207,12 +207,10 @@
     {
       "id": "compatibility-report.live-p0-issues",
       "action": "warn",
-      "message": "7 live P0 issues tracked",
+      "message": "5 live P0 issues tracked",
       "evidence": [
         "aiwerk-mcp-bridge:unknown-hook-name:none",
         "connectclaw:unknown-hook-name:none",
-        "honcho:unknown-hook-name:none",
-        "honcho:unknown-registration-name:none",
         "memos-cloud:unknown-hook-name:none",
         "openclaw-telemetry:unknown-hook-name:none",
         "opik-openclaw:unknown-hook-name:none"
@@ -224,20 +222,20 @@
       "id": "profile.wall-p95",
       "action": "warn",
       "metric": "p95WallMs",
-      "message": "p95WallMs regressed 884.4% over baseline",
+      "message": "p95WallMs regressed 563.8% over baseline",
       "baseline": 1273,
-      "current": 12532,
-      "delta": 11259,
-      "percent": 884.4
+      "current": 8450,
+      "delta": 7177,
+      "percent": 563.8
     },
     {
       "id": "profile.peak-rss",
       "action": "warn",
       "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 693.8 over baseline",
+      "message": "maxPeakRssMb regressed 696 over baseline",
       "baseline": 65.1,
-      "current": 758.9,
-      "delta": 693.8
+      "current": 761.1,
+      "delta": 696
     }
   ],
   "artifacts": {
@@ -249,9 +247,11 @@
     "platform": "reports/crabpot-platform-probes.json",
     "importLoop": "reports/crabpot-import-loop-profile.json",
     "execution": "reports/crabpot-execution-results.json",
-    "runtimeProfile": "reports/crabpot-runtime-profile.json",
+    "runtimeProfile": null,
     "refDiff": null,
     "profileDiff": "reports/crabpot-profile-diff.json",
-    "ciPolicy": "reports/crabpot-ci-policy.json"
+    "ciPolicy": "reports/crabpot-ci-policy.json",
+    "generatedSurface": "reports/crabpot-generated-surface.json",
+    "packageAvailability": "reports/crabpot-package-availability.json"
   }
 }

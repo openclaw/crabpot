@@ -1,11 +1,12 @@
-import { existsSync, mkdirSync, rmSync, statSync, writeFileSync } from "node:fs";
+import { randomUUID } from "node:crypto";
+import { existsSync, mkdirSync, readFileSync, rmdirSync, rmSync, unlinkSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { repoRoot } from "./manifest-lib.mjs";
 import { configuredTimeoutMs, runOwnedCommand } from "./owned-command.mjs";
 
-export const pluginInspectorRef = "6169338410f76e1e7e9f6ec29c65b6007e62d829";
-export const pluginInspectorPackage = "@openclaw/plugin-inspector@0.3.26";
+export const pluginInspectorRef = "8f458e7be92258ac1729451a0a4bcaea2ecdb68e";
+export const pluginInspectorPackage = "@openclaw/plugin-inspector@0.4.3";
 const defaultGitTimeoutMs = 2 * 60 * 1000;
 const defaultNpmTimeoutMs = 2 * 60 * 1000;
 export const defaultPluginInspectorTimeoutMs = 10 * 60 * 1000;
@@ -20,8 +21,9 @@ export async function loadPluginInspector() {
   return import(pathToFileURL(advancedApiPath).href);
 }
 
-export async function loadPluginInspectorPublicApi() {
-  return import(pathToFileURL(resolvePluginInspectorPublicApiPath()).href);
+export async function loadPluginInspectorPublicApi({ prepare = true } = {}) {
+  const root = resolvePluginInspectorRoot({ prepare });
+  return root ? import(pathToFileURL(path.join(root, "src", "index.js")).href) : null;
 }
 
 export function resolvePluginInspectorCliInvocation(options = {}) {
@@ -55,11 +57,7 @@ function resolvePluginInspectorSourcePath() {
   return path.join(resolvePluginInspectorRoot(), "src", "advanced.js");
 }
 
-function resolvePluginInspectorPublicApiPath() {
-  return path.join(resolvePluginInspectorRoot(), "src", "index.js");
-}
-
-function resolvePluginInspectorRoot() {
+function resolvePluginInspectorRoot({ prepare = true } = {}) {
   if (process.env.CRABPOT_PLUGIN_INSPECTOR_DIR) {
     return path.resolve(repoRoot, process.env.CRABPOT_PLUGIN_INSPECTOR_DIR);
   }
@@ -69,7 +67,12 @@ function resolvePluginInspectorRoot() {
     return siblingRoot;
   }
 
-  return ensurePinnedInspectorCheckout();
+  if (prepare) return ensurePinnedInspectorCheckout();
+  // Failure reporting must never acquire a checkout lock, run Git, or install.
+  const pinnedRoot = path.join(repoRoot, ".crabpot", "plugin-inspector", pluginInspectorRef);
+  const marker = path.join(pinnedRoot, "node_modules", ".crabpot-install-ready");
+  return existsSync(path.join(pinnedRoot, "src", "index.js")) && existsSync(marker) &&
+    readFileSync(marker, "utf8").trim() === pluginInspectorRef ? pinnedRoot : null;
 }
 
 function ensurePinnedInspectorCheckout() {
@@ -112,6 +115,7 @@ export function isPinnedCheckoutReady(checkoutDir, expectedRef = pluginInspector
 
 function withCheckoutLock(checkoutParent, callback) {
   const lockDir = path.join(checkoutParent, ".checkout.lock");
+  const ownerFile = path.join(lockDir, randomUUID());
   const startedAt = Date.now();
 
   while (true) {
@@ -122,26 +126,35 @@ function withCheckoutLock(checkoutParent, callback) {
       if (error?.code !== "EEXIST") {
         throw error;
       }
-      if (isStaleLock(lockDir) || Date.now() - startedAt > 120_000) {
-        rmSync(lockDir, { force: true, recursive: true });
-        continue;
+      if (Date.now() - startedAt > 120_000) {
+        throw new Error(`plugin-inspector checkout lock remained busy after 120000ms: ${lockDir}. Wait for the holder; remove the lock only after confirming its commands have stopped.`);
       }
       sleep(100);
     }
   }
 
+  let publishedOwner = false;
+  let failure;
   try {
+    writeFileSync(ownerFile, "", { flag: "wx" });
+    publishedOwner = true;
     callback();
+  } catch (error) {
+    failure = error;
+    throw error;
   } finally {
-    rmSync(lockDir, { force: true, recursive: true });
-  }
-}
-
-function isStaleLock(lockDir) {
-  try {
-    return Date.now() - statSync(lockDir).mtimeMs > 300_000;
-  } catch {
-    return true;
+    // A timed-out waiter cannot prove the mutator stopped. Keep ownership when
+    // the command supervisor could not confirm cleanup, even after failure.
+    if (!failure?.cleanupError) {
+      try {
+        // A replacement has another token; never recursively delete its lock.
+        if (publishedOwner) unlinkSync(ownerFile);
+        rmdirSync(lockDir);
+      } catch (error) {
+        if (failure) throw new AggregateError([failure, error], "checkout failed and lock release failed");
+        throw error;
+      }
+    }
   }
 }
 
@@ -160,8 +173,9 @@ function readGitHead(checkoutDir) {
     timeout,
   });
   if (result.error) {
+    if (result.cleanupError) result.error.cleanupError = result.cleanupError;
     if (result.error.code === "ETIMEDOUT" && !result.cleanupError) {
-      throw new Error(`git rev-parse HEAD timed out after ${timeout}ms`);
+      throw new Error(`git rev-parse HEAD timed out after ${timeout}ms`, { cause: result.error });
     }
     throw result.error;
   }
@@ -182,8 +196,9 @@ function run(command, commandArgs, cwd = repoRoot) {
     timeout,
   });
   if (result.error) {
+    if (result.cleanupError) result.error.cleanupError = result.cleanupError;
     if (result.error.code === "ETIMEDOUT" && !result.cleanupError) {
-      throw new Error(`${command} ${commandArgs.join(" ")} timed out after ${timeout}ms`);
+      throw new Error(`${command} ${commandArgs.join(" ")} timed out after ${timeout}ms`, { cause: result.error });
     }
     throw result.error;
   }

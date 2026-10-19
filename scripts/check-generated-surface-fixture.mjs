@@ -526,12 +526,16 @@ function normalizeOutputPaths(value) {
 
 function observedSurface({ staticReport, runtimeReport }) {
   const fixture = staticReport.fixtures?.[0] ?? {};
+  // Prefer canonical module identities from the full SDK inventory.
+  const sdkModules = fixture.sdkUsage?.entries
+    ?.filter(entry => entry.kind === "sdk-module")
+    .map(entry => entry.identity);
   const captured = runtimeReport.results?.flatMap((result) => result.captured ?? []) ?? [];
   return {
     static: {
       hooks: unique(fixture.hooks ?? []),
       registrars: unique(fixture.registrations ?? []),
-      sdkExports: unique((fixture.sdkImports ?? []).map((item) => item.specifier ?? item).filter(Boolean)),
+      sdkExports: unique(sdkModules ?? (fixture.sdkImports ?? []).map((item) => item.specifier ?? item).filter(Boolean)),
       sdkImports: unique((fixture.sdkImports ?? []).map((item) => item.specifier ?? item).filter(Boolean)),
       manifestContracts: unique(fixture.manifestContracts ?? []),
     },

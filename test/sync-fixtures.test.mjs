@@ -7,6 +7,7 @@ import path from "node:path";
 import { test } from "node:test";
 import { pathToFileURL } from "node:url";
 import { resolvePluginInspectorCliPath } from "../scripts/plugin-inspector-source.mjs";
+import { buildTestSteps } from "../scripts/run-tests.mjs";
 
 const repoRoot = path.resolve(import.meta.dirname, "..");
 const sourceRef = "a".repeat(40);
@@ -491,6 +492,34 @@ for (const fail of [false, true]) {
   });
 }
 
+for (const pluginTrack of [undefined, "manifest", "latest"]) {
+  test(`an explicit third-party version avoids floating tag resolution with ${pluginTrack ?? "default"} track`, async (t) => {
+    const item = fixture();
+    item.package.version = "1.0.0";
+    const repo = await miniatureRepo(t, [item], [pack(item, "1.0.0")]);
+    const result = repo.run("sync-fixtures.mjs", ["--materialize",
+      ...(pluginTrack ? ["--plugin-track", pluginTrack] : []),
+    ]);
+    await repo.assertNpmComplete();
+    assert.equal(result.status, 0, result.stderr);
+    assert.equal((await repo.readJson(`${item.path}/.crabpot-package/package.json`)).version, "1.0.0");
+    assert.deepEqual((await repo.readJson(availabilityPath)).failures, []);
+  });
+
+  test(`a mismatched explicit version rejects before acquisition with ${pluginTrack ?? "default"} track`, async (t) => {
+    const item = fixture();
+    item.package.version = "1.0.1";
+    const repo = await miniatureRepo(t, [item]);
+    const result = repo.run("sync-fixtures.mjs", ["--materialize",
+      ...(pluginTrack ? ["--plugin-track", pluginTrack] : []),
+    ]);
+    assert.notEqual(result.status, 0);
+    assert.match(result.stderr, /shim pin 1\.0\.0 does not match configured package version 1\.0\.1/);
+    assert.deepEqual(await repo.assertNpmComplete(), []);
+    assert.equal(existsSync(repo.payload()), false);
+  });
+}
+
 for (const seeded of [false, true]) {
   test(`suppressed report ${seeded ? "preserves existing bytes" : "stays absent"} without allowing pack failure`, async (t) => {
     const item = fixture();
@@ -615,6 +644,11 @@ for (const selected of [false, true]) {
       '  assert.equal(process.env.CRABPOT_FIXTURE_SET, undefined);',
       '});',
     ].join("\n"));
+    for (const [, args] of buildTestSteps().slice(1)) {
+      const file = path.join(repo.root, args.at(-1));
+      await mkdir(path.dirname(file), { recursive: true });
+      await writeFile(file, 'import { test } from "node:test"; test("corpus sentinel", () => {});\n');
+    }
     const result = repo.run("run-static-suite.mjs",
       selected ? ["--fixture-set", item.id, "--plugin-track", "beta"] : []);
     await repo.assertNpmComplete();
@@ -622,6 +656,7 @@ for (const selected of [false, true]) {
     assert.match(result.stdout, /contract sentinel/);
     assert.match(result.stderr, /ETARGET/);
     assert.equal(result.stdout.includes("unit sentinel"), selected, result.stdout);
+    assert.equal(result.stdout.includes("corpus sentinel"), selected, result.stdout);
     assert.doesNotMatch(result.stdout, /dependent sentinel/);
     const report = await repo.readJson(availabilityPath);
     assert.equal(report.pluginTrack, selected ? "beta" : "manifest");

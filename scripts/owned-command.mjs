@@ -13,6 +13,12 @@ const startupMs = 10_000;
 const cleanupMs = 2_000;
 const termGraceMs = 200;
 const defaultMaxBuffer = 1024 * 1024;
+const startupPhases = new Set([
+  "owner-started", "worker-entered", "helper-spawned", "pipe-connected", "request-write-attempted",
+  "request-read",
+  "preparation-started", "prepared-received", "parser-started", "parser-completed", "not-admitted-received",
+  "native-entered", "create-process-pending", "create-process-completed", "ready-received", "closed-received",
+]);
 
 export function configuredTimeoutMs(name, fallback) {
   const raw = process.env[name];
@@ -36,6 +42,9 @@ export function runOwnedCommand(command, args, options = {}) {
   }
   const shared = new Int32Array(new SharedArrayBuffer(16));
   const { port1, port2 } = new MessageChannel();
+  const startedAtMs = Date.now();
+  const startupTrace = [{ phase: "owner-started", atMs: startedAtMs, observedAtMs: startedAtMs }];
+  const observedPhases = new Set(["owner-started"]);
   const worker = new Worker(new URL(import.meta.url), {
     execArgv: [],
     workerData: {
@@ -61,7 +70,13 @@ export function runOwnedCommand(command, args, options = {}) {
   let result;
   let firstFailure;
   const receive = (packet) => {
-    if (packet?.type === "ready") {
+    if (packet?.type === "phase") {
+      if (startupPhases.has(packet.phase) && !observedPhases.has(packet.phase) &&
+          Number.isSafeInteger(packet.atMs) && packet.atMs >= 0) {
+        observedPhases.add(packet.phase);
+        startupTrace.push({ phase: packet.phase, atMs: packet.atMs, observedAtMs: Date.now() });
+      }
+    } else if (packet?.type === "ready") {
       running = true;
       deadline = performance.now() + timeout + cleanupMs;
     } else if (packet?.type === "failure") {
@@ -71,16 +86,22 @@ export function runOwnedCommand(command, args, options = {}) {
       result.error ??= firstFailure;
     }
   };
+  // Diagnostics must not queue READY/result behind another polling interval.
+  // Each phase is emitted once; draining also preserves observations on Worker loss.
+  const drain = () => {
+    let packet;
+    while ((packet = receiveMessageOnPort(port1))) receive(packet.message);
+  };
   try {
     while (!result) {
-      receive(receiveMessageOnPort(port1)?.message);
+      drain();
       if (result) break;
       if (performance.now() >= deadline) {
         Atomics.store(shared, 1, 1);
         port1.postMessage({ type: "stop" });
         const end = performance.now() + cleanupMs;
         while (performance.now() < end) {
-          receive(receiveMessageOnPort(port1)?.message);
+          drain();
           if (result) break;
           Atomics.wait(shared, 0, Atomics.load(shared, 0), 10);
         }
@@ -137,7 +158,9 @@ export function runOwnedCommand(command, args, options = {}) {
     const error = result.error ?? result.cleanupError;
     result.error = { ...error, message: `${error.message}; command cleanup was not confirmed` };
   }
-  if (result.error) result.error = Object.assign(new Error(result.error.message), result.error);
+  // Wall-clock emission and parent observation times are diagnostic facts, not
+  // CPU measurements or cleanup receipts. Success keeps its existing result shape.
+  if (result.error) result.error = Object.assign(new Error(result.error.message), result.error, { startupTrace });
   return result;
 }
 
@@ -195,6 +218,17 @@ function groupRunning(pid) {
 }
 
 async function supervise({ command, args, options, port, shared }) {
+  const emittedPhases = new Set();
+  const phase = (name, atMs = Date.now()) => {
+    if (emittedPhases.has(name)) return;
+    emittedPhases.add(name);
+    try {
+      port.postMessage({ type: "phase", phase: name, atMs });
+      Atomics.add(shared, 0, 1);
+      Atomics.notify(shared, 0);
+    } catch { /* Owner loss must not turn diagnostic delivery into command state. */ }
+  };
+  phase("worker-entered");
   const result = emptyResult();
   const output = options.inherit ? null : {
     stdout: Buffer.allocUnsafe(options.maxBuffer), stderr: Buffer.allocUnsafe(options.maxBuffer),
@@ -250,7 +284,7 @@ async function supervise({ command, args, options, port, shared }) {
   port.on("close", onStop);
   try {
     const execution = process.platform === "win32"
-      ? runWindows(command, args, options, result, observe, ready, fail, shared, recordFailure)
+      ? runWindows(command, args, options, result, observe, ready, fail, shared, recordFailure, phase)
       : runPosix(command, args, options, result, observe, ready, fail);
     stop = execution.stop;
     await execution.completion;
@@ -373,14 +407,20 @@ function batchCommandLine(executable, args) {
   })].join(" ");
 }
 
-function runWindows(command, args, options, result, observe, ready, fail, shared, recordFailure) {
+function runWindows(command, args, options, result, observe, ready, fail, shared, recordFailure, phase) {
   const pipeName = `crabpot-command-${randomUUID()}`;
   const server = createServer();
   let socket;
   let helper;
   let stopped = false;
   let requestIssued = false;
+  let prepared = false;
   let admitted = false;
+  let notAdmitted = false;
+  let exitReceived = false;
+  let timeoutReceived = false;
+  let reportedError = false;
+  let protocolFailed = false;
   let closedJob = false;
   let helperClosed = false;
   let helperExitError;
@@ -450,69 +490,20 @@ function runWindows(command, args, options, result, observe, ready, fail, shared
       finish();
       return;
     }
-    if (closedJob) {
-      delete result.cleanupError;
+    // Only our missing-receipt error can be discharged by a valid terminal
+    // receipt, after both helper closure and control-pipe drain.
+    const terminal = !protocolFailed && (closedJob || notAdmitted);
+    if (terminal) {
+      if (result.cleanupError === missingJobCleanupError) delete result.cleanupError;
     } else {
-      result.cleanupError = { code: "EOWNERCLEANUP", message: "Windows Job extinction receipt was not observed" };
+      result.cleanupError ??= { code: "EOWNERCLEANUP", message: "Windows Job extinction receipt was not observed" };
     }
-    if (!closedJob || result.status === null) {
+    if (!terminal || (closedJob && result.status === null)) {
       recordFailure({ code: "EOWNERNATIVE", message: "Windows adapter exited without Job extinction receipt" });
     }
     finish();
   };
-  server.on("error", (error) => { fail(error); finish(); });
-  server.once("connection", (connection) => {
-    socket = connection;
-    server.close();
-    let pending = "";
-    socket.setEncoding("utf8");
-    socket.on("error", fail);
-    socket.on("close", () => { controlEnded = true; maybeFinish(); });
-    socket.on("data", (data) => {
-      pending += data;
-      if (pending.length > 8192) {
-        fail(Object.assign(new Error("Windows adapter control message exceeded limit"), { code: "EOWNERPROTOCOL" }));
-        return;
-      }
-      let end;
-      while ((end = pending.indexOf("\n")) !== -1) {
-        const line = pending.slice(0, end).trimEnd();
-        pending = pending.slice(end + 1);
-        if (/^READY \d+$/.test(line) && !admitted) {
-          admitted = true;
-          clearTimeout(startupTimer);
-          ready(Number(line.slice(6)));
-        } else if (/^EXIT \d+$/.test(line) && admitted) {
-          result.status = Number(line.slice(5));
-        } else if (line === "CLOSED" && admitted) {
-          closedJob = true;
-        } else if (line === "TIMEOUT" && admitted) {
-          recordFailure({ code: "ETIMEDOUT", message: `command timed out after ${options.timeout}ms` });
-        } else if (line.startsWith("ERROR ")) {
-          try {
-            const detail = JSON.parse(Buffer.from(line.slice(6), "base64").toString("utf8"));
-            if (typeof detail.message !== "string") throw new Error("missing native error message");
-            const spawnFailure = detail.operation === "CreateProcessW(JOB_LIST)";
-            const code = spawnFailure
-              ? ({ 2: "ENOENT", 3: "ENOENT", 5: "EACCES", 193: "EFTYPE", 216: "UNKNOWN" }[detail.nativeCode] ?? "EOWNERNATIVE")
-              : "EOWNERNATIVE";
-            fail(Object.assign(new Error(detail.message), {
-              code, nativeCode: detail.nativeCode, operation: detail.operation,
-              ...(spawnFailure ? { syscall: `spawn ${command}`, path: command, spawnargs: args } : {}),
-            }));
-          } catch (error) {
-            fail(Object.assign(new Error(`invalid native error receipt: ${error.message}`), { code: "EOWNERPROTOCOL" }));
-          }
-        } else {
-          fail(Object.assign(new Error("invalid Windows adapter control message"), { code: "EOWNERPROTOCOL" }));
-        }
-      }
-    });
-    if (stopped || Atomics.load(shared, 1)) {
-      stop();
-      socket.destroy();
-      return;
-    }
+  const sendRequest = () => {
     try {
       const executable = resolveWindowsCommand(command, options.cwd, options.env);
       const batch = /\.(cmd|bat)$/i.test(executable);
@@ -535,21 +526,121 @@ function runWindows(command, args, options, result, observe, ready, fail, shared
       }
       // A throwing or partial write may still have issued a request.
       requestIssued = true;
+      phase("request-write-attempted");
       socket.write(request);
       if (stopped || Atomics.load(shared, 1)) socket.write("STOP\n");
     } catch (error) { fail(error); socket.destroy(); }
+  };
+  const protocolFailure = (message) => {
+    protocolFailed = true;
+    if (requestIssued) result.cleanupError ??= {
+      code: "EOWNERCLEANUP", message: "Windows adapter terminal receipt is invalid",
+      cause: { code: "EOWNERPROTOCOL", message },
+    };
+    fail(Object.assign(new Error(message), { code: "EOWNERPROTOCOL" }));
+  };
+  server.on("error", (error) => { fail(error); finish(); });
+  server.once("connection", (connection) => {
+    phase("pipe-connected");
+    socket = connection;
+    server.close();
+    let pending = "";
+    socket.setEncoding("utf8");
+    socket.on("error", fail);
+    socket.on("close", () => {
+      if (pending.length) protocolFailure("incomplete Windows adapter control message");
+      controlEnded = true;
+      maybeFinish();
+    });
+    socket.on("data", (data) => {
+      pending += data;
+      if (pending.length > 8192) {
+        protocolFailure("Windows adapter control message exceeded limit");
+        socket.destroy();
+        return;
+      }
+      let end;
+      while ((end = pending.indexOf("\n")) !== -1) {
+        const line = pending.slice(0, end).replace(/\r$/, "");
+        pending = pending.slice(end + 1);
+        if (protocolFailed) continue;
+        const observation = /^PHASE ([a-z-]+) (\d+)$/.exec(line);
+        if (closedJob || notAdmitted) {
+          protocolFailure("Windows adapter sent a message after its terminal receipt");
+        } else if (line.startsWith("PHASE ")) {
+          if (observation && startupPhases.has(observation[1]) &&
+              Number.isSafeInteger(Number(observation[2]))) {
+            phase(observation[1], Number(observation[2]));
+          } else protocolFailure("invalid Windows adapter phase observation");
+        } else if (line === "PREPARED" && !prepared && !requestIssued && !reportedError) {
+          prepared = true;
+          phase("prepared-received");
+          sendRequest();
+        } else if (/^READY [1-9]\d*$/.test(line) && requestIssued && !admitted && !reportedError &&
+                   Number.isSafeInteger(Number(line.slice(6))) && Number(line.slice(6)) <= 2_147_483_647) {
+          phase("ready-received");
+          admitted = true;
+          clearTimeout(startupTimer);
+          ready(Number(line.slice(6)));
+        } else if (/^EXIT \d+$/.test(line) && admitted && !exitReceived && Number(line.slice(5)) <= 0xffffffff) {
+          exitReceived = true;
+          result.status = Number(line.slice(5));
+        } else if (line === "CLOSED" && admitted && exitReceived && !reportedError) {
+          phase("closed-received");
+          closedJob = true;
+        } else if (line === "NOT_ADMITTED" && requestIssued && !admitted && reportedError) {
+          notAdmitted = true;
+          phase("not-admitted-received");
+        } else if (line === "TIMEOUT" && admitted && exitReceived && !timeoutReceived && !reportedError) {
+          timeoutReceived = true;
+          recordFailure({ code: "ETIMEDOUT", message: `command timed out after ${options.timeout}ms` });
+        } else if (line.startsWith("ERROR ") && !reportedError) {
+          reportedError = true;
+          try {
+            const detail = JSON.parse(Buffer.from(line.slice(6), "base64").toString("utf8"));
+            if (typeof detail.message !== "string" || detail.message.length > 2048 ||
+                (detail.operation !== undefined && typeof detail.operation !== "string") ||
+                (detail.nativeCode !== undefined && !Number.isInteger(detail.nativeCode))) {
+              throw new Error("invalid native error fields");
+            }
+            const spawnFailure = detail.operation === "CreateProcessW(JOB_LIST)";
+            const code = spawnFailure
+              ? ({ 2: "ENOENT", 3: "ENOENT", 5: "EACCES", 193: "EFTYPE", 216: "UNKNOWN" }[detail.nativeCode] ?? "EOWNERNATIVE")
+              : "EOWNERNATIVE";
+            fail(Object.assign(new Error(detail.message), {
+              code, nativeCode: detail.nativeCode, operation: detail.operation,
+              ...(spawnFailure ? { syscall: `spawn ${command}`, path: command, spawnargs: args } : {}),
+            }));
+          } catch (error) {
+            protocolFailure(`invalid native error receipt: ${error.message}`);
+          }
+        } else {
+          protocolFailure("invalid Windows adapter control message");
+        }
+      }
+    });
+    if (stopped || Atomics.load(shared, 1)) {
+      stop();
+      socket.destroy();
+      return;
+    }
   });
   server.listen(`\\\\.\\pipe\\${pipeName}`, () => {
     if (stopped) { finish(); return; }
-    const powershell = path.join(environmentValue(options.env, "SYSTEMROOT") ?? process.env.SystemRoot ?? "C:\\Windows",
+    // The controller needs its own runtime environment; only the native target
+    // receives the caller's environment serialized in the request above.
+    const powershell = path.join(environmentValue(process.env, "SYSTEMROOT") ?? "C:\\Windows",
       "System32", "WindowsPowerShell", "v1.0", "powershell.exe");
     helper = spawn(powershell, [
       "-NoLogo", "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass",
       "-File", fileURLToPath(new URL("./owned-command-windows.ps1", import.meta.url)), pipeName,
-    ], { cwd: options.cwd, env: options.env, windowsHide: true,
+    ], { cwd: options.cwd, env: process.env, windowsHide: true,
       stdio: options.inherit ? "inherit" : ["ignore", "pipe", "pipe"] });
     observe(helper);
-    helper.once("spawn", () => Atomics.store(shared, 3, helper.pid));
+    helper.once("spawn", () => {
+      Atomics.store(shared, 3, helper.pid);
+      phase("helper-spawned");
+    });
     helper.once("error", (error) => { fail(error); finish(); });
     helper.once("close", (code, signal) => {
       Atomics.store(shared, 3, 0);

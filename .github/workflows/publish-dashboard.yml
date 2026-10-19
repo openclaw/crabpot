@@ -1,0 +1,146 @@
+name: Publish Dashboard
+
+on:
+  workflow_call:
+    inputs:
+      source-sha:
+        description: Exact commit that passed the caller's validation
+        required: true
+        type: string
+      target-branch:
+        description: Branch receiving generated dashboard reports
+        required: true
+        type: string
+
+permissions: {}
+
+jobs:
+  dashboard:
+    runs-on: ubuntu-latest
+    env:
+      DASHBOARD_TARGET_BRANCH: ${{ inputs.target-branch }}
+    permissions:
+      contents: write
+      statuses: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.source-sha }}
+          submodules: recursive
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: |
+            plugins/**/package-lock.json
+      - name: Resolve pinned OpenClaw Default Track
+        id: openclaw-track
+        run: node scripts/openclaw-pin.mjs --github-output
+      - uses: actions/checkout@v7
+        with:
+          repository: openclaw/openclaw
+          ref: ${{ steps.openclaw-track.outputs.ref }}
+          path: openclaw
+      - run: node scripts/sync-fixtures.mjs --materialize --openclaw ./openclaw
+        env:
+          CRABPOT_FIXTURE_SET: ${{ steps.openclaw-track.outputs.track == 'development' && 'openclaw-beta' || '' }}
+          CRABPOT_PLUGIN_TRACK: ${{ steps.openclaw-track.outputs.track == 'development' && 'source-pack' || steps.openclaw-track.outputs.track }}
+      - name: Install OpenClaw lifecycle dependencies
+        run: |
+          corepack enable
+          corepack prepare "$(node -p "require('./openclaw/package.json').packageManager.split('+')[0]")" --activate
+          pnpm --dir openclaw install --frozen-lockfile --ignore-scripts
+      - name: Fetch main dashboard baseline
+        if: ${{ steps.openclaw-track.outputs.track != 'latest' }}
+        run: |
+          mkdir -p .crabpot/baseline
+          git fetch --no-tags --depth=1 origin main
+          git show origin/main:reports/crabpot-dashboard-data.json > .crabpot/baseline/main-dashboard-data.json || true
+      - name: Write README dashboard
+        env:
+          CRABPOT_FIXTURE_SET: ${{ steps.openclaw-track.outputs.track == 'development' && 'openclaw-beta' || '' }}
+          CRABPOT_OPENCLAW_TRACK: ${{ steps.openclaw-track.outputs.track }}
+          CRABPOT_PLUGIN_TRACK: ${{ steps.openclaw-track.outputs.track == 'development' && 'source-pack' || steps.openclaw-track.outputs.track }}
+          CRABPOT_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          CRABPOT_SUMMARY_GENERATED_AT="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+          export CRABPOT_SUMMARY_GENERATED_AT
+          run_profile_step() {
+            local timeout_seconds="$1"
+            local warning="$2"
+            shift 2
+            if timeout "${timeout_seconds}s" "$@"; then
+              return 0
+            fi
+            echo "::warning::${warning}"
+            return 1
+          }
+          run_openclaw_import_loop_profile() {
+            local profile_json="reports/crabpot-import-loop-profile.json"
+            local profile_markdown="reports/crabpot-import-loop-profile.md"
+            rm -f "${profile_json}" "${profile_markdown}"
+            if run_profile_step 180 "OpenClaw lifecycle import-loop profile failed or timed out; falling back to fixture-only import-loop profile" node scripts/import-loop-profile.mjs --openclaw ./openclaw --runs 3; then
+              return 0
+            fi
+            rm -f "${profile_json}" "${profile_markdown}"
+            if ! run_profile_step 90 "fixture-only import-loop profile failed or timed out; continuing without refreshed import-loop metrics" node scripts/import-loop-profile.mjs --runs 3; then
+              rm -f "${profile_json}" "${profile_markdown}"
+            fi
+          }
+          run_openclaw_runtime_profile() {
+            local profile_json="reports/crabpot-runtime-profile.json"
+            local profile_markdown="reports/crabpot-runtime-profile.md"
+            runtime_profile_refreshed=0
+            rm -f "${profile_json}" "${profile_markdown}"
+            if run_profile_step 240 "OpenClaw runtime profile failed or timed out; falling back to fixture-only runtime profile" node scripts/profile-contract-runtime.mjs --openclaw ./openclaw --runs 3; then
+              runtime_profile_refreshed=1
+              return 0
+            fi
+            rm -f "${profile_json}" "${profile_markdown}"
+            if run_profile_step 120 "fixture-only runtime profile failed or timed out; continuing without refreshed runtime metrics" node scripts/profile-contract-runtime.mjs --runs 3; then
+              runtime_profile_refreshed=1
+            else
+              rm -f "${profile_json}" "${profile_markdown}"
+            fi
+          }
+          node scripts/generate-report.mjs --openclaw ./openclaw
+          node scripts/capture-contracts.mjs --openclaw ./openclaw
+          node scripts/synthetic-probes.mjs --openclaw ./openclaw
+          node scripts/cold-import-readiness.mjs --openclaw ./openclaw
+          node scripts/workspace-plan.mjs --openclaw ./openclaw
+          node scripts/platform-probes.mjs --openclaw ./openclaw
+          run_openclaw_import_loop_profile
+          run_openclaw_runtime_profile
+          if [ "${runtime_profile_refreshed}" = 1 ]; then
+            node scripts/compare-runtime-profile.mjs
+          else
+            echo "::warning::Runtime profile was not refreshed; skipping runtime profile diff"
+          fi
+          node scripts/check-ci-policy.mjs
+          node scripts/write-ci-summary.mjs --mode check --openclaw-label "${{ steps.openclaw-track.outputs.label }}"
+          node scripts/update-track-metadata.mjs --default-pin-openclaw ./openclaw
+          baseline_arg=()
+          if [ -f .crabpot/baseline/main-dashboard-data.json ]; then
+            baseline_arg=(--baseline-data .crabpot/baseline/main-dashboard-data.json)
+          fi
+          node scripts/update-readme-summary.mjs "${baseline_arg[@]}"
+          git add README.md reports/
+          if ! git diff --cached --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "chore(readme): update crabpot dashboard [skip ci]"
+            dashboard_sha="$(git rev-parse HEAD)"
+            staging_branch="dashboard-staging-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+            cleanup_staging() {
+              git push origin --delete "${staging_branch}" >/dev/null 2>&1 || true
+            }
+            trap cleanup_staging EXIT
+            git push origin "HEAD:refs/heads/${staging_branch}"
+            gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${dashboard_sha}" \
+              -f state=success \
+              -f context="Default Track (pinned OpenClaw)" \
+              -f description="Pinned Default Track passed before dashboard generation" \
+              -f target_url="${CRABPOT_RUN_URL}"
+            git push origin "HEAD:refs/heads/${DASHBOARD_TARGET_BRANCH}" || echo "::notice::Skipped stale dashboard push because ${DASHBOARD_TARGET_BRANCH} moved; a newer check run will refresh it."
+          fi

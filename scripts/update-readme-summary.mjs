@@ -122,12 +122,14 @@ function parseArgs(argv) {
 
 export async function buildReadmeSummary(options = {}) {
   const reportsDir = options.reportsDir ?? path.join(repoRoot, "reports");
-  const reports = options.reports ?? (await readReports(reportsDir));
+  const loadedReports = options.reports ?? (await readReports(reportsDir));
+  const ciSummary = loadedReports.ciSummary ?? {};
+  const reports = Object.fromEntries(Object.entries(loadedReports).map(([key, report]) =>
+    [key, reportIsAvailable(key, ciSummary) ? report : null]));
   const baselineSummary =
     options.baseline ??
     (options.baselineDataPath ? normalizeDashboardData(await readOptionalJson(options.baselineDataPath)) : null);
   const compatibility = reports.compatibility ?? {};
-  const ciSummary = reports.ciSummary ?? {};
   const ciGeneratedAt = ciSummary.generatedAt && ciSummary.generatedAt !== "deterministic" ? ciSummary.generatedAt : null;
   const compatibilityGeneratedAt =
     compatibility.generatedAt && compatibility.generatedAt !== "deterministic" ? compatibility.generatedAt : null;
@@ -217,7 +219,7 @@ export async function buildReadmeSummary(options = {}) {
     artifactPaths: Object.fromEntries(
       Object.entries(REPORT_PATHS).map(([key, file]) => {
         const artifactPath = path.join(reportsDir, file);
-        return [key, existsSync(artifactPath) ? path.relative(repoRoot, artifactPath) : null];
+        return [key, reportIsAvailable(key, ciSummary) && existsSync(artifactPath) ? path.relative(repoRoot, artifactPath) : null];
       }),
     ),
   };
@@ -237,11 +239,18 @@ export async function buildReadmeSummary(options = {}) {
 }
 
 async function readReports(reportsDir) {
-  const reports = {};
+  const reports = { ciSummary: await readOptionalJson(path.join(reportsDir, REPORT_PATHS.ciSummary)) };
   for (const [key, file] of Object.entries(REPORT_PATHS)) {
-    reports[key] = await readOptionalJson(path.join(reportsDir, file));
+    if (key === "ciSummary") continue;
+    reports[key] = reportIsAvailable(key, reports.ciSummary)
+      ? await readOptionalJson(path.join(reportsDir, file)) : null;
   }
   return reports;
+}
+
+function reportIsAvailable(key, ciSummary) {
+  // Current-run summaries own artifact selection; older snapshots have no coverage metadata.
+  return key === "ciSummary" || !ciSummary?.coverage || typeof ciSummary.artifacts?.[key] === "string";
 }
 
 export async function updateReadmeSummary({ check = false, readmePath = defaultReadmePath, summary }) {

@@ -8,7 +8,7 @@ import { Transform } from "node:stream";
 import { finished } from "node:stream/promises";
 import { pathToFileURL } from "node:url";
 import { buildWorkspacePlan } from "./workspace-plan.mjs";
-import { readManifest, repoRoot } from "./manifest-lib.mjs";
+import { readConfiguredManifest, readManifest, repoRoot } from "./manifest-lib.mjs";
 import { portableCommand } from "./portable-command.mjs";
 import { resolveFixtureSet } from "./resolve-fixture-set.mjs";
 
@@ -20,11 +20,20 @@ if (import.meta.url === pathToFileURL(process.argv[1]).href) {
 
 async function main() {
   const args = parseArgs(process.argv.slice(2));
+  const scopeErrors = validateExecutionScope({ args });
+  if (scopeErrors.length > 0) throw new Error(scopeErrors.join("\n"));
   const manifest = await readManifest();
   const blockedFailuresByFixture = new Map(
     manifest.fixtures.map((fixture) => [fixture.id, fixture.execution?.blockedFailures ?? []]),
   );
-  const plan = await buildWorkspacePlan({ openclawPath: args.openclawPath });
+  let config;
+  if (args.fixture) {
+    const configured = await readConfiguredManifest();
+    const fixture = configured.fixtures.find((item) => item.id === args.fixture);
+    if (!fixture) throw new Error(`workspace execution selected unknown fixture: ${args.fixture}`);
+    config = { ...configured, rootDir: repoRoot, fixtures: [fixture] };
+  }
+  const plan = await buildWorkspacePlan({ openclawPath: args.openclawPath, config });
   const selectedFixtureIds = await resolveSelectedFixtureIds(plan, args);
   const selected = selectWorkspaceSteps(plan, { ...args, fixtureIds: selectedFixtureIds });
   const errors = validateExecutionRequest({
@@ -221,6 +230,14 @@ export function validateExecutionRequest({
   env = process.env,
   fixtureExists = true,
 }) {
+  const errors = validateExecutionScope({ args, env, fixtureExists });
+  if (selected.length === 0 && !args.allowEmpty) {
+    errors.push("workspace execution selected no entrypoints");
+  }
+  return errors;
+}
+
+function validateExecutionScope({ args, env = process.env, fixtureExists = true }) {
   const errors = [];
   if (!args.fixture && !args.fixtureSet) {
     errors.push(
@@ -232,9 +249,6 @@ export function validateExecutionRequest({
   }
   if (args.fixture && !fixtureExists) {
     errors.push(`workspace execution selected unknown fixture: ${args.fixture}`);
-  }
-  if (selected.length === 0 && !args.allowEmpty) {
-    errors.push("workspace execution selected no entrypoints");
   }
   if (!args.dryRun && env.CRABPOT_EXECUTE_ISOLATED !== "1") {
     errors.push("workspace execution requires CRABPOT_EXECUTE_ISOLATED=1 unless --dry-run is used");

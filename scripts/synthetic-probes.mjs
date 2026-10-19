@@ -194,6 +194,7 @@ export async function runCapturedSyntheticProbes(capture, options = {}) {
   const result = await pluginInspector.runCapturedSyntheticProbes(capture, {
     ...options,
     gatewayMethodPrerequisites: gatewayMethodPrerequisites(capture.entrypoint, manifest, options),
+    gatewayMethodExpectations: gatewayMethodExpectations(capture.entrypoint, manifest, options),
     hookEvents: mergeHookEvents(options.hookEvents),
     registrationProbeInputs: mergeRegistrationProbeInputs(options.registrationProbeInputs),
     syntheticSource: "crabpot.synthetic",
@@ -220,6 +221,9 @@ export async function runEntrypointSyntheticProbes(entrypoint, options = {}) {
     gatewayMethodPrerequisites: gatewayMethodPrerequisites(
       path.resolve(options.cwd ?? process.cwd(), entrypoint), manifest, options,
     ),
+    gatewayMethodExpectations: gatewayMethodExpectations(
+      path.resolve(options.cwd ?? process.cwd(), entrypoint), manifest, options,
+    ),
     apiOptions: {
       ...(options.apiOptions ?? {}),
       retainHandlers: true,
@@ -236,6 +240,11 @@ function gatewayMethodPrerequisites(entrypoint, manifest, options) {
   // unrelated plugins must still execute and report their actual failures.
   return options.gatewayMethodPrerequisites ??
     fixtureForSyntheticResult({ entrypoint }, manifest)?.execution?.gatewayMethodPrerequisites ?? {};
+}
+
+function gatewayMethodExpectations(entrypoint, manifest, options) {
+  return options.gatewayMethodExpectations !== undefined ? options.gatewayMethodExpectations :
+    fixtureForSyntheticResult({ entrypoint }, manifest)?.execution?.gatewayMethodExpectations ?? {};
 }
 
 export function renderSyntheticProbeMarkdown(plan) {

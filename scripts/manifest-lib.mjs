@@ -1,5 +1,6 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
+import { resourceWorkloadPlan } from "./resource-workload-contract.mjs";
 
 export const repoRoot = path.resolve(import.meta.dirname, "..");
 export const manifestPath = path.join(repoRoot, "crabpot.config.json");
@@ -65,6 +66,25 @@ export function validateManifest(manifest) {
   }
 
   const ids = new Set();
+  const workloadIds = new Set();
+  if (manifest.resourceWorkloads !== undefined && !Array.isArray(manifest.resourceWorkloads)) {
+    errors.push("resourceWorkloads must be an array");
+  }
+  for (const workload of Array.isArray(manifest.resourceWorkloads) ? manifest.resourceWorkloads : []) {
+    if (!workload || typeof workload !== "object" || Array.isArray(workload)) {
+      errors.push("resource workload must be an object");
+      continue;
+    }
+    for (const key of ["id", "pluginId", "adapter"]) {
+      if (typeof workload[key] !== "string" || !/^[a-z0-9][a-z0-9-]*$/.test(workload[key])) {
+        errors.push(`resource workload ${key} must be a lowercase identifier`);
+      }
+    }
+    if (workloadIds.has(workload.id)) errors.push(`duplicate resource workload: ${workload.id}`);
+    workloadIds.add(workload.id);
+    try { resourceWorkloadPlan(workload); } catch (error) { errors.push(error.message); }
+    if (typeof workload.why !== "string" || !workload.why.trim()) errors.push("resource workload why must be set");
+  }
   const paths = new Set();
   for (const fixture of manifest.fixtures ?? []) {
     if (!/^[a-z0-9][a-z0-9-]*$/.test(fixture.id ?? "")) {
@@ -87,7 +107,7 @@ export function validateManifest(manifest) {
     paths.add(fixture.path);
 
     const hasRepo = typeof fixture.repo === "string";
-    const hasPackage = fixture.package && typeof fixture.package === "object";
+    const hasPackage = Boolean(fixture.package && typeof fixture.package === "object");
     if (hasRepo === hasPackage) {
       errors.push(`${fixture.id}: fixture must declare exactly one of repo or package`);
     }
@@ -154,6 +174,32 @@ export function validateManifest(manifest) {
         for (const [method, reason] of Object.entries(gatewayPrerequisites)) {
           if (!method.trim() || typeof reason !== "string" || !reason.trim()) {
             errors.push(`${fixture.id}: gateway method prerequisites require a method and non-empty reason`);
+          }
+        }
+      }
+    }
+    const gatewayExpectations = fixture.execution?.gatewayMethodExpectations;
+    if (gatewayExpectations !== undefined) {
+      if (!gatewayExpectations || typeof gatewayExpectations !== "object" || Array.isArray(gatewayExpectations)) {
+        errors.push(`${fixture.id}: execution.gatewayMethodExpectations must be an object`);
+      } else {
+        for (const [method, expected] of Object.entries(gatewayExpectations)) {
+          if (!method.trim() || method.length > 256 || !expected || typeof expected !== "object" ||
+              Array.isArray(expected) || typeof expected.ok !== "boolean" ||
+              Object.keys(expected).some((key) => !["ok", "payload", "error"].includes(key))) {
+            errors.push(`${fixture.id}: gateway response expectations require a method and response frame`);
+          }
+          if (Object.hasOwn(gatewayPrerequisites ?? {}, method)) {
+            errors.push(`${fixture.id}: gateway response expectation conflicts with a prerequisite`);
+          }
+          const error = expected?.error;
+          if (error !== undefined && (!error || typeof error !== "object" || Array.isArray(error) ||
+              typeof error.code !== "string" || !error.code.length ||
+              typeof error.message !== "string" || !error.message.length ||
+              (error.retryable !== undefined && typeof error.retryable !== "boolean") ||
+              (error.retryAfterMs !== undefined && (!Number.isInteger(error.retryAfterMs) || error.retryAfterMs < 0)) ||
+              Object.keys(error).some((key) => !["code", "message", "details", "retryable", "retryAfterMs"].includes(key)))) {
+            errors.push(`${fixture.id}: gateway response expectation has an invalid error frame`);
           }
         }
       }

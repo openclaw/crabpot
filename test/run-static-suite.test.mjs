@@ -1,6 +1,48 @@
 import assert from "node:assert/strict";
+import { spawnSync } from "node:child_process";
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import os from "node:os";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { test } from "node:test";
 import { buildStaticSuiteSteps } from "../scripts/run-static-suite.mjs";
+
+function runWithTimeout(value) {
+  const cwd = mkdtempSync(path.join(os.tmpdir(), "crabpot-static-timeout-"));
+  try {
+    mkdirSync(path.join(cwd, "scripts"));
+    writeFileSync(path.join(cwd, "scripts/check-openclaw-plugin-contracts.mjs"),
+      'console.log("synthetic static command executed"); process.exit(23);\n');
+    const env = { ...process.env };
+    if (value === undefined) delete env.CRABPOT_STATIC_STEP_TIMEOUT_MS;
+    else env.CRABPOT_STATIC_STEP_TIMEOUT_MS = value;
+    return spawnSync(process.execPath, [fileURLToPath(new URL("../scripts/run-static-suite.mjs", import.meta.url))], {
+      cwd, env, encoding: "utf8", timeout: 10_000,
+    });
+  } finally {
+    rmSync(cwd, { recursive: true, force: true });
+  }
+}
+
+test("static suite rejects malformed step timeouts before starting a command", () => {
+  for (const value of ["1.5", "10ms", "-1", "0", "2147483648"]) {
+    const result = runWithTimeout(value);
+    assert.ifError(result.error);
+    assert.notEqual(result.status, 0, JSON.stringify(value));
+    assert.match(result.stderr, /CRABPOT_STATIC_STEP_TIMEOUT_MS must be a positive integer timeout/, JSON.stringify(value));
+    assert.equal(result.stdout, "", "invalid settings must not start the first step");
+  }
+});
+
+test("static suite preserves absent, empty, and valid step timeout settings", () => {
+  for (const value of [undefined, "", "10000"]) {
+    const result = runWithTimeout(value);
+    assert.ifError(result.error);
+    assert.equal(result.status, 23, JSON.stringify(value));
+    assert.match(result.stdout, /synthetic static command executed/);
+    assert.equal(result.stderr, "");
+  }
+});
 
 test("static suite keeps the dashboard gate broad and target-explicit", () => {
   const steps = buildStaticSuiteSteps({
@@ -56,7 +98,45 @@ test("static suite can focus operational report steps without filtering unit tes
   const testStep = steps.find(([, args]) => args.join(" ") === "--test --test-concurrency=1 test/*.test.mjs");
   const reportStep = steps.find(([, args]) => args.join(" ") === "scripts/generate-report.mjs --check");
 
-  assert.deepEqual(testStep[2], undefined);
+  assert.equal(testStep[2].CRABPOT_FIXTURE_SET, undefined);
+  assert.equal(testStep[2].CRABPOT_PLUGIN_TRACK, undefined);
   assert.equal(reportStep[2].CRABPOT_FIXTURE_SET, "openclaw-beta");
   assert.equal(reportStep[2].CRABPOT_PLUGIN_TRACK, "source-pack");
+});
+
+
+test("static suite runs every corpus input in its own bounded integration step", () => {
+  const steps = buildStaticSuiteSteps();
+  const testSteps = steps.filter(([, args]) => args.includes("--test"));
+  assert.deepEqual(testSteps.map(([, args]) => args.at(-1)), [
+    "test/*.test.mjs",
+    "test/corpus/host.test.mjs",
+    "test/corpus/no-host.test.mjs",
+    "test/corpus/beta.test.mjs",
+    "test/corpus/runtime.test.mjs",
+  ]);
+  for (const [, args, env] of testSteps) {
+    assert.ok(args.includes("--test-concurrency=1"));
+    assert.match(env.NODE_OPTIONS, /(?:^| )--max-old-space-size=2048$/);
+    assert.equal(env.CRABPOT_FIXTURE_SET, undefined);
+    if (!args.at(-1).includes("*")) assert.ok(existsSync(new URL(`../${args.at(-1)}`, import.meta.url)));
+  }
+  const packageJson = JSON.parse(readFileSync(new URL("../package.json", import.meta.url), "utf8"));
+  assert.match(packageJson.scripts.test, /node scripts\/run-tests\.mjs$/);
+});
+
+
+test("test steps preserve Node options while enforcing their heap budget", () => {
+  const previous = process.env.NODE_OPTIONS;
+  process.env.NODE_OPTIONS = "--conditions=crabpot-test --max-old-space-size=4096";
+  try {
+    const testSteps = buildStaticSuiteSteps().filter(([, args]) => args.includes("--test"));
+    assert.equal(testSteps.length, 5);
+    for (const [, , env] of testSteps) {
+      assert.equal(env.NODE_OPTIONS, "--conditions=crabpot-test --max-old-space-size=4096 --max-old-space-size=2048");
+    }
+  } finally {
+    if (previous === undefined) delete process.env.NODE_OPTIONS;
+    else process.env.NODE_OPTIONS = previous;
+  }
 });

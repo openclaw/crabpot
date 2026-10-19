@@ -11,6 +11,10 @@
 Repo-backed fixtures use `repo` and are pinned as shallow git submodules.
 Npm-only fixtures use `package.name` plus a pinned `package.version`; their code
 is unpacked into ignored `plugins/<id>` directories during materialization.
+Every fixture must declare exactly one acquisition source: `repo` or `package`.
+`node scripts/sync-fixtures.mjs --check` requires each repo-backed fixture's
+exact path and URL together in one unambiguous `.gitmodules` entry. Missing,
+commented-out, or mismatched entries fail validation before fixture checks run.
 
 Materialization collects requested npm pack failures, processes the remaining
 fixtures, and writes `reports/crabpot-package-availability.json` before exiting
@@ -43,19 +47,58 @@ Then inspect the diff. A fixture update is only useful if it either:
 - reproduces a compatibility break,
 - or proves a contract migration path still works.
 
+Keep npm fixture source references in the manifest and shim aligned with the
+published artifact. When an official package omits `gitHead`, verify the prepared
+package source SHA in its publication qualification and artifact manifest. The
+release workflow SHA and public release tag can identify different commits.
+Regenerate reports against the pinned Default Track after changing fixture pins.
+The normal Default Track follows npm `latest`, so its observed package versions
+can advance beyond the shim pins used when tag resolution falls back. Treat
+those reports as evidence for the recorded artifact versions, not the fallback pins.
+TencentDB memory remains explicitly pinned to the reviewed 1.0.1 artifact; its
+moving npm tag is not part of that qualification.
+When a moving artifact lacks a Git head, reports leave its evidence as a payload
+path instead of borrowing a different fallback version's source link. SDK export
+gaps outside the artifact's declared plugin API range remain visible at their
+original severity, with an inspector follow-up to recheck an eligible host before
+prescribing a core compatibility repair.
+
 ## CI model
 
-Host-running jobs use Node 24 for the selected OpenClaw 2026.9.3 source pin,
+Dependabot refreshes merge the current base and update its pinned submodules
+before resolving the OpenClaw host. Report generation uses the same plugin
+track as required CI: latest, beta, or source-packed development fixtures.
+Unit tests run separately against the complete manifest before that selection.
+
+Host-running jobs use Node 24 for the selected OpenClaw 2026.9.6 source pin,
 which requires Node `>=24.16.0 <25 || >=26.1.0`. This includes Default Track
 static/container/isolated execution, dashboard tracks, Dependabot report
 refreshes, and manual ref static/diff/isolated execution. Host-free security
 and fixture-selection jobs remain on Node 22; Crabpot's private package engine
 remains `>=22`.
 
-Kitchen Sink 0.3.0 covers 42 hooks, 56 active registrars, and 22 manifest
-contracts. The host exposes 57 registrars; the fixture intentionally omits
+Kitchen Sink 0.4.0 requires OpenClaw `>=2026.9.5` and covers 42 hooks,
+56 active registrars, and 22 manifest contracts. The host exposes 57 registrars;
+the fixture intentionally omits
 `registerDetachedTaskRuntime` to avoid replacing the host's durable task owner.
 The generic generated mock surface still covers all 57 registrars.
+
+CI report-producing suites use `--write-reports` to publish their checked
+outputs once. `reports/crabpot-ci-run.json` binds selected steps and output
+hashes to the current job and attempt. Summary steps only read that handoff;
+they never provision Plugin Inspector or repeat inspection. Missing, changed,
+failed, skipped, or interrupted selected work is reported as incomplete, with
+no links to stale reports. Unselected reports are listed separately. If Inspector
+was not prepared, the summary records failure without a compatibility verdict.
+The dashboard also uses that summary's available-artifact list for links and
+metrics, including retained failure evidence. Older report snapshots without
+coverage metadata keep their existing dashboard behavior.
+
+Canary and manual-ref jobs still run the separate OpenClaw lifecycle profile;
+its output replaces the fixture-only profile while retaining both step outcomes.
+Manual strict comparisons consume the freshly written runtime profile. Isolated
+jobs require the selected policy to succeed; a skipped or incomplete policy no
+longer qualifies. Default Track remains required and the HEAD canary advisory.
 
 Use a cheap default workflow first:
 
@@ -147,12 +190,15 @@ npm run profile -- --check
 node scripts/check-contract-coverage.mjs --openclaw ../openclaw
 ```
 
-Source-backed reports and registration capture use inspector 0.3.26,
+Source-backed reports and registration capture use Inspector source commit
+`8f458e7be92258ac1729451a0a4bcaea2ecdb68e` (reviewed source after 0.4.3),
+with SDK discovery inside packaged `.setup` directories and composed Zod enums,
 including bundled SDK import classification, target-owned conversation contract
 proof, lazy runtime SDK loading, and method-scoped Gateway prerequisites.
+Both pins preserve entrypoint and referenced host-type resolution on Windows.
 `npm run plugin-inspector:smoke` uses the published
-`@openclaw/plugin-inspector@0.3.26` package by default.
-Use
+package pinned by `pluginInspectorPackage` in `scripts/plugin-inspector-source.mjs`
+by default. Use
 `CRABPOT_PLUGIN_INSPECTOR_CLI=source npm run plugin-inspector:smoke` only when
 validating local inspector source changes. Set `CRABPOT_PLUGIN_INSPECTOR_DIR`
 to the candidate checkout to avoid selecting a different sibling checkout.
@@ -161,6 +207,42 @@ For a published-package check, unset `CRABPOT_PLUGIN_INSPECTOR_BIN`,
 fresh `npm_config_cache`. Run this separately from the source-mode smoke.
 The npm smoke forwards `--check`, so reported compatibility breakages produce
 a failing exit status. Direct wrapper calls without `--check` only write reports.
+CI also installs the exact published package pin and runs `--retirements` against
+that installation, alongside source and locally packed smoke. This verifies
+non-blocking deprecated-member notices, replacement guidance, and the final
+compatibility day through both source and packed OpenClaw targets.
+
+Both source mode and the published 0.4.3 package include the additive `sdkUsage`
+inventory alongside existing findings.
+
+The source-only update preserves bounded stdout/stderr and truncation metadata
+for failed runtime-profile and import-loop process samples in JSON artifacts.
+The published npm pin remains 0.4.3 and does not include this diagnostic update.
+Previews, command order, heap limits, and deadlines are unchanged. Raw captured
+output is not automatically redacted; use credential-free workloads and review
+diagnostics before sharing them publicly.
+
+`npm test` and the static suite run cheap unit tests followed by separate host,
+no-host, beta-subset, and runtime-evidence corpus steps. Each test process keeps the
+2 GiB V8 heap limit and each step keeps the 600-second deadline. All fixture
+assertions remain required; the aggregate suite can take more than 600 seconds.
+Runtime profiling retains all nine commands and all requested samples (three
+per command in CI). Each profiled child now uses the static command's 600-second
+deadline instead of Inspector's 30-second default, with a 2 GiB V8 heap. Full
+59-plugin commands measured 118–178 seconds, so the old child deadline could
+not complete them. The profiler wrapper allows `(2 + 9 × runs) × 600` seconds
+for two metadata inspections and every sample: 290 minutes at three runs.
+Ordinary static and test steps still have their own 600-second deadlines.
+
+Check and HEAD Canary now have explicit 360-minute outer step/job limits,
+replacing their 30-minute aggregate step limits. These are orchestration
+ceilings, not expected runtimes. The source/packed/published Inspector smoke
+step allows 40 minutes instead of 10 for its three complete artifact checks,
+package preparation and runtime/resource/retirement probes; each inspection
+and probe retains its own 600-second command deadline. No samples, fixtures,
+assertions or artifact forms are omitted.
+Before publication, use `CRABPOT_PLUGIN_INSPECTOR_BIN` to smoke-test a locally
+packed and installed candidate without implying it is available from npm.
 
 Issue severity means:
 

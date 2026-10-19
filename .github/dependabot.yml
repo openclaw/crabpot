@@ -5,7 +5,7 @@ updates:
     directory: "/"
     schedule:
       interval: "cron"
-      cronjob: "0 9,21 * * *"
+      cronjob: "0 9 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 10
     commit-message:
@@ -16,7 +16,7 @@ updates:
     directory: "/plugins/memory-tencentdb"
     schedule:
       interval: "cron"
-      cronjob: "10 9,21 * * *"
+      cronjob: "10 9 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:
@@ -27,7 +27,7 @@ updates:
     directory: "/plugins/yuanbao"
     schedule:
       interval: "cron"
-      cronjob: "20 9,21 * * *"
+      cronjob: "20 9 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:
@@ -38,7 +38,7 @@ updates:
     directory: "/plugins/openclaw-weixin"
     schedule:
       interval: "cron"
-      cronjob: "30 9,21 * * *"
+      cronjob: "30 9 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:
@@ -49,7 +49,7 @@ updates:
     directory: "/plugins/lightclawbot"
     schedule:
       interval: "cron"
-      cronjob: "40 9,21 * * *"
+      cronjob: "40 9 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:
@@ -60,7 +60,7 @@ updates:
     directory: "/plugins/hapi-openclaw"
     schedule:
       interval: "cron"
-      cronjob: "50 9,21 * * *"
+      cronjob: "50 9 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:
@@ -71,7 +71,7 @@ updates:
     directory: "/plugins/aiwerk-mcp-bridge"
     schedule:
       interval: "cron"
-      cronjob: "51 9,21 * * *"
+      cronjob: "51 9 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:
@@ -82,7 +82,7 @@ updates:
     directory: "/plugins/bluebubbles"
     schedule:
       interval: "cron"
-      cronjob: "01 9,21 * * *"
+      cronjob: "01 9 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:
@@ -93,7 +93,7 @@ updates:
     directory: "/plugins/diagnostics-otel"
     schedule:
       interval: "cron"
-      cronjob: "02 9,21 * * *"
+      cronjob: "02 9 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:
@@ -104,7 +104,7 @@ updates:
     directory: "/plugins/discord"
     schedule:
       interval: "cron"
-      cronjob: "03 9,21 * * *"
+      cronjob: "03 9 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:
@@ -115,7 +115,7 @@ updates:
     directory: "/plugins/lobster"
     schedule:
       interval: "cron"
-      cronjob: "04 9,21 * * *"
+      cronjob: "04 9 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:
@@ -126,7 +126,7 @@ updates:
     directory: "/plugins/matrix"
     schedule:
       interval: "cron"
-      cronjob: "05 9,21 * * *"
+      cronjob: "05 9 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:
@@ -137,7 +137,7 @@ updates:
     directory: "/plugins/msteams"
     schedule:
       interval: "cron"
-      cronjob: "06 9,21 * * *"
+      cronjob: "06 9 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:
@@ -148,7 +148,7 @@ updates:
     directory: "/plugins/nextcloud-talk"
     schedule:
       interval: "cron"
-      cronjob: "07 9,21 * * *"
+      cronjob: "07 9 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:
@@ -159,7 +159,7 @@ updates:
     directory: "/plugins/nostr"
     schedule:
       interval: "cron"
-      cronjob: "08 9,21 * * *"
+      cronjob: "08 9 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:
@@ -170,7 +170,7 @@ updates:
     directory: "/plugins/voice-call"
     schedule:
       interval: "cron"
-      cronjob: "09 9,21 * * *"
+      cronjob: "09 9 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:
@@ -181,7 +181,7 @@ updates:
     directory: "/plugins/zalo"
     schedule:
       interval: "cron"
-      cronjob: "10 9,21 * * *"
+      cronjob: "10 9 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:
@@ -192,7 +192,7 @@ updates:
     directory: "/plugins/zalouser"
     schedule:
       interval: "cron"
-      cronjob: "11 9,21 * * *"
+      cronjob: "11 9 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:
@@ -203,7 +203,7 @@ updates:
     directory: "/plugins/feishu"
     schedule:
       interval: "cron"
-      cronjob: "12 9,21 * * *"
+      cronjob: "12 9 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:
@@ -214,7 +214,7 @@ updates:
     directory: "/plugins/tlon"
     schedule:
       interval: "cron"
-      cronjob: "13 9,21 * * *"
+      cronjob: "13 9 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:
@@ -225,7 +225,7 @@ updates:
     directory: "/plugins/twitch"
     schedule:
       interval: "cron"
-      cronjob: "14 9,21 * * *"
+      cronjob: "14 9 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:
@@ -236,7 +236,7 @@ updates:
     directory: "/plugins/mattermost"
     schedule:
       interval: "cron"
-      cronjob: "15 9,21 * * *"
+      cronjob: "15 9 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:
@@ -247,7 +247,7 @@ updates:
     directory: "/plugins/synology-chat"
     schedule:
       interval: "cron"
-      cronjob: "16 9,21 * * *"
+      cronjob: "16 9 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:
@@ -258,7 +258,7 @@ updates:
     directory: "/plugins/brave-plugin"
     schedule:
       interval: "cron"
-      cronjob: "17 9,21 * * *"
+      cronjob: "17 9 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:
@@ -269,7 +269,7 @@ updates:
     directory: "/plugins/codex"
     schedule:
       interval: "cron"
-      cronjob: "18 9,21 * * *"
+      cronjob: "18 9 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:
@@ -280,7 +280,7 @@ updates:
     directory: "/plugins/diagnostics-prometheus"
     schedule:
       interval: "cron"
-      cronjob: "19 9,21 * * *"
+      cronjob: "19 9 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:
@@ -291,7 +291,7 @@ updates:
     directory: "/plugins/google-meet"
     schedule:
       interval: "cron"
-      cronjob: "20 9,21 * * *"
+      cronjob: "20 9 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:
@@ -302,7 +302,7 @@ updates:
     directory: "/plugins/diffs"
     schedule:
       interval: "cron"
-      cronjob: "21 9,21 * * *"
+      cronjob: "21 9 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:
@@ -313,7 +313,7 @@ updates:
     directory: "/plugins/memory-lancedb"
     schedule:
       interval: "cron"
-      cronjob: "22 9,21 * * *"
+      cronjob: "22 9 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:
@@ -324,7 +324,7 @@ updates:
     directory: "/plugins/whatsapp"
     schedule:
       interval: "cron"
-      cronjob: "24 9,21 * * *"
+      cronjob: "24 9 * * *"
       timezone: "Etc/UTC"
     open-pull-requests-limit: 5
     commit-message:

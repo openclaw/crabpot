@@ -77,6 +77,9 @@ for (const [route, mode] of [
     if (mode === "resist-term") {
       assert.notEqual(outcome.status, 0);
       assert.match(outcome.stderr, /timed out|timeout/i);
+      assert.match(outcome.stderr, /\[cause\]/);
+      assert.match(outcome.stderr, /startupTrace:/);
+      assert.match(outcome.stderr, /worker-entered/);
     } else {
       assert.equal(outcome.status, 0, outcome.stderr);
     }
