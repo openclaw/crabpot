@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for OpenClaw Microsoft Teams channel plugin.",
   "dependencies": {
-    "@openclaw/msteams": "2026.10.2"
+    "@openclaw/msteams": "2026.10.3"
   },
   "crabpot": {
     "fixture": "msteams",
@@ -12,7 +12,7 @@
     "package": "@openclaw/msteams",
     "sourceRepo": "https://github.com/openclaw/openclaw.git",
     "sourcePath": "extensions/msteams",
-    "sourceRef": "2040d1b71db98e8b2a5d740770c37e17f64316ba"
+    "sourceRef": "59cb44796b0f1f0daa0e37af8b1495abb45d9bc1"
   },
   "overrides": {
     "axios": "1.20.0",
