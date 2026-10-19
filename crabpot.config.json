@@ -250,26 +250,23 @@
       "repo": "https://github.com/plastic-labs/openclaw-honcho.git",
       "path": "plugins/honcho",
       "priority": "high",
-      "seams": ["memory-runtime", "prompt-mutation", "gateway-lifecycle", "subagent-routing", "sdk-compat"],
+      "seams": ["external-memory", "prompt-mutation", "llm-observer", "gateway-lifecycle", "subagent-routing", "sdk-compat"],
       "expect": {
         "hooks": [
-          "before_agent_start",
           "before_prompt_build",
-          "before_compaction",
-          "before_reset",
           "gateway_start",
           "subagent_spawned",
-          "agent_end"
+          "agent_end",
+          "llm_output"
         ],
         "registrations": [
           "definePluginEntry",
           "registerCli",
-          "registerMemoryPromptSection",
-          "registerMemoryRuntime",
+          "registerMemoryPromptSupplement",
           "registerTool"
         ]
       },
-      "why": "Memory-runtime fixture covering plugin-entry aliases, memory runtime/prompt-section registration, gateway lifecycle, subagent capture, and managed external memory tools."
+      "why": "Additive external-memory fixture covering plugin-entry aliases, prompt supplements beside the host memory slot, gateway lifecycle, subagent capture, LLM observation, and managed external memory tools."
     },
     {
       "id": "composio",
