@@ -88,8 +88,8 @@ jobs:
           path: openclaw
       - id: suite
         shell: bash
-        # Leave time for Inspector smoke and artifacts after the full-corpus suite.
-        timeout-minutes: 225
+        # Windows needs extra time for final coverage after all profiling samples.
+        timeout-minutes: ${{ matrix.os == 'windows-latest' && 235 || 225 }}
         run: |
           plugin_track="${{ steps.openclaw-track.outputs.track }}"
           extra_args=(--openclaw-track "${{ steps.openclaw-track.outputs.track }}" --plugin-track "${plugin_track}")

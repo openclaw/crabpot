@@ -240,8 +240,9 @@ not complete them. The profiler wrapper allows `(2 + 9 × runs) × 600` seconds
 for two metadata inspections and every sample: 290 minutes at three runs.
 Ordinary static and test steps still have their own 600-second deadlines.
 
-Required Check jobs have a 240-minute job limit and a 225-minute static-suite
-step limit. Recent green runs took about 122 minutes in the container and
+Required Check jobs have a 240-minute job limit. Static-suite steps allow
+225 minutes, or 235 minutes on Windows so final coverage checks can finish
+after the slower Windows profiling samples. Recent green runs took about 122 minutes in the container and
 150–217 minutes on the host runners, including the separate Ubuntu Inspector
 smoke. The full-corpus profiler is silent between its 27 samples; that alone
 does not indicate a hang. These ceilings retain every sample while bounding
