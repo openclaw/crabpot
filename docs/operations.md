@@ -51,6 +51,12 @@ Keep npm fixture source references in the manifest and shim aligned with the
 published artifact. When an official package omits `gitHead`, verify the prepared
 package source SHA in its publication qualification and artifact manifest. The
 release workflow SHA and public release tag can identify different commits.
+The 2026.10.4 fallback refresh uses prepared source
+`383c124cc32ffee3f8e56f549b88da94d269a4af`, verified against the immutable
+publication manifests and registry tarball integrities from run `38821779281`.
+Brave, Diffs, Google Meet, and Memory LanceDB retain their reviewed 2026.10.3
+fallbacks: their metadata-only updates were declined without a demonstrated
+runtime benefit. Moving track selection is unchanged.
 Regenerate reports against the pinned Default Track after changing fixture pins.
 The normal Default Track follows npm `latest`, so its observed package versions
 can advance beyond the shim pins used when tag resolution falls back. Treat
@@ -234,10 +240,14 @@ not complete them. The profiler wrapper allows `(2 + 9 × runs) × 600` seconds
 for two metadata inspections and every sample: 290 minutes at three runs.
 Ordinary static and test steps still have their own 600-second deadlines.
 
-Check and HEAD Canary now have explicit 360-minute outer step/job limits,
-replacing their 30-minute aggregate step limits. These are orchestration
-ceilings, not expected runtimes. The source/packed/published Inspector smoke
-step allows 40 minutes instead of 10 for its three complete artifact checks,
+Required Check jobs have a 240-minute job limit and a 225-minute static-suite
+step limit. Recent green runs took about 122 minutes in the container and
+150–217 minutes on the host runners, including the separate Ubuntu Inspector
+smoke. The full-corpus profiler is silent between its 27 samples; that alone
+does not indicate a hang. These ceilings retain every sample while bounding
+stalled jobs below GitHub's six-hour limit. HEAD Canary retains its existing
+360-minute ceiling. The source/packed/published Inspector smoke step allows
+40 minutes for its three complete artifact checks,
 package preparation and runtime/resource/retirement probes; each inspection
 and probe retains its own 600-second command deadline. No samples, fixtures,
 assertions or artifact forms are omitted.
