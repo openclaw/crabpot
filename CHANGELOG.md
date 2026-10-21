@@ -2,6 +2,8 @@
 
 ## 0.2.2 - Unreleased
 
+- Adopt published Plugin Inspector 0.4.4 alongside its reviewed source pin, bringing qualified packed-host retirement guidance and bounded failed-profile diagnostics to package smoke checks.
+
 - Qualify packed-host retirement guidance with reviewed Inspector source and declare the required replacement in the synthetic SQLite smoke fixture; preserve the published 0.4.3 package pin.
 
 - Bound required Default Track jobs to four hours and static-suite steps to three hours and 45 minutes, preserving all profiling samples and Inspector artifact checks.
