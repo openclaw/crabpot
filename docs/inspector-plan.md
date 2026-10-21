@@ -101,7 +101,8 @@ an exact candidate checkout before its npm release. Set
 `CRABPOT_PLUGIN_INSPECTOR_BIN=/path/to/plugin-inspector`
 to test an arbitrary CLI binary.
 
-Both pins use Inspector 0.4.3 with Windows entrypoint and host-type fixes,
+The published pin uses Inspector 0.4.3; the reviewed source pin adds the
+Node 24.22.1 CI generator repair. Both retain Windows entrypoint and host-type fixes,
 including SDK imports inside packaged `.setup`
 directories, mocked Zod enum options for composed schemas, and non-blocking SDK
 member retirement notices with replacement guidance and the final compatibility

@@ -197,7 +197,7 @@ node scripts/check-contract-coverage.mjs --openclaw ../openclaw
 ```
 
 Source-backed reports and registration capture use Inspector source commit
-`8f458e7be92258ac1729451a0a4bcaea2ecdb68e` (reviewed source after 0.4.3),
+`e1d8632b2fb39c942d6cb8b60208a97466b168c3` (reviewed source after 0.4.3),
 with SDK discovery inside packaged `.setup` directories and composed Zod enums,
 including bundled SDK import classification, target-owned conversation contract
 proof, lazy runtime SDK loading, and method-scoped Gateway prerequisites.
@@ -224,6 +224,9 @@ inventory alongside existing findings.
 The source-only update preserves bounded stdout/stderr and truncation metadata
 for failed runtime-profile and import-loop process samples in JSON artifacts.
 The published npm pin remains 0.4.3 and does not include this diagnostic update.
+The source pin also generates CI with Node 24.22.1 and uses pnpm 12.15.0
+for Inspector hydration. The published package keeps its existing behavior
+until a separately qualified npm release is available.
 Previews, command order, heap limits, and deadlines are unchanged. Raw captured
 output is not automatically redacted; use credential-free workloads and review
 diagnostics before sharing them publicly.
