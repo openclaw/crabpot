@@ -1,0 +1,35 @@
+name: Windows startup diagnostics
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [fix/windows-supervisor-startup]
+
+permissions:
+  contents: read
+
+jobs:
+  startup:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [24.19.0, 24.21.0]
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Record native startup and pipe observations
+        shell: bash
+        run: node scripts/diagnose-windows-startup.mjs
+      - name: Retain synthetic diagnostics
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: windows-startup-${{ matrix.node }}-${{ github.run_attempt }}
+          path: .crabpot/windows-startup/
+          if-no-files-found: error
