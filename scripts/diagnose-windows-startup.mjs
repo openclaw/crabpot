@@ -5,7 +5,8 @@ import { appendFileSync, copyFileSync, mkdirSync, readFileSync, writeFileSync } 
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 
-assert.equal(process.platform, "win32");
+const prepareOnly = process.argv.includes("--prepare-only");
+if (!prepareOnly) assert.equal(process.platform, "win32");
 const root = path.resolve(".crabpot/windows-startup");
 mkdirSync(root, { recursive: true });
 const log = (record) => {
@@ -17,15 +18,8 @@ const log = (record) => {
 log({ kind: "environment", node: process.version, execPath: process.execPath,
   path: process.env.PATH, comspec: process.env.ComSpec, systemRoot: process.env.SystemRoot,
   image: process.env.ImageVersion, runnerOs: process.env.RUNNER_OS });
-const powershell = path.join(process.env.SystemRoot, "System32/WindowsPowerShell/v1.0/powershell.exe");
-const monitor = spawn(powershell, ["-NoLogo", "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass",
-  "-File", path.resolve("scripts/diagnose-windows-processes.ps1"), root], { stdio: "ignore", windowsHide: true });
-let monitorClosed;
-const monitorDone = new Promise((resolve, reject) => {
-  monitor.once("error", reject);
-  monitor.once("close", (code, signal) => { monitorClosed = { code, signal }; resolve(); });
-});
-const source = readFileSync("scripts/owned-command.mjs", "utf8");
+// Git's Windows checkout may use CRLF even though the committed blob uses LF.
+const source = readFileSync("scripts/owned-command.mjs", "utf8").replace(/\r\n/g, "\n");
 const seam = "  return result;\n}\n\nfunction fileURLOrPath";
 assert.equal(source.split(seam).length, 2);
 let observed = source.replace(seam,
@@ -47,7 +41,19 @@ writeFileSync(path.join(root, "owned-command.mjs"), observed);
 for (const file of ["owned-command-windows.ps1", "portable-command.mjs"]) {
   copyFileSync(path.join("scripts", file), path.join(root, file));
 }
+if (prepareOnly) {
+  const checked = spawnSync(process.execPath, ["--check", path.join(root, "owned-command.mjs")], { stdio: "inherit" });
+  process.exit(checked.status ?? 1);
+}
 const { runOwnedCommand } = await import(pathToFileURL(path.join(root, "owned-command.mjs")));
+const powershell = path.join(process.env.SystemRoot, "System32/WindowsPowerShell/v1.0/powershell.exe");
+const monitor = spawn(powershell, ["-NoLogo", "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass",
+  "-File", path.resolve("scripts/diagnose-windows-processes.ps1"), root], { stdio: "ignore", windowsHide: true });
+let monitorClosed;
+const monitorDone = new Promise((resolve, reject) => {
+  monitor.once("error", reject);
+  monitor.once("close", (code, signal) => { monitorClosed = { code, signal }; resolve(); });
+});
 let failed = false;
 try {
   for (let index = 0; index < 256; index += 1) {
