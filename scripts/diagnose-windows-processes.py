@@ -131,7 +131,8 @@ with ExitStack() as cleanup, (root / "native-processes.jsonl").open("w", encodin
             now = time.time_ns() // 1_000_000
             live = {process["pid"]: process for process in processes if process["name"] == "powershell.exe"}
             for pid, (started, parent) in observed_helpers.items():
-                if pid not in live or pid in captured_stacks or len(captured_stacks) >= 4 or now - started < 6000:
+                identity = (pid, started)
+                if pid not in live or identity in captured_stacks or len(captured_stacks) >= 4 or now - started < 6000:
                     continue
                 created_ms = live[pid]["created"] // 10000 - 11644473600000
                 if live[pid]["parent"] != parent or not started - 10000 <= created_ms <= started + 1000:
@@ -139,16 +140,19 @@ with ExitStack() as cleanup, (root / "native-processes.jsonl").open("w", encodin
                 marker = root / f"helper-{pid}.txt"
                 if marker.exists():
                     entry = marker.read_text(encoding="utf-8-sig")
-                    if "pipe-connected" in entry:
+                    # Windows reuses PIDs; a prior helper's marker is not progress
+                    # by this launch, even when the owner process is unchanged.
+                    if any(line.startswith("pipe-connected ") and line.split()[-1].isdigit()
+                           and int(line.split()[-1]) >= started for line in entry.splitlines()):
                         continue
                 # Noninvasive attach neither suspends nor terminates the helper.
                 # Only stacks are requested: never arguments, locals or memory dumps.
-                captured_stacks.add(pid)
+                captured_stacks.add(identity)
                 command = ".sympath C:\\no-symbols;~*k;.load C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\SOS.dll;~*e !clrstack;qd"
                 output.write(json.dumps({"atMs": now, "kind": "noninvasive-stack-start", "pid": pid}) + "\n")
                 try:
                     child = subprocess.Popen([str(debugger), "-pvr", "-p", str(pid), "-logo",
-                                              str(root / f"stack-{pid}.txt"), "-c", command],
+                                              str(root / f"stack-{pid}-{started}.txt"), "-c", command],
                                              stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
                                              creationflags=0x08000000)
                     stack_jobs.append({"child": child, "pid": pid, "started": time.monotonic(), "done": False})
