@@ -11,6 +11,10 @@ on:
         description: Reproduce the real profiler parent through contract-capture on current main
         type: boolean
         default: false
+      full-context:
+        description: Run the original complete static pipeline on current main with native observations
+        type: boolean
+        default: false
   push:
     branches: [fix/windows-supervisor-startup]
 
@@ -19,7 +23,7 @@ permissions:
 
 jobs:
   startup:
-    if: ${{ inputs.cold-import != true && inputs.profile-prefix != true }}
+    if: ${{ inputs.cold-import != true && inputs.profile-prefix != true && inputs.full-context != true }}
     runs-on: windows-latest
     timeout-minutes: 30
     strategy:
@@ -45,13 +49,13 @@ jobs:
           if-no-files-found: error
 
   cold-import:
-    if: ${{ inputs.cold-import == true || inputs.profile-prefix == true }}
+    if: ${{ inputs.cold-import == true || inputs.profile-prefix == true || inputs.full-context == true }}
     runs-on: windows-latest
-    timeout-minutes: 110
+    timeout-minutes: 315
     strategy:
       fail-fast: false
       matrix:
-        ref: ${{ fromJSON(inputs.profile-prefix && '["4c40f7f5e154b6fafb410321e8d1ace16eba49f7"]' || '["de5d707b4a2cf864522c7689017c170bfc577fc1","4c40f7f5e154b6fafb410321e8d1ace16eba49f7"]') }}
+        ref: ${{ fromJSON((inputs.profile-prefix || inputs.full-context) && '["4c40f7f5e154b6fafb410321e8d1ace16eba49f7"]' || '["de5d707b4a2cf864522c7689017c170bfc577fc1","4c40f7f5e154b6fafb410321e8d1ace16eba49f7"]') }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -88,7 +92,7 @@ jobs:
           }
       - name: Reproduce the actual cold CI import with native observations
         shell: bash
-        run: node .crabpot/windows-diagnostic-tools/scripts/diagnose-windows-cold-import.mjs . "$RUNNER_TEMP/crabpot-debugger/cdb.exe" "${{ inputs.profile-prefix && 'profile-prefix' || 'cold-import' }}"
+        run: node .crabpot/windows-diagnostic-tools/scripts/diagnose-windows-cold-import.mjs . "$RUNNER_TEMP/crabpot-debugger/cdb.exe" "${{ inputs.full-context && 'full-context' || inputs.profile-prefix && 'profile-prefix' || 'cold-import' }}"
       - name: Retain cold import evidence
         if: always()
         uses: actions/upload-artifact@v7

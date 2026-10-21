@@ -10,6 +10,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 assert.equal(process.platform, "win32");
 const subject = path.resolve(process.argv[2]);
 const profiler = process.argv[4] === "profile-prefix";
+const fullContext = process.argv[4] === "full-context";
 const root = path.resolve(".crabpot/windows-cold-import");
 await mkdir(root, { recursive: true });
 await writeFile(path.join(root, "environment.json"), JSON.stringify({
@@ -74,13 +75,16 @@ await writeFile(runner, `
 import { buildStaticSuiteSteps, runStaticSuite } from ${JSON.stringify(pathToFileURL(path.join(subject, "scripts/run-static-suite.mjs")).href)};
 ${profiler ? `import { runCommandStep, boundedNodeOptions } from ${JSON.stringify(pathToFileURL(path.join(subject, "scripts/static-step.mjs")).href)};` : ""}
 process.env.CRABPOT_TEST_OPENCLAW_PATH = "./openclaw";
-const steps = buildStaticSuiteSteps({ openclawArgs: ["--openclaw", "./openclaw"] }).slice(0, 3);
-process.exitCode = runStaticSuite(steps);
+const steps = buildStaticSuiteSteps({ openclawArgs: ["--openclaw", "./openclaw"],
+  ${fullContext ? `fixtureEnv: { CRABPOT_PLUGIN_TRACK: "latest", CRABPOT_OPENCLAW_TRACK: "latest" },
+  pluginInspectorSmoke: true, profileArgs: ["--runs", "3"], writeReports: true,` : ""}
+});
+process.exitCode = runStaticSuite(${fullContext ? "steps, { writeReports: true }" : "steps.slice(0, 3)"});
 ${profiler ? `if (process.exitCode === 0) process.exitCode = runCommandStep("node", [${JSON.stringify(profileRunner)}], {
   timeout: 90 * 60_000, env: { NODE_OPTIONS: boundedNodeOptions() },
 });` : ""}
 `);
-const monitor = spawn("python", [fileURLToPath(new URL("./diagnose-windows-processes.py", import.meta.url)), root, path.resolve(process.argv[3]), ownerPath, profiler ? "100" : "25"], {
+const monitor = spawn("python", [fileURLToPath(new URL("./diagnose-windows-processes.py", import.meta.url)), root, path.resolve(process.argv[3]), ownerPath, fullContext ? "300" : profiler ? "100" : "25"], {
   stdio: ["ignore", "ignore", "inherit"], windowsHide: true,
 });
 let monitorClosed;
