@@ -57,6 +57,14 @@ observed_helpers = {}
 captured_stacks = set()
 stack_jobs = []
 pipe_position = 0
+stack_commands = root / "stack-commands.txt"
+if debugger is not None:
+    # Dot commands can consume semicolons as argument text. Separate lines
+    # ensure the stack commands and detach actually execute.
+    stack_commands.write_text(
+        ".echo CRABPOT_STACK_BEGIN\n~*k\n"
+        ".load C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\SOS.dll\n"
+        "~*e !clrstack\n.echo CRABPOT_STACK_END\nqd\n", encoding="ascii")
 
 
 def close_debuggers():
@@ -148,11 +156,10 @@ with ExitStack() as cleanup, (root / "native-processes.jsonl").open("w", encodin
                 # Noninvasive attach neither suspends nor terminates the helper.
                 # Only stacks are requested: never arguments, locals or memory dumps.
                 captured_stacks.add(identity)
-                command = ".sympath C:\\no-symbols;~*k;.load C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\SOS.dll;~*e !clrstack;qd"
                 output.write(json.dumps({"atMs": now, "kind": "noninvasive-stack-start", "pid": pid}) + "\n")
                 try:
-                    child = subprocess.Popen([str(debugger), "-pvr", "-p", str(pid), "-logo",
-                                              str(root / f"stack-{pid}-{started}.txt"), "-c", command],
+                    child = subprocess.Popen([str(debugger), "-pvr", "-p", str(pid), "-y", str(root), "-logo",
+                                              str(root / f"stack-{pid}-{started}.txt"), "-cf", str(stack_commands)],
                                              stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
                                              creationflags=0x08000000)
                     stack_jobs.append({"child": child, "pid": pid, "started": time.monotonic(), "done": False})

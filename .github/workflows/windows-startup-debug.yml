@@ -95,6 +95,10 @@ jobs:
       - name: Reproduce the actual cold CI import with native observations
         shell: bash
         run: node .crabpot/windows-diagnostic-tools/scripts/diagnose-windows-cold-import.mjs . "$RUNNER_TEMP/crabpot-debugger/cdb.exe" "${{ inputs.full-context && 'full-context' || inputs.profile-prefix && 'profile-prefix' || 'cold-import' }}" "${{ inputs.unmodified-control && 'unmodified' || 'instrumented' }}"
+      - name: Verify debugger command execution after the measured workload
+        if: ${{ !cancelled() }}
+        shell: bash
+        run: node .crabpot/windows-diagnostic-tools/scripts/verify-windows-debugger.mjs "$RUNNER_TEMP/crabpot-debugger/cdb.exe"
       - name: Retain cold import evidence
         if: always()
         uses: actions/upload-artifact@v7
