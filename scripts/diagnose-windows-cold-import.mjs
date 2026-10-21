@@ -9,6 +9,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 
 assert.equal(process.platform, "win32");
 const subject = path.resolve(process.argv[2]);
+const profiler = process.argv[4] === "profile-prefix";
 const root = path.resolve(".crabpot/windows-cold-import");
 await mkdir(root, { recursive: true });
 await writeFile(path.join(root, "environment.json"), JSON.stringify({
@@ -59,13 +60,27 @@ assert.equal(helper.split(connected).length, 2);
 helper = helper.replace(connected, connected + "\n    " + marker("pipe-connected"));
 await writeFile(helperPath, helper);
 const runner = path.join(root, "run-cold-import.mjs");
+const profileRunner = path.join(root, "run-profile-prefix.mjs");
+if (profiler) await writeFile(profileRunner, `
+import { writeFile } from "node:fs/promises";
+import { buildRuntimeProfile, validateRuntimeProfile } from ${JSON.stringify(pathToFileURL(path.join(subject, "scripts/profile-contract-runtime.mjs")).href)};
+import { profileCommands } from ${JSON.stringify(pathToFileURL(path.join(subject, "scripts/runtime-profile-plan.mjs")).href)};
+const profile = await buildRuntimeProfile({ openclawPath: "./openclaw", runs: 3, commands: profileCommands.slice(0, 4) });
+await writeFile(${JSON.stringify(path.join(root, "profile-prefix.json"))}, JSON.stringify(profile, null, 2));
+const errors = validateRuntimeProfile(profile);
+if (errors.length) throw new Error(errors.join("\\n"));
+`);
 await writeFile(runner, `
 import { buildStaticSuiteSteps, runStaticSuite } from ${JSON.stringify(pathToFileURL(path.join(subject, "scripts/run-static-suite.mjs")).href)};
+${profiler ? `import { runCommandStep, boundedNodeOptions } from ${JSON.stringify(pathToFileURL(path.join(subject, "scripts/static-step.mjs")).href)};` : ""}
 process.env.CRABPOT_TEST_OPENCLAW_PATH = "./openclaw";
 const steps = buildStaticSuiteSteps({ openclawArgs: ["--openclaw", "./openclaw"] }).slice(0, 3);
 process.exitCode = runStaticSuite(steps);
+${profiler ? `if (process.exitCode === 0) process.exitCode = runCommandStep("node", [${JSON.stringify(profileRunner)}], {
+  timeout: 90 * 60_000, env: { NODE_OPTIONS: boundedNodeOptions() },
+});` : ""}
 `);
-const monitor = spawn("python", [fileURLToPath(new URL("./diagnose-windows-processes.py", import.meta.url)), root, path.resolve(process.argv[3]), ownerPath], {
+const monitor = spawn("python", [fileURLToPath(new URL("./diagnose-windows-processes.py", import.meta.url)), root, path.resolve(process.argv[3]), ownerPath, profiler ? "100" : "25"], {
   stdio: ["ignore", "ignore", "inherit"], windowsHide: true,
 });
 let monitorClosed;

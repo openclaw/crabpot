@@ -48,7 +48,9 @@ query.argtypes = [W.ULONG, C.c_void_p, W.ULONG, C.POINTER(W.ULONG)]
 query.restype = W.LONG
 root = Path(sys.argv[1])
 selected = {"powershell.exe", "node.exe", "cmd.exe", "MsMpEng.exe"}
-deadline = time.monotonic() + 25 * 60
+monitor_minutes = int(sys.argv[4]) if len(sys.argv) > 4 else 25
+assert 1 <= monitor_minutes <= 100
+deadline = time.monotonic() + monitor_minutes * 60
 debugger = Path(sys.argv[2]) if len(sys.argv) > 2 else None
 subject_owner = Path(sys.argv[3]) if len(sys.argv) > 3 else None
 observed_helpers = {}
