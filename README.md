@@ -170,7 +170,7 @@ explicitly declares the SQLite replacement so applicable notices stay covered.
 ### Inspector profile failure diagnostics
 
 Runtime profiles use reviewed Inspector source
-`d068b5326db22d73471d4b9adc1a17d9b4fa3926`. This source-only advancement preserves
+`c9f7110819b2cd78a319eb6d5cd4a6f31c202b38`. This source-only advancement preserves
 bounded stdout/stderr and explicit truncation metadata for failed process
 samples in JSON artifacts, including errors hidden by a Node version footer.
 The npm pin remains `@openclaw/plugin-inspector@0.4.3` and does not contain this
