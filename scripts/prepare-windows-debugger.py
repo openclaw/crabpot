@@ -1,5 +1,6 @@
 """Extract only the signed x64 console debugger from Microsoft's pinned bundle."""
 import io
+import hashlib
 from pathlib import Path
 import struct
 import sys
@@ -8,6 +9,17 @@ import zipfile
 
 URL = "https://windbg.download.prss.microsoft.com/dbazure/prod/1-2610-1001-0/windbg.msixbundle"
 SIZE = 1203512387
+# Fixed bytes of the Microsoft-signed 1.2610.1001.0 x64 binaries. Checking
+# hashes here avoids starting PowerShell to verify signatures before a cold run.
+SHA256 = {
+    "cdb.exe": "a9e81c9051a7902fbd8ebd8d348cf83c96f2d8bffd6c2174171a23cef16bb039",
+    "dbgeng.dll": "ad50a89dea9ec578a2db92273eccd6cd96f068a63e0b7b9fe8b9d74fdd73707b",
+    "dbgmodel.dll": "700935cf0a51e1fd59ca83c54cced0446a7bb8756ee0e644f36516c3c00a1051",
+    "dbghelp.dll": "fac7ed67467df056aa904d31e66559080bc40093fbf78eecbe55e276c01ae19f",
+    "dbgcore.dll": "082c216fab924cc68042365b34db16a16936ca5cc08894daf3fb758e27ab002b",
+    "symsrv.dll": "40062d3a961605be345ad34dfef498f597ad326ff8ff236d96a72002c0673549",
+    "msdia140.dll": "acda8b74fa81a07838c85ce2f9c81e989e416a48e1137ec4e497232f921b7267",
+}
 
 
 class Remote(io.RawIOBase):
@@ -53,9 +65,12 @@ with zipfile.ZipFile(remote) as bundle:
 output = Path(sys.argv[1])
 output.mkdir(parents=True, exist_ok=True)
 with zipfile.ZipFile(Remote(package_offset, package.file_size)) as archive:
-    for name in ["cdb.exe", "dbgeng.dll", "dbgmodel.dll", "dbghelp.dll", "dbgcore.dll", "symsrv.dll", "msdia140.dll"]:
+    for name, digest in SHA256.items():
         item = archive.getinfo("amd64/" + name)
         if item.file_size > 32 * 1024 * 1024:
             raise ValueError("debugger file exceeds bound")
-        (output / name).write_bytes(archive.read(item))
-        print(name, item.file_size)
+        data = archive.read(item)
+        if hashlib.sha256(data).hexdigest() != digest:
+            raise ValueError("debugger digest mismatch: " + name)
+        (output / name).write_bytes(data)
+        print(name, item.file_size, digest)

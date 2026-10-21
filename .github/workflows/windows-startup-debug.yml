@@ -79,17 +79,9 @@ jobs:
           ref: ${{ steps.host.outputs.ref }}
           path: openclaw
           persist-credentials: false
-      - name: Prepare signed Microsoft console debugger
-        shell: pwsh
-        run: |
-          python .crabpot/windows-diagnostic-tools/scripts/prepare-windows-debugger.py "$env:RUNNER_TEMP/crabpot-debugger"
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          Get-ChildItem "$env:RUNNER_TEMP/crabpot-debugger" -File | ForEach-Object {
-            $signature = Get-AuthenticodeSignature $_.FullName
-            if ($signature.Status -ne 'Valid' -or $signature.SignerCertificate.Subject -notmatch 'O=Microsoft Corporation') {
-              throw 'Debugger signature did not verify as Microsoft'
-            }
-          }
+      - name: Prepare pinned Microsoft console debugger without PowerShell warmup
+        shell: bash
+        run: python .crabpot/windows-diagnostic-tools/scripts/prepare-windows-debugger.py "$RUNNER_TEMP/crabpot-debugger"
       - name: Reproduce the actual cold CI import with native observations
         shell: bash
         run: node .crabpot/windows-diagnostic-tools/scripts/diagnose-windows-cold-import.mjs . "$RUNNER_TEMP/crabpot-debugger/cdb.exe" "${{ inputs.full-context && 'full-context' || inputs.profile-prefix && 'profile-prefix' || 'cold-import' }}"
