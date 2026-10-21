@@ -163,10 +163,14 @@ registry and a ClawHub-style declaration-only OpenClaw target. The default smoke
 uses the published `@openclaw/plugin-inspector@0.4.3` package; set
 `CRABPOT_PLUGIN_INSPECTOR_CLI=source` to exercise the pinned source instead.
 
+The pinned source only prescribes a packed host migration when all replacement
+APIs appear in that host's public SDK declarations. The synthetic packed fixture
+explicitly declares the SQLite replacement so applicable notices stay covered.
+
 ### Inspector profile failure diagnostics
 
 Runtime profiles use reviewed Inspector source
-`8f458e7be92258ac1729451a0a4bcaea2ecdb68e`. This source-only advancement preserves
+`c9f7110819b2cd78a319eb6d5cd4a6f31c202b38`. This source-only advancement preserves
 bounded stdout/stderr and explicit truncation metadata for failed process
 samples in JSON artifacts, including errors hidden by a Node version footer.
 The npm pin remains `@openclaw/plugin-inspector@0.4.3` and does not contain this

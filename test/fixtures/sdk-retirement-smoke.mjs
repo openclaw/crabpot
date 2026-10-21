@@ -38,6 +38,7 @@ try {
   await mkdir(path.join(packedTarget, "dist"), { recursive: true });
   await writeFile(path.join(packedTarget, "package.json"), JSON.stringify({ name: "openclaw", version: "2026.10.1", exports: { "./plugin-sdk/sqlite-runtime": "./dist/sqlite.js" } }));
   await writeFile(path.join(packedTarget, "dist/index.d.ts"), "export type PluginManifest = { id: string };\n");
+  await writeFile(path.join(packedTarget, "dist/sqlite.d.ts"), "export declare function openOpenClawAgentSqliteWorkerStoreV2(): unknown;\n");
   const packedReport = await pluginRoot.inspect({ cwd: plugin, openclawPath: packedTarget, authorFacing: true });
   const packedIssue = packedReport.issues.find((item) => item.code === "sdk-deprecated-api");
   assert.equal(packedReport.status, "pass");

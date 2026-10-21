@@ -2,6 +2,8 @@
 
 ## 0.2.2 - Unreleased
 
+- Qualify packed-host retirement guidance with reviewed Inspector source and declare the required replacement in the synthetic SQLite smoke fixture; preserve the published 0.4.3 package pin.
+
 - Bound required Default Track jobs to four hours and static-suite steps to three hours and 45 minutes, preserving all profiling samples and Inspector artifact checks.
 
 - Refresh 18 official plugin fallback pins to 2026.10.4 with verified publication-source references; retain the four metadata-only updates previously declined and the frozen host compatibility gaps. Thanks @dependabot.
