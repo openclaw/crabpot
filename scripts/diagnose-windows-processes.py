@@ -1,10 +1,12 @@
 """Bounded process/thread counters without warming the PowerShell runtime."""
 import ctypes as C
 from ctypes import wintypes as W
+import io
 import json
 from pathlib import Path
 import sys
 import time
+import subprocess
 
 
 class UnicodeString(C.Structure):
@@ -46,6 +48,10 @@ query.restype = W.LONG
 root = Path(sys.argv[1])
 selected = {"powershell.exe", "node.exe", "cmd.exe", "MsMpEng.exe"}
 deadline = time.monotonic() + 25 * 60
+debugger = Path(sys.argv[2]) if len(sys.argv) > 2 else None
+observed_helpers = {}
+captured_stacks = set()
+pipe_position = 0
 with (root / "native-processes.jsonl").open("w", encoding="utf-8", buffering=1) as output:
     while not (root / "stop").exists() and time.monotonic() < deadline:
         size = 1024 * 1024
@@ -76,11 +82,54 @@ with (root / "native-processes.jsonl").open("w", encoding="utf-8", buffering=1) 
                                     "user": thread.user, "kernel": thread.kernel, "switches": thread.switches})
                 processes.append({"pid": info.pid, "parent": info.parent, "name": name,
                                   "handles": info.handles, "user": info.user, "kernel": info.kernel,
+                                  "created": info.created, "workingSet": info.ws, "privateBytes": info.private,
                                   "readBytes": info.read_bytes, "writeBytes": info.write_bytes,
                                   "threads": threads})
             if not info.next:
                 break
             offset += info.next
         output.write(json.dumps({"atMs": time.time_ns() // 1_000_000, "processes": processes}) + "\n")
+        if debugger is not None:
+            with (root / "pipes.jsonl").open(encoding="utf-8") if (root / "pipes.jsonl").exists() else io.StringIO("") as pipes:
+                pipes.seek(pipe_position)
+                for line in pipes:
+                    try:
+                        event = json.loads(line)
+                        if event.get("exitCode") is not None or event.get("signal") is not None:
+                            observed_helpers.pop(event["pid"], None)
+                        else:
+                            observed_helpers.setdefault(event["pid"], (event["atMs"], event.get("parent")))
+                    except (ValueError, KeyError):
+                        pass
+                pipe_position = pipes.tell()
+            now = time.time_ns() // 1_000_000
+            live = {process["pid"]: process for process in processes if process["name"] == "powershell.exe"}
+            for pid, (started, parent) in observed_helpers.items():
+                if pid not in live or pid in captured_stacks or len(captured_stacks) >= 4 or now - started < 6000:
+                    continue
+                created_ms = live[pid]["created"] // 10000 - 11644473600000
+                if live[pid]["parent"] != parent or not started - 10000 <= created_ms <= started + 1000:
+                    continue
+                marker = root / f"helper-{pid}.txt"
+                if marker.exists():
+                    entry = marker.read_text(encoding="utf-8-sig")
+                    if "bootstrap-write-start" not in entry or "bootstrap-write-end" in entry:
+                        continue
+                # Noninvasive attach neither suspends nor terminates the helper.
+                # Only stacks are requested: never arguments, locals or memory dumps.
+                captured_stacks.add(pid)
+                command = ".sympath C:\\no-symbols;~*k;.load C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\SOS.dll;~*e !clrstack;qd"
+                output.write(json.dumps({"atMs": now, "kind": "noninvasive-stack-start", "pid": pid}) + "\n")
+                try:
+                    completed = subprocess.run([str(debugger), "-pv", "-p", str(pid), "-logo",
+                                                str(root / f"stack-{pid}.txt"), "-c", command],
+                                               stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+                                               creationflags=0x08000000, timeout=8, check=False)
+                    outcome = {"exitCode": completed.returncode}
+                except subprocess.TimeoutExpired:
+                    outcome = {"timedOut": True}
+                output.write(json.dumps({"atMs": time.time_ns() // 1_000_000,
+                                         "kind": "noninvasive-stack-end", "pid": pid, **outcome}) + "\n")
+                break
         (root / "monitor-ready").touch()
         time.sleep(0.25)

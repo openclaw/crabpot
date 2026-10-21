@@ -2,6 +2,11 @@ name: Windows startup diagnostics
 
 on:
   workflow_dispatch:
+    inputs:
+      cold-import:
+        description: Compare the actual cold CI import on the last green and current main
+        type: boolean
+        default: false
   push:
     branches: [fix/windows-supervisor-startup]
 
@@ -10,6 +15,7 @@ permissions:
 
 jobs:
   startup:
+    if: ${{ inputs.cold-import != true }}
     runs-on: windows-latest
     timeout-minutes: 30
     strategy:
@@ -32,4 +38,58 @@ jobs:
         with:
           name: windows-startup-${{ matrix.node }}-${{ github.run_attempt }}
           path: .crabpot/windows-startup/
+          if-no-files-found: error
+
+  cold-import:
+    if: ${{ inputs.cold-import == true }}
+    runs-on: windows-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        ref:
+          - de5d707b4a2cf864522c7689017c170bfc577fc1
+          - 4c40f7f5e154b6fafb410321e8d1ace16eba49f7
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ matrix.ref }}
+          path: subject
+          submodules: recursive
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24.21.0
+      - id: host
+        shell: bash
+        run: node subject/scripts/openclaw-pin.mjs --github-output
+      - uses: actions/checkout@v7
+        with:
+          repository: openclaw/openclaw
+          ref: ${{ steps.host.outputs.ref }}
+          path: subject/openclaw
+          persist-credentials: false
+      - name: Prepare signed Microsoft console debugger
+        shell: pwsh
+        run: |
+          python scripts/prepare-windows-debugger.py "$env:RUNNER_TEMP/crabpot-debugger"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          Get-ChildItem "$env:RUNNER_TEMP/crabpot-debugger" -File | ForEach-Object {
+            $signature = Get-AuthenticodeSignature $_.FullName
+            if ($signature.Status -ne 'Valid' -or $signature.SignerCertificate.Subject -notmatch 'O=Microsoft Corporation') {
+              throw 'Debugger signature did not verify as Microsoft'
+            }
+          }
+      - name: Reproduce the actual cold CI import with native observations
+        shell: bash
+        run: node scripts/diagnose-windows-cold-import.mjs subject "$RUNNER_TEMP/crabpot-debugger/cdb.exe"
+      - name: Retain cold import evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: cold-import-${{ matrix.ref }}-${{ github.run_attempt }}
+          path: .crabpot/windows-cold-import/
           if-no-files-found: error
