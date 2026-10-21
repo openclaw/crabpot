@@ -15,6 +15,10 @@ on:
         description: Run the original complete static pipeline on current main with native observations
         type: boolean
         default: false
+      cold-cohort:
+        description: Observe eight independent fresh Windows cold-import runs, at most four at once
+        type: boolean
+        default: false
   push:
     branches: [fix/windows-supervisor-startup]
 
@@ -23,7 +27,7 @@ permissions:
 
 jobs:
   startup:
-    if: ${{ inputs.cold-import != true && inputs.profile-prefix != true && inputs.full-context != true }}
+    if: ${{ inputs.cold-import != true && inputs.profile-prefix != true && inputs.full-context != true && inputs.cold-cohort != true }}
     runs-on: windows-latest
     timeout-minutes: 30
     strategy:
@@ -49,13 +53,15 @@ jobs:
           if-no-files-found: error
 
   cold-import:
-    if: ${{ inputs.cold-import == true || inputs.profile-prefix == true || inputs.full-context == true }}
+    if: ${{ inputs.cold-import == true || inputs.profile-prefix == true || inputs.full-context == true || inputs.cold-cohort == true }}
     runs-on: windows-latest
     timeout-minutes: 315
     strategy:
       fail-fast: false
+      max-parallel: 4
       matrix:
-        ref: ${{ fromJSON((inputs.profile-prefix || inputs.full-context) && '["4c40f7f5e154b6fafb410321e8d1ace16eba49f7"]' || '["de5d707b4a2cf864522c7689017c170bfc577fc1","4c40f7f5e154b6fafb410321e8d1ace16eba49f7"]') }}
+        ref: ${{ fromJSON((inputs.profile-prefix || inputs.full-context || inputs.cold-cohort) && '["4c40f7f5e154b6fafb410321e8d1ace16eba49f7"]' || '["de5d707b4a2cf864522c7689017c170bfc577fc1","4c40f7f5e154b6fafb410321e8d1ace16eba49f7"]') }}
+        trial: ${{ fromJSON((inputs.cold-cohort && !inputs.full-context && !inputs.profile-prefix) && '[1,2,3,4,5,6,7,8]' || '[1]') }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -89,6 +95,6 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v7
         with:
-          name: cold-import-${{ matrix.ref }}-${{ github.run_attempt }}
+          name: cold-import-${{ matrix.ref }}-${{ github.run_attempt }}${{ inputs.cold-cohort && format('-trial-{0}', matrix.trial) || '' }}
           path: .crabpot/windows-cold-import/
           if-no-files-found: error
