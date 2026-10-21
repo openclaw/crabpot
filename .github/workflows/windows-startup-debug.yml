@@ -53,29 +53,30 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
+          ref: ${{ matrix.ref }}
+          submodules: recursive
           persist-credentials: false
       - uses: actions/checkout@v7
         with:
-          ref: ${{ matrix.ref }}
-          path: subject
-          submodules: recursive
+          ref: ${{ github.sha }}
+          path: .crabpot/windows-diagnostic-tools
           persist-credentials: false
       - uses: actions/setup-node@v7
         with:
           node-version: 24.21.0
       - id: host
         shell: bash
-        run: node subject/scripts/openclaw-pin.mjs --github-output
+        run: node scripts/openclaw-pin.mjs --github-output
       - uses: actions/checkout@v7
         with:
           repository: openclaw/openclaw
           ref: ${{ steps.host.outputs.ref }}
-          path: subject/openclaw
+          path: openclaw
           persist-credentials: false
       - name: Prepare signed Microsoft console debugger
         shell: pwsh
         run: |
-          python scripts/prepare-windows-debugger.py "$env:RUNNER_TEMP/crabpot-debugger"
+          python .crabpot/windows-diagnostic-tools/scripts/prepare-windows-debugger.py "$env:RUNNER_TEMP/crabpot-debugger"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           Get-ChildItem "$env:RUNNER_TEMP/crabpot-debugger" -File | ForEach-Object {
             $signature = Get-AuthenticodeSignature $_.FullName
@@ -85,7 +86,7 @@ jobs:
           }
       - name: Reproduce the actual cold CI import with native observations
         shell: bash
-        run: node scripts/diagnose-windows-cold-import.mjs subject "$RUNNER_TEMP/crabpot-debugger/cdb.exe"
+        run: node .crabpot/windows-diagnostic-tools/scripts/diagnose-windows-cold-import.mjs . "$RUNNER_TEMP/crabpot-debugger/cdb.exe"
       - name: Retain cold import evidence
         if: always()
         uses: actions/upload-artifact@v7

@@ -5,7 +5,7 @@ import { readFile, writeFile, mkdir, access } from "node:fs/promises";
 import path from "node:path";
 import os from "node:os";
 import { setTimeout as delay } from "node:timers/promises";
-import { pathToFileURL } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 assert.equal(process.platform, "win32");
 const subject = path.resolve(process.argv[2]);
@@ -23,14 +23,20 @@ assert.equal(owner.split(end).length, 2);
 owner = owner.replace(end, `  appendFileSync(${JSON.stringify(path.join(root, "commands.jsonl"))}, JSON.stringify({
     atMs: Date.now(), pid: process.pid, startupTrace,
     code: result.error?.code, cleanupCode: result.cleanupError?.code,
+    windowsHelper: typeof windowsHelper === "undefined" ? undefined : windowsHelper,
   }) + "\\n");\n` + end);
 const spawned = '      phase("helper-spawned");';
 assert.equal(owner.split(spawned).length, 2);
 owner = owner.replace(spawned, spawned + `
+      let stdoutBytes = helper.stdout ? 0 : null;
+      let stderrBytes = helper.stderr ? 0 : null;
+      helper.stdout?.on("data", (chunk) => { stdoutBytes += chunk.length; });
+      helper.stderr?.on("data", (chunk) => { stderrBytes += chunk.length; });
       const snapshot = () => appendFileSync(${JSON.stringify(path.join(root, "pipes.jsonl"))}, JSON.stringify({
-        atMs: Date.now(), parent: process.pid, pid: helper.pid, exitCode: helper.exitCode, signal: helper.signalCode,
-        stdout: helper.stdout && { buffered: helper.stdout.readableLength, destroyed: helper.stdout.destroyed },
-        stderr: helper.stderr && { buffered: helper.stderr.readableLength, destroyed: helper.stderr.destroyed },
+        atMs: Date.now(), owner: fileURLToPath(import.meta.url), parent: process.pid, pid: helper.pid,
+        exitCode: helper.exitCode, signal: helper.signalCode,
+        stdout: helper.stdout && { bytes: stdoutBytes, buffered: helper.stdout.readableLength, destroyed: helper.stdout.destroyed },
+        stderr: helper.stderr && { bytes: stderrBytes, buffered: helper.stderr.readableLength, destroyed: helper.stderr.destroyed },
       }) + "\\n");
       snapshot();
       const pipeTimer = setInterval(snapshot, 250);
@@ -48,6 +54,9 @@ helper = helper.replace(first, first + "\n" + marker("script-entry"));
 const bootstrap = '    Write-Bootstrap "entry"';
 if (helper.includes(bootstrap)) helper = helper.replace(bootstrap,
   "    " + marker("bootstrap-write-start") + "\n" + bootstrap + "\n    " + marker("bootstrap-write-end"));
+const connected = "    $pipe.Connect(5000)";
+assert.equal(helper.split(connected).length, 2);
+helper = helper.replace(connected, connected + "\n    " + marker("pipe-connected"));
 await writeFile(helperPath, helper);
 const runner = path.join(root, "run-cold-import.mjs");
 await writeFile(runner, `
@@ -56,13 +65,20 @@ process.env.CRABPOT_TEST_OPENCLAW_PATH = "./openclaw";
 const steps = buildStaticSuiteSteps({ openclawArgs: ["--openclaw", "./openclaw"] }).slice(0, 3);
 process.exitCode = runStaticSuite(steps);
 `);
-const monitor = spawn("python", [path.resolve("scripts/diagnose-windows-processes.py"), root, path.resolve(process.argv[3])], {
+const monitor = spawn("python", [fileURLToPath(new URL("./diagnose-windows-processes.py", import.meta.url)), root, path.resolve(process.argv[3]), ownerPath], {
   stdio: ["ignore", "ignore", "inherit"], windowsHide: true,
 });
 let monitorClosed;
-const monitorDone = new Promise((resolve, reject) => {
-  monitor.once("error", reject);
-  monitor.once("close", (code, signal) => { monitorClosed = { code, signal }; resolve(); });
+let targetFinished = false;
+let monitorEndedEarly = false;
+const monitorDone = new Promise((resolve) => {
+  const finish = (outcome) => {
+    monitorClosed ??= outcome;
+    monitorEndedEarly ||= !targetFinished;
+    resolve();
+  };
+  monitor.once("error", (error) => finish({ code: null, errorCode: error.code }));
+  monitor.once("close", (code, signal) => finish({ code, signal }));
 });
 try {
   let ready = false;
@@ -79,6 +95,7 @@ try {
     child.once("error", reject);
     child.once("close", (code, signal) => resolve({ code, signal }));
   });
+  targetFinished = true;
   console.log(JSON.stringify({ kind: "cold-import-outcome", ...outcome }));
   process.exitCode = outcome.code ?? 1;
 } finally {
@@ -88,5 +105,7 @@ try {
   clearTimeout(timeout);
   await writeFile(ownerPath, original);
   await writeFile(helperPath, originalHelper);
-  console.log(JSON.stringify({ kind: "native-monitor-outcome", ...monitorClosed }));
+  const complete = !monitorEndedEarly && monitorClosed.code === 0 && monitorClosed.signal === null;
+  if (!complete) process.exitCode ||= 1;
+  console.log(JSON.stringify({ kind: "native-monitor-outcome", complete, ...monitorClosed }));
 }
