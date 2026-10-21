@@ -19,6 +19,10 @@ on:
         description: Observe eight independent fresh Windows cold-import runs, at most four at once
         type: boolean
         default: false
+      unmodified-control:
+        description: Observe cold import without rewriting owner or PowerShell helper source
+        type: boolean
+        default: false
   push:
     branches: [fix/windows-supervisor-startup]
 
@@ -27,7 +31,7 @@ permissions:
 
 jobs:
   startup:
-    if: ${{ inputs.cold-import != true && inputs.profile-prefix != true && inputs.full-context != true && inputs.cold-cohort != true }}
+    if: ${{ inputs.cold-import != true && inputs.profile-prefix != true && inputs.full-context != true && inputs.cold-cohort != true && inputs.unmodified-control != true }}
     runs-on: windows-latest
     timeout-minutes: 30
     strategy:
@@ -53,15 +57,15 @@ jobs:
           if-no-files-found: error
 
   cold-import:
-    if: ${{ inputs.cold-import == true || inputs.profile-prefix == true || inputs.full-context == true || inputs.cold-cohort == true }}
+    if: ${{ inputs.cold-import == true || inputs.profile-prefix == true || inputs.full-context == true || inputs.cold-cohort == true || inputs.unmodified-control == true }}
     runs-on: windows-latest
     timeout-minutes: 315
     strategy:
       fail-fast: false
       max-parallel: 4
       matrix:
-        ref: ${{ fromJSON((inputs.profile-prefix || inputs.full-context || inputs.cold-cohort) && '["4c40f7f5e154b6fafb410321e8d1ace16eba49f7"]' || '["de5d707b4a2cf864522c7689017c170bfc577fc1","4c40f7f5e154b6fafb410321e8d1ace16eba49f7"]') }}
-        trial: ${{ fromJSON((inputs.cold-cohort && !inputs.full-context && !inputs.profile-prefix) && '[1,2,3,4,5,6,7,8]' || '[1]') }}
+        ref: ${{ fromJSON((inputs.profile-prefix || inputs.full-context || inputs.cold-cohort || inputs.unmodified-control) && '["4c40f7f5e154b6fafb410321e8d1ace16eba49f7"]' || '["de5d707b4a2cf864522c7689017c170bfc577fc1","4c40f7f5e154b6fafb410321e8d1ace16eba49f7"]') }}
+        trial: ${{ fromJSON((inputs.cold-cohort && !inputs.full-context && !inputs.profile-prefix && !inputs.unmodified-control) && '[1,2,3,4,5,6,7,8]' || '[1]') }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -90,7 +94,7 @@ jobs:
         run: python .crabpot/windows-diagnostic-tools/scripts/prepare-windows-debugger.py "$RUNNER_TEMP/crabpot-debugger"
       - name: Reproduce the actual cold CI import with native observations
         shell: bash
-        run: node .crabpot/windows-diagnostic-tools/scripts/diagnose-windows-cold-import.mjs . "$RUNNER_TEMP/crabpot-debugger/cdb.exe" "${{ inputs.full-context && 'full-context' || inputs.profile-prefix && 'profile-prefix' || 'cold-import' }}"
+        run: node .crabpot/windows-diagnostic-tools/scripts/diagnose-windows-cold-import.mjs . "$RUNNER_TEMP/crabpot-debugger/cdb.exe" "${{ inputs.full-context && 'full-context' || inputs.profile-prefix && 'profile-prefix' || 'cold-import' }}" "${{ inputs.unmodified-control && 'unmodified' || 'instrumented' }}"
       - name: Retain cold import evidence
         if: always()
         uses: actions/upload-artifact@v7
