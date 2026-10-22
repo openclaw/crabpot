@@ -311,6 +311,16 @@ test("HEAD canary is advisory, runs the Default Track suite on main, and uploads
   assert.match(workflow, /crabpot-openclaw-head-canary-\$\{\{ matrix\.os \}\}/);
 });
 
+test("frozen remediation comparisons require manual opt-in and preserve failing verdicts", async () => {
+  const workflow = await readWorkflow(".github/workflows/openclaw-head-canary.yml");
+  const block = workflow.slice(workflow.indexOf("  remediation-regression:"));
+  assert.match(workflow, /remediation_regression:[\s\S]*type: boolean[\s\S]*default: false/);
+  assert.match(workflow, /resolve-head:\n    if: \$\{\{ !inputs\.remediation_regression \}\}/);
+  assert.match(block, /if: \$\{\{ github\.event_name == 'workflow_dispatch' && inputs\.remediation_regression \}\}/);
+  assert.doesNotMatch(block, /continue-on-error:/);
+  assert.match(block, /if: always\(\)/);
+});
+
 test("scheduled Default Track pin age gate enforces the 14-day SLA", async () => {
   const workflow = await readWorkflow(".github/workflows/openclaw-pin-age.yml");
 
