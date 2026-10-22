@@ -47,7 +47,7 @@ identities.update({'oldRootsSha256': hashlib.sha256(old_ca.read_bytes()).hexdige
                    'publicPrivateCaSha256': hashlib.sha256((private / 'ca.pem').read_bytes()).hexdigest(),
                    'probeSha256': hashlib.sha256((root / 'remediation-node-probe.mjs').read_bytes()).hexdigest(),
                    'hostsSha256': hashlib.sha256((root / 'remediation-incident-hosts.json').read_bytes()).hexdigest()})
-identities['source'] = subprocess.check_output(['git', '-C', str(root), 'rev-parse', 'HEAD'], text=True).strip()
+identities['source'] = subprocess.check_output(['git', '-c', 'safe.directory=' + str(root.parent), '-C', str(root), 'rev-parse', 'HEAD'], text=True).strip()
 identities['harnessSha256'] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
 if a.expected_fixed_version:
     assert hashlib.sha256(old_ca.read_bytes()).hexdigest() == '1f20173c6c5bd4e836fbd5d025ec4eb7464e1521439cde2fea0aca3122c7a1a9', 'old root fixture identity changed'

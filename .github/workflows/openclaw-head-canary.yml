@@ -10,6 +10,10 @@ on:
         description: Run the finite frozen-input remediation comparison instead of the moving HEAD canary
         type: boolean
         default: false
+      remediation_tls_only:
+        description: Reuse completed frozen comparisons and run only the affected-artifact TLS proofs
+        type: boolean
+        default: false
 
 # PR runs supersede each other; other event attempts remain independent.
 concurrency:
@@ -124,7 +128,7 @@ jobs:
           if-no-files-found: warn
 
   remediation-regression:
-    if: ${{ github.event_name == 'workflow_dispatch' && inputs.remediation_regression }}
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.remediation_regression && !inputs.remediation_tls_only }}
     name: Frozen remediation comparison (${{ matrix.os }})
     runs-on: ${{ matrix.os }}
     timeout-minutes: 120

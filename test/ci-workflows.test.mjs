@@ -316,7 +316,8 @@ test("frozen remediation comparisons require manual opt-in and preserve failing 
   const block = workflow.slice(workflow.indexOf("  remediation-regression:"));
   assert.match(workflow, /remediation_regression:[\s\S]*type: boolean[\s\S]*default: false/);
   assert.match(workflow, /resolve-head:\n    if: \$\{\{ !inputs\.remediation_regression \}\}/);
-  assert.match(block, /if: \$\{\{ github\.event_name == 'workflow_dispatch' && inputs\.remediation_regression \}\}/);
+  assert.match(workflow, /remediation_tls_only:[\s\S]*type: boolean[\s\S]*default: false/);
+  assert.match(block, /if: \$\{\{ github\.event_name == 'workflow_dispatch' && inputs\.remediation_regression && !inputs\.remediation_tls_only \}\}/);
   assert.doesNotMatch(block, /continue-on-error:/);
   assert.match(block, /if: always\(\)/);
 });
