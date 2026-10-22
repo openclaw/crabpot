@@ -34,7 +34,9 @@ def files(root):
 subprocess.run([str(a.fixed_node), 'scripts/sync-fixtures.mjs', '--materialize',
                 '--openclaw', str(a.openclaw.resolve()), '--no-package-availability-report'],
                cwd=a.candidate, check=True)
-shutil.copytree(a.candidate / 'plugins', a.base / 'plugins', dirs_exist_ok=True, symlinks=True)
+# Replace only this task-owned input tree; overlaying existing symlinks is not portable.
+shutil.rmtree(a.base / 'plugins')
+shutil.copytree(a.candidate / 'plugins', a.base / 'plugins', symlinks=True)
 fixture_files = files(a.candidate / 'plugins')
 assert fixture_files == files(a.base / 'plugins'), 'base/candidate fixture bytes differ'
 (a.output / 'fixture-files.json').write_text(json.dumps(fixture_files, indent=2) + '\n')
