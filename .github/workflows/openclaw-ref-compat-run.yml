@@ -106,7 +106,7 @@ jobs:
 
       - uses: actions/setup-node@v7
         with:
-          node-version: 24
+          node-version: 24.22.1
 
       - id: suite
         run: node scripts/run-static-suite.mjs --write-reports --openclaw ./openclaw --policy "${SUITE_POLICY}" --profile-runs "${PROFILE_RUNS}" --plugin-inspector-smoke
@@ -193,7 +193,7 @@ jobs:
 
       - uses: actions/setup-node@v7
         with:
-          node-version: 24
+          node-version: 24.22.1
 
       - run: node scripts/ci-report-handoff.mjs start refDiff profile comparison compatibility policy
       - run: node scripts/sync-fixtures.mjs --materialize --openclaw ./openclaw
@@ -275,7 +275,7 @@ jobs:
 
       - uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version: 22.23.4
 
       - name: Resolve fixture matrix
         id: resolve
@@ -333,7 +333,7 @@ jobs:
 
       - uses: actions/setup-node@v7
         with:
-          node-version: 24
+          node-version: 24.22.1
 
       - run: node scripts/ci-report-handoff.mjs start workspace execute execution compatibility policy
       - name: Materialize fixture payload

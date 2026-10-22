@@ -52,7 +52,7 @@ jobs:
       - uses: actions/setup-node@v7
         if: ${{ steps.scope.outputs.audit == 'true' }}
         with:
-          node-version: 22
+          node-version: 22.23.4
       - name: Audit fixture locks
         if: ${{ steps.scope.outputs.audit == 'true' }}
         run: npm run check:fixture-security
@@ -74,7 +74,7 @@ jobs:
           submodules: recursive
       - uses: actions/setup-node@v7
         with:
-          node-version: 24
+          node-version: 24.22.1
           cache: npm
           cache-dependency-path: |
             plugins/**/package-lock.json
@@ -151,7 +151,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 240
     container:
-      image: node:24-bookworm
+      image: node:24.22.1-bookworm
     steps:
       - uses: actions/checkout@v7
         with:
@@ -190,7 +190,7 @@ jobs:
           submodules: recursive
       - uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version: 22.23.4
           cache: npm
           cache-dependency-path: |
             plugins/**/package-lock.json
@@ -253,7 +253,7 @@ jobs:
           submodules: recursive
       - uses: actions/setup-node@v7
         with:
-          node-version: 24
+          node-version: 24.22.1
           cache: npm
           cache-dependency-path: |
             plugins/**/package-lock.json
