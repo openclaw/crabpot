@@ -149,7 +149,7 @@ jobs:
       - uses: actions/checkout@v7
         with:
           repository: openclaw/openclaw
-          ref: 7b3a2e193887189f7c6e5328eddd24930f19e7e3
+          ref: 8c64e9fe961e426c21a7a014be21356355082c6b
           path: openclaw
           persist-credentials: false
       - uses: actions/setup-node@v7
@@ -177,16 +177,6 @@ jobs:
             --openclaw "$GITHUB_WORKSPACE/openclaw" \
             --old-node "$OLD_NODE" --fixed-node "$FIXED_NODE" \
             --output "$GITHUB_WORKSPACE/regression-evidence"
-      - name: Qualify the fixed native Node trust modes
-        if: ${{ !cancelled() }}
-        shell: bash
-        env:
-          OLD_NODE: ${{ steps.old-node.outputs.path }}
-          FIXED_NODE: ${{ steps.fixed-node.outputs.path }}
-        run: |
-          python candidate/.github/remediation-tls.py \
-            --old-node "$OLD_NODE" --fixed-node "$FIXED_NODE" \
-            --output "$GITHUB_WORKSPACE/tls-evidence"
       - name: Retain exact inputs and comparison failures
         if: always()
         uses: actions/upload-artifact@v7
@@ -201,4 +191,88 @@ jobs:
             tls-evidence/*.json
             tls-evidence/*.log
             tls-evidence/*.sha256
+          if-no-files-found: error
+
+  remediation-node22-tls:
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.remediation_regression }}
+    name: Finite affected Node22 Linux x64 TLS proof
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24.21.0
+          package-manager-cache: false
+      - id: old-node
+        shell: bash
+        run: echo "path=$(node -p 'process.execPath')" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22.23.4
+          package-manager-cache: false
+      - name: Qualify the actual affected Node22 executable
+        shell: bash
+        env:
+          OLD_NODE: ${{ steps.old-node.outputs.path }}
+        run: |
+          python3 .github/remediation-tls.py \
+            --old-node "$OLD_NODE" --fixed-node "$(node -p 'process.execPath')" \
+            --expected-fixed-version v22.23.4 \
+            --authenticated-manifest-sha256 c90c3f1478fda8308b22cc1a1b0dc536169196444e67ee8b5c582fd351d02bce \
+            --output "$GITHUB_WORKSPACE/tls-evidence"
+      - name: Retain actual Node22 inputs and TLS results
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: affected-node22-linux-x64-tls
+          path: |
+            tls-evidence/*.json
+            tls-evidence/*.log
+            tls-evidence/SHASUMS256.txt
+          if-no-files-found: error
+
+  remediation-bookworm-tls:
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.remediation_regression }}
+    name: Finite affected bookworm image TLS proof
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    # Same immutable image selected by the completed default-track container job.
+    container:
+      image: node:24.22.1-bookworm@sha256:6449e19d8184d84062525b6a7524def03146c2cb04a7f08b076680d0e8e4240a
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24.21.0
+          package-manager-cache: false
+      - id: old-node
+        shell: bash
+        run: echo "path=$(node -p 'process.execPath')" >> "$GITHUB_OUTPUT"
+      - name: Qualify the image's actual executable and trust stores
+        shell: bash
+        env:
+          OLD_NODE: ${{ steps.old-node.outputs.path }}
+        run: |
+          python3 .github/remediation-tls.py \
+            --old-node "$OLD_NODE" --fixed-node /usr/local/bin/node \
+            --expected-fixed-version v24.22.1 \
+            --authenticated-manifest-sha256 fdfbffc969c0f604beff0124d409b33a43b53f5c681d6220f80023e0d6df9dc4 \
+            --container-image node:24.22.1-bookworm@sha256:6449e19d8184d84062525b6a7524def03146c2cb04a7f08b076680d0e8e4240a \
+            --output "$GITHUB_WORKSPACE/tls-evidence"
+      - name: Retain actual image inputs and TLS results
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: affected-bookworm-linux-x64-tls
+          path: |
+            tls-evidence/*.json
+            tls-evidence/*.log
+            tls-evidence/SHASUMS256.txt
           if-no-files-found: error

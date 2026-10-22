@@ -69,7 +69,7 @@ for label, source, runtime, node in [('base', a.base, 'old', a.old_node),
     env.pop('NODE_OPTIONS', None)
     env.pop('NODE_COMPILE_CACHE', None)
     # Match the original owning test entry point and its independent heap/deadline contracts.
-    target = 'test/owned-command.test.mjs' if os.name == 'nt' else 'test/corpus/host.test.mjs'
+    target = 'test/corpus/host.test.mjs'
     script = 'const {runStaticStep}=await import("./scripts/static-step.mjs");process.exitCode=runStaticStep("node",["--test","--test-concurrency=1",process.argv[1]]);'
     started = time.time()
     with (cell / 'tests.log').open('w') as log:
