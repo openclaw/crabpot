@@ -63,7 +63,6 @@ try {
 const result = { node: process.version, arch: process.arch, platform: process.platform,
   openssl: process.versions.openssl, mode, execArgv: process.execArgv,
   systemCaCount: tls.getCACertificates('system').length,
-  sslCertFile: process.env.SSL_CERT_FILE ?? null, extraCa: process.env.NODE_EXTRA_CA_CERTS ?? null,
   rows, control, privateControls };
 console.log(JSON.stringify(result, null, 2));
 if (rows.length !== 12 || rows.some(row => row.accepted || row.code !== 'CERT_REVOKED') ||
