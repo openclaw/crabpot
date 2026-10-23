@@ -51,18 +51,25 @@ Keep npm fixture source references in the manifest and shim aligned with the
 published artifact. When an official package omits `gitHead`, verify the prepared
 package source SHA in its publication qualification and artifact manifest. The
 release workflow SHA and public release tag can identify different commits.
-The 2026.10.4 fallback refresh uses prepared source
-`383c124cc32ffee3f8e56f549b88da94d269a4af`, verified against the immutable
-publication manifests and registry tarball integrities from run `38821779281`.
-Brave, Diffs, Google Meet, and Memory LanceDB retain their reviewed 2026.10.3
-fallbacks: their metadata-only updates were declined without a demonstrated
-runtime benefit. Moving track selection is unchanged.
+The 2026.10.5 fallback refresh uses prepared source
+`1b58cb9a1b4f4353e1add63c8506db4d890962e8`, verified against all 22 package
+publication qualifications from run `39162994312`. Its publishing workflow used
+`c544916c9070b65c2ec8822de01bdf99041e12cd`; that is not the package source.
+Brave, Diffs, Google Meet, and Memory LanceDB also advance to this qualified
+release. Moving track selection is unchanged.
 Regenerate reports against the pinned Default Track after changing fixture pins.
 The normal Default Track follows npm `latest`, so its observed package versions
 can advance beyond the shim pins used when tag resolution falls back. Treat
 those reports as evidence for the recorded artifact versions, not the fallback pins.
 TencentDB memory remains explicitly pinned to the reviewed 1.0.1 artifact; its
 moving npm tag is not part of that qualification.
+The HAPI fixture lock uses host-linked OpenClaw 2026.10.6 for patched MCP SDK
+dependencies and Hono 4.13.11. This does not promote the Default Track host pin.
+Installing that locked host requires Node 24.22.1 or a supported newer line;
+the host-backed workflows already select Node 24.22.1.
+HAPI's credential-free synthetic probe remains blocked on its required
+`hapiBaseUrl` operator configuration. Its diagnostic contract accepts Node's
+exact `stripTypeScriptTypes` warning preamble while rejecting unrelated output.
 When a moving artifact lacks a Git head, reports leave its evidence as a payload
 path instead of borrowing a different fallback version's source link. SDK export
 gaps outside the artifact's declared plugin API range remain visible at their
@@ -197,7 +204,7 @@ node scripts/check-contract-coverage.mjs --openclaw ../openclaw
 ```
 
 Source-backed reports and registration capture use Inspector source commit
-`e1d8632b2fb39c942d6cb8b60208a97466b168c3` (reviewed source after 0.4.3),
+`23dc5dd913c2105978dc6490c35481a8109af321` (reviewed source after 0.4.4, including current host hook-metadata support),
 with SDK discovery inside packaged `.setup` directories and composed Zod enums,
 including bundled SDK import classification, target-owned conversation contract
 proof, lazy runtime SDK loading, and method-scoped Gateway prerequisites.
@@ -218,13 +225,15 @@ that installation, alongside source and locally packed smoke. This verifies
 non-blocking deprecated-member notices, replacement guidance, and the final
 compatibility day through both source and packed OpenClaw targets.
 
-Both source mode and the published 0.4.3 package include the additive `sdkUsage`
+Both source mode and the published 0.4.4 package include the additive `sdkUsage`
 inventory alongside existing findings.
 
-The source-only update preserves bounded stdout/stderr and truncation metadata
+Both pins preserve bounded stdout/stderr and truncation metadata
 for failed runtime-profile and import-loop process samples in JSON artifacts.
-The published npm pin remains 0.4.3 and does not include this diagnostic update.
-The source pin also generates CI with Node 24.22.1 and uses pnpm 12.15.0
+The source pin additionally prunes implementation-only imports from mixed
+inferred host facades while preserving declaration effects. This bounds the
+development corpus's host type graph within its existing 2 GiB heap limit.
+It also generates CI with Node 24.22.1 and uses pnpm 12.15.0
 for Inspector hydration. The published package keeps its existing behavior
 until a separately qualified npm release is available.
 Previews, command order, heap limits, and deadlines are unchanged. Raw captured

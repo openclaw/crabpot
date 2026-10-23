@@ -463,7 +463,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/diagnostics-otel",
-        "ref": "383c124cc32ffee3f8e56f549b88da94d269a4af"
+        "ref": "1b58cb9a1b4f4353e1add63c8506db4d890962e8"
       },
       "path": "plugins/diagnostics-otel",
       "priority": "medium",
@@ -491,7 +491,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/discord",
-        "ref": "383c124cc32ffee3f8e56f549b88da94d269a4af"
+        "ref": "1b58cb9a1b4f4353e1add63c8506db4d890962e8"
       },
       "path": "plugins/discord",
       "priority": "medium",
@@ -533,7 +533,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/lobster",
-        "ref": "383c124cc32ffee3f8e56f549b88da94d269a4af"
+        "ref": "1b58cb9a1b4f4353e1add63c8506db4d890962e8"
       },
       "path": "plugins/lobster",
       "priority": "medium",
@@ -562,7 +562,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/matrix",
-        "ref": "383c124cc32ffee3f8e56f549b88da94d269a4af"
+        "ref": "1b58cb9a1b4f4353e1add63c8506db4d890962e8"
       },
       "path": "plugins/matrix",
       "priority": "medium",
@@ -596,7 +596,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/msteams",
-        "ref": "383c124cc32ffee3f8e56f549b88da94d269a4af"
+        "ref": "1b58cb9a1b4f4353e1add63c8506db4d890962e8"
       },
       "path": "plugins/msteams",
       "priority": "medium",
@@ -624,7 +624,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/nextcloud-talk",
-        "ref": "383c124cc32ffee3f8e56f549b88da94d269a4af"
+        "ref": "1b58cb9a1b4f4353e1add63c8506db4d890962e8"
       },
       "path": "plugins/nextcloud-talk",
       "priority": "medium",
@@ -652,7 +652,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/nostr",
-        "ref": "383c124cc32ffee3f8e56f549b88da94d269a4af"
+        "ref": "1b58cb9a1b4f4353e1add63c8506db4d890962e8"
       },
       "path": "plugins/nostr",
       "priority": "medium",
@@ -681,7 +681,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/voice-call",
-        "ref": "383c124cc32ffee3f8e56f549b88da94d269a4af"
+        "ref": "1b58cb9a1b4f4353e1add63c8506db4d890962e8"
       },
       "path": "plugins/voice-call",
       "priority": "medium",
@@ -726,7 +726,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/zalo",
-        "ref": "383c124cc32ffee3f8e56f549b88da94d269a4af"
+        "ref": "1b58cb9a1b4f4353e1add63c8506db4d890962e8"
       },
       "path": "plugins/zalo",
       "priority": "medium",
@@ -754,7 +754,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/zalouser",
-        "ref": "383c124cc32ffee3f8e56f549b88da94d269a4af"
+        "ref": "1b58cb9a1b4f4353e1add63c8506db4d890962e8"
       },
       "path": "plugins/zalouser",
       "priority": "medium",
@@ -783,7 +783,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/feishu",
-        "ref": "383c124cc32ffee3f8e56f549b88da94d269a4af"
+        "ref": "1b58cb9a1b4f4353e1add63c8506db4d890962e8"
       },
       "path": "plugins/feishu",
       "priority": "medium",
@@ -812,7 +812,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/tlon",
-        "ref": "383c124cc32ffee3f8e56f549b88da94d269a4af"
+        "ref": "1b58cb9a1b4f4353e1add63c8506db4d890962e8"
       },
       "path": "plugins/tlon",
       "priority": "medium",
@@ -840,7 +840,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/twitch",
-        "ref": "383c124cc32ffee3f8e56f549b88da94d269a4af"
+        "ref": "1b58cb9a1b4f4353e1add63c8506db4d890962e8"
       },
       "path": "plugins/twitch",
       "priority": "medium",
@@ -869,7 +869,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/mattermost",
-        "ref": "383c124cc32ffee3f8e56f549b88da94d269a4af"
+        "ref": "1b58cb9a1b4f4353e1add63c8506db4d890962e8"
       },
       "path": "plugins/mattermost",
       "priority": "medium",
@@ -896,7 +896,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/synology-chat",
-        "ref": "383c124cc32ffee3f8e56f549b88da94d269a4af"
+        "ref": "1b58cb9a1b4f4353e1add63c8506db4d890962e8"
       },
       "path": "plugins/synology-chat",
       "priority": "medium",
@@ -924,7 +924,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/brave",
-        "ref": "59cb44796b0f1f0daa0e37af8b1495abb45d9bc1"
+        "ref": "1b58cb9a1b4f4353e1add63c8506db4d890962e8"
       },
       "path": "plugins/brave-plugin",
       "priority": "medium",
@@ -956,7 +956,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/codex",
-        "ref": "383c124cc32ffee3f8e56f549b88da94d269a4af"
+        "ref": "1b58cb9a1b4f4353e1add63c8506db4d890962e8"
       },
       "path": "plugins/codex",
       "priority": "medium",
@@ -1002,7 +1002,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/diagnostics-prometheus",
-        "ref": "383c124cc32ffee3f8e56f549b88da94d269a4af"
+        "ref": "1b58cb9a1b4f4353e1add63c8506db4d890962e8"
       },
       "path": "plugins/diagnostics-prometheus",
       "priority": "medium",
@@ -1032,7 +1032,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/google-meet",
-        "ref": "59cb44796b0f1f0daa0e37af8b1495abb45d9bc1"
+        "ref": "1b58cb9a1b4f4353e1add63c8506db4d890962e8"
       },
       "path": "plugins/google-meet",
       "priority": "medium",
@@ -1083,7 +1083,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/diffs",
-        "ref": "59cb44796b0f1f0daa0e37af8b1495abb45d9bc1"
+        "ref": "1b58cb9a1b4f4353e1add63c8506db4d890962e8"
       },
       "path": "plugins/diffs",
       "priority": "medium",
@@ -1116,7 +1116,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/memory-lancedb",
-        "ref": "59cb44796b0f1f0daa0e37af8b1495abb45d9bc1"
+        "ref": "1b58cb9a1b4f4353e1add63c8506db4d890962e8"
       },
       "path": "plugins/memory-lancedb",
       "priority": "medium",
@@ -1168,7 +1168,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/whatsapp",
-        "ref": "383c124cc32ffee3f8e56f549b88da94d269a4af"
+        "ref": "1b58cb9a1b4f4353e1add63c8506db4d890962e8"
       },
       "path": "plugins/whatsapp",
       "priority": "medium",
@@ -1349,7 +1349,7 @@
             "seam": "synthetic-probe",
             "errorIncludes": "hapiBaseUrl must be a non-empty string",
             "exitCode": 1,
-            "outputPattern": "^(?:\\(node:\\d+\\) \\[DEP0205\\][^\\n]+\\n\\(Use `node --trace-deprecation \\.\\.\\.` to show where the warning was created\\)\\n)?file:\\/\\/\\/[^\\n]+inspector\\.js:\\d+\\n[\\s\\S]*Error: Invalid hapi-openclaw config: hapiBaseUrl must be a non-empty string[\\s\\S]*failureClass: 'registration-execution-error',[\\s\\S]*\\[cause\\]: Error: Invalid hapi-openclaw config: hapiBaseUrl must be a non-empty string[\\s\\S]*Node\\.js v\\d+\\.\\d+\\.\\d+\\s*$",
+            "outputPattern": "^(?:(?:\\(node:\\d+\\) \\[DEP0205\\][^\\n]+\\n\\(Use `node --trace-deprecation \\.\\.\\.` to show where the warning was created\\)\\n)|(?:\\(node:\\d+\\) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\\n\\(Use `node --trace-warnings \\.\\.\\.` to show where the warning was created\\)\\n))?file:///[^\\n]+inspector\\.js:\\d+\\n  const wrapped = new Error\\(details\\.message, \\{ cause: error \\}\\);\\n +\\^\\n\\nError: Invalid hapi-openclaw config: hapiBaseUrl must be a non-empty string\\n(?:    at [^\\n]+\\n|    \\.\\.\\. \\d+ lines matching cause stack trace \\.\\.\\.\\n)+  failureClass: 'registration-execution-error',\\n  \\[cause\\]: Error: Invalid hapi-openclaw config: hapiBaseUrl must be a non-empty string\\n(?:      at [^\\n]+\\n)+\\}\\n\\nNode\\.js v\\d+\\.\\d+\\.\\d+\\s*$",
             "reason": "published HAPI plugin synthetic probe requires the same operator configuration"
           }
         ]

@@ -35,6 +35,34 @@ for (const [fixtureId, blockerId] of [
 }
 
 
+test("HAPI synthetic blocker retains Node's exact TypeScript warning preamble", async () => {
+  const manifest = await readManifest();
+  const rules = manifest.fixtures.find((fixture) => fixture.id === "hapi-openclaw").execution.blockedFailures;
+  const output = await readFile(new URL("./fixtures/hapi-openclaw-synthetic-error.txt", import.meta.url), "utf8");
+  const classify = (failureOutput, extra = {}, kind = "synthetic-probe") =>
+    classifyWorkspaceStepResult({ exitCode: 1, failureOutput, ...extra }, { kind }, rules);
+  const withoutWarning = output.split("\n").slice(2).join("\n");
+  const deprecationWarning = "(node:4376) [DEP0205] DeprecationWarning: old API\n" +
+    "(Use `node --trace-deprecation ...` to show where the warning was created)\n";
+  for (const observed of [output, withoutWarning, deprecationWarning + withoutWarning]) {
+    const result = classify(observed);
+    assert.equal(result.exitCode, 0);
+    assert.equal(result.rawExitCode, 1);
+    assert.equal(result.blockedBy, "hapi-openclaw-required-config-synthetic");
+  }
+  for (const unexpected of [
+    output.replace("stripTypeScriptTypes", "unrelatedFeature"),
+    `Error: unrelated failure\n${output}`,
+    `${output}Error: unrelated failure\n`,
+    output.replaceAll("hapiBaseUrl", "otherConfig"),
+    output.replaceAll("registration-execution-error", "entrypoint-import-error"),
+    output.replace("  failureClass:", "  unrelatedField: true,\n  failureClass:"),
+  ]) assert.equal(classify(unexpected).exitCode, 1);
+  assert.equal(classify(output, { timedOut: true }).exitCode, 1);
+  assert.equal(classify(output, { exitCode: 2 }).exitCode, 2);
+  assert.equal(classify(output, {}, "install").exitCode, 1);
+});
+
 test("TencentDB synthetic blocker retains Node's exact TypeScript warning preamble", async () => {
   const manifest = await readManifest();
   const rules = manifest.fixtures.find((fixture) => fixture.id === "memory-tencentdb").execution.blockedFailures;
