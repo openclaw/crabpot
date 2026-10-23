@@ -153,29 +153,34 @@ source and published-package pins both include this API in Inspector 0.4.0.
 
 ### Inspector retirement notice smoke
 
-Source mode and the published 0.4.3 package support retirement notices. Add
+Source mode and the published 0.4.4 package support retirement notices. Add
 `--retirements` with an explicit
 `CRABPOT_PLUGIN_INSPECTOR_DIR` to verify a synthetic deprecated SQLite member
 through the package's public API. Source, packed, and published-package CI smoke assert
 `deprecatedApi`, `replacement`, and `removeAfter: "2026-12-31"`, the final
 compatibility day, in a non-blocking author-facing warning, using both a source
 registry and a ClawHub-style declaration-only OpenClaw target. The default smoke
-uses the published `@openclaw/plugin-inspector@0.4.3` package; set
+uses the published `@openclaw/plugin-inspector@0.4.4` package; set
 `CRABPOT_PLUGIN_INSPECTOR_CLI=source` to exercise the pinned source instead.
 
-The pinned source only prescribes a packed host migration when all replacement
+Both pins only prescribe a packed host migration when all replacement
 APIs appear in that host's public SDK declarations. The synthetic packed fixture
 explicitly declares the SQLite replacement so applicable notices stay covered.
 
 ### Inspector profile failure diagnostics
 
 Runtime profiles use reviewed Inspector source
-`c9f7110819b2cd78a319eb6d5cd4a6f31c202b38`. This source-only advancement preserves
+`f08d12970e623581219259fabfdaa7a039e830b1`. Both this source and the published
+`@openclaw/plugin-inspector@0.4.4` package preserve
 bounded stdout/stderr and explicit truncation metadata for failed process
 samples in JSON artifacts, including errors hidden by a Node version footer.
-The npm pin remains `@openclaw/plugin-inspector@0.4.3` and does not contain this
-diagnostic change. Raw output is not automatically redacted; use credential-free
+Raw output is not automatically redacted; use credential-free
 workloads and review diagnostics before sharing them publicly.
+
+The source pin also excludes implementation-only imports from mixed inferred
+host facades, preventing the development corpus from exhausting its 2 GiB heap.
+Public type declarations and inference remain covered; the package pin does not
+yet include this source-only memory fix.
 
 ### Inspector resource contract smoke
 

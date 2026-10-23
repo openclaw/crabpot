@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for OpenClaw Brave plugin.",
   "dependencies": {
-    "@openclaw/brave-plugin": "2026.10.3"
+    "@openclaw/brave-plugin": "2026.10.5"
   },
   "crabpot": {
     "fixture": "brave-plugin",
@@ -12,6 +12,6 @@
     "package": "@openclaw/brave-plugin",
     "sourceRepo": "https://github.com/openclaw/openclaw.git",
     "sourcePath": "extensions/brave",
-    "sourceRef": "59cb44796b0f1f0daa0e37af8b1495abb45d9bc1"
+    "sourceRef": "1b58cb9a1b4f4353e1add63c8506db4d890962e8"
   }
 }
