@@ -3,8 +3,8 @@ name: Track Dashboard
 on:
   schedule:
     # Development follows OpenClaw main, so refresh it often enough to catch
-    # contract drift. The job usually finishes in a few minutes; concurrency
-    # below keeps slower runs from stacking up.
+    # contract drift. Runs can outlast this cadence; concurrency retains only
+    # the newest pending refresh without interrupting the active scheduled run.
     - cron: "7,22,37,52 * * * *"
   workflow_dispatch:
     inputs:
@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     concurrency:
       group: crabpot-track-dashboard-${{ github.event_name == 'workflow_dispatch' && 'manual' || 'schedule' }}-${{ github.event_name == 'workflow_dispatch' && inputs.track || matrix.track }}-${{ matrix.track }}
-      cancel-in-progress: true
+      cancel-in-progress: ${{ github.event_name == 'workflow_dispatch' }}
     strategy:
       fail-fast: false
       matrix:
