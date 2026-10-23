@@ -78,6 +78,11 @@ prescribing a core compatibility repair.
 
 ## CI model
 
+Scheduled development-dashboard refreshes keep the active run and only the newest
+pending run. This prevents the 15-minute schedule from repeatedly canceling a
+longer refresh. Manual refreshes use separate concurrency groups and still
+supersede earlier manual runs for the same selection.
+
 Dependabot refreshes merge the current base and update its pinned submodules
 before resolving the OpenClaw host. Report generation uses the same plugin
 track as required CI: latest, beta, or source-packed development fixtures.

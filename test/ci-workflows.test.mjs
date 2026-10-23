@@ -201,7 +201,7 @@ test("track dashboard workflow refreshes branch dashboards by OpenClaw track", a
   assert.match(workflow, /crabpot-track-dashboard-\$\{\{ github\.event_name == 'workflow_dispatch' && 'manual' \|\| 'schedule' \}\}-/);
   assert.match(workflow, /github\.event_name == 'workflow_dispatch' && inputs\.track \|\| matrix\.track \}\}-\$\{\{ matrix\.track \}\}/);
   assert.doesNotMatch(workflow, /inputs\.track == 'all' && matrix\.track \|\| inputs\.track/);
-  assert.match(workflow, /cancel-in-progress: true/);
+  assert.match(workflow, /cancel-in-progress: \$\{\{ github\.event_name == 'workflow_dispatch' \}\}/);
   assert.match(workflow, /workflow_dispatch:/);
   assert.match(workflow, /track:/);
   assert.match(workflow, /branch: crab-beta/);

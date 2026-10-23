@@ -2,6 +2,8 @@
 
 ## 0.2.2 - Unreleased
 
+- Let scheduled development-dashboard refreshes finish when they outlast the polling cadence, retaining only the newest pending refresh; explicit manual refreshes still supersede older manual runs.
+
 - Preserve HAPI's documented missing-configuration blocker when Node prints its TypeScript warning, while rejecting unrelated errors and incomplete diagnostics.
 
 - Restore development-dashboard corpus checks with reviewed Inspector source that excludes implementation-only host type graphs, retaining inferred declarations and the 2 GiB heap limit; read current host hook metadata and adopt published Inspector 0.4.4 for package smoke checks.
