@@ -332,7 +332,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tool-build-CoMf7IKx.mjs:267
+    - openclaw/plugin-sdk/agent-harness @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tool-build-DjbDZzOJ.mjs:267
   - author remediation:
     - openclaw/plugin-sdk/agent-harness is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -341,7 +341,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/attempt-client-cleanup-TScCVTsk.mjs:8
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/attempt-client-cleanup-BVww-ct8.mjs:8
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -359,7 +359,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/attempt-workspace-context-Cr3mI4vp.mjs:5
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/attempt-workspace-context-BkA0W8Jy.mjs:5
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -377,7 +377,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/client-BpSxNz4F.mjs:21
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/client-Div-zqnz.mjs:21
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -386,7 +386,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/command-rpc-DpmvEmhc.mjs:18
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/command-rpc-Co0UzT-T.mjs:18
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -395,7 +395,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/compact-DpCHUqU5.mjs:27
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/compact-CzNBg4cQ.mjs:27
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -404,7 +404,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/config-G4IGX6bK.mjs:8
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/config-LQemoqTL.mjs:8
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -431,7 +431,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/conversation-binding-BCoWi2Kn.mjs:31
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/conversation-binding-Dcv7_rs-.mjs:31
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -440,7 +440,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tool-build-CoMf7IKx.mjs:11
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tool-build-DjbDZzOJ.mjs:11
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -449,7 +449,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tools-CKynHtxM.mjs:36
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tools-75qoSOch.mjs:36
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -458,7 +458,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/effective-mcp-catalog-DXGsGC1j.mjs:7
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/effective-mcp-catalog-Dz0J8iAj.mjs:7
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -485,7 +485,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/mcp-app-session-preparation-Cnmuh9RT.mjs:16
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/mcp-app-session-preparation-C7LyxbAm.mjs:16
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -494,7 +494,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/native-mcp-app-DIheNk35.mjs:9
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/native-mcp-app-DDEtVQED.mjs:9
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -503,7 +503,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/native-skill-isolation-CxZRtiWZ.mjs:12
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/native-skill-isolation-Cx2AkUco.mjs:12
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -512,7 +512,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/native-subagent-monitor-gqu3TQOv.mjs:22
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/native-subagent-monitor-CBYFkNsB.mjs:22
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -521,7 +521,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/plugin-inventory-kLR7G02h.mjs:3
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/plugin-inventory-OhiCoyPH.mjs:3
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -530,7 +530,16 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/project-doc-thread-config-B2ZD23A_.mjs:9
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/project-doc-thread-config-D_sWbxFR.mjs:9
+  - author remediation:
+    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
+    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
+
+- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
+  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
+  - state: open · compat:deprecated · deprecated
+  - evidence:
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/run-attempt-Ch1emiZE.mjs:80
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -540,15 +549,6 @@ _none_
   - state: open · compat:deprecated · deprecated
   - evidence:
     - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/run-attempt-lifecycle-DN-ATDp9.mjs:4
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/run-attempt-WbitbMr6.mjs:80
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -575,7 +575,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/shared-client-wb1JBldZ.mjs:34
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/shared-client-CNGDTv68.mjs:34
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -584,7 +584,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/side-question-DNEeROvz.mjs:33
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/side-question-D1Wa21s9.mjs:33
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -593,7 +593,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/thread-lifecycle-run-DdwKMIae.mjs:45
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/thread-lifecycle-run-DjSfTw6v.mjs:45
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -602,7 +602,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/thread-policy-BMRvlOi-.mjs:5
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/thread-policy-BEiS7ITh.mjs:5
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -611,7 +611,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/thread-requests-BqPhA4Gs.mjs:12
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/thread-requests-DjyDmCo4.mjs:12
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -629,7 +629,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/turn-router-DdlzuFdm.mjs:8
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/turn-router-DM0fRrYI.mjs:8
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -638,7 +638,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/upstream-session-fork-BF0c69x6.mjs:38
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/upstream-session-fork-CxgShpwe.mjs:38
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -647,7 +647,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/usage-limit-error-hLIGKewV.mjs:7
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/usage-limit-error-ryR1PGou.mjs:7
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -665,7 +665,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/auth-profile-health-oHizqgye.mjs:8
+    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/auth-profile-health-B05o5BAm.mjs:8
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -674,7 +674,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/command-handlers-C2XNDeHL.mjs:45
+    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/command-handlers-CJqo6LZS.mjs:45
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -683,7 +683,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/command-rpc-DpmvEmhc.mjs:17
+    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/command-rpc-Co0UzT-T.mjs:17
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -692,7 +692,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/compact-DpCHUqU5.mjs:26
+    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/compact-CzNBg4cQ.mjs:26
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -701,7 +701,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/conversation-binding-BCoWi2Kn.mjs:30
+    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/conversation-binding-Dcv7_rs-.mjs:30
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -710,7 +710,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/conversation-control--OHH2dHA.mjs:8
+    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/conversation-control-BtPxevoK.mjs:8
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -719,7 +719,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/doctor-start-options-DedLaoqI.mjs:7
+    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/doctor-start-options-C28ek2hD.mjs:7
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -728,7 +728,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tool-build-CoMf7IKx.mjs:10
+    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tool-build-DjbDZzOJ.mjs:10
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -737,7 +737,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/plan-DZWYASAx.mjs:13
+    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/plan-BKFbfVsV.mjs:13
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -755,7 +755,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/run-attempt-WbitbMr6.mjs:79
+    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/run-attempt-Ch1emiZE.mjs:79
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -764,7 +764,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/shared-client-wb1JBldZ.mjs:33
+    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/shared-client-CNGDTv68.mjs:33
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -773,7 +773,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/side-question-DNEeROvz.mjs:32
+    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/side-question-D1Wa21s9.mjs:32
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -782,7 +782,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/thread-lifecycle-run-DdwKMIae.mjs:44
+    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/thread-lifecycle-run-DjSfTw6v.mjs:44
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -791,7 +791,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/upstream-session-fork-BF0c69x6.mjs:37
+    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/upstream-session-fork-CxgShpwe.mjs:37
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -800,7 +800,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/usage-BsMyAOaB.mjs:5
+    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/usage-DV8T9Yau.mjs:5
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -809,7 +809,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/usage-limit-error-hLIGKewV.mjs:6
+    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/usage-limit-error-ryR1PGou.mjs:6
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -818,7 +818,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tools-CKynHtxM.mjs:45
+    - openclaw/plugin-sdk/media-runtime @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tools-75qoSOch.mjs:45
   - author remediation:
     - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -827,7 +827,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/codex/.crabpot-package/dist/.setup/run-attempt-WbitbMr6.mjs:94
+    - openclaw/plugin-sdk/media-runtime @ plugins/codex/.crabpot-package/dist/.setup/run-attempt-Ch1emiZE.mjs:94
   - author remediation:
     - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -836,7 +836,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/plugin-runtime @ plugins/codex/.crabpot-package/dist/.setup/thread-requests-BqPhA4Gs.mjs:13
+    - openclaw/plugin-sdk/plugin-runtime @ plugins/codex/.crabpot-package/dist/.setup/thread-requests-DjyDmCo4.mjs:13
   - author remediation:
     - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -845,7 +845,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tools-CKynHtxM.mjs:39
+    - openclaw/plugin-sdk/security-runtime @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tools-75qoSOch.mjs:39
   - author remediation:
     - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -854,7 +854,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/codex/.crabpot-package/dist/.setup/plan-DZWYASAx.mjs:15
+    - openclaw/plugin-sdk/security-runtime @ plugins/codex/.crabpot-package/dist/.setup/plan-BKFbfVsV.mjs:15
   - author remediation:
     - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -872,7 +872,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/codex/.crabpot-package/dist/.setup/shared-client-wb1JBldZ.mjs:37
+    - openclaw/plugin-sdk/security-runtime @ plugins/codex/.crabpot-package/dist/.setup/shared-client-CNGDTv68.mjs:37
   - author remediation:
     - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -881,7 +881,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/codex/.crabpot-package/dist/.setup/source-BjBw-zoV.mjs:12
+    - openclaw/plugin-sdk/security-runtime @ plugins/codex/.crabpot-package/dist/.setup/source-DyVuYlTN.mjs:12
   - author remediation:
     - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -998,7 +998,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/discord/.crabpot-package/dist/.setup/handle-action-CsQmpfGZ.mjs:15
+    - openclaw/plugin-sdk/agent-runtime @ plugins/discord/.crabpot-package/dist/.setup/handle-action-B4l4tVxj.mjs:15
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -1007,7 +1007,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-_np9if7z.mjs:38
+    - openclaw/plugin-sdk/agent-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-DOszdJgB.mjs:38
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -1016,7 +1016,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-CbmXLYrW.mjs:71
+    - openclaw/plugin-sdk/agent-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-B9drnVwM.mjs:71
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -1025,7 +1025,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/channel-C24afwHP.mjs:35
+    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/channel-1Z1mnB_P.mjs:35
   - author remediation:
     - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -1034,7 +1034,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-_np9if7z.mjs:35
+    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-DOszdJgB.mjs:35
   - author remediation:
     - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -1043,7 +1043,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-CbmXLYrW.mjs:63
+    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-B9drnVwM.mjs:63
   - author remediation:
     - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -1052,7 +1052,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-CbmXLYrW.mjs:7145
+    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-B9drnVwM.mjs:7145
   - author remediation:
     - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -1061,7 +1061,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-session.runtime-BMOuDbod.mjs:4
+    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-session.runtime-1LmRZB68.mjs:4
   - author remediation:
     - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -1079,7 +1079,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/thread-bindings-0hPTSK14.mjs:8
+    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/thread-bindings-Blhv7XV8.mjs:8
   - author remediation:
     - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -1088,7 +1088,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/thread-bindings.manager-CdNa6UIs.mjs:18
+    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/thread-bindings.manager-Cqml5pUh.mjs:18
   - author remediation:
     - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -1097,7 +1097,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler-C_BQFYCW.mjs:12
+    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler-BbwzASGH.mjs:12
   - author remediation:
     - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -1106,7 +1106,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-_np9if7z.mjs:25
+    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-DOszdJgB.mjs:25
   - author remediation:
     - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -1115,7 +1115,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-CbmXLYrW.mjs:36
+    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-B9drnVwM.mjs:36
   - author remediation:
     - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -1133,7 +1133,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/send-DbILKgcm.mjs:13
+    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/send-DXma62sY.mjs:13
   - author remediation:
     - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -1160,7 +1160,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/voice-runtime-BFEBhf2B.mjs:16
+    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/voice-runtime-CI7JBfeA.mjs:16
   - author remediation:
     - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -1169,7 +1169,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/plugin-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-_np9if7z.mjs:41
+    - openclaw/plugin-sdk/plugin-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-DOszdJgB.mjs:41
   - author remediation:
     - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -1178,7 +1178,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/plugin-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-CbmXLYrW.mjs:90
+    - openclaw/plugin-sdk/plugin-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-B9drnVwM.mjs:90
   - author remediation:
     - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -1196,7 +1196,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-_np9if7z.mjs:34
+    - openclaw/plugin-sdk/security-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-DOszdJgB.mjs:34
   - author remediation:
     - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -1205,7 +1205,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-CbmXLYrW.mjs:58
+    - openclaw/plugin-sdk/security-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-B9drnVwM.mjs:58
   - author remediation:
     - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -1214,7 +1214,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/discord/.crabpot-package/dist/.setup/send-DbILKgcm.mjs:26
+    - openclaw/plugin-sdk/security-runtime @ plugins/discord/.crabpot-package/dist/.setup/send-DXma62sY.mjs:26
   - author remediation:
     - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -1223,7 +1223,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - resolveRuntimeConversationBindingRoute @ plugins/discord/.crabpot-package/dist/.setup/conversation-binding-route-r4XyytCE.mjs:3
+    - resolveRuntimeConversationBindingRoute @ plugins/discord/.crabpot-package/dist/.setup/conversation-binding-route-Dhxicw2Z.mjs:3
   - author remediation:
     - resolveRuntimeConversationBindingRoute is deprecated; Await getSessionBindingService().inspectByConversationAsync, resolveByConversationAsync, touchAsync, resolveRuntimeConversationBindingRouteAsync, and the Async-suffixed thread-binding lifecycle setters. Project prepared inspection facts with inspectRuntimeConversationBindingRoute. Async dispatch retains an explicit synchronous fallback for legacy external adapters; remaining bind/unbind and other storage operations are separate migration work.
     - docs: https://docs.openclaw.ai/plugins/sdk-runtime/channel#awaited-conversation-binding-mutations
@@ -1869,7 +1869,7 @@ _none_
   - **sdk-deprecated-api**: tlon: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/tlon/.crabpot-package/dist/.setup/channel.runtime-U0WASXdh.mjs:13
+    - openclaw/plugin-sdk/agent-runtime @ plugins/tlon/.crabpot-package/dist/.setup/channel.runtime-BuDLFazV.mjs:13
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -1878,7 +1878,7 @@ _none_
   - **sdk-deprecated-api**: tlon: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/tlon/.crabpot-package/dist/.setup/channel.runtime-U0WASXdh.mjs:22
+    - openclaw/plugin-sdk/media-runtime @ plugins/tlon/.crabpot-package/dist/.setup/channel.runtime-BuDLFazV.mjs:22
   - author remediation:
     - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -1950,7 +1950,7 @@ _none_
   - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DoUaWcPF.mjs:56
+    - openclaw/plugin-sdk/agent-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DVzumwCI.mjs:56
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -1977,7 +1977,7 @@ _none_
   - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/approval-reaction-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-DjBm_r3f.mjs:27
+    - openclaw/plugin-sdk/approval-reaction-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-D-6ZIq4y.mjs:27
   - author remediation:
     - openclaw/plugin-sdk/approval-reaction-runtime retires on Oct 1, 2026; the focused replacement named by each TypeScript @deprecated annotation
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -1995,7 +1995,7 @@ _none_
   - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/cli-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-DjBm_r3f.mjs:17
+    - openclaw/plugin-sdk/cli-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-D-6ZIq4y.mjs:17
   - author remediation:
     - openclaw/plugin-sdk/cli-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -2013,7 +2013,7 @@ _none_
   - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/cli-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DoUaWcPF.mjs:20
+    - openclaw/plugin-sdk/cli-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DVzumwCI.mjs:20
   - author remediation:
     - openclaw/plugin-sdk/cli-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -2040,7 +2040,7 @@ _none_
   - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DoUaWcPF.mjs:50
+    - openclaw/plugin-sdk/conversation-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DVzumwCI.mjs:50
   - author remediation:
     - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -2049,7 +2049,7 @@ _none_
   - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/hook-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DoUaWcPF.mjs:61
+    - openclaw/plugin-sdk/hook-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DVzumwCI.mjs:61
   - author remediation:
     - openclaw/plugin-sdk/hook-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -2085,7 +2085,7 @@ _none_
   - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DoUaWcPF.mjs:28
+    - openclaw/plugin-sdk/media-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DVzumwCI.mjs:28
   - author remediation:
     - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -2121,7 +2121,7 @@ _none_
   - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/plugin-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DoUaWcPF.mjs:62
+    - openclaw/plugin-sdk/plugin-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DVzumwCI.mjs:62
   - author remediation:
     - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -2139,7 +2139,7 @@ _none_
   - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DoUaWcPF.mjs:35
+    - openclaw/plugin-sdk/security-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DVzumwCI.mjs:35
   - author remediation:
     - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -2222,8 +2222,8 @@ _none_
   - **sdk-export-missing**: codex: SDK import coverage requires an eligible host
   - state: open · compat:untracked
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-completion @ plugins/codex/.crabpot-package/dist/.setup/native-subagent-monitor-gqu3TQOv.mjs:24
-    - Host 2026.9.6 does not satisfy the declared plugin API range >=2026.10.5; recheck with an eligible host before assigning a core compatibility repair.
+    - openclaw/plugin-sdk/agent-harness-completion @ plugins/codex/.crabpot-package/dist/.setup/native-subagent-monitor-CBYFkNsB.mjs:24
+    - Host 2026.9.6 does not satisfy the declared plugin API range >=2026.10.6; recheck with an eligible host before assigning a core compatibility repair.
     - Unassessed SDK compatibility record: plugin-sdk-export-aliases
 
 - 🟠 P1 **dingtalk-doc** `inspector-gap` `inspector-follow-up`
@@ -2628,7 +2628,7 @@ _none_
   - **channel-contract-probe**: discord: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - createChatChannelPlugin @ plugins/discord/.crabpot-package/dist/.setup/channel-C24afwHP.mjs:477
+    - createChatChannelPlugin @ plugins/discord/.crabpot-package/dist/.setup/channel-1Z1mnB_P.mjs:477
 
 - 🟡 P2 **discord** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: discord: cold import requires dependency installation in an isolated workspace
@@ -3080,7 +3080,7 @@ _none_
   - **channel-contract-probe**: nostr: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - createChatChannelPlugin @ plugins/nostr/.crabpot-package/dist/.setup/channel-B_rRGVN_.mjs:1348
+    - createChatChannelPlugin @ plugins/nostr/.crabpot-package/dist/.setup/channel-okqFzt1Z.mjs:1350
 
 - 🟡 P2 **nostr** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: nostr: cold import requires dependency installation in an isolated workspace
@@ -3237,7 +3237,7 @@ _none_
   - **channel-contract-probe**: tlon: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - createChatChannelPlugin @ plugins/tlon/.crabpot-package/dist/.setup/channel-Dfri5oOT.mjs:138
+    - createChatChannelPlugin @ plugins/tlon/.crabpot-package/dist/.setup/channel-cZo0ECaC.mjs:138
 
 - 🟡 P2 **tlon** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: tlon: cold import requires dependency installation in an isolated workspace
@@ -3311,7 +3311,7 @@ _none_
   - **channel-contract-probe**: whatsapp: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - createChatChannelPlugin @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-DjBm_r3f.mjs:472
+    - createChatChannelPlugin @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-D-6ZIq4y.mjs:472
 
 - 🟡 P2 **whatsapp** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: whatsapp: cold import requires dependency installation in an isolated workspace
@@ -3843,8 +3843,8 @@ _none_
   - **sdk-export-missing**: codex: SDK import coverage requires an eligible host
   - state: open · compat:untracked
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-completion @ plugins/codex/.crabpot-package/dist/.setup/native-subagent-monitor-gqu3TQOv.mjs:24
-    - Host 2026.9.6 does not satisfy the declared plugin API range >=2026.10.5; recheck with an eligible host before assigning a core compatibility repair.
+    - openclaw/plugin-sdk/agent-harness-completion @ plugins/codex/.crabpot-package/dist/.setup/native-subagent-monitor-CBYFkNsB.mjs:24
+    - Host 2026.9.6 does not satisfy the declared plugin API range >=2026.10.6; recheck with an eligible host before assigning a core compatibility repair.
     - Unassessed SDK compatibility record: plugin-sdk-export-aliases
 
 - 🟠 P1 **connectclaw** `compat-gap` `core-compat-adapter`
@@ -4390,7 +4390,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tool-build-CoMf7IKx.mjs:267
+    - openclaw/plugin-sdk/agent-harness @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tool-build-DjbDZzOJ.mjs:267
   - author remediation:
     - openclaw/plugin-sdk/agent-harness is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -4399,7 +4399,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/attempt-client-cleanup-TScCVTsk.mjs:8
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/attempt-client-cleanup-BVww-ct8.mjs:8
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -4417,7 +4417,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/attempt-workspace-context-Cr3mI4vp.mjs:5
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/attempt-workspace-context-BkA0W8Jy.mjs:5
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -4435,7 +4435,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/client-BpSxNz4F.mjs:21
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/client-Div-zqnz.mjs:21
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -4444,7 +4444,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/command-rpc-DpmvEmhc.mjs:18
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/command-rpc-Co0UzT-T.mjs:18
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -4453,7 +4453,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/compact-DpCHUqU5.mjs:27
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/compact-CzNBg4cQ.mjs:27
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -4462,7 +4462,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/config-G4IGX6bK.mjs:8
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/config-LQemoqTL.mjs:8
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -4489,7 +4489,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/conversation-binding-BCoWi2Kn.mjs:31
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/conversation-binding-Dcv7_rs-.mjs:31
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -4498,7 +4498,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tool-build-CoMf7IKx.mjs:11
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tool-build-DjbDZzOJ.mjs:11
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -4507,7 +4507,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tools-CKynHtxM.mjs:36
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tools-75qoSOch.mjs:36
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -4516,7 +4516,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/effective-mcp-catalog-DXGsGC1j.mjs:7
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/effective-mcp-catalog-Dz0J8iAj.mjs:7
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -4543,7 +4543,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/mcp-app-session-preparation-Cnmuh9RT.mjs:16
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/mcp-app-session-preparation-C7LyxbAm.mjs:16
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -4552,7 +4552,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/native-mcp-app-DIheNk35.mjs:9
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/native-mcp-app-DDEtVQED.mjs:9
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -4561,7 +4561,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/native-skill-isolation-CxZRtiWZ.mjs:12
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/native-skill-isolation-Cx2AkUco.mjs:12
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -4570,7 +4570,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/native-subagent-monitor-gqu3TQOv.mjs:22
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/native-subagent-monitor-CBYFkNsB.mjs:22
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -4579,7 +4579,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/plugin-inventory-kLR7G02h.mjs:3
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/plugin-inventory-OhiCoyPH.mjs:3
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -4588,7 +4588,16 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/project-doc-thread-config-B2ZD23A_.mjs:9
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/project-doc-thread-config-D_sWbxFR.mjs:9
+  - author remediation:
+    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
+    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
+
+- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
+  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
+  - state: open · compat:deprecated · deprecated
+  - evidence:
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/run-attempt-Ch1emiZE.mjs:80
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -4598,15 +4607,6 @@ _none_
   - state: open · compat:deprecated · deprecated
   - evidence:
     - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/run-attempt-lifecycle-DN-ATDp9.mjs:4
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/run-attempt-WbitbMr6.mjs:80
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -4633,7 +4633,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/shared-client-wb1JBldZ.mjs:34
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/shared-client-CNGDTv68.mjs:34
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -4642,7 +4642,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/side-question-DNEeROvz.mjs:33
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/side-question-D1Wa21s9.mjs:33
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -4651,7 +4651,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/thread-lifecycle-run-DdwKMIae.mjs:45
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/thread-lifecycle-run-DjSfTw6v.mjs:45
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -4660,7 +4660,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/thread-policy-BMRvlOi-.mjs:5
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/thread-policy-BEiS7ITh.mjs:5
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -4669,7 +4669,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/thread-requests-BqPhA4Gs.mjs:12
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/thread-requests-DjyDmCo4.mjs:12
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -4687,7 +4687,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/turn-router-DdlzuFdm.mjs:8
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/turn-router-DM0fRrYI.mjs:8
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -4696,7 +4696,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/upstream-session-fork-BF0c69x6.mjs:38
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/upstream-session-fork-CxgShpwe.mjs:38
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -4705,7 +4705,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/usage-limit-error-hLIGKewV.mjs:7
+    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/usage-limit-error-ryR1PGou.mjs:7
   - author remediation:
     - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
     - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
@@ -4723,7 +4723,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/auth-profile-health-oHizqgye.mjs:8
+    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/auth-profile-health-B05o5BAm.mjs:8
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -4732,7 +4732,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/command-handlers-C2XNDeHL.mjs:45
+    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/command-handlers-CJqo6LZS.mjs:45
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -4741,7 +4741,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/command-rpc-DpmvEmhc.mjs:17
+    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/command-rpc-Co0UzT-T.mjs:17
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -4750,7 +4750,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/compact-DpCHUqU5.mjs:26
+    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/compact-CzNBg4cQ.mjs:26
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -4759,7 +4759,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/conversation-binding-BCoWi2Kn.mjs:30
+    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/conversation-binding-Dcv7_rs-.mjs:30
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -4768,7 +4768,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/conversation-control--OHH2dHA.mjs:8
+    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/conversation-control-BtPxevoK.mjs:8
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -4777,7 +4777,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/doctor-start-options-DedLaoqI.mjs:7
+    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/doctor-start-options-C28ek2hD.mjs:7
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -4786,7 +4786,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tool-build-CoMf7IKx.mjs:10
+    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tool-build-DjbDZzOJ.mjs:10
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -4795,7 +4795,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/plan-DZWYASAx.mjs:13
+    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/plan-BKFbfVsV.mjs:13
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -4813,7 +4813,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/run-attempt-WbitbMr6.mjs:79
+    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/run-attempt-Ch1emiZE.mjs:79
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -4822,7 +4822,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/shared-client-wb1JBldZ.mjs:33
+    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/shared-client-CNGDTv68.mjs:33
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -4831,7 +4831,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/side-question-DNEeROvz.mjs:32
+    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/side-question-D1Wa21s9.mjs:32
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -4840,7 +4840,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/thread-lifecycle-run-DdwKMIae.mjs:44
+    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/thread-lifecycle-run-DjSfTw6v.mjs:44
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -4849,7 +4849,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/upstream-session-fork-BF0c69x6.mjs:37
+    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/upstream-session-fork-CxgShpwe.mjs:37
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -4858,7 +4858,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/usage-BsMyAOaB.mjs:5
+    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/usage-DV8T9Yau.mjs:5
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -4867,7 +4867,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/usage-limit-error-hLIGKewV.mjs:6
+    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/usage-limit-error-ryR1PGou.mjs:6
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -4876,7 +4876,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tools-CKynHtxM.mjs:45
+    - openclaw/plugin-sdk/media-runtime @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tools-75qoSOch.mjs:45
   - author remediation:
     - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -4885,7 +4885,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/codex/.crabpot-package/dist/.setup/run-attempt-WbitbMr6.mjs:94
+    - openclaw/plugin-sdk/media-runtime @ plugins/codex/.crabpot-package/dist/.setup/run-attempt-Ch1emiZE.mjs:94
   - author remediation:
     - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -4894,7 +4894,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/plugin-runtime @ plugins/codex/.crabpot-package/dist/.setup/thread-requests-BqPhA4Gs.mjs:13
+    - openclaw/plugin-sdk/plugin-runtime @ plugins/codex/.crabpot-package/dist/.setup/thread-requests-DjyDmCo4.mjs:13
   - author remediation:
     - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -4903,7 +4903,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tools-CKynHtxM.mjs:39
+    - openclaw/plugin-sdk/security-runtime @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tools-75qoSOch.mjs:39
   - author remediation:
     - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -4912,7 +4912,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/codex/.crabpot-package/dist/.setup/plan-DZWYASAx.mjs:15
+    - openclaw/plugin-sdk/security-runtime @ plugins/codex/.crabpot-package/dist/.setup/plan-BKFbfVsV.mjs:15
   - author remediation:
     - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -4930,7 +4930,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/codex/.crabpot-package/dist/.setup/shared-client-wb1JBldZ.mjs:37
+    - openclaw/plugin-sdk/security-runtime @ plugins/codex/.crabpot-package/dist/.setup/shared-client-CNGDTv68.mjs:37
   - author remediation:
     - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -4939,7 +4939,7 @@ _none_
   - **sdk-deprecated-api**: codex: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/codex/.crabpot-package/dist/.setup/source-BjBw-zoV.mjs:12
+    - openclaw/plugin-sdk/security-runtime @ plugins/codex/.crabpot-package/dist/.setup/source-DyVuYlTN.mjs:12
   - author remediation:
     - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -5306,7 +5306,7 @@ _none_
   - **channel-contract-probe**: discord: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - createChatChannelPlugin @ plugins/discord/.crabpot-package/dist/.setup/channel-C24afwHP.mjs:477
+    - createChatChannelPlugin @ plugins/discord/.crabpot-package/dist/.setup/channel-1Z1mnB_P.mjs:477
 
 - 🟡 P2 **discord** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: discord: cold import requires dependency installation in an isolated workspace
@@ -5333,7 +5333,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/discord/.crabpot-package/dist/.setup/handle-action-CsQmpfGZ.mjs:15
+    - openclaw/plugin-sdk/agent-runtime @ plugins/discord/.crabpot-package/dist/.setup/handle-action-B4l4tVxj.mjs:15
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -5342,7 +5342,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-_np9if7z.mjs:38
+    - openclaw/plugin-sdk/agent-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-DOszdJgB.mjs:38
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -5351,7 +5351,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-CbmXLYrW.mjs:71
+    - openclaw/plugin-sdk/agent-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-B9drnVwM.mjs:71
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -5360,7 +5360,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/channel-C24afwHP.mjs:35
+    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/channel-1Z1mnB_P.mjs:35
   - author remediation:
     - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -5369,7 +5369,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-_np9if7z.mjs:35
+    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-DOszdJgB.mjs:35
   - author remediation:
     - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -5378,7 +5378,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-CbmXLYrW.mjs:63
+    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-B9drnVwM.mjs:63
   - author remediation:
     - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -5387,7 +5387,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-CbmXLYrW.mjs:7145
+    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-B9drnVwM.mjs:7145
   - author remediation:
     - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -5396,7 +5396,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-session.runtime-BMOuDbod.mjs:4
+    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-session.runtime-1LmRZB68.mjs:4
   - author remediation:
     - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -5414,7 +5414,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/thread-bindings-0hPTSK14.mjs:8
+    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/thread-bindings-Blhv7XV8.mjs:8
   - author remediation:
     - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -5423,7 +5423,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/thread-bindings.manager-CdNa6UIs.mjs:18
+    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/thread-bindings.manager-Cqml5pUh.mjs:18
   - author remediation:
     - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -5432,7 +5432,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler-C_BQFYCW.mjs:12
+    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler-BbwzASGH.mjs:12
   - author remediation:
     - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -5441,7 +5441,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-_np9if7z.mjs:25
+    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-DOszdJgB.mjs:25
   - author remediation:
     - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -5450,7 +5450,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-CbmXLYrW.mjs:36
+    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-B9drnVwM.mjs:36
   - author remediation:
     - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -5468,7 +5468,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/send-DbILKgcm.mjs:13
+    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/send-DXma62sY.mjs:13
   - author remediation:
     - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -5495,7 +5495,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/voice-runtime-BFEBhf2B.mjs:16
+    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/voice-runtime-CI7JBfeA.mjs:16
   - author remediation:
     - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -5504,7 +5504,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/plugin-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-_np9if7z.mjs:41
+    - openclaw/plugin-sdk/plugin-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-DOszdJgB.mjs:41
   - author remediation:
     - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -5513,7 +5513,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/plugin-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-CbmXLYrW.mjs:90
+    - openclaw/plugin-sdk/plugin-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-B9drnVwM.mjs:90
   - author remediation:
     - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -5531,7 +5531,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-_np9if7z.mjs:34
+    - openclaw/plugin-sdk/security-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-DOszdJgB.mjs:34
   - author remediation:
     - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -5540,7 +5540,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-CbmXLYrW.mjs:58
+    - openclaw/plugin-sdk/security-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-B9drnVwM.mjs:58
   - author remediation:
     - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -5549,7 +5549,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/discord/.crabpot-package/dist/.setup/send-DbILKgcm.mjs:26
+    - openclaw/plugin-sdk/security-runtime @ plugins/discord/.crabpot-package/dist/.setup/send-DXma62sY.mjs:26
   - author remediation:
     - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -5558,7 +5558,7 @@ _none_
   - **sdk-deprecated-api**: discord: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - resolveRuntimeConversationBindingRoute @ plugins/discord/.crabpot-package/dist/.setup/conversation-binding-route-r4XyytCE.mjs:3
+    - resolveRuntimeConversationBindingRoute @ plugins/discord/.crabpot-package/dist/.setup/conversation-binding-route-Dhxicw2Z.mjs:3
   - author remediation:
     - resolveRuntimeConversationBindingRoute is deprecated; Await getSessionBindingService().inspectByConversationAsync, resolveByConversationAsync, touchAsync, resolveRuntimeConversationBindingRouteAsync, and the Async-suffixed thread-binding lifecycle setters. Project prepared inspection facts with inspectRuntimeConversationBindingRoute. Async dispatch retains an explicit synchronous fallback for legacy external adapters; remaining bind/unbind and other storage operations are separate migration work.
     - docs: https://docs.openclaw.ai/plugins/sdk-runtime/channel#awaited-conversation-binding-mutations
@@ -6630,7 +6630,7 @@ _none_
   - **channel-contract-probe**: nostr: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - createChatChannelPlugin @ plugins/nostr/.crabpot-package/dist/.setup/channel-B_rRGVN_.mjs:1348
+    - createChatChannelPlugin @ plugins/nostr/.crabpot-package/dist/.setup/channel-okqFzt1Z.mjs:1350
 
 - 🟡 P2 **nostr** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: nostr: cold import requires dependency installation in an isolated workspace
@@ -6969,7 +6969,7 @@ _none_
   - **channel-contract-probe**: tlon: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - createChatChannelPlugin @ plugins/tlon/.crabpot-package/dist/.setup/channel-Dfri5oOT.mjs:138
+    - createChatChannelPlugin @ plugins/tlon/.crabpot-package/dist/.setup/channel-cZo0ECaC.mjs:138
 
 - 🟡 P2 **tlon** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: tlon: cold import requires dependency installation in an isolated workspace
@@ -6985,7 +6985,7 @@ _none_
   - **sdk-deprecated-api**: tlon: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/tlon/.crabpot-package/dist/.setup/channel.runtime-U0WASXdh.mjs:13
+    - openclaw/plugin-sdk/agent-runtime @ plugins/tlon/.crabpot-package/dist/.setup/channel.runtime-BuDLFazV.mjs:13
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -6994,7 +6994,7 @@ _none_
   - **sdk-deprecated-api**: tlon: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/tlon/.crabpot-package/dist/.setup/channel.runtime-U0WASXdh.mjs:22
+    - openclaw/plugin-sdk/media-runtime @ plugins/tlon/.crabpot-package/dist/.setup/channel.runtime-BuDLFazV.mjs:22
   - author remediation:
     - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -7133,7 +7133,7 @@ _none_
   - **channel-contract-probe**: whatsapp: channel runtime needs envelope/config probes
   - state: open · compat:active
   - evidence:
-    - createChatChannelPlugin @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-DjBm_r3f.mjs:472
+    - createChatChannelPlugin @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-D-6ZIq4y.mjs:472
 
 - 🟡 P2 **whatsapp** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: whatsapp: cold import requires dependency installation in an isolated workspace
@@ -7147,7 +7147,7 @@ _none_
   - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DoUaWcPF.mjs:56
+    - openclaw/plugin-sdk/agent-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DVzumwCI.mjs:56
   - author remediation:
     - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -7174,7 +7174,7 @@ _none_
   - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/approval-reaction-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-DjBm_r3f.mjs:27
+    - openclaw/plugin-sdk/approval-reaction-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-D-6ZIq4y.mjs:27
   - author remediation:
     - openclaw/plugin-sdk/approval-reaction-runtime retires on Oct 1, 2026; the focused replacement named by each TypeScript @deprecated annotation
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -7192,7 +7192,7 @@ _none_
   - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/cli-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-DjBm_r3f.mjs:17
+    - openclaw/plugin-sdk/cli-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-D-6ZIq4y.mjs:17
   - author remediation:
     - openclaw/plugin-sdk/cli-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -7210,7 +7210,7 @@ _none_
   - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/cli-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DoUaWcPF.mjs:20
+    - openclaw/plugin-sdk/cli-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DVzumwCI.mjs:20
   - author remediation:
     - openclaw/plugin-sdk/cli-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -7237,7 +7237,7 @@ _none_
   - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DoUaWcPF.mjs:50
+    - openclaw/plugin-sdk/conversation-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DVzumwCI.mjs:50
   - author remediation:
     - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -7246,7 +7246,7 @@ _none_
   - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/hook-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DoUaWcPF.mjs:61
+    - openclaw/plugin-sdk/hook-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DVzumwCI.mjs:61
   - author remediation:
     - openclaw/plugin-sdk/hook-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -7282,7 +7282,7 @@ _none_
   - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DoUaWcPF.mjs:28
+    - openclaw/plugin-sdk/media-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DVzumwCI.mjs:28
   - author remediation:
     - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -7318,7 +7318,7 @@ _none_
   - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/plugin-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DoUaWcPF.mjs:62
+    - openclaw/plugin-sdk/plugin-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DVzumwCI.mjs:62
   - author remediation:
     - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -7336,7 +7336,7 @@ _none_
   - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
   - state: open · compat:deprecated · deprecated
   - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DoUaWcPF.mjs:35
+    - openclaw/plugin-sdk/security-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DVzumwCI.mjs:35
   - author remediation:
     - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
     - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
@@ -7570,7 +7570,7 @@ _none_
   - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
   - id: `sdk.import.package-export-cold-import:codex`
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-completion @ plugins/codex/.crabpot-package/dist/.setup/native-subagent-monitor-gqu3TQOv.mjs:24
+    - openclaw/plugin-sdk/agent-harness-completion @ plugins/codex/.crabpot-package/dist/.setup/native-subagent-monitor-CBYFkNsB.mjs:24
 
 - 🟠 P1 **connectclaw** `sdk-alias`
   - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
@@ -8557,7 +8557,7 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:discord`
   - evidence:
-    - createChatChannelPlugin @ plugins/discord/.crabpot-package/dist/.setup/channel-C24afwHP.mjs:477
+    - createChatChannelPlugin @ plugins/discord/.crabpot-package/dist/.setup/channel-1Z1mnB_P.mjs:477
 
 - 🟢 P3 **feishu** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -8594,7 +8594,7 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:nostr`
   - evidence:
-    - createChatChannelPlugin @ plugins/nostr/.crabpot-package/dist/.setup/channel-B_rRGVN_.mjs:1348
+    - createChatChannelPlugin @ plugins/nostr/.crabpot-package/dist/.setup/channel-okqFzt1Z.mjs:1350
 
 - 🟢 P3 **telnyx-sms** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -8606,7 +8606,7 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:tlon`
   - evidence:
-    - createChatChannelPlugin @ plugins/tlon/.crabpot-package/dist/.setup/channel-Dfri5oOT.mjs:138
+    - createChatChannelPlugin @ plugins/tlon/.crabpot-package/dist/.setup/channel-cZo0ECaC.mjs:138
 
 - 🟢 P3 **twitch** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -8618,7 +8618,7 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:whatsapp`
   - evidence:
-    - createChatChannelPlugin @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-DjBm_r3f.mjs:472
+    - createChatChannelPlugin @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-D-6ZIq4y.mjs:472
 
 - 🟢 P3 **zalo** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
