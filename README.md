@@ -10,14 +10,14 @@
 ## Reporting Data
 
 `main` follows a promoted green OpenClaw source pin plus npm `latest` plugin artifacts, with bundled fixtures source-packed from that pinned checkout. `crab-beta` follows beta npm dist-tags for externalized packages and source-packs bundled fixtures. `crab-development` checks `openclaw/openclaw` main against source-packed official plugin artifacts from that same OpenClaw checkout.
-- **Last dashboard update:** Oct 23, 2026, 10:37 UTC
+- **Last dashboard update:** Oct 23, 2026, 18:24 UTC
 <!-- crabpot-tracks:start -->
 - **Source:** `github-default-pin`
 - **OpenClaw version:** `2026.9.6`
 - **OpenClaw SHA:** `10bb24270d8d`
 - **Dashboard target:** `openclaw/openclaw@10bb24270d8d + npm latest plugin artifacts`
 - **Plugin artifacts:** `npm latest fixture set plus bundled source-packed fixtures`
-- **GitHub report run:** [39917160689](https://github.com/openclaw/crabpot/actions/runs/39917160689)
+- **GitHub report run:** [39973775333](https://github.com/openclaw/crabpot/actions/runs/39973775333)
 <!-- crabpot-tracks:end -->
 
 <!-- crabpot-summary:start -->
@@ -48,15 +48,15 @@
 | Workspace plan         | 119 entrypoints / 79 installs / 15 builds                                                                        |
 | Platform risks         | 17 Windows / 17 container                                                                                        |
 | Jiti loader candidates | 20                                                                                                               |
-| Import loop            | p50 3921ms / p95 3930ms / plugin delta RSS 2MB / plugin delta CPU 0ms / OpenClaw import 102.8ms / activate 1.2ms |
+| Import loop            | p50 4273ms / p95 4301ms / plugin delta RSS 1.3MB / plugin delta CPU 0ms / OpenClaw import 115ms / activate 1.4ms |
 | Runtime profile        | p50 0ms / command p95 0ms / max RSS n/a / 1 sample/command                                                       |
 
 ### OpenClaw Lifecycle Probe
 
-| Phase                      | p50     | p95     |
-| -------------------------- | ------- | ------- |
-| Import (`full`)            | 102.8ms | 116.2ms |
-| Activate (`full:register`) | 1.2ms   | 1.2ms   |
+| Phase                      | p50   | p95     |
+| -------------------------- | ----- | ------- |
+| Import (`full`)            | 115ms | 115.6ms |
+| Activate (`full:register`) | 1.4ms | 1.4ms   |
 
 ### Top Discovered Issues
 
