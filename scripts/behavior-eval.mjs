@@ -1227,7 +1227,7 @@ function startBehaviorEvalMockOpenAiProvider() {
         const body = await readBehaviorEvalJsonBody(req);
         const inputText = extractBehaviorEvalRequestText(body);
         requests.push({ body, inputText });
-        const outputText = buildBehaviorEvalMockResponseText(inputText);
+        const outputText = buildBehaviorEvalMockResponseText(body);
         const events = buildBehaviorEvalMockResponseEvents(outputText);
         if (body.stream === false) {
           writeBehaviorEvalJson(res, 200, events.at(-1).response);
@@ -1322,20 +1322,28 @@ function extractBehaviorEvalRequestText(value) {
   return parts.join("\n");
 }
 
-export function buildBehaviorEvalMockResponseText(inputText) {
+export function buildBehaviorEvalMockResponseText(input) {
+  const inputText = typeof input === "string" ? input : extractBehaviorEvalRequestText(input);
+  // Responses input includes prior user turns. They provide recall context,
+  // but must not select the response to the current request.
+  const requestText = typeof input === "string"
+    ? input
+    : extractBehaviorEvalRequestText(
+      Array.isArray(input?.input) ? input.input.findLast((item) => item?.role === "user") : input?.input,
+    );
   if (isBehaviorEvalSummarizationRequest(inputText)) {
     const fact = extractBehaviorEvalFactValue(inputText);
     return fact ? `CRABPOT_LCM_FACT is ${fact}.` : "No CRABPOT_LCM_FACT was present.";
   }
-  if (/Say one neutral filler response/iu.test(inputText)) {
+  if (/Say one neutral filler response/iu.test(requestText)) {
     return "ok";
   }
-  if (/remember.*crabpot_lcm_fact|crabpot_lcm_fact/iu.test(inputText)) {
-    if (/what is crabpot_lcm_fact|recall.*crabpot_lcm_fact/iu.test(inputText)) {
+  if (/remember.*crabpot_lcm_fact|crabpot_lcm_fact/iu.test(requestText)) {
+    if (/what is crabpot_lcm_fact|recall.*crabpot_lcm_fact/iu.test(requestText)) {
       return extractBehaviorEvalContextFactValue(inputText) ?? "I do not have that fact.";
     }
-    if (/reply.*crabpot_lcm_fact|exact memory marker/iu.test(inputText)) {
-      const fact = extractBehaviorEvalFactValue(inputText);
+    if (/reply.*crabpot_lcm_fact|exact memory marker/iu.test(requestText)) {
+      const fact = extractBehaviorEvalFactValue(requestText);
       return fact ? `CRABPOT_LCM_FACT is ${fact}.` : "CRABPOT_LCM_FACT is missing.";
     }
     return "remembered CRABPOT_LCM_FACT";
@@ -1418,7 +1426,7 @@ function buildBehaviorEvalMockResponseEvents(text) {
 
 async function runBehaviorEvalScenario(plan, context) {
   const startedAt = Date.now();
-  const turns = resolveBehaviorEvalScenarioTurns(plan.scenario);
+  const turns = resolveBehaviorEvalScenarioSteps(plan.scenario);
   const baseSessionKey = `agent:qa:discord:channel:crabpot-${plan.scenario.id}`;
   const commands = [];
   const stdout = [];
@@ -1434,8 +1442,32 @@ async function runBehaviorEvalScenario(plan, context) {
       timeoutMs: waitTimeoutMs,
       idempotencyKey: runId,
     };
-    commands.push(`gateway rpc chat.send ${JSON.stringify(sendParams)}`);
     try {
+      if (turn.method) {
+        const params = { ...turn.params, [turn.sessionKeyParam]: sessionKey };
+        commands.push(`gateway rpc ${turn.method} ${JSON.stringify(params)}`);
+        const payload = await context.runGatewayRpc(turn.method, params, context, {
+          timeoutMs: waitTimeoutMs,
+        });
+        stdout.push(`${turn.method} ${JSON.stringify(payload)}`);
+        // Transport success also covers intentional no-ops. Require the
+        // scenario's domain result before advancing to its recall/lifecycle step.
+        const mismatch = Object.entries(turn.expect).find(
+          ([field, value]) => !Object.hasOwn(payload ?? {}, field) || payload[field] !== value,
+        );
+        if (mismatch) {
+          return {
+            status: "fail",
+            exitCode: 1,
+            command: commands.join("\n"),
+            stdout: stdout.join("\n"),
+            stderr: `behavior-rpc-mismatch: ${turn.method} expected ${mismatch[0]}=${JSON.stringify(mismatch[1])}; got ${JSON.stringify(payload)}`,
+            wallMs: Date.now() - startedAt,
+          };
+        }
+        continue;
+      }
+      commands.push(`gateway rpc chat.send ${JSON.stringify(sendParams)}`);
       const started = await context.runGatewayRpc("chat.send", sendParams, context, {
         timeoutMs: Math.min(waitTimeoutMs, 30_000),
       });
@@ -1580,13 +1612,18 @@ function evaluateBehaviorEvalHealthCheck(check, payload) {
   return null;
 }
 
-function resolveBehaviorEvalScenarioTurns(scenario) {
-  if (Array.isArray(scenario.turns) && scenario.turns.length > 0) {
-    return scenario.turns.map((turn) => ({
+function resolveBehaviorEvalScenarioSteps(scenario) {
+  const steps = scenario.steps ?? scenario.turns;
+  if (Array.isArray(steps) && steps.length > 0) {
+    return steps.map((turn) => ({
       sessionKey: typeof turn.sessionKey === "string" && turn.sessionKey ? turn.sessionKey : undefined,
       sessionSuffix: typeof turn.sessionSuffix === "string" && turn.sessionSuffix ? turn.sessionSuffix : undefined,
       message: String(turn.message ?? ""),
       expectText: typeof turn.expectText === "string" ? turn.expectText : undefined,
+      method: turn.method,
+      params: turn.params,
+      sessionKeyParam: turn.sessionKeyParam,
+      expect: turn.expect,
     }));
   }
   return [
@@ -1978,6 +2015,9 @@ function classifyBehaviorEvalFailure(output) {
   if (text.includes("behavior-turn-mismatch")) {
     return "behavior-turn-mismatch";
   }
+  if (text.includes("behavior-rpc-mismatch")) {
+    return "behavior-rpc-mismatch";
+  }
   if (text.includes("context-engine-quarantine-missing")) {
     return "context-engine-quarantine-missing";
   }
@@ -2172,6 +2212,28 @@ function validateBehaviorEvalScenario(scenario, label) {
       }
       if (typeof check.description !== "string" || check.description.trim().length === 0) {
         errors.push(`${check.id}: check description must be set`);
+      }
+    }
+  }
+  if (scenario.steps !== undefined) {
+    if (!Array.isArray(scenario.steps) || scenario.steps.length === 0 || scenario.turns !== undefined) {
+      errors.push("steps must be non-empty and cannot be combined with turns");
+    } else {
+      for (const step of scenario.steps) {
+        if (step?.method !== undefined) {
+          if (!/^[a-zA-Z][a-zA-Z0-9.]*$/.test(step.method) ||
+              !/^[a-zA-Z][a-zA-Z0-9]*$/.test(step.sessionKeyParam ?? "") ||
+              !step.params || typeof step.params !== "object" || Array.isArray(step.params) ||
+              Object.hasOwn(step.params, step.sessionKeyParam) || step.message !== undefined ||
+              !step.expect || typeof step.expect !== "object" || Array.isArray(step.expect) ||
+              Object.keys(step.expect).length === 0 || Object.values(step.expect).some(
+                (value) => value !== null && !["string", "boolean", "number"].includes(typeof value),
+              )) {
+            errors.push("RPC steps require method, sessionKeyParam, params and flat exact expect fields");
+          }
+        } else if (typeof step?.message !== "string" || !step.message.trim()) {
+          errors.push("chat steps require a non-empty message");
+        }
       }
     }
   }
