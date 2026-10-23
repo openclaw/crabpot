@@ -10,53 +10,53 @@
 ## Reporting Data
 
 `main` follows a promoted green OpenClaw source pin plus npm `latest` plugin artifacts, with bundled fixtures source-packed from that pinned checkout. `crab-beta` follows beta npm dist-tags for externalized packages and source-packs bundled fixtures. `crab-development` checks `openclaw/openclaw` main against source-packed official plugin artifacts from that same OpenClaw checkout.
-- **Last dashboard update:** Oct 21, 2026, 19:01 UTC
+- **Last dashboard update:** Oct 23, 2026, 10:37 UTC
 <!-- crabpot-tracks:start -->
 - **Source:** `github-default-pin`
 - **OpenClaw version:** `2026.9.6`
 - **OpenClaw SHA:** `10bb24270d8d`
 - **Dashboard target:** `openclaw/openclaw@10bb24270d8d + npm latest plugin artifacts`
 - **Plugin artifacts:** `npm latest fixture set plus bundled source-packed fixtures`
-- **GitHub report run:** [39624722871](https://github.com/openclaw/crabpot/actions/runs/39624722871)
+- **GitHub report run:** [39917160689](https://github.com/openclaw/crabpot/actions/runs/39917160689)
 <!-- crabpot-tracks:end -->
 
 <!-- crabpot-summary:start -->
 ## Dashboard
 
-| Metric                 | Result                                                                                                             |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| Fixtures               | 59                                                                                                                 |
-| Hard breakages         | 0                                                                                                                  |
-| Warnings               | 279                                                                                                                |
-| Suggestions            | 163                                                                                                                |
-| Issues                 | 442                                                                                                                |
-| P0 issues              | [🔴 P0 5](reports/crabpot-issues.md#p0-live-issues)                                                                |
-| P1 issues              | [🟠 P1 35](reports/crabpot-issues.md#triage-summary)                                                               |
-| Live issues            | 5 total / 5 P0                                                                                                     |
-| Compat gaps            | 27                                                                                                                 |
-| Deprecation warnings   | 217                                                                                                                |
-| Inspector gaps         | 149                                                                                                                |
-| Upstream metadata      | 44                                                                                                                 |
-| Contract probes        | 217                                                                                                                |
-| Policy failures        | 0                                                                                                                  |
-| Policy warnings        | 1                                                                                                                  |
-| Ref diff failures      | 0                                                                                                                  |
-| Profile failures       | 0                                                                                                                  |
-| Execution probes       | 0 pass / 0 fail / 0 blocked                                                                                        |
-| Synthetic probes       | 497 ready / 10 blocked / 507 total                                                                                 |
-| Cold import            | 5 ready / 114 blocked / 119 entrypoints                                                                            |
-| Workspace plan         | 119 entrypoints / 79 installs / 15 builds                                                                          |
-| Platform risks         | 17 Windows / 17 container                                                                                          |
-| Jiti loader candidates | 20                                                                                                                 |
-| Import loop            | p50 4331ms / p95 4372ms / plugin delta RSS 6.9MB / plugin delta CPU 0ms / OpenClaw import 114.5ms / activate 1.3ms |
-| Runtime profile        | p50 0ms / command p95 0ms / max RSS n/a / 1 sample/command                                                         |
+| Metric                 | Result                                                                                                           |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| Fixtures               | 59                                                                                                               |
+| Hard breakages         | 0                                                                                                                |
+| Warnings               | 279                                                                                                              |
+| Suggestions            | 163                                                                                                              |
+| Issues                 | 442                                                                                                              |
+| P0 issues              | [🔴 P0 5](reports/crabpot-issues.md#p0-live-issues)                                                              |
+| P1 issues              | [🟠 P1 35](reports/crabpot-issues.md#triage-summary)                                                             |
+| Live issues            | 5 total / 5 P0                                                                                                   |
+| Compat gaps            | 27                                                                                                               |
+| Deprecation warnings   | 217                                                                                                              |
+| Inspector gaps         | 149                                                                                                              |
+| Upstream metadata      | 44                                                                                                               |
+| Contract probes        | 217                                                                                                              |
+| Policy failures        | 0                                                                                                                |
+| Policy warnings        | 1                                                                                                                |
+| Ref diff failures      | 0                                                                                                                |
+| Profile failures       | 0                                                                                                                |
+| Execution probes       | 0 pass / 0 fail / 0 blocked                                                                                      |
+| Synthetic probes       | 497 ready / 10 blocked / 507 total                                                                               |
+| Cold import            | 5 ready / 114 blocked / 119 entrypoints                                                                          |
+| Workspace plan         | 119 entrypoints / 79 installs / 15 builds                                                                        |
+| Platform risks         | 17 Windows / 17 container                                                                                        |
+| Jiti loader candidates | 20                                                                                                               |
+| Import loop            | p50 3921ms / p95 3930ms / plugin delta RSS 2MB / plugin delta CPU 0ms / OpenClaw import 102.8ms / activate 1.2ms |
+| Runtime profile        | p50 0ms / command p95 0ms / max RSS n/a / 1 sample/command                                                       |
 
 ### OpenClaw Lifecycle Probe
 
 | Phase                      | p50     | p95     |
 | -------------------------- | ------- | ------- |
-| Import (`full`)            | 114.5ms | 123.3ms |
-| Activate (`full:register`) | 1.3ms   | 1.4ms   |
+| Import (`full`)            | 102.8ms | 116.2ms |
+| Activate (`full:register`) | 1.2ms   | 1.2ms   |
 
 ### Top Discovered Issues
 
