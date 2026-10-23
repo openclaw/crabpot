@@ -1322,6 +1322,24 @@ function extractBehaviorEvalRequestText(value) {
   return parts.join("\n");
 }
 
+function isBehaviorEvalRuntimeContextMessage(message) {
+  const content = message?.content;
+  if (typeof content !== "string" && (
+    !Array.isArray(content) || content.length === 0 ||
+    !content.every((block) => block?.type === "input_text" && typeof block.text === "string")
+  )) {
+    return false;
+  }
+  // The host's runtime-context renderer reserves these complete text envelopes.
+  // Metadata is absent on the Responses wire; partial quotes and images remain user input.
+  const text = typeof content === "string" ? content : content.map((block) => block.text).join("\n");
+  return (
+    (text.startsWith("<<<BEGIN_OPENCLAW_INTERNAL_CONTEXT>>>\n") &&
+      text.endsWith("\n<<<END_OPENCLAW_INTERNAL_CONTEXT>>>")) ||
+    (text.startsWith("OpenClaw runtime context:\n") && text.endsWith("\nEnd OpenClaw runtime context."))
+  );
+}
+
 export function buildBehaviorEvalMockResponseText(input) {
   const inputText = typeof input === "string" ? input : extractBehaviorEvalRequestText(input);
   // Responses input includes prior user turns. They provide recall context,
@@ -1329,7 +1347,9 @@ export function buildBehaviorEvalMockResponseText(input) {
   const requestText = typeof input === "string"
     ? input
     : extractBehaviorEvalRequestText(
-      Array.isArray(input?.input) ? input.input.findLast((item) => item?.role === "user") : input?.input,
+      Array.isArray(input?.input)
+        ? input.input.findLast((item) => item?.role === "user" && !isBehaviorEvalRuntimeContextMessage(item))
+        : input?.input,
     );
   if (isBehaviorEvalSummarizationRequest(inputText)) {
     const fact = extractBehaviorEvalFactValue(inputText);

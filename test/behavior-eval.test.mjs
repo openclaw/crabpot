@@ -235,6 +235,63 @@ test("behavior eval mock selects intent from the current Responses user message"
   assert.equal(buildBehaviorEvalMockResponseText({ input: recall }), "I do not have that fact.");
 });
 
+test("behavior eval mock ignores complete trailing runtime-context envelopes", async (t) => {
+  const fact = "CRABPOT_LCM_FACT is blue-lantern-42.";
+  const summary = `<summary><content>${fact}</content></summary>`;
+  const user = (text) => ({ role: "user", content: [{ type: "input_text", text }] });
+  const envelopes = [
+    ["legacy", "<<<BEGIN_OPENCLAW_INTERNAL_CONTEXT>>>", "<<<END_OPENCLAW_INTERNAL_CONTEXT>>>"],
+    ["labelled", "OpenClaw runtime context:", "End OpenClaw runtime context."],
+  ];
+  for (const [name, begin, end] of envelopes) {
+    for (const [intent, current, context, expected] of [
+      ["seed", `Reply with this exact memory marker: ${fact}`, "", fact],
+      ["recall", "What is CRABPOT_LCM_FACT?", summary, "blue-lantern-42"],
+      ["filler", "Say one neutral filler response.", "What is CRABPOT_LCM_FACT?", "ok"],
+      ["raw history refusal", "What is CRABPOT_LCM_FACT?", fact, "I do not have that fact."],
+    ]) {
+      await t.test(`${name}: ${intent}`, () => {
+        assert.equal(buildBehaviorEvalMockResponseText({ input: [
+          user(context), user(current), user(`${begin}\nRuntime context for this turn.${intent === "filler" ? " Retained request: What is CRABPOT_LCM_FACT?" : ""}\n${end}`),
+        ] }), expected);
+      });
+    }
+  }
+  await t.test("multiple carriers with split labelled text", () => {
+    assert.equal(buildBehaviorEvalMockResponseText({ input: [
+      user(summary), user("What is CRABPOT_LCM_FACT?"),
+      user("<<<BEGIN_OPENCLAW_INTERNAL_CONTEXT>>>\nLegacy context.\n<<<END_OPENCLAW_INTERNAL_CONTEXT>>>"),
+      { role: "user", content: [
+        { type: "input_text", text: "OpenClaw runtime context:\nCurrent context." },
+        { type: "input_text", text: "More context.\nEnd OpenClaw runtime context." },
+      ] },
+    ] }), "blue-lantern-42");
+  });
+});
+
+test("behavior eval mock retains partial, quoted and multimodal runtime-context lookalikes", () => {
+  const recall = "What is CRABPOT_LCM_FACT?";
+  const summary = "<summary><content>CRABPOT_LCM_FACT is blue-lantern-42.</content></summary>";
+  for (const text of [
+    `<<<BEGIN_OPENCLAW_INTERNAL_CONTEXT>>>\n${recall}`,
+    `OpenClaw runtime context:\n${recall}`,
+    `Quoted context:\n<<<BEGIN_OPENCLAW_INTERNAL_CONTEXT>>>\n${recall}\n<<<END_OPENCLAW_INTERNAL_CONTEXT>>>`,
+    `OpenClaw runtime context:\n${recall}\nEnd OpenClaw runtime context.\nPlease answer.`,
+  ]) {
+    assert.equal(buildBehaviorEvalMockResponseText({ input: [
+      { role: "user", content: `${summary}\nSay one neutral filler response.` },
+      { role: "user", content: text },
+    ] }), "blue-lantern-42");
+  }
+  assert.equal(buildBehaviorEvalMockResponseText({ input: [
+    { role: "user", content: `${summary}\n${recall}` },
+    { role: "user", content: [
+      { type: "input_text", text: "OpenClaw runtime context:\nSay one neutral filler response.\nEnd OpenClaw runtime context." },
+      { type: "input_image", image_url: "https://example.com/image.png" },
+    ] },
+  ] }), "ok");
+});
+
 test("behavior eval planner rejects unasserted or ambiguous RPC steps", () => {
   const rpc = { method: "sessions.compact", sessionKeyParam: "key", params: {}, expect: { ok: true } };
   for (const step of [
