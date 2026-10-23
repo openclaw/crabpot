@@ -204,7 +204,7 @@ node scripts/check-contract-coverage.mjs --openclaw ../openclaw
 ```
 
 Source-backed reports and registration capture use Inspector source commit
-`f08d12970e623581219259fabfdaa7a039e830b1` (reviewed source after 0.4.4),
+`23dc5dd913c2105978dc6490c35481a8109af321` (reviewed source after 0.4.4, including current host hook-metadata support),
 with SDK discovery inside packaged `.setup` directories and composed Zod enums,
 including bundled SDK import classification, target-owned conversation contract
 proof, lazy runtime SDK loading, and method-scoped Gateway prerequisites.
