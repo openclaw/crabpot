@@ -2,6 +2,8 @@
 
 ## 0.2.2 - Unreleased
 
+- Patch mutable fixture dependencies for Zod, Undici, body-parser and MSAL advisories while retaining reviewed plugin and host pins.
+
 - Patch HAPI's host-linked npm bundle to 12.2.1 for updated HTTP cache, Undici and selector-parser dependencies.
 
 - Let scheduled development-dashboard refreshes finish when they outlast the polling cadence, retaining only the newest pending refresh; explicit manual refreshes still supersede older manual runs.

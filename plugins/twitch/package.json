@@ -15,6 +15,7 @@
     "sourceRef": "1b58cb9a1b4f4353e1add63c8506db4d890962e8"
   },
   "overrides": {
+    "zod": "4.6.7",
     "ws": "8.21.3"
   }
 }
