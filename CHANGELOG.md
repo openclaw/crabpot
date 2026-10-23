@@ -2,6 +2,8 @@
 
 ## 0.2.2 - Unreleased
 
+- Preserve HAPI's documented missing-configuration blocker when Node prints its TypeScript warning, while rejecting unrelated errors and incomplete diagnostics.
+
 - Restore development-dashboard corpus checks with reviewed Inspector source that excludes implementation-only host type graphs, retaining inferred declarations and the 2 GiB heap limit; adopt published Inspector 0.4.4 for package smoke checks.
 
 - Refresh 22 official plugin fallbacks to 2026.10.5 with verified publication-source references, including Feishu's bundled follow-redirects patch, and patch HAPI fixture lock dependencies for MCP SDK and Hono advisories. Thanks @dependabot.

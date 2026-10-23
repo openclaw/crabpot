@@ -1349,7 +1349,7 @@
             "seam": "synthetic-probe",
             "errorIncludes": "hapiBaseUrl must be a non-empty string",
             "exitCode": 1,
-            "outputPattern": "^(?:\\(node:\\d+\\) \\[DEP0205\\][^\\n]+\\n\\(Use `node --trace-deprecation \\.\\.\\.` to show where the warning was created\\)\\n)?file:\\/\\/\\/[^\\n]+inspector\\.js:\\d+\\n[\\s\\S]*Error: Invalid hapi-openclaw config: hapiBaseUrl must be a non-empty string[\\s\\S]*failureClass: 'registration-execution-error',[\\s\\S]*\\[cause\\]: Error: Invalid hapi-openclaw config: hapiBaseUrl must be a non-empty string[\\s\\S]*Node\\.js v\\d+\\.\\d+\\.\\d+\\s*$",
+            "outputPattern": "^(?:(?:\\(node:\\d+\\) \\[DEP0205\\][^\\n]+\\n\\(Use `node --trace-deprecation \\.\\.\\.` to show where the warning was created\\)\\n)|(?:\\(node:\\d+\\) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\\n\\(Use `node --trace-warnings \\.\\.\\.` to show where the warning was created\\)\\n))?file:///[^\\n]+inspector\\.js:\\d+\\n  const wrapped = new Error\\(details\\.message, \\{ cause: error \\}\\);\\n +\\^\\n\\nError: Invalid hapi-openclaw config: hapiBaseUrl must be a non-empty string\\n(?:    at [^\\n]+\\n|    \\.\\.\\. \\d+ lines matching cause stack trace \\.\\.\\.\\n)+  failureClass: 'registration-execution-error',\\n  \\[cause\\]: Error: Invalid hapi-openclaw config: hapiBaseUrl must be a non-empty string\\n(?:      at [^\\n]+\\n)+\\}\\n\\nNode\\.js v\\d+\\.\\d+\\.\\d+\\s*$",
             "reason": "published HAPI plugin synthetic probe requires the same operator configuration"
           }
         ]

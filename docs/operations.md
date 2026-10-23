@@ -67,6 +67,9 @@ The HAPI fixture lock uses host-linked OpenClaw 2026.10.6 for patched MCP SDK
 dependencies and Hono 4.13.11. This does not promote the Default Track host pin.
 Installing that locked host requires Node 24.22.1 or a supported newer line;
 the host-backed workflows already select Node 24.22.1.
+HAPI's credential-free synthetic probe remains blocked on its required
+`hapiBaseUrl` operator configuration. Its diagnostic contract accepts Node's
+exact `stripTypeScriptTypes` warning preamble while rejecting unrelated output.
 When a moving artifact lacks a Git head, reports leave its evidence as a payload
 path instead of borrowing a different fallback version's source link. SDK export
 gaps outside the artifact's declared plugin API range remain visible at their
