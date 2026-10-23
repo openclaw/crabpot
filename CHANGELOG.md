@@ -2,6 +2,8 @@
 
 ## 0.2.2 - Unreleased
 
+- Patch HAPI's host-linked npm bundle to 12.2.1 for updated HTTP cache, Undici and selector-parser dependencies.
+
 - Let scheduled development-dashboard refreshes finish when they outlast the polling cadence, retaining only the newest pending refresh; explicit manual refreshes still supersede older manual runs.
 
 - Preserve HAPI's documented missing-configuration blocker when Node prints its TypeScript warning, while rejecting unrelated errors and incomplete diagnostics.

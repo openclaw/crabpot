@@ -65,6 +65,8 @@ TencentDB memory remains explicitly pinned to the reviewed 1.0.1 artifact; its
 moving npm tag is not part of that qualification.
 The HAPI fixture lock uses host-linked OpenClaw 2026.10.6 for patched MCP SDK
 dependencies and Hono 4.13.11. This does not promote the Default Track host pin.
+Its npm dependency is overridden to 12.2.1 to refresh the published bundle's HTTP
+cache, Undici and selector-parser dependencies.
 Installing that locked host requires Node 24.22.1 or a supported newer line;
 the host-backed workflows already select Node 24.22.1.
 HAPI's credential-free synthetic probe remains blocked on its required
