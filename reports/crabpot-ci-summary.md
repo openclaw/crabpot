@@ -1,64 +1,57 @@
 # Crabpot CI Summary
 
 Generated: deterministic
-Mode: check
-OpenClaw: openclaw/openclaw@10bb24270d8d (Default Track pin 2026-09-25)
+Mode: track:development
+OpenClaw: openclaw/openclaw@main (2026.10.7, 1b9092f639d7)
 Status: PASS
 
 ## Counts
 
-| Metric                      | Value                                                                                                                  |
-| --------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| Breakages                   | 0                                                                                                                      |
-| Warnings                    | 279                                                                                                                    |
-| Suggestions                 | 163                                                                                                                    |
-| Issues                      | 442                                                                                                                    |
-| P0 issues                   | 5                                                                                                                      |
-| P1 issues                   | 35                                                                                                                     |
-| Live issues                 | 5                                                                                                                      |
-| Live P0 issues              | 5                                                                                                                      |
-| Compat gaps                 | 27                                                                                                                     |
-| Deprecation warnings        | 217                                                                                                                    |
-| Inspector gaps              | 149                                                                                                                    |
-| Upstream metadata           | 44                                                                                                                     |
-| Ref diff failures           | 0                                                                                                                      |
-| Ref diff warnings           | 0                                                                                                                      |
-| Policy failures             | 0                                                                                                                      |
-| Policy warnings             | 1                                                                                                                      |
-| Profile failures            | 0                                                                                                                      |
-| Profile warnings            | 2                                                                                                                      |
-| Execution pass              | 0                                                                                                                      |
-| Execution fail              | 0                                                                                                                      |
-| Execution blocked           | 0                                                                                                                      |
-| Windows portability risks   | 17                                                                                                                     |
-| Container portability risks | 17                                                                                                                     |
-| Jiti loader candidates      | 20                                                                                                                     |
-| Import loop                 | p50 4273 ms / p95 4301 ms / plugin delta RSS 1.3 MB / plugin delta CPU 0 ms / OpenClaw import 115 ms / activate 1.4 ms |
+| Metric                      | Value                                                                     |
+| --------------------------- | ------------------------------------------------------------------------- |
+| Breakages                   | 0                                                                         |
+| Warnings                    | 6                                                                         |
+| Suggestions                 | 25                                                                        |
+| Issues                      | 31                                                                        |
+| P0 issues                   | 0                                                                         |
+| P1 issues                   | 13                                                                        |
+| Live issues                 | 0                                                                         |
+| Live P0 issues              | 0                                                                         |
+| Compat gaps                 | 12                                                                        |
+| Deprecation warnings        | 0                                                                         |
+| Inspector gaps              | 19                                                                        |
+| Upstream metadata           | 0                                                                         |
+| Ref diff failures           | 0                                                                         |
+| Ref diff warnings           | 0                                                                         |
+| Policy failures             | 0                                                                         |
+| Policy warnings             | 36                                                                        |
+| Profile failures            | 0                                                                         |
+| Profile warnings            | 0                                                                         |
+| Execution pass              | 32                                                                        |
+| Execution fail              | 0                                                                         |
+| Execution blocked           | 35                                                                        |
+| Windows portability risks   | 0                                                                         |
+| Container portability risks | 0                                                                         |
+| Jiti loader candidates      | 8                                                                         |
+| Import loop                 | p50 400 ms / p95 402 ms / plugin delta RSS 4.4 MB / plugin delta CPU 0 ms |
 
 ## Top Issues
 
-| Severity | Class         | Fixture            | Code                   | Decision            | Title                                                                                 |
-| -------- | ------------- | ------------------ | ---------------------- | ------------------- | ------------------------------------------------------------------------------------- |
-| P0       | live-issue    | aiwerk-mcp-bridge  | unknown-hook-name      | core-compat-adapter | aiwerk-mcp-bridge: fixture uses a hook missing from target OpenClaw                   |
-| P0       | live-issue    | connectclaw        | unknown-hook-name      | core-compat-adapter | connectclaw: fixture uses a hook missing from target OpenClaw                         |
-| P0       | live-issue    | memos-cloud        | unknown-hook-name      | core-compat-adapter | memos-cloud: fixture uses a hook missing from target OpenClaw                         |
-| P0       | live-issue    | openclaw-telemetry | unknown-hook-name      | core-compat-adapter | openclaw-telemetry: fixture uses a hook missing from target OpenClaw                  |
-| P0       | live-issue    | opik-openclaw      | unknown-hook-name      | core-compat-adapter | opik-openclaw: fixture uses a hook missing from target OpenClaw                       |
-| P1       | compat-gap    | agentchat          | missing-compat-record  | core-compat-adapter | agentchat: compat-dependent behavior lacks registry coverage                          |
-| P1       | compat-gap    | bluebubbles        | sdk-export-missing     | core-compat-adapter | bluebubbles: plugin SDK import aliases are missing from target package exports        |
-| P1       | inspector-gap | codex              | sdk-export-missing     | inspector-follow-up | codex: SDK import coverage requires an eligible host                                  |
-| P1       | compat-gap    | connectclaw        | missing-compat-record  | core-compat-adapter | connectclaw: compat-dependent behavior lacks registry coverage                        |
-| P1       | compat-gap    | connectclaw        | missing-compat-record  | core-compat-adapter | connectclaw: compat-dependent behavior lacks registry coverage                        |
-| P1       | compat-gap    | connectclaw        | sdk-export-missing     | core-compat-adapter | connectclaw: plugin SDK import aliases are missing from target package exports        |
-| P1       | compat-gap    | ddingtalk          | missing-compat-record  | core-compat-adapter | ddingtalk: compat-dependent behavior lacks registry coverage                          |
-| P1       | compat-gap    | dingtalk-connector | sdk-export-missing     | core-compat-adapter | dingtalk-connector: plugin SDK import aliases are missing from target package exports |
-| P1       | inspector-gap | dingtalk-doc       | before-tool-call-probe | inspector-follow-up | dingtalk-doc: before_tool_call needs terminal/block/approval probes                   |
-| P1       | compat-gap    | dingtalk-doc       | missing-compat-record  | core-compat-adapter | dingtalk-doc: compat-dependent behavior lacks registry coverage                       |
-| P1       | compat-gap    | dingtalk-doc       | sdk-export-missing     | core-compat-adapter | dingtalk-doc: plugin SDK import aliases are missing from target package exports       |
-| P1       | compat-gap    | hasdata            | missing-compat-record  | core-compat-adapter | hasdata: compat-dependent behavior lacks registry coverage                            |
-| P1       | compat-gap    | inworld-tts        | missing-compat-record  | core-compat-adapter | inworld-tts: compat-dependent behavior lacks registry coverage                        |
-| P1       | inspector-gap | kitchen-sink       | before-tool-call-probe | inspector-follow-up | kitchen-sink: before_tool_call needs terminal/block/approval probes                   |
-| P1       | compat-gap    | matrix             | sdk-export-missing     | core-compat-adapter | matrix: plugin SDK import aliases are missing from target package exports             |
+| Severity | Class         | Fixture                | Code                     | Decision            | Title                                                                                     |
+| -------- | ------------- | ---------------------- | ------------------------ | ------------------- | ----------------------------------------------------------------------------------------- |
+| P1       | compat-gap    | brave-plugin           | missing-compat-record    | core-compat-adapter | brave-plugin: compat-dependent behavior lacks registry coverage                           |
+| P1       | compat-gap    | codex                  | missing-compat-record    | core-compat-adapter | codex: compat-dependent behavior lacks registry coverage                                  |
+| P1       | compat-gap    | codex                  | sdk-export-missing       | core-compat-adapter | codex: plugin SDK import aliases are missing from target package exports                  |
+| P1       | compat-gap    | diagnostics-prometheus | missing-compat-record    | core-compat-adapter | diagnostics-prometheus: compat-dependent behavior lacks registry coverage                 |
+| P1       | compat-gap    | diagnostics-prometheus | sdk-export-missing       | core-compat-adapter | diagnostics-prometheus: plugin SDK import aliases are missing from target package exports |
+| P1       | compat-gap    | diffs                  | missing-compat-record    | core-compat-adapter | diffs: compat-dependent behavior lacks registry coverage                                  |
+| P1       | compat-gap    | diffs                  | sdk-export-missing       | core-compat-adapter | diffs: plugin SDK import aliases are missing from target package exports                  |
+| P1       | compat-gap    | google-meet            | missing-compat-record    | core-compat-adapter | google-meet: compat-dependent behavior lacks registry coverage                            |
+| P1       | compat-gap    | google-meet            | sdk-export-missing       | core-compat-adapter | google-meet: plugin SDK import aliases are missing from target package exports            |
+| P1       | inspector-gap | memory-lancedb         | conversation-access-hook | inspector-follow-up | memory-lancedb: conversation-access hooks need privacy-boundary probes                    |
+| P1       | compat-gap    | memory-lancedb         | missing-compat-record    | core-compat-adapter | memory-lancedb: compat-dependent behavior lacks registry coverage                         |
+| P1       | compat-gap    | memory-lancedb         | missing-compat-record    | core-compat-adapter | memory-lancedb: compat-dependent behavior lacks registry coverage                         |
+| P1       | compat-gap    | whatsapp               | sdk-export-missing       | core-compat-adapter | whatsapp: plugin SDK import aliases are missing from target package exports               |
 
 ## Ref Regressions
 
@@ -66,32 +59,48 @@ _none_
 
 ## Policy Findings
 
-| Action | ID                                  | Message                  | Evidence                                                                                                                                                                                          |
-| ------ | ----------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| warn   | compatibility-report.live-p0-issues | 5 live P0 issues tracked | aiwerk-mcp-bridge:unknown-hook-name:none, connectclaw:unknown-hook-name:none, memos-cloud:unknown-hook-name:none, openclaw-telemetry:unknown-hook-name:none, opik-openclaw:unknown-hook-name:none |
+| Action | ID                                                                   | Message                                                                                         | Evidence                                                                                                                                                                                                                                                               |
+| ------ | -------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| warn   | execution-results.audit-findings                                     | 3 package audit findings                                                                        | memory-lancedb:3                                                                                                                                                                                                                                                       |
+| warn   | execution-results.blocked.codex.registerCli.5                        | allowed-blocked: captured registration has no supported callable probe                          | .crabpot/results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json, registerCli, captured registration has no supported callable probe, generated-surface-registration-stubs                                                     |
+| warn   | execution-results.blocked.codex.registerGatewayMethod.0              | allowed-blocked: captured account usage requires a saved subscription login and Gateway runtime | .crabpot/results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json, registerGatewayMethod, captured account usage requires a saved subscription login and Gateway runtime, account-usage-runtime-prerequisite                    |
+| warn   | execution-results.blocked.codex.registerService.1                    | allowed-blocked: captured registration requires includeLifecycle=true                           | .crabpot/results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json, registerService, captured registration requires includeLifecycle=true, service-lifecycle-harness                                                             |
+| warn   | execution-results.blocked.codex.registerService.3                    | allowed-blocked: captured registration requires includeLifecycle=true                           | .crabpot/results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json, registerService, captured registration requires includeLifecycle=true, service-lifecycle-harness                                                             |
+| warn   | execution-results.blocked.codex.registerService.4                    | allowed-blocked: captured registration requires includeLifecycle=true                           | .crabpot/results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json, registerService, captured registration requires includeLifecycle=true, service-lifecycle-harness                                                             |
+| warn   | execution-results.blocked.codex.registerService.6                    | allowed-blocked: captured registration requires includeLifecycle=true                           | .crabpot/results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json, registerService, captured registration requires includeLifecycle=true, service-lifecycle-harness                                                             |
+| warn   | execution-results.blocked.codex.registerTool.18                      | allowed-blocked: captured registration has no supported callable probe                          | .crabpot/results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json, registerTool, captured registration has no supported callable probe, generated-surface-registration-stubs                                                    |
+| warn   | execution-results.blocked.codex.registerTool.20                      | allowed-blocked: captured registration has no supported callable probe                          | .crabpot/results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json, registerTool, captured registration has no supported callable probe, generated-surface-registration-stubs                                                    |
+| warn   | execution-results.blocked.diagnostics-prometheus.registerHttpRoute.1 | allowed-blocked: captured HTTP route probe requires route descriptor input                      | .crabpot/results/diagnostics-prometheus/cold-import-extension-diagnostics-prometheus-plugins-diagnostics-prometheus-crabpot-package-index-ts.synthetic.json, registerHttpRoute, captured HTTP route probe requires route descriptor input, http-route-descriptor-input |
+| warn   | execution-results.blocked.diagnostics-prometheus.registerService.0   | allowed-blocked: captured registration requires includeLifecycle=true                           | .crabpot/results/diagnostics-prometheus/cold-import-extension-diagnostics-prometheus-plugins-diagnostics-prometheus-crabpot-package-index-ts.synthetic.json, registerService, captured registration requires includeLifecycle=true, service-lifecycle-harness          |
+| warn   | execution-results.blocked.diffs.registerHttpRoute.2                  | allowed-blocked: captured HTTP route probe requires route descriptor input                      | .crabpot/results/diffs/cold-import-extension-diffs-plugins-diffs-crabpot-package-index-ts.synthetic.json, registerHttpRoute, captured HTTP route probe requires route descriptor input, http-route-descriptor-input                                                    |
+| warn   | execution-results.blocked.diffs.registerService.0                    | allowed-blocked: captured registration requires includeLifecycle=true                           | .crabpot/results/diffs/cold-import-extension-diffs-plugins-diffs-crabpot-package-index-ts.synthetic.json, registerService, captured registration requires includeLifecycle=true, service-lifecycle-harness                                                             |
+| warn   | execution-results.blocked.diffs.registerTool.1                       | allowed-blocked: captured registration has no supported callable probe                          | .crabpot/results/diffs/cold-import-extension-diffs-plugins-diffs-crabpot-package-index-ts.synthetic.json, registerTool, captured registration has no supported callable probe, generated-surface-registration-stubs                                                    |
+| warn   | execution-results.blocked.google-meet.registerCli.23                 | allowed-blocked: captured registration has no supported callable probe                          | .crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json, registerCli, captured registration has no supported callable probe, generated-surface-registration-stubs                                   |
+| warn   | execution-results.blocked.google-meet.registerGatewayMethod.10       | allowed-blocked: captured meeting query requires Google Meet OAuth credentials                  | .crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json, registerGatewayMethod, captured meeting query requires Google Meet OAuth credentials, meeting-oauth-prerequisite                           |
+| warn   | execution-results.blocked.google-meet.registerGatewayMethod.11       | allowed-blocked: captured meeting query requires Google Meet OAuth credentials                  | .crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json, registerGatewayMethod, captured meeting query requires Google Meet OAuth credentials, meeting-oauth-prerequisite                           |
+| warn   | execution-results.blocked.google-meet.registerGatewayMethod.12       | allowed-blocked: captured meeting query requires Google Meet OAuth credentials                  | .crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json, registerGatewayMethod, captured meeting query requires Google Meet OAuth credentials, meeting-oauth-prerequisite                           |
+| warn   | execution-results.blocked.google-meet.registerGatewayMethod.13       | allowed-blocked: captured meeting query requires Google Meet OAuth credentials                  | .crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json, registerGatewayMethod, captured meeting query requires Google Meet OAuth credentials, meeting-oauth-prerequisite                           |
+| warn   | execution-results.blocked.google-meet.registerGatewayMethod.14       | allowed-blocked: captured meeting query requires Google Meet OAuth credentials                  | .crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json, registerGatewayMethod, captured meeting query requires Google Meet OAuth credentials, meeting-oauth-prerequisite                           |
 
 ## Profile Findings
 
-| Action | ID               | Metric       | Baseline | Current | Message                                  |
-| ------ | ---------------- | ------------ | -------- | ------- | ---------------------------------------- |
-| warn   | profile.wall-p95 | p95WallMs    | 1273     | 8450    | p95WallMs regressed 563.8% over baseline |
-| warn   | profile.peak-rss | maxPeakRssMb | 65.1     | 761.1   | maxPeakRssMb regressed 696 over baseline |
+_none_
 
 ## Artifacts
 
-| Artifact            | Path                                      |
-| ------------------- | ----------------------------------------- |
-| compatibility       | reports/crabpot-report.json               |
-| capture             | reports/crabpot-capture.json              |
-| synthetic           | reports/crabpot-synthetic-probes.json     |
-| coldImport          | reports/crabpot-cold-import.json          |
-| workspace           | reports/crabpot-workspace-plan.json       |
-| platform            | reports/crabpot-platform-probes.json      |
-| importLoop          | reports/crabpot-import-loop-profile.json  |
-| execution           | reports/crabpot-execution-results.json    |
-| runtimeProfile      | -                                         |
-| refDiff             | -                                         |
-| profileDiff         | reports/crabpot-profile-diff.json         |
-| ciPolicy            | reports/crabpot-ci-policy.json            |
-| generatedSurface    | reports/crabpot-generated-surface.json    |
-| packageAvailability | reports/crabpot-package-availability.json |
+| Artifact            | Path                                     |
+| ------------------- | ---------------------------------------- |
+| compatibility       | reports/crabpot-report.json              |
+| capture             | reports/crabpot-capture.json             |
+| synthetic           | reports/crabpot-synthetic-probes.json    |
+| coldImport          | reports/crabpot-cold-import.json         |
+| workspace           | reports/crabpot-workspace-plan.json      |
+| platform            | reports/crabpot-platform-probes.json     |
+| importLoop          | reports/crabpot-import-loop-profile.json |
+| execution           | reports/crabpot-execution-results.json   |
+| runtimeProfile      | -                                        |
+| refDiff             | -                                        |
+| profileDiff         | -                                        |
+| ciPolicy            | reports/crabpot-ci-policy.json           |
+| generatedSurface    | reports/crabpot-generated-surface.json   |
+| packageAvailability | -                                        |
