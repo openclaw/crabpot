@@ -12,6 +12,7 @@
     "package": "@twsxtd/hapi-openclaw"
   },
   "overrides": {
+    "npm": "12.2.1",
     "@twsxtd/hapi-openclaw": {
       "hono": "4.13.11",
       "openclaw": "2026.10.6"

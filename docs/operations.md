@@ -65,6 +65,8 @@ TencentDB memory remains explicitly pinned to the reviewed 1.0.1 artifact; its
 moving npm tag is not part of that qualification.
 The HAPI fixture lock uses host-linked OpenClaw 2026.10.6 for patched MCP SDK
 dependencies and Hono 4.13.11. This does not promote the Default Track host pin.
+Its npm dependency is overridden to 12.2.1 to refresh the published bundle's HTTP
+cache, Undici and selector-parser dependencies.
 Installing that locked host requires Node 24.22.1 or a supported newer line;
 the host-backed workflows already select Node 24.22.1.
 HAPI's credential-free synthetic probe remains blocked on its required
@@ -77,6 +79,11 @@ original severity, with an inspector follow-up to recheck an eligible host befor
 prescribing a core compatibility repair.
 
 ## CI model
+
+Scheduled development-dashboard refreshes keep the active run and only the newest
+pending run. This prevents the 15-minute schedule from repeatedly canceling a
+longer refresh. Manual refreshes use separate concurrency groups and still
+supersede earlier manual runs for the same selection.
 
 Dependabot refreshes merge the current base and update its pinned submodules
 before resolving the OpenClaw host. Report generation uses the same plugin
