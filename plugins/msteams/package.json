@@ -15,6 +15,9 @@
     "sourceRef": "1b58cb9a1b4f4353e1add63c8506db4d890962e8"
   },
   "overrides": {
+    "@azure/msal-node": "7.1.1",
+    "body-parser": "2.4.0",
+    "zod": "4.6.7",
     "axios": "1.20.0",
     "qs": "6.16.0",
     "uuid": "11.1.1"

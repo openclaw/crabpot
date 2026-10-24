@@ -67,6 +67,9 @@ The HAPI fixture lock uses host-linked OpenClaw 2026.10.6 for patched MCP SDK
 dependencies and Hono 4.13.11. This does not promote the Default Track host pin.
 Its npm dependency is overridden to 12.2.1 to refresh the published bundle's HTTP
 cache, Undici and selector-parser dependencies.
+Mutable fixture dependencies also pin patched Zod and Undici releases; Microsoft
+Teams pins body-parser 2.4.0 and MSAL Node 7.1.1. Published plugin bundles remain
+publisher-owned and cannot be replaced by npm overrides.
 Installing that locked host requires Node 24.22.1 or a supported newer line;
 the host-backed workflows already select Node 24.22.1.
 HAPI's credential-free synthetic probe remains blocked on its required
