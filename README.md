@@ -739,6 +739,23 @@ Behavior eval execution writes an empty npm user config inside the temp
 workspace so local npm policy, such as a `before` cutoff, does not silently move
 `latest` back to an older release.
 
+`lcm-supported-lifecycle` is a separate, unqualified scenario for current LCM
+contracts. It requires `sessions.compact` to return `ok: true` and
+`compacted: true`, summary-backed recall, retained summaries after
+`sessions.reset` with `reason: "new"`, and an empty memory lane after
+`reason: "reset"`. Its eventual profile must set `newSessionRetainDepth: 0`.
+Ordered RPC steps declare `method`, `params`, the parameter receiving the
+current session key (`sessionKeyParam`), and nonempty flat exact `expect` fields.
+Missing fields, mismatches and rejected calls fail the scenario.
+
+No release profile selects this scenario yet. Published Lossless Claw 1.2.0
+still has an unresolved transcript-resync identity defect; a fixed published
+artifact and real Gateway qualification are required before promotion.
+Qualification must also inspect the isolated LCM database before and after
+compaction, `/new`, `/reset`, and a populated-database upgrade. RPC acknowledgments
+alone do not prove those storage invariants. Historical profiles and their
+retired `/lossless rotate` reproducer remain unchanged.
+
 Use the main compatibility report like this:
 
 | Section | What to do with it |
