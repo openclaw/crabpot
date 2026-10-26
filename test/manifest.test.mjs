@@ -2,6 +2,18 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import { readConfiguredManifest, readManifest, validateManifest } from "../scripts/manifest-lib.mjs";
 
+test("Matrix verification prerequisites cover exact legacy and owner-bound methods", async () => {
+  const manifest = await readManifest();
+  const matrix = manifest.fixtures.find((fixture) => fixture.id === "matrix");
+  const prerequisites = matrix.execution.gatewayMethodPrerequisites;
+  const methods = ["matrix.verify.recoveryKey", "matrix.verify.bootstrap", "matrix.verify.status"];
+  assert.deepEqual(Object.keys(prerequisites).sort(), methods.flatMap((method) => [method, `${method}.owner`]).sort());
+  for (const method of methods) {
+    assert.match(prerequisites[method], /configured account and crypto runtime/);
+    assert.match(prerequisites[`${method}.owner`], /local-state owner authority/);
+  }
+});
+
 test("DingTalk declares twelve explicit negative contracts and rejects malformed declarations", async () => {
   const manifest = await readManifest();
   const fixture = manifest.fixtures.find((item) => item.id === "dingtalk-connector");

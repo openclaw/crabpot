@@ -51,10 +51,10 @@ Keep npm fixture source references in the manifest and shim aligned with the
 published artifact. When an official package omits `gitHead`, verify the prepared
 package source SHA in its publication qualification and artifact manifest. The
 release workflow SHA and public release tag can identify different commits.
-The 2026.10.5 fallback refresh uses prepared source
-`1b58cb9a1b4f4353e1add63c8506db4d890962e8`, verified against all 22 package
-publication qualifications from run `39162994312`. Its publishing workflow used
-`c544916c9070b65c2ec8822de01bdf99041e12cd`; that is not the package source.
+The 2026.10.6 fallback refresh uses prepared source
+`fe06181dc5ecc01cf8904abbfc26925925efefbc`, verified against all 22 package
+publication qualifications from run `39773458213`. Its publishing workflow used
+`87d4818b4a03aaf2e0180b65899fd7b5a1279b53`; that is not the package source.
 Brave, Diffs, Google Meet, and Memory LanceDB also advance to this qualified
 release. Moving track selection is unchanged.
 Regenerate reports against the pinned Default Track after changing fixture pins.
@@ -93,12 +93,17 @@ before resolving the OpenClaw host. Report generation uses the same plugin
 track as required CI: latest, beta, or source-packed development fixtures.
 Unit tests run separately against the complete manifest before that selection.
 
-Host-running jobs use Node 24 for the selected OpenClaw 2026.9.6 source pin,
-which requires Node `>=24.16.0 <25 || >=26.1.0`. This includes Default Track
+Host-running jobs use Node 24 for the selected OpenClaw 2026.10.6 source pin,
+which requires Node `>=24.22.1 <25 || >=26.12.1`. This includes Default Track
 static/container/isolated execution, dashboard tracks, Dependabot report
 refreshes, and manual ref static/diff/isolated execution. Host-free security
 and fixture-selection jobs remain on Node 22; Crabpot's private package engine
 remains `>=22`.
+
+The Default Track source `5f84c5b8a9889ab7035c197bc25bbe0aa8a20765` passed
+the Linux, Xcode 27, and Windows HEAD canary jobs in run `40058232725` before
+promotion. Keep this source pin separate from the prepared npm package source
+recorded above; a matching package version does not imply matching source bytes.
 
 Kitchen Sink 0.4.0 requires OpenClaw `>=2026.9.5` and covers 42 hooks,
 56 active registrars, and 22 manifest contracts. The host exposes 57 registrars;

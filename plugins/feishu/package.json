@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for OpenClaw Feishu/Lark channel plugin (community maintained by @m1heng).",
   "dependencies": {
-    "@openclaw/feishu": "2026.10.5"
+    "@openclaw/feishu": "2026.10.6"
   },
   "crabpot": {
     "fixture": "feishu",
@@ -12,7 +12,7 @@
     "package": "@openclaw/feishu",
     "sourceRepo": "https://github.com/openclaw/openclaw.git",
     "sourcePath": "extensions/feishu",
-    "sourceRef": "1b58cb9a1b4f4353e1add63c8506db4d890962e8"
+    "sourceRef": "fe06181dc5ecc01cf8904abbfc26925925efefbc"
   },
   "overrides": {
     "axios": "1.20.0",
