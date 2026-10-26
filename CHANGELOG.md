@@ -2,6 +2,8 @@
 
 ## 0.2.2 - Unreleased
 
+- Refresh 22 official plugin fallback pins to 2026.10.6 with verified publication-source references, and update Apify and ClawMetry fixture pins while retaining the frozen host and qualified runtime boundaries. Thanks @dependabot.
+
 - Patch mutable fixture dependencies for Zod, Undici, body-parser and MSAL advisories while retaining reviewed plugin and host pins.
 
 - Patch HAPI's host-linked npm bundle to 12.2.1 for updated HTTP cache, Undici and selector-parser dependencies.

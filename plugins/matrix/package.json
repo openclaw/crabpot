@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for OpenClaw Matrix channel plugin.",
   "dependencies": {
-    "@openclaw/matrix": "2026.10.5"
+    "@openclaw/matrix": "2026.10.6"
   },
   "crabpot": {
     "fixture": "matrix",
@@ -12,7 +12,7 @@
     "package": "@openclaw/matrix",
     "sourceRepo": "https://github.com/openclaw/openclaw.git",
     "sourcePath": "extensions/matrix",
-    "sourceRef": "1b58cb9a1b4f4353e1add63c8506db4d890962e8"
+    "sourceRef": "fe06181dc5ecc01cf8904abbfc26925925efefbc"
   },
   "overrides": {
     "fast-uri": "3.1.8",
