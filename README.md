@@ -133,7 +133,8 @@ methods as blocked before invoking them; they do not turn rejected responses
 into passes. Status methods without those prerequisites still execute. Each
 allowed blocker has a named follow-up in `crabpot.ci-policy.json`. Matrix recovery,
 bootstrap, and verification status require a configured account and crypto runtime;
-other Matrix methods keep their normal response checks. Voice Call declares its
+their `.owner` variants also require local-state owner authority. Other Matrix
+methods keep their normal response checks. Voice Call declares its
 ten methods individually: runtime/provider setup, active call input and caller authority, or a pending
 continuation operation must exist before the corresponding probe can run.
 

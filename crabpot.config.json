@@ -581,7 +581,10 @@
         "gatewayMethodPrerequisites": {
           "matrix.verify.recoveryKey": "captured Matrix verification requires a configured account and crypto runtime",
           "matrix.verify.bootstrap": "captured Matrix verification requires a configured account and crypto runtime",
-          "matrix.verify.status": "captured Matrix verification requires a configured account and crypto runtime"
+          "matrix.verify.status": "captured Matrix verification requires a configured account and crypto runtime",
+          "matrix.verify.recoveryKey.owner": "captured Matrix verification requires a configured account and crypto runtime with local-state owner authority",
+          "matrix.verify.bootstrap.owner": "captured Matrix verification requires a configured account and crypto runtime with local-state owner authority",
+          "matrix.verify.status.owner": "captured Matrix verification requires a configured account and crypto runtime with local-state owner authority"
         }
       },
       "why": "Official bundled OpenClaw Matrix channel package covering CLI setup, gateway methods, and subagent routing hooks; Crabpot source-packs it from the OpenClaw monorepo instead of requiring a separate npm dist-tag."

@@ -6,6 +6,8 @@
 
 - Promote the three-platform qualified OpenClaw 2026.10.6 source revision to restore the Default Track pin-age SLA without changing the Windows supervisor or its budgets.
 
+- Declare the three owner-bound Matrix verification prerequisites explicitly, retaining their required account, crypto runtime, and local-state owner authority without blocking unrelated methods.
+
 - Patch mutable fixture dependencies for Zod, Undici, body-parser and MSAL advisories while retaining reviewed plugin and host pins.
 
 - Patch HAPI's host-linked npm bundle to 12.2.1 for updated HTTP cache, Undici and selector-parser dependencies.
