@@ -12,6 +12,8 @@
     "package": "@twsxtd/hapi-openclaw"
   },
   "overrides": {
+    "zod": "4.6.7",
+    "undici@^8": "8.12.3",
     "npm": "12.2.1",
     "@twsxtd/hapi-openclaw": {
       "hono": "4.13.11",
