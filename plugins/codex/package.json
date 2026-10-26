@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for OpenClaw Codex harness and model provider plugin.",
   "dependencies": {
-    "@openclaw/codex": "2026.10.5"
+    "@openclaw/codex": "2026.10.6"
   },
   "crabpot": {
     "fixture": "codex",
