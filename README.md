@@ -154,14 +154,14 @@ source and published-package pins both include this API in Inspector 0.4.0.
 
 ### Inspector retirement notice smoke
 
-Source mode and the published 0.4.4 package support retirement notices. Add
+Source mode and the published 0.4.5 package support retirement notices. Add
 `--retirements` with an explicit
 `CRABPOT_PLUGIN_INSPECTOR_DIR` to verify a synthetic deprecated SQLite member
 through the package's public API. Source, packed, and published-package CI smoke assert
 `deprecatedApi`, `replacement`, and `removeAfter: "2026-12-31"`, the final
 compatibility day, in a non-blocking author-facing warning, using both a source
 registry and a ClawHub-style declaration-only OpenClaw target. The default smoke
-uses the published `@openclaw/plugin-inspector@0.4.4` package; set
+uses the published `@openclaw/plugin-inspector@0.4.5` package; set
 `CRABPOT_PLUGIN_INSPECTOR_CLI=source` to exercise the pinned source instead.
 
 Both pins only prescribe a packed host migration when all replacement
@@ -171,8 +171,8 @@ explicitly declares the SQLite replacement so applicable notices stay covered.
 ### Inspector profile failure diagnostics
 
 Runtime profiles use reviewed Inspector source
-`23dc5dd913c2105978dc6490c35481a8109af321`. Both this source and the published
-`@openclaw/plugin-inspector@0.4.4` package preserve
+`8ec7d359fd78c96e723ce77eb5cffb3fec6703ee`. Both this source and the published
+`@openclaw/plugin-inspector@0.4.5` package preserve
 bounded stdout/stderr and explicit truncation metadata for failed process
 samples in JSON artifacts, including errors hidden by a Node version footer.
 Raw output is not automatically redacted; use credential-free
