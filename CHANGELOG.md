@@ -2,6 +2,8 @@
 
 ## 0.2.2 - Unreleased
 
+- Adopt Plugin Inspector 0.4.5 for source and published-package smoke checks, carrying the source-host memory and hook-registry compatibility fixes.
+
 - Refresh 22 official plugin fallback pins to 2026.10.6 with verified publication-source references, and update Apify and ClawMetry fixture pins while retaining track selectors and qualified runtime boundaries. Thanks @dependabot.
 
 - Promote the three-platform qualified OpenClaw 2026.10.6 source revision to restore the Default Track pin-age SLA without changing the Windows supervisor or its budgets.
