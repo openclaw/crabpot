@@ -1,243 +1,372 @@
 {
   "generatedAt": "deterministic",
   "title": "Crabpot CI Summary",
-  "mode": "check",
-  "openclawLabel": "openclaw/openclaw@10bb24270d8d (Default Track pin 2026-09-25)",
+  "mode": "track:development",
+  "openclawLabel": "openclaw/openclaw@main (2026.10.9, bc70a947fc17)",
   "status": "pass",
   "summary": {
     "breakages": 0,
-    "warnings": 279,
-    "suggestions": 163,
-    "issues": 442,
-    "p0Issues": 5,
-    "p1Issues": 35,
-    "liveIssues": 5,
-    "liveP0Issues": 5,
-    "compatGaps": 27,
-    "deprecationWarnings": 217,
-    "inspectorGaps": 149,
-    "upstreamIssues": 44,
+    "warnings": 6,
+    "suggestions": 25,
+    "issues": 31,
+    "p0Issues": 0,
+    "p1Issues": 13,
+    "liveIssues": 0,
+    "liveP0Issues": 0,
+    "compatGaps": 12,
+    "deprecationWarnings": 0,
+    "inspectorGaps": 19,
+    "upstreamIssues": 0,
     "refDiffFailures": 0,
     "refDiffWarnings": 0,
     "policyFailures": 0,
-    "policyWarnings": 1,
+    "policyWarnings": 36,
     "profileFailures": 0,
-    "profileWarnings": 2,
-    "executionPass": 0,
+    "profileWarnings": 0,
+    "executionPass": 32,
     "executionFail": 0,
-    "executionBlocked": 0,
-    "platformWindowsRisks": 17,
-    "platformContainerRisks": 17,
-    "loaderJitiCandidates": 20,
-    "importLoopP50Ms": 4273,
-    "importLoopP95Ms": 4301,
-    "importLoopOpenClawLifecycleCount": 3,
-    "importLoopOpenClawImportP50Ms": 115,
-    "importLoopOpenClawActivationP50Ms": 1.4,
+    "executionBlocked": 35,
+    "platformWindowsRisks": 0,
+    "platformContainerRisks": 0,
+    "loaderJitiCandidates": 8,
+    "importLoopP50Ms": 435,
+    "importLoopP95Ms": 440,
+    "importLoopOpenClawLifecycleCount": 0,
+    "importLoopOpenClawImportP50Ms": 0,
+    "importLoopOpenClawActivationP50Ms": 0,
     "importLoopMetricBasis": "baseline-adjusted",
-    "importLoopMaxRssMb": 1.3,
-    "importLoopMaxCpuMs": 0,
-    "importLoopRssSampleCount": 508,
-    "importLoopCpuSampleCount": 508
+    "importLoopMaxRssMb": 2.3,
+    "importLoopMaxCpuMs": 24,
+    "importLoopRssSampleCount": 51,
+    "importLoopCpuSampleCount": 51
   },
   "topIssues": [
     {
-      "severity": "P0",
-      "issueClass": "live-issue",
-      "fixture": "aiwerk-mcp-bridge",
-      "code": "unknown-hook-name",
-      "title": "aiwerk-mcp-bridge: fixture uses a hook missing from target OpenClaw",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P0",
-      "issueClass": "live-issue",
-      "fixture": "connectclaw",
-      "code": "unknown-hook-name",
-      "title": "connectclaw: fixture uses a hook missing from target OpenClaw",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P0",
-      "issueClass": "live-issue",
-      "fixture": "memos-cloud",
-      "code": "unknown-hook-name",
-      "title": "memos-cloud: fixture uses a hook missing from target OpenClaw",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P0",
-      "issueClass": "live-issue",
-      "fixture": "openclaw-telemetry",
-      "code": "unknown-hook-name",
-      "title": "openclaw-telemetry: fixture uses a hook missing from target OpenClaw",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P0",
-      "issueClass": "live-issue",
-      "fixture": "opik-openclaw",
-      "code": "unknown-hook-name",
-      "title": "opik-openclaw: fixture uses a hook missing from target OpenClaw",
-      "decision": "core-compat-adapter"
-    },
-    {
       "severity": "P1",
       "issueClass": "compat-gap",
-      "fixture": "agentchat",
+      "fixture": "brave-plugin",
       "code": "missing-compat-record",
-      "title": "agentchat: compat-dependent behavior lacks registry coverage",
+      "title": "brave-plugin: compat-dependent behavior lacks registry coverage",
       "decision": "core-compat-adapter"
     },
     {
       "severity": "P1",
       "issueClass": "compat-gap",
-      "fixture": "bluebubbles",
-      "code": "sdk-export-missing",
-      "title": "bluebubbles: plugin SDK import aliases are missing from target package exports",
+      "fixture": "codex",
+      "code": "missing-compat-record",
+      "title": "codex: compat-dependent behavior lacks registry coverage",
       "decision": "core-compat-adapter"
     },
     {
       "severity": "P1",
-      "issueClass": "inspector-gap",
+      "issueClass": "compat-gap",
       "fixture": "codex",
       "code": "sdk-export-missing",
-      "title": "codex: SDK import coverage requires an eligible host",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "connectclaw",
-      "code": "missing-compat-record",
-      "title": "connectclaw: compat-dependent behavior lacks registry coverage",
+      "title": "codex: plugin SDK import aliases are missing from target package exports",
       "decision": "core-compat-adapter"
     },
     {
       "severity": "P1",
       "issueClass": "compat-gap",
-      "fixture": "connectclaw",
+      "fixture": "diagnostics-prometheus",
       "code": "missing-compat-record",
-      "title": "connectclaw: compat-dependent behavior lacks registry coverage",
+      "title": "diagnostics-prometheus: compat-dependent behavior lacks registry coverage",
       "decision": "core-compat-adapter"
     },
     {
       "severity": "P1",
       "issueClass": "compat-gap",
-      "fixture": "connectclaw",
+      "fixture": "diagnostics-prometheus",
       "code": "sdk-export-missing",
-      "title": "connectclaw: plugin SDK import aliases are missing from target package exports",
+      "title": "diagnostics-prometheus: plugin SDK import aliases are missing from target package exports",
       "decision": "core-compat-adapter"
     },
     {
       "severity": "P1",
       "issueClass": "compat-gap",
-      "fixture": "ddingtalk",
+      "fixture": "diffs",
       "code": "missing-compat-record",
-      "title": "ddingtalk: compat-dependent behavior lacks registry coverage",
+      "title": "diffs: compat-dependent behavior lacks registry coverage",
       "decision": "core-compat-adapter"
     },
     {
       "severity": "P1",
       "issueClass": "compat-gap",
-      "fixture": "dingtalk-connector",
+      "fixture": "diffs",
       "code": "sdk-export-missing",
-      "title": "dingtalk-connector: plugin SDK import aliases are missing from target package exports",
+      "title": "diffs: plugin SDK import aliases are missing from target package exports",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "google-meet",
+      "code": "missing-compat-record",
+      "title": "google-meet: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "google-meet",
+      "code": "sdk-export-missing",
+      "title": "google-meet: plugin SDK import aliases are missing from target package exports",
       "decision": "core-compat-adapter"
     },
     {
       "severity": "P1",
       "issueClass": "inspector-gap",
-      "fixture": "dingtalk-doc",
-      "code": "before-tool-call-probe",
-      "title": "dingtalk-doc: before_tool_call needs terminal/block/approval probes",
+      "fixture": "memory-lancedb",
+      "code": "conversation-access-hook",
+      "title": "memory-lancedb: conversation-access hooks need privacy-boundary probes",
       "decision": "inspector-follow-up"
     },
     {
       "severity": "P1",
       "issueClass": "compat-gap",
-      "fixture": "dingtalk-doc",
+      "fixture": "memory-lancedb",
       "code": "missing-compat-record",
-      "title": "dingtalk-doc: compat-dependent behavior lacks registry coverage",
+      "title": "memory-lancedb: compat-dependent behavior lacks registry coverage",
       "decision": "core-compat-adapter"
     },
     {
       "severity": "P1",
       "issueClass": "compat-gap",
-      "fixture": "dingtalk-doc",
+      "fixture": "memory-lancedb",
+      "code": "missing-compat-record",
+      "title": "memory-lancedb: compat-dependent behavior lacks registry coverage",
+      "decision": "core-compat-adapter"
+    },
+    {
+      "severity": "P1",
+      "issueClass": "compat-gap",
+      "fixture": "whatsapp",
       "code": "sdk-export-missing",
-      "title": "dingtalk-doc: plugin SDK import aliases are missing from target package exports",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "hasdata",
-      "code": "missing-compat-record",
-      "title": "hasdata: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "inworld-tts",
-      "code": "missing-compat-record",
-      "title": "inworld-tts: compat-dependent behavior lacks registry coverage",
-      "decision": "core-compat-adapter"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "inspector-gap",
-      "fixture": "kitchen-sink",
-      "code": "before-tool-call-probe",
-      "title": "kitchen-sink: before_tool_call needs terminal/block/approval probes",
-      "decision": "inspector-follow-up"
-    },
-    {
-      "severity": "P1",
-      "issueClass": "compat-gap",
-      "fixture": "matrix",
-      "code": "sdk-export-missing",
-      "title": "matrix: plugin SDK import aliases are missing from target package exports",
+      "title": "whatsapp: plugin SDK import aliases are missing from target package exports",
       "decision": "core-compat-adapter"
     }
   ],
   "refRegressions": [],
   "policyFindings": [
     {
-      "id": "compatibility-report.live-p0-issues",
+      "id": "execution-results.audit-findings",
       "action": "warn",
-      "message": "5 live P0 issues tracked",
+      "message": "3 package audit findings",
       "evidence": [
-        "aiwerk-mcp-bridge:unknown-hook-name:none",
-        "connectclaw:unknown-hook-name:none",
-        "memos-cloud:unknown-hook-name:none",
-        "openclaw-telemetry:unknown-hook-name:none",
-        "opik-openclaw:unknown-hook-name:none"
+        "memory-lancedb:3"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.codex.registerCli.5",
+      "action": "warn",
+      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "evidence": [
+        ".crabpot/results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json",
+        "registerCli",
+        "captured registration has no supported callable probe",
+        "generated-surface-registration-stubs"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.codex.registerGatewayMethod.0",
+      "action": "warn",
+      "message": "allowed-blocked: captured account usage requires a saved subscription login and Gateway runtime",
+      "evidence": [
+        ".crabpot/results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json",
+        "registerGatewayMethod",
+        "captured account usage requires a saved subscription login and Gateway runtime",
+        "account-usage-runtime-prerequisite"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.codex.registerService.1",
+      "action": "warn",
+      "message": "allowed-blocked: captured registration requires includeLifecycle=true",
+      "evidence": [
+        ".crabpot/results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json",
+        "registerService",
+        "captured registration requires includeLifecycle=true",
+        "service-lifecycle-harness"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.codex.registerService.3",
+      "action": "warn",
+      "message": "allowed-blocked: captured registration requires includeLifecycle=true",
+      "evidence": [
+        ".crabpot/results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json",
+        "registerService",
+        "captured registration requires includeLifecycle=true",
+        "service-lifecycle-harness"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.codex.registerService.4",
+      "action": "warn",
+      "message": "allowed-blocked: captured registration requires includeLifecycle=true",
+      "evidence": [
+        ".crabpot/results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json",
+        "registerService",
+        "captured registration requires includeLifecycle=true",
+        "service-lifecycle-harness"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.codex.registerService.6",
+      "action": "warn",
+      "message": "allowed-blocked: captured registration requires includeLifecycle=true",
+      "evidence": [
+        ".crabpot/results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json",
+        "registerService",
+        "captured registration requires includeLifecycle=true",
+        "service-lifecycle-harness"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.codex.registerTool.18",
+      "action": "warn",
+      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "evidence": [
+        ".crabpot/results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json",
+        "registerTool",
+        "captured registration has no supported callable probe",
+        "generated-surface-registration-stubs"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.codex.registerTool.20",
+      "action": "warn",
+      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "evidence": [
+        ".crabpot/results/codex/cold-import-extension-codex-plugins-codex-crabpot-package-index-ts.synthetic.json",
+        "registerTool",
+        "captured registration has no supported callable probe",
+        "generated-surface-registration-stubs"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.diagnostics-prometheus.registerHttpRoute.1",
+      "action": "warn",
+      "message": "allowed-blocked: captured HTTP route probe requires route descriptor input",
+      "evidence": [
+        ".crabpot/results/diagnostics-prometheus/cold-import-extension-diagnostics-prometheus-plugins-diagnostics-prometheus-crabpot-package-index-ts.synthetic.json",
+        "registerHttpRoute",
+        "captured HTTP route probe requires route descriptor input",
+        "http-route-descriptor-input"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.diagnostics-prometheus.registerService.0",
+      "action": "warn",
+      "message": "allowed-blocked: captured registration requires includeLifecycle=true",
+      "evidence": [
+        ".crabpot/results/diagnostics-prometheus/cold-import-extension-diagnostics-prometheus-plugins-diagnostics-prometheus-crabpot-package-index-ts.synthetic.json",
+        "registerService",
+        "captured registration requires includeLifecycle=true",
+        "service-lifecycle-harness"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.diffs.registerHttpRoute.2",
+      "action": "warn",
+      "message": "allowed-blocked: captured HTTP route probe requires route descriptor input",
+      "evidence": [
+        ".crabpot/results/diffs/cold-import-extension-diffs-plugins-diffs-crabpot-package-index-ts.synthetic.json",
+        "registerHttpRoute",
+        "captured HTTP route probe requires route descriptor input",
+        "http-route-descriptor-input"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.diffs.registerService.0",
+      "action": "warn",
+      "message": "allowed-blocked: captured registration requires includeLifecycle=true",
+      "evidence": [
+        ".crabpot/results/diffs/cold-import-extension-diffs-plugins-diffs-crabpot-package-index-ts.synthetic.json",
+        "registerService",
+        "captured registration requires includeLifecycle=true",
+        "service-lifecycle-harness"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.diffs.registerTool.1",
+      "action": "warn",
+      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "evidence": [
+        ".crabpot/results/diffs/cold-import-extension-diffs-plugins-diffs-crabpot-package-index-ts.synthetic.json",
+        "registerTool",
+        "captured registration has no supported callable probe",
+        "generated-surface-registration-stubs"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.google-meet.registerCli.23",
+      "action": "warn",
+      "message": "allowed-blocked: captured registration has no supported callable probe",
+      "evidence": [
+        ".crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json",
+        "registerCli",
+        "captured registration has no supported callable probe",
+        "generated-surface-registration-stubs"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.google-meet.registerGatewayMethod.10",
+      "action": "warn",
+      "message": "allowed-blocked: captured meeting query requires Google Meet OAuth credentials",
+      "evidence": [
+        ".crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json",
+        "registerGatewayMethod",
+        "captured meeting query requires Google Meet OAuth credentials",
+        "meeting-oauth-prerequisite"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.google-meet.registerGatewayMethod.11",
+      "action": "warn",
+      "message": "allowed-blocked: captured meeting query requires Google Meet OAuth credentials",
+      "evidence": [
+        ".crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json",
+        "registerGatewayMethod",
+        "captured meeting query requires Google Meet OAuth credentials",
+        "meeting-oauth-prerequisite"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.google-meet.registerGatewayMethod.12",
+      "action": "warn",
+      "message": "allowed-blocked: captured meeting query requires Google Meet OAuth credentials",
+      "evidence": [
+        ".crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json",
+        "registerGatewayMethod",
+        "captured meeting query requires Google Meet OAuth credentials",
+        "meeting-oauth-prerequisite"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.google-meet.registerGatewayMethod.13",
+      "action": "warn",
+      "message": "allowed-blocked: captured meeting query requires Google Meet OAuth credentials",
+      "evidence": [
+        ".crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json",
+        "registerGatewayMethod",
+        "captured meeting query requires Google Meet OAuth credentials",
+        "meeting-oauth-prerequisite"
+      ]
+    },
+    {
+      "id": "execution-results.blocked.google-meet.registerGatewayMethod.14",
+      "action": "warn",
+      "message": "allowed-blocked: captured meeting query requires Google Meet OAuth credentials",
+      "evidence": [
+        ".crabpot/results/google-meet/cold-import-extension-google-meet-plugins-google-meet-crabpot-package-index-ts.synthetic.json",
+        "registerGatewayMethod",
+        "captured meeting query requires Google Meet OAuth credentials",
+        "meeting-oauth-prerequisite"
       ]
     }
   ],
-  "profileFindings": [
-    {
-      "id": "profile.wall-p95",
-      "action": "warn",
-      "metric": "p95WallMs",
-      "message": "p95WallMs regressed 563.8% over baseline",
-      "baseline": 1273,
-      "current": 8450,
-      "delta": 7177,
-      "percent": 563.8
-    },
-    {
-      "id": "profile.peak-rss",
-      "action": "warn",
-      "metric": "maxPeakRssMb",
-      "message": "maxPeakRssMb regressed 696 over baseline",
-      "baseline": 65.1,
-      "current": 761.1,
-      "delta": 696
-    }
-  ],
+  "profileFindings": [],
   "artifacts": {
     "compatibility": "reports/crabpot-report.json",
     "capture": "reports/crabpot-capture.json",
@@ -249,9 +378,9 @@
     "execution": "reports/crabpot-execution-results.json",
     "runtimeProfile": null,
     "refDiff": null,
-    "profileDiff": "reports/crabpot-profile-diff.json",
+    "profileDiff": null,
     "ciPolicy": "reports/crabpot-ci-policy.json",
     "generatedSurface": "reports/crabpot-generated-surface.json",
-    "packageAvailability": "reports/crabpot-package-availability.json"
+    "packageAvailability": null
   }
 }
