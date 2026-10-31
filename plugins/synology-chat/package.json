@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for Synology Chat channel plugin for OpenClaw.",
   "dependencies": {
-    "@openclaw/synology-chat": "2026.10.6"
+    "@openclaw/synology-chat": "2026.10.8"
   },
   "crabpot": {
     "fixture": "synology-chat",
