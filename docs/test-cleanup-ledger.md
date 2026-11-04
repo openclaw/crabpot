@@ -25,6 +25,7 @@
 - Removed seven synthetic-policy classification/validation copies; kept all seven real default-policy fixture mappings and the current-run selection check.
 - Removed three execution-results copies for total-only audit counts, empty directories, and recursive artifact sorting. The pinned Inspector tests already own these algorithms; Crabpot adds no transformations to those inputs.
 - Removed the issue-classification assertion block duplicated by the pinned Inspector report/issue tests and its two otherwise-unused direct exports. Kept the Crabpot issue-rendering checks.
+- Validation of that removal: report composition passed on AWS Linux (`run_751c4eaaaa385a9b485b916b1b9fb56a`); both issue-rendering checks passed after materializing their BlueBubbles prerequisite (`run_6d2a324794f00eaf56b85795b773e5c0`, lease `cbx_1805895f99bd`, actual type `c7i.8xlarge`).
 - Retained the missing-baseline file-path check, ref-diff writer integration, Crabpot-only npm peer-drift normalization, profile failure/blocked accounting, and execution-results writer integration tests.
 - Validation: the three retained diff/workspace checks passed on AWS Linux (`run_0dc851772ab0afaff06429f818647d92`, lease `cbx_579ad1d28884`). All eight retained CI-policy tests passed on AWS Linux (`run_cf26162e5a7bb7a8142a1b5f84ead5ad`, lease `cbx_e8c4a1f91358`). All four retained execution-results tests passed on AWS Linux (`run_307c278e5f927e3091a33f94fe97c8a7`, lease `cbx_1fc4f6a0f499`).
 
