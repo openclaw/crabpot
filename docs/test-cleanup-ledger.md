@@ -34,10 +34,19 @@
 - Retained the missing-baseline file-path check, ref-diff writer integration, Crabpot-only npm peer-drift normalization, profile failure/blocked accounting, and execution-results writer integration tests.
 - Validation: the three retained diff/workspace checks passed on AWS Linux (`run_0dc851772ab0afaff06429f818647d92`, lease `cbx_579ad1d28884`). All eight retained CI-policy tests passed on AWS Linux (`run_cf26162e5a7bb7a8142a1b5f84ead5ad`, lease `cbx_e8c4a1f91358`). All four retained execution-results tests passed on AWS Linux (`run_307c278e5f927e3091a33f94fe97c8a7`, lease `cbx_1fc4f6a0f499`).
 
-## Remaining audit
+## Audit coverage
 
 - Corpus expectation cleanup: removed the copied channel-alias helper and hook/registration/manifest loops. The pinned Inspector checks those expectations and exposes missing seams as report breakages. Retained all configured fixture IDs, successful materialization, and the real report verdict. Syntax and diff checks passed; full corpus execution remains pending in PR CI.
 
-Current inventory: 53 top-level test files and 59 configured plugin fixtures. Initial reference tracing found consumers for all files under `test/fixtures`, including dynamically constructed capture-error filenames; none is proven dead by filename search alone.
+The ownership/reference pass covers all 53 top-level test files, grouped once each below, plus the corpus lanes. Fixture acquisition identities are distinct across the 59 configured plugins. Every file under `test/fixtures` has a consumer, including dynamically constructed capture-error filenames; no fixture deletion is justified by reference tracing.
 
-Review behavioral tests, fixture uniqueness, blocked-failure mappings, and static checks versus actual isolated execution. Source-text workflow guards remain candidates for replacement with executable checks; this batch does not claim they prove end-to-end behavior.
+| Area | Files | Retained purpose |
+| --- | ---: | --- |
+| Acquisition, manifest and fixture contracts | 9 | Real selections, acquisition failures, exact blockers, source evidence and metadata consistency |
+| Inspector and execution boundaries | 10 | Checkout ownership, process lifecycle, argument bytes, deadlines and Crabpot executor mappings |
+| Reporting and CI policy | 12 | Current-run evidence, failure propagation, artifact writers and real policy mappings |
+| Tracks, orchestration and profiling | 7 | Immutable pins, transport failures, selected lanes and child resource limits |
+| Resource workloads and receipts | 13 | Admission, protocol assertions, source identity, arithmetic and cleanup failures |
+| Behavior evaluation and npm response parsing | 2 | Scenario contracts, isolated execution and supported npm output shapes |
+
+Resource adapter/RPC doubles and behavior-runner doubles remain unit contracts; they do not earn live workload or end-to-end credit. Native process fixtures remain platform-specific CI inputs. Workflow source-text guards remain configuration checks; executable workflow proof comes from required CI. The cleanup PRs still require their full CI gates and landing; focused runs above do not substitute for that proof.
