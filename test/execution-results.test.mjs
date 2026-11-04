@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { mkdir, mkdtemp, readFile, writeFile } from "node:fs/promises";
+import { rm, mkdir, mkdtemp, readFile, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import { test } from "node:test";
@@ -10,8 +10,9 @@ import {
   writeExecutionResultsReport,
 } from "../scripts/summarize-execution-results.mjs";
 
-test("execution results summarize capture and synthetic artifacts", async () => {
+test("execution results summarize capture and synthetic artifacts", async (context) => {
   const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-results-"));
+  context.after(() => rm(dir, { recursive: true, force: true, maxRetries: 3 }));
   const fixtureDir = path.join(dir, "wecom");
   await mkdir(fixtureDir);
   await writeFile(
@@ -99,8 +100,9 @@ test("execution results summarize capture and synthetic artifacts", async () => 
   assert.match(renderExecutionResultsMarkdown(report), /Execution Profiles/);
 });
 
-test("execution results count total-only audit metadata", async () => {
+test("execution results count total-only audit metadata", async (context) => {
   const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-results-"));
+  context.after(() => rm(dir, { recursive: true, force: true, maxRetries: 3 }));
   const fixtureDir = path.join(dir, "minimal");
   await mkdir(fixtureDir);
   await writeFile(
@@ -121,8 +123,9 @@ test("execution results count total-only audit metadata", async () => {
   assert.equal(report.artifacts[0].findingCount, 4);
 });
 
-test("execution results count failed workspace profile steps as failures", async () => {
+test("execution results count failed workspace profile steps as failures", async (context) => {
   const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-results-"));
+  context.after(() => rm(dir, { recursive: true, force: true, maxRetries: 3 }));
   const fixtureDir = path.join(dir, "broken-build");
   await mkdir(fixtureDir);
   await writeFile(
@@ -157,8 +160,9 @@ test("execution results count failed workspace profile steps as failures", async
   assert.equal(report.summary.failCount, 1);
 });
 
-test("execution results count blocked workspace profile steps as blocked", async () => {
+test("execution results count blocked workspace profile steps as blocked", async (context) => {
   const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-results-"));
+  context.after(() => rm(dir, { recursive: true, force: true, maxRetries: 3 }));
   const fixtureDir = path.join(dir, "upstream-blocked");
   await mkdir(fixtureDir);
   await writeFile(
@@ -207,8 +211,9 @@ test("execution results handle empty result directories", async () => {
   assert.match(renderExecutionResultsMarkdown(report), /## Artifacts\n\n_none_/);
 });
 
-test("execution results recurse, sort artifacts, and count alternate audit shapes", async () => {
+test("execution results recurse, sort artifacts, and count alternate audit shapes", async (context) => {
   const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-results-"));
+  context.after(() => rm(dir, { recursive: true, force: true, maxRetries: 3 }));
   await mkdir(path.join(dir, "z-fixture"));
   await mkdir(path.join(dir, "a-fixture", "nested"), { recursive: true });
   await writeFile(
@@ -236,10 +241,12 @@ test("execution results recurse, sort artifacts, and count alternate audit shape
   );
 });
 
-test("execution results writer preserves failures and repo-relative entrypoint paths", async () => {
+test("execution results writer preserves failures and repo-relative entrypoint paths", async (context) => {
   const resultsDir = await mkdtemp(path.join(os.tmpdir(), "crabpot-results-"));
+  context.after(() => rm(resultsDir, { recursive: true, force: true, maxRetries: 3 }));
   const fixtureDir = path.join(resultsDir, "broken");
   const outputDir = await mkdtemp(path.join(os.tmpdir(), "crabpot-execution-report-"));
+  context.after(() => rm(outputDir, { recursive: true, force: true, maxRetries: 3 }));
   const jsonPath = path.join(outputDir, "execution.json");
   const markdownPath = path.join(outputDir, "execution.md");
   await mkdir(fixtureDir);
