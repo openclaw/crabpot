@@ -21,6 +21,7 @@
 ## Inspector-owned algorithm copies
 
 - Compared the four local suites with the pinned Inspector revision `8ec7d359fd78c96e723ce77eb5cffb3fec6703ee`, rather than a moving upstream checkout.
+- After main adopted Inspector `8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446`, the relevant owning tests remained unchanged. All 18 retained diff, workspace, policy, execution, issue-rendering, and composition checks passed on AWS Linux (`run_61d17d0521424fe3876002c544682709`, lease `cbx_04bb4a92e312`, actual type `c7i.8xlarge`).
 - Removed four profile-diff threshold/severity tests, four ref-diff classification tests, and one workspace-plan validator test copied from that revision's own tests. The tested algorithm calls delegate to Inspector without Crabpot transformations.
 - Removed seven synthetic-policy classification/validation copies; kept all seven real default-policy fixture mappings and the current-run selection check.
 - Removed three execution-results copies for total-only audit counts, empty directories, and recursive artifact sorting. The pinned Inspector tests already own these algorithms; Crabpot adds no transformations to those inputs.
