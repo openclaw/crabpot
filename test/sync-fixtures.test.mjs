@@ -189,6 +189,7 @@ function assertFailedAcquisition(result) {
 test("composed report commands match standalone artifacts on the same real source fixture", async (t) => {
   const item = fixture();
   delete item.package;
+  item.repo = "https://github.com/example/fixture-plugin.git";
   const repo = await miniatureRepo(t, [item]);
   await repo.json(`${item.path}/package.json`, {
     name: "fixture-plugin", version: "1.0.0", type: "module",
