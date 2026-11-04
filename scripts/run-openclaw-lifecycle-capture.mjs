@@ -91,7 +91,7 @@ async function captureOpenClawLifecycle(entrypoint) {
       pathToFileURL(path.join(openclawRoot, "src", "plugins", "loader.ts")).href
     );
 
-    const registry = loadAndActivateRootPluginRegistry({
+    const registry = await loadAndActivateRootPluginRegistry({
       cache: false,
       workspaceDir: stateRoot,
       config: {
