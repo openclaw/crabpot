@@ -62,6 +62,12 @@ prepared source. Registry metadata independently identifies the published
 package versions, tarball URLs, and integrity values. That publication run
 failed overall; its successful per-package qualifications establish these 22
 packages, not success for every package in the upstream release campaign.
+The configured refresh advances 21 fallbacks. Brave retains the reviewed
+2026.10.6 artifact and prepared source
+`fe06181dc5ecc01cf8904abbfc26925925efefbc`. Both integrity-verified archives
+contain the same ten existing non-package files; 2026.10.9 adds a source-module
+map and raises the declared host floor without a demonstrated runtime benefit.
+This preserves the [maintainer impact bar](https://github.com/openclaw/crabpot/pull/528#issuecomment-6262078780).
 Moving track selection and the separately qualified Default Track host pin are
 unchanged; the newer packages' declared host compatibility remains visible.
 Regenerate reports against the pinned Default Track after changing fixture pins.
