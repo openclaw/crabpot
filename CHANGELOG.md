@@ -3,6 +3,7 @@
 ## 0.2.2 - Unreleased
 
 - Refresh 22 official plugin fallback pins to 2026.10.9 with verified publication-source references, retaining track selectors, the qualified host pin, and explicit compatibility gaps. Thanks @dependabot.
+- Adopt reviewed Plugin Inspector source memory fixes, including type-information-only SDK parsing that preserves JavaScript JSDoc and inventory evidence; retain the published 0.4.5 package pin, 2 GiB heap limit, and all cold profiling samples.
 
 - Reuse one source inspection across static report checks so Windows CI retains time for coverage and policy validation, preserving every cold profiling sample and existing deadlines.
 
