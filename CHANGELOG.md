@@ -2,6 +2,8 @@
 
 ## 0.2.2 - Unreleased
 
+- Enforce strict CI policy when the static suite selects the release gate, including manual ref checks with strict contracts enabled.
+
 - Reject missing static-suite option values before starting checks, so an incomplete fixture selector cannot fall back to the full corpus.
 
 - Reuse one source inspection across static report checks so Windows CI retains time for coverage and policy validation, preserving every cold profiling sample and existing deadlines.
