@@ -60,7 +60,7 @@ test("release policy reaches the checker and preserves its failure exit code", (
   const cwd = mkdtempSync(path.join(os.tmpdir(), "crabpot-static-policy-"));
   try {
     for (const [, args] of buildStaticSuiteSteps({ pluginInspectorSmoke: true })) {
-      const file = args[0] === "--test" ? args.at(-1).replace("*", "empty") : args[0];
+      const file = args[0] === "--test" ? args.at(-1).replaceAll("*", "empty") : args[0];
       mkdirSync(path.dirname(path.join(cwd, file)), { recursive: true });
       writeFileSync(path.join(cwd, file), args[0] === "--test" ? "" : [
         'import path from "node:path";',
