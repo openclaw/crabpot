@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
+import { writeJsonResult } from "./json-output.mjs";
 import { mergeCrabpotHookEvents } from "./capture-contracts.mjs";
 import { readConfiguredManifest, repoRoot } from "./manifest-lib.mjs";
 import { buildReport } from "./report-lib.mjs";
@@ -450,13 +450,4 @@ function normalizeCaptureHookEvents(capture, hookEvents) {
 
 function httpRouteProbeArgs() {
   throw new Error(httpRouteDescriptorInputReason);
-}
-
-async function writeJsonResult(result, outputPath) {
-  if (!outputPath) {
-    process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
-    return;
-  }
-  await mkdir(path.dirname(outputPath), { recursive: true });
-  await writeFile(outputPath, `${JSON.stringify(result, null, 2)}\n`, "utf8");
 }

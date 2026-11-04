@@ -5,7 +5,13 @@
 - Removed the minimum fixture count and six hardcoded plugin names. Manifest validation and required seam coverage remain; fixture retirement must not require keeping arbitrary names alive.
 - Removed the exact GitHub action-major/cache spelling test. It scanned concatenated YAML, so a match in one workflow could hide a missing cache in another. Dependabot owns version updates; workflow execution validates action compatibility.
 - Removed README heading, prose, emoji, and navigation-copy assertions. Kept manifest/gitmodule/README row consistency, dynamic source metadata preservation, and update-time formatting.
-- Validation: 81 focused Node tests passed on current main; `git diff --check` passed. AWS Crabbox run `run_d7bc5fbc58be54fe1195cc2540ed6bc6` failed during hydration before tests (`fatal: not a git repository`); hosted PR CI is the remaining validation gate.
+- Validation: 81 focused tests passed locally and on AWS Linux (`run_71773f7b72959857fcdbfcdc3988f061`). All four Default Track platform lanes passed in PR CI run `41829651301`; checks will rerun after this main reconciliation.
+
+## Credential-free Git fixture commits
+
+- Three Inspector-readiness and track-metadata fixture commits inherited user signing settings, making ordinary tests depend on an available signing credential or agent.
+- Each disposable fixture commit now passes command-local `commit.gpgSign=false`.
+- Validation on macOS: all three existing tests failed with signing enabled and an unavailable signer before the fix, then passed with the same environment after the fix. `git diff --check` passed.
 
 ## Remaining audit
 
