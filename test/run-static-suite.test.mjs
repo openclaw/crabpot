@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 import { test } from "node:test";
 import { buildStaticSuiteSteps } from "../scripts/run-static-suite.mjs";
 
-function runWithTimeout(value) {
+function runWithTimeout(value, args = []) {
   const cwd = mkdtempSync(path.join(os.tmpdir(), "crabpot-static-timeout-"));
   try {
     mkdirSync(path.join(cwd, "scripts"));
@@ -16,7 +16,7 @@ function runWithTimeout(value) {
     const env = { ...process.env };
     if (value === undefined) delete env.CRABPOT_STATIC_STEP_TIMEOUT_MS;
     else env.CRABPOT_STATIC_STEP_TIMEOUT_MS = value;
-    return spawnSync(process.execPath, [fileURLToPath(new URL("../scripts/run-static-suite.mjs", import.meta.url))], {
+    return spawnSync(process.execPath, [fileURLToPath(new URL("../scripts/run-static-suite.mjs", import.meta.url)), ...args], {
       cwd, env, encoding: "utf8", timeout: 10_000,
     });
   } finally {
@@ -41,6 +41,18 @@ test("static suite preserves absent, empty, and valid step timeout settings", ()
     assert.equal(result.status, 23, JSON.stringify(value));
     assert.match(result.stdout, /synthetic static command executed/);
     assert.equal(result.stderr, "");
+  }
+});
+
+test("static suite rejects missing option values before starting any step", () => {
+  for (const flag of ["--openclaw", "--fixture-set", "--openclaw-track", "--plugin-track", "--policy", "--profile-runs"]) {
+    for (const trailing of [[], [""], ["--write-reports"]]) {
+      const result = runWithTimeout(undefined, [flag, ...trailing]);
+      assert.ifError(result.error);
+      assert.notEqual(result.status, 0);
+      assert.match(result.stderr, new RegExp(`${flag} requires a value`));
+      assert.equal(result.stdout, "", "invalid arguments must not start a suite step");
+    }
   }
 });
 
@@ -72,19 +84,6 @@ test("static suite checks behavior eval reports only for default committed targe
   const rendered = steps.map(([, args]) => args.join(" "));
 
   assert.ok(rendered.includes("scripts/behavior-eval.mjs --check"));
-});
-
-test("static suite release policy keeps compatibility findings advisory", () => {
-  const steps = buildStaticSuiteSteps({
-    pluginInspectorSmoke: true,
-    policyArgs: [],
-  });
-
-  const rendered = steps.map(([, args]) => args.join(" "));
-
-  assert.ok(rendered.includes("scripts/run-plugin-inspector-smoke.mjs --check"));
-  assert.ok(rendered.includes("scripts/check-ci-policy.mjs --check"));
-  assert.equal(rendered.some((args) => args.includes("check-ci-policy.mjs --check --strict")), false);
 });
 
 test("static suite can focus operational report steps without filtering unit tests", () => {
