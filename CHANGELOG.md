@@ -2,6 +2,8 @@
 
 ## 0.2.2 - Unreleased
 
+- Reject missing static-suite option values before starting checks, so an incomplete fixture selector cannot fall back to the full corpus.
+
 - Reuse one source inspection across static report checks so Windows CI retains time for coverage and policy validation, preserving every cold profiling sample and existing deadlines.
 
 - Adopt Plugin Inspector 0.4.5 for source and published-package smoke checks, carrying the source-host memory and hook-registry compatibility fixes.
