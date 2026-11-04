@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 import path from "node:path";
 import { pathToFileURL } from "node:url";
+import { formatSampledMetric } from "./profile-metrics.mjs";
+import { readOptionValue } from "./cli-args.mjs";
 import { inspectManifest } from "./inspect-fixtures.mjs";
 import { repoRoot } from "./manifest-lib.mjs";
 import { loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
@@ -158,14 +160,6 @@ function parseArgs(argv) {
   return args;
 }
 
-function readOptionValue(argv, index, flagName) {
-  const value = argv[index + 1];
-  if (!value || value.startsWith("--")) {
-    throw new Error(`${flagName} requires a value`);
-  }
-  return value;
-}
-
 export async function buildRuntimeProfile(options = {}) {
   const report = options.report ?? (await buildReport({ openclawPath: options.openclawPath }));
   const inspection = options.inspection ?? (await inspectManifest());
@@ -196,11 +190,4 @@ export function renderRuntimeProfileMarkdown(profile, options = {}) {
     ...crabpotRuntimeProfileOptions,
     ...options,
   });
-}
-
-function formatSampledMetric(value, count, unit = "MB") {
-  if ((count ?? 0) <= 0) {
-    return "n/a";
-  }
-  return `${value}${unit}`;
 }

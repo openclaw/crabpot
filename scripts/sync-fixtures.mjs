@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { existsSync, rmSync } from "node:fs";
+import { configuredTimeoutMs } from "./portable-command.mjs";
 import { mkdir, mkdtemp, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import os from "node:os";
 import { spawnSync } from "node:child_process";
@@ -491,17 +492,6 @@ function spawnFailureDetail(result) {
   return result.stderr?.trim() ? `: ${result.stderr.trim()}` : "";
 }
 
-function configuredTimeoutMs(envName, fallback) {
-  const raw = process.env[envName];
-  if (!raw) {
-    return fallback;
-  }
-  const parsed = Number.parseInt(raw, 10);
-  if (!Number.isInteger(parsed) || parsed <= 0) {
-    throw new Error(`${envName} must be a positive integer timeout in milliseconds`);
-  }
-  return parsed;
-}
 
 function tarPath(filePath) {
   if (process.platform !== "win32") {

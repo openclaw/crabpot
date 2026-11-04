@@ -3,6 +3,7 @@ import { existsSync } from "node:fs";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
+import { formatSampledMetric } from "./profile-metrics.mjs";
 import { repoRoot } from "./manifest-lib.mjs";
 
 export const readmeSummaryStart = "<!-- crabpot-summary:start -->";
@@ -672,13 +673,6 @@ function inferSampleCount(samples = [], kind) {
     }
     return sum + (sample.cpuSampleCount ?? 0);
   }, 0);
-}
-
-function formatSampledMetric(value, count, unit = "MB") {
-  if ((count ?? 0) <= 0) {
-    return "n/a";
-  }
-  return `${value}${unit}`;
 }
 
 async function readOptionalJson(jsonPath) {

@@ -3,6 +3,7 @@ import { existsSync } from "node:fs";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
+import { readOptionValue } from "./cli-args.mjs";
 import { defaultRefDiffJsonPath } from "./compare-openclaw-refs.mjs";
 import { repoRoot } from "./manifest-lib.mjs";
 import { loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
@@ -105,14 +106,6 @@ function parseArgs(argv) {
   }
 
   return args;
-}
-
-function readOptionValue(argv, index, flagName) {
-  const value = argv[index + 1];
-  if (!value || value.startsWith("--")) {
-    throw new Error(`${flagName} requires a value`);
-  }
-  return value;
 }
 
 export async function buildCiPolicyReport(options = {}) {

@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 import { mkdtempSync, rmSync, writeFileSync } from "node:fs";
-import { mkdir, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
+import { writeJsonResult } from "./json-output.mjs";
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   try {
@@ -254,14 +254,4 @@ function lifecyclePathLabel(filePath) {
   }
 
   return normalized;
-}
-
-async function writeJsonResult(result, outputPath) {
-  const json = `${JSON.stringify(result, null, 2)}\n`;
-  if (!outputPath) {
-    process.stdout.write(json);
-    return;
-  }
-  await mkdir(path.dirname(outputPath), { recursive: true });
-  await writeFile(outputPath, json, "utf8");
 }
