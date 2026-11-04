@@ -160,6 +160,7 @@ test("default check workflow uploads policy and summary reports", async () => {
   assert.match(check, /if: \$\{\{ !cancelled\(\) && github\.event_name != 'pull_request'/);
   assert.match(dashboardBlock, /permissions:[\s\S]*contents: write[\s\S]*statuses: write/);
   assert.match(dashboardBlock, /pnpm --dir openclaw install --frozen-lockfile --ignore-scripts/);
+  assert.match(dashboardBlock, /^          source scripts\/dashboard-profile-step\.sh$/m);
   assert.match(dashboardBlock, /run_profile_step 180 "OpenClaw lifecycle import-loop profile failed or timed out; falling back to fixture-only import-loop profile" node scripts\/import-loop-profile\.mjs --openclaw \.\/openclaw --runs 3/);
   assert.match(dashboardBlock, /local profile_json="reports\/crabpot-import-loop-profile\.json"[\s\S]*local profile_markdown="reports\/crabpot-import-loop-profile\.md"[\s\S]*rm -f "\$\{profile_json\}" "\$\{profile_markdown\}"/);
   assert.match(dashboardBlock, /if ! run_profile_step 90 "fixture-only import-loop profile failed or timed out; continuing without refreshed import-loop metrics" node scripts\/import-loop-profile\.mjs --runs 3; then[\s\S]*rm -f "\$\{profile_json\}" "\$\{profile_markdown\}"/);
@@ -225,7 +226,7 @@ test("track dashboard workflow refreshes branch dashboards by OpenClaw track", a
   assert.match(workflow, /node scripts\/summarize-execution-results\.mjs --write/);
   assert.match(workflow, /execution_results_args=\(--execution-results reports\/crabpot-execution-results\.json\)/);
   assert.match(workflow, /node scripts\/generate-report\.mjs --openclaw \.\/openclaw "\$\{execution_results_args\[@\]\}"/);
-  assert.match(workflow, /run_profile_step\(\)/);
+  assert.match(workflow, /^          source scripts\/dashboard-profile-step\.sh$/m);
   assert.match(workflow, /run_openclaw_import_loop_profile\(\)/);
   assert.match(workflow, /run_profile_step 180 "OpenClaw lifecycle import-loop profile failed or timed out; falling back to fixture-only import-loop profile" node scripts\/import-loop-profile\.mjs --openclaw \.\/openclaw --runs 3/);
   assert.match(workflow, /run_profile_step 90 "fixture-only import-loop profile failed or timed out; continuing without refreshed import-loop metrics" node scripts\/import-loop-profile\.mjs --runs 3 \|\| true/);

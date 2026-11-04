@@ -127,16 +127,7 @@ jobs:
           if [ -z "${execution_fixture_set}" ]; then
             execution_fixture_set="all"
           fi
-          run_profile_step() {
-            local timeout_seconds="$1"
-            local warning="$2"
-            shift 2
-            if timeout "${timeout_seconds}s" "$@"; then
-              return 0
-            fi
-            echo "::warning::${warning}"
-            return 1
-          }
+          source scripts/dashboard-profile-step.sh
           run_openclaw_import_loop_profile() {
             if run_profile_step 180 "OpenClaw lifecycle import-loop profile failed or timed out; falling back to fixture-only import-loop profile" node scripts/import-loop-profile.mjs --openclaw ./openclaw --runs 3; then
               return 0
