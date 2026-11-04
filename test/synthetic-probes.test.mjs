@@ -261,8 +261,9 @@ test("synthetic probe plan treats descriptor registrars as metadata-only", async
   );
 });
 
-test("synthetic probe CLI refuses isolated execution without opt-in", async () => {
+test("synthetic probe CLI refuses isolated execution without opt-in", async (context) => {
   const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-probes-"));
+  context.after(() => rm(dir, { recursive: true, force: true, maxRetries: 3 }));
   const entrypoint = path.join(dir, "fixture.mjs");
   await writeFile(entrypoint, "export function register(api) { api.registerTool({ name: 'fixture' }); }\n", "utf8");
 
@@ -276,8 +277,9 @@ test("synthetic probe CLI refuses isolated execution without opt-in", async () =
   assert.match(result.stderr, /CRABPOT_EXECUTE_ISOLATED=1/);
 });
 
-test("synthetic probe CLI honors mock SDK for OpenClaw SDK imports", async () => {
+test("synthetic probe CLI honors mock SDK for OpenClaw SDK imports", async (context) => {
   const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-probes-sdk-"));
+  context.after(() => rm(dir, { recursive: true, force: true, maxRetries: 3 }));
   const entrypoint = path.join(dir, "index.mjs");
   await writeFile(
     entrypoint,
@@ -309,8 +311,9 @@ test("synthetic probe CLI honors mock SDK for OpenClaw SDK imports", async () =>
   assert.equal(probes.summary.failCount, 0);
 });
 
-test("synthetic probe CLI keeps HTTP route handlers blocked without route descriptors", async () => {
+test("synthetic probe CLI keeps HTTP route handlers blocked without route descriptors", async (context) => {
   const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-probes-http-"));
+  context.after(() => rm(dir, { recursive: true, force: true, maxRetries: 3 }));
   const entrypoint = path.join(dir, "index.mjs");
   await writeFile(
     entrypoint,

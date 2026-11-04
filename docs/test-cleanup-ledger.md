@@ -15,8 +15,8 @@
 
 ## Temporary fixture ownership
 
-- Added teardown hooks for all 15 temporary allocations in execution-results, cold-import-capture, ci-summary, ref-diff, and profile-diff tests. Hooks also run after assertion failures.
-- Validation: all 25 affected tests passed on AWS Linux (`run_d22533beddd8f2c0a30b5ee2979f47ad`). Residual inspection in run `run_337626ee031d32b6ca67d866d64113ef` confirmed only `node-compile-cache` remained; all 25 tests passed and no Crabpot fixture directories remained. No existing temporary data was deleted. Published as https://github.com/openclaw/crabpot/pull/712.
+- Added teardown hooks for 21 temporary allocations in execution-results, cold-import-capture, ci-summary, ref-diff, profile-diff, synthetic-probe, and README-summary tests. Hooks also run after assertion failures.
+- Validation: all 25 affected tests passed on AWS Linux (`run_d22533beddd8f2c0a30b5ee2979f47ad`). Residual inspection in run `run_337626ee031d32b6ca67d866d64113ef` confirmed only `node-compile-cache` remained; all 25 tests passed and no Crabpot fixture directories remained. No existing temporary data was deleted. Expanded validation passed all 39 checks across the first six suites on AWS Linux (`run_8eff76bf0b6101d72f4689061e8a314b`, lease `cbx_9c31d4131609`, actual type `m7a.8xlarge`) with no Crabpot fixture directories left in the isolated TMPDIR. All eight README-summary checks passed on AWS Linux (`run_35bdad593aec20d118cfcf11470cf982`, lease `cbx_07180fbd5b34`, actual type `c7i.8xlarge`), again leaving no Crabpot fixture directories.
 
 ## Inspector-owned algorithm copies
 
