@@ -3,7 +3,7 @@
   "targetOpenClaw": {
     "status": "ok",
     "configuredPath": "./openclaw",
-    "sdkExportCount": 352
+    "sdkExportCount": 358
   },
   "summary": {
     "fixtureCount": 59,
@@ -13,7 +13,7 @@
     "tsLoaderRequiredCount": 11,
     "buildRequiredCount": 15,
     "dependencyInstallRequiredCount": 64,
-    "sdkAliasRequiredCount": 22
+    "sdkAliasRequiredCount": 30
   },
   "fixtures": [
     {
@@ -33,10 +33,16 @@
               "code": "build-required",
               "message": "entrypoint points at build output that is absent in the fixture checkout",
               "evidence": "plugins/agentchat/dist/index.js"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/channel-lifecycle @ plugins/agentchat/src/binding/gateway.ts:27"
             }
           ],
           "assertions": [
-            "plugin build or source alias resolution runs before cold import"
+            "plugin build or source alias resolution runs before cold import",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         },
         {
@@ -52,10 +58,16 @@
               "code": "build-required",
               "message": "entrypoint points at build output that is absent in the fixture checkout",
               "evidence": "plugins/agentchat/dist/setup-entry.js"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/channel-lifecycle @ plugins/agentchat/src/binding/gateway.ts:27"
             }
           ],
           "assertions": [
-            "plugin build or source alias resolution runs before cold import"
+            "plugin build or source alias resolution runs before cold import",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         }
       ]
@@ -576,7 +588,22 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/channel-lifecycle @ plugins/bluebubbles/.crabpot-package/dist/channel-BSIXOcHe.js:13"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/channel-reply-pipeline @ plugins/bluebubbles/.crabpot-package/dist/monitor-processing-Dy-LY2QQ.js:28"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
               "evidence": "openclaw/plugin-sdk/channel-streaming @ plugins/bluebubbles/.crabpot-package/dist/probe-B4I0cEVm.js:6"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/command-auth @ plugins/bluebubbles/.crabpot-package/dist/monitor-processing-Dy-LY2QQ.js:29"
             },
             {
               "code": "sdk-alias-required",
@@ -623,6 +650,9 @@
             "target OpenClaw exports the imported SDK alias or provides a migration shim",
             "target OpenClaw exports the imported SDK alias or provides a migration shim",
             "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
             "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         },
@@ -638,7 +668,22 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/channel-lifecycle @ plugins/bluebubbles/.crabpot-package/dist/channel-BSIXOcHe.js:13"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/channel-reply-pipeline @ plugins/bluebubbles/.crabpot-package/dist/monitor-processing-Dy-LY2QQ.js:28"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
               "evidence": "openclaw/plugin-sdk/channel-streaming @ plugins/bluebubbles/.crabpot-package/dist/probe-B4I0cEVm.js:6"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/command-auth @ plugins/bluebubbles/.crabpot-package/dist/monitor-processing-Dy-LY2QQ.js:29"
             },
             {
               "code": "sdk-alias-required",
@@ -677,6 +722,9 @@
             }
           ],
           "assertions": [
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
             "target OpenClaw exports the imported SDK alias or provides a migration shim",
             "target OpenClaw exports the imported SDK alias or provides a migration shim",
             "target OpenClaw exports the imported SDK alias or provides a migration shim",
@@ -704,7 +752,22 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/channel-lifecycle @ plugins/bluebubbles/.crabpot-package/dist/channel-BSIXOcHe.js:13"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/channel-reply-pipeline @ plugins/bluebubbles/.crabpot-package/dist/monitor-processing-Dy-LY2QQ.js:28"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
               "evidence": "openclaw/plugin-sdk/channel-streaming @ plugins/bluebubbles/.crabpot-package/dist/probe-B4I0cEVm.js:6"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/command-auth @ plugins/bluebubbles/.crabpot-package/dist/monitor-processing-Dy-LY2QQ.js:29"
             },
             {
               "code": "sdk-alias-required",
@@ -751,6 +814,9 @@
             "target OpenClaw exports the imported SDK alias or provides a migration shim",
             "target OpenClaw exports the imported SDK alias or provides a migration shim",
             "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
             "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         },
@@ -766,7 +832,22 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/channel-lifecycle @ plugins/bluebubbles/.crabpot-package/dist/channel-BSIXOcHe.js:13"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/channel-reply-pipeline @ plugins/bluebubbles/.crabpot-package/dist/monitor-processing-Dy-LY2QQ.js:28"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
               "evidence": "openclaw/plugin-sdk/channel-streaming @ plugins/bluebubbles/.crabpot-package/dist/probe-B4I0cEVm.js:6"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/command-auth @ plugins/bluebubbles/.crabpot-package/dist/monitor-processing-Dy-LY2QQ.js:29"
             },
             {
               "code": "sdk-alias-required",
@@ -805,6 +886,9 @@
             }
           ],
           "assertions": [
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
             "target OpenClaw exports the imported SDK alias or provides a migration shim",
             "target OpenClaw exports the imported SDK alias or provides a migration shim",
             "target OpenClaw exports the imported SDK alias or provides a migration shim",
@@ -878,10 +962,16 @@
               "code": "missing-entrypoint",
               "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/discord/.crabpot-package/index.ts"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/heartbeat-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-BBDuE14w.mjs:68"
             }
           ],
           "assertions": [
-            "plugin package metadata points at an existing OpenClaw entrypoint"
+            "plugin package metadata points at an existing OpenClaw entrypoint",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         },
         {
@@ -891,16 +981,22 @@
           "kind": "runtimeExtension",
           "specifier": "./dist/index.js",
           "path": "plugins/discord/.crabpot-package/dist/index.js",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@discord/embedded-app-sdk, @discordjs/voice, discord-api-types, libopus-wasm, mdast-util-from-markdown, typebox, undici, ws, zod"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/heartbeat-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-BBDuE14w.mjs:68"
             }
           ],
           "assertions": [
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "fixture dependencies are installed in an isolated workspace before cold import",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         },
         {
@@ -910,16 +1006,22 @@
           "kind": "setupEntry",
           "specifier": "./dist/setup-entry.js",
           "path": "plugins/discord/.crabpot-package/dist/setup-entry.js",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@discord/embedded-app-sdk, @discordjs/voice, discord-api-types, libopus-wasm, mdast-util-from-markdown, typebox, undici, ws, zod"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/heartbeat-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-BBDuE14w.mjs:68"
             }
           ],
           "assertions": [
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "fixture dependencies are installed in an isolated workspace before cold import",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         },
         {
@@ -929,16 +1031,22 @@
           "kind": "runtimeSetupEntry",
           "specifier": "./dist/setup-entry.js",
           "path": "plugins/discord/.crabpot-package/dist/setup-entry.js",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@discord/embedded-app-sdk, @discordjs/voice, discord-api-types, libopus-wasm, mdast-util-from-markdown, typebox, undici, ws, zod"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/heartbeat-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-BBDuE14w.mjs:68"
             }
           ],
           "assertions": [
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "fixture dependencies are installed in an isolated workspace before cold import",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         }
       ]
@@ -1014,12 +1122,32 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@matrix-org/matrix-sdk-crypto-nodejs, @matrix-org/matrix-sdk-crypto-wasm, fake-indexeddb, markdown-it, matrix-js-sdk, music-metadata, typebox, zod"
+              "evidence": "@matrix-org/matrix-sdk-crypto-nodejs, @matrix-org/matrix-sdk-crypto-wasm, @openclaw/fs-safe, fake-indexeddb, markdown-it, matrix-js-sdk, music-metadata, typebox, zod"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/plugin-state-test-runtime @ plugins/matrix/.crabpot-package/doctor-contract-api.test-support.ts:7"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/plugin-state-test-runtime @ plugins/matrix/.crabpot-package/src/matrix/client/sync-store.test-support.ts:5"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/plugin-state-test-runtime @ plugins/matrix/.crabpot-package/src/matrix/sdk/crypto-persistence.test-support.ts:5"
             },
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
               "evidence": "openclaw/plugin-sdk/plugin-state-test-runtime @ plugins/matrix/.crabpot-package/src/matrix/sdk/recovery-persistence.test-support.ts:7"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/sqlite-runtime-testing @ plugins/matrix/.crabpot-package/src/matrix/client/sync-store.test-support.ts:6"
             },
             {
               "code": "sdk-alias-required",
@@ -1030,6 +1158,10 @@
           "assertions": [
             "TypeScript source entrypoint is compiled or loaded before cold import",
             "fixture dependencies are installed in an isolated workspace before cold import",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
             "target OpenClaw exports the imported SDK alias or provides a migration shim",
             "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
@@ -1051,12 +1183,32 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@matrix-org/matrix-sdk-crypto-nodejs, @matrix-org/matrix-sdk-crypto-wasm, fake-indexeddb, markdown-it, matrix-js-sdk, music-metadata, typebox, zod"
+              "evidence": "@matrix-org/matrix-sdk-crypto-nodejs, @matrix-org/matrix-sdk-crypto-wasm, @openclaw/fs-safe, fake-indexeddb, markdown-it, matrix-js-sdk, music-metadata, typebox, zod"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/plugin-state-test-runtime @ plugins/matrix/.crabpot-package/doctor-contract-api.test-support.ts:7"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/plugin-state-test-runtime @ plugins/matrix/.crabpot-package/src/matrix/client/sync-store.test-support.ts:5"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/plugin-state-test-runtime @ plugins/matrix/.crabpot-package/src/matrix/sdk/crypto-persistence.test-support.ts:5"
             },
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
               "evidence": "openclaw/plugin-sdk/plugin-state-test-runtime @ plugins/matrix/.crabpot-package/src/matrix/sdk/recovery-persistence.test-support.ts:7"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/sqlite-runtime-testing @ plugins/matrix/.crabpot-package/src/matrix/client/sync-store.test-support.ts:6"
             },
             {
               "code": "sdk-alias-required",
@@ -1067,6 +1219,10 @@
           "assertions": [
             "TypeScript source entrypoint is compiled or loaded before cold import",
             "fixture dependencies are installed in an isolated workspace before cold import",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
             "target OpenClaw exports the imported SDK alias or provides a migration shim",
             "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
@@ -1843,12 +1999,24 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/channel-ingress-test-runtime @ plugins/mattermost/.crabpot-package/src/mattermost/monitor.ingress-debounce.test-support.ts:5"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/test-env @ plugins/mattermost/.crabpot-package/src/mattermost/monitor.ingress-debounce.test-support.ts:16"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
               "evidence": "openclaw/plugin-sdk/test-env @ plugins/mattermost/.crabpot-package/src/mattermost/reactions.test-helpers.ts:1"
             }
           ],
           "assertions": [
             "TypeScript source entrypoint is compiled or loaded before cold import",
             "fixture dependencies are installed in an isolated workspace before cold import",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
             "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         },
@@ -1874,12 +2042,24 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/channel-ingress-test-runtime @ plugins/mattermost/.crabpot-package/src/mattermost/monitor.ingress-debounce.test-support.ts:5"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/test-env @ plugins/mattermost/.crabpot-package/src/mattermost/monitor.ingress-debounce.test-support.ts:16"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
               "evidence": "openclaw/plugin-sdk/test-env @ plugins/mattermost/.crabpot-package/src/mattermost/reactions.test-helpers.ts:1"
             }
           ],
           "assertions": [
             "TypeScript source entrypoint is compiled or loaded before cold import",
             "fixture dependencies are installed in an isolated workspace before cold import",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
             "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         }
@@ -2023,16 +2203,10 @@
               "code": "missing-entrypoint",
               "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/codex/.crabpot-package/index.ts"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-harness-completion @ plugins/codex/.crabpot-package/dist/.setup/native-subagent-monitor-CBYFkNsB.mjs:24"
             }
           ],
           "assertions": [
-            "plugin package metadata points at an existing OpenClaw entrypoint",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim"
+            "plugin package metadata points at an existing OpenClaw entrypoint"
           ]
         },
         {
@@ -2042,7 +2216,7 @@
           "kind": "runtimeExtension",
           "specifier": "./dist/index.js",
           "path": "plugins/codex/.crabpot-package/dist/index.js",
-          "status": "sdk-alias-required",
+          "status": "dependency-install-required",
           "blockers": [
             {
               "code": "top-level-side-effect-review",
@@ -2053,17 +2227,11 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@openai/codex, @openclaw/fs-safe, semver, smol-toml, typebox, ws, zod"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-harness-completion @ plugins/codex/.crabpot-package/dist/.setup/native-subagent-monitor-CBYFkNsB.mjs:24"
             }
           ],
           "assertions": [
             "cold import sandbox blocks network/process side effects before register capture",
-            "fixture dependencies are installed in an isolated workspace before cold import",
-            "target OpenClaw exports the imported SDK alias or provides a migration shim"
+            "fixture dependencies are installed in an isolated workspace before cold import"
           ]
         }
       ]
@@ -2472,10 +2640,100 @@
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
               "evidence": "openclaw/plugin-sdk/channel-runtime @ plugins/dingtalk-connector/src/reply-dispatcher.ts:21"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/config-runtime @ plugins/dingtalk-connector/src/gateway-methods.ts:131"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/config-runtime @ plugins/dingtalk-connector/src/gateway-methods.ts:191"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/config-runtime @ plugins/dingtalk-connector/src/gateway-methods.ts:259"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/config-runtime @ plugins/dingtalk-connector/src/gateway-methods.ts:312"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/config-runtime @ plugins/dingtalk-connector/src/gateway-methods.ts:352"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/config-runtime @ plugins/dingtalk-connector/src/gateway-methods.ts:389"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/config-runtime @ plugins/dingtalk-connector/src/gateway-methods.ts:426"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/config-runtime @ plugins/dingtalk-connector/src/gateway-methods.ts:453"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/config-runtime @ plugins/dingtalk-connector/src/gateway-methods.ts:507"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/config-runtime @ plugins/dingtalk-connector/src/gateway-methods.ts:594"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/config-runtime @ plugins/dingtalk-connector/src/gateway-methods.ts:61"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/config-runtime @ plugins/dingtalk-connector/src/gateway-methods.ts:653"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/config-runtime @ plugins/dingtalk-connector/src/gateway-methods.ts:720"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/config-runtime @ plugins/dingtalk-connector/src/services/card-bridge.ts:186"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/config-runtime @ plugins/dingtalk-connector/src/services/card-bridge.ts:339"
             }
           ],
           "assertions": [
             "plugin build or source alias resolution runs before cold import",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
             "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         }
@@ -2591,16 +2849,34 @@
           "kind": "extension",
           "specifier": "./dist/index.js",
           "path": "plugins/yuanbao/.crabpot-package/dist/index.js",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@opentelemetry/api, protobufjs, semver, ws"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/channel-reply-pipeline @ plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/dispatch-reply.js:5"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/command-auth @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/command-sync/index.js:2"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/command-auth @ plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/guard-command.js:5"
             }
           ],
           "assertions": [
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "fixture dependencies are installed in an isolated workspace before cold import",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         },
         {
@@ -2610,16 +2886,34 @@
           "kind": "setupEntry",
           "specifier": "./dist/setup-entry.js",
           "path": "plugins/yuanbao/.crabpot-package/dist/setup-entry.js",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@opentelemetry/api, protobufjs, semver, ws"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/channel-reply-pipeline @ plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/dispatch-reply.js:5"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/command-auth @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/command-sync/index.js:2"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/command-auth @ plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/guard-command.js:5"
             }
           ],
           "assertions": [
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "fixture dependencies are installed in an isolated workspace before cold import",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         }
       ]
@@ -2685,16 +2979,28 @@
           "kind": "extension",
           "specifier": "./dist/index.js",
           "path": "plugins/lightclawbot/.crabpot-package/dist/index.js",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@modelcontextprotocol/sdk, ws"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/channel-reply-pipeline @ plugins/lightclawbot/.crabpot-package/dist/src/inbound.js:264"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/config-runtime @ plugins/lightclawbot/.crabpot-package/dist/src/utils/openclaw-compat.js:84"
             }
           ],
           "assertions": [
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "fixture dependencies are installed in an isolated workspace before cold import",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         },
         {
@@ -2704,16 +3010,28 @@
           "kind": "setupEntry",
           "specifier": "./dist/setup-entry.js",
           "path": "plugins/lightclawbot/.crabpot-package/dist/setup-entry.js",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "blockers": [
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@modelcontextprotocol/sdk, ws"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/channel-reply-pipeline @ plugins/lightclawbot/.crabpot-package/dist/src/inbound.js:264"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/config-runtime @ plugins/lightclawbot/.crabpot-package/dist/src/utils/openclaw-compat.js:84"
             }
           ],
           "assertions": [
-            "fixture dependencies are installed in an isolated workspace before cold import"
+            "fixture dependencies are installed in an isolated workspace before cold import",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim",
+            "target OpenClaw exports the imported SDK alias or provides a migration shim"
           ]
         }
       ]
