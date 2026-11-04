@@ -2,6 +2,7 @@
 import { existsSync } from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
+import { formatSampledMetric } from "./profile-metrics.mjs";
 import { repoRoot } from "./manifest-lib.mjs";
 import { loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
 
@@ -137,13 +138,6 @@ export function renderImportLoopProfileMarkdown(report, options = {}) {
     ...crabpotImportLoopProfileOptions,
     ...options,
   });
-}
-
-function formatSampledMetric(value, count, unit = "MB") {
-  if ((count ?? 0) <= 0) {
-    return "n/a";
-  }
-  return `${value}${unit}`;
 }
 
 function importLoopMetricLabel(summary) {

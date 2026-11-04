@@ -1,39 +1,28 @@
 # Test cleanup ledger
 
-## Inventory and presentation locks
+The links own delivery status. Validation below describes focused proof; every PR must also pass its required CI before merging. No releases are part of this cleanup.
 
-- Removed the minimum fixture count and six hardcoded plugin names. Manifest validation and required seam coverage remain; fixture retirement must not require keeping arbitrary names alive.
-- Removed the exact GitHub action-major/cache spelling test. It scanned concatenated YAML, so a match in one workflow could hide a missing cache in another. Dependabot owns version updates; workflow execution validates action compatibility.
-- Removed README heading, prose, emoji, and navigation-copy assertions. Kept manifest/gitmodule/README row consistency, dynamic source metadata preservation, and update-time formatting.
-- Validation: 81 focused Node tests passed on current main; `git diff --check` passed. AWS Crabbox run `run_d7bc5fbc58be54fe1195cc2540ed6bc6` failed during hydration before tests (`fatal: not a git repository`); a subsequent run `run_71773f7b72959857fcdbfcdc3988f061` passed all 81 tests on AWS Linux. PR https://github.com/openclaw/crabpot/pull/706 awaits the required Default Track check.
+| PR | Scope | Focused proof |
+| --- | --- | --- |
+| [706](https://github.com/openclaw/crabpot/pull/706) | Remove fixture-count/name, action-version and README-copy locks; retain structural checks | 81 local/AWS checks; four platform CI lanes passed before reconciliation |
+| [711](https://github.com/openclaw/crabpot/pull/711) | Reject incomplete values for six static-suite selectors; remove fake release-policy coverage | Eight local/AWS checks and required CI |
+| [712](https://github.com/openclaw/crabpot/pull/712) | Register cleanup immediately for 21 temporary allocations in seven suites | 39 AWS checks plus eight README checks; isolated TMPDIRs left no Crabpot fixtures; required CI passed before reconciliation |
+| [713](https://github.com/openclaw/crabpot/pull/713) | Remove 22 Inspector-owned algorithm cases, copied issue assertions and three unused private exports/wrappers | 18 retained integration checks, three runtime-profile checks and 17 summary/handoff checks on AWS; owning tests compared at pinned Inspector revision |
+| [714](https://github.com/openclaw/crabpot/pull/714) | Move runtime-evidence assertions into the existing no-host corpus lane | Eight runner checks; real A2A source materialized and inspected on AWS |
+| [715](https://github.com/openclaw/crabpot/pull/715) | Pass release policy to the checker as strict; preserve its nonzero CLI exit | Baseline regression failed; all nine checks passed locally and on AWS |
+| [716](https://github.com/openclaw/crabpot/pull/716) | Replace source-text install/smoke guards with executable boundary assertions | 31 AWS checks; updated local run passed 38 with one platform skip; required CI passed before reconciliation |
+| [718](https://github.com/openclaw/crabpot/pull/718) | Disable signing only for three disposable Git fixture commits | Three existing checks failed with unavailable signing before the fix and passed afterward; required CI |
+| [719](https://github.com/openclaw/crabpot/pull/719) | Bound twelve CLI/fixture child calls and reject signal-based false successes | False-positive pattern reproduced; 11 CLI checks and 117 additional-suite checks passed on AWS; 109 local checks |
+| [720](https://github.com/openclaw/crabpot/pull/720) | Require WhatsApp channel registration instead of accepting an unasserted fixture | 47 manifest checks; real 68-file source inspection passed on AWS; required CI passed before reconciliation |
+| [721](https://github.com/openclaw/crabpot/pull/721) | Remove corpus inventory locks and duplicate deadline assertions | Eight runner/deadline checks and corpus syntax validation |
+| [722](https://github.com/openclaw/crabpot/pull/722) | Use Inspector's actual corpus verdict instead of copying its expectation/alias algorithm | Pinned implementation and owning tests traced; syntax/diff checks; full corpus CI required |
 
-## Static-suite selectors
+## Audit coverage
 
-- Commit `0a0392f`: reject missing values for all six static-suite options before any step starts. An incomplete fixture selector previously fell back to the full corpus.
-- Removed the duplicate release-policy builder test, which never exercised release parsing; added real CLI regression coverage for absent/empty/following-flag values.
-- Validation: eight focused tests passed locally and on AWS Linux (`run_71b1823696a55535d57db2238f7d2b6a`). Published as https://github.com/openclaw/crabpot/pull/711 after transient GitHub push failures.
+The ownership/reference pass covers all 53 top-level test files plus the corpus lanes: acquisition/manifest/contracts (9), Inspector/execution boundaries (10), reporting/CI policy (12), tracks/orchestration/profiling (7), resource workloads/receipts (13), and behavior evaluation/npm parsing (2).
 
-## Temporary fixture ownership
+All 59 configured fixture acquisition identities are distinct. Every file under `test/fixtures` has a consumer, including dynamic capture-error filenames; reference tracing alone does not justify deleting one.
 
-- Added teardown hooks for all 15 temporary allocations in execution-results, cold-import-capture, ci-summary, ref-diff, and profile-diff tests. Hooks also run after assertion failures.
-- Validation: all 25 affected tests passed on AWS Linux (`run_d22533beddd8f2c0a30b5ee2979f47ad`). Residual inspection in run `run_337626ee031d32b6ca67d866d64113ef` confirmed only `node-compile-cache` remained; all 25 tests passed and no Crabpot fixture directories remained. No existing temporary data was deleted. Published as https://github.com/openclaw/crabpot/pull/712.
+Retained tests protect real selections, exact blocked-failure mappings, source evidence, process ownership, deadlines, artifact writers, current-run failure propagation, protocol assertions, source identity, resource arithmetic and cleanup. Resource/RPC and behavior-runner doubles remain unit contracts and earn no live workload or end-to-end credit. Native process fixtures remain platform-specific CI inputs. Workflow source-text guards are configuration checks, not execution proof.
 
-## Inspector-owned algorithm copies
-
-- Compared the four local suites with the pinned Inspector revision `8ec7d359fd78c96e723ce77eb5cffb3fec6703ee`, rather than a moving upstream checkout.
-- Removed four profile-diff threshold/severity tests, four ref-diff classification tests, and one workspace-plan validator test copied from that revision's own tests. The tested algorithm calls delegate to Inspector without Crabpot transformations.
-- Removed seven synthetic-policy classification/validation copies; kept all seven real default-policy fixture mappings and the current-run selection check.
-- Retained the missing-baseline file-path check, ref-diff writer integration, and Crabpot-only npm peer-drift normalization test.
-- Validation: the three retained diff/workspace checks passed on AWS Linux (`run_0dc851772ab0afaff06429f818647d92`, lease `cbx_579ad1d28884`). All eight retained CI-policy tests passed on AWS Linux (`run_cf26162e5a7bb7a8142a1b5f84ead5ad`, lease `cbx_e8c4a1f91358`).
-
-## Runtime evidence fixture scope
-
-- Moved the supplied-runtime-evidence integration check into the existing no-host corpus lane, selecting only its `a2a-gateway` fixture. Its assertions do not use the other 58 fixtures.
-- Kept all four existing assertions and added explicit selection and source-presence checks so a missing checkout cannot pass. Removed the dedicated runtime corpus process from the shared test plan and deleted its two unused files.
-- Validation: eight runner checks passed locally and on AWS Linux (`run_b78d2f516fa03a765d6a28fb9948411b`). The strengthened runtime check passed with the pinned submodule materialized on AWS Linux (`run_0696933773a3bc9283a0958d399b3e59`, lease `cbx_f49c1c3d09e4`). The branch must be published for Crabbox to seed its Git metadata; submodule source is then materialized by the repo-native fixture command.
-
-## Remaining audit
-
-Current inventory: 53 top-level test files and 59 configured plugin fixtures. Initial reference tracing found consumers for all files under `test/fixtures`, including dynamically constructed capture-error filenames; none is proven dead by filename search alone.
-
-Review behavioral tests, fixture uniqueness, blocked-failure mappings, and static checks versus actual isolated execution. Source-text workflow guards remain candidates for replacement with executable checks; this batch does not claim they prove end-to-end behavior.
+Inspector-owned copies were compared against immutable source `8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446`; local file-path, command-option and artifact integration tests remain. Detailed AWS run/lease IDs and commands are recorded in the linked PRs.
