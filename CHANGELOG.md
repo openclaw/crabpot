@@ -2,7 +2,7 @@
 
 ## 0.2.2 - Unreleased
 
-- Refresh 22 official plugin fallback pins to 2026.10.7 with verified publication-source references, retaining track selectors, the qualified host pin, and explicit compatibility gaps. Thanks @dependabot.
+- Refresh 22 official plugin fallback pins to 2026.10.9 with verified publication-source references, retaining track selectors, the qualified host pin, and explicit compatibility gaps. Thanks @dependabot.
 
 - Reuse one source inspection across static report checks so Windows CI retains time for coverage and policy validation, preserving every cold profiling sample and existing deadlines.
 

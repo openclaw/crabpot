@@ -51,12 +51,17 @@ Keep npm fixture source references in the manifest and shim aligned with the
 published artifact. When an official package omits `gitHead`, verify the prepared
 package source SHA in its publication qualification and artifact manifest. The
 release workflow SHA and public release tag can identify different commits.
-The 2026.10.7 fallback refresh uses prepared source
-`157d8c2bc3ea2fa183afdc11088e69690bf8e64e`, verified against all 22 packages
-in the packed-runtime-qualified manifest from run `40055382375` and their
-published-registry readbacks in the release's postpublication evidence. The
-prepared manifest artifact's SHA-256 is
-`915f9faae8970b696566706cae5bae97899943e34b39b5fdadf375020fe6bbe1`.
+The 2026.10.9 fallback refresh uses prepared source
+`8b18b5578f66eab1501cba4cef2310d88bfb9a41`. The packed-runtime-qualified
+manifest from run `40863636659` identifies all 22 packages; its artifact
+`12892419359` has SHA-256
+`aa7686c555e2582c9755f97022238314f1641ac3f69039838d1cf83380eb3cb8`.
+All 22 individual publication qualification artifacts from run `40890894348`
+were checked against their GitHub SHA-256 digests, package names, versions, and
+prepared source. Registry metadata independently identifies the published
+package versions, tarball URLs, and integrity values. That publication run
+failed overall; its successful per-package qualifications establish these 22
+packages, not success for every package in the upstream release campaign.
 Moving track selection and the separately qualified Default Track host pin are
 unchanged; the newer packages' declared host compatibility remains visible.
 Regenerate reports against the pinned Default Track after changing fixture pins.
