@@ -1,7 +1,6 @@
 #!/usr/bin/env node
-import { mkdir, writeFile } from "node:fs/promises";
-import path from "node:path";
 import { pathToFileURL } from "node:url";
+import { writeJsonResult } from "./json-output.mjs";
 import { loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
 
 const pluginInspector = await loadPluginInspectorPublicApi();
@@ -75,14 +74,4 @@ function parseArgs(argv) {
 
 export async function captureEntrypoint(entrypoint, options = {}) {
   return pluginInspector.capturePluginEntrypoint(entrypoint, options);
-}
-
-async function writeJsonResult(result, outputPath) {
-  const json = `${JSON.stringify(result, null, 2)}\n`;
-  if (!outputPath) {
-    process.stdout.write(json);
-    return;
-  }
-  await mkdir(path.dirname(outputPath), { recursive: true });
-  await writeFile(outputPath, json, "utf8");
 }
