@@ -28,6 +28,8 @@ test("plugin inspector source pin requires an exact prepared checkout", (t) => {
     "user.name=Crabpot Test",
     "-c",
     "user.email=crabpot@example.invalid",
+    "-c",
+    "commit.gpgSign=false",
     "commit",
     "-m",
     "test fixture",
