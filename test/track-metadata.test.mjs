@@ -124,6 +124,7 @@ test("tested track metadata is derived from the exact local checkout", async () 
       "-C", openclawPath,
       "-c", "user.name=Crabpot Test",
       "-c", "user.email=crabpot@example.invalid",
+      "-c", "commit.gpgSign=false",
       "commit", "-q", "-m", "fixture",
     ]);
     const sha = execFileSync("git", ["-C", openclawPath, "rev-parse", "HEAD"], { encoding: "utf8" }).trim();
@@ -150,6 +151,7 @@ test("pinned metadata is derived from the exact local checkout", async () => {
       "-C", openclawPath,
       "-c", "user.name=Crabpot Test",
       "-c", "user.email=crabpot@example.invalid",
+      "-c", "commit.gpgSign=false",
       "commit", "-q", "-m", "fixture",
     ]);
     const sha = execFileSync("git", ["-C", openclawPath, "rev-parse", "HEAD"], { encoding: "utf8" }).trim();
