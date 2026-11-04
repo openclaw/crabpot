@@ -20,10 +20,11 @@
 
 ## Inspector-owned algorithm copies
 
-- Compared the three local suites with the pinned Inspector revision `8ec7d359fd78c96e723ce77eb5cffb3fec6703ee`, rather than a moving upstream checkout.
+- Compared the four local suites with the pinned Inspector revision `8ec7d359fd78c96e723ce77eb5cffb3fec6703ee`, rather than a moving upstream checkout.
 - Removed four profile-diff threshold/severity tests, four ref-diff classification tests, and one workspace-plan validator test copied from that revision's own tests. The tested algorithm calls delegate to Inspector without Crabpot transformations.
+- Removed seven synthetic-policy classification/validation copies; kept all seven real default-policy fixture mappings and the current-run selection check.
 - Retained the missing-baseline file-path check, ref-diff writer integration, and Crabpot-only npm peer-drift normalization test.
-- Validation: all three retained checks passed on AWS Linux (`run_0dc851772ab0afaff06429f818647d92`, lease `cbx_579ad1d28884`).
+- Validation: the three retained diff/workspace checks passed on AWS Linux (`run_0dc851772ab0afaff06429f818647d92`, lease `cbx_579ad1d28884`). All eight retained CI-policy tests passed on AWS Linux (`run_cf26162e5a7bb7a8142a1b5f84ead5ad`, lease `cbx_e8c4a1f91358`).
 
 ## Remaining audit
 
