@@ -208,6 +208,198 @@ test("behavior eval mock recall derives answers from request context", () => {
   );
 });
 
+test("behavior eval mock selects intent from the current Responses user message", () => {
+  const recall = "What is CRABPOT_LCM_FACT?";
+  const filler = "Say one neutral filler response.";
+  const body = (context, current) => ({
+    instructions: "Synthetic test instructions",
+    input: [
+      { type: "message", role: "user", content: [{ type: "input_text", text: context }] },
+      { type: "message", role: "assistant", content: [{ type: "output_text", text: "ok" }] },
+      {
+        type: "message",
+        role: "user",
+        content: [{ type: "input_text", text:
+          "<<<BEGIN_OPENCLAW_INTERNAL_CONTEXT>>>\nRuntime context for the current request.\n<<<END_OPENCLAW_INTERNAL_CONTEXT>>>" }],
+      },
+      { type: "message", role: "user", content: [{ type: "input_text", text: current }] },
+    ],
+  });
+  const summary = "<summary><content>CRABPOT_LCM_FACT is blue-lantern-42.</content></summary>";
+  assert.equal(buildBehaviorEvalMockResponseText(body(`${filler}\n${summary}`, recall)), "blue-lantern-42");
+  assert.equal(buildBehaviorEvalMockResponseText(body(`${recall}\n${summary}`, filler)), "ok");
+  assert.equal(
+    buildBehaviorEvalMockResponseText(body("CRABPOT_LCM_FACT is blue-lantern-42.", recall)),
+    "I do not have that fact.",
+  );
+  assert.equal(buildBehaviorEvalMockResponseText({ input: recall }), "I do not have that fact.");
+});
+
+test("behavior eval mock ignores complete trailing runtime-context envelopes", async (t) => {
+  const fact = "CRABPOT_LCM_FACT is blue-lantern-42.";
+  const summary = `<summary><content>${fact}</content></summary>`;
+  const user = (text) => ({ role: "user", content: [{ type: "input_text", text }] });
+  const envelopes = [
+    ["legacy", "<<<BEGIN_OPENCLAW_INTERNAL_CONTEXT>>>", "<<<END_OPENCLAW_INTERNAL_CONTEXT>>>"],
+    ["labelled", "OpenClaw runtime context:", "End OpenClaw runtime context."],
+  ];
+  for (const [name, begin, end] of envelopes) {
+    for (const [intent, current, context, expected] of [
+      ["seed", `Reply with this exact memory marker: ${fact}`, "", fact],
+      ["recall", "What is CRABPOT_LCM_FACT?", summary, "blue-lantern-42"],
+      ["filler", "Say one neutral filler response.", "What is CRABPOT_LCM_FACT?", "ok"],
+      ["raw history refusal", "What is CRABPOT_LCM_FACT?", fact, "I do not have that fact."],
+    ]) {
+      await t.test(`${name}: ${intent}`, () => {
+        assert.equal(buildBehaviorEvalMockResponseText({ input: [
+          user(context), user(current), user(`${begin}\nRuntime context for this turn.${intent === "filler" ? " Retained request: What is CRABPOT_LCM_FACT?" : ""}\n${end}`),
+        ] }), expected);
+      });
+    }
+  }
+  await t.test("multiple carriers with split labelled text", () => {
+    assert.equal(buildBehaviorEvalMockResponseText({ input: [
+      user(summary), user("What is CRABPOT_LCM_FACT?"),
+      user("<<<BEGIN_OPENCLAW_INTERNAL_CONTEXT>>>\nLegacy context.\n<<<END_OPENCLAW_INTERNAL_CONTEXT>>>"),
+      { role: "user", content: [
+        { type: "input_text", text: "OpenClaw runtime context:\nCurrent context." },
+        { type: "input_text", text: "More context.\nEnd OpenClaw runtime context." },
+      ] },
+    ] }), "blue-lantern-42");
+  });
+});
+
+test("behavior eval mock retains partial, quoted and multimodal runtime-context lookalikes", () => {
+  const recall = "What is CRABPOT_LCM_FACT?";
+  const summary = "<summary><content>CRABPOT_LCM_FACT is blue-lantern-42.</content></summary>";
+  for (const text of [
+    `<<<BEGIN_OPENCLAW_INTERNAL_CONTEXT>>>\n${recall}`,
+    `OpenClaw runtime context:\n${recall}`,
+    `Quoted context:\n<<<BEGIN_OPENCLAW_INTERNAL_CONTEXT>>>\n${recall}\n<<<END_OPENCLAW_INTERNAL_CONTEXT>>>`,
+    `OpenClaw runtime context:\n${recall}\nEnd OpenClaw runtime context.\nPlease answer.`,
+  ]) {
+    assert.equal(buildBehaviorEvalMockResponseText({ input: [
+      { role: "user", content: `${summary}\nSay one neutral filler response.` },
+      { role: "user", content: text },
+    ] }), "blue-lantern-42");
+  }
+  assert.equal(buildBehaviorEvalMockResponseText({ input: [
+    { role: "user", content: `${summary}\n${recall}` },
+    { role: "user", content: [
+      { type: "input_text", text: "OpenClaw runtime context:\nSay one neutral filler response.\nEnd OpenClaw runtime context." },
+      { type: "input_image", image_url: "https://example.com/image.png" },
+    ] },
+  ] }), "ok");
+});
+
+test("behavior eval planner rejects unasserted or ambiguous RPC steps", () => {
+  const rpc = { method: "sessions.compact", sessionKeyParam: "key", params: {}, expect: { ok: true } };
+  for (const step of [
+    { ...rpc, expect: {} },
+    { ...rpc, expect: { result: { compacted: true } } },
+    { ...rpc, params: { key: "wrong-session" } },
+    { ...rpc, message: "ambiguous" },
+  ]) {
+    assert.throws(
+      () => buildLocalPlan(historicalProfile, { ...scenario, steps: [step] }),
+      /RPC steps require/,
+    );
+  }
+  assert.throws(
+    () => buildLocalPlan(historicalProfile, { ...scenario, steps: [rpc], turns: [{ message: "old" }] }),
+    /cannot be combined with turns/,
+  );
+});
+
+test("behavior eval executor preserves legacy turns, orders RPC steps and rejects invalid results", async (t) => {
+  for (const [name, response, expectedStatus] of [
+    ["legacy-turns", null, "pass"],
+    ["compacted", { ok: true, compacted: true }, "pass"],
+    ["no-op", { ok: true, compacted: false }, "fail"],
+    ["missing-result", { ok: true }, "fail"],
+    ["wrong-type", { ok: true, compacted: "true" }, "fail"],
+    ["domain-rejected", { ok: false, compacted: true }, "fail"],
+    ["transport-rejected", new Error("RPC rejected"), "fail"],
+  ]) {
+    await t.test(name, async () => {
+      const tempRoot = await mkdtemp(path.join(os.tmpdir(), "crabpot-behavior-rpc-"));
+      try {
+        const profile = { ...historicalProfile, expectation: { mode: "must-pass" } };
+        const steps = [
+          { message: "seed", expectText: "seeded", sessionSuffix: "ordered" },
+          {
+            method: "sessions.compact",
+            sessionKeyParam: "key",
+            params: {},
+            expect: { ok: true, compacted: true },
+            sessionSuffix: "ordered",
+          },
+          { message: "recall", expectText: "recalled", sessionSuffix: "ordered" },
+        ];
+        const calls = [];
+        let chatCount = 0;
+        const scenarioSteps = name === "legacy-turns"
+          ? { turns: [steps[0], steps[2]] }
+          : { steps };
+        const result = await executeBehaviorEvalPlan(buildLocalPlan(profile, { ...scenario, ...scenarioSteps }), {
+          env: { CRABPOT_EXECUTE_BEHAVIOR: "1" },
+          workspace: {
+            tempRoot,
+            homeDir: path.join(tempRoot, "home"),
+            workspaceDir: path.join(tempRoot, "workspace"),
+            stateDir: path.join(tempRoot, "state"),
+            configPath: path.join(tempRoot, "config.json"),
+            xdgCacheHome: path.join(tempRoot, "xdg-cache"),
+            xdgConfigHome: path.join(tempRoot, "xdg-config"),
+            xdgDataHome: path.join(tempRoot, "xdg-data"),
+          },
+          getFreePort: async () => 19799,
+          runCommand: async () => ({ exitCode: 0, stdout: "ok", stderr: "", wallMs: 1 }),
+          startGateway: async () => ({ status: "pass", stdout: "ready", stderr: "", wallMs: 1 }),
+          startProvider: async () => ({ baseUrl: "http://127.0.0.1:45689", stop: async () => {} }),
+          runGatewayRpc: async (method, params, _context, options) => {
+            calls.push({ method, params, options });
+            if (method === "sessions.compact") {
+              if (response instanceof Error) throw response;
+              return response;
+            }
+            if (method === "chat.send") {
+              chatCount += 1;
+              return { status: "started", runId: params.idempotencyKey };
+            }
+            if (method === "agent.wait") return { status: "ok" };
+            if (method === "chat.history") {
+              return { messages: [{ role: "assistant", text: chatCount === 1 ? "seeded" : "recalled" }] };
+            }
+            throw new Error(`unexpected RPC ${method}`);
+          },
+        });
+        assert.equal(result.status, expectedStatus);
+        assert.equal(chatCount, expectedStatus === "pass" ? 2 : 1);
+        if (name === "legacy-turns") {
+          assert.deepEqual(calls.map(({ method }) => method), [
+            "chat.send", "agent.wait", "chat.history", "chat.send", "agent.wait", "chat.history",
+          ]);
+          assert.equal(calls[3].params.sessionKey, calls[0].params.sessionKey);
+          return;
+        }
+        const compact = calls[3];
+        assert.equal(compact.method, "sessions.compact");
+        assert.equal(compact.params.key, calls[0].params.sessionKey);
+        assert.match(compact.params.key, /:ordered$/);
+        assert.equal(compact.options.timeoutMs, profile.runner.timeoutMs);
+        if (expectedStatus === "pass") assert.equal(calls[4].method, "chat.send");
+        else assert.equal(behaviorEvalExecutionExitCode(result, "must-pass"), 1);
+        if (!(response instanceof Error) && expectedStatus === "fail") {
+          assert.equal(result.failureClass, "behavior-rpc-mismatch");
+        }
+      } finally {
+        await rm(tempRoot, { recursive: true, force: true });
+      }
+    });
+  }
+});
+
 test("behavior eval markdown report names the TDD target and command", () => {
   const plan = buildBehaviorEvalPlan({ profile: historicalProfile, scenario });
   const markdown = renderBehaviorEvalMarkdown(plan);

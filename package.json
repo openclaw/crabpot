@@ -1,6 +1,6 @@
 {
   "name": "crabpot",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "description": "Compatibility testbed for OpenClaw community plugins and plugin seams.",
   "type": "module",
@@ -10,6 +10,7 @@
   "scripts": {
     "check": "node scripts/run-static-suite.mjs --policy dashboard",
     "check:contracts": "node scripts/check-openclaw-plugin-contracts.mjs",
+    "check:fixture-security": "node scripts/check-fixture-security.mjs",
     "check:release": "node scripts/run-static-suite.mjs --policy release",
     "ci:policy": "node scripts/check-ci-policy.mjs",
     "ci:summary": "node scripts/write-ci-summary.mjs",
@@ -27,6 +28,7 @@
     "fixtures:sync": "node scripts/sync-fixtures.mjs --materialize",
     "import:profile": "node scripts/import-loop-profile.mjs",
     "import:profile:openclaw": "node scripts/import-loop-profile.mjs --openclaw ../openclaw",
+    "openclaw:promote": "node scripts/openclaw-pin.mjs --promote",
     "plugin-inspector:smoke": "node scripts/run-plugin-inspector-smoke.mjs --check",
     "profile": "node scripts/profile-contract-runtime.mjs",
     "profile:compare": "node scripts/compare-runtime-profile.mjs",
@@ -37,7 +39,7 @@
     "ref:diff": "node scripts/compare-openclaw-refs.mjs",
     "report": "node scripts/generate-report.mjs",
     "smoke": "node scripts/run-contract-smoke.mjs",
-    "test": "node scripts/sync-fixtures.mjs --materialize --no-package-availability-report && node --test --test-concurrency=1 test/*.test.mjs",
+    "test": "node scripts/sync-fixtures.mjs --materialize --no-package-availability-report && node scripts/run-tests.mjs",
     "check:changed": "npm run check",
     "test:changed": "npm test",
     "crabbox:hydrate": "crabbox actions hydrate",

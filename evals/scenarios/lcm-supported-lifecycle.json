@@ -1,0 +1,68 @@
+{
+  "id": "lcm-supported-lifecycle",
+  "category": "context-engine",
+  "description": "Require supported host compaction and explicit new/reset lifecycle results without relying on the retired /lossless rotate command. This scenario is unqualified; no release profile selects it yet.",
+  "recallScope": "same-session-key",
+  "checks": [
+    {
+      "id": "compaction-result",
+      "description": "sessions.compact must report both ok=true and compacted=true before recall; transport success and no-ops do not satisfy this check."
+    },
+    {
+      "id": "summary-recall",
+      "description": "The mock provider must find the assistant-seeded fact in a summary block, rather than raw transcript replay."
+    },
+    {
+      "id": "new-retention",
+      "description": "With newSessionRetainDepth=0 in the eventual qualification profile, sessions.reset reason=new prunes raw context but preserves summarized recall."
+    },
+    {
+      "id": "reset-isolation",
+      "description": "sessions.reset reason=reset must leave the fresh conversation unable to recall the prior fact. Real database archive, identity and migration invariants require separate qualification evidence."
+    }
+  ],
+  "steps": [
+    {
+      "message": "Reply with this exact memory marker: CRABPOT_LCM_FACT is blue-lantern-42.",
+      "expectText": "blue-lantern-42"
+    },
+    {
+      "message": "Say one neutral filler response. This is a synthetic transcript segment for compaction. The segment deliberately contains enough ordinary text to move the earlier memory marker outside the retained fresh tail while keeping the current request deterministic. Nothing in this segment changes the memory marker or supplies a replacement answer.",
+      "expectText": "ok"
+    },
+    {
+      "message": "Say one neutral filler response. This second synthetic transcript segment completes another user and assistant group before the explicit compaction request. It contains no new memory fact and requires no tools, network access, credentials, or external model. The qualification must observe a real compaction result and summarized recall after this turn.",
+      "expectText": "ok"
+    },
+    {
+      "method": "sessions.compact",
+      "sessionKeyParam": "key",
+      "params": {},
+      "expect": { "ok": true, "compacted": true }
+    },
+    {
+      "message": "What is CRABPOT_LCM_FACT? Answer with only the remembered value.",
+      "expectText": "blue-lantern-42"
+    },
+    {
+      "method": "sessions.reset",
+      "sessionKeyParam": "key",
+      "params": { "reason": "new" },
+      "expect": { "ok": true }
+    },
+    {
+      "message": "What is CRABPOT_LCM_FACT? Answer with only the remembered value.",
+      "expectText": "blue-lantern-42"
+    },
+    {
+      "method": "sessions.reset",
+      "sessionKeyParam": "key",
+      "params": { "reason": "reset" },
+      "expect": { "ok": true }
+    },
+    {
+      "message": "What is CRABPOT_LCM_FACT? Answer with only the remembered value.",
+      "expectText": "I do not have that fact."
+    }
+  ]
+}

@@ -20,12 +20,12 @@ const crabpotWorkspacePlanOptions = {
 };
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
-  await main();
+  await runReportCommand();
 }
 
-async function main() {
-  const parsedArgs = parseArgs(process.argv.slice(2));
-  const plan = await buildWorkspacePlan({ openclawPath: parsedArgs.openclawPath });
+export async function runReportCommand(argv = process.argv.slice(2), options = {}) {
+  const parsedArgs = parseArgs(argv);
+  const plan = await buildWorkspacePlan({ openclawPath: parsedArgs.openclawPath, ...options });
   const errors = validateWorkspacePlan(plan);
 
   if (parsedArgs.write) {
@@ -43,6 +43,7 @@ async function main() {
   if (errors.length > 0) {
     throw new Error(errors.join("\n"));
   }
+  return plan;
 }
 
 function parseArgs(argv) {
@@ -82,16 +83,17 @@ function parseArgs(argv) {
 export async function buildWorkspacePlan(options = {}) {
   const config = options.report
     ? undefined
-    : {
+    : options.config ?? {
         ...(await readConfiguredManifest()),
         rootDir: repoRoot,
       };
-  return pluginInspector.buildFixtureSetWorkspacePlan({
+  const plan = await pluginInspector.buildFixtureSetWorkspacePlan({
     ...crabpotWorkspacePlanOptions,
     ...options,
     config,
     rootDir: options.rootDir ?? repoRoot,
   });
+  return normalizeWorkspaceInstallSteps(plan);
 }
 
 export function validateWorkspacePlan(plan) {
@@ -111,4 +113,29 @@ export function renderWorkspacePlanMarkdown(plan, options = {}) {
     ...options,
     title: options.title ?? "Crabpot Isolated Workspace Plan",
   });
+}
+
+export function normalizeWorkspaceInstallSteps(plan) {
+  return {
+    ...plan,
+    fixtures: (plan.fixtures ?? []).map((fixture) => ({
+      ...fixture,
+      entrypoints: (fixture.entrypoints ?? []).map((entrypoint) => ({
+        ...entrypoint,
+        steps: (entrypoint.steps ?? []).map(normalizeWorkspaceStep),
+      })),
+    })),
+  };
+}
+
+function normalizeWorkspaceStep(step) {
+  if (step.kind !== "install" || step.command !== "npm install --ignore-scripts") {
+    return step;
+  }
+
+  return {
+    ...step,
+    command: "npm install --ignore-scripts --legacy-peer-deps",
+    reason: `${step.reason}; allow peer-range drift in isolated compatibility probes`,
+  };
 }

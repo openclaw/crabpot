@@ -1,14 +1,18 @@
 #!/usr/bin/env node
 import { spawn } from "node:child_process";
-import { mkdirSync } from "node:fs";
+import { createWriteStream, mkdirSync } from "node:fs";
 import { cp, mkdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { performance } from "node:perf_hooks";
+import { Transform } from "node:stream";
+import { finished } from "node:stream/promises";
 import { pathToFileURL } from "node:url";
 import { buildWorkspacePlan } from "./workspace-plan.mjs";
-import { repoRoot } from "./manifest-lib.mjs";
+import { readConfiguredManifest, readManifest, repoRoot } from "./manifest-lib.mjs";
 import { portableCommand } from "./portable-command.mjs";
 import { resolveFixtureSet } from "./resolve-fixture-set.mjs";
+
+const MAX_FAILURE_OUTPUT_CHARS = 32768;
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   await main();
@@ -16,7 +20,20 @@ if (import.meta.url === pathToFileURL(process.argv[1]).href) {
 
 async function main() {
   const args = parseArgs(process.argv.slice(2));
-  const plan = await buildWorkspacePlan({ openclawPath: args.openclawPath });
+  const scopeErrors = validateExecutionScope({ args });
+  if (scopeErrors.length > 0) throw new Error(scopeErrors.join("\n"));
+  const manifest = await readManifest();
+  const blockedFailuresByFixture = new Map(
+    manifest.fixtures.map((fixture) => [fixture.id, fixture.execution?.blockedFailures ?? []]),
+  );
+  let config;
+  if (args.fixture) {
+    const configured = await readConfiguredManifest();
+    const fixture = configured.fixtures.find((item) => item.id === args.fixture);
+    if (!fixture) throw new Error(`workspace execution selected unknown fixture: ${args.fixture}`);
+    config = { ...configured, rootDir: repoRoot, fixtures: [fixture] };
+  }
+  const plan = await buildWorkspacePlan({ openclawPath: args.openclawPath, config });
   const selectedFixtureIds = await resolveSelectedFixtureIds(plan, args);
   const selected = selectWorkspaceSteps(plan, { ...args, fixtureIds: selectedFixtureIds });
   const errors = validateExecutionRequest({
@@ -55,12 +72,20 @@ async function main() {
         }
         result = failedStepResult(step, error);
       }
+      result = classifyWorkspaceStepResult(
+        result,
+        step,
+        blockedFailuresByFixture.get(item.fixture),
+      );
+      // Failure output is only for exact rule matching. Do not persist plugin logs in report artifacts.
+      const profileResult = { ...result };
+      delete profileResult.failureOutput;
       profiles.push({
         fixture: item.fixture,
         entrypoint: item.entrypoint,
         packagePath: item.packagePath,
         status: item.status,
-        ...result,
+        ...profileResult,
       });
       await writeExecutionProfile(profileId, profiles);
       if (result.exitCode !== 0) {
@@ -78,6 +103,7 @@ async function main() {
 }
 
 function failedStepResult(step, error) {
+  const message = error instanceof Error ? error.message : String(error);
   return {
     kind: step.kind,
     command: step.command,
@@ -88,7 +114,34 @@ function failedStepResult(step, error) {
     peakRssMb: 0,
     peakCpuPercent: 0,
     cpuMsEstimate: 0,
-    error: error instanceof Error ? error.message : String(error),
+    error: message,
+    failureOutput: message,
+  };
+}
+
+export function classifyWorkspaceStepResult(result, step, blockedFailures = []) {
+  if (result.exitCode === 0 || result.timedOut) {
+    return result;
+  }
+  const failureOutput = String(result.failureOutput ?? result.error ?? "");
+  const blockedFailure = blockedFailures.find(
+    (rule) =>
+      rule.seam === step.kind &&
+      Number.isInteger(rule.exitCode) &&
+      rule.exitCode === result.exitCode &&
+      typeof rule.outputPattern === "string" &&
+      failureOutput.includes(rule.errorIncludes) &&
+      new RegExp(rule.outputPattern, "u").test(failureOutput),
+  );
+  if (!blockedFailure) {
+    return result;
+  }
+  return {
+    ...result,
+    exitCode: 0,
+    rawExitCode: result.rawExitCode ?? result.exitCode,
+    blockedBy: blockedFailure.id,
+    blockedReason: blockedFailure.reason,
   };
 }
 
@@ -171,19 +224,31 @@ export function selectWorkspaceSteps(plan, args) {
   return selected;
 }
 
-export function validateExecutionRequest({ args, selected, env = process.env, fixtureExists = true }) {
+export function validateExecutionRequest({
+  args,
+  selected,
+  env = process.env,
+  fixtureExists = true,
+}) {
+  const errors = validateExecutionScope({ args, env, fixtureExists });
+  if (selected.length === 0 && !args.allowEmpty) {
+    errors.push("workspace execution selected no entrypoints");
+  }
+  return errors;
+}
+
+function validateExecutionScope({ args, env = process.env, fixtureExists = true }) {
   const errors = [];
   if (!args.fixture && !args.fixtureSet) {
-    errors.push("workspace execution requires --fixture or --fixture-set to keep opt-in scope narrow");
+    errors.push(
+      "workspace execution requires --fixture or --fixture-set to keep opt-in scope narrow",
+    );
   }
   if (args.fixture && args.fixtureSet) {
     errors.push("workspace execution accepts only one of --fixture or --fixture-set");
   }
   if (args.fixture && !fixtureExists) {
     errors.push(`workspace execution selected unknown fixture: ${args.fixture}`);
-  }
-  if (selected.length === 0 && !args.allowEmpty) {
-    errors.push("workspace execution selected no entrypoints");
   }
   if (!args.dryRun && env.CRABPOT_EXECUTE_ISOLATED !== "1") {
     errors.push("workspace execution requires CRABPOT_EXECUTE_ISOLATED=1 unless --dry-run is used");
@@ -233,7 +298,9 @@ export async function runStep(step) {
 }
 
 export function parsePortableStep(step) {
-  const copyMatch = step.command.match(/^mkdir -p (?<workspace>\S+) && rsync -a --delete (?<source>\S+)\/ (?<destination>\S+)\/$/);
+  const copyMatch = step.command.match(
+    /^mkdir -p (?<workspace>\S+) && rsync -a --delete (?<source>\S+)\/ (?<destination>\S+)\/$/,
+  );
   if (step.kind === "prepare" && copyMatch?.groups) {
     return {
       destination: copyMatch.groups.destination,
@@ -250,7 +317,9 @@ export function parsePortableStep(step) {
     };
   }
 
-  const auditMatch = step.command.match(/^(?<command>\S+) audit --json > (?<outputPath>\S+) \|\| true$/);
+  const auditMatch = step.command.match(
+    /^(?<command>\S+) audit --json > (?<outputPath>\S+) \|\| true$/,
+  );
   if (step.kind === "audit" && auditMatch?.groups) {
     return {
       args: ["audit", "--json"],
@@ -292,7 +361,9 @@ function tokenizeCommand(commandText) {
     /([A-Za-z_][A-Za-z0-9_]*=(?:"[^"\\]*(?:\\.[^"\\]*)*"|'[^'\\]*(?:\\.[^'\\]*)*'))|"([^"\\]*(?:\\.[^"\\]*)*)"|'([^'\\]*(?:\\.[^'\\]*)*)'|(\S+)/g;
   for (const match of commandText.matchAll(matcher)) {
     const quoted = match[1] === undefined && (match[2] !== undefined || match[3] !== undefined);
-    const value = normalizeToken((match[1] ?? match[2] ?? match[3] ?? match[4]).replaceAll('\\"', '"').replaceAll("\\'", "'"));
+    const value = normalizeToken(
+      (match[1] ?? match[2] ?? match[3] ?? match[4]).replaceAll('\\"', '"').replaceAll("\\'", "'"),
+    );
     tokens.push({ quoted, value });
   }
   return tokens;
@@ -326,6 +397,7 @@ function measureProcessStep(step, operation) {
     let timedOut = false;
     let forceKillTimer;
     let terminateTimer;
+    let child;
     let peakRssKb = 0;
     let peakCpuPercent = 0;
     const cpuSamples = [];
@@ -334,12 +406,29 @@ function measureProcessStep(step, operation) {
     mkdirSync(env.HOME, { recursive: true });
     mkdirSync(env.XDG_CONFIG_HOME, { recursive: true });
     mkdirSync(env.OPENCLAW_HOME, { recursive: true });
-    const child = spawn(portableCommand(operation.command), operation.args, {
+    let capturedStdout;
+    let capturedStdoutError;
+    let capturedStdoutFinished;
+    const stopForCaptureError = (error) => {
+      capturedStdoutError ??= error;
+      if (!child) {
+        return;
+      }
+      child.stdout.unpipe();
+      child.stdout.resume();
+      forceKillTimer ??= terminateProcessGroup(child);
+    };
+    if (operation.captureStdoutPath) {
+      mkdirSync(path.dirname(operation.captureStdoutPath), { recursive: true });
+      capturedStdout = createWriteStream(operation.captureStdoutPath);
+      capturedStdoutFinished = finished(capturedStdout).catch(stopForCaptureError);
+    }
+    child = spawn(portableCommand(operation.command), operation.args, {
       cwd: path.join(repoRoot, step.cwd),
       detached: process.platform !== "win32",
       env,
       shell: false,
-      stdio: operation.captureStdoutPath ? ["ignore", "pipe", "inherit"] : "inherit",
+      stdio: ["ignore", "pipe", "pipe"],
     });
     if (timeoutMs > 0) {
       terminateTimer = setTimeout(() => {
@@ -348,10 +437,19 @@ function measureProcessStep(step, operation) {
       }, timeoutMs);
       terminateTimer.unref?.();
     }
-    const stdoutChunks = [];
-    if (operation.captureStdoutPath) {
-      child.stdout.on("data", (chunk) => stdoutChunks.push(chunk));
+    let failureOutput = "";
+    const recordFailureOutput = (chunk) => {
+      failureOutput = `${failureOutput}${chunk.toString("utf8")}`.slice(-MAX_FAILURE_OUTPUT_CHARS);
+    };
+    child.stdout
+      .pipe(outputCaptureTransform(recordFailureOutput))
+      .pipe(capturedStdout ?? process.stdout, { end: Boolean(capturedStdout) });
+    if (capturedStdoutError) {
+      stopForCaptureError(capturedStdoutError);
     }
+    child.stderr
+      .pipe(outputCaptureTransform(recordFailureOutput))
+      .pipe(process.stderr, { end: false });
     const recordStats = (stats) => {
       peakRssKb = Math.max(peakRssKb, stats.rssKb);
       peakCpuPercent = Math.max(peakCpuPercent, stats.cpuPercent);
@@ -370,7 +468,7 @@ function measureProcessStep(step, operation) {
           pollInFlight = false;
         });
     }, 100);
-    child.on("exit", async (code) => {
+    child.on("close", async (code) => {
       clearInterval(poll);
       clearTimeout(terminateTimer);
       clearTimeout(forceKillTimer);
@@ -385,18 +483,23 @@ function measureProcessStep(step, operation) {
         cpuSamples.length > 0
           ? cpuSamples.reduce((sum, value) => sum + value, 0) / cpuSamples.length
           : 0;
-      if (operation.captureStdoutPath) {
-        await mkdir(path.dirname(operation.captureStdoutPath), { recursive: true });
-        await writeFile(operation.captureStdoutPath, Buffer.concat(stdoutChunks));
+      if (capturedStdoutFinished) {
+        await capturedStdoutFinished;
       }
-      const exitCode = timedOut ? 124 : code ?? 1;
+      if (capturedStdoutError) {
+        reject(capturedStdoutError);
+        return;
+      }
+      const exitCode = timedOut ? 124 : (code ?? 1);
+      const reportedExitCode = operation.ignoreExitCode ? 0 : exitCode;
       resolve({
         kind: step.kind,
         command: step.command,
         cwd: step.cwd,
         artifactPath: step.artifactPath ?? null,
-        exitCode: operation.ignoreExitCode ? 0 : exitCode,
+        exitCode: reportedExitCode,
         rawExitCode: operation.ignoreExitCode ? exitCode : undefined,
+        failureOutput: reportedExitCode === 0 ? undefined : failureOutput,
         timeoutMs: timeoutMs > 0 ? timeoutMs : undefined,
         timedOut,
         wallMs,
@@ -411,6 +514,15 @@ function measureProcessStep(step, operation) {
       clearTimeout(forceKillTimer);
       reject(error);
     });
+  });
+}
+
+function outputCaptureTransform(record) {
+  return new Transform({
+    transform(chunk, _encoding, callback) {
+      record(chunk);
+      callback(null, chunk);
+    },
   });
 }
 
@@ -485,6 +597,7 @@ async function writeExecutionProfile(fixtureId, steps) {
     summary: {
       stepCount: steps.length,
       failCount: steps.filter((step) => step.exitCode !== 0).length,
+      blockedCount: steps.filter((step) => step.blockedBy).length,
       totalWallMs: steps.reduce((sum, step) => sum + step.wallMs, 0),
       maxPeakRssMb: Math.max(0, ...steps.map((step) => step.peakRssMb)),
       maxCpuMsEstimate: Math.max(0, ...steps.map((step) => step.cpuMsEstimate)),

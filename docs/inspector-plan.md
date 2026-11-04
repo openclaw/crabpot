@@ -93,17 +93,34 @@ npm run plugin-inspector:smoke
 ```
 
 The smoke writes ignored artifacts under `.crabpot/plugin-inspector-smoke/`.
-By default the smoke runs the published `@openclaw/plugin-inspector@0.3.16`
-package through `npm exec`. For local plugin-inspector development, set
+By default the smoke runs the published package pinned by `pluginInspectorPackage`
+in `scripts/plugin-inspector-source.mjs` through `npm exec`. For local development, set
 `CRABPOT_PLUGIN_INSPECTOR_CLI=source` to run the sibling or pinned source
-checkout instead. Set `CRABPOT_PLUGIN_INSPECTOR_BIN=/path/to/plugin-inspector`
+checkout instead. Set `CRABPOT_PLUGIN_INSPECTOR_DIR=/path/to/candidate` to select
+an exact candidate checkout before its npm release. Set
+`CRABPOT_PLUGIN_INSPECTOR_BIN=/path/to/plugin-inspector`
 to test an arbitrary CLI binary.
+
+The published pin uses Inspector 0.4.4; the reviewed source pin also adds the
+Node 24.22.1 CI generator repair and bounded host type graphs for mixed inferred
+facades. Both retain Windows entrypoint and host-type fixes,
+including SDK imports inside packaged `.setup`
+directories, mocked Zod enum options for composed schemas, and non-blocking SDK
+member retirement notices with replacement guidance and the final compatibility
+day. CI runs the retirement smoke against source, locally packed, and exact
+published npm installations.
+Both source and published package recognize bundled SDK imports,
+consume target-owned conversation contract proof, load retained-handler SDK
+imports and lazy runtimes, and preserve method-scoped Gateway prerequisites.
+They retain bounded capture and synthetic probes, CommonJS SDK mock capture,
+serial service lifecycle probes, and Gateway response validation.
+Run source-mode and package-mode smoke separately when validating a new release.
 
 Current migration state: `scripts/inspect-fixtures.mjs` delegates static source,
 manifest, and package inspection to `plugin-inspector` while preserving
 crabpot's existing command output and exported helper names. Crabpot keeps its
 orchestration, report paths, fixture policy, and opt-in execution guards; the
-reusable compatibility logic now lives in the published inspector package.
+reusable compatibility logic now lives in the separate inspector package.
 
 ## Compatibility issue workflow
 

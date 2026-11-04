@@ -1,19 +1,26 @@
 #!/usr/bin/env node
-import { execFile as execFileCallback } from "node:child_process";
 import { appendFile } from "node:fs/promises";
-import { promisify } from "node:util";
 import { pathToFileURL } from "node:url";
-
-const execFile = promisify(execFileCallback);
+import { configuredTimeoutMs, runOwnedCommand } from "./owned-command.mjs";
 
 export const openclawRepository = "openclaw/openclaw";
 export const openclawGitUrl = "https://github.com/openclaw/openclaw.git";
+const defaultFetchTimeoutMs = 15_000;
+const defaultGitTimeoutMs = 2 * 60 * 1000;
 
 const branchTracks = new Map([
   ["main", "latest"],
   ["crab-beta", "beta"],
   ["crab-development", "development"],
 ]);
+
+export class MissingOpenClawTagError extends Error {
+  constructor(version) {
+    super(`OpenClaw GitHub tag v${version} is missing`);
+    this.name = "MissingOpenClawTagError";
+    this.version = version;
+  }
+}
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   await main();
@@ -22,7 +29,16 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const track = normalizeTrack(args.track, args.branch);
-  const result = await resolveOpenClawTrack(track);
+  let result;
+  try {
+    result = await resolveOpenClawTrack(track);
+  } catch (error) {
+    if (args.warnMissingTag && error instanceof MissingOpenClawTagError) {
+      console.log(`::warning::OpenClaw npm ${track} resolves to ${error.version}, but GitHub tag v${error.version} is missing; HEAD canary continues.`);
+      return;
+    }
+    throw error;
+  }
 
   if (args.githubOutput) {
     await writeGithubOutput(result);
@@ -41,6 +57,7 @@ function parseArgs(argv) {
     githubOutput: false,
     json: false,
     track: process.env.CRABPOT_OPENCLAW_TRACK || "auto",
+    warnMissingTag: false,
   };
 
   for (let index = 0; index < argv.length; index += 1) {
@@ -61,6 +78,10 @@ function parseArgs(argv) {
     if (arg === "--track") {
       args.track = argv[index + 1];
       index += 1;
+      continue;
+    }
+    if (arg === "--warn-missing-tag") {
+      args.warnMissingTag = true;
     }
   }
 
@@ -113,11 +134,8 @@ function assertTrack(track) {
 }
 
 async function npmDistTag(tag) {
-  const response = await fetch("https://registry.npmjs.org/openclaw");
-  if (!response.ok) {
-    throw new Error(`could not read openclaw npm metadata: ${response.status}`);
-  }
-  const metadata = await response.json();
+  const timeout = configuredTimeoutMs("CRABPOT_FETCH_TIMEOUT_MS", defaultFetchTimeoutMs);
+  const metadata = await fetchJsonWithTimeout("https://registry.npmjs.org/openclaw", timeout, "could not read openclaw npm metadata");
   const value = metadata?.["dist-tags"]?.[tag];
   if (!value || typeof value !== "string") {
     throw new Error(`npm dist-tag ${tag} did not resolve to an OpenClaw version`);
@@ -126,24 +144,37 @@ async function npmDistTag(tag) {
 }
 
 async function tagSha(version) {
-  const peeled = await optionalLsRemote(`refs/tags/v${version}^{}`);
+  const peeled = await lsRemote(`refs/tags/v${version}^{}`, { allowMissing: true });
   if (peeled) {
     return peeled;
   }
-  return lsRemote(`refs/tags/v${version}`);
+  const direct = await lsRemote(`refs/tags/v${version}`, { allowMissing: true });
+  if (direct) {
+    return direct;
+  }
+  throw new MissingOpenClawTagError(version);
 }
 
-async function optionalLsRemote(ref) {
-  try {
-    return await lsRemote(ref);
-  } catch {
+async function lsRemote(ref, { allowMissing = false } = {}) {
+  const timeout = configuredTimeoutMs("CRABPOT_GIT_TIMEOUT_MS", defaultGitTimeoutMs);
+  const result = runOwnedCommand("git", ["ls-remote", openclawGitUrl, ref], { timeout, encoding: "utf8" });
+  if (result.error) {
+    if (result.error.code === "ETIMEDOUT" && !result.cleanupError) {
+      result.error.message = `git ls-remote timed out after ${timeout}ms`;
+    }
+    throw result.error;
+  }
+  if (result.signal) {
+    throw new Error(`git ls-remote terminated by ${result.signal}`);
+  }
+  if (result.status !== 0) {
+    throw new Error(`git ls-remote failed with status ${result.status}: ${result.stderr.trim()}`);
+  }
+  const output = result.stdout.trim();
+  if (allowMissing && !output) {
     return "";
   }
-}
-
-async function lsRemote(ref) {
-  const { stdout } = await execFile("git", ["ls-remote", openclawGitUrl, ref]);
-  const sha = stdout.trim().split(/\s+/)[0] ?? "";
+  const sha = output.split(/\s+/)[0] ?? "";
   if (!/^[0-9a-f]{40}$/.test(sha)) {
     throw new Error(`could not resolve ${openclawGitUrl} ${ref}`);
   }
@@ -152,11 +183,8 @@ async function lsRemote(ref) {
 
 async function fetchPackageVersionAtRef(ref) {
   const url = `https://raw.githubusercontent.com/${openclawRepository}/${encodeURIComponent(ref)}/package.json`;
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error(`could not read OpenClaw package.json for ${ref}: ${response.status}`);
-  }
-  const pkg = await response.json();
+  const timeout = configuredTimeoutMs("CRABPOT_FETCH_TIMEOUT_MS", defaultFetchTimeoutMs);
+  const pkg = await fetchJsonWithTimeout(url, timeout, `could not read OpenClaw package.json for ${ref}`);
   if (!pkg.version || typeof pkg.version !== "string") {
     throw new Error(`OpenClaw package.json for ${ref} has no string version`);
   }
@@ -165,6 +193,22 @@ async function fetchPackageVersionAtRef(ref) {
 
 function shortSha(sha) {
   return sha.slice(0, 12);
+}
+
+async function fetchJsonWithTimeout(url, timeout, label) {
+  const signal = AbortSignal.timeout(timeout);
+  try {
+    const response = await fetch(url, { signal });
+    if (!response.ok) {
+      throw new Error(`${label}: ${response.status}`);
+    }
+    return await response.json();
+  } catch (error) {
+    if (signal.aborted && error === signal.reason) {
+      throw new Error(`${label}: timed out after ${timeout}ms`, { cause: error });
+    }
+    throw error;
+  }
 }
 
 async function writeGithubOutput(result) {

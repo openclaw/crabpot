@@ -1,0 +1,41 @@
+file:///fixture/crabpot/.crabpot/plugin-inspector/6169338410f76e1e7e9f6ec29c65b6007e62d829/src/inspector.js:389
+  const wrapped = new Error(details.message, { cause: error });
+                  ^
+
+Error: Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/fixture/crabpot/.crabpot/workspaces/memory-tencentdb/src/offload-client/index.js' imported from /fixture/crabpot/.crabpot/workspaces/memory-tencentdb/dist/index.js
+    at enrichCaptureError (file:///fixture/crabpot/.crabpot/plugin-inspector/6169338410f76e1e7e9f6ec29c65b6007e62d829/src/inspector.js:389:19)
+    at classifyChildCaptureError (file:///fixture/crabpot/.crabpot/plugin-inspector/6169338410f76e1e7e9f6ec29c65b6007e62d829/src/inspector.js:334:12)
+    at captureEntrypointInChild (file:///fixture/crabpot/.crabpot/plugin-inspector/6169338410f76e1e7e9f6ec29c65b6007e62d829/src/inspector.js:282:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async main (file:///fixture/crabpot/scripts/run-cold-import-capture.mjs:25:18)
+    at async file:///fixture/crabpot/scripts/run-cold-import-capture.mjs:10:3 {
+  failureClass: 'entrypoint-import-error',
+  [cause]: Error: Mock SDK capture child failed
+      at captureEntrypointInChild (file:///fixture/crabpot/.crabpot/plugin-inspector/6169338410f76e1e7e9f6ec29c65b6007e62d829/src/inspector.js:282:65)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async main (file:///fixture/crabpot/scripts/run-cold-import-capture.mjs:25:18)
+      at async file:///fixture/crabpot/scripts/run-cold-import-capture.mjs:10:3 {
+    exitCode: 1,
+    timedOut: false,
+    cancelled: false,
+    timeoutMs: 30000,
+    signal: null,
+    pid: 1001,
+    stdout: '',
+    stderr: '[plugin-inspector:entrypoint-import-error]\n' +
+      "Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/fixture/crabpot/.crabpot/workspaces/memory-tencentdb/src/offload-client/index.js' imported from /fixture/crabpot/.crabpot/workspaces/memory-tencentdb/dist/index.js\n" +
+      '    at finalizeResolution (node:internal/modules/esm/resolve:272:11)\n' +
+      '    at moduleResolve (node:internal/modules/esm/resolve:879:10)\n' +
+      '    at defaultResolve (node:internal/modules/esm/resolve:1006:11)\n' +
+      '    at nextResolve (node:internal/modules/esm/hooks:785:28)\n' +
+      '    at resolve (file:///tmp/plugin-inspector-mock-sdk-fixture/mock-loader.mjs:50:18)\n' +
+      '    at nextResolve (node:internal/modules/esm/hooks:785:28)\n' +
+      '    at AsyncLoaderHooksOnLoaderHookWorker.resolve (node:internal/modules/esm/hooks:269:30)\n' +
+      '    at MessagePort.handleMessage (node:internal/modules/esm/worker:251:24)\n' +
+      '    at [nodejs.internal.kHybridDispatch] (node:internal/event_target:856:20)\n' +
+      '    at MessagePort.<anonymous> (node:internal/per_context/messageport:23:28)\n',
+    outputTruncated: false
+  }
+}
+
+Node.js v24.20.0

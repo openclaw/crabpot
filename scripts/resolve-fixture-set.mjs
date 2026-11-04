@@ -16,6 +16,7 @@ async function main() {
   const resolved = await resolveFixtureSet({
     allowEmpty: args.allowEmpty,
     fixtureSet: args.fixtureSet,
+    materialize: args.materialize,
     openclawPath: args.openclawPath,
     policyPath: args.policyPath,
     baseRef: args.baseRef,
@@ -43,6 +44,7 @@ function parseArgs(argv) {
     fixtureSet: "smoke",
     githubOutput: false,
     json: false,
+    materialize: false,
     openclawPath: undefined,
     policyPath: defaultCiPolicyPath,
     baseRef: undefined,
@@ -58,6 +60,10 @@ function parseArgs(argv) {
     }
     if (arg === "--allow-empty") {
       args.allowEmpty = true;
+      continue;
+    }
+    if (arg === "--materialize") {
+      args.materialize = true;
       continue;
     }
     if (arg === "--github-output") {
@@ -99,14 +105,25 @@ export async function resolveFixtureSet(options = {}) {
   const requested = normalizeRequested(options.fixtureSet ?? "smoke");
   const manifest = options.manifest ?? (await readManifest());
   const policy = options.policy ?? (await readJson(options.policyPath ?? defaultCiPolicyPath));
-  const plan = options.plan ?? (await buildWorkspacePlan({ openclawPath: options.openclawPath }));
   const fixtureIds = new Set(manifest.fixtures.map((fixture) => fixture.id));
   const changedPaths =
     options.changedPaths ??
     (requested === "changed-submodules"
       ? readChangedPaths({ baseRef: options.baseRef, headRef: options.headRef })
       : []);
-  const selectedIds = selectFixtureIds({ requested, policy, plan, fixtureIds, manifest, changedPaths });
+  const selection = describeFixtureSelection({ requested, policy, fixtureIds, manifest, changedPaths });
+  if (options.materialize) {
+    // Capability membership needs prepared source; known selections must not acquire unrelated fixtures.
+    const ids = [...(selection.ids ?? fixtureIds)].sort();
+    if (ids.length > 0) {
+      await (options.materializeFixtures ?? materializeFixtures)(ids, options);
+    }
+  }
+  const plan = options.plan ?? (await buildWorkspacePlan({ openclawPath: options.openclawPath }));
+  const capableIds = selection.ids ?? fixturesWithCapability(plan, selection.capability);
+  const selectedIds = selection.exclude
+    ? new Set([...fixtureIds].filter((id) => !capableIds.has(id)))
+    : capableIds;
   const fixtures = [...selectedIds].sort().map((fixtureId) => summarizeFixture(fixtureId, plan));
 
   if (!options.allowEmpty && fixtures.length === 0) {
@@ -121,39 +138,56 @@ export async function resolveFixtureSet(options = {}) {
   };
 }
 
-function selectFixtureIds({ requested, policy, plan, fixtureIds, manifest, changedPaths }) {
+function describeFixtureSelection({ requested, policy, fixtureIds, manifest, changedPaths }) {
   if (requested === "none") {
-    return new Set();
+    return { ids: new Set() };
   }
   if (requested === "all") {
-    return new Set(fixtureIds);
+    return { ids: fixtureIds };
   }
   if (requested === "changed-submodules") {
-    return fixturesChangedByPaths(manifest.fixtures, changedPaths);
+    return { ids: fixturesChangedByPaths(manifest.fixtures, changedPaths) };
   }
   if (policy.fixtureSets?.[requested]) {
-    return validateIds(policy.fixtureSets[requested], fixtureIds, requested);
+    return { ids: validateIds(policy.fixtureSets[requested], fixtureIds, requested) };
   }
   if (requested === "ts") {
-    return fixturesWithCapability(plan, "ts-loader");
+    return { capability: "ts-loader" };
   }
   if (requested === "build") {
-    return fixturesWithCapability(plan, "build");
+    return { capability: "build" };
   }
   if (requested === "sdk-alias") {
-    return fixturesWithCapability(plan, "sdk-alias-compat");
+    return { capability: "sdk-alias-compat" };
   }
   if (requested === "side-effect-review") {
-    return fixturesWithCapability(plan, "side-effect-sandbox");
+    return { capability: "side-effect-sandbox" };
   }
   if (requested === "all-known-safe") {
-    const sideEffectFixtures = fixturesWithCapability(plan, "side-effect-sandbox");
-    return new Set([...fixtureIds].filter((fixtureId) => !sideEffectFixtures.has(fixtureId)));
+    return { capability: "side-effect-sandbox", exclude: true };
   }
   if (requested.includes(",")) {
-    return validateIds(requested.split(",").map((value) => value.trim()).filter(Boolean), fixtureIds, requested);
+    return { ids: validateIds(requested.split(",").map((value) => value.trim()).filter(Boolean), fixtureIds, requested) };
   }
-  return validateIds([requested], fixtureIds, requested);
+  return { ids: validateIds([requested], fixtureIds, requested) };
+}
+
+function materializeFixtures(ids, options) {
+  const args = ["scripts/sync-fixtures.mjs", "--materialize", "--fixture-set", ids.join(",")];
+  if (options.openclawPath) {
+    args.push("--openclaw", options.openclawPath);
+  }
+  const result = spawnSync(process.execPath, args, {
+    cwd: repoRoot,
+    // Keep acquisition logs out of the resolver's JSON and GITHUB_OUTPUT protocols.
+    stdio: ["ignore", process.stderr, process.stderr],
+  });
+  if (result.error) {
+    throw result.error;
+  }
+  if (result.status !== 0) {
+    throw new Error(`fixture materialization failed with exit code ${result.status}`);
+  }
 }
 
 function fixturesChangedByPaths(fixtures, changedPaths) {

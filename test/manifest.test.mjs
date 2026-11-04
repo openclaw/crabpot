@@ -2,11 +2,65 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import { readConfiguredManifest, readManifest, validateManifest } from "../scripts/manifest-lib.mjs";
 
+test("Matrix verification prerequisites cover exact legacy and owner-bound methods", async () => {
+  const manifest = await readManifest();
+  const matrix = manifest.fixtures.find((fixture) => fixture.id === "matrix");
+  const prerequisites = matrix.execution.gatewayMethodPrerequisites;
+  const methods = ["matrix.verify.recoveryKey", "matrix.verify.bootstrap", "matrix.verify.status"];
+  assert.deepEqual(Object.keys(prerequisites).sort(), methods.flatMap((method) => [method, `${method}.owner`]).sort());
+  for (const method of methods) {
+    assert.match(prerequisites[method], /configured account and crypto runtime/);
+    assert.match(prerequisites[`${method}.owner`], /local-state owner authority/);
+  }
+});
+
+test("DingTalk declares twelve explicit negative contracts and rejects malformed declarations", async () => {
+  const manifest = await readManifest();
+  const fixture = manifest.fixtures.find((item) => item.id === "dingtalk-connector");
+  const expectations = fixture.execution.gatewayMethodExpectations;
+  assert.equal(Object.keys(expectations).length, 12);
+  assert.deepEqual(expectations["dingtalk-connector.card.update"], {
+    ok: false, payload: { error: "cardInstanceId is required" },
+  });
+  assert.equal(expectations["dingtalk-connector.probe"].payload.error, "Not configured");
+  assert.equal(Object.values(expectations).filter((value) => value.payload.error === "DingTalk not configured").length, 9);
+  assert.equal(expectations["dingtalk-connector.status"], undefined);
+  for (const invalid of [[], { "": { ok: false } }, { method: { ok: "false" } }, { method: { ok: false, extra: true } }]) {
+    const copy = structuredClone(manifest);
+    copy.fixtures.find((item) => item.id === fixture.id).execution.gatewayMethodExpectations = invalid;
+    assert.throws(() => validateManifest(copy), /gateway.*expectation/i);
+  }
+  for (const error of [null, [], {}, { code: "", message: "no" }, { code: "NO", message: "" },
+    { code: "NO", message: "no", retryable: 1 }, { code: "NO", message: "no", retryAfterMs: -1 },
+    { code: "NO", message: "no", retryAfterMs: 0.5 }, { code: "NO", message: "no", extra: true },
+  ]) {
+    const copy = structuredClone(manifest);
+    copy.fixtures.find((item) => item.id === fixture.id).execution.gatewayMethodExpectations = {
+      "fixture.error": { ok: false, error },
+    };
+    assert.throws(() => validateManifest(copy), /invalid error frame/);
+  }
+  fixture.execution.gatewayMethodPrerequisites = { "dingtalk-connector.probe": "live credentials" };
+  assert.throws(() => validateManifest(manifest), /conflicts with a prerequisite/);
+});
+
 test("fixture manifest is valid and seam-rich", async () => {
   const manifest = await readManifest();
 
   assert.equal(manifest.submoduleRoot, "plugins");
+  assert.equal(manifest.openclaw.minimumNode, "24");
   assert.ok(manifest.fixtures.length >= 10);
+  assert.equal(manifest.fixtures.some((fixture) => fixture.id === "openclaw-qqbot"), false);
+  const qqbot = manifest.fixtures.find((fixture) => fixture.id === "qqbot");
+  assert.equal(qqbot.repo, "https://github.com/tencent-connect/openclaw-qqbot.git");
+  assert.equal(qqbot.path, "plugins/qqbot");
+  assert.equal(qqbot.package, undefined);
+  assert.deepEqual(qqbot.expect.registrations, ["registerChannel", "registerTool"]);
+  const kitchen = manifest.fixtures.find((fixture) => fixture.id === "kitchen-sink");
+  assert.equal(kitchen.expect.hooks.length, 42);
+  assert.equal(kitchen.expect.registrations.length, 56);
+  assert.equal(kitchen.expect.manifestContracts.length, 22);
+  assert.equal(kitchen.expect.registrations.includes("registerDetachedTaskRuntime"), false);
   assert.deepEqual(
     ["hyperspell", "honcho", "composio", "memu-engine", "secureclaw", "memos-cloud"].filter((id) =>
       manifest.fixtures.some((fixture) => fixture.id === id),
@@ -45,10 +99,19 @@ test("openclaw beta fixture set narrows to beta npm packages", async () => {
     "google-meet",
     "diffs",
     "memory-lancedb",
-    "openclaw-qqbot",
     "whatsapp",
   ]);
   assert.ok(manifest.fixtures.every((fixture) => fixture.package?.tag === "beta"));
+});
+
+test("Codex fixture follows current provider ownership", async () => {
+  const manifest = await readManifest();
+  const codex = manifest.fixtures.find((fixture) => fixture.id === "codex");
+
+  assert.ok(codex);
+  assert.ok(codex.expect.registrations.includes("registerWebSearchProvider"));
+  assert.equal(codex.expect.registrations.includes("registerProvider"), false);
+  assert.ok(codex.expect.manifestContracts.includes("webSearchProviders"));
 });
 
 test("bundled OpenClaw channels source-pack from the monorepo", async () => {
@@ -108,6 +171,90 @@ test("manifest validation rejects invalid fixture contracts before CI materializ
     return true;
   });
 });
+
+function destinationManifest(overrides = {}) {
+  return {
+    version: 1,
+    submoduleRoot: "plugins",
+    fixtures: [
+      {
+        id: "escape",
+        path: "plugins/fixture",
+        repo: "https://github.com/openclaw/example.git",
+        priority: "high",
+        seams: ["tool"],
+        execution: { blockedFailures: [{ id: "b", seam: "tool", errorIncludes: "x", reason: "y" }] },
+        expect: { hooks: ["h"] },
+        ...overrides,
+      },
+    ],
+  };
+}
+
+for (const gatewayMethodPrerequisites of [null, [], false, "reason", { "": "reason" }, { "fixture.account": " " }, { "fixture.account": false }]) {
+  test(`manifest rejects invalid Gateway prerequisites ${JSON.stringify(gatewayMethodPrerequisites)}`, () => {
+    assert.throws(() => validateManifest(destinationManifest({ execution: { gatewayMethodPrerequisites } })),
+      /gatewayMethodPrerequisites|gateway method prerequisites/);
+  });
+}
+
+for (const checkout of [
+  "plugins/../../../tmp/crabpot-escape",
+  "plugins/",
+  "plugins/.",
+  "plugins/fixture/..",
+  "plugins/../outside",
+  "plugins-other/fixture",
+  "/plugins/fixture",
+  "C:/plugins/fixture",
+  "C:/../plugins/fixture",
+  "C:plugins/fixture",
+  "//server/share/plugins/fixture",
+  "\\\\server\\share\\plugins\\fixture",
+  "plugins\\fixture",
+  "plugins/fixture\\..\\..\\outside",
+]) {
+  test(`manifest rejects unsafe checkout ${JSON.stringify(checkout)}`, () => {
+    assert.throws(
+      () => validateManifest(destinationManifest({ path: checkout })),
+      /escape: path must live under plugins\//,
+    );
+  });
+}
+
+for (const subdir of [
+  ".",
+  "..",
+  "nested/..",
+  "../outside",
+  "../../outside",
+  "/outside",
+  "C:/outside",
+  "C:/../payload",
+  "C:outside",
+  "//server/share/outside",
+  "\\\\server\\share\\outside",
+  "nested\\..\\..\\outside",
+]) {
+  test(`manifest rejects unsafe payload subdir ${JSON.stringify(subdir)}`, () => {
+    assert.throws(
+      () => validateManifest(destinationManifest({ subdir })),
+      /escape:.*subdir/,
+    );
+  });
+}
+
+for (const paths of [
+  { path: "plugins/fixture" },
+  { path: "plugins/group/fixture" },
+  { path: "plugins/fixture..name" },
+  { path: "plugins/.../fixture", subdir: "packages/plugin" },
+  { path: "plugins/group/fixture", subdir: "nested/..harmless/payload" },
+]) {
+  test(`manifest accepts contained destinations ${JSON.stringify(paths)}`, () => {
+    assert.doesNotThrow(() => validateManifest(destinationManifest(paths)));
+  });
+}
 
 function invalidManifest() {
   return {

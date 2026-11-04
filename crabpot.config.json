@@ -3,16 +3,62 @@
   "version": 1,
   "submoduleRoot": "plugins",
   "openclaw": {
-    "minimumNode": "22",
+    "minimumNode": "24",
     "defaultCheckoutPath": "../openclaw"
   },
+  "resourceWorkloads": [
+    {
+      "id": "file-transfer-fetch-v1",
+      "pluginId": "file-transfer",
+      "adapter": "file-transfer",
+      "requiredOperations": { "first-use": 1, "warm-work": 20 },
+      "why": "Real paired-node file-fetch policy, preflight binding, integrity validation, saved media and plugin audit records over a fixed synthetic 64 KiB payload."
+    },
+    {
+      "id": "memory-wiki-local-cycle-v1",
+      "pluginId": "memory-wiki",
+      "adapter": "memory-wiki",
+      "requiredOperations": {
+        "first-use": 1,
+        "warm-work": 20
+      },
+      "why": "Real local wiki mutation, default compilation/publication and verified page retrieval/search over a fixed synthetic corpus; no model or shared-memory backend."
+    },
+    {
+      "id": "beam-receiver-cycle-v1",
+      "pluginId": "beam",
+      "adapter": "beam",
+      "requiredOperations": { "first-use": 1, "warm-work": 20 },
+      "why": "Authenticated HTTP receiver, real plugin state and catalog read/archive through Gateway RPC."
+    },
+    {
+      "id": "session-share-receiver-v1",
+      "pluginId": "session-share",
+      "adapter": "session-share",
+      "requiredOperations": { "first-use": 1, "warm-work": 20 },
+      "why": "Real session catalog receiver and paired node invocation with deterministic remote session responses."
+    },
+    {
+      "id": "typesafe-systemone-decisions-v1",
+      "pluginId": "typesafe",
+      "adapter": "typesafe",
+      "requiredOperations": { "first-use": 1, "warm-work": 20 },
+      "why": "Source-checkout TypeSafe decision-provider lifecycle through the core decision tool and a strict local System One peer; no hosted credentials or model inference."
+    },
+    {
+      "id": "workboard-card-crud-v1",
+      "pluginId": "workboard",
+      "adapter": "workboard",
+      "requiredOperations": { "first-use": 1, "warm-work": 20 },
+      "why": "Real bundled plugin activation and SQLite-backed card CRUD through authenticated Gateway RPC."
+    }
+  ],
   "fixtures": [
     {
       "id": "agentchat",
       "name": "AgentChat OpenClaw Channel",
-      "repo": "https://github.com/agentchatme/agentchat.git",
+      "repo": "https://github.com/agentchatme/agentchat-openclaw.git",
       "path": "plugins/agentchat",
-      "subdir": "integrations/openclaw-channel",
       "priority": "high",
       "seams": ["channel", "prompt-mutation", "config-schema", "websocket", "backpressure"],
       "expect": {
@@ -204,26 +250,23 @@
       "repo": "https://github.com/plastic-labs/openclaw-honcho.git",
       "path": "plugins/honcho",
       "priority": "high",
-      "seams": ["memory-runtime", "prompt-mutation", "gateway-lifecycle", "subagent-routing", "sdk-compat"],
+      "seams": ["external-memory", "prompt-mutation", "llm-observer", "gateway-lifecycle", "subagent-routing", "sdk-compat"],
       "expect": {
         "hooks": [
-          "before_agent_start",
           "before_prompt_build",
-          "before_compaction",
-          "before_reset",
           "gateway_start",
           "subagent_spawned",
-          "agent_end"
+          "agent_end",
+          "llm_output"
         ],
         "registrations": [
           "definePluginEntry",
           "registerCli",
-          "registerMemoryPromptSection",
-          "registerMemoryRuntime",
+          "registerMemoryPromptSupplement",
           "registerTool"
         ]
       },
-      "why": "Memory-runtime fixture covering plugin-entry aliases, memory runtime/prompt-section registration, gateway lifecycle, subagent capture, and managed external memory tools."
+      "why": "Additive external-memory fixture covering plugin-entry aliases, prompt supplements beside the host memory slot, gateway lifecycle, subagent capture, LLM observation, and managed external memory tools."
     },
     {
       "id": "composio",
@@ -257,9 +300,10 @@
           "after_compaction",
           "after_tool_call",
           "agent_end",
+          "agent_turn_prepare",
           "before_agent_finalize",
           "before_agent_reply",
-          "before_agent_start",
+          "before_agent_run",
           "before_compaction",
           "before_dispatch",
           "before_install",
@@ -268,8 +312,12 @@
           "before_prompt_build",
           "before_reset",
           "before_tool_call",
+          "channel_pairing_requested",
+          "cron_changed",
+          "cron_reconciled",
           "gateway_start",
           "gateway_stop",
+          "heartbeat_prompt_contribution",
           "inbound_claim",
           "llm_input",
           "llm_output",
@@ -279,12 +327,17 @@
           "model_call_ended",
           "model_call_started",
           "reply_dispatch",
+          "reply_payload_sending",
+          "resolve_exec_env",
           "session_end",
           "session_start",
+          "skill_changed",
+          "skill_proposal_changed",
+          "skill_proposal_evaluate",
           "subagent_delivery_target",
           "subagent_ended",
+          "subagent_progress",
           "subagent_spawned",
-          "subagent_spawning",
           "tool_result_persist"
         ],
         "registrations": [
@@ -292,6 +345,7 @@
           "registerAgentHarness",
           "registerAgentToolResultMiddleware",
           "registerAutoEnableProbe",
+          "registerBoardWidgetContentKind",
           "registerChannel",
           "registerCli",
           "registerCliBackend",
@@ -301,7 +355,6 @@
           "registerConfigMigration",
           "registerContextEngine",
           "registerControlUiDescriptor",
-          "registerDetachedTaskRuntime",
           "registerEmbeddingProvider",
           "registerGatewayDiscoveryService",
           "registerGatewayMethod",
@@ -310,15 +363,12 @@
           "registerHttpRoute",
           "registerImageGenerationProvider",
           "registerInteractiveHandler",
+          "registerMcpServerConnectionResolver",
           "registerMediaUnderstandingProvider",
-          "registerMeetingNotesSourceProvider",
           "registerMemoryCapability",
           "registerMemoryCorpusSupplement",
-          "registerMemoryEmbeddingProvider",
-          "registerMemoryFlushPlan",
-          "registerMemoryPromptSection",
+          "registerMemoryPromptPreparation",
           "registerMemoryPromptSupplement",
-          "registerMemoryRuntime",
           "registerMigrationProvider",
           "registerModelCatalogProvider",
           "registerMusicGenerationProvider",
@@ -333,16 +383,20 @@
           "registerSecurityAuditCollector",
           "registerService",
           "registerSessionAction",
+          "registerSessionCatalog",
           "registerSessionExtension",
           "registerSessionSchedulerJob",
           "registerSpeechProvider",
           "registerTextTransforms",
           "registerTool",
           "registerToolMetadata",
+          "registerTranscriptSourceProvider",
           "registerTrustedToolPolicy",
           "registerVideoGenerationProvider",
           "registerWebFetchProvider",
-          "registerWebSearchProvider"
+          "registerWebSearchProvider",
+          "registerWidgetPresenter",
+          "registerWorkerProvider"
         ],
         "manifestContracts": [
           "agentToolResultMiddleware",
@@ -353,20 +407,23 @@
           "gatewayMethodDispatch",
           "imageGenerationProviders",
           "mediaUnderstandingProviders",
-          "memoryEmbeddingProviders",
           "migrationProviders",
           "musicGenerationProviders",
           "realtimeTranscriptionProviders",
           "realtimeVoiceProviders",
           "speechProviders",
           "tools",
+          "transcriptSourceProviders",
+          "trustedToolPolicies",
+          "usageProviders",
           "videoGenerationProviders",
           "webContentExtractors",
           "webFetchProviders",
-          "webSearchProviders"
+          "webSearchProviders",
+          "workerProviders"
         ]
       },
-      "why": "Credential-free generated fixture covering the public OpenClaw plugin API surface across hooks, registrars, provider capabilities, setup metadata, manifest contracts, and SDK import compatibility."
+      "why": "Credential-free generated fixture covering the public OpenClaw plugin API surface across hooks, registrars, provider capabilities, setup metadata, manifest contracts, and SDK import compatibility. Live-host probes intentionally omit registerDetachedTaskRuntime to preserve the host-owned durable task lifecycle."
     },
     {
       "id": "bluebubbles",
@@ -378,7 +435,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/bluebubbles",
-        "ref": "2ce6b77205187c76ce7cde6cb0913de14d4452fa"
+        "ref": "eeef4864494f859838fec1586bedbab1f8fa5702"
       },
       "path": "plugins/bluebubbles",
       "priority": "medium",
@@ -406,7 +463,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/diagnostics-otel",
-        "ref": "2ce6b77205187c76ce7cde6cb0913de14d4452fa"
+        "ref": "fe06181dc5ecc01cf8904abbfc26925925efefbc"
       },
       "path": "plugins/diagnostics-otel",
       "priority": "medium",
@@ -434,7 +491,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/discord",
-        "ref": "5181e4f7c82bd373cb215a5619b0fa03c13862b7"
+        "ref": "fe06181dc5ecc01cf8904abbfc26925925efefbc"
       },
       "path": "plugins/discord",
       "priority": "medium",
@@ -476,7 +533,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/lobster",
-        "ref": "2ce6b77205187c76ce7cde6cb0913de14d4452fa"
+        "ref": "fe06181dc5ecc01cf8904abbfc26925925efefbc"
       },
       "path": "plugins/lobster",
       "priority": "medium",
@@ -505,7 +562,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/matrix",
-        "ref": "2ce6b77205187c76ce7cde6cb0913de14d4452fa"
+        "ref": "fe06181dc5ecc01cf8904abbfc26925925efefbc"
       },
       "path": "plugins/matrix",
       "priority": "medium",
@@ -520,6 +577,16 @@
           "registerChannel"
         ]
       },
+      "execution": {
+        "gatewayMethodPrerequisites": {
+          "matrix.verify.recoveryKey": "captured Matrix verification requires a configured account and crypto runtime",
+          "matrix.verify.bootstrap": "captured Matrix verification requires a configured account and crypto runtime",
+          "matrix.verify.status": "captured Matrix verification requires a configured account and crypto runtime",
+          "matrix.verify.recoveryKey.owner": "captured Matrix verification requires a configured account and crypto runtime with local-state owner authority",
+          "matrix.verify.bootstrap.owner": "captured Matrix verification requires a configured account and crypto runtime with local-state owner authority",
+          "matrix.verify.status.owner": "captured Matrix verification requires a configured account and crypto runtime with local-state owner authority"
+        }
+      },
       "why": "Official bundled OpenClaw Matrix channel package covering CLI setup, gateway methods, and subagent routing hooks; Crabpot source-packs it from the OpenClaw monorepo instead of requiring a separate npm dist-tag."
     },
     {
@@ -532,7 +599,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/msteams",
-        "ref": "2ce6b77205187c76ce7cde6cb0913de14d4452fa"
+        "ref": "fe06181dc5ecc01cf8904abbfc26925925efefbc"
       },
       "path": "plugins/msteams",
       "priority": "medium",
@@ -560,7 +627,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/nextcloud-talk",
-        "ref": "2ce6b77205187c76ce7cde6cb0913de14d4452fa"
+        "ref": "fe06181dc5ecc01cf8904abbfc26925925efefbc"
       },
       "path": "plugins/nextcloud-talk",
       "priority": "medium",
@@ -588,7 +655,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/nostr",
-        "ref": "2ce6b77205187c76ce7cde6cb0913de14d4452fa"
+        "ref": "fe06181dc5ecc01cf8904abbfc26925925efefbc"
       },
       "path": "plugins/nostr",
       "priority": "medium",
@@ -617,7 +684,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/voice-call",
-        "ref": "2ce6b77205187c76ce7cde6cb0913de14d4452fa"
+        "ref": "fe06181dc5ecc01cf8904abbfc26925925efefbc"
       },
       "path": "plugins/voice-call",
       "priority": "medium",
@@ -636,6 +703,20 @@
           "registerTool"
         ]
       },
+      "execution": {
+        "gatewayMethodPrerequisites": {
+          "voicecall.initiate": "captured voice-call method requires an enabled runtime and configured provider",
+          "voicecall.start": "captured voice-call method requires an enabled runtime and configured provider",
+          "voicecall.status": "captured voice-call method requires an enabled runtime and configured provider",
+          "voicecall.continue": "captured voice-call action requires an active call and command input",
+        "voicecall.steer": "captured voice-call steering requires an active realtime call, steering input, and authorized caller",
+          "voicecall.continue.start": "captured voice-call action requires an active call and command input",
+          "voicecall.speak": "captured voice-call action requires an active call and command input",
+          "voicecall.dtmf": "captured voice-call action requires an active call and command input",
+          "voicecall.end": "captured voice-call action requires an active call and command input",
+          "voicecall.continue.result": "captured voice-call continuation query requires an existing continuation operation"
+        }
+      },
       "why": "Official voice-call package covering gateway methods, service lifecycle, tool registration, config migration, CLI setup, and npm artifact packaging."
     },
     {
@@ -648,7 +729,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/zalo",
-        "ref": "2ce6b77205187c76ce7cde6cb0913de14d4452fa"
+        "ref": "fe06181dc5ecc01cf8904abbfc26925925efefbc"
       },
       "path": "plugins/zalo",
       "priority": "medium",
@@ -676,7 +757,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/zalouser",
-        "ref": "2ce6b77205187c76ce7cde6cb0913de14d4452fa"
+        "ref": "fe06181dc5ecc01cf8904abbfc26925925efefbc"
       },
       "path": "plugins/zalouser",
       "priority": "medium",
@@ -705,7 +786,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/feishu",
-        "ref": "2ce6b77205187c76ce7cde6cb0913de14d4452fa"
+        "ref": "fe06181dc5ecc01cf8904abbfc26925925efefbc"
       },
       "path": "plugins/feishu",
       "priority": "medium",
@@ -734,7 +815,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/tlon",
-        "ref": "35a57bc940833a6c1f594b2308e349e5ee0148db"
+        "ref": "fe06181dc5ecc01cf8904abbfc26925925efefbc"
       },
       "path": "plugins/tlon",
       "priority": "medium",
@@ -762,7 +843,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/twitch",
-        "ref": "35a57bc940833a6c1f594b2308e349e5ee0148db"
+        "ref": "fe06181dc5ecc01cf8904abbfc26925925efefbc"
       },
       "path": "plugins/twitch",
       "priority": "medium",
@@ -791,7 +872,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/mattermost",
-        "ref": "35a57bc940833a6c1f594b2308e349e5ee0148db"
+        "ref": "fe06181dc5ecc01cf8904abbfc26925925efefbc"
       },
       "path": "plugins/mattermost",
       "priority": "medium",
@@ -818,7 +899,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/synology-chat",
-        "ref": "b19a6ee62db342d400a233903adcaf17f67246c5"
+        "ref": "fe06181dc5ecc01cf8904abbfc26925925efefbc"
       },
       "path": "plugins/synology-chat",
       "priority": "medium",
@@ -846,7 +927,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/brave",
-        "ref": "a22f06504376e7203a2bec8fde094b7cdcb06c02"
+        "ref": "fe06181dc5ecc01cf8904abbfc26925925efefbc"
       },
       "path": "plugins/brave-plugin",
       "priority": "medium",
@@ -870,7 +951,7 @@
     },
     {
       "id": "codex",
-      "name": "OpenClaw Codex harness and model provider plugin",
+      "name": "OpenClaw Codex harness plugin",
       "package": {
         "name": "@openclaw/codex",
         "tag": "beta"
@@ -878,7 +959,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/codex",
-        "ref": "a22f06504376e7203a2bec8fde094b7cdcb06c02"
+        "ref": "fe06181dc5ecc01cf8904abbfc26925925efefbc"
       },
       "path": "plugins/codex",
       "priority": "medium",
@@ -899,14 +980,20 @@
           "registerCommand",
           "registerMediaUnderstandingProvider",
           "registerMigrationProvider",
-          "registerProvider"
+          "registerWebSearchProvider"
         ],
         "manifestContracts": [
           "mediaUnderstandingProviders",
-          "migrationProviders"
+          "migrationProviders",
+          "webSearchProviders"
         ]
       },
-      "why": "Official Codex package covering agent harness registration, model provider wiring, media understanding, migrations, inbound claims, and npm artifact packaging."
+      "execution": {
+        "gatewayMethodPrerequisites": {
+          "codex.accountUsage": "captured account usage requires a saved subscription login and Gateway runtime"
+        }
+      },
+      "why": "Official Codex package covering agent harness registration, hosted web search, media understanding, migrations, inbound claims, and npm artifact packaging."
     },
     {
       "id": "diagnostics-prometheus",
@@ -918,7 +1005,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/diagnostics-prometheus",
-        "ref": "f4ef1bf04e9637958418428db0ff9e75e6698159"
+        "ref": "fe06181dc5ecc01cf8904abbfc26925925efefbc"
       },
       "path": "plugins/diagnostics-prometheus",
       "priority": "medium",
@@ -948,7 +1035,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/google-meet",
-        "ref": "f4ef1bf04e9637958418428db0ff9e75e6698159"
+        "ref": "fe06181dc5ecc01cf8904abbfc26925925efefbc"
       },
       "path": "plugins/google-meet",
       "priority": "medium",
@@ -968,6 +1055,25 @@
           "registerTool"
         ]
       },
+      "execution": {
+        "gatewayMethodPrerequisites": {
+          "googlemeet.join": "captured meeting action requires a configured meeting and transport",
+          "googlemeet.create": "captured room creation requires configured OAuth or a live browser transport",
+          "googlemeet.transcript": "captured meeting action requires an active meeting session",
+          "googlemeet.participationContext": "captured meeting action requires an active meeting session",
+          "googlemeet.participate": "captured meeting action requires an active meeting session",
+          "googlemeet.latest": "captured meeting query requires Google Meet OAuth credentials",
+          "googlemeet.calendarEvents": "captured meeting query requires Google Meet OAuth credentials",
+          "googlemeet.artifacts": "captured meeting query requires Google Meet OAuth credentials",
+          "googlemeet.attendance": "captured meeting query requires Google Meet OAuth credentials",
+          "googlemeet.export": "captured meeting query requires Google Meet OAuth credentials",
+          "googlemeet.leave": "captured meeting action requires an active meeting session",
+          "googlemeet.endActiveConference": "captured meeting query requires Google Meet OAuth credentials",
+          "googlemeet.speak": "captured meeting action requires an active meeting session",
+          "googlemeet.testSpeech": "captured meeting action requires a configured meeting and transport",
+          "googlemeet.testListen": "captured meeting action requires a configured meeting and transport"
+        }
+      },
       "why": "Official Google Meet package covering meeting tools, gateway methods, node host commands, CLI setup, and npm artifact packaging."
     },
     {
@@ -980,7 +1086,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/diffs",
-        "ref": "355680f1f21af3782c8ffbb5f3cec281dc584af6"
+        "ref": "fe06181dc5ecc01cf8904abbfc26925925efefbc"
       },
       "path": "plugins/diffs",
       "priority": "medium",
@@ -1013,7 +1119,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/memory-lancedb",
-        "ref": "355680f1f21af3782c8ffbb5f3cec281dc584af6"
+        "ref": "fe06181dc5ecc01cf8904abbfc26925925efefbc"
       },
       "path": "plugins/memory-lancedb",
       "priority": "medium",
@@ -1056,35 +1162,6 @@
       "why": "Official LanceDB memory package covering automatic recall/capture hooks, vector-store lifecycle, service/CLI setup, tool contracts, and npm artifact packaging."
     },
     {
-      "id": "openclaw-qqbot",
-      "name": "OpenClaw QQ Bot channel plugin",
-      "package": {
-        "name": "@openclaw/qqbot",
-        "tag": "beta"
-      },
-      "source": {
-        "repo": "https://github.com/openclaw/openclaw.git",
-        "path": "extensions/qqbot",
-        "ref": "355680f1f21af3782c8ffbb5f3cec281dc584af6"
-      },
-      "path": "plugins/openclaw-qqbot",
-      "priority": "medium",
-      "seams": [
-        "channel",
-        "command",
-        "tool",
-        "media",
-        "npm-artifact"
-      ],
-      "expect": {
-        "registrations": [
-          "registerCommand",
-          "registerTool"
-        ]
-      },
-      "why": "Official OpenClaw QQ Bot npm package covering command/tool registration, channel manifest metadata, media-capable messaging, and monorepo source mapping without replacing the external QQBot fixture."
-    },
-    {
       "id": "whatsapp",
       "name": "OpenClaw WhatsApp channel plugin",
       "package": {
@@ -1094,7 +1171,7 @@
       "source": {
         "repo": "https://github.com/openclaw/openclaw.git",
         "path": "extensions/whatsapp",
-        "ref": "355680f1f21af3782c8ffbb5f3cec281dc584af6"
+        "ref": "fe06181dc5ecc01cf8904abbfc26925925efefbc"
       },
       "path": "plugins/whatsapp",
       "priority": "medium",
@@ -1133,7 +1210,7 @@
       "name": "TencentDB Agent Memory",
       "package": {
         "name": "@tencentdb-agent-memory/memory-tencentdb",
-        "tag": "latest"
+        "version": "1.0.1"
       },
       "path": "plugins/memory-tencentdb",
       "priority": "high",
@@ -1149,6 +1226,46 @@
             "seam": "before_message_write",
             "errorIncludes": "reading 'content'",
             "reason": "captured memory write hook requires host message content"
+          },
+          {
+            "id": "memory-tencentdb-published-node-types",
+            "seam": "build",
+            "errorIncludes": "Cannot find type definition file for 'node'",
+            "exitCode": 2,
+            "outputPattern": "^\\s*> @tencentdb-agent-memory/openclaw-plugin@[^\\s]+ build\\s*> tsc\\s*error TS2688: Cannot find type definition file for 'node'\\.\\s*The file is in the program because:\\s*Entry point of type library 'node' specified in compilerOptions\\s*$",
+            "reason": "published TencentDB plugin build metadata omits its required Node type dependency"
+          },
+          {
+            "id": "memory-tencentdb-published-missing-offload-module",
+            "seam": "capture",
+            "errorIncludes": "src/offload-client/index.js",
+            "exitCode": 1,
+            "outputPattern": "^file:///[^\\n]+inspector\\.js:\\d+\\n  const wrapped = new Error\\(details\\.message, \\{ cause: error \\}\\);\\n +\\^\\n\\nError: Error \\[ERR_MODULE_NOT_FOUND\\]: Cannot find module '[^'\\n]+/memory-tencentdb/src/offload-client/index\\.js' imported from [^\\n]+/memory-tencentdb/dist/index\\.js\\n(?:    at [^\\n]+\\n)+  failureClass: 'entrypoint-import-error',\\n  \\[cause\\]: Error: Mock SDK capture child failed\\n(?:      at [^\\n]+\\n)+    exitCode: 1,\\n    timedOut: false,\\n    cancelled: false,\\n    timeoutMs: \\d+,\\n    signal: null,\\n    pid: \\d+,\\n    stdout: '',\\n    stderr: '\\[plugin-inspector:entrypoint-import-error\\]\\\\n' \\+\\n      \"Error \\[ERR_MODULE_NOT_FOUND\\]: Cannot find module '[^'\\n]+/memory-tencentdb/src/offload-client/index\\.js' imported from [^\\n]+/memory-tencentdb/dist/index\\.js\\\\n\" \\+\\n(?:      '    at [^'\\n]+\\\\n' \\+\\n)*      '    at [^'\\n]+\\\\n',\\n    outputTruncated: false\\n  \\}\\n\\}\\n\\nNode\\.js v\\d+\\.\\d+\\.\\d+\\s*$",
+            "reason": "published TencentDB plugin dist imports an offload source module omitted from the package"
+          },
+          {
+            "id": "memory-tencentdb-published-missing-offload-synthetic",
+            "seam": "synthetic-probe",
+            "errorIncludes": "src/offload-client/index.js",
+            "exitCode": 1,
+            "outputPattern": "^(?:\\(node:\\d+\\) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\\n\\(Use `node --trace-warnings \\.\\.\\.` to show where the warning was created\\)\\n)?file:\\/\\/\\/[^\\n]+inspector\\.js:\\d+\\n[\\s\\S]*Error: Cannot find module '[^'\\n]+/src/offload-client/index\\.js' imported from [^\\n]+/dist/index\\.js[\\s\\S]*failureClass: 'entrypoint-import-error',[\\s\\S]*code: 'ERR_MODULE_NOT_FOUND',[\\s\\S]*url: 'file:\\/\\/\\/[^'\\n]+/src/offload-client/index\\.js'[\\s\\S]*Node\\.js v\\d+\\.\\d+\\.\\d+\\s*$",
+            "reason": "published TencentDB plugin synthetic probe reaches the same omitted offload source module"
+          },
+          {
+            "id": "memory-tencentdb-source-typescript-capture",
+            "seam": "capture",
+            "errorIncludes": "ERR_UNSUPPORTED_TYPESCRIPT_SYNTAX",
+            "exitCode": 1,
+            "outputPattern": "^file:\\/\\/\\/[^\\n]+inspector\\.js:\\d+\\n[\\s\\S]*failureClass: 'entrypoint-import-error',[\\s\\S]*\\[plugin-inspector:entrypoint-import-error\\][\\s\\S]*SyntaxError \\[ERR_UNSUPPORTED_TYPESCRIPT_SYNTAX\\]: TypeScript parameter property is not supported in strip-only mode[\\s\\S]*code: 1,[\\s\\S]*killed: false,[\\s\\S]*signal: null,[\\s\\S]*stdout: '',[\\s\\S]*Node\\.js v\\d+\\.\\d+\\.\\d+\\s*$",
+            "reason": "published TencentDB source entrypoint uses TypeScript parameter properties unsupported by the isolated strip-only loader"
+          },
+          {
+            "id": "memory-tencentdb-source-typescript-synthetic",
+            "seam": "synthetic-probe",
+            "errorIncludes": "ERR_UNSUPPORTED_TYPESCRIPT_SYNTAX",
+            "exitCode": 1,
+            "outputPattern": "^file:\\/\\/\\/[^\\n]+inspector\\.js:\\d+\\n[\\s\\S]*Error: TypeScript parameter property is not supported in strip-only mode[\\s\\S]*failureClass: 'entrypoint-import-error',[\\s\\S]*SyntaxError \\[ERR_UNSUPPORTED_TYPESCRIPT_SYNTAX\\]: TypeScript parameter property is not supported in strip-only mode[\\s\\S]*code: 'ERR_UNSUPPORTED_TYPESCRIPT_SYNTAX'[\\s\\S]*Node\\.js v\\d+\\.\\d+\\.\\d+\\s*$",
+            "reason": "published TencentDB source synthetic probe reaches the same unsupported TypeScript parameter property"
           }
         ]
       },
@@ -1175,6 +1292,22 @@
       "seams": ["channel", "streaming", "account-auth", "interactive-card", "gateway-method"],
       "expect": {
         "registrations": ["registerChannel", "registerGatewayMethod"]
+      },
+      "execution": {
+        "gatewayMethodExpectations": {
+          "dingtalk-connector.sendToUser": { "ok": false, "payload": { "error": "DingTalk not configured" } },
+          "dingtalk-connector.sendToGroup": { "ok": false, "payload": { "error": "DingTalk not configured" } },
+          "dingtalk-connector.send": { "ok": false, "payload": { "error": "DingTalk not configured" } },
+          "dingtalk-connector.docs.read": { "ok": false, "payload": { "error": "DingTalk not configured" } },
+          "dingtalk-connector.docs.create": { "ok": false, "payload": { "error": "DingTalk not configured" } },
+          "dingtalk-connector.docs.append": { "ok": false, "payload": { "error": "DingTalk not configured" } },
+          "dingtalk-connector.docs.search": { "ok": false, "payload": { "error": "DingTalk not configured" } },
+          "dingtalk-connector.docs.list": { "ok": false, "payload": { "error": "DingTalk not configured" } },
+          "dingtalk-connector.fixStuckCards": { "ok": false, "payload": { "error": "DingTalk not configured" } },
+          "dingtalk-connector.probe": { "ok": false, "payload": { "error": "Not configured" } },
+          "dingtalk-connector.card.create": { "ok": false, "payload": { "error": "target is required (user:<userId>, group:<openConversationId>, or cid...)" } },
+          "dingtalk-connector.card.update": { "ok": false, "payload": { "error": "cardInstanceId is required" } }
+        }
       },
       "why": "Official DingTalk connector fixture covering Stream-mode channel ingress, AI Card replies, multi-account access policy, gateway RPC methods, and packaged channel skills."
     },
@@ -1203,6 +1336,26 @@
       "seams": ["gateway-service", "http-routes", "service-lifecycle", "transcript-bridge", "config-schema"],
       "expect": {
         "registrations": ["definePluginEntry"]
+      },
+      "execution": {
+        "blockedFailures": [
+          {
+            "id": "hapi-openclaw-required-config",
+            "seam": "capture",
+            "errorIncludes": "hapiBaseUrl must be a non-empty string",
+            "exitCode": 1,
+            "outputPattern": "^file:///[^\\n]+inspector\\.js:\\d+\\n  const wrapped = new Error\\(details\\.message, \\{ cause: error \\}\\);\\n +\\^\\n\\nError: Error: Invalid hapi-openclaw config: hapiBaseUrl must be a non-empty string\\n(?:    at [^\\n]+\\n)+  failureClass: 'registration-execution-error',\\n  \\[cause\\]: Error: Mock SDK capture child failed\\n(?:      at [^\\n]+\\n)+    exitCode: 1,\\n    timedOut: false,\\n    cancelled: false,\\n    timeoutMs: \\d+,\\n    signal: null,\\n    pid: \\d+,\\n    stdout: '',\\n    stderr: '\\[plugin-inspector:registration-execution-error\\]\\\\n' \\+\\n      'Error: Invalid hapi-openclaw config: hapiBaseUrl must be a non-empty string\\\\n' \\+\\n(?:      '    at [^'\\n]+\\\\n' \\+\\n)*      '    at [^'\\n]+\\\\n',\\n    outputTruncated: false\\n  \\}\\n\\}\\n\\nNode\\.js v\\d+\\.\\d+\\.\\d+\\s*$",
+            "reason": "published HAPI plugin requires operator config before full registration capture"
+          },
+          {
+            "id": "hapi-openclaw-required-config-synthetic",
+            "seam": "synthetic-probe",
+            "errorIncludes": "hapiBaseUrl must be a non-empty string",
+            "exitCode": 1,
+            "outputPattern": "^(?:(?:\\(node:\\d+\\) \\[DEP0205\\][^\\n]+\\n\\(Use `node --trace-deprecation \\.\\.\\.` to show where the warning was created\\)\\n)|(?:\\(node:\\d+\\) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\\n\\(Use `node --trace-warnings \\.\\.\\.` to show where the warning was created\\)\\n))?file:///[^\\n]+inspector\\.js:\\d+\\n  const wrapped = new Error\\(details\\.message, \\{ cause: error \\}\\);\\n +\\^\\n\\nError: Invalid hapi-openclaw config: hapiBaseUrl must be a non-empty string\\n(?:    at [^\\n]+\\n|    \\.\\.\\. \\d+ lines matching cause stack trace \\.\\.\\.\\n)+  failureClass: 'registration-execution-error',\\n  \\[cause\\]: Error: Invalid hapi-openclaw config: hapiBaseUrl must be a non-empty string\\n(?:      at [^\\n]+\\n)+\\}\\n\\nNode\\.js v\\d+\\.\\d+\\.\\d+\\s*$",
+            "reason": "published HAPI plugin synthetic probe requires the same operator configuration"
+          }
+        ]
       },
       "why": "NPM-pinned HAPI adapter fixture covering a native /hapi gateway route surface, plugin-auth HTTP handlers, and transcript bridge/capture services backed by OpenClaw runtime events; this is a plugin-owned gateway surface rather than another channel or sidecar."
     },

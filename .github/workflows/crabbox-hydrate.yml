@@ -30,8 +30,8 @@ permissions:
   contents: read
 
 env:
-  NODE_VERSION: "24"
-  PNPM_VERSION: "11.1.2"
+  NODE_VERSION: "24.22.1"
+  PNPM_VERSION: "11.27.1"
 
 jobs:
   hydrate:
@@ -39,15 +39,15 @@ jobs:
     runs-on: [self-hosted, crabbox, openclaw, crabpot, "${{ inputs.crabbox_runner_label }}"]
     timeout-minutes: 120
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           ref: ${{ inputs.ref || github.ref }}
 
-      - uses: pnpm/action-setup@v6.0.8
+      - uses: pnpm/action-setup@v6.1.0
         with:
           version: ${{ env.PNPM_VERSION }}
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: ${{ env.NODE_VERSION }}
 

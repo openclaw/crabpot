@@ -13,7 +13,7 @@ Dependabot watches `.gitmodules` with the `gitsubmodule` ecosystem and the npm
 shim package directories with the `npm` ecosystem. Update PRs should change only
 the relevant pin unless plugin behavior requires report or contract classifier
 changes. Dependabot PRs can be auto-merged after CI refreshes the generated
-reports and dashboard. Schedules use Dependabot cron entries twice per day, with
+reports and dashboard. Schedules use Dependabot cron entries once per day to satisfy GitHub’s 24-hour minimum, with
 fixture paths staggered by minute to avoid one big update burst.
 
 The root `.github/dependabot.yml` owns this:
@@ -86,7 +86,6 @@ directory: "/plugins/<id>"
 | `google-meet` | `plugins/google-meet` | npm + source | medium | tool, gateway method, node host command | Official Google Meet package covering meeting tools, gateway methods, node host commands, CLI setup, and npm artifact packaging. |
 | `diffs` | `plugins/diffs` | npm + source | medium | tool, http routes, prompt mutation | Official diff viewer package covering prompt mutation, HTTP route UI surface, tool registration, manifest tool contracts, and npm artifact packaging. |
 | `memory-lancedb` | `plugins/memory-lancedb` | npm + source | medium | memory runtime, prompt mutation, session lifecycle | Official LanceDB memory package covering automatic recall/capture hooks, vector-store lifecycle, service/CLI setup, tool contracts, and npm artifact packaging. |
-| `openclaw-qqbot` | `plugins/openclaw-qqbot` | npm + source | medium | channel, command, tool | Official OpenClaw QQ Bot npm package covering command/tool registration, channel manifest metadata, media-capable messaging, and monorepo source mapping without replacing the external QQBot fixture. |
 | `whatsapp` | `plugins/whatsapp` | npm + source | medium | channel, account auth, media | Official WhatsApp channel package covering account auth, media-capable channel metadata, message policy, and npm artifact packaging from the monorepo. |
 | `nemoclaw` | `plugins/nemoclaw` | git | high | provider capability, runtime context, security policy | NVIDIA OpenShell fixture covering sandbox-aware runtime context injection, managed inference provider registration, slash-command migration/status flows, OpenShell CLI probing, and secret-blocking tool-call policy. |
 | `memory-tencentdb` | `plugins/memory-tencentdb` | npm | high | memory runtime, vector store, lifecycle | TencentDB memory fixture covering recall/capture hooks, SQLite/TCVDB storage, cleanup lifecycle, and seed/export CLI commands. |
@@ -196,3 +195,13 @@ upstream plugin source in this repository.
 For an npm fixture, update the exact dependency in `plugins/<id>/package.json`,
 regenerate `plugins/<id>/package-lock.json`, then run the same report/check
 commands. Dependabot uses the same files.
+
+When the fixture declares OpenClaw as a peer, refresh its lock with
+`npm install --package-lock-only --ignore-scripts --legacy-peer-deps --prefix plugins/<id>`.
+OpenClaw is supplied by the workspace's host link; do not add an automatic peer
+installation of the host and its dependency tree to the fixture lock.
+
+HAPI's explicit OpenClaw dependency includes a published npm shrinkwrap.
+Transitive overrides in the fixture shim cannot replace that host-owned graph;
+update the mutable plugin dependencies instead. The workspace plan owns the
+OpenClaw host link used for execution.

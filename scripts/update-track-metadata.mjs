@@ -4,7 +4,12 @@ import { execFileSync } from "node:child_process";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { repoRoot } from "./manifest-lib.mjs";
-import { normalizeTrack, resolveOpenClawTrack } from "./resolve-openclaw-track.mjs";
+import { readOpenClawPin } from "./openclaw-pin.mjs";
+import {
+  normalizeTrack,
+  openclawRepository,
+  resolveOpenClawTrack,
+} from "./resolve-openclaw-track.mjs";
 
 export const trackMetadataStart = "<!-- crabpot-tracks:start -->";
 export const trackMetadataEnd = "<!-- crabpot-tracks:end -->";
@@ -28,13 +33,17 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
 
 async function main() {
   const args = parseArgs(process.argv.slice(2));
-  const tracks = await resolveTrackMetadata();
+  const tracks = args.defaultPinOpenClaw
+    ? [await resolveDefaultPinMetadata(args.defaultPinOpenClaw)]
+    : args.openclaw
+      ? [await resolveCheckoutMetadata(args.openclaw, args.track, args.branch)]
+      : await resolveTrackMetadata(args.track, args.branch);
   const changed = await updateTrackMetadata({
     branch: args.branch,
     check: args.check,
     readmePath: args.readmePath,
     runUrl: args.runUrl,
-    track: args.track,
+    track: args.defaultPinOpenClaw ? "latest" : args.track,
     tracks,
   });
 
@@ -50,7 +59,9 @@ function parseArgs(argv) {
   const args = {
     check: false,
     branch: process.env.GITHUB_REF_NAME || "",
+    defaultPinOpenClaw: "",
     json: false,
+    openclaw: "",
     readmePath: defaultReadmePath,
     runUrl: process.env.CRABPOT_RUN_URL || "",
     track: "auto",
@@ -62,8 +73,18 @@ function parseArgs(argv) {
       args.check = true;
       continue;
     }
+    if (arg === "--default-pin-openclaw") {
+      args.defaultPinOpenClaw = path.resolve(argv[index + 1]);
+      index += 1;
+      continue;
+    }
     if (arg === "--json") {
       args.json = true;
+      continue;
+    }
+    if (arg === "--openclaw") {
+      args.openclaw = path.resolve(argv[index + 1]);
+      index += 1;
       continue;
     }
     if (arg === "--readme") {
@@ -90,13 +111,48 @@ function parseArgs(argv) {
   return args;
 }
 
-export async function resolveTrackMetadata() {
-  const [latest, beta, development] = await Promise.all([
-    resolveOpenClawTrack("latest"),
-    resolveOpenClawTrack("beta"),
-    resolveOpenClawTrack("development"),
-  ]);
-  return [latest, beta, development];
+export async function resolveTrackMetadata(track = "auto", branch = "", resolve = resolveOpenClawTrack) {
+  return [await resolve(normalizeTrack(track, branch))];
+}
+
+export async function resolveCheckoutMetadata(openclawPath, track = "auto", branch = "") {
+  const normalized = normalizeTrack(track, branch);
+  const pkg = JSON.parse(await readFile(path.join(openclawPath, "package.json"), "utf8"));
+  const sha = execFileSync("git", ["-C", openclawPath, "rev-parse", "HEAD"], { encoding: "utf8" }).trim();
+  if (!pkg.version || typeof pkg.version !== "string") {
+    throw new Error("OpenClaw checkout has no string package version");
+  }
+  if (!/^[0-9a-f]{40}$/.test(sha)) {
+    throw new Error(`OpenClaw checkout has invalid revision ${sha}`);
+  }
+  const source = normalized === "development" ? "github-main" : `npm-${normalized}`;
+  return {
+    branch: normalized === "latest" ? "main" : `crab-${normalized}`,
+    label: normalized === "development"
+      ? `${openclawRepository}@main (${pkg.version}, ${sha.slice(0, 12)})`
+      : `openclaw@${normalized} (${pkg.version}, ${sha.slice(0, 12)})`,
+    ref: normalized === "development" ? sha : `v${pkg.version}`,
+    repository: openclawRepository,
+    sha,
+    source,
+    track: normalized,
+    version: pkg.version,
+  };
+}
+
+export async function resolveDefaultPinMetadata(openclawPath, options = {}) {
+  const pin = await readOpenClawPin(options.pinPath);
+  const checkout = await resolveCheckoutMetadata(openclawPath, "latest");
+  if (checkout.sha !== pin.sha) {
+    throw new Error(`Default Track checkout ${checkout.sha} does not match configured pin ${pin.sha}`);
+  }
+  return {
+    ...checkout,
+    label: `${pin.repository}@${pin.sha.slice(0, 12)}`,
+    ref: pin.sha,
+    repository: pin.repository,
+    source: "github-default-pin",
+  };
 }
 
 export async function updateTrackMetadata({
@@ -158,11 +214,14 @@ function blockSuffix(suffix) {
 
 export function renderTrackMetadata(tracks, options = {}) {
   const selected = selectTrack(tracks, options);
+  const dashboardTarget = selected.source === "github-default-pin"
+    ? `${selected.repository}@${selected.sha.slice(0, 12)} + npm latest plugin artifacts`
+    : trackTargets[selected.track] ?? selected.label;
   return [
     `- **Source:** \`${selected.source}\``,
     `- **OpenClaw version:** \`${selected.version}\``,
     `- **OpenClaw SHA:** \`${selected.sha.slice(0, 12)}\``,
-    `- **Dashboard target:** \`${trackTargets[selected.track] ?? selected.label}\``,
+    `- **Dashboard target:** \`${dashboardTarget}\``,
     `- **Plugin artifacts:** \`${pluginArtifacts[selected.track] ?? "manifest package pins"}\``,
     `- **GitHub report run:** ${formatRunLink(options.runUrl)}`,
   ].join("\n");

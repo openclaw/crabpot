@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for TencentDB Agent Memory.",
   "dependencies": {
-    "@tencentdb-agent-memory/memory-tencentdb": "0.3.6"
+    "@tencentdb-agent-memory/memory-tencentdb": "1.0.1"
   },
   "crabpot": {
     "fixture": "memory-tencentdb",
@@ -12,6 +12,13 @@
     "package": "@tencentdb-agent-memory/memory-tencentdb"
   },
   "overrides": {
-    "qs": "6.15.2"
+    "@opentelemetry/propagator-jaeger": "2.11.0",
+    "esbuild": "0.28.2",
+    "qs": "6.16.0",
+    "tsx": "4.23.12",
+    "undici@^8": "8.12.3",
+    "undici@^6": "6.29.1",
+    "zod": "4.6.7",
+    "@opentelemetry/core": "2.11.0"
   }
 }

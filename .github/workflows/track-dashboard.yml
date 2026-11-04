@@ -3,8 +3,8 @@ name: Track Dashboard
 on:
   schedule:
     # Development follows OpenClaw main, so refresh it often enough to catch
-    # contract drift. The job usually finishes in a few minutes; concurrency
-    # below keeps slower runs from stacking up.
+    # contract drift. Runs can outlast this cadence; concurrency retains only
+    # the newest pending refresh without interrupting the active scheduled run.
     - cron: "7,22,37,52 * * * *"
   workflow_dispatch:
     inputs:
@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     concurrency:
       group: crabpot-track-dashboard-${{ github.event_name == 'workflow_dispatch' && 'manual' || 'schedule' }}-${{ github.event_name == 'workflow_dispatch' && inputs.track || matrix.track }}-${{ matrix.track }}
-      cancel-in-progress: true
+      cancel-in-progress: ${{ github.event_name == 'workflow_dispatch' }}
     strategy:
       fail-fast: false
       matrix:
@@ -59,16 +59,16 @@ jobs:
           fi
           echo "run=${run}" >> "$GITHUB_OUTPUT"
 
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         if: ${{ steps.select.outputs.run == 'true' }}
         with:
           ref: main
           submodules: recursive
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         if: ${{ steps.select.outputs.run == 'true' }}
         with:
-          node-version: 22
+          node-version: 24.22.1
           cache: npm
           cache-dependency-path: |
             plugins/**/package-lock.json
@@ -78,7 +78,7 @@ jobs:
         id: openclaw-track
         run: node scripts/resolve-openclaw-track.mjs --track "${{ matrix.track }}" --github-output
 
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         if: ${{ steps.select.outputs.run == 'true' }}
         with:
           repository: openclaw/openclaw
@@ -168,7 +168,7 @@ jobs:
           fi
           node scripts/check-ci-policy.mjs
           node scripts/write-ci-summary.mjs --mode "track:${{ matrix.track }}" --openclaw-label "${{ steps.openclaw-track.outputs.label }}"
-          node scripts/update-track-metadata.mjs --track "${{ matrix.track }}"
+          node scripts/update-track-metadata.mjs --track "${{ matrix.track }}" --openclaw ./openclaw
           baseline_args=()
           if [ -f .crabpot/baseline/main-dashboard-data.json ]; then
             baseline_args=(--baseline-data .crabpot/baseline/main-dashboard-data.json)

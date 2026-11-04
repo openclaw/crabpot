@@ -49,7 +49,7 @@ function parseArgs(argv) {
   return args;
 }
 
-export async function captureOpenClawLifecycle(entrypoint) {
+async function captureOpenClawLifecycle(entrypoint) {
   const openclawRoot = path.resolve(process.env.CRABPOT_OPENCLAW_DIR ?? process.cwd());
   const pluginId = "crabpot-lifecycle-probe";
   const pluginRoot = mkdtempSync(path.join(os.tmpdir(), "crabpot-openclaw-plugin-"));
@@ -74,7 +74,7 @@ export async function captureOpenClawLifecycle(entrypoint) {
     process.env.XDG_CACHE_HOME = path.join(stateRoot, ".cache");
     process.env.OPENCLAW_STATE_DIR = stateRoot;
     process.env.OPENCLAW_DISABLE_BUNDLED_PLUGINS = "1";
-    process.env.OPENCLAW_PLUGIN_LOAD_PROFILE = "1";
+    process.env.OPENCLAW_DIAGNOSTICS = "plugin.load-profile";
     process.env.OPENCLAW_NO_RESPAWN = "1";
 
     console.error = (...args) => {
@@ -86,17 +86,12 @@ export async function captureOpenClawLifecycle(entrypoint) {
       originalError(...args);
     };
 
-    const { clearPluginLoaderCache, loadOpenClawPlugins } = await import(
+    // Each capture runs in a fresh child process, which owns its root registry.
+    const { loadAndActivateRootPluginRegistry } = await import(
       pathToFileURL(path.join(openclawRoot, "src", "plugins", "loader.ts")).href
     );
-    const { resetPluginRuntimeStateForTest } = await import(
-      pathToFileURL(path.join(openclawRoot, "src", "plugins", "runtime.ts")).href
-    );
 
-    clearPluginLoaderCache();
-    resetPluginRuntimeStateForTest();
-
-    const registry = loadOpenClawPlugins({
+    const registry = loadAndActivateRootPluginRegistry({
       cache: false,
       workspaceDir: stateRoot,
       config: {
@@ -157,7 +152,7 @@ function snapshotLifecycleEnv() {
       "XDG_CACHE_HOME",
       "OPENCLAW_STATE_DIR",
       "OPENCLAW_DISABLE_BUNDLED_PLUGINS",
-      "OPENCLAW_PLUGIN_LOAD_PROFILE",
+      "OPENCLAW_DIAGNOSTICS",
       "OPENCLAW_NO_RESPAWN",
     ].map((key) => [key, process.env[key]]),
   );
@@ -224,25 +219,26 @@ function writeProbePlugin(params) {
 }
 
 function parseProfileLine(line) {
-  const match = /^\[plugin-load-profile\] phase=(\S+) plugin=(\S+) elapsedMs=([0-9.]+)(?: .*)? source=(.+)$/u.exec(
+  const match = /^\[plugin-load-profile\] phase=(\S+) plugin=(\S+) elapsedMs=([0-9]+(?:\.[0-9]+)?)(?: .*)? source=(.+)$/u.exec(
     line,
   );
-  if (!match) {
+  const elapsedMs = Number(match?.[3]);
+  if (!match || !Number.isFinite(elapsedMs)) {
     return null;
   }
   return {
     phase: match[1],
     pluginId: match[2],
-    elapsedMs: Number.parseFloat(match[3]),
+    elapsedMs,
     source: lifecyclePathLabel(match[4]),
   };
 }
 
 function lifecyclePathLabel(filePath) {
-  const normalized = filePath.replace(/^\/private\/tmp\//u, "/tmp/");
-  const tempProbeMatch = /(?:^|\/)(crabpot-openclaw-plugin-[^/]+\/.+)$/u.exec(normalized);
+  const normalized = filePath.replaceAll("\\", "/").replace(/^\/private\/tmp\//u, "/tmp/");
+  const tempProbeMatch = /(?:^|\/)crabpot-openclaw-plugin-[^/]+\/(.+)$/u.exec(normalized);
   if (tempProbeMatch) {
-    return `/tmp/${tempProbeMatch[1]}`;
+    return `crabpot-lifecycle-probe/${tempProbeMatch[1]}`;
   }
 
   const fixtureRoot = process.env.CRABPOT_FIXTURE_ROOT

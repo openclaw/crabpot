@@ -1,8 +1,147 @@
 # Changelog
 
-## 0.2.1 - Unreleased
+## 0.2.2 - Unreleased
 
-_No changes yet._
+- Reuse one source inspection across static report checks so Windows CI retains time for coverage and policy validation, preserving every cold profiling sample and existing deadlines.
+
+- Adopt Plugin Inspector 0.4.5 for source and published-package smoke checks, carrying the source-host memory and hook-registry compatibility fixes.
+
+- Refresh 22 official plugin fallback pins to 2026.10.6 with verified publication-source references, and update Apify and ClawMetry fixture pins while retaining track selectors and qualified runtime boundaries. Thanks @dependabot.
+
+- Promote the three-platform qualified OpenClaw 2026.10.6 source revision to restore the Default Track pin-age SLA without changing the Windows supervisor or its budgets.
+
+- Declare the three owner-bound Matrix verification prerequisites explicitly, retaining their required account, crypto runtime, and local-state owner authority without blocking unrelated methods.
+
+- Patch mutable fixture dependencies for Zod, Undici, body-parser and MSAL advisories while retaining reviewed plugin and host pins.
+
+- Add ordered, asserted Gateway RPC steps for behavior evals and select mock responses from the current user request; prepare an unqualified supported LCM lifecycle scenario while preserving historical repro profiles.
+
+- Patch HAPI's host-linked npm bundle to 12.2.1 for updated HTTP cache, Undici and selector-parser dependencies.
+
+- Let scheduled development-dashboard refreshes finish when they outlast the polling cadence, retaining only the newest pending refresh; explicit manual refreshes still supersede older manual runs.
+
+- Preserve HAPI's documented missing-configuration blocker when Node prints its TypeScript warning, while rejecting unrelated errors and incomplete diagnostics.
+
+- Restore development-dashboard corpus checks with reviewed Inspector source that excludes implementation-only host type graphs, retaining inferred declarations and the 2 GiB heap limit; read current host hook metadata and adopt published Inspector 0.4.4 for package smoke checks.
+
+- Refresh 22 official plugin fallbacks to 2026.10.5 with verified publication-source references, including Feishu's bundled follow-redirects patch, and patch HAPI fixture lock dependencies for MCP SDK and Hono advisories. Thanks @dependabot.
+
+- Qualify packed-host retirement guidance with reviewed Inspector source and declare the required replacement in the synthetic SQLite smoke fixture; preserve the published 0.4.3 package pin.
+
+- Bound required Default Track jobs to four hours and static-suite steps to three hours and 45 minutes, preserving all profiling samples and Inspector artifact checks.
+
+- Refresh 18 official plugin fallback pins to 2026.10.4 with verified publication-source references; retain the four metadata-only updates previously declined and the frozen host compatibility gaps. Thanks @dependabot.
+- Retain bounded, private-safe Windows helper bootstrap and terminal observations on command errors, including failures before pipe connection or serializer preparation. Preserve deadlines, output limits and native cleanup; the intermittent startup cause remains unresolved.
+
+- Move both macOS compatibility matrices to the Xcode 27 Apple Silicon runner.
+- Record Voice Call steering's active-call and caller prerequisites for credential-free probes while keeping explicitly configured failures visible.
+- Refresh 23 npm fixture pins, pairing official package source references with their publication qualifications, thanks @dependabot and @vincentkoc.
+- Retain bounded child errors and truncation metadata in runtime-profile JSON through reviewed Inspector source, preserving the published 0.4.3 npm pin, command order, heap limits, and deadlines.
+
+- Refresh AgentChat, ClawMetry, Honcho, MemOS Cloud and NemoClaw fixture pins; track Honcho's additive prompt supplement and LLM observation contracts. Thanks @dependabot.
+
+- Adopt Plugin Inspector 0.4.3 with serialized SDK inventory coverage, reuse real corpus inspections across derived-report tests, and bound test stages and profiler samples independently while preserving full-corpus checks. Thanks @Patrick-Erichsen.
+- Refresh the Codex fallback to 2026.10.2 with its matching published source provenance, retaining the frozen host, selectors and explicit compatibility gaps. Thanks @dependabot and @vincentkoc.
+- Refresh the Feishu fallback to 2026.10.2 with its published source provenance, retaining the frozen host and explicit runtime compatibility gaps. Thanks @dependabot.
+
+- Refresh the Weixin fallback to 2.4.10 while keeping OpenClaw host peers out of its fixture lock. Thanks @dependabot and @vincentkoc.
+- Recognize Node's exact experimental TypeScript warning before TencentDB's known missing-module diagnostic, retaining unrelated errors as failures.
+
+- Patch Codex and TencentDB fixture lock dependencies for TOML, baggage parsing, and query-string advisories while retaining their qualified plugin versions.
+- Refresh 20 official plugin fallback pins to 2026.10.2 and pair both source references with their published build provenance, preserving the frozen host, track and source-pack selectors, and explicit compatibility gaps. Thanks @dependabot and @vincentkoc.
+
+- Adopt published Plugin Inspector 0.4.0 and qualify retirement notices in source, packed, and published-package smoke: deprecated SDK member, replacement guidance, and final compatibility day remain non-blocking and author-facing. Refresh executable workspace-plan helper paths and operating docs to the release pin.
+
+- Assert DingTalk's explicit credential-free Gateway rejection contracts through method-scoped Inspector expectations, preserving unexpected response and handler failures.
+
+- Refresh 13 official plugin fallback pins to 2026.10.1 and pair their published source provenance, preserving the frozen host, source-pack selectors, and explicit compatibility gaps. Thanks @dependabot.
+- Refresh the Feishu fallback to 2026.10.1 with its matching published source provenance, retaining the frozen host and explicit runtime compatibility gaps. Thanks @dependabot.
+- Refresh eight official plugin fallback pins to 2026.10.1 and pair them with their published source provenance, retaining the frozen host and its reported compatibility limits. Thanks @dependabot.
+- Refresh 19 official plugin fallback pins to their pending 2026.9.7–2026.9.9 updates and align each source reference with the published package provenance. Thanks @dependabot.
+- Adopt reviewed Inspector source for channel registration contracts and bounded runtime-import discovery through named `createRequire` handles, preserving explicit unsupported state operations and the published 0.3.26 CLI pin.
+- Adopt reviewed Inspector source fixes for compiled SDK namespaces and synchronous bundled-module loading, restoring current Nostr capture while retaining the published 0.3.26 CLI pin.
+- Refresh official plugin fixture pins to 2026.9.6 and align source references with their published build provenance. Thanks @dependabot.
+- Keep TencentDB memory qualification on its reviewed 1.0.1 artifact instead of following the moving npm tag.
+- Reject mismatched explicit fixture versions before package acquisition so a shim update cannot silently change a pinned artifact.
+- Declare active-session prerequisites for Google Meet participation probes, keeping status checks and configured failures visible while restoring the credential-free development dashboard.
+- Keep dashboard links and metrics scoped to the current CI summary's available artifacts, excluding stale execution and comparison reports while preserving current failure evidence.
+- Avoid attributing moving npm artifacts to a different fallback version's source, and qualify SDK gaps outside a plugin's declared host range before prescribing a core repair; retain the observed imports and their severity.
+- Refresh TencentDB memory fixture transitive gRPC and Undici patches to clear lock-fixable security advisories while retaining the current plugin release.
+
+- Publish checked CI reports once and summarize only current-job outputs, preserving failed or interrupted coverage without rerunning fixture preparation.
+- Include bounded startup-phase observations on command failures without changing startup limits, native admission, or cleanup guarantees.
+- Avoid Windows command startup failures caused by per-command compiler and JSON cmdlet loading, preserving the startup budget, atomic Job admission and confirmed cleanup before checkout reuse. Thanks @vincentkoc.
+- Arm Windows helper cancellation before request parsing so owner loss or startup expiry cannot leave a parser-blocked helper running.
+- Preserve exclusive Plugin Inspector checkout ownership across long installs and unconfirmed command cleanup; fail bounded lock contention without stealing another installer's lock.
+- Preserve the Windows command controller's parent environment when a caller supplies a restricted target environment, without changing the target's environment or cleanup guarantees.
+- Print bounded stage, error type and code diagnostics for standalone resource workload failures without exposing raw exception payloads; preserve retained receipts and joined cleanup.
+- Adopt Kitchen Sink 0.4.0 with bounded resource calibration and transcription buffer fixes, promoting the green OpenClaw 2026.9.6 canary to satisfy its minimum host version of 2026.9.5.
+- Fixed fixture validation accepting missing acquisition sources and missing or mismatched submodule entries, while accepting valid quoted Git configuration.
+- Validate optional Kitchen Sink session creation and first/warm tool observations separately from legacy aggregate admission, preserving failed partial observations without credit.
+- Add an opt-in paired-node File Transfer fetch workload that verifies policy preflight, saved bytes and audit records, sharing a pinned node lifecycle with Session Share.
+
+- Add an opt-in Memory Wiki local apply/compile/get/search workload with verified alternating writes, default publication and a fixed synthetic corpus; report enabled-cycle cost separately from empty-host overhead.
+
+- Admit pinned, qualified cold-import resource receipts into full-inventory screening while preserving separate workload outcomes and explicit gaps for plugins without evidence. Require the portable entry path while excluding retained local report paths from public coverage.
+
+- Add an opt-in source-checkout TypeSafe decision workload with a strict local System One peer, native tool dispatch, verified typed answers and peer cleanup; keep installed-package compatibility and model inference outside its coverage.
+- Verify Plugin Inspector's public resource collector in source and packed-package smoke checks, without claiming plugin workload coverage.
+- Distinguish caller-owned plugin registry handles from Gateway registry activation in paired resource workloads, preserving exact catalog checks and completed-work requirements.
+- Run the report-only bundled resource campaign nightly at 03:43 UTC, retaining manual dispatch, pinned inputs and explicit full-inventory coverage gaps.
+- Select resource campaign workloads by inventory distribution while retaining full-inventory coverage gaps and an explicit partial-scope outcome.
+- Add a manual-only, report-only bundled resource campaign using a pinned installed Gateway, isolated Docker execution, full-inventory outcomes and explicit container closure evidence. Require remote wrapper proof before landing and one successful Actions run before a separate schedule-enable PR.
+
+- Generate resource campaign input pins from prepared local host, consumer and archive bytes, rejecting unsupported runtimes, source mismatches and existing output files.
+- Add an opt-in Beam receiver workload that measures real Gateway HTTP and RPC paths with a fixed synthetic peer.
+- Add an opt-in session-share receiver workload with real node pairing, verified catalog reads, and bounded Gateway resource measurements.
+- Report configured plugin workloads with missing receipts as blocked instead of claiming no adapter exists. Preserve supplied outcomes and the source-inventory denominator.
+- Run configured resource workloads as bounded sequential campaigns with pinned prepared inputs, full-inventory outcomes per repetition, retained partial receipts and fail-closed admission after execution failures. Verify inputs after failed invocations while preserving both workload and input-drift diagnostics. Keep numerical resource budgets and scheduling separate.
+- Support paired plugin workloads with identical dependency controls, before/after activation checks, adapter cleanup and signed resource deltas. Preserve published v1 empty-host receipts while emitting explicit v2 observations.
+- Add opt-in Workboard Gateway resource workloads and source-inventory coverage, preserving unsupported plugins and separating Kitchen Sink calibration from real workload credit.
+- Adopt Inspector source fixes for SDK discovery inside packaged `.setup` modules and composed Zod enums, preserving the published 0.3.26 package pin pending upstream release.
+- Recognize exact HAPI and TencentDB blocker diagnostics from owned child processes, retaining raw failures and rejecting unrelated errors, timeouts, cancellations, and truncation.
+- Declare the exact Matrix verification and Voice Call Gateway prerequisites for credential-free probes; retain explicit gaps and normal failures for unrelated methods or configured overrides.
+
+- Restore Dependabot updates with daily cron schedules that satisfy GitHub’s 24-hour minimum while preserving UTC minute staggering.
+- Reject fractional, suffixed, and out-of-range static-suite timeout settings before running a step, using the shared bounded timeout validator while preserving the default for unset or empty settings.
+- Refresh Dependabot compatibility reports against the merged base's OpenClaw pin, submodules, and plugin track, preventing stale-host and mislabeled beta-fixture evidence.
+- Cancel superseded PR check and advisory runs without replacing push or manual attempts. Stop expensive report regeneration after cancellation while preserving existing artifacts, failure summaries, and the required verdict.
+- Record fixture-owned account and meeting Gateway prerequisites before invoking credential-free synthetic probes. Keep ready status methods and unrelated Gateway failures visible; blocked methods remain explicit gaps until their host state and transports are supplied.
+
+- Prepare selected npm fixture payloads before manual OpenClaw ref compatibility planning and execution; derive capability selections from prepared source while preserving intentional empty lanes.
+- Refresh npm fixture pins and compatible dependency overrides, including compatible current stable OpenClaw plugin artifacts; retain Discord’s pin pending host/runtime support and patch TencentDB's Jaeger propagator while preserving its reviewed plugin pin.
+- Discover SDK modules loaded inside retained plugin handlers and verify real source and package CLI values while keeping Gateway prerequisite failures visible. Adopt Plugin Inspector 0.3.26 in both source and published-package modes.
+- Use the public lazy-runtime SDK contract in Plugin Inspector probes so plugin runtimes load lazily and report their actual outcomes in source and published-package modes.
+- Preserve original Gateway rejection messages in Plugin Inspector probes and verify both source and published-package smoke in Linux CI.
+- Fixed AWS Crabbox provisioning by sizing the root disk to the promoted image’s 400 GB minimum.
+- Promote the green OpenClaw 2026.9.3 canary pin and adopt Kitchen Sink 0.3.0, covering 42 hooks, 56 active registrars, and 22 manifest contracts without replacing the host's detached-task owner.
+- Bound OpenClaw track metadata fetches through JSON consumption and Git lookups through the shared command owner, with strict timeout settings and preserved operational failures; warn about missing tags only after successful empty lookups. Thanks @SebTardif.
+- Bound fixture-security npm audits with native Windows command execution, strict timeout settings, and combined 16 MiB output capture; preserve valid vulnerability exit status 1 and existing severity/fixability policy. Preserve primary command errors through cleanup failures, report unconfirmed cleanup, and stop cached process-group signaling after POSIX supervisor loss. Preserve Windows cleanup results when cancellation precedes a command request, and prevent late request dispatch. Thanks @SebTardif.
+- Run static-suite test files serially, matching the established `npm test` concurrency without filtering tests or changing preparation.
+- Bound inspector and checkout commands through descendant cleanup, including Windows Job ownership, strict timeout settings, and combined captured-output limits; preserve uncapped inherited smoke output. Thanks @SebTardif for the initial timeout repair.
+- Reject fixture checkout and payload escapes, including linked destination components and archive metadata links, before materialization can write outside the selected fixture; preserve valid nested paths and dotted names. Thanks @bunlongheng.
+- Failed npm fixture packs now stop materialization and dependent checks after collecting availability evidence, including when report writing is disabled; successful pinned fallbacks remain supported. Availability reports now label the resolved CLI or environment fixture selection.
+- Adopted inspector 0.3.25 in both source and published-package modes for bounded capture/probes, serial service lifecycle probes, CommonJS SDK mocks, Gateway response validation, and credential-free model-auth binding.
+- Removed the obsolete bundled QQ Bot source fixture that blocked development dashboard materialization after OpenClaw externalized the plugin; retained the Tencent QQbot git fixture and its channel/tool coverage.
+- Restored native lifecycle profiling through root registry activation and rejected malformed phase timings.
+- Run host-backed Default Track, dashboard, manual ref, Dependabot refresh, and advisory jobs on Node 24; keep host-free security and planning jobs and the private package engine on Node 22.
+- Refreshed compatible plugin fixture pins and npm locks, upgraded plugin-inspector to 0.3.21, and moved CI to current GitHub Actions.
+- Refreshed plugin fixtures and restored real OpenClaw lifecycle profiling against current diagnostics APIs.
+- Split CI into a required pinned OpenClaw Default Track, an advisory artifact-producing HEAD canary, and a 14-day pin-promotion SLA.
+- Kept each track dashboard independent from unrelated OpenClaw release metadata failures.
+- Recorded dashboard metadata from the exact OpenClaw checkout exercised by the run.
+
+- Preserve Dependabot PR heads during validation so generated reports cannot invalidate required CI or conflict across dependency updates; publish reports through the shared dashboard owner after exact-commit validation or a confirmed bot merge. Thanks @vincentkoc.
+
+## 0.2.1 - 2026-07-06
+
+- Fixed synthetic gateway probes to start services before compatibility checks and stop them afterward, eliminating false failures for lifecycle-sensitive plugins.
+- Hardened sweep, generated-surface, isolated-checkout, workspace-profile, and runtime-evidence validation across local, container, and cross-platform CI lanes.
+- Kept isolated fixture execution running through known peer-range drift and classified QQBot's missing host context as an expected blocked probe.
+- Remediated fixture dependency security alerts and refreshed the Feishu lockfile after exact install and compatibility verification.
+- Updated A2A Gateway, Clawmetry, ClawRouter, Hyperspell, Kitchen Sink, LightClawBot, Lossless Claw, NemoClaw, Weixin, and Web Search Plus fixture coverage.
+- Updated plugin-inspector to v0.3.16 and pinned its gateway lifecycle ordering fix for both source-mode and package-mode validation.
+- Thanks @vincentkoc for the fixture security, Feishu, QQBot, and workspace peer-drift improvements.
 
 ## 0.2.0 - 2026-06-11
 

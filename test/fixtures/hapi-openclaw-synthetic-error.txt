@@ -1,0 +1,28 @@
+(node:4376) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+file:///workspace/crabpot/.crabpot/plugin-inspector/f08d12970e623581219259fabfdaa7a039e830b1/src/inspector.js:405
+  const wrapped = new Error(details.message, { cause: error });
+                  ^
+
+Error: Invalid hapi-openclaw config: hapiBaseUrl must be a non-empty string
+    at enrichCaptureError (file:///workspace/crabpot/.crabpot/plugin-inspector/f08d12970e623581219259fabfdaa7a039e830b1/src/inspector.js:405:19)
+    at classifyCapturePhaseError (file:///workspace/crabpot/.crabpot/plugin-inspector/f08d12970e623581219259fabfdaa7a039e830b1/src/inspector.js:398:10)
+    at captureInProcess (file:///workspace/crabpot/.crabpot/plugin-inspector/f08d12970e623581219259fabfdaa7a039e830b1/src/inspector.js:253:11)
+    at async Module.runEntrypointSyntheticProbes (file:///workspace/crabpot/.crabpot/plugin-inspector/f08d12970e623581219259fabfdaa7a039e830b1/src/synthetic-entrypoint.js:30:21)
+    ... 2 lines matching cause stack trace ...
+    at async file:///workspace/crabpot/scripts/synthetic-probes.mjs:62:3 {
+  failureClass: 'registration-execution-error',
+  [cause]: Error: Invalid hapi-openclaw config: hapiBaseUrl must be a non-empty string
+      at readRequiredString (file:///workspace/crabpot/.crabpot/workspaces/hapi-openclaw/dist/index.js:89:11)
+      at resolvePluginConfig (file:///workspace/crabpot/.crabpot/workspaces/hapi-openclaw/dist/index.js:101:18)
+      at resolveRegisteredPluginConfig (file:///workspace/crabpot/.crabpot/workspaces/hapi-openclaw/dist/index.js:2360:10)
+      at registerPluginRoutes (file:///workspace/crabpot/.crabpot/workspaces/hapi-openclaw/dist/index.js:2363:18)
+      at register (file:///workspace/crabpot/.crabpot/workspaces/hapi-openclaw/dist/index.js:2406:5)
+      at captureInProcess (file:///workspace/crabpot/.crabpot/plugin-inspector/f08d12970e623581219259fabfdaa7a039e830b1/src/inspector.js:250:11)
+      at async Module.runEntrypointSyntheticProbes (file:///workspace/crabpot/.crabpot/plugin-inspector/f08d12970e623581219259fabfdaa7a039e830b1/src/synthetic-entrypoint.js:30:21)
+      at async runEntrypointSyntheticProbes (file:///workspace/crabpot/scripts/synthetic-probes.mjs:219:18)
+      at async main (file:///workspace/crabpot/scripts/synthetic-probes.mjs:72:20)
+      at async file:///workspace/crabpot/scripts/synthetic-probes.mjs:62:3
+}
+
+Node.js v24.22.1

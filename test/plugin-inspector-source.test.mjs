@@ -1,17 +1,54 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { spawnSync } from "node:child_process";
+import { chmodSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import os from "node:os";
+import path from "node:path";
 import { test } from "node:test";
 import {
+  isPinnedCheckoutReady,
   pluginInspectorPackage,
+  pluginInspectorRef,
   resolvePluginInspectorCliInvocation,
   resolvePluginInspectorCliPath,
 } from "../scripts/plugin-inspector-source.mjs";
+
+test("plugin inspector source pin requires an exact prepared checkout", (t) => {
+  assert.equal(pluginInspectorRef, "8ec7d359fd78c96e723ce77eb5cffb3fec6703ee");
+
+  const checkoutDir = mkdtempSync(path.join(os.tmpdir(), "crabpot plugin inspector checkout "));
+  t.after(() => rmSync(checkoutDir, { force: true, recursive: true }));
+  const sourcePath = path.join(checkoutDir, "src", "index.js");
+  const installMarker = path.join(checkoutDir, "node_modules", ".crabpot-install-ready");
+  mkdirSync(path.dirname(sourcePath), { recursive: true });
+  writeFileSync(sourcePath, "export {};\n", "utf8");
+  runGit(checkoutDir, ["init"]);
+  runGit(checkoutDir, ["add", "src/index.js"]);
+  runGit(checkoutDir, [
+    "-c",
+    "user.name=Crabpot Test",
+    "-c",
+    "user.email=crabpot@example.invalid",
+    "commit",
+    "-m",
+    "test fixture",
+  ]);
+  const fixtureRef = runGit(checkoutDir, ["rev-parse", "HEAD"]).stdout.trim();
+
+  assert.equal(isPinnedCheckoutReady(checkoutDir, fixtureRef), false);
+  mkdirSync(path.dirname(installMarker), { recursive: true });
+  writeFileSync(installMarker, `${fixtureRef}\n`, "utf8");
+  assert.equal(isPinnedCheckoutReady(checkoutDir, fixtureRef), true);
+  assert.equal(isPinnedCheckoutReady(checkoutDir, pluginInspectorRef), false);
+  rmSync(installMarker);
+  assert.equal(isPinnedCheckoutReady(checkoutDir, fixtureRef), false);
+});
 
 test("plugin inspector smoke defaults to the published npm package", () => {
   withEnv({}, () => {
     const invocation = resolvePluginInspectorCliInvocation();
 
     assert.equal(invocation.command, "npm");
+    assert.equal(pluginInspectorPackage, "@openclaw/plugin-inspector@0.4.5");
     assert.deepEqual(invocation.args, ["exec", "--yes", "--package", pluginInspectorPackage, "--", "plugin-inspector"]);
     assert.equal(invocation.shell, process.platform === "win32");
   });
@@ -41,16 +78,135 @@ test("plugin inspector smoke can run local source or an explicit binary", () => 
 });
 
 test("plugin inspector smoke uses full default findings output", () => {
+  const sourceScript = readFileSync(new URL("../scripts/plugin-inspector-source.mjs", import.meta.url), "utf8");
   const smokeScript = readFileSync(new URL("../scripts/run-plugin-inspector-smoke.mjs", import.meta.url), "utf8");
 
+  assert.match(
+    sourceScript,
+    /run\(npmCommand\(\), \["ci", "--omit=dev", "--ignore-scripts", "--no-audit", "--no-fund"\], checkoutDir\)/,
+  );
+  assert.match(sourceScript, /CRABPOT_GIT_TIMEOUT_MS/);
+  assert.match(sourceScript, /CRABPOT_NPM_TIMEOUT_MS/);
+  assert.match(smokeScript, /CRABPOT_PLUGIN_INSPECTOR_TIMEOUT_MS/);
   assert.doesNotMatch(smokeScript, /--include-inspector-gaps/);
   assert.doesNotMatch(smokeScript, /--author-facing/);
   assert.doesNotMatch(smokeScript, /const command =/);
   assert.match(smokeScript, /"report", "--config", configPath, "--out", outDir/);
 });
 
+test("plugin inspector smoke check fails on a real missing registration", (t) => {
+  const root = mkdtempSync(path.join(os.tmpdir(), "crabpot-inspector-smoke-"));
+  t.after(() => rmSync(root, { force: true, recursive: true }));
+  mkdirSync(path.join(root, "fixture"));
+  writeFileSync(path.join(root, "fixture", "index.js"), "export {};\n");
+  const configPath = path.join(root, "config.json");
+  writeFileSync(configPath, JSON.stringify({
+    version: 1,
+    submoduleRoot: ".",
+    fixtures: [{
+      id: "fixture", path: "fixture", repo: "https://example.invalid/fixture.git",
+      priority: "high", seams: ["tool"], expect: { registrations: ["registerTool"] },
+    }],
+  }));
+  const env = {
+    ...process.env,
+    CRABPOT_PLUGIN_INSPECTOR_DIR: path.dirname(path.dirname(resolvePluginInspectorCliPath())),
+    CRABPOT_PLUGIN_INSPECTOR_CLI: "source",
+  };
+  delete env.CRABPOT_PLUGIN_INSPECTOR_BIN;
+  for (const check of [false, true]) {
+    const out = path.join(root, check ? "checked" : "report-only");
+    const result = spawnSync(process.execPath, [
+      "scripts/run-plugin-inspector-smoke.mjs", "--config", configPath, "--out", out,
+      ...(check ? ["--check"] : []),
+    ], { cwd: new URL("..", import.meta.url), env, encoding: "utf8" });
+    assert.ifError(result.error);
+    assert.match(result.stdout, /Status: FAIL/, result.stderr);
+    const report = JSON.parse(readFileSync(path.join(out, "plugin-inspector-report.json"), "utf8"));
+    assert.equal(report.status, "fail");
+    assert.equal(report.breakages[0].code, "missing-expected-seam");
+    assert.equal(result.status, check ? 1 : 0, result.stderr || result.stdout);
+  }
+});
+
+test("resource smoke exercises the selected package's public collector export", () => {
+  const result = spawnSync(process.execPath, [
+    "test/fixtures/resource-profile-smoke.mjs", path.dirname(path.dirname(resolvePluginInspectorCliPath())),
+  ], { cwd: new URL("..", import.meta.url), env: {}, encoding: "utf8", timeout: 20_000 });
+  assert.ifError(result.error);
+  assert.equal(result.status, 0, result.stderr || result.stdout);
+  const report = JSON.parse(result.stdout);
+  assert.equal(report.coverage, "collector-contract-only");
+  assert.equal(report.samples.before.pid, result.pid);
+  assert.equal(report.deltas.allocation.activeResourceDelta.Timeout, 1);
+  assert.equal(report.deltas.disposal.activeResourceDelta.Timeout, -1);
+});
+
+test("resource smoke fails when the selected package does not export the collector", (t) => {
+  const root = mkdtempSync(path.join(os.tmpdir(), "crabpot-resource-export-"));
+  t.after(() => rmSync(root, { force: true, recursive: true }));
+  writeFileSync(path.join(root, "package.json"), JSON.stringify({
+    name: "@openclaw/plugin-inspector", exports: { ".": "./index.js" },
+  }));
+  const result = spawnSync(process.execPath, ["test/fixtures/resource-profile-smoke.mjs", root], {
+    cwd: new URL("..", import.meta.url), env: {}, encoding: "utf8", timeout: 20_000,
+  });
+  assert.ifError(result.error);
+  assert.equal(result.status, 1);
+  assert.match(result.stderr, /ERR_PACKAGE_PATH_NOT_EXPORTED/);
+});
+
+test("plugin inspector checkout head probe returns instead of blocking when git hangs", {
+  skip: process.platform === "win32",
+}, (t) => {
+  const hangDir = mkdtempSync(path.join(os.tmpdir(), "crabpot-git-head-hang-"));
+  const checkoutDir = mkdtempSync(path.join(os.tmpdir(), "crabpot-git-head-checkout-"));
+  t.after(() => {
+    rmSync(hangDir, { force: true, recursive: true });
+    rmSync(checkoutDir, { force: true, recursive: true });
+  });
+  // Windows Git remains a native executable, covered by the real checkout above.
+  const hangGit = path.join(hangDir, "git");
+  writeFileSync(hangGit, `#!/bin/sh\nexec "${process.execPath}" -e 'setTimeout(() => {}, 30000)'\n`);
+  chmodSync(hangGit, 0o755);
+  mkdirSync(path.join(checkoutDir, "src"), { recursive: true });
+  writeFileSync(path.join(checkoutDir, "src", "index.js"), "export {};\n", "utf8");
+  mkdirSync(path.join(checkoutDir, "node_modules"), { recursive: true });
+  writeFileSync(path.join(checkoutDir, "node_modules", ".crabpot-install-ready"), "ready\n", "utf8");
+
+  withEnv({ CRABPOT_GIT_TIMEOUT_MS: "250" }, () => {
+    const startedAt = Date.now();
+    const previousPath = process.env.PATH;
+    process.env.PATH = `${hangDir}${path.delimiter}${previousPath}`;
+    try {
+      assert.throws(() => isPinnedCheckoutReady(checkoutDir, "unused"), (error) => {
+        assert.match(error.message, /timed out after 250ms/);
+        assert.equal(error.code, undefined);
+        assert.equal(error.cause.code, "ETIMEDOUT");
+        assert.ok(error.cause.startupTrace.some(({ phase }) => phase === "worker-entered"));
+        return true;
+      });
+      assert.ok(Date.now() - startedAt < 4_000, "hung git rev-parse must return");
+    } finally {
+      process.env.PATH = previousPath;
+    }
+  });
+});
+
+function runGit(cwd, args) {
+  const result = spawnSync("git", args, { cwd, encoding: "utf8" });
+  assert.equal(result.status, 0, result.stderr);
+  return result;
+}
+
 function withEnv(values, callback) {
-  const keys = ["CRABPOT_PLUGIN_INSPECTOR_BIN", "CRABPOT_PLUGIN_INSPECTOR_CLI"];
+  const keys = [
+    "CRABPOT_PLUGIN_INSPECTOR_BIN",
+    "CRABPOT_PLUGIN_INSPECTOR_CLI",
+    "CRABPOT_GIT_TIMEOUT_MS",
+    "CRABPOT_NPM_TIMEOUT_MS",
+    "CRABPOT_PLUGIN_INSPECTOR_TIMEOUT_MS",
+  ];
   const previous = Object.fromEntries(keys.map((key) => [key, process.env[key]]));
   for (const key of keys) {
     delete process.env[key];

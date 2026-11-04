@@ -6,11 +6,11 @@ import { buildReport } from "./report-lib.mjs";
 const pluginInspector = await loadPluginInspectorPublicApi();
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
-  await main();
+  await runReportCommand();
 }
 
-async function main() {
-  const report = await buildReport({ openclawPath: parseOpenClawPath(process.argv.slice(2)) });
+export async function runReportCommand(argv = process.argv.slice(2), options = {}) {
+  const report = options.report ?? await buildReport({ openclawPath: parseOpenClawPath(argv) });
   const errors = validateContractCoverage(report);
 
   if (errors.length > 0) {
@@ -20,6 +20,7 @@ async function main() {
   console.log(
     `contract coverage ok: ${report.summary.issueCount} issues, ${report.summary.contractProbeCount} probes, ${report.summary.breakageCount} breakages`,
   );
+  return report;
 }
 
 function parseOpenClawPath(argv) {

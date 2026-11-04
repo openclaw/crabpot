@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for OpenClaw Tlon/Urbit channel plugin.",
   "dependencies": {
-    "@openclaw/tlon": "2026.2.21"
+    "@openclaw/tlon": "2026.10.6"
   },
   "crabpot": {
     "fixture": "tlon",
@@ -12,6 +12,9 @@
     "package": "@openclaw/tlon",
     "sourceRepo": "https://github.com/openclaw/openclaw.git",
     "sourcePath": "extensions/tlon",
-    "sourceRef": "35a57bc940833a6c1f594b2308e349e5ee0148db"
+    "sourceRef": "fe06181dc5ecc01cf8904abbfc26925925efefbc"
+  },
+  "overrides": {
+    "zod": "4.6.7"
   }
 }

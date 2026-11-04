@@ -1,5 +1,9 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
+import { mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import os from "node:os";
+import path from "node:path";
+import { ciReportPaths, executeCiStep, startCiRun } from "../scripts/ci-report-handoff.mjs";
 import {
   buildCiPolicyReport,
   renderCiPolicyMarkdown,
@@ -57,6 +61,23 @@ test("ci policy allows known blocked probes but fails unknown blockers", async (
   assert.ok(report.checks.some((check) => check.action === "warn" && check.id.includes("registerChannel")));
   assert.ok(validateCiPolicyReport(report).some((error) => error.includes("registerMystery")));
   assert.match(renderCiPolicyMarkdown(report), /Crabpot CI Policy/);
+});
+
+test("default ci policy retains Voice Call steering blockers without waiving failures", async () => {
+  const inputs = executionResults([{
+    seam: "registerGatewayMethod",
+    reason: "captured voice-call steering requires an active realtime call, steering input, and authorized caller",
+  }]);
+  const report = await buildCiPolicyReport({ compatibilityReport: compatibilityReport(), executionResults: inputs });
+  assert.equal(report.status, "pass");
+  assert.equal(report.checks.find((check) => check.id.startsWith("execution-results.blocked."))?.action, "warn");
+
+  const failure = await buildCiPolicyReport({
+    compatibilityReport: compatibilityReport(),
+    executionResults: { ...inputs, summary: { ...inputs.summary, failCount: 1 } },
+  });
+  assert.equal(failure.status, "fail");
+  assert.ok(validateCiPolicyReport(failure).some((error) => error.includes("failed synthetic probes")));
 });
 
 test("default ci policy classifies opt-in kitchen-sink blockers", async () => {
@@ -405,3 +426,27 @@ function emptyExecutionResults() {
     artifacts: [],
   };
 }
+
+test("current-run policy ignores unselected execution history but honors a selected failure", async (t) => {
+  const root = mkdtempSync(path.join(os.tmpdir(), "crabpot-current-policy-"));
+  t.after(() => rmSync(root, { recursive: true, force: true }));
+  for (const selected of [false, true]) {
+    const steps = [{ id: "compatibility", report: "compatibility" }, ...(selected ? [{ id: "execution", report: "execution" }] : [])];
+    const run = startCiRun(steps, root);
+    executeCiStep(run, run.steps[0], () => {
+      writeFileSync(path.join(root, ciReportPaths.compatibility), JSON.stringify(compatibilityReport()));
+      return 0;
+    }, root);
+    const failure = { ...executionResults([]), summary: { failCount: 1 } };
+    const writeExecution = () => {
+      writeFileSync(path.join(root, ciReportPaths.execution), JSON.stringify(failure));
+      return 1;
+    };
+    if (selected) executeCiStep(run, run.steps[1], writeExecution, root);
+    else writeExecution();
+    const report = await buildCiPolicyReport({ currentRun: true, root, policy });
+    assert.equal(report.status, selected ? "fail" : "pass");
+    assert.equal(report.checks.some((check) => check.id === "execution-results.failures" && check.action === "fail"), selected);
+    assert.equal(report.checks.some((check) => check.id === "execution-results.not-run"), !selected);
+  }
+});

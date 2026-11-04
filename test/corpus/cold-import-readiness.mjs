@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { buildColdImportReadiness, validateColdImportReadiness } from "../scripts/cold-import-readiness.mjs";
-import { buildReport } from "../scripts/report-lib.mjs";
+import { buildColdImportReadiness, validateColdImportReadiness } from "../../scripts/cold-import-readiness.mjs";
+import { buildCorpusReport as buildReport, testReportOptions } from "./report-fixture.mjs";
 
 test("cold import readiness classifies entrypoint blockers", async () => {
   const report = await buildReport(testReportOptions());
@@ -22,13 +22,6 @@ test("cold import readiness classifies entrypoint blockers", async () => {
     assertHasAnyStatus(readiness, "sdk-alias-required");
   }
 });
-
-function testReportOptions() {
-  return {
-    generatedAt: "test",
-    openclawPath: process.env.CRABPOT_TEST_OPENCLAW_PATH,
-  };
-}
 
 function assertHasBlocker(readiness, fixtureId, code) {
   const fixture = readiness.fixtures.find((item) => item.id === fixtureId);

@@ -59,11 +59,11 @@ const crabpotRegistrationProbeInputs = {
 };
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
-  await main();
+  await runReportCommand();
 }
 
-async function main() {
-  const args = parseArgs(process.argv.slice(2));
+export async function runReportCommand(argv = process.argv.slice(2), options = {}) {
+  const args = parseArgs(argv);
 
   if (args.entrypoint) {
     if (process.env.CRABPOT_EXECUTE_ISOLATED !== "1") {
@@ -82,7 +82,7 @@ async function main() {
     return;
   }
 
-  const plan = await buildSyntheticProbePlan({ openclawPath: args.openclawPath });
+  const plan = await buildSyntheticProbePlan({ openclawPath: args.openclawPath, ...options });
   const errors = validateSyntheticProbePlan(plan);
   if (args.write) {
     await writeSyntheticProbePlan(plan);
@@ -99,6 +99,7 @@ async function main() {
   if (errors.length > 0) {
     throw new Error(errors.join("\n"));
   }
+  return plan;
 }
 
 function parseArgs(argv) {
@@ -190,13 +191,15 @@ export async function writeSyntheticProbePlan(plan, options = {}) {
 }
 
 export async function runCapturedSyntheticProbes(capture, options = {}) {
+  const manifest = options.manifest ?? (await readConfiguredManifest());
   const result = await pluginInspector.runCapturedSyntheticProbes(capture, {
     ...options,
+    gatewayMethodPrerequisites: gatewayMethodPrerequisites(capture.entrypoint, manifest, options),
+    gatewayMethodExpectations: gatewayMethodExpectations(capture.entrypoint, manifest, options),
     hookEvents: mergeHookEvents(options.hookEvents),
     registrationProbeInputs: mergeRegistrationProbeInputs(options.registrationProbeInputs),
     syntheticSource: "crabpot.synthetic",
   });
-  const manifest = options.manifest ?? (await readConfiguredManifest());
   return applyFixtureSyntheticFailurePolicy(result, manifest);
 }
 
@@ -213,8 +216,15 @@ export async function runEntrypointSyntheticProbes(entrypoint, options = {}) {
     return runCapturedSyntheticProbes(capture, options);
   }
 
+  const manifest = options.manifest ?? (await readConfiguredManifest());
   const result = await pluginInspector.runEntrypointSyntheticProbes(entrypoint, {
     ...options,
+    gatewayMethodPrerequisites: gatewayMethodPrerequisites(
+      path.resolve(options.cwd ?? process.cwd(), entrypoint), manifest, options,
+    ),
+    gatewayMethodExpectations: gatewayMethodExpectations(
+      path.resolve(options.cwd ?? process.cwd(), entrypoint), manifest, options,
+    ),
     apiOptions: {
       ...(options.apiOptions ?? {}),
       retainHandlers: true,
@@ -223,8 +233,19 @@ export async function runEntrypointSyntheticProbes(entrypoint, options = {}) {
     registrationProbeInputs: mergeRegistrationProbeInputs(options.registrationProbeInputs),
     syntheticSource: "crabpot.synthetic",
   });
-  const manifest = options.manifest ?? (await readConfiguredManifest());
   return applyFixtureSyntheticFailurePolicy(result, manifest);
+}
+
+function gatewayMethodPrerequisites(entrypoint, manifest, options) {
+  // Fixture ownership selects the prerequisite map; identical method names in
+  // unrelated plugins must still execute and report their actual failures.
+  return options.gatewayMethodPrerequisites ??
+    fixtureForSyntheticResult({ entrypoint }, manifest)?.execution?.gatewayMethodPrerequisites ?? {};
+}
+
+function gatewayMethodExpectations(entrypoint, manifest, options) {
+  return options.gatewayMethodExpectations !== undefined ? options.gatewayMethodExpectations :
+    fixtureForSyntheticResult({ entrypoint }, manifest)?.execution?.gatewayMethodExpectations ?? {};
 }
 
 export function renderSyntheticProbeMarkdown(plan) {

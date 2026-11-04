@@ -1,11 +1,15 @@
 #!/usr/bin/env node
 import { existsSync, rmSync } from "node:fs";
-import { configuredTimeoutMs } from "./portable-command.mjs";
-import { mkdir, mkdtemp, readFile, readdir, rm, writeFile } from "node:fs/promises";
+import { lstat, mkdir, mkdtemp, readFile, readdir, realpath, rm, writeFile } from "node:fs/promises";
 import os from "node:os";
 import { spawnSync } from "node:child_process";
 import path from "node:path";
-import { fixtureSourceRoot, readConfiguredManifest, repoRoot } from "./manifest-lib.mjs";
+import { fixtureCheckoutPath, fixtureSourceRoot, readConfiguredManifest, repoRoot } from "./manifest-lib.mjs";
+import {
+  parseNpmPackResult,
+  parseNpmViewResult,
+  resolveNpmViewVersion,
+} from "./npm-pack-result.mjs";
 import { writePackageAvailabilityReport } from "./package-availability.mjs";
 
 const openclawSourceRepo = "https://github.com/openclaw/openclaw.git";
@@ -27,13 +31,20 @@ if (check) {
   process.exit(0);
 }
 
+const materializationRoot = await realpath(repoRoot);
+// Anchor at the repo, not realpath(plugins): a linked plugins directory is itself unsafe.
 for (const fixture of manifest.fixtures) {
-  const target = path.join(repoRoot, fixture.path);
+  await assertFixtureDestination(fixture);
+}
+
+for (const fixture of manifest.fixtures) {
+  await assertFixtureDestination(fixture);
+  const target = fixtureCheckoutPath(fixture);
   if (fixture.package) {
     if (shouldMaterializeSourcePack(fixture, args.pluginTrack)) {
-      await materializeSourcePackFixture(fixture, target);
+      await materializeSourcePackFixture(fixture);
     } else {
-      await materializeNpmFixture(fixture, target);
+      await materializeNpmFixture(fixture);
     }
     continue;
   }
@@ -42,43 +53,112 @@ for (const fixture of manifest.fixtures) {
     if (await hasEntries(target)) {
       continue;
     }
+    await assertFixtureDestination(fixture);
     run("git", ["-c", "safe.directory=*", "submodule", "update", "--init", "--recursive", fixture.path]);
     continue;
   }
 
+  await assertFixtureDestination(fixture);
   run("git", ["-c", "safe.directory=*", "submodule", "add", "--depth", "1", fixture.repo, fixture.path]);
 }
 
 if (args.packageAvailabilityReport) {
   await writePackageAvailabilityReport({
     generatedAt: new Date().toISOString(),
-    fixtureSet: args.fixtureSet || "all",
+    fixtureSet: manifest.fixtureSelection?.fixtureSet ?? "all",
     pluginTrack: args.pluginTrack || "manifest",
     failures: packageAvailabilityFailures,
   });
 }
 
+if (packageAvailabilityFailures.some((failure) => failure.reason === "npm-pack-failed")) {
+  throw new Error("npm fixture acquisition failed; see npm pack errors above");
+}
 console.log("crabpot: fixtures materialized. review .gitmodules and commit pinned revisions.");
 
+async function assertFixtureDestination(fixture, metadata = false) {
+  const components = path.relative(repoRoot, fixtureSourceRoot(fixture)).split(path.sep);
+  if (metadata) {
+    components.push(".crabpot-source.json");
+  }
+  let current = materializationRoot;
+  for (const [index, component] of components.entries()) {
+    current = path.join(current, component);
+    let stat;
+    try {
+      stat = await lstat(current);
+    } catch (error) {
+      if (error.code === "ENOENT") {
+        return;
+      }
+      throw error;
+    }
+    const relative = path.relative(materializationRoot, current);
+    if (stat.isSymbolicLink()) {
+      throw new Error(`${fixture.id}: destination contains a symlink: ${relative}`);
+    }
+    if (metadata && index === components.length - 1) {
+      if (!stat.isFile()) {
+        throw new Error(`${fixture.id}: metadata destination is not a regular file: ${relative}`);
+      }
+    } else if (!stat.isDirectory()) {
+      throw new Error(`${fixture.id}: destination component is not a directory: ${relative}`);
+    }
+  }
+}
+
+async function prepareFixturePayload(fixture) {
+  const payloadDir = fixtureSourceRoot(fixture);
+  await assertFixtureDestination(fixture);
+  await mkdir(fixtureCheckoutPath(fixture), { recursive: true });
+  await assertFixtureDestination(fixture);
+  await rm(payloadDir, { recursive: true, force: true });
+  await assertFixtureDestination(fixture);
+  await mkdir(payloadDir, { recursive: true });
+  await assertFixtureDestination(fixture);
+  return payloadDir;
+}
+
 async function checkGitmodules(manifest) {
-  const gitmodulesPath = path.join(repoRoot, ".gitmodules");
-  if (!existsSync(gitmodulesPath)) {
+  const fixtures = manifest.fixtures.filter((fixture) => fixture.repo);
+  if (fixtures.length === 0) {
     return;
   }
+  const gitmodulesPath = path.join(repoRoot, ".gitmodules");
+  if (!existsSync(gitmodulesPath)) {
+    throw new Error(".gitmodules is missing for repo-backed fixtures");
+  }
 
-  const gitmodules = await readFile(gitmodulesPath, "utf8");
-  const missing = [];
-  for (const fixture of manifest.fixtures.filter((item) => item.repo)) {
-    if (!gitmodules.includes(`path = ${fixture.path}`)) {
-      missing.push(fixture.path);
-    }
-    if (!gitmodules.includes(`url = ${fixture.repo}`)) {
-      missing.push(fixture.repo);
+  const result = spawnSync("git", [
+    "config", "--file", gitmodulesPath, "--no-includes", "--null", "--get-regexp", "^submodule\\..*\\.(path|url)$",
+  ], {
+    cwd: repoRoot,
+    encoding: "utf8",
+    timeout: configuredTimeoutMs("CRABPOT_GIT_TIMEOUT_MS", defaultGitTimeoutMs),
+  });
+  // Exit 1 means no matching keys; other failures must not become an empty config.
+  if (result.error || (result.status !== 0 && result.status !== 1)) {
+    throw new Error(`failed to read .gitmodules: ${result.error?.message ?? result.stderr.trim()}`);
+  }
+  const submodules = new Map();
+  for (const record of result.stdout.split("\0").filter(Boolean)) {
+    const separator = record.indexOf("\n");
+    const [, name, key] = record.slice(0, separator).match(/^submodule\.(.*)\.(path|url)$/);
+    const entry = submodules.get(name) ?? { path: [], url: [] };
+    entry[key].push(record.slice(separator + 1));
+    submodules.set(name, entry);
+  }
+
+  const errors = [];
+  for (const fixture of fixtures) {
+    const matches = [...submodules.values()].filter((entry) => entry.path.includes(fixture.path));
+    if (matches.length !== 1 || matches[0].path.length !== 1 || matches[0].url.length !== 1 || matches[0].url[0] !== fixture.repo) {
+      errors.push(`${fixture.id}: .gitmodules must map ${fixture.path} to ${fixture.repo} exactly once`);
     }
   }
 
-  if (missing.length > 0) {
-    throw new Error(`.gitmodules is missing manifest entries:\n${missing.join("\n")}`);
+  if (errors.length > 0) {
+    throw new Error(errors.join("\n"));
   }
 }
 
@@ -99,13 +179,12 @@ async function checkNpmFixtureShims(manifest) {
   }
 }
 
-async function materializeNpmFixture(fixture, target) {
+async function materializeNpmFixture(fixture) {
   const dependency = await resolveNpmFixtureDependencyWithFallback(fixture, {
     pluginTrack: args.pluginTrack,
   });
   const spec = `${dependency.name}@${dependency.version}`;
   const tempDir = await mkdtemp(path.join(os.tmpdir(), "crabpot-npm-fixture-"));
-  const payloadDir = fixtureSourceRoot(fixture);
   try {
     const pack = npmSpawnSync(["pack", spec, "--pack-destination", tempDir, "--json"]);
     if (pack.status !== 0) {
@@ -118,21 +197,16 @@ async function materializeNpmFixture(fixture, target) {
         requestedVersion: dependency.version,
         reason: "npm-pack-failed",
       });
-      if (!existsSync(payloadDir)) {
-        await mkdir(payloadDir, { recursive: true });
-      }
       return;
     }
-    const packed = JSON.parse(pack.stdout)[0];
+    const packed = parseNpmPackResult(pack.stdout);
     if (!packed?.filename) {
       throw new Error(`npm pack ${spec} did not return a tarball filename`);
     }
 
-    await mkdir(target, { recursive: true });
-    await rm(payloadDir, { recursive: true, force: true });
-    await mkdir(payloadDir, { recursive: true });
+    const payloadDir = await prepareFixturePayload(fixture);
     extractPackageTarball(path.join(tempDir, packed.filename), payloadDir);
-    await writePackageSourceMetadata(payloadDir, {
+    await writePackageSourceMetadata(fixture, {
       gitHead: packed.gitHead || (await npmPackageGitHead(dependency.name, dependency.version)),
       name: dependency.name,
       tag: dependency.tag ?? "",
@@ -143,7 +217,7 @@ async function materializeNpmFixture(fixture, target) {
   }
 }
 
-async function materializeSourcePackFixture(fixture, target) {
+async function materializeSourcePackFixture(fixture) {
   const openclawRoot = resolveOpenClawSourceRoot();
   const sourceDir = path.resolve(openclawRoot, fixture.source.path);
   if (!sourceDir.startsWith(`${openclawRoot}${path.sep}`)) {
@@ -163,7 +237,6 @@ async function materializeSourcePackFixture(fixture, target) {
   }
 
   const tempDir = await mkdtemp(path.join(os.tmpdir(), "crabpot-source-pack-fixture-"));
-  const payloadDir = fixtureSourceRoot(fixture);
   const sourceHead = gitHead(openclawRoot);
   try {
     const pack = npmSpawnSync(["pack", sourceDir, "--pack-destination", tempDir, "--json"]);
@@ -172,16 +245,14 @@ async function materializeSourcePackFixture(fixture, target) {
       const detail = pack.error ? `: ${pack.error.message}` : "";
       throw new Error(`npm pack ${sourceDir} failed with ${pack.status}${detail}`);
     }
-    const packed = JSON.parse(pack.stdout)[0];
+    const packed = parseNpmPackResult(pack.stdout);
     if (!packed?.filename) {
       throw new Error(`npm pack ${sourceDir} did not return a tarball filename`);
     }
 
-    await mkdir(target, { recursive: true });
-    await rm(payloadDir, { recursive: true, force: true });
-    await mkdir(payloadDir, { recursive: true });
+    const payloadDir = await prepareFixturePayload(fixture);
     extractPackageTarball(path.join(tempDir, packed.filename), payloadDir);
-    await writePackageSourceMetadata(payloadDir, {
+    await writePackageSourceMetadata(fixture, {
       gitHead: sourceHead || fixture.source.ref,
       name: fixture.package.name,
       sourceMode: sourcePackPluginTrack,
@@ -250,6 +321,9 @@ async function readNpmFixtureDependency(fixture) {
   if (!/^\d+\.\d+\.\d+/.test(declared)) {
     throw new Error(`${fixture.id}: ${fixture.package.name} must use an exact semver pin, got ${declared}`);
   }
+  if (fixture.package.version && fixture.package.version !== declared) {
+    throw new Error(`${fixture.id}: shim pin ${declared} does not match configured package version ${fixture.package.version}`);
+  }
   return {
     name: fixture.package.name,
     version: declared,
@@ -298,14 +372,14 @@ function packageArtifactSource(fixture) {
 }
 
 async function npmDistTag(name, tag) {
-  const result = npmSpawnSync(["view", name, "dist-tags", "--json"]);
+  const result = npmSpawnSync(["view", name, "dist-tags", "version", "--json"]);
   if (result.status !== 0) {
     const detail = spawnFailureDetail(result);
     throw new Error(`${name}: npm dist-tag ${tag} could not be resolved${detail}`);
   }
-  const tags = JSON.parse(result.stdout || "{}");
-  const version = tags[tag];
-  if (typeof version !== "string" || !/^\d+\.\d+\.\d+/.test(version)) {
+  const metadata = parseNpmViewResult(result.stdout || "{}") ?? {};
+  const version = resolveNpmViewVersion(metadata, tag);
+  if (!version) {
     throw new Error(`${name}: npm dist-tag ${tag} resolved to invalid version ${JSON.stringify(version)}`);
   }
   return version;
@@ -331,13 +405,18 @@ async function npmPackageGitHead(name, version) {
   if (result.status !== 0 || !result.stdout.trim()) {
     return "";
   }
-  const gitHead = JSON.parse(result.stdout);
+  const gitHead = parseNpmViewResult(result.stdout);
   return /^[0-9a-f]{40}$/i.test(gitHead ?? "") ? gitHead : "";
 }
 
-async function writePackageSourceMetadata(payloadDir, metadata) {
+async function writePackageSourceMetadata(fixture, metadata) {
+  const metadataPath = path.join(fixtureSourceRoot(fixture), ".crabpot-source.json");
+  await assertFixtureDestination(fixture, true);
+  // Replace archive metadata without writing through an existing file's hard links.
+  await rm(metadataPath, { force: true });
+  await assertFixtureDestination(fixture, true);
   await writeFile(
-    path.join(payloadDir, ".crabpot-source.json"),
+    metadataPath,
     `${JSON.stringify(
       {
         gitHead: metadata.gitHead || null,
@@ -352,7 +431,7 @@ async function writePackageSourceMetadata(payloadDir, metadata) {
       null,
       2,
     )}\n`,
-    "utf8",
+    { encoding: "utf8", flag: "wx" },
   );
 }
 
@@ -492,6 +571,17 @@ function spawnFailureDetail(result) {
   return result.stderr?.trim() ? `: ${result.stderr.trim()}` : "";
 }
 
+function configuredTimeoutMs(envName, fallback) {
+  const raw = process.env[envName];
+  if (!raw) {
+    return fallback;
+  }
+  const parsed = Number.parseInt(raw, 10);
+  if (!Number.isInteger(parsed) || parsed <= 0) {
+    throw new Error(`${envName} must be a positive integer timeout in milliseconds`);
+  }
+  return parsed;
+}
 
 function tarPath(filePath) {
   if (process.platform !== "win32") {
