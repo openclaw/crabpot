@@ -112,7 +112,6 @@ test("static suite runs every corpus input in its own bounded integration step",
     "test/corpus/host.test.mjs",
     "test/corpus/no-host.test.mjs",
     "test/corpus/beta.test.mjs",
-    "test/corpus/runtime.test.mjs",
   ]);
   for (const [, args, env] of testSteps) {
     assert.ok(args.includes("--test-concurrency=1"));
@@ -130,7 +129,7 @@ test("test steps preserve Node options while enforcing their heap budget", () =>
   process.env.NODE_OPTIONS = "--conditions=crabpot-test --max-old-space-size=4096";
   try {
     const testSteps = buildStaticSuiteSteps().filter(([, args]) => args.includes("--test"));
-    assert.equal(testSteps.length, 5);
+    assert.equal(testSteps.length, 4);
     for (const [, , env] of testSteps) {
       assert.equal(env.NODE_OPTIONS, "--conditions=crabpot-test --max-old-space-size=4096 --max-old-space-size=2048");
     }
