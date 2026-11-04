@@ -270,9 +270,12 @@ test("synthetic probe CLI refuses isolated execution without opt-in", async (con
   const result = spawnSync(process.execPath, ["scripts/synthetic-probes.mjs", "--entrypoint", entrypoint], {
     cwd: repoRoot,
     encoding: "utf8",
+    timeout: 60_000,
     env: { ...process.env, CRABPOT_EXECUTE_ISOLATED: "" },
   });
 
+  assert.ifError(result.error);
+  assert.equal(result.signal, null);
   assert.notEqual(result.status, 0);
   assert.match(result.stderr, /CRABPOT_EXECUTE_ISOLATED=1/);
 });
@@ -301,10 +304,12 @@ test("synthetic probe CLI honors mock SDK for OpenClaw SDK imports", async (cont
     {
       cwd: repoRoot,
       encoding: "utf8",
+      timeout: 60_000,
       env: { ...process.env, CRABPOT_EXECUTE_ISOLATED: "1" },
     },
   );
 
+  assert.ifError(result.error);
   assert.equal(result.status, 0, result.stderr);
   const probes = JSON.parse(result.stdout);
   assert.equal(probes.status, "captured");
@@ -334,9 +339,11 @@ test("synthetic probe CLI keeps HTTP route handlers blocked without route descri
   const result = spawnSync(process.execPath, ["scripts/synthetic-probes.mjs", "--entrypoint", entrypoint], {
     cwd: repoRoot,
     encoding: "utf8",
+    timeout: 60_000,
     env: { ...process.env, CRABPOT_EXECUTE_ISOLATED: "1" },
   });
 
+  assert.ifError(result.error);
   assert.equal(result.status, 0, result.stderr);
   const probes = JSON.parse(result.stdout);
   assert.equal(probes.status, "captured");
