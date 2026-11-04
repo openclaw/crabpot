@@ -6,6 +6,8 @@
 
 - Reject missing static-suite option values before starting checks, so an incomplete fixture selector cannot fall back to the full corpus.
 
+- Adopt reviewed Plugin Inspector source memory fixes, including type-information-only SDK parsing that preserves JavaScript JSDoc and inventory evidence; retain the published 0.4.5 package pin, 2 GiB heap limit, and all cold profiling samples.
+
 - Reuse one source inspection across static report checks so Windows CI retains time for coverage and policy validation, preserving every cold profiling sample and existing deadlines.
 
 - Adopt Plugin Inspector 0.4.5 for source and published-package smoke checks, carrying the source-host memory and hook-registry compatibility fixes.
