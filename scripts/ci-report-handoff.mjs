@@ -108,6 +108,18 @@ export function executeCiStep(run, step, execute, root = repoRoot) {
   let status;
   let failure;
   try { status = execute(); } catch (error) { failure = error; }
+  return finishExecution(run, step, status, failure, root);
+}
+
+export async function executeCiStepAsync(run, step, execute, root = repoRoot) {
+  beginCiStep(run, step, root);
+  let status;
+  let failure;
+  try { status = await execute(); } catch (error) { failure = error; }
+  return finishExecution(run, step, status, failure, root);
+}
+
+function finishExecution(run, step, status, failure, root) {
   try {
     finishCiStep(run, step, !failure && status === 0 ? "passed" : "failed", root);
   } catch (error) {

@@ -28,7 +28,7 @@ test("static report publication retains every check and writes the already-compu
   assert.equal(published.length, original.length);
   assert.deepEqual(published.map(([command, args, env]) => [command, args.filter((arg) => !["--write", "--run-report"].includes(arg)), env]),
     original.map(([command, args, env]) => [command, args, env]));
-  for (const script of ["generate-report", "capture-contracts", "synthetic-probes", "cold-import-readiness", "workspace-plan", "platform-probes", "import-loop-profile", "profile-contract-runtime", "check-ci-policy", "check-generated-surface-fixture"]) {
+  for (const script of ["run-report-suite", "import-loop-profile", "profile-contract-runtime", "check-ci-policy", "check-generated-surface-fixture"]) {
     const args = published.find(([, commandArgs]) => commandArgs[0] === `scripts/${script}.mjs`)[1];
     assert.ok(args.indexOf("--write") > args.indexOf("--check"), `${script} must validate and write once`);
   }
@@ -190,7 +190,7 @@ function reportingFixture(t) {
   const { root } = value;
   const scripts = path.join(root, "scripts");
   mkdirSync(scripts);
-  for (const name of ["plugin-inspector-source", "ci-report-handoff", "write-ci-summary", "run-static-suite", "portable-command", "static-step", "runtime-profile-plan", "check-ci-policy"]) {
+  for (const name of ["plugin-inspector-source", "ci-report-handoff", "write-ci-summary", "run-static-suite", "run-report-suite", "portable-command", "static-step", "runtime-profile-plan", "check-ci-policy"]) {
     copyFileSync(new URL(`../scripts/${name}.mjs`, import.meta.url), path.join(scripts, `${name}.mjs`));
   }
   writeFileSync(path.join(scripts, "manifest-lib.mjs"), `export const repoRoot = ${JSON.stringify(root)};`);

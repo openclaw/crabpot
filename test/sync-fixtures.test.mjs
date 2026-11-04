@@ -186,6 +186,32 @@ function assertFailedAcquisition(result) {
   assert.doesNotMatch(result.stdout, /fixtures materialized/);
 }
 
+test("composed report commands match standalone artifacts on the same real source fixture", async (t) => {
+  const item = fixture();
+  delete item.package;
+  const repo = await miniatureRepo(t, [item]);
+  await repo.json(`${item.path}/package.json`, {
+    name: "fixture-plugin", version: "1.0.0", type: "module",
+    openclaw: { extensions: ["./index.mjs"] },
+  });
+  const source = 'export default function register(api) { api.registerTool({ name: "fixture", execute() {} }); }\n';
+  await writeFile(path.join(repo.root, item.path, "index.mjs"), source);
+  const env = { CRABPOT_PLUGIN_INSPECTOR_DIR: path.dirname(path.dirname(resolvePluginInspectorCliPath())) };
+  const scripts = ["generate-report", "capture-contracts", "synthetic-probes", "cold-import-readiness", "workspace-plan", "platform-probes", "check-contract-coverage"];
+  for (const name of scripts) {
+    const result = repo.run(`${name}.mjs`, ["--check", "--no-openclaw", "--write"], env);
+    assert.equal(result.status, 0, `${name}: ${result.stderr}`);
+  }
+  const reports = path.join(repo.root, "reports");
+  const before = new Map(await Promise.all((await readdir(reports)).map(async (name) => [name, await readFile(path.join(reports, name), "utf8")])));
+  const composed = repo.run("run-report-suite.mjs", ["--check", "--no-openclaw", "--write"], env);
+  assert.equal(composed.status, 0, composed.stderr);
+  assert.equal(before.size, 13, "six JSON/Markdown reports and the compatibility issues report");
+  for (const [name, bytes] of before) assert.equal(await readFile(path.join(reports, name), "utf8"), bytes, name);
+  assert.equal(await readFile(path.join(repo.root, item.path, "index.mjs"), "utf8"), source);
+  await repo.assertNpmComplete();
+});
+
 function sourcePackFixture() {
   const item = fixture("source", "@openclaw/fixture");
   item.package.artifactSource = "source-pack";

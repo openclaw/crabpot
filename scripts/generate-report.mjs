@@ -11,17 +11,17 @@ import {
 } from "./report-lib.mjs";
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
-  await main();
+  await runReportCommand();
 }
 
-async function main() {
-  const parsedArgs = parseArgs(process.argv.slice(2));
+export async function runReportCommand(argv = process.argv.slice(2), options = {}) {
+  const parsedArgs = parseArgs(argv);
   const args = new Set(parsedArgs.flags);
   const check = args.has("--check");
   const json = args.has("--json");
   const write = !check || args.has("--write");
 
-  const report = await buildReport({
+  const report = options.report ?? await buildReport({
     executionResultsPath: parsedArgs.executionResultsPath,
     fixtureSet: parsedArgs.fixtureSet,
     openclawPath: parsedArgs.openclawPath,
@@ -54,6 +54,7 @@ async function main() {
   if (check && report.breakages.length > 0) {
     throw new Error(report.breakages.map((finding) => finding.message).join("\n"));
   }
+  return report;
 }
 
 function relativePathLabel(filePath) {

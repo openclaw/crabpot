@@ -2,6 +2,8 @@
 
 ## 0.2.2 - Unreleased
 
+- Reuse one source inspection across static report checks so Windows CI retains time for coverage and policy validation, preserving every cold profiling sample and existing deadlines.
+
 - Adopt Plugin Inspector 0.4.5 for source and published-package smoke checks, carrying the source-host memory and hook-registry compatibility fixes.
 
 - Refresh 22 official plugin fallback pins to 2026.10.6 with verified publication-source references, and update Apify and ClawMetry fixture pins while retaining track selectors and qualified runtime boundaries. Thanks @dependabot.

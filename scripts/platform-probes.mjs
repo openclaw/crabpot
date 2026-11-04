@@ -15,12 +15,12 @@ export const PLATFORM_TARGETS = ["linux", "macos", "windows", "container"];
 export const validatePlatformProbes = pluginInspector.validateFixtureSetPlatformProbes;
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
-  await main();
+  await runReportCommand();
 }
 
-async function main() {
-  const args = parseArgs(process.argv.slice(2));
-  const report = await buildPlatformProbes({ openclawPath: args.openclawPath });
+export async function runReportCommand(argv = process.argv.slice(2), options = {}) {
+  const args = parseArgs(argv);
+  const report = await buildPlatformProbes({ openclawPath: args.openclawPath, ...options });
   const errors = validatePlatformProbes(report);
 
   if (args.write) {
@@ -37,6 +37,7 @@ async function main() {
   if (errors.length > 0) {
     throw new Error(errors.join("\n"));
   }
+  return report;
 }
 
 function parseArgs(argv) {
