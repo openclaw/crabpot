@@ -5,4 +5,5 @@
 - Finding: WhatsApp was the only fixture without an expected contract. Inspection could succeed without proving its channel seam.
 - Change: require `registerChannel` in the manifest. The pinned Inspector accepts the channel factory equivalents used by bundled plugins.
 - Scope: preserve the package selector, source fallback pin, and external plugin source.
+- Revalidated after main adopted Inspector `8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446`: 68 source files, channel factories observed, zero breakages on AWS Linux (`run_bafcbbb125bfadd704d1a4ee24031fd2`, lease `cbx_308e05af2df7`, actual type `m7a.8xlarge`).
 - Validation: all 47 local manifest checks passed. Native materialization and focused inspection passed on AWS Linux: 68 source files, observed channel factories, and zero breakages (`run_fc3d8856be4bacf53634db1468a78216`, lease `cbx_252eae838938`, actual type `c7i.8xlarge`). The initial ad hoc invocations needed an explicit script argument and the array length for `sourceFiles`; neither required a product change.
