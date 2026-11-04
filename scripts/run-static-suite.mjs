@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { pathToFileURL } from "node:url";
+import { readOptionValue } from "./cli-args.mjs";
 import { runStaticStep } from "./static-step.mjs";
 import { buildTestSteps } from "./run-tests.mjs";
 import { executeCiStep, readCiRun, reportKeyForCommand, startCiRun } from "./ci-report-handoff.mjs";
@@ -119,7 +120,7 @@ function parseArgs(argv) {
       continue;
     }
     if (arg === "--openclaw") {
-      args.openclawPath = requireValue(argv, index);
+      args.openclawPath = readOptionValue(argv, index, arg);
       index += 1;
       continue;
     }
@@ -128,27 +129,27 @@ function parseArgs(argv) {
       continue;
     }
     if (arg === "--fixture-set") {
-      args.fixtureSet = requireValue(argv, index);
+      args.fixtureSet = readOptionValue(argv, index, arg);
       index += 1;
       continue;
     }
     if (arg === "--openclaw-track") {
-      args.openclawTrack = requireValue(argv, index);
+      args.openclawTrack = readOptionValue(argv, index, arg);
       index += 1;
       continue;
     }
     if (arg === "--plugin-track") {
-      args.pluginTrack = requireValue(argv, index);
+      args.pluginTrack = readOptionValue(argv, index, arg);
       index += 1;
       continue;
     }
     if (arg === "--policy") {
-      args.policy = assertPolicy(requireValue(argv, index));
+      args.policy = assertPolicy(readOptionValue(argv, index, arg));
       index += 1;
       continue;
     }
     if (arg === "--profile-runs") {
-      args.profileRuns = requireValue(argv, index);
+      args.profileRuns = readOptionValue(argv, index, arg);
       index += 1;
     }
   }
@@ -161,12 +162,4 @@ function assertPolicy(policy) {
     throw new Error(`unknown static suite policy: ${policy}`);
   }
   return policy;
-}
-
-function requireValue(argv, index) {
-  const value = argv[index + 1];
-  if (!value || value.startsWith("--")) {
-    throw new Error(`${argv[index]} requires a value`);
-  }
-  return value;
 }
