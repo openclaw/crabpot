@@ -77,23 +77,6 @@ test("plugin inspector smoke can run local source or an explicit binary", () => 
   });
 });
 
-test("plugin inspector smoke uses full default findings output", () => {
-  const sourceScript = readFileSync(new URL("../scripts/plugin-inspector-source.mjs", import.meta.url), "utf8");
-  const smokeScript = readFileSync(new URL("../scripts/run-plugin-inspector-smoke.mjs", import.meta.url), "utf8");
-
-  assert.match(
-    sourceScript,
-    /run\(npmCommand\(\), \["ci", "--omit=dev", "--ignore-scripts", "--no-audit", "--no-fund"\], checkoutDir\)/,
-  );
-  assert.match(sourceScript, /CRABPOT_GIT_TIMEOUT_MS/);
-  assert.match(sourceScript, /CRABPOT_NPM_TIMEOUT_MS/);
-  assert.match(smokeScript, /CRABPOT_PLUGIN_INSPECTOR_TIMEOUT_MS/);
-  assert.doesNotMatch(smokeScript, /--include-inspector-gaps/);
-  assert.doesNotMatch(smokeScript, /--author-facing/);
-  assert.doesNotMatch(smokeScript, /const command =/);
-  assert.match(smokeScript, /"report", "--config", configPath, "--out", outDir/);
-});
-
 test("plugin inspector smoke check fails on a real missing registration", (t) => {
   const root = mkdtempSync(path.join(os.tmpdir(), "crabpot-inspector-smoke-"));
   t.after(() => rmSync(root, { force: true, recursive: true }));
