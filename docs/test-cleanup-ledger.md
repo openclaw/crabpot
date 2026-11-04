@@ -32,6 +32,8 @@
 
 ## Remaining audit
 
+- Corpus expectation cleanup: removed the copied channel-alias helper and hook/registration/manifest loops. The pinned Inspector checks those expectations and exposes missing seams as report breakages. Retained all configured fixture IDs, successful materialization, and the real report verdict. Syntax and diff checks passed; full corpus execution remains pending in PR CI.
+
 Current inventory: 53 top-level test files and 59 configured plugin fixtures. Initial reference tracing found consumers for all files under `test/fixtures`, including dynamically constructed capture-error filenames; none is proven dead by filename search alone.
 
 Review behavioral tests, fixture uniqueness, blocked-failure mappings, and static checks versus actual isolated execution. Source-text workflow guards remain candidates for replacement with executable checks; this batch does not claim they prove end-to-end behavior.
