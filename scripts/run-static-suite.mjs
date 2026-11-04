@@ -119,7 +119,7 @@ function parseArgs(argv) {
       continue;
     }
     if (arg === "--openclaw") {
-      args.openclawPath = argv[index + 1];
+      args.openclawPath = requireValue(argv, index);
       index += 1;
       continue;
     }
@@ -128,27 +128,27 @@ function parseArgs(argv) {
       continue;
     }
     if (arg === "--fixture-set") {
-      args.fixtureSet = argv[index + 1];
+      args.fixtureSet = requireValue(argv, index);
       index += 1;
       continue;
     }
     if (arg === "--openclaw-track") {
-      args.openclawTrack = argv[index + 1];
+      args.openclawTrack = requireValue(argv, index);
       index += 1;
       continue;
     }
     if (arg === "--plugin-track") {
-      args.pluginTrack = argv[index + 1];
+      args.pluginTrack = requireValue(argv, index);
       index += 1;
       continue;
     }
     if (arg === "--policy") {
-      args.policy = assertPolicy(argv[index + 1]);
+      args.policy = assertPolicy(requireValue(argv, index));
       index += 1;
       continue;
     }
     if (arg === "--profile-runs") {
-      args.profileRuns = argv[index + 1];
+      args.profileRuns = requireValue(argv, index);
       index += 1;
     }
   }
@@ -161,4 +161,12 @@ function assertPolicy(policy) {
     throw new Error(`unknown static suite policy: ${policy}`);
   }
   return policy;
+}
+
+function requireValue(argv, index) {
+  const value = argv[index + 1];
+  if (!value || value.startsWith("--")) {
+    throw new Error(`${argv[index]} requires a value`);
+  }
+  return value;
 }
