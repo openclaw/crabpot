@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import path from "node:path";
 import { pathToFileURL } from "node:url";
+import { readOptionValue } from "./cli-args.mjs";
 import { repoRoot } from "./manifest-lib.mjs";
 import { loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
 import { buildReport } from "./report-lib.mjs";
@@ -99,14 +100,6 @@ function parseArgs(argv) {
   }
 
   return args;
-}
-
-function readOptionValue(argv, index, flagName) {
-  const value = argv[index + 1];
-  if (!value || value.startsWith("--")) {
-    throw new Error(`${flagName} requires a value`);
-  }
-  return value;
 }
 
 export async function buildRefDiff(options = {}) {
