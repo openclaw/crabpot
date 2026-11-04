@@ -30,7 +30,7 @@
 
 - Moved the supplied-runtime-evidence integration check into the existing no-host corpus lane, selecting only its `a2a-gateway` fixture. Its assertions do not use the other 58 fixtures.
 - Kept all four existing assertions and added explicit selection and source-presence checks so a missing checkout cannot pass. Removed the dedicated runtime corpus process from the shared test plan and deleted its two unused files.
-- Validation: eight runner checks passed locally and on AWS Linux (`run_b78d2f516fa03a765d6a28fb9948411b`). The original runtime assertions also passed there, but source presence was not verified. The strengthened source-presence assertions await hosted CI: Crabbox omitted Git metadata/submodule files, and explicit local Git seeding refused the linked worktree.
+- Validation: eight runner checks passed locally and on AWS Linux (`run_b78d2f516fa03a765d6a28fb9948411b`). The strengthened runtime check passed with the pinned submodule materialized on AWS Linux (`run_0696933773a3bc9283a0958d399b3e59`, lease `cbx_f49c1c3d09e4`). The branch must be published for Crabbox to seed its Git metadata; submodule source is then materialized by the repo-native fixture command.
 
 ## Remaining audit
 
