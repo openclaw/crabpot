@@ -2,8 +2,6 @@
 
 ## 0.2.2 - Unreleased
 
-- Enforce strict CI policy when the static suite selects the release gate, including manual ref checks with strict contracts enabled.
-
 - Reject missing static-suite option values before starting checks, so an incomplete fixture selector cannot fall back to the full corpus.
 
 - Adopt reviewed Plugin Inspector source memory fixes, including type-information-only SDK parsing that preserves JavaScript JSDoc and inventory evidence; retain the published 0.4.5 package pin, 2 GiB heap limit, and all cold profiling samples.
@@ -138,6 +136,8 @@
 - Recorded dashboard metadata from the exact OpenClaw checkout exercised by the run.
 
 - Preserve Dependabot PR heads during validation so generated reports cannot invalidate required CI or conflict across dependency updates; publish reports through the shared dashboard owner after exact-commit validation or a confirmed bot merge. Thanks @vincentkoc.
+
+- Enforce strict CI policy when the static suite selects the release gate, including manual ref checks with strict contracts enabled.
 
 ## 0.2.1 - 2026-07-06
 
