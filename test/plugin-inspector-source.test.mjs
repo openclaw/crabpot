@@ -119,7 +119,7 @@ test("plugin inspector smoke check fails on a real missing registration", (t) =>
     const result = spawnSync(process.execPath, [
       "scripts/run-plugin-inspector-smoke.mjs", "--config", configPath, "--out", out,
       ...(check ? ["--check"] : []),
-    ], { cwd: new URL("..", import.meta.url), env, encoding: "utf8" });
+    ], { cwd: new URL("..", import.meta.url), env, encoding: "utf8", timeout: 60_000 });
     assert.ifError(result.error);
     assert.match(result.stdout, /Status: FAIL/, result.stderr);
     const report = JSON.parse(readFileSync(path.join(out, "plugin-inspector-report.json"), "utf8"));
@@ -194,7 +194,8 @@ test("plugin inspector checkout head probe returns instead of blocking when git 
 });
 
 function runGit(cwd, args) {
-  const result = spawnSync("git", args, { cwd, encoding: "utf8" });
+  const result = spawnSync("git", args, { cwd, encoding: "utf8", timeout: 60_000 });
+  assert.ifError(result.error);
   assert.equal(result.status, 0, result.stderr);
   return result;
 }

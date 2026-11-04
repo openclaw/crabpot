@@ -437,8 +437,10 @@ test("dependabot merge stops on changed heads and passes only a confirmed merge 
     await writeFile(outputPath, "");
     const result = spawnSync(process.platform === "win32" ? "bash" : "/bin/bash", ["-c", stub + script], {
       encoding: "utf8",
+      timeout: 60_000,
       env: { PATH: process.env.PATH, PR_NUMBER: "123", PR_HEAD_SHA: "reviewed-head", CHECK_STATE: state, MERGED_SHA: merge, GITHUB_OUTPUT: outputPath },
     });
+    assert.ifError(result.error);
     return { ...result, output: await readFile(outputPath, "utf8") };
   };
   const changed = await run("new-head\tMERGEABLE\tCLEAN\t0\t0");
