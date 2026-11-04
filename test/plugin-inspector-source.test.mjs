@@ -13,7 +13,7 @@ import {
 } from "../scripts/plugin-inspector-source.mjs";
 
 test("plugin inspector source pin requires an exact prepared checkout", (t) => {
-  assert.equal(pluginInspectorRef, "8ec7d359fd78c96e723ce77eb5cffb3fec6703ee");
+  assert.equal(pluginInspectorRef, "8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446");
 
   const checkoutDir = mkdtempSync(path.join(os.tmpdir(), "crabpot plugin inspector checkout "));
   t.after(() => rmSync(checkoutDir, { force: true, recursive: true }));
