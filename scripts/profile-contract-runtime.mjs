@@ -133,13 +133,6 @@ export async function writeRuntimeProfile(profile, options = {}) {
   });
 }
 
-export function renderRuntimeProfileMarkdown(profile, options = {}) {
-  return pluginInspector.renderRuntimeProfileMarkdown(profile, {
-    ...crabpotRuntimeProfileOptions,
-    ...options,
-  });
-}
-
 function formatSampledMetric(value, count, unit = "MB") {
   if ((count ?? 0) <= 0) {
     return "n/a";
