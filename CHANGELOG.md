@@ -3,6 +3,7 @@
 ## 0.2.2 - Unreleased
 
 - Wait for asynchronous OpenClaw registry activation before reading lifecycle results, preserving synchronous loader support and cleanup after rejected activation.
+- Reject missing static-suite option values before starting checks, so an incomplete fixture selector cannot fall back to the full corpus.
 
 - Adopt reviewed Plugin Inspector source memory fixes, including type-information-only SDK parsing that preserves JavaScript JSDoc and inventory evidence; retain the published 0.4.5 package pin, 2 GiB heap limit, and all cold profiling samples.
 
