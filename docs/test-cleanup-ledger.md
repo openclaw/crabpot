@@ -11,12 +11,12 @@
 
 - Commit `0a0392f`: reject missing values for all six static-suite options before any step starts. An incomplete fixture selector previously fell back to the full corpus.
 - Removed the duplicate release-policy builder test, which never exercised release parsing; added real CLI regression coverage for absent/empty/following-flag values.
-- Validation: eight focused tests passed locally and on AWS Linux (`run_71b1823696a55535d57db2238f7d2b6a`). GitHub rejected branch pushes with server errors; publication pending.
+- Validation: eight focused tests passed locally and on AWS Linux (`run_71b1823696a55535d57db2238f7d2b6a`). Published as https://github.com/openclaw/crabpot/pull/711 after transient GitHub push failures.
 
 ## Temporary fixture ownership
 
-- Added teardown hooks for all 15 temporary allocations in execution-results, cold-import-capture, ci-summary, ref-diff, and profile-diff tests. Hooks also run after assertion failures.
-- Validation: all 25 affected tests passed on AWS Linux (`run_d22533beddd8f2c0a30b5ee2979f47ad`). Residual inspection in run `run_337626ee031d32b6ca67d866d64113ef` confirmed only `node-compile-cache` remained; all 25 tests passed and no Crabpot fixture directories remained. No existing temporary data was deleted.
+- Added teardown hooks for 18 temporary allocations in execution-results, cold-import-capture, ci-summary, ref-diff, profile-diff, and synthetic-probe tests. Hooks also run after assertion failures.
+- Validation: all 25 affected tests passed on AWS Linux (`run_d22533beddd8f2c0a30b5ee2979f47ad`). Residual inspection in run `run_337626ee031d32b6ca67d866d64113ef` confirmed only `node-compile-cache` remained; all 25 tests passed and no Crabpot fixture directories remained. No existing temporary data was deleted. The three additional synthetic-probe teardown hooks await the expanded validation run.
 
 ## Remaining audit
 
