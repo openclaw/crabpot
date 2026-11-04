@@ -2,6 +2,8 @@
 
 ## 0.2.2 - Unreleased
 
+- Require the WhatsApp fixture to retain its channel registration when inspecting published packages or the pinned source fallback.
+
 - Reuse one source inspection across static report checks so Windows CI retains time for coverage and policy validation, preserving every cold profiling sample and existing deadlines.
 
 - Adopt Plugin Inspector 0.4.5 for source and published-package smoke checks, carrying the source-host memory and hook-registry compatibility fixes.
