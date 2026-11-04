@@ -2,7 +2,8 @@
 import { pathToFileURL } from "node:url";
 import { runStaticStep } from "./static-step.mjs";
 import { buildTestSteps } from "./run-tests.mjs";
-import { executeCiStep, reportKeyForCommand, startCiRun } from "./ci-report-handoff.mjs";
+import { executeCiStep, readCiRun, reportKeyForCommand, startCiRun } from "./ci-report-handoff.mjs";
+import { reportSuiteSteps } from "./run-report-suite.mjs";
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   main();
@@ -33,14 +34,35 @@ function main() {
 }
 
 export function runStaticSuite(steps, { writeReports = false, root = process.cwd(), execute = runStaticStep } = {}) {
-  const report = writeReports ? startCiRun(steps.map(([, args], index) => ({
-    id: `static-${index + 1}`, command: args.join(" "), report: reportKeyForCommand(args),
-  })), root) : null;
+  let report = writeReports ? startCiRun(steps.flatMap(([, args], index) => args[0] === "scripts/run-report-suite.mjs"
+    ? reportSuiteSteps(args.slice(1))
+    : [{ id: `static-${index + 1}`, command: args.join(" "), report: reportKeyForCommand(args) }]), root) : null;
   for (let index = 0; index < steps.length; index += 1) {
     const [command, args, env] = steps[index];
-    const step = report?.steps[index];
+    const step = report?.steps.find((item) => item.id === `static-${index + 1}`);
     const callback = () => execute(command, args, env, index + 1, steps.length);
-    const status = step ? executeCiStep(report, step, callback, root) : callback();
+    let status;
+    if (args[0] === "scripts/run-report-suite.mjs") {
+      let failure;
+      try { status = callback(); } catch (error) { failure = error; }
+      finally {
+        // The child owns individual report outcomes, including partial failure.
+        // Reload even after a timeout before any later parent step saves state.
+        if (report) {
+          try { report = readCiRun(root); } catch (error) {
+            if (failure) throw new AggregateError([failure, error], "Report suite and handoff reload both failed");
+            throw error;
+          }
+        }
+      }
+      if (failure) throw failure;
+      if (status === 0 && report && reportSuiteSteps(args.slice(1)).some(({ id }) =>
+        report.steps.find((item) => item.id === id)?.state !== "passed")) {
+        throw new Error("Report suite exited without completing every selected producer");
+      }
+    } else {
+      status = step ? executeCiStep(report, step, callback, root) : callback();
+    }
     if (status !== 0) return status;
   }
   return 0;
@@ -66,21 +88,15 @@ export function buildStaticSuiteSteps({
     ["node", ["scripts/inspect-fixtures.mjs", "--check"], fixtureEnv],
     ...(pluginInspectorSmoke ? [["node", ["scripts/run-plugin-inspector-smoke.mjs", "--check"], fixtureEnv]] : []),
     ["node", ["scripts/check-generated-surface-fixture.mjs", "--check", ...openclawArgs], fixtureEnv],
-    ["node", ["scripts/generate-report.mjs", "--check", ...openclawArgs], fixtureEnv],
-    ["node", ["scripts/capture-contracts.mjs", "--check", ...openclawArgs], fixtureEnv],
-    ["node", ["scripts/synthetic-probes.mjs", "--check", ...openclawArgs], fixtureEnv],
     ...(openclawArgs.length === 0 ? [["node", ["scripts/behavior-eval.mjs", "--check"], fixtureEnv]] : []),
-    ["node", ["scripts/cold-import-readiness.mjs", "--check", ...openclawArgs], fixtureEnv],
-    ["node", ["scripts/workspace-plan.mjs", "--check", ...openclawArgs], fixtureEnv],
-    ["node", ["scripts/platform-probes.mjs", "--check", ...openclawArgs], fixtureEnv],
+    ["node", ["scripts/run-report-suite.mjs", "--check", ...openclawArgs], fixtureEnv],
     ["node", ["scripts/import-loop-profile.mjs", "--check", ...profileArgs], fixtureEnv],
     ["node", ["scripts/profile-contract-runtime.mjs", "--check", ...openclawArgs, ...profileArgs], fixtureEnv],
-    ["node", ["scripts/check-contract-coverage.mjs", ...openclawArgs], fixtureEnv],
     ["node", ["scripts/check-ci-policy.mjs", "--check", ...policyArgs], fixtureEnv],
   ];
   return writeReports ? steps.map(([command, args, env]) => [command,
-    reportKeyForCommand(args) && args.includes("--check")
-      ? [...args, "--write", ...(args[0] === "scripts/check-ci-policy.mjs" ? ["--run-report"] : [])]
+    (reportKeyForCommand(args) || args[0] === "scripts/run-report-suite.mjs") && args.includes("--check")
+      ? [...args, "--write", ...(["scripts/check-ci-policy.mjs", "scripts/run-report-suite.mjs"].includes(args[0]) ? ["--run-report"] : [])]
       : args, env]) : steps;
 }
 
