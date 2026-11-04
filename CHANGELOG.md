@@ -2,9 +2,11 @@
 
 ## 0.2.2 - Unreleased
 
-- Advance the Plugin Inspector source pin so repeated in-process synthetic runs share one exit cleanup listener; preserve the published package pin.
+- Reject missing static-suite option values before starting checks, so an incomplete fixture selector cannot fall back to the full corpus.
 
 - Adopt reviewed Plugin Inspector source memory fixes, including type-information-only SDK parsing that preserves JavaScript JSDoc and inventory evidence; retain the published 0.4.5 package pin, 2 GiB heap limit, and all cold profiling samples.
+
+- Advance the Plugin Inspector source pin so repeated in-process synthetic runs share one exit cleanup listener; preserve the published package pin.
 
 - Reuse one source inspection across static report checks so Windows CI retains time for coverage and policy validation, preserving every cold profiling sample and existing deadlines.
 
