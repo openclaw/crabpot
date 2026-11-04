@@ -51,12 +51,25 @@ Keep npm fixture source references in the manifest and shim aligned with the
 published artifact. When an official package omits `gitHead`, verify the prepared
 package source SHA in its publication qualification and artifact manifest. The
 release workflow SHA and public release tag can identify different commits.
-The 2026.10.6 fallback refresh uses prepared source
-`fe06181dc5ecc01cf8904abbfc26925925efefbc`, verified against all 22 package
-publication qualifications from run `39773458213`. Its publishing workflow used
-`87d4818b4a03aaf2e0180b65899fd7b5a1279b53`; that is not the package source.
-Brave, Diffs, Google Meet, and Memory LanceDB also advance to this qualified
-release. Moving track selection is unchanged.
+The 2026.10.9 fallback refresh uses prepared source
+`8b18b5578f66eab1501cba4cef2310d88bfb9a41`. The packed-runtime-qualified
+manifest from run `40863636659` identifies all 22 packages; its artifact
+`12892419359` has SHA-256
+`aa7686c555e2582c9755f97022238314f1641ac3f69039838d1cf83380eb3cb8`.
+All 22 individual publication qualification artifacts from run `40890894348`
+were checked against their GitHub SHA-256 digests, package names, versions, and
+prepared source. Registry metadata independently identifies the published
+package versions, tarball URLs, and integrity values. That publication run
+failed overall; its successful per-package qualifications establish these 22
+packages, not success for every package in the upstream release campaign.
+The configured refresh advances 21 fallbacks. Brave retains the reviewed
+2026.10.6 artifact and prepared source
+`fe06181dc5ecc01cf8904abbfc26925925efefbc`. Both integrity-verified archives
+contain the same ten existing non-package files; 2026.10.9 adds a source-module
+map and raises the declared host floor without a demonstrated runtime benefit.
+This preserves the [maintainer impact bar](https://github.com/openclaw/crabpot/pull/528#issuecomment-6262078780).
+Moving track selection and the separately qualified Default Track host pin are
+unchanged; the newer packages' declared host compatibility remains visible.
 Regenerate reports against the pinned Default Track after changing fixture pins.
 The normal Default Track follows npm `latest`, so its observed package versions
 can advance beyond the shim pins used when tag resolution falls back. Treat
