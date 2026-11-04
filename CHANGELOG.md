@@ -3,6 +3,7 @@
 ## 0.2.2 - Unreleased
 
 - Refresh the Teams fixture's mutable follow-redirects dependency to 1.16.2, clearing the committed-lock audit blocker without changing plugin or host pins.
+- Adopt reviewed Plugin Inspector source memory fixes, including type-information-only SDK parsing that preserves JavaScript JSDoc and inventory evidence; retain the published 0.4.5 package pin, 2 GiB heap limit, and all cold profiling samples.
 
 - Reuse one source inspection across static report checks so Windows CI retains time for coverage and policy validation, preserving every cold profiling sample and existing deadlines.
 
