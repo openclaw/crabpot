@@ -14,33 +14,33 @@ Status: PASS
 
 | Metric                     | Value |
 | -------------------------- | ----- |
-| Issue findings             | 442   |
-| Open issue findings        | 442   |
+| Issue findings             | 338   |
+| Open issue findings        | 338   |
 | Runtime-covered findings   | 0     |
 | Runtime-partial findings   | 0     |
-| 🔴 P0                      | 5     |
-| 🟠 P1                      | 35    |
-| Open 🔴 P0                 | 5     |
-| Open 🟠 P1                 | 35    |
-| Live issues                | 5     |
-| Live P0 issues             | 5     |
-| Compat gaps                | 27    |
-| Deprecation warnings       | 217   |
-| Inspector gaps             | 149   |
-| Open inspector gaps        | 149   |
+| 🔴 P0                      | 7     |
+| 🟠 P1                      | 123   |
+| Open 🔴 P0                 | 7     |
+| Open 🟠 P1                 | 123   |
+| Live issues                | 7     |
+| Live P0 issues             | 7     |
+| Compat gaps                | 105   |
+| Deprecation warnings       | 21    |
+| Inspector gaps             | 160   |
+| Open inspector gaps        | 160   |
 | Runtime coverage artifacts | 0     |
-| Upstream metadata          | 44    |
-| Contract probes            | 217   |
+| Upstream metadata          | 45    |
+| Contract probes            | 232   |
 
 ## Triage Overview
 
 | Class               | Count | P0 | Meaning                                                                                                                                                  |
 | ------------------- | ----- | -- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| live-issue          | 5     | 5  | Potential runtime breakage in the target OpenClaw/plugin pair. P0 only when it is not a deprecated compat seam.                                          |
-| compat-gap          | 27    | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                                                                   |
-| deprecation-warning | 217   | -  | Plugin uses a supported but deprecated compatibility seam; keep it wired while migration exists.                                                         |
-| inspector-gap       | 149   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments. Runtime-covered rows are proof-backed and not open report work. |
-| upstream-metadata   | 44    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.                                                 |
+| live-issue          | 7     | 7  | Potential runtime breakage in the target OpenClaw/plugin pair. P0 only when it is not a deprecated compat seam.                                          |
+| compat-gap          | 105   | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                                                                   |
+| deprecation-warning | 21    | -  | Plugin uses a supported but deprecated compatibility seam; keep it wired while migration exists.                                                         |
+| inspector-gap       | 160   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments. Runtime-covered rows are proof-backed and not open report work. |
+| upstream-metadata   | 45    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.                                                 |
 | fixture-regression  | 0     | -  | Fixture no longer exposes an expected seam; investigate fixture pin or scanner drift.                                                                    |
 
 ## P0 Live Issues
@@ -57,6 +57,21 @@ Status: PASS
   - state: blocking · compat:none · live
   - evidence:
     - [before_agent_start @ hooks.ts:17](https://github.com/osipov-anton/connectclaw/blob/7a4e2646e914de075435b3837123cc03c3edae36/packages/plugin/src/hooks.ts#L17)
+
+- 🔴 P0 **kitchen-sink** `live-issue` `core-compat-adapter`
+  - **unknown-hook-name**: kitchen-sink: fixture uses a hook missing from target OpenClaw
+  - state: blocking · compat:none · live
+  - evidence:
+    - [skill_proposal_changed @ generated-hooks.js:40](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-hooks.js#L40)
+    - [skill_proposal_evaluate @ generated-hooks.js:41](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-hooks.js#L41)
+
+- 🔴 P0 **kitchen-sink** `live-issue` `core-compat-adapter`
+  - **unknown-registration-name**: kitchen-sink: fixture calls a registrar missing from target OpenClaw
+  - state: blocking · compat:none · live
+  - evidence:
+    - [registerCodexAppServerExtensionFactory @ generated-registrars.js:12](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L12)
+    - [registerHostedMediaResolver @ generated-registrars.js:23](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L23)
+    - [registerTextTransforms @ generated-registrars.js:51](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L51)
 
 - 🔴 P0 **memos-cloud** `live-issue` `core-compat-adapter`
   - **unknown-hook-name**: memos-cloud: fixture uses a hook missing from target OpenClaw
@@ -82,17 +97,44 @@ _none_
 
 ## Compat Gaps
 
+- 🟠 P1 **a2a-gateway** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: a2a-gateway: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
 - 🟠 P1 **agentchat** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: agentchat: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
   - evidence:
     - channel-env-vars
 
+- 🟠 P1 **agentchat** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: agentchat: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **agentchat** `compat-gap` `core-compat-adapter`
+  - **sdk-export-missing**: agentchat: plugin SDK import aliases are missing from target package exports
+  - state: open · compat:untracked
+  - evidence:
+    - [openclaw/plugin-sdk/channel-lifecycle @ gateway.ts:27](https://github.com/agentchatme/agentchat-openclaw/blob/caee25ad8ed7a38cc4281bda397c7e0e7e90ce6a/src/binding/gateway.ts#L27)
+
+- 🟠 P1 **bluebubbles** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: bluebubbles: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
 - 🟠 P1 **bluebubbles** `compat-gap` `core-compat-adapter`
   - **sdk-export-missing**: bluebubbles: plugin SDK import aliases are missing from target package exports
   - state: open · compat:untracked
   - evidence:
+    - [openclaw/plugin-sdk/channel-lifecycle @ channel-BSIXOcHe.js:13](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/channel-BSIXOcHe.js#L13)
+    - [openclaw/plugin-sdk/channel-reply-pipeline @ monitor-processing-Dy-LY2QQ.js:28](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/monitor-processing-Dy-LY2QQ.js#L28)
     - [openclaw/plugin-sdk/channel-streaming @ probe-B4I0cEVm.js:6](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/probe-B4I0cEVm.js#L6)
+    - [openclaw/plugin-sdk/command-auth @ monitor-processing-Dy-LY2QQ.js:29](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/monitor-processing-Dy-LY2QQ.js#L29)
     - [openclaw/plugin-sdk/text-runtime @ channel-BSIXOcHe.js:18](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/channel-BSIXOcHe.js#L18)
     - [openclaw/plugin-sdk/text-runtime @ monitor-processing-Dy-LY2QQ.js:8](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/monitor-processing-Dy-LY2QQ.js#L8)
     - [openclaw/plugin-sdk/text-runtime @ probe-B4I0cEVm.js:4](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/probe-B4I0cEVm.js#L4)
@@ -100,6 +142,48 @@ _none_
     - [openclaw/plugin-sdk/text-runtime @ webhook-shared-CoiIKIWN.js:1](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/webhook-shared-CoiIKIWN.js#L1)
     - [openclaw/plugin-sdk/webhook-path @ webhook-shared-CoiIKIWN.js:2](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/webhook-shared-CoiIKIWN.js#L2)
     - [openclaw/plugin-sdk/zod @ config-schema-a7F7uzDv.js:3](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/config-schema-a7F7uzDv.js#L3)
+
+- 🟠 P1 **brave-plugin** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: brave-plugin: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **clawmetry** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: clawmetry: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **clawmetry** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: clawmetry: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.llm-observer.privacy-payload
+
+- 🟠 P1 **clawrouter** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: clawrouter: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **codex** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: codex: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **codex-app-server** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: codex-app-server: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **connectclaw** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: connectclaw: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
 
 - 🟠 P1 **connectclaw** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: connectclaw: compat-dependent behavior lacks registry coverage
@@ -125,11 +209,68 @@ _none_
   - evidence:
     - channel-env-vars
 
+- 🟠 P1 **ddingtalk** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: ddingtalk: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **diagnostics-otel** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: diagnostics-otel: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **diagnostics-prometheus** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: diagnostics-prometheus: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **diffs** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: diffs: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **dingtalk-connector** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: dingtalk-connector: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **dingtalk-connector** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: dingtalk-connector: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
 - 🟠 P1 **dingtalk-connector** `compat-gap` `core-compat-adapter`
   - **sdk-export-missing**: dingtalk-connector: plugin SDK import aliases are missing from target package exports
   - state: open · compat:untracked
   - evidence:
     - [openclaw/plugin-sdk/channel-runtime @ reply-dispatcher.ts:21](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/reply-dispatcher.ts#L21)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:131](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L131)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:191](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L191)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:259](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L259)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:312](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L312)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:352](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L352)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:389](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L389)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:426](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L426)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:453](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L453)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:507](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L507)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:594](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L594)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:61](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L61)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:653](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L653)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:720](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L720)
+    - [openclaw/plugin-sdk/config-runtime @ card-bridge.ts:186](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/services/card-bridge.ts#L186)
+    - [openclaw/plugin-sdk/config-runtime @ card-bridge.ts:339](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/services/card-bridge.ts#L339)
+
+- 🟠 P1 **dingtalk-doc** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: dingtalk-doc: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.before_tool_call.terminal-block-approval
 
 - 🟠 P1 **dingtalk-doc** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: dingtalk-doc: compat-dependent behavior lacks registry coverage
@@ -143,11 +284,59 @@ _none_
   - evidence:
     - [openclaw/plugin-sdk @ index.ts:11](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/index.ts#L11)
 
+- 🟠 P1 **discord** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: discord: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **discord** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: discord: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **feishu** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: feishu: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **google-meet** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: google-meet: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
 - 🟠 P1 **hasdata** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: hasdata: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
   - evidence:
     - provider-auth-env-vars
+
+- 🟠 P1 **honcho** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: honcho: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **honcho** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: honcho: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.llm-observer.privacy-payload
+
+- 🟠 P1 **hyperspell** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: hyperspell: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **inworld-tts** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: inworld-tts: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
 
 - 🟠 P1 **inworld-tts** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: inworld-tts: compat-dependent behavior lacks registry coverage
@@ -155,18 +344,127 @@ _none_
   - evidence:
     - provider-auth-env-vars
 
+- 🟠 P1 **kitchen-sink** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: kitchen-sink: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **kitchen-sink** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: kitchen-sink: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **kitchen-sink** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: kitchen-sink: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.before_tool_call.terminal-block-approval
+
+- 🟠 P1 **kitchen-sink** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: kitchen-sink: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.llm-observer.privacy-payload
+
+- 🟠 P1 **lightclawbot** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: lightclawbot: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **lightclawbot** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: lightclawbot: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **lightclawbot** `compat-gap` `core-compat-adapter`
+  - **sdk-export-missing**: lightclawbot: plugin SDK import aliases are missing from target package exports
+  - state: open · compat:untracked
+  - evidence:
+    - openclaw/plugin-sdk/channel-reply-pipeline @ plugins/lightclawbot/.crabpot-package/dist/src/inbound.js:264
+    - openclaw/plugin-sdk/config-runtime @ plugins/lightclawbot/.crabpot-package/dist/src/utils/openclaw-compat.js:84
+
+- 🟠 P1 **llm-trace-phoenix** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: llm-trace-phoenix: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.llm-observer.privacy-payload
+
+- 🟠 P1 **lossless-claw** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: lossless-claw: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **matrix** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: matrix: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
 - 🟠 P1 **matrix** `compat-gap` `core-compat-adapter`
   - **sdk-export-missing**: matrix: plugin SDK import aliases are missing from target package exports
   - state: open · compat:untracked
   - evidence:
-    - [openclaw/plugin-sdk/plugin-state-test-runtime @ recovery-persistence.test-support.ts:7](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/src/matrix/sdk/recovery-persistence.test-support.ts#L7)
-    - [openclaw/plugin-sdk/test-env @ test-support.ts:2](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/test-support.ts#L2)
+    - [openclaw/plugin-sdk/plugin-state-test-runtime @ doctor-contract-api.test-support.ts:7](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/doctor-contract-api.test-support.ts#L7)
+    - [openclaw/plugin-sdk/plugin-state-test-runtime @ sync-store.test-support.ts:5](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/src/matrix/client/sync-store.test-support.ts#L5)
+    - [openclaw/plugin-sdk/plugin-state-test-runtime @ crypto-persistence.test-support.ts:5](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/src/matrix/sdk/crypto-persistence.test-support.ts#L5)
+    - [openclaw/plugin-sdk/plugin-state-test-runtime @ recovery-persistence.test-support.ts:7](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/src/matrix/sdk/recovery-persistence.test-support.ts#L7)
+    - [openclaw/plugin-sdk/sqlite-runtime-testing @ sync-store.test-support.ts:6](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/src/matrix/client/sync-store.test-support.ts#L6)
+    - [openclaw/plugin-sdk/test-env @ test-support.ts:2](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/test-support.ts#L2)
+
+- 🟠 P1 **mattermost** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: mattermost: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **mattermost** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: mattermost: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
 
 - 🟠 P1 **mattermost** `compat-gap` `core-compat-adapter`
   - **sdk-export-missing**: mattermost: plugin SDK import aliases are missing from target package exports
   - state: open · compat:untracked
   - evidence:
-    - [openclaw/plugin-sdk/test-env @ reactions.test-helpers.ts:1](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/reactions.test-helpers.ts#L1)
+    - [openclaw/plugin-sdk/channel-ingress-test-runtime @ monitor.ingress-debounce.test-support.ts:5](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/mattermost/src/mattermost/monitor.ingress-debounce.test-support.ts#L5)
+    - [openclaw/plugin-sdk/test-env @ monitor.ingress-debounce.test-support.ts:16](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/mattermost/src/mattermost/monitor.ingress-debounce.test-support.ts#L16)
+    - [openclaw/plugin-sdk/test-env @ reactions.test-helpers.ts:1](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/mattermost/src/mattermost/reactions.test-helpers.ts#L1)
+
+- 🟠 P1 **mcp-adapter** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: mcp-adapter: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **memory-lancedb** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: memory-lancedb: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **memory-lancedb** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: memory-lancedb: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.llm-observer.privacy-payload
+
+- 🟠 P1 **memory-tencentdb** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: memory-tencentdb: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **memory-tencentdb** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: memory-tencentdb: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.llm-observer.privacy-payload
 
 - 🟠 P1 **memory-tencentdb** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: memory-tencentdb: compat-dependent behavior lacks registry coverage
@@ -185,7 +483,31 @@ _none_
   - **missing-compat-record**: memos-cloud: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
   - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **memos-cloud** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: memos-cloud: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.llm-observer.privacy-payload
+
+- 🟠 P1 **memos-cloud** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: memos-cloud: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
     - legacy-before-agent-start
+
+- 🟠 P1 **mocrane-wecom** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: mocrane-wecom: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **mocrane-wecom** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: mocrane-wecom: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
 
 - 🟠 P1 **mocrane-wecom** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: mocrane-wecom: compat-dependent behavior lacks registry coverage
@@ -198,6 +520,60 @@ _none_
   - state: open · compat:untracked
   - evidence:
     - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:30](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L30)
+
+- 🟠 P1 **msteams** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: msteams: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **nemoclaw** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: nemoclaw: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **nemoclaw** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: nemoclaw: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.before_tool_call.terminal-block-approval
+
+- 🟠 P1 **nextcloud-talk** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: nextcloud-talk: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **nostr** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: nostr: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **nostr** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: nostr: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **openclaw-telemetry** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: openclaw-telemetry: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **openclaw-telemetry** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: openclaw-telemetry: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.before_tool_call.terminal-block-approval
+
+- 🟠 P1 **openclaw-telemetry** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: openclaw-telemetry: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.llm-observer.privacy-payload
 
 - 🟠 P1 **openclaw-telemetry** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: openclaw-telemetry: compat-dependent behavior lacks registry coverage
@@ -217,6 +593,36 @@ _none_
   - evidence:
     - [openclaw/plugin-sdk @ service.ts:2](https://github.com/knostic/openclaw-telemetry/blob/86c2458a0dfe82d639c208c5220396feb9d53c45/src/service.ts#L2)
 
+- 🟠 P1 **openclaw-weixin** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: openclaw-weixin: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **openclaw-weixin** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: openclaw-weixin: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **opik-openclaw** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: opik-openclaw: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **opik-openclaw** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: opik-openclaw: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.before_tool_call.terminal-block-approval
+
+- 🟠 P1 **opik-openclaw** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: opik-openclaw: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.llm-observer.privacy-payload
+
 - 🟠 P1 **opik-openclaw** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: opik-openclaw: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
@@ -234,6 +640,18 @@ _none_
   - **missing-compat-record**: qqbot: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
   - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **qqbot** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: qqbot: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **qqbot** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: qqbot: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
     - legacy-root-sdk-import
 
 - 🟠 P1 **qqbot** `compat-gap` `core-compat-adapter`
@@ -242,8 +660,80 @@ _none_
   - evidence:
     - [openclaw/plugin-sdk @ index.ts:2](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L2)
 
+- 🟠 P1 **secureclaw** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: secureclaw: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
 - 🟠 P1 **telnyx-sms** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: telnyx-sms: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **telnyx-sms** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: telnyx-sms: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel-env-vars
+
+- 🟠 P1 **telnyx-sms** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: telnyx-sms: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **tlon** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: tlon: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **twitch** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: twitch: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **voice-call** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: voice-call: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **wecom** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: wecom: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **wecom** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: wecom: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **wecom** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: wecom: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.before_tool_call.terminal-block-approval
+
+- 🟠 P1 **whatsapp** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: whatsapp: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **yuanbao** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: yuanbao: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **yuanbao** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: yuanbao: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
   - evidence:
     - channel-env-vars
@@ -252,7 +742,27 @@ _none_
   - **missing-compat-record**: yuanbao: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
   - evidence:
-    - channel-env-vars
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **yuanbao** `compat-gap` `core-compat-adapter`
+  - **sdk-export-missing**: yuanbao: plugin SDK import aliases are missing from target package exports
+  - state: open · compat:untracked
+  - evidence:
+    - openclaw/plugin-sdk/channel-reply-pipeline @ plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/dispatch-reply.js:5
+    - openclaw/plugin-sdk/command-auth @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/command-sync/index.js:2
+    - openclaw/plugin-sdk/command-auth @ plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/guard-command.js:5
+
+- 🟠 P1 **zalo** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: zalo: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **zalouser** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: zalouser: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
 
 ## Deprecation Warnings
 
@@ -264,627 +774,6 @@ _none_
   - author remediation:
     - Move legacy channel environment variable metadata into the current setup/config metadata while keeping the old field until your supported OpenClaw range no longer needs it.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#channel-env-vars
-
-- 🟡 P2 **bluebubbles** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: bluebubbles: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/command-auth @ monitor-processing-Dy-LY2QQ.js:29](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/monitor-processing-Dy-LY2QQ.js#L29)
-  - author remediation:
-    - openclaw/plugin-sdk/command-auth retires on Oct 1, 2026; the focused replacement named by each TypeScript @deprecated annotation
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **bluebubbles** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: bluebubbles: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/conversation-runtime @ monitor-processing-Dy-LY2QQ.js:19](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/monitor-processing-Dy-LY2QQ.js#L19)
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **bluebubbles** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: bluebubbles: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/media-runtime @ monitor-processing-Dy-LY2QQ.js:25](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/monitor-processing-Dy-LY2QQ.js#L25)
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **bluebubbles** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: bluebubbles: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/security-runtime @ channel.runtime-ZppuKLfQ.js:9](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/channel.runtime-ZppuKLfQ.js#L9)
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **bluebubbles** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: bluebubbles: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/security-runtime @ monitor-processing-Dy-LY2QQ.js:32](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/monitor-processing-Dy-LY2QQ.js#L32)
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **bluebubbles** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: bluebubbles: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [resolveRuntimeConversationBindingRoute @ monitor-processing-Dy-LY2QQ.js:19](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/monitor-processing-Dy-LY2QQ.js#L19)
-  - author remediation:
-    - resolveRuntimeConversationBindingRoute is deprecated; Await getSessionBindingService().inspectByConversationAsync, resolveByConversationAsync, touchAsync, resolveRuntimeConversationBindingRouteAsync, and the Async-suffixed thread-binding lifecycle setters. Project prepared inspection facts with inspectRuntimeConversationBindingRoute. Async dispatch retains an explicit synchronous fallback for legacy external adapters; remaining bind/unbind and other storage operations are separate migration work.
-    - docs: https://docs.openclaw.ai/plugins/sdk-runtime/channel#awaited-conversation-binding-mutations
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - api.runtime.state.openSyncKeyedStore @ plugins/codex/.crabpot-package/dist/index.js:4229
-  - author remediation:
-    - api.runtime.state.openSyncKeyedStore is deprecated; `api.runtime.state.openKeyedStore` and `PluginStateKeyedStore`; await operations while keeping transactional callbacks synchronous. Retain the sync adapter until a supported external-plugin migration and explicit breaking-release approval.
-    - docs: https://docs.openclaw.ai/plugins/sdk-runtime/state-and-system#synchronous-keyed-store-migration
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tool-build-DjbDZzOJ.mjs:267
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/attempt-client-cleanup-BVww-ct8.mjs:8
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/attempt-terminal-sZutF0WY.mjs:1
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/attempt-workspace-context-BkA0W8Jy.mjs:5
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/auth-binding-BFTkrP_b.mjs:4
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/client-Div-zqnz.mjs:21
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/command-rpc-Co0UzT-T.mjs:18
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/compact-CzNBg4cQ.mjs:27
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/config-LQemoqTL.mjs:8
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/context-compaction-activity-CMla5FPJ.mjs:1
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/context-engine-projection-ps-yn_ci.mjs:3
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/conversation-binding-Dcv7_rs-.mjs:31
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tool-build-DjbDZzOJ.mjs:11
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tools-75qoSOch.mjs:36
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/effective-mcp-catalog-Dz0J8iAj.mjs:7
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/elicitation-input-DXG_qaXr.mjs:1
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/event-projector-usage-BpKfdoTm.mjs:4
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/mcp-app-session-preparation-C7LyxbAm.mjs:16
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/native-mcp-app-DDEtVQED.mjs:9
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/native-skill-isolation-Cx2AkUco.mjs:12
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/native-subagent-monitor-CBYFkNsB.mjs:22
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/plugin-inventory-OhiCoyPH.mjs:3
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/project-doc-thread-config-D_sWbxFR.mjs:9
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/run-attempt-Ch1emiZE.mjs:80
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/run-attempt-lifecycle-DN-ATDp9.mjs:4
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/session-binding-BDnNz-Co.mjs:9
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/settled-turn-context-BPL6D3RO.mjs:2
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/shared-client-CNGDTv68.mjs:34
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/side-question-D1Wa21s9.mjs:33
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/thread-lifecycle-run-DjSfTw6v.mjs:45
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/thread-policy-BEiS7ITh.mjs:5
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/thread-requests-DjyDmCo4.mjs:12
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/transcript-mirror-DVEzdOs0.mjs:7
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/turn-router-DM0fRrYI.mjs:8
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/upstream-session-fork-CxgShpwe.mjs:38
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/usage-limit-error-ryR1PGou.mjs:7
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/auth-binding-BFTkrP_b.mjs:3
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/auth-profile-health-B05o5BAm.mjs:8
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/command-handlers-CJqo6LZS.mjs:45
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/command-rpc-Co0UzT-T.mjs:17
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/compact-CzNBg4cQ.mjs:26
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/conversation-binding-Dcv7_rs-.mjs:30
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/conversation-control-BtPxevoK.mjs:8
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/doctor-start-options-C28ek2hD.mjs:7
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tool-build-DjbDZzOJ.mjs:10
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/plan-BKFbfVsV.mjs:13
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/responses-oauth-twnuTaAa.mjs:2
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/run-attempt-Ch1emiZE.mjs:79
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/shared-client-CNGDTv68.mjs:33
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/side-question-D1Wa21s9.mjs:32
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/thread-lifecycle-run-DjSfTw6v.mjs:44
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/upstream-session-fork-CxgShpwe.mjs:37
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/usage-DV8T9Yau.mjs:5
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/usage-limit-error-ryR1PGou.mjs:6
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tools-75qoSOch.mjs:45
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/codex/.crabpot-package/dist/.setup/run-attempt-Ch1emiZE.mjs:94
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/plugin-runtime @ plugins/codex/.crabpot-package/dist/.setup/thread-requests-DjyDmCo4.mjs:13
-  - author remediation:
-    - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tools-75qoSOch.mjs:39
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/codex/.crabpot-package/dist/.setup/plan-BKFbfVsV.mjs:15
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/codex/.crabpot-package/dist/.setup/session-binding-sidecars-DijNZb31.mjs:11
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/codex/.crabpot-package/dist/.setup/shared-client-CNGDTv68.mjs:37
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/codex/.crabpot-package/dist/.setup/source-DyVuYlTN.mjs:12
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
 
 - 🟡 P2 **connectclaw** `deprecation-warning` `core-compat-adapter`
   - **legacy-before-agent-start**: connectclaw: legacy before_agent_start hook compatibility is still used
@@ -913,78 +802,6 @@ _none_
     - Move legacy channel environment variable metadata into the current setup/config metadata while keeping the old field until your supported OpenClaw range no longer needs it.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#channel-env-vars
 
-- 🟡 P2 **ddingtalk** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: ddingtalk: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/conversation-runtime @ monitor.ts:2](https://github.com/largezhou/openclaw-dingtalk/blob/161a9b0f6381ce7c869ef9461e8a1ba3ed0445fc/src/monitor.ts#L2)
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **ddingtalk** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: ddingtalk: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/media-runtime @ channel.ts:13](https://github.com/largezhou/openclaw-dingtalk/blob/161a9b0f6381ce7c869ef9461e8a1ba3ed0445fc/src/channel.ts#L13)
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **diagnostics-otel** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: diagnostics-otel: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/diagnostics-otel/.crabpot-package/dist/.setup/runtime-api-CKLGMqUx.mjs:13
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **diagnostics-otel** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: diagnostics-otel: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/diagnostics-otel/.crabpot-package/dist/api.js:2
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **diagnostics-prometheus** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: diagnostics-prometheus: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/plugin-runtime @ plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:5
-  - author remediation:
-    - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **diagnostics-prometheus** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: diagnostics-prometheus: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/diagnostics-prometheus/.crabpot-package/dist/api.js:3
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **diffs** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: diffs: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/diffs/.crabpot-package/dist/.setup/browser.runtime-BfvyJ76b.mjs:6
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **diffs** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: diffs: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/diffs/.crabpot-package/dist/index.js:20
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
 - 🟡 P2 **dingtalk-doc** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: dingtalk-doc: root plugin SDK barrel is still used by fixtures
   - state: open · compat:deprecated · deprecated
@@ -993,375 +810,6 @@ _none_
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/discord/.crabpot-package/dist/.setup/handle-action-B4l4tVxj.mjs:15
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-DOszdJgB.mjs:38
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-B9drnVwM.mjs:71
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/channel-1Z1mnB_P.mjs:35
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-DOszdJgB.mjs:35
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-B9drnVwM.mjs:63
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-B9drnVwM.mjs:7145
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-session.runtime-1LmRZB68.mjs:4
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/security-audit-BFT84Uny.mjs:4
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/thread-bindings-Blhv7XV8.mjs:8
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/thread-bindings.manager-Cqml5pUh.mjs:18
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler-BbwzASGH.mjs:12
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-DOszdJgB.mjs:25
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-B9drnVwM.mjs:36
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/receive-recovery-eVmK2_hl.mjs:6
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/send-DXma62sY.mjs:13
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/send.shared-CjQ4jbMA.mjs:11
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/transcripts-source-EMrQb132.mjs:12
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/voice-runtime-CI7JBfeA.mjs:16
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/plugin-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-DOszdJgB.mjs:41
-  - author remediation:
-    - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/plugin-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-B9drnVwM.mjs:90
-  - author remediation:
-    - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.preflight-pluralkit-CfRsEwg4.mjs:7
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-DOszdJgB.mjs:34
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-B9drnVwM.mjs:58
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/discord/.crabpot-package/dist/.setup/send-DXma62sY.mjs:26
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - resolveRuntimeConversationBindingRoute @ plugins/discord/.crabpot-package/dist/.setup/conversation-binding-route-Dhxicw2Z.mjs:3
-  - author remediation:
-    - resolveRuntimeConversationBindingRoute is deprecated; Await getSessionBindingService().inspectByConversationAsync, resolveByConversationAsync, touchAsync, resolveRuntimeConversationBindingRouteAsync, and the Async-suffixed thread-binding lifecycle setters. Project prepared inspection facts with inspectRuntimeConversationBindingRoute. Async dispatch retains an explicit synchronous fallback for legacy external adapters; remaining bind/unbind and other storage operations are separate migration work.
-    - docs: https://docs.openclaw.ai/plugins/sdk-runtime/channel#awaited-conversation-binding-mutations
-
-- 🟡 P2 **feishu** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: feishu: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/feishu/.crabpot-package/dist/.setup/monitor.account-UbN1RhlP.mjs:44
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **feishu** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: feishu: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/feishu/.crabpot-package/dist/.setup/channel-DykAJJhn.mjs:21
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **feishu** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: feishu: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/feishu/.crabpot-package/dist/.setup/monitor.account-UbN1RhlP.mjs:16
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **feishu** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: feishu: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/feishu/.crabpot-package/dist/.setup/thread-bindings-Pii2fAST.mjs:2
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **feishu** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: feishu: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/feishu/.crabpot-package/dist/.setup/app-registration-DQOq5urV.mjs:4
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **feishu** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: feishu: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/feishu/.crabpot-package/dist/.setup/monitor.account-UbN1RhlP.mjs:2360
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **feishu** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: feishu: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/feishu/.crabpot-package/dist/.setup/reply-delivery-result-iCCrdxE1.mjs:32
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **feishu** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: feishu: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/feishu/.crabpot-package/dist/api.js:17
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **feishu** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: feishu: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/plugin-runtime @ plugins/feishu/.crabpot-package/dist/.setup/monitor.account-UbN1RhlP.mjs:46
-  - author remediation:
-    - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **feishu** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: feishu: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/feishu/.crabpot-package/dist/.setup/channel-DykAJJhn.mjs:45
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **feishu** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: feishu: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/feishu/.crabpot-package/dist/.setup/monitor.account-UbN1RhlP.mjs:31
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **feishu** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: feishu: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/feishu/.crabpot-package/dist/.setup/reply-delivery-result-iCCrdxE1.mjs:25
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **feishu** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: feishu: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - resolveRuntimeConversationBindingRoute @ plugins/feishu/.crabpot-package/dist/.setup/monitor.account-UbN1RhlP.mjs:16
-  - author remediation:
-    - resolveRuntimeConversationBindingRoute is deprecated; Await getSessionBindingService().inspectByConversationAsync, resolveByConversationAsync, touchAsync, resolveRuntimeConversationBindingRouteAsync, and the Async-suffixed thread-binding lifecycle setters. Project prepared inspection facts with inspectRuntimeConversationBindingRoute. Async dispatch retains an explicit synchronous fallback for legacy external adapters; remaining bind/unbind and other storage operations are separate migration work.
-    - docs: https://docs.openclaw.ai/plugins/sdk-runtime/channel#awaited-conversation-binding-mutations
-
-- 🟡 P2 **google-meet** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: google-meet: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/google-meet/.crabpot-package/dist/.setup/runtime-B9xiaF9M.mjs:12
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **google-meet** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: google-meet: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/google-meet/.crabpot-package/dist/.setup/cli-export-DDUSzhh0.mjs:6
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
 
 - 🟡 P2 **hapi-openclaw** `deprecation-warning` `core-compat-adapter`
   - **sdk-load-session-store**: hapi-openclaw: deprecated whole-store session helper is still used
@@ -1399,15 +847,6 @@ _none_
     - Move legacy provider authentication environment variables into current provider setup metadata.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#provider-auth-env-vars
 
-- 🟡 P2 **honcho** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: honcho: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/cli-runtime @ honcho-client.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/25f644cfd985f437951cc085b91138be22e42388/honcho-client.ts#L11)
-  - author remediation:
-    - openclaw/plugin-sdk/cli-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
 - 🟡 P2 **inworld-tts** `deprecation-warning` `core-compat-adapter`
   - **provider-auth-env-vars**: inworld-tts: providerAuthEnvVars legacy manifest metadata must stay covered
   - state: open · compat:deprecated · deprecated
@@ -1416,15 +855,6 @@ _none_
   - author remediation:
     - Move legacy provider authentication environment variables into current provider setup metadata.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#provider-auth-env-vars
-
-- 🟡 P2 **kitchen-sink** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: kitchen-sink: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/agent-harness-runtime @ check-middleware-host.mjs:46](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/scripts/check-middleware-host.mjs#L46)
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
 
 - 🟡 P2 **lossless-claw** `deprecation-warning` `core-compat-adapter`
   - **sdk-load-session-store**: lossless-claw: deprecated whole-store session helper is still used
@@ -1448,222 +878,6 @@ _none_
   - author remediation:
     - Replace deprecated session file-path helpers with session entry and transcript identity APIs.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#sdk-session-file-helper
-
-- 🟡 P2 **matrix** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: matrix: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [createPluginStateSyncKeyedStore @ auth-presence.ts:2](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/auth-presence.ts#L2)
-  - author remediation:
-    - createPluginStateSyncKeyedStore is deprecated; `api.runtime.state.openKeyedStore` and `PluginStateKeyedStore`; await operations while keeping transactional callbacks synchronous. Retain the sync adapter until a supported external-plugin migration and explicit breaking-release approval.
-    - docs: https://docs.openclaw.ai/plugins/sdk-runtime/state-and-system#synchronous-keyed-store-migration
-
-- 🟡 P2 **matrix** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: matrix: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [createPluginStateSyncKeyedStore @ credentials-read.ts:5](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/src/matrix/credentials-read.ts#L5)
-  - author remediation:
-    - createPluginStateSyncKeyedStore is deprecated; `api.runtime.state.openKeyedStore` and `PluginStateKeyedStore`; await operations while keeping transactional callbacks synchronous. Retain the sync adapter until a supported external-plugin migration and explicit breaking-release approval.
-    - docs: https://docs.openclaw.ai/plugins/sdk-runtime/state-and-system#synchronous-keyed-store-migration
-
-- 🟡 P2 **matrix** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: matrix: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/agent-harness-runtime @ handler.progress-completion.test-support.ts:1](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/src/matrix/monitor/handler.progress-completion.test-support.ts#L1)
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **matrix** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: matrix: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/agent-runtime @ handler.ts:1](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/src/matrix/monitor/handler.ts#L1)
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **matrix** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: matrix: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/approval-reaction-runtime @ approval-reactions.ts:3](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/src/approval-reactions.ts#L3)
-  - author remediation:
-    - openclaw/plugin-sdk/approval-reaction-runtime retires on Oct 1, 2026; the focused replacement named by each TypeScript @deprecated annotation
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **matrix** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: matrix: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/conversation-runtime @ channel.ts:16](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/src/channel.ts#L16)
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **matrix** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: matrix: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/media-runtime @ transport.ts:3](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/src/matrix/sdk/transport.ts#L3)
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **matrix** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: matrix: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/media-runtime @ send.ts:2](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/src/matrix/send.ts#L2)
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **matrix** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: matrix: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/plugin-runtime @ handler.ts:9](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/src/matrix/monitor/handler.ts#L9)
-  - author remediation:
-    - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **matrix** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: matrix: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/security-runtime @ handler.ts:11](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/src/matrix/monitor/handler.ts#L11)
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **matrix** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: matrix: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/security-runtime @ logger.ts:5](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/src/matrix/sdk/logger.ts#L5)
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **mattermost** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: mattermost: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/agent-harness-runtime @ monitor.block-progress.test-support.ts:1](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/monitor.block-progress.test-support.ts#L1)
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **mattermost** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: mattermost: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/agent-harness-runtime @ monitor.preview-delivery.test-support.ts:1](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/monitor.preview-delivery.test-support.ts#L1)
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **mattermost** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: mattermost: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/agent-runtime @ monitor-interactions.ts:2](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/monitor-interactions.ts#L2)
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **mattermost** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: mattermost: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/agent-runtime @ monitor-turn.ts:2](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/monitor-turn.ts#L2)
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **mattermost** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: mattermost: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/agent-runtime @ slash-http.ts:9](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/slash-http.ts#L9)
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **mattermost** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: mattermost: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/media-runtime @ reply-delivery.ts:9](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/reply-delivery.ts#L9)
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **mattermost** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: mattermost: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/plugin-runtime @ monitor-turn.ts:14](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/monitor-turn.ts#L14)
-  - author remediation:
-    - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **mattermost** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: mattermost: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/security-runtime @ interactions.ts:5](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/interactions.ts#L5)
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **mattermost** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: mattermost: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/security-runtime @ monitor-posts.ts:12](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/monitor-posts.ts#L12)
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **mattermost** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: mattermost: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/security-runtime @ monitor-resources.ts:18](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/monitor-resources.ts#L18)
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **mattermost** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: mattermost: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/security-runtime @ slash-http.ts:15](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/slash-http.ts#L15)
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **mattermost** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: mattermost: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/security-runtime @ slash-state.ts:15](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/slash-state.ts#L15)
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **memory-lancedb** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: memory-lancedb: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/memory-lancedb/.crabpot-package/dist/embeddings.js:9
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
 
 - 🟡 P2 **memory-tencentdb** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: memory-tencentdb: root plugin SDK barrel is still used by fixtures
@@ -1693,87 +907,6 @@ _none_
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
 
-- 🟡 P2 **msteams** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: msteams: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/msteams/.crabpot-package/dist/.setup/monitor-dvQ4LS9V.cjs:37
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **msteams** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: msteams: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/msteams/.crabpot-package/dist/.setup/conversation-store-state-9VM7xSZy.cjs:35
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **msteams** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: msteams: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/msteams/.crabpot-package/dist/.setup/monitor-dvQ4LS9V.cjs:18
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **msteams** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: msteams: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/msteams/.crabpot-package/dist/runtime-api.cjs:11
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **msteams** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: msteams: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/plugin-runtime @ plugins/msteams/.crabpot-package/dist/.setup/monitor-dvQ4LS9V.cjs:39
-  - author remediation:
-    - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **msteams** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: msteams: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/msteams/.crabpot-package/dist/.setup/monitor-dvQ4LS9V.cjs:29
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **nextcloud-talk** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: nextcloud-talk: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/nextcloud-talk/.crabpot-package/dist/.setup/channel-DTKYMnlK.mjs:26
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **nostr** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: nostr: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/plugin-runtime @ plugins/nostr/.crabpot-package/dist/api.js:5
-  - author remediation:
-    - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **nostr** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: nostr: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/plugin-runtime @ plugins/nostr/.crabpot-package/dist/runtime-api.js:1
-  - author remediation:
-    - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
 - 🟡 P2 **openclaw-telemetry** `deprecation-warning` `core-compat-adapter`
   - **legacy-before-agent-start**: openclaw-telemetry: legacy before_agent_start hook compatibility is still used
   - state: open · compat:deprecated · deprecated
@@ -1791,42 +924,6 @@ _none_
   - author remediation:
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
-
-- 🟡 P2 **openclaw-weixin** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: openclaw-weixin: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/hook-runtime @ plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/outbound-hooks.js:1
-  - author remediation:
-    - openclaw/plugin-sdk/hook-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **openclaw-weixin** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: openclaw-weixin: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/hook-runtime @ plugins/openclaw-weixin/.crabpot-package/src/messaging/outbound-hooks.ts:1
-  - author remediation:
-    - openclaw/plugin-sdk/hook-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **openclaw-weixin** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: openclaw-weixin: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/plugin-runtime @ plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/outbound-hooks.js:2
-  - author remediation:
-    - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **openclaw-weixin** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: openclaw-weixin: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/plugin-runtime @ plugins/openclaw-weixin/.crabpot-package/src/messaging/outbound-hooks.ts:7
-  - author remediation:
-    - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
 
 - 🟡 P2 **opik-openclaw** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: opik-openclaw: root plugin SDK barrel is still used by fixtures
@@ -1847,15 +944,6 @@ _none_
     - Prefer focused public plugin SDK subpath imports instead of the legacy root barrel.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#legacy-root-sdk-import
 
-- 🟡 P2 **synology-chat** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: synology-chat: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/synology-chat/.crabpot-package/dist/.setup/channel-BKucSGvX.mjs:35
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
 - 🟡 P2 **telnyx-sms** `deprecation-warning` `core-compat-adapter`
   - **channel-env-vars**: telnyx-sms: channelEnvVars legacy manifest metadata must stay covered
   - state: open · compat:deprecated · deprecated
@@ -1864,285 +952,6 @@ _none_
   - author remediation:
     - Move legacy channel environment variable metadata into the current setup/config metadata while keeping the old field until your supported OpenClaw range no longer needs it.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#channel-env-vars
-
-- 🟡 P2 **tlon** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: tlon: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/tlon/.crabpot-package/dist/.setup/channel.runtime-BuDLFazV.mjs:13
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **tlon** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: tlon: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/tlon/.crabpot-package/dist/.setup/channel.runtime-BuDLFazV.mjs:22
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **voice-call** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: voice-call: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/voice-call/.crabpot-package/dist/.setup/realtime-agent-context.legacy-DAEWY27o.mjs:4
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **voice-call** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: voice-call: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/voice-call/.crabpot-package/dist/.setup/response-generator-CC2OX9j_.mjs:8
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **voice-call** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: voice-call: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/voice-call/.crabpot-package/dist/.setup/runtime-entry-Bv4GOoof.mjs:34
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **voice-call** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: voice-call: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/voice-call/.crabpot-package/dist/.setup/carrier-api-Yl0hFFEf.mjs:9
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **voice-call** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: voice-call: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/voice-call/.crabpot-package/dist/.setup/realtime-agent-context.legacy-DAEWY27o.mjs:3
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **voice-call** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: voice-call: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/voice-call/.crabpot-package/dist/.setup/twilio-ndN0wO_K.mjs:9
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **wecom** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: wecom: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/media-runtime @ openclaw-compat.js:6](https://github.com/sunnoy/openclaw-plugin-wecom/blob/df2e426457a0e587bbfe63f185ffe002cbf61e6f/wecom/openclaw-compat.js#L6)
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DVzumwCI.mjs:56
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/approval-reaction-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/approval-handler.runtime-BEaAKSoU.mjs:9
-  - author remediation:
-    - openclaw/plugin-sdk/approval-reaction-runtime retires on Oct 1, 2026; the focused replacement named by each TypeScript @deprecated annotation
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/approval-reaction-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/approval-reactions-CWkZ_ham.mjs:8
-  - author remediation:
-    - openclaw/plugin-sdk/approval-reaction-runtime retires on Oct 1, 2026; the focused replacement named by each TypeScript @deprecated annotation
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/approval-reaction-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-D-6ZIq4y.mjs:27
-  - author remediation:
-    - openclaw/plugin-sdk/approval-reaction-runtime retires on Oct 1, 2026; the focused replacement named by each TypeScript @deprecated annotation
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/cli-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/auth-store-DOBi5BPe.mjs:7
-  - author remediation:
-    - openclaw/plugin-sdk/cli-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/cli-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-D-6ZIq4y.mjs:17
-  - author remediation:
-    - openclaw/plugin-sdk/cli-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/cli-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/login-DUx5JYuW.mjs:6
-  - author remediation:
-    - openclaw/plugin-sdk/cli-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/cli-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DVzumwCI.mjs:20
-  - author remediation:
-    - openclaw/plugin-sdk/cli-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/cli-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/send-CLBfAzd6.mjs:10
-  - author remediation:
-    - openclaw/plugin-sdk/cli-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/cli-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/socket-close-C9OU9mVN.mjs:5
-  - author remediation:
-    - openclaw/plugin-sdk/cli-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DVzumwCI.mjs:50
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/hook-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DVzumwCI.mjs:61
-  - author remediation:
-    - openclaw/plugin-sdk/hook-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/audio-preflight.runtime-DOv4YzLh.mjs:1
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-react-action-C5E8_iDk.mjs:6
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/login-qr-BAWbPonj.mjs:9
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DVzumwCI.mjs:28
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/send-api-COzRvqXx.mjs:9
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/send-CLBfAzd6.mjs:24
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/socket-close-C9OU9mVN.mjs:8
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/plugin-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DVzumwCI.mjs:62
-  - author remediation:
-    - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/auth-store-DOBi5BPe.mjs:15
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DVzumwCI.mjs:35
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
 
 - 🟡 P2 **yuanbao** `deprecation-warning` `core-compat-adapter`
   - **channel-env-vars**: yuanbao: channelEnvVars legacy manifest metadata must stay covered
@@ -2153,120 +962,124 @@ _none_
     - Move legacy channel environment variable metadata into the current setup/config metadata while keeping the old field until your supported OpenClaw range no longer needs it.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#channel-env-vars
 
-- 🟡 P2 **yuanbao** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: yuanbao: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/command-auth @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/command-sync/index.js:2
-  - author remediation:
-    - openclaw/plugin-sdk/command-auth retires on Oct 1, 2026; the focused replacement named by each TypeScript @deprecated annotation
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **yuanbao** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: yuanbao: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/command-auth @ plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/guard-command.js:5
-  - author remediation:
-    - openclaw/plugin-sdk/command-auth retires on Oct 1, 2026; the focused replacement named by each TypeScript @deprecated annotation
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **zalo** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: zalo: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/zalo/.crabpot-package/dist/.setup/channel-BDoyUcaX.mjs:12
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **zalo** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: zalo: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/zalo/.crabpot-package/dist/.setup/monitor-CkPLrWVm.mjs:17
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **zalo** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: zalo: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/zalo/.crabpot-package/dist/.setup/monitor.webhook-B3g1irKn.mjs:4
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **zalouser** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: zalouser: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/zalouser/.crabpot-package/dist/.setup/channel-DgZ3b3H5.mjs:15
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **zalouser** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: zalouser: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/zalouser/.crabpot-package/dist/.setup/zalo-js-DT9UU4oO.mjs:13
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
 ## Inspector Proof Gaps
 
-- 🟠 P1 **codex** `inspector-gap` `inspector-follow-up`
-  - **sdk-export-missing**: codex: SDK import coverage requires an eligible host
+- 🟠 P1 **clawmetry** `inspector-gap` `inspector-follow-up`
+  - **conversation-access-hook**: clawmetry: conversation-access hooks need privacy-boundary probes
   - state: open · compat:untracked
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-completion @ plugins/codex/.crabpot-package/dist/.setup/native-subagent-monitor-CBYFkNsB.mjs:24
-    - Host 2026.9.6 does not satisfy the declared plugin API range >=2026.10.6; recheck with an eligible host before assigning a core compatibility repair.
-    - Unassessed SDK compatibility record: plugin-sdk-export-aliases
+    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/6228537b0271572d55f5bf02ee130f76038f7cd5/clawhub-plugin/src/service.ts#L117)
 
 - 🟠 P1 **dingtalk-doc** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: dingtalk-doc: before_tool_call needs terminal/block/approval probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [before_tool_call @ index.ts:41](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/index.ts#L41)
 
+- 🟠 P1 **discord** `inspector-gap` `inspector-follow-up`
+  - **sdk-export-missing**: discord: SDK import coverage requires an eligible host
+  - state: open · compat:untracked
+  - evidence:
+    - openclaw/plugin-sdk/heartbeat-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-BBDuE14w.mjs:68
+    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.10.10; recheck with an eligible host before assigning a core compatibility repair.
+    - Unassessed SDK compatibility record: plugin-sdk-export-aliases
+
+- 🟠 P1 **honcho** `inspector-gap` `inspector-follow-up`
+  - **conversation-access-hook**: honcho: conversation-access hooks need privacy-boundary probes
+  - state: open · compat:untracked
+  - evidence:
+    - [agent_end @ capture.ts:137](https://github.com/plastic-labs/openclaw-honcho/blob/25f644cfd985f437951cc085b91138be22e42388/hooks/capture.ts#L137)
+    - [llm_output @ telemetry.ts:31](https://github.com/plastic-labs/openclaw-honcho/blob/25f644cfd985f437951cc085b91138be22e42388/hooks/telemetry.ts#L31)
+
 - 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: kitchen-sink: before_tool_call needs terminal/block/approval probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [before_tool_call @ generated-hooks.js:19](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-hooks.js#L19)
 
+- 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
+  - **conversation-access-hook**: kitchen-sink: conversation-access hooks need privacy-boundary probes
+  - state: open · compat:untracked
+  - evidence:
+    - [agent_end @ generated-hooks.js:7](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-hooks.js#L7)
+    - [llm_input @ generated-hooks.js:27](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-hooks.js#L27)
+    - [llm_output @ generated-hooks.js:28](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-hooks.js#L28)
+
+- 🟠 P1 **llm-trace-phoenix** `inspector-gap` `inspector-follow-up`
+  - **conversation-access-hook**: llm-trace-phoenix: conversation-access hooks need privacy-boundary probes
+  - state: open · compat:untracked
+  - evidence:
+    - [llm_input @ index.js:105](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/ad8a34681b4d49a1b7d75bb8f6ac9b2f2ea3a8e9/dist/index.js#L105)
+    - [llm_input @ index.ts:202](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/ad8a34681b4d49a1b7d75bb8f6ac9b2f2ea3a8e9/index.ts#L202)
+    - [llm_output @ index.js:118](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/ad8a34681b4d49a1b7d75bb8f6ac9b2f2ea3a8e9/dist/index.js#L118)
+    - [llm_output @ index.ts:216](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/ad8a34681b4d49a1b7d75bb8f6ac9b2f2ea3a8e9/index.ts#L216)
+
+- 🟠 P1 **memory-lancedb** `inspector-gap` `inspector-follow-up`
+  - **conversation-access-hook**: memory-lancedb: conversation-access hooks need privacy-boundary probes
+  - state: open · compat:untracked
+  - evidence:
+    - agent_end @ plugins/memory-lancedb/.crabpot-package/dist/index.js:315
+
+- 🟠 P1 **memory-tencentdb** `inspector-gap` `inspector-follow-up`
+  - **conversation-access-hook**: memory-tencentdb: conversation-access hooks need privacy-boundary probes
+  - state: open · compat:untracked
+  - evidence:
+    - agent_end @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1095
+    - agent_end @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1256
+    - agent_end @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:21802
+    - agent_end @ plugins/memory-tencentdb/.crabpot-package/index.ts:808
+    - agent_end @ plugins/memory-tencentdb/.crabpot-package/openclaw-plugin/index.ts:209
+    - agent_end @ plugins/memory-tencentdb/.crabpot-package/src/offload-client/index.ts:52
+
+- 🟠 P1 **memos-cloud** `inspector-gap` `inspector-follow-up`
+  - **conversation-access-hook**: memos-cloud: conversation-access hooks need privacy-boundary probes
+  - state: open · compat:untracked
+  - evidence:
+    - [agent_end @ index.js:860](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/a317661691bda94054d3d35f8c226e8bfe0018f7/index.js#L860)
+
 - 🟠 P1 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: nemoclaw: before_tool_call needs terminal/block/approval probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [before_tool_call @ index.ts:359](https://github.com/NVIDIA/NemoClaw/blob/37ca4cb4220265c2a12b9d9b8a120d0d23a338dd/nemoclaw/src/index.ts#L359)
 
 - 🟠 P1 **openclaw-telemetry** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: openclaw-telemetry: before_tool_call needs terminal/block/approval probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [before_tool_call @ index.ts:12](https://github.com/knostic/openclaw-telemetry/blob/86c2458a0dfe82d639c208c5220396feb9d53c45/index.ts#L12)
 
+- 🟠 P1 **openclaw-telemetry** `inspector-gap` `inspector-follow-up`
+  - **conversation-access-hook**: openclaw-telemetry: conversation-access hooks need privacy-boundary probes
+  - state: open · compat:untracked
+  - evidence:
+    - [agent_end @ index.ts:62](https://github.com/knostic/openclaw-telemetry/blob/86c2458a0dfe82d639c208c5220396feb9d53c45/index.ts#L62)
+
 - 🟠 P1 **opik-openclaw** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: opik-openclaw: before_tool_call needs terminal/block/approval probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [before_tool_call @ tool.ts:34](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/service/hooks/tool.ts#L34)
+
+- 🟠 P1 **opik-openclaw** `inspector-gap` `inspector-follow-up`
+  - **conversation-access-hook**: opik-openclaw: conversation-access hooks need privacy-boundary probes
+  - state: open · compat:untracked
+  - evidence:
+    - [agent_end @ service.ts:581](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/service.ts#L581)
+    - [llm_input @ llm.ts:39](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/service/hooks/llm.ts#L39)
+    - [llm_output @ llm.ts:150](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/service/hooks/llm.ts#L150)
 
 - 🟠 P1 **telnyx-sms** `inspector-gap` `inspector-follow-up`
   - **sdk-export-missing**: telnyx-sms: SDK import coverage requires an eligible host
   - state: open · compat:untracked
   - evidence:
     - [openclaw/plugin-sdk/direct-dm @ inbound.ts:2](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/6e3956246cd3e0e72af649d2fd75dee6f3e46966/src/inbound.ts#L2)
-    - Host 2026.9.6 does not satisfy the declared plugin API range 2026.4; recheck with an eligible host before assigning a core compatibility repair.
+    - Host 2026.10.6 does not satisfy the declared plugin API range 2026.4; recheck with an eligible host before assigning a core compatibility repair.
     - Unassessed SDK compatibility record: plugin-sdk-export-aliases
 
 - 🟠 P1 **wecom** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: wecom: before_tool_call needs terminal/block/approval probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [before_tool_call @ index.js:76](https://github.com/sunnoy/openclaw-plugin-wecom/blob/df2e426457a0e587bbfe63f185ffe002cbf61e6f/index.js#L76)
 
@@ -2290,13 +1103,13 @@ _none_
 
 - 🟡 P2 **a2a-gateway** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: a2a-gateway: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerService @ index.ts:897](https://github.com/win4r/openclaw-a2a-gateway/blob/fdedad7499c4b6d22b3aa63a7876b9bfa1a92674/index.ts#L897)
 
 - 🟡 P2 **agentchat** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: agentchat: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [defineChannelPluginEntry @ channel.ts:355](https://github.com/agentchatme/agentchat-openclaw/blob/caee25ad8ed7a38cc4281bda397c7e0e7e90ce6a/src/channel.ts#L355)
 
@@ -2345,32 +1158,38 @@ _none_
   - **package-build-artifact-entrypoint**: apify: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/apify/apify-openclaw-plugin/blob/f089a0632461f921ddbd15d783a791be9fc808ab/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/apify/apify-openclaw-plugin/blob/9f2aadbbfbd170f196165f05d9f967f500292cda/dist/index.js)
 
 - 🟡 P2 **apify** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: apify: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [apify-client @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/f089a0632461f921ddbd15d783a791be9fc808ab/package.json)
-    - [typebox @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/f089a0632461f921ddbd15d783a791be9fc808ab/package.json)
+    - [apify-client @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/9f2aadbbfbd170f196165f05d9f967f500292cda/package.json)
+    - [typebox @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/9f2aadbbfbd170f196165f05d9f967f500292cda/package.json)
 
 - 🟡 P2 **bluebubbles** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: bluebubbles: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [createChatChannelPlugin @ channel-BSIXOcHe.js:930](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/channel-BSIXOcHe.js#L930)
+
+- 🟡 P2 **brave-plugin** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: brave-plugin: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:untracked
+  - evidence:
+    - registerWebSearchProvider @ plugins/brave-plugin/.crabpot-package/dist/index.js:14
 
 - 🟡 P2 **clawmetry** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: clawmetry: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/72714376a4b358dcb2b62e6c3ae05140903bcdff/clawhub-plugin/index.ts)
+    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/6228537b0271572d55f5bf02ee130f76038f7cd5/clawhub-plugin/index.ts)
 
 - 🟡 P2 **clawmetry** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: clawmetry: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/72714376a4b358dcb2b62e6c3ae05140903bcdff/clawhub-plugin/index.ts#L20)
+    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/6228537b0271572d55f5bf02ee130f76038f7cd5/clawhub-plugin/index.ts#L20)
 
 - 🟡 P2 **clawrouter** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: clawrouter: cold import requires dependency installation in an isolated workspace
@@ -2389,7 +1208,7 @@ _none_
 
 - 🟡 P2 **clawrouter** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: clawrouter: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerCommand @ cli.js:89376](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89376)
     - [registerCommand @ cli.js:89428](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89428)
@@ -2413,9 +1232,15 @@ _none_
     - [registerCommand @ index.ts:2036](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2036)
     - [registerCommand @ index.ts:2040](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2040)
     - [registerCommand @ index.ts:2041](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2041)
+    - [registerImageGenerationProvider @ index.ts:1693](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1693)
+    - [registerMusicGenerationProvider @ index.ts:1694](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1694)
+    - [registerProvider @ index.ts:1684](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1684)
+    - [registerProvider @ index.ts:1689](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1689)
     - [registerService @ cli.js:89557](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89557)
     - [registerService @ index.js:87593](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87593)
     - [registerService @ index.ts:2050](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2050)
+    - [registerVideoGenerationProvider @ index.ts:1696](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1696)
+    - [registerWebSearchProvider @ index.ts:1705](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1705)
 
 - 🟡 P2 **codex** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: codex: cold import requires dependency installation in an isolated workspace
@@ -2431,21 +1256,29 @@ _none_
 
 - 🟡 P2 **codex** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: codex: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - registerCommand @ plugins/codex/.crabpot-package/dist/index.js:4358
+    - registerAgentHarness @ plugins/codex/.crabpot-package/dist/index.js:4261
+    - registerCommand @ plugins/codex/.crabpot-package/dist/index.js:4304
     - registerGatewayMethod @ plugins/codex/.crabpot-package/dist/index.js:72
-    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4287
-    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4354
-    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4356
-    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4289
-    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4355
-    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4357
-    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4197
-    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4215
-    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4216
+    - registerMediaUnderstandingProvider @ plugins/codex/.crabpot-package/dist/index.js:4262
+    - registerMigrationProvider @ plugins/codex/.crabpot-package/dist/index.js:4264
+    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4231
+    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4300
+    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4302
+    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4233
+    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4301
+    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4303
+    - registerProvider @ plugins/codex/.crabpot-package/dist/index.js:4152
+    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4150
+    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4168
+    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4169
+    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4170
     - registerService @ plugins/codex/.crabpot-package/dist/index.js:4217
-    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4273
+    - registerSessionCatalog @ plugins/codex/.crabpot-package/dist/index.js:3420
+    - registerToolMetadata @ plugins/codex/.crabpot-package/dist/index.js:4274
+    - registerToolMetadata @ plugins/codex/.crabpot-package/dist/index.js:4289
+    - registerWebSearchProvider @ plugins/codex/.crabpot-package/dist/index.js:4263
 
 - 🟡 P2 **codex-app-server** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: codex-app-server: cold import requires dependency installation in an isolated workspace
@@ -2461,7 +1294,7 @@ _none_
 
 - 🟡 P2 **codex-app-server** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: codex-app-server: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerCommand @ index.ts:48](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L48)
     - [registerInteractiveHandler @ index.ts:29](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L29)
@@ -2482,7 +1315,7 @@ _none_
 
 - 🟡 P2 **connectclaw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: connectclaw: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerCommand @ commands.ts:18](https://github.com/osipov-anton/connectclaw/blob/7a4e2646e914de075435b3837123cc03c3edae36/packages/plugin/src/commands.ts#L18)
     - [registerCommand @ commands.ts:64](https://github.com/osipov-anton/connectclaw/blob/7a4e2646e914de075435b3837123cc03c3edae36/packages/plugin/src/commands.ts#L64)
@@ -2496,7 +1329,7 @@ _none_
 
 - 🟡 P2 **ddingtalk** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: ddingtalk: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [defineChannelPluginEntry @ index.ts:8](https://github.com/largezhou/openclaw-dingtalk/blob/161a9b0f6381ce7c869ef9461e8a1ba3ed0445fc/index.ts#L8)
 
@@ -2534,16 +1367,16 @@ _none_
 
 - 🟡 P2 **diagnostics-otel** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: diagnostics-otel: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - registerService @ plugins/diagnostics-otel/.crabpot-package/dist/index.js:9
 
 - 🟡 P2 **diagnostics-prometheus** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: diagnostics-prometheus: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - registerHttpRoute @ plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:875
-    - registerService @ plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:874
+    - registerHttpRoute @ plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:1025
+    - registerService @ plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:1024
 
 - 🟡 P2 **diffs** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: diffs: cold import requires dependency installation in an isolated workspace
@@ -2557,14 +1390,14 @@ _none_
 
 - 🟡 P2 **diffs** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: diffs: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - registerHttpRoute @ plugins/diffs/.crabpot-package/dist/index.js:1913
-    - registerService @ plugins/diffs/.crabpot-package/dist/index.js:1888
+    - registerHttpRoute @ plugins/diffs/.crabpot-package/dist/index.js:1880
+    - registerService @ plugins/diffs/.crabpot-package/dist/index.js:1855
 
 - 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: dingtalk-connector: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.ts:76](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/index.ts#L76)
 
@@ -2587,7 +1420,7 @@ _none_
 
 - 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: dingtalk-connector: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.ts:76](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/index.ts#L76)
     - [registerGatewayMethod @ gateway-methods.ts:130](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L130)
@@ -2626,9 +1459,9 @@ _none_
 
 - 🟡 P2 **discord** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: discord: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/discord/.crabpot-package/dist/.setup/channel-1Z1mnB_P.mjs:477
+    - createChatChannelPlugin @ plugins/discord/.crabpot-package/dist/.setup/channel-BMpMAeQL.mjs:493
 
 - 🟡 P2 **discord** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: discord: cold import requires dependency installation in an isolated workspace
@@ -2646,16 +1479,17 @@ _none_
 
 - 🟡 P2 **discord** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: discord: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - registerHttpRoute @ plugins/discord/.crabpot-package/dist/activities-api.js:737
-    - registerWidgetPresenter @ plugins/discord/.crabpot-package/dist/activities-api.js:743
+    - registerHttpRoute @ plugins/discord/.crabpot-package/dist/activities-api.js:731
+    - registerTranscriptSourceProvider @ plugins/discord/.crabpot-package/dist/transcripts-source-api.js:4
+    - registerWidgetPresenter @ plugins/discord/.crabpot-package/dist/activities-api.js:737
 
 - 🟡 P2 **feishu** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: feishu: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/feishu/.crabpot-package/dist/.setup/channel-DykAJJhn.mjs:2273
+    - createChatChannelPlugin @ plugins/feishu/.crabpot-package/dist/.setup/channel-dxkUGCgC.mjs:2256
 
 - 🟡 P2 **feishu** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: feishu: cold import requires dependency installation in an isolated workspace
@@ -2678,12 +1512,13 @@ _none_
 
 - 🟡 P2 **google-meet** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: google-meet: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:129
-    - registerNodeHostCommand @ plugins/google-meet/.crabpot-package/dist/index.js:370
-    - registerNodeInvokePolicy @ plugins/google-meet/.crabpot-package/dist/index.js:380
-    - registerService @ plugins/google-meet/.crabpot-package/dist/.setup/plugin-registration-B_Ohay99.mjs:111
+    - registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:128
+    - registerNodeHostCommand @ plugins/google-meet/.crabpot-package/dist/index.js:369
+    - registerNodeInvokePolicy @ plugins/google-meet/.crabpot-package/dist/index.js:379
+    - registerService @ plugins/google-meet/.crabpot-package/dist/.setup/plugin-registration-B_nOxAym.mjs:111
+    - registerTranscriptSourceProvider @ plugins/google-meet/.crabpot-package/dist/index.js:187
 
 - 🟡 P2 **hapi-openclaw** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: hapi-openclaw: cold import requires dependency installation in an isolated workspace
@@ -2719,7 +1554,7 @@ _none_
 
 - 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: honcho: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerMemoryPromptSupplement @ index.ts:119](https://github.com/plastic-labs/openclaw-honcho/blob/25f644cfd985f437951cc085b91138be22e42388/index.ts#L119)
 
@@ -2739,7 +1574,7 @@ _none_
 
 - 🟡 P2 **hyperspell** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: hyperspell: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerCommand @ slash.ts:166](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L166)
     - [registerCommand @ slash.ts:43](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L43)
@@ -2754,21 +1589,31 @@ _none_
   - evidence:
     - [extension @ index.ts](https://github.com/livingghost/openclaw-inworld-tts/blob/d2abaeea330ebef7530f43f8b395671f6f404aea/index.ts)
 
+- 🟡 P2 **inworld-tts** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: inworld-tts: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:untracked
+  - evidence:
+    - [registerSpeechProvider @ index.ts:9](https://github.com/livingghost/openclaw-inworld-tts/blob/d2abaeea330ebef7530f43f8b395671f6f404aea/index.ts#L9)
+
 - 🟡 P2 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: kitchen-sink: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ generated-registrars.js:9](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L9)
     - [registerChannel @ kitchen-runtime.js:59](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L59)
 
 - 🟡 P2 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: kitchen-sink: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
+    - [registerAgentEventSubscription @ generated-registrars.js:4](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L4)
+    - [registerAgentHarness @ generated-registrars.js:5](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L5)
     - [registerAutoEnableProbe @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L7)
     - [registerBoardWidgetContentKind @ generated-registrars.js:8](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L8)
     - [registerChannel @ generated-registrars.js:9](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L9)
     - [registerChannel @ kitchen-runtime.js:59](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L59)
+    - [registerCliBackend @ generated-registrars.js:11](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L11)
+    - [registerCodexAppServerExtensionFactory @ generated-registrars.js:12](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L12)
     - [registerCommand @ generated-registrars.js:13](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L13)
     - [registerCommand @ kitchen-runtime.js:54](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L54)
     - [registerCommand @ kitchen-runtime.js:55](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L55)
@@ -2777,6 +1622,9 @@ _none_
     - [registerConfigMigration @ generated-registrars.js:15](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L15)
     - [registerContextEngine @ generated-registrars.js:16](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L16)
     - [registerContextEngine @ kitchen-runtime.js:99](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L99)
+    - [registerControlUiDescriptor @ generated-registrars.js:17](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L17)
+    - [registerEmbeddingProvider @ generated-registrars.js:19](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L19)
+    - [registerEmbeddingProvider @ kitchen-runtime.js:65](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L65)
     - [registerGatewayDiscoveryService @ generated-registrars.js:20](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L20)
     - [registerGatewayMethod @ generated-registrars.js:21](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L21)
     - [registerGatewayMethod @ kitchen-runtime.js:111](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L111)
@@ -2785,28 +1633,59 @@ _none_
     - [registerHostedMediaResolver @ generated-registrars.js:23](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L23)
     - [registerHttpRoute @ generated-registrars.js:24](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L24)
     - [registerHttpRoute @ kitchen-runtime.js:109](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L109)
+    - [registerImageGenerationProvider @ generated-registrars.js:25](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L25)
+    - [registerImageGenerationProvider @ kitchen-runtime.js:68](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L68)
     - [registerInteractiveHandler @ generated-registrars.js:26](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L26)
     - [registerInteractiveHandler @ kitchen-runtime.js:57](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L57)
     - [registerMcpServerConnectionResolver @ generated-registrars.js:27](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L27)
+    - [registerMediaUnderstandingProvider @ generated-registrars.js:28](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L28)
+    - [registerMediaUnderstandingProvider @ kitchen-runtime.js:71](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L71)
     - [registerMemoryCapability @ generated-registrars.js:29](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L29)
     - [registerMemoryCorpusSupplement @ generated-registrars.js:30](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L30)
     - [registerMemoryCorpusSupplement @ kitchen-runtime.js:93](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L93)
     - [registerMemoryPromptPreparation @ generated-registrars.js:31](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L31)
     - [registerMemoryPromptSupplement @ generated-registrars.js:32](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L32)
     - [registerMemoryPromptSupplement @ kitchen-runtime.js:118](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L118)
+    - [registerMigrationProvider @ generated-registrars.js:33](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L33)
+    - [registerModelCatalogProvider @ generated-registrars.js:34](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L34)
+    - [registerMusicGenerationProvider @ generated-registrars.js:35](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L35)
+    - [registerMusicGenerationProvider @ kitchen-runtime.js:84](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L84)
     - [registerNodeCliFeature @ sync-surface.mjs:166](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/scripts/sync-surface.mjs#L166)
     - [registerNodeCliFeature @ generated-registrars.js:36](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L36)
     - [registerNodeHostCommand @ generated-registrars.js:37](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L37)
     - [registerNodeInvokePolicy @ generated-registrars.js:38](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L38)
+    - [registerProvider @ generated-registrars.js:39](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L39)
+    - [registerProvider @ kitchen-runtime.js:63](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L63)
+    - [registerRealtimeTranscriptionProvider @ generated-registrars.js:40](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L40)
+    - [registerRealtimeTranscriptionProvider @ kitchen-runtime.js:75](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L75)
+    - [registerRealtimeVoiceProvider @ generated-registrars.js:41](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L41)
+    - [registerRealtimeVoiceProvider @ kitchen-runtime.js:78](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L78)
     - [registerReload @ generated-registrars.js:42](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L42)
+    - [registerRuntimeLifecycle @ generated-registrars.js:43](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L43)
     - [registerSecurityAuditCollector @ generated-registrars.js:44](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L44)
     - [registerService @ generated-registrars.js:45](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L45)
     - [registerService @ kitchen-runtime.js:108](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L108)
+    - [registerSessionAction @ generated-registrars.js:46](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L46)
+    - [registerSessionCatalog @ generated-registrars.js:47](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L47)
+    - [registerSessionExtension @ generated-registrars.js:48](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L48)
+    - [registerSpeechProvider @ generated-registrars.js:50](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L50)
+    - [registerSpeechProvider @ kitchen-runtime.js:73](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L73)
+    - [registerTextTransforms @ generated-registrars.js:51](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L51)
+    - [registerToolMetadata @ generated-registrars.js:53](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L53)
+    - [registerTranscriptSourceProvider @ sync-surface.mjs:163](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/scripts/sync-surface.mjs#L163)
+    - [registerTranscriptSourceProvider @ generated-registrars.js:54](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L54)
+    - [registerVideoGenerationProvider @ generated-registrars.js:56](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L56)
+    - [registerVideoGenerationProvider @ kitchen-runtime.js:81](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L81)
+    - [registerWebFetchProvider @ generated-registrars.js:57](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L57)
+    - [registerWebFetchProvider @ kitchen-runtime.js:90](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L90)
+    - [registerWebSearchProvider @ generated-registrars.js:58](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L58)
+    - [registerWebSearchProvider @ kitchen-runtime.js:87](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L87)
     - [registerWidgetPresenter @ generated-registrars.js:59](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L59)
+    - [registerWorkerProvider @ generated-registrars.js:60](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L60)
 
 - 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: lightclawbot: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - createChatChannelPlugin @ plugins/lightclawbot/.crabpot-package/dist/src/channel.js:49
     - defineChannelPluginEntry @ plugins/lightclawbot/.crabpot-package/dist/index.js:25
@@ -2820,7 +1699,7 @@ _none_
 
 - 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: lightclawbot: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - registerMcpServerConnectionResolver @ plugins/lightclawbot/.crabpot-package/dist/src/connectors/mcp-connection.js:58
     - registerService @ plugins/lightclawbot/.crabpot-package/dist/src/connectors/owned-tools.js:390
@@ -2846,7 +1725,7 @@ _none_
 
 - 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: lossless-claw: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerCommand @ index.ts:1744](https://github.com/Martian-Engineering/lossless-claw/blob/4347bd978932a0383708153eb80549887043b6e6/src/plugin/index.ts#L1744)
     - [registerContextEngine @ index.ts:1695](https://github.com/Martian-Engineering/lossless-claw/blob/4347bd978932a0383708153eb80549887043b6e6/src/plugin/index.ts#L1695)
@@ -2855,54 +1734,53 @@ _none_
   - **package-dependency-install-required**: matrix: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@matrix-org/matrix-sdk-crypto-nodejs @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
-    - [@matrix-org/matrix-sdk-crypto-wasm @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
-    - [fake-indexeddb @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
-    - [markdown-it @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
-    - [matrix-js-sdk @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
-    - [music-metadata @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
+    - [@matrix-org/matrix-sdk-crypto-nodejs @ package.json](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/package.json)
+    - [@matrix-org/matrix-sdk-crypto-wasm @ package.json](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/package.json)
+    - [@openclaw/fs-safe @ package.json](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/package.json)
+    - [fake-indexeddb @ package.json](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/package.json)
+    - [markdown-it @ package.json](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/package.json)
+    - [matrix-js-sdk @ package.json](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/package.json)
+    - [music-metadata @ package.json](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/package.json)
 
 - 🟡 P2 **matrix** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: matrix: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/index.ts)
-    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/setup-entry.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/index.ts)
+    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/setup-entry.ts)
 
 - 🟡 P2 **matrix** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: matrix: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - [registerGatewayMethod @ index.ts:17](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/index.ts#L17)
-    - [registerGatewayMethod @ index.ts:22](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/index.ts#L22)
-    - [registerGatewayMethod @ index.ts:27](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/index.ts#L27)
+    - [registerGatewayMethod @ index.ts:24](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/index.ts#L24)
 
 - 🟡 P2 **mattermost** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: mattermost: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - [createChatChannelPlugin @ channel.ts:694](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/channel.ts#L694)
+    - [createChatChannelPlugin @ channel.ts:530](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/mattermost/src/channel.ts#L530)
 
 - 🟡 P2 **mattermost** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: mattermost: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/mattermost/package.json)
 
 - 🟡 P2 **mattermost** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: mattermost: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/index.ts)
-    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/setup-entry.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/mattermost/index.ts)
+    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/mattermost/setup-entry.ts)
 
 - 🟡 P2 **mattermost** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: mattermost: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - [registerHttpRoute @ slash-state.ts:440](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/slash-state.ts#L440)
+    - [registerHttpRoute @ slash-state.ts:299](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/mattermost/src/mattermost/slash-state.ts#L299)
 
 - 🟡 P2 **mcp-adapter** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: mcp-adapter: cold import requires dependency installation in an isolated workspace
@@ -2918,7 +1796,7 @@ _none_
 
 - 🟡 P2 **mcp-adapter** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: mcp-adapter: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerService @ index.ts:15](https://github.com/androidStern-personal/openclaw-mcp-adapter/blob/5434ce21ac780a46a493c8125e52e80a03dd2640/index.ts#L15)
 
@@ -2945,7 +1823,7 @@ _none_
 
 - 🟡 P2 **memory-lancedb** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: memory-lancedb: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - registerService @ plugins/memory-lancedb/.crabpot-package/dist/index.js:393
     - registerService @ plugins/memory-lancedb/.crabpot-package/dist/index.js:57
@@ -2964,7 +1842,7 @@ _none_
 
 - 🟡 P2 **memory-tencentdb** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: memory-tencentdb: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1107
     - registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7704
@@ -2975,7 +1853,7 @@ _none_
 
 - 🟡 P2 **memos-cloud** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: memos-cloud: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerHook @ index.js:787](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/a317661691bda94054d3d35f8c226e8bfe0018f7/index.js#L787)
 
@@ -2993,7 +1871,7 @@ _none_
 
 - 🟡 P2 **mocrane-wecom** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: mocrane-wecom: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.ts:31](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L31)
 
@@ -3015,7 +1893,7 @@ _none_
 
 - 🟡 P2 **mocrane-wecom** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: mocrane-wecom: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.ts:31](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L31)
     - [registerHttpRoute @ index.ts:34](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L34)
@@ -3028,9 +1906,9 @@ _none_
 
 - 🟡 P2 **msteams** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: msteams: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/msteams/.crabpot-package/dist/.setup/channel-B2ftcwuA.cjs:1029
+    - createChatChannelPlugin @ plugins/msteams/.crabpot-package/dist/.setup/channel-CdCSk3Rg.cjs:1067
 
 - 🟡 P2 **msteams** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: msteams: cold import requires dependency installation in an isolated workspace
@@ -3060,15 +1938,16 @@ _none_
 
 - 🟡 P2 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: nemoclaw: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerCommand @ index.ts:322](https://github.com/NVIDIA/NemoClaw/blob/37ca4cb4220265c2a12b9d9b8a120d0d23a338dd/nemoclaw/src/index.ts#L322)
+    - [registerProvider @ index.ts:349](https://github.com/NVIDIA/NemoClaw/blob/37ca4cb4220265c2a12b9d9b8a120d0d23a338dd/nemoclaw/src/index.ts#L349)
 
 - 🟡 P2 **nextcloud-talk** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: nextcloud-talk: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/nextcloud-talk/.crabpot-package/dist/.setup/channel-DTKYMnlK.mjs:2289
+    - createChatChannelPlugin @ plugins/nextcloud-talk/.crabpot-package/dist/.setup/channel-D9tHRtkv.mjs:2253
 
 - 🟡 P2 **nextcloud-talk** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: nextcloud-talk: cold import requires dependency installation in an isolated workspace
@@ -3078,9 +1957,9 @@ _none_
 
 - 🟡 P2 **nostr** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: nostr: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/nostr/.crabpot-package/dist/.setup/channel-okqFzt1Z.mjs:1350
+    - createChatChannelPlugin @ plugins/nostr/.crabpot-package/dist/.setup/channel-C2iK5Fjg.mjs:1333
 
 - 🟡 P2 **nostr** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: nostr: cold import requires dependency installation in an isolated workspace
@@ -3091,7 +1970,7 @@ _none_
 
 - 🟡 P2 **nostr** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: nostr: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - registerHttpRoute @ plugins/nostr/.crabpot-package/dist/index.js:60
 
@@ -3103,13 +1982,13 @@ _none_
 
 - 🟡 P2 **openclaw-telemetry** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: openclaw-telemetry: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerService @ index.ts:10](https://github.com/knostic/openclaw-telemetry/blob/86c2458a0dfe82d639c208c5220396feb9d53c45/index.ts#L10)
 
 - 🟡 P2 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: openclaw-weixin: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:15
     - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:19
@@ -3129,7 +2008,7 @@ _none_
 
 - 🟡 P2 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: openclaw-weixin: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:15
     - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:19
@@ -3156,13 +2035,13 @@ _none_
 
 - 🟡 P2 **opik-openclaw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: opik-openclaw: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerService @ index.ts:16](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/index.ts#L16)
 
 - 🟡 P2 **qqbot** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: qqbot: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L16)
 
@@ -3176,7 +2055,7 @@ _none_
 
 - 🟡 P2 **qqbot** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: qqbot: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L16)
 
@@ -3202,7 +2081,7 @@ _none_
 
 - 🟡 P2 **secureclaw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: secureclaw: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerService @ index.ts:295](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/src/index.ts#L295)
     - [registerService @ index.ts:301](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/src/index.ts#L301)
@@ -3216,7 +2095,7 @@ _none_
 
 - 🟡 P2 **telnyx-sms** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: telnyx-sms: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [defineChannelPluginEntry @ index.ts:207](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/6e3956246cd3e0e72af649d2fd75dee6f3e46966/index.ts#L207)
 
@@ -3229,15 +2108,15 @@ _none_
 
 - 🟡 P2 **telnyx-sms** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: telnyx-sms: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerHttpRoute @ index.ts:259](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/6e3956246cd3e0e72af649d2fd75dee6f3e46966/index.ts#L259)
 
 - 🟡 P2 **tlon** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: tlon: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/tlon/.crabpot-package/dist/.setup/channel-cZo0ECaC.mjs:138
+    - createChatChannelPlugin @ plugins/tlon/.crabpot-package/dist/.setup/channel-DwKKUzwx.mjs:135
 
 - 🟡 P2 **tlon** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: tlon: cold import requires dependency installation in an isolated workspace
@@ -3251,9 +2130,9 @@ _none_
 
 - 🟡 P2 **twitch** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: twitch: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/twitch/.crabpot-package/dist/.setup/plugin-q9M3RXni.mjs:709
+    - createChatChannelPlugin @ plugins/twitch/.crabpot-package/dist/.setup/plugin-CnPNkPhc.mjs:699
 
 - 🟡 P2 **twitch** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: twitch: cold import requires dependency installation in an isolated workspace
@@ -3273,11 +2152,11 @@ _none_
 
 - 🟡 P2 **voice-call** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: voice-call: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - registerConfigMigration @ plugins/voice-call/.crabpot-package/dist/setup-api.js:133
-    - registerGatewayMethod @ plugins/voice-call/.crabpot-package/dist/index.js:449
-    - registerService @ plugins/voice-call/.crabpot-package/dist/index.js:615
+    - registerConfigMigration @ plugins/voice-call/.crabpot-package/dist/setup-api.js:132
+    - registerGatewayMethod @ plugins/voice-call/.crabpot-package/dist/index.js:416
+    - registerService @ plugins/voice-call/.crabpot-package/dist/index.js:582
 
 - 🟡 P2 **web-search-plus** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: web-search-plus: cold import needs TypeScript source entrypoint support
@@ -3287,7 +2166,7 @@ _none_
 
 - 🟡 P2 **wecom** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: wecom: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.js:27](https://github.com/sunnoy/openclaw-plugin-wecom/blob/df2e426457a0e587bbfe63f185ffe002cbf61e6f/index.js#L27)
 
@@ -3302,16 +2181,16 @@ _none_
 
 - 🟡 P2 **wecom** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: wecom: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.js:27](https://github.com/sunnoy/openclaw-plugin-wecom/blob/df2e426457a0e587bbfe63f185ffe002cbf61e6f/index.js#L27)
     - [registerHttpRoute @ index.js:56](https://github.com/sunnoy/openclaw-plugin-wecom/blob/df2e426457a0e587bbfe63f185ffe002cbf61e6f/index.js#L56)
 
 - 🟡 P2 **whatsapp** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: whatsapp: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-D-6ZIq4y.mjs:472
+    - createChatChannelPlugin @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-DaAKkqgg.mjs:463
 
 - 🟡 P2 **whatsapp** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: whatsapp: cold import requires dependency installation in an isolated workspace
@@ -3323,7 +2202,7 @@ _none_
 
 - 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: yuanbao: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - createChatChannelPlugin @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:19
 
@@ -3338,7 +2217,7 @@ _none_
 
 - 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: yuanbao: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:16
     - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:17
@@ -3354,9 +2233,9 @@ _none_
 
 - 🟡 P2 **zalo** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: zalo: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/zalo/.crabpot-package/dist/.setup/channel-BDoyUcaX.mjs:272
+    - createChatChannelPlugin @ plugins/zalo/.crabpot-package/dist/.setup/channel-B-pcG9qP.mjs:267
 
 - 🟡 P2 **zalo** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: zalo: cold import requires dependency installation in an isolated workspace
@@ -3366,9 +2245,9 @@ _none_
 
 - 🟡 P2 **zalouser** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: zalouser: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/zalouser/.crabpot-package/dist/.setup/channel-DgZ3b3H5.mjs:487
+    - createChatChannelPlugin @ plugins/zalouser/.crabpot-package/dist/.setup/channel-Chv0Qbpd.mjs:481
 
 - 🟡 P2 **zalouser** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: zalouser: cold import requires dependency installation in an isolated workspace
@@ -3383,6 +2262,15 @@ _none_
 _none_
 
 ## Upstream Metadata Issues
+
+- 🟠 P1 **kitchen-sink** `upstream-metadata` `plugin-upstream-fix`
+  - **manifest-unknown-contracts**: kitchen-sink: manifest declares unsupported contract keys
+  - state: open · compat:none
+  - evidence:
+    - [embeddedExtensionFactories @ openclaw.plugin.json](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/openclaw.plugin.json)
+  - author remediation:
+    - Remove unsupported manifest contract keys or move them to a documented OpenClaw contract field.
+    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-contracts
 
 - 🟡 P2 **a2a-gateway** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: a2a-gateway: manifest uses unsupported top-level fields
@@ -3802,6 +2690,21 @@ _none_
   - evidence:
     - [before_agent_start @ hooks.ts:17](https://github.com/osipov-anton/connectclaw/blob/7a4e2646e914de075435b3837123cc03c3edae36/packages/plugin/src/hooks.ts#L17)
 
+- 🔴 P0 **kitchen-sink** `live-issue` `core-compat-adapter`
+  - **unknown-hook-name**: kitchen-sink: fixture uses a hook missing from target OpenClaw
+  - state: blocking · compat:none · live
+  - evidence:
+    - [skill_proposal_changed @ generated-hooks.js:40](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-hooks.js#L40)
+    - [skill_proposal_evaluate @ generated-hooks.js:41](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-hooks.js#L41)
+
+- 🔴 P0 **kitchen-sink** `live-issue` `core-compat-adapter`
+  - **unknown-registration-name**: kitchen-sink: fixture calls a registrar missing from target OpenClaw
+  - state: blocking · compat:none · live
+  - evidence:
+    - [registerCodexAppServerExtensionFactory @ generated-registrars.js:12](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L12)
+    - [registerHostedMediaResolver @ generated-registrars.js:23](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L23)
+    - [registerTextTransforms @ generated-registrars.js:51](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L51)
+
 - 🔴 P0 **memos-cloud** `live-issue` `core-compat-adapter`
   - **unknown-hook-name**: memos-cloud: fixture uses a hook missing from target OpenClaw
   - state: blocking · compat:none · live
@@ -3820,17 +2723,44 @@ _none_
   - evidence:
     - [subagent_spawning @ subagent.ts:38](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/service/hooks/subagent.ts#L38)
 
+- 🟠 P1 **a2a-gateway** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: a2a-gateway: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
 - 🟠 P1 **agentchat** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: agentchat: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
   - evidence:
     - channel-env-vars
 
+- 🟠 P1 **agentchat** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: agentchat: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **agentchat** `compat-gap` `core-compat-adapter`
+  - **sdk-export-missing**: agentchat: plugin SDK import aliases are missing from target package exports
+  - state: open · compat:untracked
+  - evidence:
+    - [openclaw/plugin-sdk/channel-lifecycle @ gateway.ts:27](https://github.com/agentchatme/agentchat-openclaw/blob/caee25ad8ed7a38cc4281bda397c7e0e7e90ce6a/src/binding/gateway.ts#L27)
+
+- 🟠 P1 **bluebubbles** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: bluebubbles: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
 - 🟠 P1 **bluebubbles** `compat-gap` `core-compat-adapter`
   - **sdk-export-missing**: bluebubbles: plugin SDK import aliases are missing from target package exports
   - state: open · compat:untracked
   - evidence:
+    - [openclaw/plugin-sdk/channel-lifecycle @ channel-BSIXOcHe.js:13](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/channel-BSIXOcHe.js#L13)
+    - [openclaw/plugin-sdk/channel-reply-pipeline @ monitor-processing-Dy-LY2QQ.js:28](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/monitor-processing-Dy-LY2QQ.js#L28)
     - [openclaw/plugin-sdk/channel-streaming @ probe-B4I0cEVm.js:6](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/probe-B4I0cEVm.js#L6)
+    - [openclaw/plugin-sdk/command-auth @ monitor-processing-Dy-LY2QQ.js:29](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/monitor-processing-Dy-LY2QQ.js#L29)
     - [openclaw/plugin-sdk/text-runtime @ channel-BSIXOcHe.js:18](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/channel-BSIXOcHe.js#L18)
     - [openclaw/plugin-sdk/text-runtime @ monitor-processing-Dy-LY2QQ.js:8](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/monitor-processing-Dy-LY2QQ.js#L8)
     - [openclaw/plugin-sdk/text-runtime @ probe-B4I0cEVm.js:4](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/probe-B4I0cEVm.js#L4)
@@ -3839,13 +2769,53 @@ _none_
     - [openclaw/plugin-sdk/webhook-path @ webhook-shared-CoiIKIWN.js:2](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/webhook-shared-CoiIKIWN.js#L2)
     - [openclaw/plugin-sdk/zod @ config-schema-a7F7uzDv.js:3](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/config-schema-a7F7uzDv.js#L3)
 
-- 🟠 P1 **codex** `inspector-gap` `inspector-follow-up`
-  - **sdk-export-missing**: codex: SDK import coverage requires an eligible host
+- 🟠 P1 **brave-plugin** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: brave-plugin: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **clawmetry** `inspector-gap` `inspector-follow-up`
+  - **conversation-access-hook**: clawmetry: conversation-access hooks need privacy-boundary probes
   - state: open · compat:untracked
   - evidence:
-    - openclaw/plugin-sdk/agent-harness-completion @ plugins/codex/.crabpot-package/dist/.setup/native-subagent-monitor-CBYFkNsB.mjs:24
-    - Host 2026.9.6 does not satisfy the declared plugin API range >=2026.10.6; recheck with an eligible host before assigning a core compatibility repair.
-    - Unassessed SDK compatibility record: plugin-sdk-export-aliases
+    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/6228537b0271572d55f5bf02ee130f76038f7cd5/clawhub-plugin/src/service.ts#L117)
+
+- 🟠 P1 **clawmetry** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: clawmetry: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **clawmetry** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: clawmetry: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.llm-observer.privacy-payload
+
+- 🟠 P1 **clawrouter** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: clawrouter: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **codex** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: codex: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **codex-app-server** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: codex-app-server: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **connectclaw** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: connectclaw: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
 
 - 🟠 P1 **connectclaw** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: connectclaw: compat-dependent behavior lacks registry coverage
@@ -3871,17 +2841,74 @@ _none_
   - evidence:
     - channel-env-vars
 
+- 🟠 P1 **ddingtalk** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: ddingtalk: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **diagnostics-otel** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: diagnostics-otel: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **diagnostics-prometheus** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: diagnostics-prometheus: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **diffs** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: diffs: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **dingtalk-connector** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: dingtalk-connector: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **dingtalk-connector** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: dingtalk-connector: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
 - 🟠 P1 **dingtalk-connector** `compat-gap` `core-compat-adapter`
   - **sdk-export-missing**: dingtalk-connector: plugin SDK import aliases are missing from target package exports
   - state: open · compat:untracked
   - evidence:
     - [openclaw/plugin-sdk/channel-runtime @ reply-dispatcher.ts:21](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/reply-dispatcher.ts#L21)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:131](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L131)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:191](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L191)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:259](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L259)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:312](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L312)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:352](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L352)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:389](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L389)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:426](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L426)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:453](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L453)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:507](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L507)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:594](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L594)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:61](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L61)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:653](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L653)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:720](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L720)
+    - [openclaw/plugin-sdk/config-runtime @ card-bridge.ts:186](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/services/card-bridge.ts#L186)
+    - [openclaw/plugin-sdk/config-runtime @ card-bridge.ts:339](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/services/card-bridge.ts#L339)
 
 - 🟠 P1 **dingtalk-doc** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: dingtalk-doc: before_tool_call needs terminal/block/approval probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [before_tool_call @ index.ts:41](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/index.ts#L41)
+
+- 🟠 P1 **dingtalk-doc** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: dingtalk-doc: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.before_tool_call.terminal-block-approval
 
 - 🟠 P1 **dingtalk-doc** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: dingtalk-doc: compat-dependent behavior lacks registry coverage
@@ -3895,11 +2922,74 @@ _none_
   - evidence:
     - [openclaw/plugin-sdk @ index.ts:11](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/index.ts#L11)
 
+- 🟠 P1 **discord** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: discord: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **discord** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: discord: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **discord** `inspector-gap` `inspector-follow-up`
+  - **sdk-export-missing**: discord: SDK import coverage requires an eligible host
+  - state: open · compat:untracked
+  - evidence:
+    - openclaw/plugin-sdk/heartbeat-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-BBDuE14w.mjs:68
+    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.10.10; recheck with an eligible host before assigning a core compatibility repair.
+    - Unassessed SDK compatibility record: plugin-sdk-export-aliases
+
+- 🟠 P1 **feishu** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: feishu: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **google-meet** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: google-meet: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
 - 🟠 P1 **hasdata** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: hasdata: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
   - evidence:
     - provider-auth-env-vars
+
+- 🟠 P1 **honcho** `inspector-gap` `inspector-follow-up`
+  - **conversation-access-hook**: honcho: conversation-access hooks need privacy-boundary probes
+  - state: open · compat:untracked
+  - evidence:
+    - [agent_end @ capture.ts:137](https://github.com/plastic-labs/openclaw-honcho/blob/25f644cfd985f437951cc085b91138be22e42388/hooks/capture.ts#L137)
+    - [llm_output @ telemetry.ts:31](https://github.com/plastic-labs/openclaw-honcho/blob/25f644cfd985f437951cc085b91138be22e42388/hooks/telemetry.ts#L31)
+
+- 🟠 P1 **honcho** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: honcho: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **honcho** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: honcho: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.llm-observer.privacy-payload
+
+- 🟠 P1 **hyperspell** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: hyperspell: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **inworld-tts** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: inworld-tts: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
 
 - 🟠 P1 **inworld-tts** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: inworld-tts: compat-dependent behavior lacks registry coverage
@@ -3909,22 +2999,174 @@ _none_
 
 - 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: kitchen-sink: before_tool_call needs terminal/block/approval probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [before_tool_call @ generated-hooks.js:19](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-hooks.js#L19)
+
+- 🟠 P1 **kitchen-sink** `inspector-gap` `inspector-follow-up`
+  - **conversation-access-hook**: kitchen-sink: conversation-access hooks need privacy-boundary probes
+  - state: open · compat:untracked
+  - evidence:
+    - [agent_end @ generated-hooks.js:7](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-hooks.js#L7)
+    - [llm_input @ generated-hooks.js:27](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-hooks.js#L27)
+    - [llm_output @ generated-hooks.js:28](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-hooks.js#L28)
+
+- 🟠 P1 **kitchen-sink** `upstream-metadata` `plugin-upstream-fix`
+  - **manifest-unknown-contracts**: kitchen-sink: manifest declares unsupported contract keys
+  - state: open · compat:none
+  - evidence:
+    - [embeddedExtensionFactories @ openclaw.plugin.json](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/openclaw.plugin.json)
+  - author remediation:
+    - Remove unsupported manifest contract keys or move them to a documented OpenClaw contract field.
+    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-contracts
+
+- 🟠 P1 **kitchen-sink** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: kitchen-sink: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **kitchen-sink** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: kitchen-sink: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **kitchen-sink** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: kitchen-sink: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.before_tool_call.terminal-block-approval
+
+- 🟠 P1 **kitchen-sink** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: kitchen-sink: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.llm-observer.privacy-payload
+
+- 🟠 P1 **lightclawbot** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: lightclawbot: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **lightclawbot** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: lightclawbot: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **lightclawbot** `compat-gap` `core-compat-adapter`
+  - **sdk-export-missing**: lightclawbot: plugin SDK import aliases are missing from target package exports
+  - state: open · compat:untracked
+  - evidence:
+    - openclaw/plugin-sdk/channel-reply-pipeline @ plugins/lightclawbot/.crabpot-package/dist/src/inbound.js:264
+    - openclaw/plugin-sdk/config-runtime @ plugins/lightclawbot/.crabpot-package/dist/src/utils/openclaw-compat.js:84
+
+- 🟠 P1 **llm-trace-phoenix** `inspector-gap` `inspector-follow-up`
+  - **conversation-access-hook**: llm-trace-phoenix: conversation-access hooks need privacy-boundary probes
+  - state: open · compat:untracked
+  - evidence:
+    - [llm_input @ index.js:105](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/ad8a34681b4d49a1b7d75bb8f6ac9b2f2ea3a8e9/dist/index.js#L105)
+    - [llm_input @ index.ts:202](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/ad8a34681b4d49a1b7d75bb8f6ac9b2f2ea3a8e9/index.ts#L202)
+    - [llm_output @ index.js:118](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/ad8a34681b4d49a1b7d75bb8f6ac9b2f2ea3a8e9/dist/index.js#L118)
+    - [llm_output @ index.ts:216](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/ad8a34681b4d49a1b7d75bb8f6ac9b2f2ea3a8e9/index.ts#L216)
+
+- 🟠 P1 **llm-trace-phoenix** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: llm-trace-phoenix: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.llm-observer.privacy-payload
+
+- 🟠 P1 **lossless-claw** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: lossless-claw: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **matrix** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: matrix: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
 
 - 🟠 P1 **matrix** `compat-gap` `core-compat-adapter`
   - **sdk-export-missing**: matrix: plugin SDK import aliases are missing from target package exports
   - state: open · compat:untracked
   - evidence:
-    - [openclaw/plugin-sdk/plugin-state-test-runtime @ recovery-persistence.test-support.ts:7](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/src/matrix/sdk/recovery-persistence.test-support.ts#L7)
-    - [openclaw/plugin-sdk/test-env @ test-support.ts:2](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/test-support.ts#L2)
+    - [openclaw/plugin-sdk/plugin-state-test-runtime @ doctor-contract-api.test-support.ts:7](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/doctor-contract-api.test-support.ts#L7)
+    - [openclaw/plugin-sdk/plugin-state-test-runtime @ sync-store.test-support.ts:5](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/src/matrix/client/sync-store.test-support.ts#L5)
+    - [openclaw/plugin-sdk/plugin-state-test-runtime @ crypto-persistence.test-support.ts:5](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/src/matrix/sdk/crypto-persistence.test-support.ts#L5)
+    - [openclaw/plugin-sdk/plugin-state-test-runtime @ recovery-persistence.test-support.ts:7](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/src/matrix/sdk/recovery-persistence.test-support.ts#L7)
+    - [openclaw/plugin-sdk/sqlite-runtime-testing @ sync-store.test-support.ts:6](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/src/matrix/client/sync-store.test-support.ts#L6)
+    - [openclaw/plugin-sdk/test-env @ test-support.ts:2](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/test-support.ts#L2)
+
+- 🟠 P1 **mattermost** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: mattermost: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **mattermost** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: mattermost: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
 
 - 🟠 P1 **mattermost** `compat-gap` `core-compat-adapter`
   - **sdk-export-missing**: mattermost: plugin SDK import aliases are missing from target package exports
   - state: open · compat:untracked
   - evidence:
-    - [openclaw/plugin-sdk/test-env @ reactions.test-helpers.ts:1](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/reactions.test-helpers.ts#L1)
+    - [openclaw/plugin-sdk/channel-ingress-test-runtime @ monitor.ingress-debounce.test-support.ts:5](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/mattermost/src/mattermost/monitor.ingress-debounce.test-support.ts#L5)
+    - [openclaw/plugin-sdk/test-env @ monitor.ingress-debounce.test-support.ts:16](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/mattermost/src/mattermost/monitor.ingress-debounce.test-support.ts#L16)
+    - [openclaw/plugin-sdk/test-env @ reactions.test-helpers.ts:1](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/mattermost/src/mattermost/reactions.test-helpers.ts#L1)
+
+- 🟠 P1 **mcp-adapter** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: mcp-adapter: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **memory-lancedb** `inspector-gap` `inspector-follow-up`
+  - **conversation-access-hook**: memory-lancedb: conversation-access hooks need privacy-boundary probes
+  - state: open · compat:untracked
+  - evidence:
+    - agent_end @ plugins/memory-lancedb/.crabpot-package/dist/index.js:315
+
+- 🟠 P1 **memory-lancedb** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: memory-lancedb: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **memory-lancedb** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: memory-lancedb: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.llm-observer.privacy-payload
+
+- 🟠 P1 **memory-tencentdb** `inspector-gap` `inspector-follow-up`
+  - **conversation-access-hook**: memory-tencentdb: conversation-access hooks need privacy-boundary probes
+  - state: open · compat:untracked
+  - evidence:
+    - agent_end @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1095
+    - agent_end @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1256
+    - agent_end @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:21802
+    - agent_end @ plugins/memory-tencentdb/.crabpot-package/index.ts:808
+    - agent_end @ plugins/memory-tencentdb/.crabpot-package/openclaw-plugin/index.ts:209
+    - agent_end @ plugins/memory-tencentdb/.crabpot-package/src/offload-client/index.ts:52
+
+- 🟠 P1 **memory-tencentdb** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: memory-tencentdb: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **memory-tencentdb** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: memory-tencentdb: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.llm-observer.privacy-payload
 
 - 🟠 P1 **memory-tencentdb** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: memory-tencentdb: compat-dependent behavior lacks registry coverage
@@ -3939,11 +3181,41 @@ _none_
     - openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:8466
     - openclaw/plugin-sdk @ plugins/memory-tencentdb/.crabpot-package/src/offload/index.ts:2190
 
+- 🟠 P1 **memos-cloud** `inspector-gap` `inspector-follow-up`
+  - **conversation-access-hook**: memos-cloud: conversation-access hooks need privacy-boundary probes
+  - state: open · compat:untracked
+  - evidence:
+    - [agent_end @ index.js:860](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/a317661691bda94054d3d35f8c226e8bfe0018f7/index.js#L860)
+
+- 🟠 P1 **memos-cloud** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: memos-cloud: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **memos-cloud** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: memos-cloud: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.llm-observer.privacy-payload
+
 - 🟠 P1 **memos-cloud** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: memos-cloud: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
   - evidence:
     - legacy-before-agent-start
+
+- 🟠 P1 **mocrane-wecom** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: mocrane-wecom: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **mocrane-wecom** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: mocrane-wecom: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
 
 - 🟠 P1 **mocrane-wecom** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: mocrane-wecom: compat-dependent behavior lacks registry coverage
@@ -3957,17 +3229,77 @@ _none_
   - evidence:
     - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:30](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L30)
 
+- 🟠 P1 **msteams** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: msteams: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
 - 🟠 P1 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: nemoclaw: before_tool_call needs terminal/block/approval probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [before_tool_call @ index.ts:359](https://github.com/NVIDIA/NemoClaw/blob/37ca4cb4220265c2a12b9d9b8a120d0d23a338dd/nemoclaw/src/index.ts#L359)
 
+- 🟠 P1 **nemoclaw** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: nemoclaw: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **nemoclaw** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: nemoclaw: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.before_tool_call.terminal-block-approval
+
+- 🟠 P1 **nextcloud-talk** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: nextcloud-talk: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **nostr** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: nostr: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **nostr** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: nostr: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
 - 🟠 P1 **openclaw-telemetry** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: openclaw-telemetry: before_tool_call needs terminal/block/approval probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [before_tool_call @ index.ts:12](https://github.com/knostic/openclaw-telemetry/blob/86c2458a0dfe82d639c208c5220396feb9d53c45/index.ts#L12)
+
+- 🟠 P1 **openclaw-telemetry** `inspector-gap` `inspector-follow-up`
+  - **conversation-access-hook**: openclaw-telemetry: conversation-access hooks need privacy-boundary probes
+  - state: open · compat:untracked
+  - evidence:
+    - [agent_end @ index.ts:62](https://github.com/knostic/openclaw-telemetry/blob/86c2458a0dfe82d639c208c5220396feb9d53c45/index.ts#L62)
+
+- 🟠 P1 **openclaw-telemetry** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: openclaw-telemetry: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **openclaw-telemetry** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: openclaw-telemetry: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.before_tool_call.terminal-block-approval
+
+- 🟠 P1 **openclaw-telemetry** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: openclaw-telemetry: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.llm-observer.privacy-payload
 
 - 🟠 P1 **openclaw-telemetry** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: openclaw-telemetry: compat-dependent behavior lacks registry coverage
@@ -3987,11 +3319,49 @@ _none_
   - evidence:
     - [openclaw/plugin-sdk @ service.ts:2](https://github.com/knostic/openclaw-telemetry/blob/86c2458a0dfe82d639c208c5220396feb9d53c45/src/service.ts#L2)
 
+- 🟠 P1 **openclaw-weixin** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: openclaw-weixin: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **openclaw-weixin** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: openclaw-weixin: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
 - 🟠 P1 **opik-openclaw** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: opik-openclaw: before_tool_call needs terminal/block/approval probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [before_tool_call @ tool.ts:34](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/service/hooks/tool.ts#L34)
+
+- 🟠 P1 **opik-openclaw** `inspector-gap` `inspector-follow-up`
+  - **conversation-access-hook**: opik-openclaw: conversation-access hooks need privacy-boundary probes
+  - state: open · compat:untracked
+  - evidence:
+    - [agent_end @ service.ts:581](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/service.ts#L581)
+    - [llm_input @ llm.ts:39](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/service/hooks/llm.ts#L39)
+    - [llm_output @ llm.ts:150](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/service/hooks/llm.ts#L150)
+
+- 🟠 P1 **opik-openclaw** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: opik-openclaw: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **opik-openclaw** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: opik-openclaw: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.before_tool_call.terminal-block-approval
+
+- 🟠 P1 **opik-openclaw** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: opik-openclaw: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.llm-observer.privacy-payload
 
 - 🟠 P1 **opik-openclaw** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: opik-openclaw: compat-dependent behavior lacks registry coverage
@@ -4010,6 +3380,18 @@ _none_
   - **missing-compat-record**: qqbot: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
   - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **qqbot** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: qqbot: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **qqbot** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: qqbot: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
     - legacy-root-sdk-import
 
 - 🟠 P1 **qqbot** `compat-gap` `core-compat-adapter`
@@ -4018,31 +3400,123 @@ _none_
   - evidence:
     - [openclaw/plugin-sdk @ index.ts:2](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L2)
 
+- 🟠 P1 **secureclaw** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: secureclaw: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **telnyx-sms** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: telnyx-sms: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
 - 🟠 P1 **telnyx-sms** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: telnyx-sms: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
   - evidence:
     - channel-env-vars
 
+- 🟠 P1 **telnyx-sms** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: telnyx-sms: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
 - 🟠 P1 **telnyx-sms** `inspector-gap` `inspector-follow-up`
   - **sdk-export-missing**: telnyx-sms: SDK import coverage requires an eligible host
   - state: open · compat:untracked
   - evidence:
     - [openclaw/plugin-sdk/direct-dm @ inbound.ts:2](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/6e3956246cd3e0e72af649d2fd75dee6f3e46966/src/inbound.ts#L2)
-    - Host 2026.9.6 does not satisfy the declared plugin API range 2026.4; recheck with an eligible host before assigning a core compatibility repair.
+    - Host 2026.10.6 does not satisfy the declared plugin API range 2026.4; recheck with an eligible host before assigning a core compatibility repair.
     - Unassessed SDK compatibility record: plugin-sdk-export-aliases
+
+- 🟠 P1 **tlon** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: tlon: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **twitch** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: twitch: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **voice-call** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: voice-call: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
 
 - 🟠 P1 **wecom** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: wecom: before_tool_call needs terminal/block/approval probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [before_tool_call @ index.js:76](https://github.com/sunnoy/openclaw-plugin-wecom/blob/df2e426457a0e587bbfe63f185ffe002cbf61e6f/index.js#L76)
+
+- 🟠 P1 **wecom** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: wecom: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
+
+- 🟠 P1 **wecom** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: wecom: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **wecom** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: wecom: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - hook.before_tool_call.terminal-block-approval
+
+- 🟠 P1 **whatsapp** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: whatsapp: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **yuanbao** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: yuanbao: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - api.capture.runtime-registrars
 
 - 🟠 P1 **yuanbao** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: yuanbao: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
   - evidence:
     - channel-env-vars
+
+- 🟠 P1 **yuanbao** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: yuanbao: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **yuanbao** `compat-gap` `core-compat-adapter`
+  - **sdk-export-missing**: yuanbao: plugin SDK import aliases are missing from target package exports
+  - state: open · compat:untracked
+  - evidence:
+    - openclaw/plugin-sdk/channel-reply-pipeline @ plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/dispatch-reply.js:5
+    - openclaw/plugin-sdk/command-auth @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/command-sync/index.js:2
+    - openclaw/plugin-sdk/command-auth @ plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/guard-command.js:5
+
+- 🟠 P1 **zalo** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: zalo: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **zalouser** `compat-gap` `core-compat-adapter`
+  - **missing-compat-record**: zalouser: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
+  - evidence:
+    - channel.runtime.envelope-config-metadata
 
 - 🟡 P2 **a2a-gateway** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: a2a-gateway: manifest uses unsupported top-level fields
@@ -4092,13 +3566,13 @@ _none_
 
 - 🟡 P2 **a2a-gateway** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: a2a-gateway: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerService @ index.ts:897](https://github.com/win4r/openclaw-a2a-gateway/blob/fdedad7499c4b6d22b3aa63a7876b9bfa1a92674/index.ts#L897)
 
 - 🟡 P2 **agentchat** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: agentchat: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [defineChannelPluginEntry @ channel.ts:355](https://github.com/agentchatme/agentchat-openclaw/blob/caee25ad8ed7a38cc4281bda397c7e0e7e90ce6a/src/channel.ts#L355)
 
@@ -4184,18 +3658,18 @@ _none_
   - **package-build-artifact-entrypoint**: apify: cold import requires package build output
   - state: open · compat:none
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/apify/apify-openclaw-plugin/blob/f089a0632461f921ddbd15d783a791be9fc808ab/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/apify/apify-openclaw-plugin/blob/9f2aadbbfbd170f196165f05d9f967f500292cda/dist/index.js)
 
 - 🟡 P2 **apify** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: apify: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [apify-client @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/f089a0632461f921ddbd15d783a791be9fc808ab/package.json)
-    - [typebox @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/f089a0632461f921ddbd15d783a791be9fc808ab/package.json)
+    - [apify-client @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/9f2aadbbfbd170f196165f05d9f967f500292cda/package.json)
+    - [typebox @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/9f2aadbbfbd170f196165f05d9f967f500292cda/package.json)
 
 - 🟡 P2 **bluebubbles** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: bluebubbles: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [createChatChannelPlugin @ channel-BSIXOcHe.js:930](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/channel-BSIXOcHe.js#L930)
 
@@ -4217,59 +3691,11 @@ _none_
     - Complete the OpenClaw install metadata so ClawHub can identify the install target.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-install-metadata-incomplete
 
-- 🟡 P2 **bluebubbles** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: bluebubbles: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
+- 🟡 P2 **brave-plugin** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: brave-plugin: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:untracked
   - evidence:
-    - [openclaw/plugin-sdk/command-auth @ monitor-processing-Dy-LY2QQ.js:29](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/monitor-processing-Dy-LY2QQ.js#L29)
-  - author remediation:
-    - openclaw/plugin-sdk/command-auth retires on Oct 1, 2026; the focused replacement named by each TypeScript @deprecated annotation
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **bluebubbles** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: bluebubbles: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/conversation-runtime @ monitor-processing-Dy-LY2QQ.js:19](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/monitor-processing-Dy-LY2QQ.js#L19)
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **bluebubbles** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: bluebubbles: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/media-runtime @ monitor-processing-Dy-LY2QQ.js:25](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/monitor-processing-Dy-LY2QQ.js#L25)
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **bluebubbles** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: bluebubbles: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/security-runtime @ channel.runtime-ZppuKLfQ.js:9](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/channel.runtime-ZppuKLfQ.js#L9)
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **bluebubbles** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: bluebubbles: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/security-runtime @ monitor-processing-Dy-LY2QQ.js:32](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/monitor-processing-Dy-LY2QQ.js#L32)
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **bluebubbles** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: bluebubbles: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [resolveRuntimeConversationBindingRoute @ monitor-processing-Dy-LY2QQ.js:19](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/monitor-processing-Dy-LY2QQ.js#L19)
-  - author remediation:
-    - resolveRuntimeConversationBindingRoute is deprecated; Await getSessionBindingService().inspectByConversationAsync, resolveByConversationAsync, touchAsync, resolveRuntimeConversationBindingRouteAsync, and the Async-suffixed thread-binding lifecycle setters. Project prepared inspection facts with inspectRuntimeConversationBindingRoute. Async dispatch retains an explicit synchronous fallback for legacy external adapters; remaining bind/unbind and other storage operations are separate migration work.
-    - docs: https://docs.openclaw.ai/plugins/sdk-runtime/channel#awaited-conversation-binding-mutations
+    - registerWebSearchProvider @ plugins/brave-plugin/.crabpot-package/dist/index.js:14
 
 - 🟡 P2 **clawmetry** `upstream-metadata` `plugin-upstream-fix`
   - **package-install-metadata-incomplete**: clawmetry: OpenClaw package install metadata is incomplete
@@ -4285,13 +3711,13 @@ _none_
   - **package-typescript-source-entrypoint**: clawmetry: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/72714376a4b358dcb2b62e6c3ae05140903bcdff/clawhub-plugin/index.ts)
+    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/6228537b0271572d55f5bf02ee130f76038f7cd5/clawhub-plugin/index.ts)
 
 - 🟡 P2 **clawmetry** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: clawmetry: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/72714376a4b358dcb2b62e6c3ae05140903bcdff/clawhub-plugin/index.ts#L20)
+    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/6228537b0271572d55f5bf02ee130f76038f7cd5/clawhub-plugin/index.ts#L20)
 
 - 🟡 P2 **clawrouter** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: clawrouter: cold import requires dependency installation in an isolated workspace
@@ -4319,7 +3745,7 @@ _none_
 
 - 🟡 P2 **clawrouter** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: clawrouter: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerCommand @ cli.js:89376](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89376)
     - [registerCommand @ cli.js:89428](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89428)
@@ -4343,9 +3769,15 @@ _none_
     - [registerCommand @ index.ts:2036](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2036)
     - [registerCommand @ index.ts:2040](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2040)
     - [registerCommand @ index.ts:2041](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2041)
+    - [registerImageGenerationProvider @ index.ts:1693](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1693)
+    - [registerMusicGenerationProvider @ index.ts:1694](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1694)
+    - [registerProvider @ index.ts:1684](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1684)
+    - [registerProvider @ index.ts:1689](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1689)
     - [registerService @ cli.js:89557](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89557)
     - [registerService @ index.js:87593](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87593)
     - [registerService @ index.ts:2050](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2050)
+    - [registerVideoGenerationProvider @ index.ts:1696](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1696)
+    - [registerWebSearchProvider @ index.ts:1705](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1705)
 
 - 🟡 P2 **codex** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: codex: cold import requires dependency installation in an isolated workspace
@@ -4361,588 +3793,29 @@ _none_
 
 - 🟡 P2 **codex** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: codex: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - registerCommand @ plugins/codex/.crabpot-package/dist/index.js:4358
+    - registerAgentHarness @ plugins/codex/.crabpot-package/dist/index.js:4261
+    - registerCommand @ plugins/codex/.crabpot-package/dist/index.js:4304
     - registerGatewayMethod @ plugins/codex/.crabpot-package/dist/index.js:72
-    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4287
-    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4354
-    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4356
-    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4289
-    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4355
-    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4357
-    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4197
-    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4215
-    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4216
+    - registerMediaUnderstandingProvider @ plugins/codex/.crabpot-package/dist/index.js:4262
+    - registerMigrationProvider @ plugins/codex/.crabpot-package/dist/index.js:4264
+    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4231
+    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4300
+    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4302
+    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4233
+    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4301
+    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4303
+    - registerProvider @ plugins/codex/.crabpot-package/dist/index.js:4152
+    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4150
+    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4168
+    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4169
+    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4170
     - registerService @ plugins/codex/.crabpot-package/dist/index.js:4217
-    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4273
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - api.runtime.state.openSyncKeyedStore @ plugins/codex/.crabpot-package/dist/index.js:4229
-  - author remediation:
-    - api.runtime.state.openSyncKeyedStore is deprecated; `api.runtime.state.openKeyedStore` and `PluginStateKeyedStore`; await operations while keeping transactional callbacks synchronous. Retain the sync adapter until a supported external-plugin migration and explicit breaking-release approval.
-    - docs: https://docs.openclaw.ai/plugins/sdk-runtime/state-and-system#synchronous-keyed-store-migration
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tool-build-DjbDZzOJ.mjs:267
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/attempt-client-cleanup-BVww-ct8.mjs:8
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/attempt-terminal-sZutF0WY.mjs:1
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/attempt-workspace-context-BkA0W8Jy.mjs:5
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/auth-binding-BFTkrP_b.mjs:4
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/client-Div-zqnz.mjs:21
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/command-rpc-Co0UzT-T.mjs:18
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/compact-CzNBg4cQ.mjs:27
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/config-LQemoqTL.mjs:8
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/context-compaction-activity-CMla5FPJ.mjs:1
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/context-engine-projection-ps-yn_ci.mjs:3
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/conversation-binding-Dcv7_rs-.mjs:31
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tool-build-DjbDZzOJ.mjs:11
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tools-75qoSOch.mjs:36
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/effective-mcp-catalog-Dz0J8iAj.mjs:7
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/elicitation-input-DXG_qaXr.mjs:1
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/event-projector-usage-BpKfdoTm.mjs:4
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/mcp-app-session-preparation-C7LyxbAm.mjs:16
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/native-mcp-app-DDEtVQED.mjs:9
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/native-skill-isolation-Cx2AkUco.mjs:12
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/native-subagent-monitor-CBYFkNsB.mjs:22
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/plugin-inventory-OhiCoyPH.mjs:3
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/project-doc-thread-config-D_sWbxFR.mjs:9
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/run-attempt-Ch1emiZE.mjs:80
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/run-attempt-lifecycle-DN-ATDp9.mjs:4
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/session-binding-BDnNz-Co.mjs:9
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/settled-turn-context-BPL6D3RO.mjs:2
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/shared-client-CNGDTv68.mjs:34
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/side-question-D1Wa21s9.mjs:33
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/thread-lifecycle-run-DjSfTw6v.mjs:45
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/thread-policy-BEiS7ITh.mjs:5
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/thread-requests-DjyDmCo4.mjs:12
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/transcript-mirror-DVEzdOs0.mjs:7
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/turn-router-DM0fRrYI.mjs:8
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/upstream-session-fork-CxgShpwe.mjs:38
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-runtime @ plugins/codex/.crabpot-package/dist/.setup/usage-limit-error-ryR1PGou.mjs:7
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/auth-binding-BFTkrP_b.mjs:3
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/auth-profile-health-B05o5BAm.mjs:8
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/command-handlers-CJqo6LZS.mjs:45
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/command-rpc-Co0UzT-T.mjs:17
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/compact-CzNBg4cQ.mjs:26
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/conversation-binding-Dcv7_rs-.mjs:30
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/conversation-control-BtPxevoK.mjs:8
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/doctor-start-options-C28ek2hD.mjs:7
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tool-build-DjbDZzOJ.mjs:10
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/plan-BKFbfVsV.mjs:13
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/responses-oauth-twnuTaAa.mjs:2
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/run-attempt-Ch1emiZE.mjs:79
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/shared-client-CNGDTv68.mjs:33
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/side-question-D1Wa21s9.mjs:32
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/thread-lifecycle-run-DjSfTw6v.mjs:44
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/upstream-session-fork-CxgShpwe.mjs:37
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/usage-DV8T9Yau.mjs:5
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/codex/.crabpot-package/dist/.setup/usage-limit-error-ryR1PGou.mjs:6
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tools-75qoSOch.mjs:45
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/codex/.crabpot-package/dist/.setup/run-attempt-Ch1emiZE.mjs:94
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/plugin-runtime @ plugins/codex/.crabpot-package/dist/.setup/thread-requests-DjyDmCo4.mjs:13
-  - author remediation:
-    - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/codex/.crabpot-package/dist/.setup/dynamic-tools-75qoSOch.mjs:39
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/codex/.crabpot-package/dist/.setup/plan-BKFbfVsV.mjs:15
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/codex/.crabpot-package/dist/.setup/session-binding-sidecars-DijNZb31.mjs:11
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/codex/.crabpot-package/dist/.setup/shared-client-CNGDTv68.mjs:37
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **codex** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: codex: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/codex/.crabpot-package/dist/.setup/source-DyVuYlTN.mjs:12
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
+    - registerSessionCatalog @ plugins/codex/.crabpot-package/dist/index.js:3420
+    - registerToolMetadata @ plugins/codex/.crabpot-package/dist/index.js:4274
+    - registerToolMetadata @ plugins/codex/.crabpot-package/dist/index.js:4289
+    - registerWebSearchProvider @ plugins/codex/.crabpot-package/dist/index.js:4263
 
 - 🟡 P2 **codex-app-server** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: codex-app-server: cold import requires dependency installation in an isolated workspace
@@ -4958,7 +3831,7 @@ _none_
 
 - 🟡 P2 **codex-app-server** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: codex-app-server: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerCommand @ index.ts:48](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L48)
     - [registerInteractiveHandler @ index.ts:29](https://github.com/pwrdrvr/openclaw-codex-app-server/blob/4a87dce5d620a8fb30842bb1b726390fe442247e/index.ts#L29)
@@ -5006,7 +3879,7 @@ _none_
 
 - 🟡 P2 **connectclaw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: connectclaw: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerCommand @ commands.ts:18](https://github.com/osipov-anton/connectclaw/blob/7a4e2646e914de075435b3837123cc03c3edae36/packages/plugin/src/commands.ts#L18)
     - [registerCommand @ commands.ts:64](https://github.com/osipov-anton/connectclaw/blob/7a4e2646e914de075435b3837123cc03c3edae36/packages/plugin/src/commands.ts#L64)
@@ -5020,7 +3893,7 @@ _none_
 
 - 🟡 P2 **ddingtalk** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: ddingtalk: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [defineChannelPluginEntry @ index.ts:8](https://github.com/largezhou/openclaw-dingtalk/blob/161a9b0f6381ce7c869ef9461e8a1ba3ed0445fc/index.ts#L8)
 
@@ -5073,24 +3946,6 @@ _none_
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
 
-- 🟡 P2 **ddingtalk** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: ddingtalk: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/conversation-runtime @ monitor.ts:2](https://github.com/largezhou/openclaw-dingtalk/blob/161a9b0f6381ce7c869ef9461e8a1ba3ed0445fc/src/monitor.ts#L2)
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **ddingtalk** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: ddingtalk: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/media-runtime @ channel.ts:13](https://github.com/largezhou/openclaw-dingtalk/blob/161a9b0f6381ce7c869ef9461e8a1ba3ed0445fc/src/channel.ts#L13)
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
 - 🟡 P2 **diagnostics-otel** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: diagnostics-otel: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
@@ -5112,52 +3967,16 @@ _none_
 
 - 🟡 P2 **diagnostics-otel** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: diagnostics-otel: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - registerService @ plugins/diagnostics-otel/.crabpot-package/dist/index.js:9
 
-- 🟡 P2 **diagnostics-otel** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: diagnostics-otel: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/diagnostics-otel/.crabpot-package/dist/.setup/runtime-api-CKLGMqUx.mjs:13
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **diagnostics-otel** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: diagnostics-otel: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/diagnostics-otel/.crabpot-package/dist/api.js:2
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
 - 🟡 P2 **diagnostics-prometheus** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: diagnostics-prometheus: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - registerHttpRoute @ plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:875
-    - registerService @ plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:874
-
-- 🟡 P2 **diagnostics-prometheus** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: diagnostics-prometheus: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/plugin-runtime @ plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:5
-  - author remediation:
-    - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **diagnostics-prometheus** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: diagnostics-prometheus: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/diagnostics-prometheus/.crabpot-package/dist/api.js:3
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
+    - registerHttpRoute @ plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:1025
+    - registerService @ plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:1024
 
 - 🟡 P2 **diffs** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: diffs: cold import requires dependency installation in an isolated workspace
@@ -5171,32 +3990,14 @@ _none_
 
 - 🟡 P2 **diffs** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: diffs: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - registerHttpRoute @ plugins/diffs/.crabpot-package/dist/index.js:1913
-    - registerService @ plugins/diffs/.crabpot-package/dist/index.js:1888
-
-- 🟡 P2 **diffs** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: diffs: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/diffs/.crabpot-package/dist/.setup/browser.runtime-BfvyJ76b.mjs:6
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **diffs** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: diffs: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/diffs/.crabpot-package/dist/index.js:20
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
+    - registerHttpRoute @ plugins/diffs/.crabpot-package/dist/index.js:1880
+    - registerService @ plugins/diffs/.crabpot-package/dist/index.js:1855
 
 - 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: dingtalk-connector: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.ts:76](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/index.ts#L76)
 
@@ -5238,7 +4039,7 @@ _none_
 
 - 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: dingtalk-connector: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.ts:76](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/index.ts#L76)
     - [registerGatewayMethod @ gateway-methods.ts:130](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L130)
@@ -5304,9 +4105,9 @@ _none_
 
 - 🟡 P2 **discord** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: discord: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/discord/.crabpot-package/dist/.setup/channel-1Z1mnB_P.mjs:477
+    - createChatChannelPlugin @ plugins/discord/.crabpot-package/dist/.setup/channel-BMpMAeQL.mjs:493
 
 - 🟡 P2 **discord** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: discord: cold import requires dependency installation in an isolated workspace
@@ -5324,250 +4125,17 @@ _none_
 
 - 🟡 P2 **discord** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: discord: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - registerHttpRoute @ plugins/discord/.crabpot-package/dist/activities-api.js:737
-    - registerWidgetPresenter @ plugins/discord/.crabpot-package/dist/activities-api.js:743
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/discord/.crabpot-package/dist/.setup/handle-action-B4l4tVxj.mjs:15
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-DOszdJgB.mjs:38
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-B9drnVwM.mjs:71
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/channel-1Z1mnB_P.mjs:35
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-DOszdJgB.mjs:35
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-B9drnVwM.mjs:63
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-B9drnVwM.mjs:7145
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-session.runtime-1LmRZB68.mjs:4
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/security-audit-BFT84Uny.mjs:4
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/thread-bindings-Blhv7XV8.mjs:8
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/discord/.crabpot-package/dist/.setup/thread-bindings.manager-Cqml5pUh.mjs:18
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler-BbwzASGH.mjs:12
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-DOszdJgB.mjs:25
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-B9drnVwM.mjs:36
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/receive-recovery-eVmK2_hl.mjs:6
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/send-DXma62sY.mjs:13
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/send.shared-CjQ4jbMA.mjs:11
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/transcripts-source-EMrQb132.mjs:12
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/discord/.crabpot-package/dist/.setup/voice-runtime-CI7JBfeA.mjs:16
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/plugin-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-DOszdJgB.mjs:41
-  - author remediation:
-    - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/plugin-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-B9drnVwM.mjs:90
-  - author remediation:
-    - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.preflight-pluralkit-CfRsEwg4.mjs:7
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-DOszdJgB.mjs:34
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-B9drnVwM.mjs:58
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/discord/.crabpot-package/dist/.setup/send-DXma62sY.mjs:26
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **discord** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: discord: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - resolveRuntimeConversationBindingRoute @ plugins/discord/.crabpot-package/dist/.setup/conversation-binding-route-Dhxicw2Z.mjs:3
-  - author remediation:
-    - resolveRuntimeConversationBindingRoute is deprecated; Await getSessionBindingService().inspectByConversationAsync, resolveByConversationAsync, touchAsync, resolveRuntimeConversationBindingRouteAsync, and the Async-suffixed thread-binding lifecycle setters. Project prepared inspection facts with inspectRuntimeConversationBindingRoute. Async dispatch retains an explicit synchronous fallback for legacy external adapters; remaining bind/unbind and other storage operations are separate migration work.
-    - docs: https://docs.openclaw.ai/plugins/sdk-runtime/channel#awaited-conversation-binding-mutations
+    - registerHttpRoute @ plugins/discord/.crabpot-package/dist/activities-api.js:731
+    - registerTranscriptSourceProvider @ plugins/discord/.crabpot-package/dist/transcripts-source-api.js:4
+    - registerWidgetPresenter @ plugins/discord/.crabpot-package/dist/activities-api.js:737
 
 - 🟡 P2 **feishu** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: feishu: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/feishu/.crabpot-package/dist/.setup/channel-DykAJJhn.mjs:2273
+    - createChatChannelPlugin @ plugins/feishu/.crabpot-package/dist/.setup/channel-dxkUGCgC.mjs:2256
 
 - 🟡 P2 **feishu** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: feishu: cold import requires dependency installation in an isolated workspace
@@ -5581,123 +4149,6 @@ _none_
     - typebox @ plugins/feishu/.crabpot-package/package.json
     - zod @ plugins/feishu/.crabpot-package/package.json
 
-- 🟡 P2 **feishu** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: feishu: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/feishu/.crabpot-package/dist/.setup/monitor.account-UbN1RhlP.mjs:44
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **feishu** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: feishu: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/feishu/.crabpot-package/dist/.setup/channel-DykAJJhn.mjs:21
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **feishu** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: feishu: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/feishu/.crabpot-package/dist/.setup/monitor.account-UbN1RhlP.mjs:16
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **feishu** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: feishu: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/feishu/.crabpot-package/dist/.setup/thread-bindings-Pii2fAST.mjs:2
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **feishu** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: feishu: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/feishu/.crabpot-package/dist/.setup/app-registration-DQOq5urV.mjs:4
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **feishu** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: feishu: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/feishu/.crabpot-package/dist/.setup/monitor.account-UbN1RhlP.mjs:2360
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **feishu** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: feishu: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/feishu/.crabpot-package/dist/.setup/reply-delivery-result-iCCrdxE1.mjs:32
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **feishu** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: feishu: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/feishu/.crabpot-package/dist/api.js:17
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **feishu** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: feishu: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/plugin-runtime @ plugins/feishu/.crabpot-package/dist/.setup/monitor.account-UbN1RhlP.mjs:46
-  - author remediation:
-    - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **feishu** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: feishu: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/feishu/.crabpot-package/dist/.setup/channel-DykAJJhn.mjs:45
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **feishu** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: feishu: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/feishu/.crabpot-package/dist/.setup/monitor.account-UbN1RhlP.mjs:31
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **feishu** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: feishu: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/feishu/.crabpot-package/dist/.setup/reply-delivery-result-iCCrdxE1.mjs:25
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **feishu** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: feishu: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - resolveRuntimeConversationBindingRoute @ plugins/feishu/.crabpot-package/dist/.setup/monitor.account-UbN1RhlP.mjs:16
-  - author remediation:
-    - resolveRuntimeConversationBindingRoute is deprecated; Await getSessionBindingService().inspectByConversationAsync, resolveByConversationAsync, touchAsync, resolveRuntimeConversationBindingRouteAsync, and the Async-suffixed thread-binding lifecycle setters. Project prepared inspection facts with inspectRuntimeConversationBindingRoute. Async dispatch retains an explicit synchronous fallback for legacy external adapters; remaining bind/unbind and other storage operations are separate migration work.
-    - docs: https://docs.openclaw.ai/plugins/sdk-runtime/channel#awaited-conversation-binding-mutations
-
 - 🟡 P2 **google-meet** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: google-meet: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
@@ -5707,30 +4158,13 @@ _none_
 
 - 🟡 P2 **google-meet** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: google-meet: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:129
-    - registerNodeHostCommand @ plugins/google-meet/.crabpot-package/dist/index.js:370
-    - registerNodeInvokePolicy @ plugins/google-meet/.crabpot-package/dist/index.js:380
-    - registerService @ plugins/google-meet/.crabpot-package/dist/.setup/plugin-registration-B_Ohay99.mjs:111
-
-- 🟡 P2 **google-meet** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: google-meet: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/google-meet/.crabpot-package/dist/.setup/runtime-B9xiaF9M.mjs:12
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **google-meet** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: google-meet: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/google-meet/.crabpot-package/dist/.setup/cli-export-DDUSzhh0.mjs:6
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
+    - registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:128
+    - registerNodeHostCommand @ plugins/google-meet/.crabpot-package/dist/index.js:369
+    - registerNodeInvokePolicy @ plugins/google-meet/.crabpot-package/dist/index.js:379
+    - registerService @ plugins/google-meet/.crabpot-package/dist/.setup/plugin-registration-B_nOxAym.mjs:111
+    - registerTranscriptSourceProvider @ plugins/google-meet/.crabpot-package/dist/index.js:187
 
 - 🟡 P2 **hapi-openclaw** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: hapi-openclaw: cold import requires dependency installation in an isolated workspace
@@ -5811,18 +4245,9 @@ _none_
 
 - 🟡 P2 **honcho** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: honcho: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerMemoryPromptSupplement @ index.ts:119](https://github.com/plastic-labs/openclaw-honcho/blob/25f644cfd985f437951cc085b91138be22e42388/index.ts#L119)
-
-- 🟡 P2 **honcho** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: honcho: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/cli-runtime @ honcho-client.ts:11](https://github.com/plastic-labs/openclaw-honcho/blob/25f644cfd985f437951cc085b91138be22e42388/honcho-client.ts#L11)
-  - author remediation:
-    - openclaw/plugin-sdk/cli-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
 
 - 🟡 P2 **hyperspell** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: hyperspell: cold import requires package build output
@@ -5850,7 +4275,7 @@ _none_
 
 - 🟡 P2 **hyperspell** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: hyperspell: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerCommand @ slash.ts:166](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L166)
     - [registerCommand @ slash.ts:43](https://github.com/hyperspell/hyperspell-openclaw/blob/056dcd9710a26b84bbef4ba72353e99b41af8f73/commands/slash.ts#L43)
@@ -5883,21 +4308,31 @@ _none_
     - Move legacy provider authentication environment variables into current provider setup metadata.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#provider-auth-env-vars
 
+- 🟡 P2 **inworld-tts** `inspector-gap` `inspector-follow-up`
+  - **registration-capture-gap**: inworld-tts: runtime registrations need capture evidence before final contract judgment
+  - state: open · compat:untracked
+  - evidence:
+    - [registerSpeechProvider @ index.ts:9](https://github.com/livingghost/openclaw-inworld-tts/blob/d2abaeea330ebef7530f43f8b395671f6f404aea/index.ts#L9)
+
 - 🟡 P2 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: kitchen-sink: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ generated-registrars.js:9](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L9)
     - [registerChannel @ kitchen-runtime.js:59](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L59)
 
 - 🟡 P2 **kitchen-sink** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: kitchen-sink: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
+    - [registerAgentEventSubscription @ generated-registrars.js:4](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L4)
+    - [registerAgentHarness @ generated-registrars.js:5](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L5)
     - [registerAutoEnableProbe @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L7)
     - [registerBoardWidgetContentKind @ generated-registrars.js:8](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L8)
     - [registerChannel @ generated-registrars.js:9](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L9)
     - [registerChannel @ kitchen-runtime.js:59](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L59)
+    - [registerCliBackend @ generated-registrars.js:11](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L11)
+    - [registerCodexAppServerExtensionFactory @ generated-registrars.js:12](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L12)
     - [registerCommand @ generated-registrars.js:13](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L13)
     - [registerCommand @ kitchen-runtime.js:54](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L54)
     - [registerCommand @ kitchen-runtime.js:55](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L55)
@@ -5906,6 +4341,9 @@ _none_
     - [registerConfigMigration @ generated-registrars.js:15](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L15)
     - [registerContextEngine @ generated-registrars.js:16](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L16)
     - [registerContextEngine @ kitchen-runtime.js:99](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L99)
+    - [registerControlUiDescriptor @ generated-registrars.js:17](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L17)
+    - [registerEmbeddingProvider @ generated-registrars.js:19](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L19)
+    - [registerEmbeddingProvider @ kitchen-runtime.js:65](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L65)
     - [registerGatewayDiscoveryService @ generated-registrars.js:20](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L20)
     - [registerGatewayMethod @ generated-registrars.js:21](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L21)
     - [registerGatewayMethod @ kitchen-runtime.js:111](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L111)
@@ -5914,37 +4352,59 @@ _none_
     - [registerHostedMediaResolver @ generated-registrars.js:23](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L23)
     - [registerHttpRoute @ generated-registrars.js:24](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L24)
     - [registerHttpRoute @ kitchen-runtime.js:109](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L109)
+    - [registerImageGenerationProvider @ generated-registrars.js:25](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L25)
+    - [registerImageGenerationProvider @ kitchen-runtime.js:68](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L68)
     - [registerInteractiveHandler @ generated-registrars.js:26](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L26)
     - [registerInteractiveHandler @ kitchen-runtime.js:57](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L57)
     - [registerMcpServerConnectionResolver @ generated-registrars.js:27](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L27)
+    - [registerMediaUnderstandingProvider @ generated-registrars.js:28](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L28)
+    - [registerMediaUnderstandingProvider @ kitchen-runtime.js:71](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L71)
     - [registerMemoryCapability @ generated-registrars.js:29](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L29)
     - [registerMemoryCorpusSupplement @ generated-registrars.js:30](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L30)
     - [registerMemoryCorpusSupplement @ kitchen-runtime.js:93](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L93)
     - [registerMemoryPromptPreparation @ generated-registrars.js:31](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L31)
     - [registerMemoryPromptSupplement @ generated-registrars.js:32](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L32)
     - [registerMemoryPromptSupplement @ kitchen-runtime.js:118](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L118)
+    - [registerMigrationProvider @ generated-registrars.js:33](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L33)
+    - [registerModelCatalogProvider @ generated-registrars.js:34](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L34)
+    - [registerMusicGenerationProvider @ generated-registrars.js:35](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L35)
+    - [registerMusicGenerationProvider @ kitchen-runtime.js:84](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L84)
     - [registerNodeCliFeature @ sync-surface.mjs:166](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/scripts/sync-surface.mjs#L166)
     - [registerNodeCliFeature @ generated-registrars.js:36](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L36)
     - [registerNodeHostCommand @ generated-registrars.js:37](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L37)
     - [registerNodeInvokePolicy @ generated-registrars.js:38](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L38)
+    - [registerProvider @ generated-registrars.js:39](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L39)
+    - [registerProvider @ kitchen-runtime.js:63](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L63)
+    - [registerRealtimeTranscriptionProvider @ generated-registrars.js:40](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L40)
+    - [registerRealtimeTranscriptionProvider @ kitchen-runtime.js:75](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L75)
+    - [registerRealtimeVoiceProvider @ generated-registrars.js:41](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L41)
+    - [registerRealtimeVoiceProvider @ kitchen-runtime.js:78](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L78)
     - [registerReload @ generated-registrars.js:42](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L42)
+    - [registerRuntimeLifecycle @ generated-registrars.js:43](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L43)
     - [registerSecurityAuditCollector @ generated-registrars.js:44](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L44)
     - [registerService @ generated-registrars.js:45](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L45)
     - [registerService @ kitchen-runtime.js:108](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L108)
+    - [registerSessionAction @ generated-registrars.js:46](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L46)
+    - [registerSessionCatalog @ generated-registrars.js:47](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L47)
+    - [registerSessionExtension @ generated-registrars.js:48](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L48)
+    - [registerSpeechProvider @ generated-registrars.js:50](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L50)
+    - [registerSpeechProvider @ kitchen-runtime.js:73](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L73)
+    - [registerTextTransforms @ generated-registrars.js:51](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L51)
+    - [registerToolMetadata @ generated-registrars.js:53](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L53)
+    - [registerTranscriptSourceProvider @ sync-surface.mjs:163](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/scripts/sync-surface.mjs#L163)
+    - [registerTranscriptSourceProvider @ generated-registrars.js:54](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L54)
+    - [registerVideoGenerationProvider @ generated-registrars.js:56](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L56)
+    - [registerVideoGenerationProvider @ kitchen-runtime.js:81](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L81)
+    - [registerWebFetchProvider @ generated-registrars.js:57](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L57)
+    - [registerWebFetchProvider @ kitchen-runtime.js:90](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L90)
+    - [registerWebSearchProvider @ generated-registrars.js:58](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L58)
+    - [registerWebSearchProvider @ kitchen-runtime.js:87](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L87)
     - [registerWidgetPresenter @ generated-registrars.js:59](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L59)
-
-- 🟡 P2 **kitchen-sink** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: kitchen-sink: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/agent-harness-runtime @ check-middleware-host.mjs:46](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/scripts/check-middleware-host.mjs#L46)
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
+    - [registerWorkerProvider @ generated-registrars.js:60](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L60)
 
 - 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: lightclawbot: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - createChatChannelPlugin @ plugins/lightclawbot/.crabpot-package/dist/src/channel.js:49
     - defineChannelPluginEntry @ plugins/lightclawbot/.crabpot-package/dist/index.js:25
@@ -5967,7 +4427,7 @@ _none_
 
 - 🟡 P2 **lightclawbot** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: lightclawbot: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - registerMcpServerConnectionResolver @ plugins/lightclawbot/.crabpot-package/dist/src/connectors/mcp-connection.js:58
     - registerService @ plugins/lightclawbot/.crabpot-package/dist/src/connectors/owned-tools.js:390
@@ -6003,7 +4463,7 @@ _none_
 
 - 🟡 P2 **lossless-claw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: lossless-claw: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerCommand @ index.ts:1744](https://github.com/Martian-Engineering/lossless-claw/blob/4347bd978932a0383708153eb80549887043b6e6/src/plugin/index.ts#L1744)
     - [registerContextEngine @ index.ts:1695](https://github.com/Martian-Engineering/lossless-claw/blob/4347bd978932a0383708153eb80549887043b6e6/src/plugin/index.ts#L1695)
@@ -6035,261 +4495,53 @@ _none_
   - **package-dependency-install-required**: matrix: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [@matrix-org/matrix-sdk-crypto-nodejs @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
-    - [@matrix-org/matrix-sdk-crypto-wasm @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
-    - [fake-indexeddb @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
-    - [markdown-it @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
-    - [matrix-js-sdk @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
-    - [music-metadata @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
+    - [@matrix-org/matrix-sdk-crypto-nodejs @ package.json](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/package.json)
+    - [@matrix-org/matrix-sdk-crypto-wasm @ package.json](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/package.json)
+    - [@openclaw/fs-safe @ package.json](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/package.json)
+    - [fake-indexeddb @ package.json](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/package.json)
+    - [markdown-it @ package.json](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/package.json)
+    - [matrix-js-sdk @ package.json](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/package.json)
+    - [music-metadata @ package.json](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/package.json)
 
 - 🟡 P2 **matrix** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: matrix: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/index.ts)
-    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/setup-entry.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/index.ts)
+    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/setup-entry.ts)
 
 - 🟡 P2 **matrix** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: matrix: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - [registerGatewayMethod @ index.ts:17](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/index.ts#L17)
-    - [registerGatewayMethod @ index.ts:22](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/index.ts#L22)
-    - [registerGatewayMethod @ index.ts:27](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/index.ts#L27)
-
-- 🟡 P2 **matrix** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: matrix: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [createPluginStateSyncKeyedStore @ auth-presence.ts:2](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/auth-presence.ts#L2)
-  - author remediation:
-    - createPluginStateSyncKeyedStore is deprecated; `api.runtime.state.openKeyedStore` and `PluginStateKeyedStore`; await operations while keeping transactional callbacks synchronous. Retain the sync adapter until a supported external-plugin migration and explicit breaking-release approval.
-    - docs: https://docs.openclaw.ai/plugins/sdk-runtime/state-and-system#synchronous-keyed-store-migration
-
-- 🟡 P2 **matrix** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: matrix: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [createPluginStateSyncKeyedStore @ credentials-read.ts:5](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/src/matrix/credentials-read.ts#L5)
-  - author remediation:
-    - createPluginStateSyncKeyedStore is deprecated; `api.runtime.state.openKeyedStore` and `PluginStateKeyedStore`; await operations while keeping transactional callbacks synchronous. Retain the sync adapter until a supported external-plugin migration and explicit breaking-release approval.
-    - docs: https://docs.openclaw.ai/plugins/sdk-runtime/state-and-system#synchronous-keyed-store-migration
-
-- 🟡 P2 **matrix** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: matrix: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/agent-harness-runtime @ handler.progress-completion.test-support.ts:1](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/src/matrix/monitor/handler.progress-completion.test-support.ts#L1)
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **matrix** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: matrix: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/agent-runtime @ handler.ts:1](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/src/matrix/monitor/handler.ts#L1)
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **matrix** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: matrix: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/approval-reaction-runtime @ approval-reactions.ts:3](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/src/approval-reactions.ts#L3)
-  - author remediation:
-    - openclaw/plugin-sdk/approval-reaction-runtime retires on Oct 1, 2026; the focused replacement named by each TypeScript @deprecated annotation
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **matrix** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: matrix: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/conversation-runtime @ channel.ts:16](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/src/channel.ts#L16)
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **matrix** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: matrix: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/media-runtime @ transport.ts:3](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/src/matrix/sdk/transport.ts#L3)
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **matrix** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: matrix: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/media-runtime @ send.ts:2](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/src/matrix/send.ts#L2)
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **matrix** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: matrix: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/plugin-runtime @ handler.ts:9](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/src/matrix/monitor/handler.ts#L9)
-  - author remediation:
-    - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **matrix** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: matrix: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/security-runtime @ handler.ts:11](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/src/matrix/monitor/handler.ts#L11)
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **matrix** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: matrix: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/security-runtime @ logger.ts:5](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/src/matrix/sdk/logger.ts#L5)
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
+    - [registerGatewayMethod @ index.ts:24](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/index.ts#L24)
 
 - 🟡 P2 **mattermost** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: mattermost: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - [createChatChannelPlugin @ channel.ts:694](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/channel.ts#L694)
+    - [createChatChannelPlugin @ channel.ts:530](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/mattermost/src/channel.ts#L530)
 
 - 🟡 P2 **mattermost** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: mattermost: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
   - evidence:
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/mattermost/package.json)
 
 - 🟡 P2 **mattermost** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: mattermost: cold import needs TypeScript source entrypoint support
   - state: open · compat:none
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/index.ts)
-    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/setup-entry.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/mattermost/index.ts)
+    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/mattermost/setup-entry.ts)
 
 - 🟡 P2 **mattermost** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: mattermost: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - [registerHttpRoute @ slash-state.ts:440](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/slash-state.ts#L440)
-
-- 🟡 P2 **mattermost** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: mattermost: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/agent-harness-runtime @ monitor.block-progress.test-support.ts:1](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/monitor.block-progress.test-support.ts#L1)
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **mattermost** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: mattermost: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/agent-harness-runtime @ monitor.preview-delivery.test-support.ts:1](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/monitor.preview-delivery.test-support.ts#L1)
-  - author remediation:
-    - openclaw/plugin-sdk/agent-harness-runtime is deprecated; none yet; retain until a harness subpath ships and external migration is proven
-    - docs: https://docs.openclaw.ai/plugins/sdk-agent-harness
-
-- 🟡 P2 **mattermost** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: mattermost: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/agent-runtime @ monitor-interactions.ts:2](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/monitor-interactions.ts#L2)
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **mattermost** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: mattermost: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/agent-runtime @ monitor-turn.ts:2](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/monitor-turn.ts#L2)
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **mattermost** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: mattermost: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/agent-runtime @ slash-http.ts:9](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/slash-http.ts#L9)
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **mattermost** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: mattermost: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/media-runtime @ reply-delivery.ts:9](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/reply-delivery.ts#L9)
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **mattermost** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: mattermost: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/plugin-runtime @ monitor-turn.ts:14](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/monitor-turn.ts#L14)
-  - author remediation:
-    - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **mattermost** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: mattermost: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/security-runtime @ interactions.ts:5](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/interactions.ts#L5)
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **mattermost** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: mattermost: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/security-runtime @ monitor-posts.ts:12](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/monitor-posts.ts#L12)
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **mattermost** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: mattermost: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/security-runtime @ monitor-resources.ts:18](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/monitor-resources.ts#L18)
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **mattermost** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: mattermost: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/security-runtime @ slash-http.ts:15](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/slash-http.ts#L15)
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **mattermost** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: mattermost: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/security-runtime @ slash-state.ts:15](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/slash-state.ts#L15)
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
+    - [registerHttpRoute @ slash-state.ts:299](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/mattermost/src/mattermost/slash-state.ts#L299)
 
 - 🟡 P2 **mcp-adapter** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: mcp-adapter: cold import requires dependency installation in an isolated workspace
@@ -6314,7 +4566,7 @@ _none_
 
 - 🟡 P2 **mcp-adapter** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: mcp-adapter: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerService @ index.ts:15](https://github.com/androidStern-personal/openclaw-mcp-adapter/blob/5434ce21ac780a46a493c8125e52e80a03dd2640/index.ts#L15)
 
@@ -6341,19 +4593,10 @@ _none_
 
 - 🟡 P2 **memory-lancedb** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: memory-lancedb: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - registerService @ plugins/memory-lancedb/.crabpot-package/dist/index.js:393
     - registerService @ plugins/memory-lancedb/.crabpot-package/dist/index.js:57
-
-- 🟡 P2 **memory-lancedb** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: memory-lancedb: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/memory-lancedb/.crabpot-package/dist/embeddings.js:9
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
 
 - 🟡 P2 **memory-tencentdb** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: memory-tencentdb: root plugin SDK barrel is still used by fixtures
@@ -6388,7 +4631,7 @@ _none_
 
 - 🟡 P2 **memory-tencentdb** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: memory-tencentdb: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1107
     - registerContextEngine @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:7704
@@ -6426,7 +4669,7 @@ _none_
 
 - 🟡 P2 **memos-cloud** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: memos-cloud: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerHook @ index.js:787](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/a317661691bda94054d3d35f8c226e8bfe0018f7/index.js#L787)
 
@@ -6453,7 +4696,7 @@ _none_
 
 - 🟡 P2 **mocrane-wecom** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: mocrane-wecom: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.ts:31](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L31)
 
@@ -6502,7 +4745,7 @@ _none_
 
 - 🟡 P2 **mocrane-wecom** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: mocrane-wecom: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.ts:31](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L31)
     - [registerHttpRoute @ index.ts:34](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/index.ts#L34)
@@ -6515,9 +4758,9 @@ _none_
 
 - 🟡 P2 **msteams** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: msteams: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/msteams/.crabpot-package/dist/.setup/channel-B2ftcwuA.cjs:1029
+    - createChatChannelPlugin @ plugins/msteams/.crabpot-package/dist/.setup/channel-CdCSk3Rg.cjs:1067
 
 - 🟡 P2 **msteams** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: msteams: cold import requires dependency installation in an isolated workspace
@@ -6529,60 +4772,6 @@ _none_
     - express @ plugins/msteams/.crabpot-package/package.json
     - typebox @ plugins/msteams/.crabpot-package/package.json
     - zod @ plugins/msteams/.crabpot-package/package.json
-
-- 🟡 P2 **msteams** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: msteams: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/msteams/.crabpot-package/dist/.setup/monitor-dvQ4LS9V.cjs:37
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **msteams** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: msteams: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/msteams/.crabpot-package/dist/.setup/conversation-store-state-9VM7xSZy.cjs:35
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **msteams** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: msteams: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/msteams/.crabpot-package/dist/.setup/monitor-dvQ4LS9V.cjs:18
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **msteams** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: msteams: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/msteams/.crabpot-package/dist/runtime-api.cjs:11
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **msteams** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: msteams: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/plugin-runtime @ plugins/msteams/.crabpot-package/dist/.setup/monitor-dvQ4LS9V.cjs:39
-  - author remediation:
-    - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **msteams** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: msteams: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/msteams/.crabpot-package/dist/.setup/monitor-dvQ4LS9V.cjs:29
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
 
 - 🟡 P2 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: nemoclaw: cold import requires package build output
@@ -6601,15 +4790,16 @@ _none_
 
 - 🟡 P2 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: nemoclaw: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerCommand @ index.ts:322](https://github.com/NVIDIA/NemoClaw/blob/37ca4cb4220265c2a12b9d9b8a120d0d23a338dd/nemoclaw/src/index.ts#L322)
+    - [registerProvider @ index.ts:349](https://github.com/NVIDIA/NemoClaw/blob/37ca4cb4220265c2a12b9d9b8a120d0d23a338dd/nemoclaw/src/index.ts#L349)
 
 - 🟡 P2 **nextcloud-talk** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: nextcloud-talk: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/nextcloud-talk/.crabpot-package/dist/.setup/channel-DTKYMnlK.mjs:2289
+    - createChatChannelPlugin @ plugins/nextcloud-talk/.crabpot-package/dist/.setup/channel-D9tHRtkv.mjs:2253
 
 - 🟡 P2 **nextcloud-talk** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: nextcloud-talk: cold import requires dependency installation in an isolated workspace
@@ -6617,20 +4807,11 @@ _none_
   - evidence:
     - zod @ plugins/nextcloud-talk/.crabpot-package/package.json
 
-- 🟡 P2 **nextcloud-talk** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: nextcloud-talk: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/nextcloud-talk/.crabpot-package/dist/.setup/channel-DTKYMnlK.mjs:26
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
 - 🟡 P2 **nostr** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: nostr: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/nostr/.crabpot-package/dist/.setup/channel-okqFzt1Z.mjs:1350
+    - createChatChannelPlugin @ plugins/nostr/.crabpot-package/dist/.setup/channel-C2iK5Fjg.mjs:1333
 
 - 🟡 P2 **nostr** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: nostr: cold import requires dependency installation in an isolated workspace
@@ -6641,27 +4822,9 @@ _none_
 
 - 🟡 P2 **nostr** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: nostr: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - registerHttpRoute @ plugins/nostr/.crabpot-package/dist/index.js:60
-
-- 🟡 P2 **nostr** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: nostr: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/plugin-runtime @ plugins/nostr/.crabpot-package/dist/api.js:5
-  - author remediation:
-    - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **nostr** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: nostr: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/plugin-runtime @ plugins/nostr/.crabpot-package/dist/runtime-api.js:1
-  - author remediation:
-    - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
 
 - 🟡 P2 **openclaw-telemetry** `deprecation-warning` `core-compat-adapter`
   - **legacy-before-agent-start**: openclaw-telemetry: legacy before_agent_start hook compatibility is still used
@@ -6707,13 +4870,13 @@ _none_
 
 - 🟡 P2 **openclaw-telemetry** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: openclaw-telemetry: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerService @ index.ts:10](https://github.com/knostic/openclaw-telemetry/blob/86c2458a0dfe82d639c208c5220396feb9d53c45/index.ts#L10)
 
 - 🟡 P2 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: openclaw-weixin: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:15
     - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:19
@@ -6751,46 +4914,10 @@ _none_
 
 - 🟡 P2 **openclaw-weixin** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: openclaw-weixin: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - registerChannel @ plugins/openclaw-weixin/.crabpot-package/dist/index.js:15
     - registerChannel @ plugins/openclaw-weixin/.crabpot-package/index.ts:19
-
-- 🟡 P2 **openclaw-weixin** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: openclaw-weixin: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/hook-runtime @ plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/outbound-hooks.js:1
-  - author remediation:
-    - openclaw/plugin-sdk/hook-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **openclaw-weixin** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: openclaw-weixin: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/hook-runtime @ plugins/openclaw-weixin/.crabpot-package/src/messaging/outbound-hooks.ts:1
-  - author remediation:
-    - openclaw/plugin-sdk/hook-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **openclaw-weixin** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: openclaw-weixin: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/plugin-runtime @ plugins/openclaw-weixin/.crabpot-package/dist/src/messaging/outbound-hooks.js:2
-  - author remediation:
-    - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **openclaw-weixin** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: openclaw-weixin: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/plugin-runtime @ plugins/openclaw-weixin/.crabpot-package/src/messaging/outbound-hooks.ts:7
-  - author remediation:
-    - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
 
 - 🟡 P2 **opik-openclaw** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: opik-openclaw: root plugin SDK barrel is still used by fixtures
@@ -6824,13 +4951,13 @@ _none_
 
 - 🟡 P2 **opik-openclaw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: opik-openclaw: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerService @ index.ts:16](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/index.ts#L16)
 
 - 🟡 P2 **qqbot** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: qqbot: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L16)
 
@@ -6872,7 +4999,7 @@ _none_
 
 - 🟡 P2 **qqbot** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: qqbot: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.ts:16](https://github.com/tencent-connect/openclaw-qqbot/blob/7ceb7f0913d15417c5a74d82442a672ef0382c64/index.ts#L16)
 
@@ -6907,7 +5034,7 @@ _none_
 
 - 🟡 P2 **secureclaw** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: secureclaw: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerService @ index.ts:295](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/src/index.ts#L295)
     - [registerService @ index.ts:301](https://github.com/adversa-ai/secureclaw/blob/bf17e2b3deb989e348b3a98080e33a7047e90ac3/secureclaw/src/index.ts#L301)
@@ -6919,18 +5046,9 @@ _none_
   - evidence:
     - zod @ plugins/synology-chat/.crabpot-package/package.json
 
-- 🟡 P2 **synology-chat** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: synology-chat: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/synology-chat/.crabpot-package/dist/.setup/channel-BKucSGvX.mjs:35
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
 - 🟡 P2 **telnyx-sms** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: telnyx-sms: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [defineChannelPluginEntry @ index.ts:207](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/6e3956246cd3e0e72af649d2fd75dee6f3e46966/index.ts#L207)
 
@@ -6961,15 +5079,15 @@ _none_
 
 - 🟡 P2 **telnyx-sms** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: telnyx-sms: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerHttpRoute @ index.ts:259](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/6e3956246cd3e0e72af649d2fd75dee6f3e46966/index.ts#L259)
 
 - 🟡 P2 **tlon** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: tlon: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/tlon/.crabpot-package/dist/.setup/channel-cZo0ECaC.mjs:138
+    - createChatChannelPlugin @ plugins/tlon/.crabpot-package/dist/.setup/channel-DwKKUzwx.mjs:135
 
 - 🟡 P2 **tlon** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: tlon: cold import requires dependency installation in an isolated workspace
@@ -6981,29 +5099,11 @@ _none_
     - @urbit/aura @ plugins/tlon/.crabpot-package/package.json
     - zod @ plugins/tlon/.crabpot-package/package.json
 
-- 🟡 P2 **tlon** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: tlon: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/tlon/.crabpot-package/dist/.setup/channel.runtime-BuDLFazV.mjs:13
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **tlon** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: tlon: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/tlon/.crabpot-package/dist/.setup/channel.runtime-BuDLFazV.mjs:22
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
 - 🟡 P2 **twitch** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: twitch: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/twitch/.crabpot-package/dist/.setup/plugin-q9M3RXni.mjs:709
+    - createChatChannelPlugin @ plugins/twitch/.crabpot-package/dist/.setup/plugin-CnPNkPhc.mjs:699
 
 - 🟡 P2 **twitch** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: twitch: cold import requires dependency installation in an isolated workspace
@@ -7023,65 +5123,11 @@ _none_
 
 - 🟡 P2 **voice-call** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: voice-call: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - registerConfigMigration @ plugins/voice-call/.crabpot-package/dist/setup-api.js:133
-    - registerGatewayMethod @ plugins/voice-call/.crabpot-package/dist/index.js:449
-    - registerService @ plugins/voice-call/.crabpot-package/dist/index.js:615
-
-- 🟡 P2 **voice-call** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: voice-call: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/voice-call/.crabpot-package/dist/.setup/realtime-agent-context.legacy-DAEWY27o.mjs:4
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **voice-call** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: voice-call: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/voice-call/.crabpot-package/dist/.setup/response-generator-CC2OX9j_.mjs:8
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **voice-call** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: voice-call: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/voice-call/.crabpot-package/dist/.setup/runtime-entry-Bv4GOoof.mjs:34
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **voice-call** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: voice-call: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/voice-call/.crabpot-package/dist/.setup/carrier-api-Yl0hFFEf.mjs:9
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **voice-call** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: voice-call: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/voice-call/.crabpot-package/dist/.setup/realtime-agent-context.legacy-DAEWY27o.mjs:3
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **voice-call** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: voice-call: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/voice-call/.crabpot-package/dist/.setup/twilio-ndN0wO_K.mjs:9
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
+    - registerConfigMigration @ plugins/voice-call/.crabpot-package/dist/setup-api.js:132
+    - registerGatewayMethod @ plugins/voice-call/.crabpot-package/dist/index.js:416
+    - registerService @ plugins/voice-call/.crabpot-package/dist/index.js:582
 
 - 🟡 P2 **web-search-plus** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: web-search-plus: cold import needs TypeScript source entrypoint support
@@ -7091,7 +5137,7 @@ _none_
 
 - 🟡 P2 **wecom** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: wecom: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.js:27](https://github.com/sunnoy/openclaw-plugin-wecom/blob/df2e426457a0e587bbfe63f185ffe002cbf61e6f/index.js#L27)
 
@@ -7115,25 +5161,16 @@ _none_
 
 - 🟡 P2 **wecom** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: wecom: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - [registerChannel @ index.js:27](https://github.com/sunnoy/openclaw-plugin-wecom/blob/df2e426457a0e587bbfe63f185ffe002cbf61e6f/index.js#L27)
     - [registerHttpRoute @ index.js:56](https://github.com/sunnoy/openclaw-plugin-wecom/blob/df2e426457a0e587bbfe63f185ffe002cbf61e6f/index.js#L56)
 
-- 🟡 P2 **wecom** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: wecom: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - [openclaw/plugin-sdk/media-runtime @ openclaw-compat.js:6](https://github.com/sunnoy/openclaw-plugin-wecom/blob/df2e426457a0e587bbfe63f185ffe002cbf61e6f/wecom/openclaw-compat.js#L6)
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
 - 🟡 P2 **whatsapp** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: whatsapp: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-D-6ZIq4y.mjs:472
+    - createChatChannelPlugin @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-DaAKkqgg.mjs:463
 
 - 🟡 P2 **whatsapp** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: whatsapp: cold import requires dependency installation in an isolated workspace
@@ -7143,207 +5180,9 @@ _none_
     - baileys @ plugins/whatsapp/.crabpot-package/package.json
     - typebox @ plugins/whatsapp/.crabpot-package/package.json
 
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/agent-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DVzumwCI.mjs:56
-  - author remediation:
-    - openclaw/plugin-sdk/agent-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/approval-reaction-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/approval-handler.runtime-BEaAKSoU.mjs:9
-  - author remediation:
-    - openclaw/plugin-sdk/approval-reaction-runtime retires on Oct 1, 2026; the focused replacement named by each TypeScript @deprecated annotation
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/approval-reaction-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/approval-reactions-CWkZ_ham.mjs:8
-  - author remediation:
-    - openclaw/plugin-sdk/approval-reaction-runtime retires on Oct 1, 2026; the focused replacement named by each TypeScript @deprecated annotation
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/approval-reaction-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-D-6ZIq4y.mjs:27
-  - author remediation:
-    - openclaw/plugin-sdk/approval-reaction-runtime retires on Oct 1, 2026; the focused replacement named by each TypeScript @deprecated annotation
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/cli-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/auth-store-DOBi5BPe.mjs:7
-  - author remediation:
-    - openclaw/plugin-sdk/cli-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/cli-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-D-6ZIq4y.mjs:17
-  - author remediation:
-    - openclaw/plugin-sdk/cli-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/cli-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/login-DUx5JYuW.mjs:6
-  - author remediation:
-    - openclaw/plugin-sdk/cli-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/cli-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DVzumwCI.mjs:20
-  - author remediation:
-    - openclaw/plugin-sdk/cli-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/cli-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/send-CLBfAzd6.mjs:10
-  - author remediation:
-    - openclaw/plugin-sdk/cli-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/cli-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/socket-close-C9OU9mVN.mjs:5
-  - author remediation:
-    - openclaw/plugin-sdk/cli-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DVzumwCI.mjs:50
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/hook-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DVzumwCI.mjs:61
-  - author remediation:
-    - openclaw/plugin-sdk/hook-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/audio-preflight.runtime-DOv4YzLh.mjs:1
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-react-action-C5E8_iDk.mjs:6
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/login-qr-BAWbPonj.mjs:9
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DVzumwCI.mjs:28
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/send-api-COzRvqXx.mjs:9
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/send-CLBfAzd6.mjs:24
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/media-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/socket-close-C9OU9mVN.mjs:8
-  - author remediation:
-    - openclaw/plugin-sdk/media-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/plugin-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DVzumwCI.mjs:62
-  - author remediation:
-    - openclaw/plugin-sdk/plugin-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/auth-store-DOBi5BPe.mjs:15
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **whatsapp** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: whatsapp: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/whatsapp/.crabpot-package/dist/.setup/monitor-DVzumwCI.mjs:35
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
 - 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: yuanbao: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - createChatChannelPlugin @ plugins/yuanbao/.crabpot-package/dist/src/channel.js:19
 
@@ -7394,7 +5233,7 @@ _none_
 
 - 🟡 P2 **yuanbao** `inspector-gap` `inspector-follow-up`
   - **registration-capture-gap**: yuanbao: runtime registrations need capture evidence before final contract judgment
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
     - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:16
     - registerCommand @ plugins/yuanbao/.crabpot-package/dist/index.js:17
@@ -7408,29 +5247,11 @@ _none_
     - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:175
     - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js:622
 
-- 🟡 P2 **yuanbao** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: yuanbao: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/command-auth @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/command-sync/index.js:2
-  - author remediation:
-    - openclaw/plugin-sdk/command-auth retires on Oct 1, 2026; the focused replacement named by each TypeScript @deprecated annotation
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **yuanbao** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: yuanbao: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/command-auth @ plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/guard-command.js:5
-  - author remediation:
-    - openclaw/plugin-sdk/command-auth retires on Oct 1, 2026; the focused replacement named by each TypeScript @deprecated annotation
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
 - 🟡 P2 **zalo** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: zalo: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/zalo/.crabpot-package/dist/.setup/channel-BDoyUcaX.mjs:272
+    - createChatChannelPlugin @ plugins/zalo/.crabpot-package/dist/.setup/channel-B-pcG9qP.mjs:267
 
 - 🟡 P2 **zalo** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: zalo: cold import requires dependency installation in an isolated workspace
@@ -7438,38 +5259,11 @@ _none_
   - evidence:
     - zod @ plugins/zalo/.crabpot-package/package.json
 
-- 🟡 P2 **zalo** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: zalo: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/zalo/.crabpot-package/dist/.setup/channel-BDoyUcaX.mjs:12
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **zalo** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: zalo: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/zalo/.crabpot-package/dist/.setup/monitor-CkPLrWVm.mjs:17
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **zalo** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: zalo: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/zalo/.crabpot-package/dist/.setup/monitor.webhook-B3g1irKn.mjs:4
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
 - 🟡 P2 **zalouser** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: zalouser: channel runtime needs envelope/config probes
-  - state: open · compat:active
+  - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/zalouser/.crabpot-package/dist/.setup/channel-DgZ3b3H5.mjs:487
+    - createChatChannelPlugin @ plugins/zalouser/.crabpot-package/dist/.setup/channel-Chv0Qbpd.mjs:481
 
 - 🟡 P2 **zalouser** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: zalouser: cold import requires dependency installation in an isolated workspace
@@ -7478,24 +5272,6 @@ _none_
     - typebox @ plugins/zalouser/.crabpot-package/package.json
     - zca-js @ plugins/zalouser/.crabpot-package/package.json
     - zod @ plugins/zalouser/.crabpot-package/package.json
-
-- 🟡 P2 **zalouser** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: zalouser: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/conversation-runtime @ plugins/zalouser/.crabpot-package/dist/.setup/channel-DgZ3b3H5.mjs:15
-  - author remediation:
-    - openclaw/plugin-sdk/conversation-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
-
-- 🟡 P2 **zalouser** `deprecation-warning` `plugin-upstream-fix`
-  - **sdk-deprecated-api**: zalouser: deprecated SDK API is still used
-  - state: open · compat:deprecated · deprecated
-  - evidence:
-    - openclaw/plugin-sdk/security-runtime @ plugins/zalouser/.crabpot-package/dist/.setup/zalo-js-DT9UU4oO.mjs:13
-  - author remediation:
-    - openclaw/plugin-sdk/security-runtime retires on Oct 1, 2026; focused plugin SDK subpaths for each runtime capability
-    - docs: https://docs.openclaw.ai/plugins/sdk-migration#compatibility-policy
 
 - 🟢 P3 **clawrouter** `upstream-metadata` `plugin-upstream-fix`
   - **security-manifest-schema-unavailable**: clawrouter: plugin security manifest references an unavailable schema
@@ -7553,11 +5329,87 @@ _none_
   - evidence:
     - [before_tool_call @ index.js:76](https://github.com/sunnoy/openclaw-plugin-wecom/blob/df2e426457a0e587bbfe63f185ffe002cbf61e6f/index.js#L76)
 
+- 🟠 P1 **clawmetry** `hook-runner`
+  - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
+  - id: `hook.llm-observer.privacy-payload:clawmetry`
+  - evidence:
+    - [llm_output @ service.ts:117](https://github.com/vivekchand/clawmetry/blob/6228537b0271572d55f5bf02ee130f76038f7cd5/clawhub-plugin/src/service.ts#L117)
+
+- 🟠 P1 **honcho** `hook-runner`
+  - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
+  - id: `hook.llm-observer.privacy-payload:honcho`
+  - evidence:
+    - [agent_end @ capture.ts:137](https://github.com/plastic-labs/openclaw-honcho/blob/25f644cfd985f437951cc085b91138be22e42388/hooks/capture.ts#L137)
+    - [llm_output @ telemetry.ts:31](https://github.com/plastic-labs/openclaw-honcho/blob/25f644cfd985f437951cc085b91138be22e42388/hooks/telemetry.ts#L31)
+
+- 🟠 P1 **kitchen-sink** `hook-runner`
+  - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
+  - id: `hook.llm-observer.privacy-payload:kitchen-sink`
+  - evidence:
+    - [agent_end @ generated-hooks.js:7](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-hooks.js#L7)
+    - [llm_input @ generated-hooks.js:27](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-hooks.js#L27)
+    - [llm_output @ generated-hooks.js:28](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-hooks.js#L28)
+
+- 🟠 P1 **llm-trace-phoenix** `hook-runner`
+  - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
+  - id: `hook.llm-observer.privacy-payload:llm-trace-phoenix`
+  - evidence:
+    - [llm_input @ index.js:105](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/ad8a34681b4d49a1b7d75bb8f6ac9b2f2ea3a8e9/dist/index.js#L105)
+    - [llm_input @ index.ts:202](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/ad8a34681b4d49a1b7d75bb8f6ac9b2f2ea3a8e9/index.ts#L202)
+    - [llm_output @ index.js:118](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/ad8a34681b4d49a1b7d75bb8f6ac9b2f2ea3a8e9/dist/index.js#L118)
+    - [llm_output @ index.ts:216](https://github.com/pingshian0131/openclaw-plugin-llm-trace-phoenix/blob/ad8a34681b4d49a1b7d75bb8f6ac9b2f2ea3a8e9/index.ts#L216)
+
+- 🟠 P1 **memory-lancedb** `hook-runner`
+  - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
+  - id: `hook.llm-observer.privacy-payload:memory-lancedb`
+  - evidence:
+    - agent_end @ plugins/memory-lancedb/.crabpot-package/dist/index.js:315
+
+- 🟠 P1 **memory-tencentdb** `hook-runner`
+  - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
+  - id: `hook.llm-observer.privacy-payload:memory-tencentdb`
+  - evidence:
+    - agent_end @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1095
+    - agent_end @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:1256
+    - agent_end @ plugins/memory-tencentdb/.crabpot-package/dist/index.mjs:21802
+    - agent_end @ plugins/memory-tencentdb/.crabpot-package/index.ts:808
+    - agent_end @ plugins/memory-tencentdb/.crabpot-package/openclaw-plugin/index.ts:209
+    - agent_end @ plugins/memory-tencentdb/.crabpot-package/src/offload-client/index.ts:52
+
+- 🟠 P1 **memos-cloud** `hook-runner`
+  - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
+  - id: `hook.llm-observer.privacy-payload:memos-cloud`
+  - evidence:
+    - [agent_end @ index.js:860](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/a317661691bda94054d3d35f8c226e8bfe0018f7/index.js#L860)
+
+- 🟠 P1 **openclaw-telemetry** `hook-runner`
+  - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
+  - id: `hook.llm-observer.privacy-payload:openclaw-telemetry`
+  - evidence:
+    - [agent_end @ index.ts:62](https://github.com/knostic/openclaw-telemetry/blob/86c2458a0dfe82d639c208c5220396feb9d53c45/index.ts#L62)
+
+- 🟠 P1 **opik-openclaw** `hook-runner`
+  - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
+  - id: `hook.llm-observer.privacy-payload:opik-openclaw`
+  - evidence:
+    - [agent_end @ service.ts:581](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/service.ts#L581)
+    - [llm_input @ llm.ts:39](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/service/hooks/llm.ts#L39)
+    - [llm_output @ llm.ts:150](https://github.com/comet-ml/opik-openclaw/blob/fac4cc3f0fa96e96b1ee2583a0525f3681b017b5/src/service/hooks/llm.ts#L150)
+
+- 🟠 P1 **agentchat** `sdk-alias`
+  - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
+  - id: `sdk.import.package-export-cold-import:agentchat`
+  - evidence:
+    - [openclaw/plugin-sdk/channel-lifecycle @ gateway.ts:27](https://github.com/agentchatme/agentchat-openclaw/blob/caee25ad8ed7a38cc4281bda397c7e0e7e90ce6a/src/binding/gateway.ts#L27)
+
 - 🟠 P1 **bluebubbles** `sdk-alias`
   - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
   - id: `sdk.import.package-export-cold-import:bluebubbles`
   - evidence:
+    - [openclaw/plugin-sdk/channel-lifecycle @ channel-BSIXOcHe.js:13](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/channel-BSIXOcHe.js#L13)
+    - [openclaw/plugin-sdk/channel-reply-pipeline @ monitor-processing-Dy-LY2QQ.js:28](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/monitor-processing-Dy-LY2QQ.js#L28)
     - [openclaw/plugin-sdk/channel-streaming @ probe-B4I0cEVm.js:6](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/probe-B4I0cEVm.js#L6)
+    - [openclaw/plugin-sdk/command-auth @ monitor-processing-Dy-LY2QQ.js:29](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/monitor-processing-Dy-LY2QQ.js#L29)
     - [openclaw/plugin-sdk/text-runtime @ channel-BSIXOcHe.js:18](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/channel-BSIXOcHe.js#L18)
     - [openclaw/plugin-sdk/text-runtime @ monitor-processing-Dy-LY2QQ.js:8](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/monitor-processing-Dy-LY2QQ.js#L8)
     - [openclaw/plugin-sdk/text-runtime @ probe-B4I0cEVm.js:4](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/probe-B4I0cEVm.js#L4)
@@ -7565,12 +5417,6 @@ _none_
     - [openclaw/plugin-sdk/text-runtime @ webhook-shared-CoiIKIWN.js:1](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/webhook-shared-CoiIKIWN.js#L1)
     - [openclaw/plugin-sdk/webhook-path @ webhook-shared-CoiIKIWN.js:2](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/webhook-shared-CoiIKIWN.js#L2)
     - [openclaw/plugin-sdk/zod @ config-schema-a7F7uzDv.js:3](https://github.com/openclaw/openclaw/blob/eeef4864494f859838fec1586bedbab1f8fa5702/extensions/bluebubbles/dist/config-schema-a7F7uzDv.js#L3)
-
-- 🟠 P1 **codex** `sdk-alias`
-  - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
-  - id: `sdk.import.package-export-cold-import:codex`
-  - evidence:
-    - openclaw/plugin-sdk/agent-harness-completion @ plugins/codex/.crabpot-package/dist/.setup/native-subagent-monitor-CBYFkNsB.mjs:24
 
 - 🟠 P1 **connectclaw** `sdk-alias`
   - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
@@ -7583,6 +5429,21 @@ _none_
   - id: `sdk.import.package-export-cold-import:dingtalk-connector`
   - evidence:
     - [openclaw/plugin-sdk/channel-runtime @ reply-dispatcher.ts:21](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/reply-dispatcher.ts#L21)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:131](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L131)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:191](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L191)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:259](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L259)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:312](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L312)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:352](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L352)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:389](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L389)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:426](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L426)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:453](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L453)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:507](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L507)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:594](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L594)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:61](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L61)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:653](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L653)
+    - [openclaw/plugin-sdk/config-runtime @ gateway-methods.ts:720](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/gateway-methods.ts#L720)
+    - [openclaw/plugin-sdk/config-runtime @ card-bridge.ts:186](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/services/card-bridge.ts#L186)
+    - [openclaw/plugin-sdk/config-runtime @ card-bridge.ts:339](https://github.com/DingTalk-Real-AI/dingtalk-openclaw-connector/blob/39bdb2d8a7468237858906d255a717cd03b037ad/src/services/card-bridge.ts#L339)
 
 - 🟠 P1 **dingtalk-doc** `sdk-alias`
   - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
@@ -7590,18 +5451,37 @@ _none_
   - evidence:
     - [openclaw/plugin-sdk @ index.ts:11](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/index.ts#L11)
 
+- 🟠 P1 **discord** `sdk-alias`
+  - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
+  - id: `sdk.import.package-export-cold-import:discord`
+  - evidence:
+    - openclaw/plugin-sdk/heartbeat-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-BBDuE14w.mjs:68
+
+- 🟠 P1 **lightclawbot** `sdk-alias`
+  - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
+  - id: `sdk.import.package-export-cold-import:lightclawbot`
+  - evidence:
+    - openclaw/plugin-sdk/channel-reply-pipeline @ plugins/lightclawbot/.crabpot-package/dist/src/inbound.js:264
+    - openclaw/plugin-sdk/config-runtime @ plugins/lightclawbot/.crabpot-package/dist/src/utils/openclaw-compat.js:84
+
 - 🟠 P1 **matrix** `sdk-alias`
   - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
   - id: `sdk.import.package-export-cold-import:matrix`
   - evidence:
-    - [openclaw/plugin-sdk/plugin-state-test-runtime @ recovery-persistence.test-support.ts:7](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/src/matrix/sdk/recovery-persistence.test-support.ts#L7)
-    - [openclaw/plugin-sdk/test-env @ test-support.ts:2](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/test-support.ts#L2)
+    - [openclaw/plugin-sdk/plugin-state-test-runtime @ doctor-contract-api.test-support.ts:7](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/doctor-contract-api.test-support.ts#L7)
+    - [openclaw/plugin-sdk/plugin-state-test-runtime @ sync-store.test-support.ts:5](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/src/matrix/client/sync-store.test-support.ts#L5)
+    - [openclaw/plugin-sdk/plugin-state-test-runtime @ crypto-persistence.test-support.ts:5](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/src/matrix/sdk/crypto-persistence.test-support.ts#L5)
+    - [openclaw/plugin-sdk/plugin-state-test-runtime @ recovery-persistence.test-support.ts:7](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/src/matrix/sdk/recovery-persistence.test-support.ts#L7)
+    - [openclaw/plugin-sdk/sqlite-runtime-testing @ sync-store.test-support.ts:6](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/src/matrix/client/sync-store.test-support.ts#L6)
+    - [openclaw/plugin-sdk/test-env @ test-support.ts:2](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/test-support.ts#L2)
 
 - 🟠 P1 **mattermost** `sdk-alias`
   - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
   - id: `sdk.import.package-export-cold-import:mattermost`
   - evidence:
-    - [openclaw/plugin-sdk/test-env @ reactions.test-helpers.ts:1](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/reactions.test-helpers.ts#L1)
+    - [openclaw/plugin-sdk/channel-ingress-test-runtime @ monitor.ingress-debounce.test-support.ts:5](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/mattermost/src/mattermost/monitor.ingress-debounce.test-support.ts#L5)
+    - [openclaw/plugin-sdk/test-env @ monitor.ingress-debounce.test-support.ts:16](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/mattermost/src/mattermost/monitor.ingress-debounce.test-support.ts#L16)
+    - [openclaw/plugin-sdk/test-env @ reactions.test-helpers.ts:1](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/mattermost/src/mattermost/reactions.test-helpers.ts#L1)
 
 - 🟠 P1 **memory-tencentdb** `sdk-alias`
   - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
@@ -7640,6 +5520,14 @@ _none_
   - id: `sdk.import.package-export-cold-import:telnyx-sms`
   - evidence:
     - [openclaw/plugin-sdk/direct-dm @ inbound.ts:2](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/6e3956246cd3e0e72af649d2fd75dee6f3e46966/src/inbound.ts#L2)
+
+- 🟠 P1 **yuanbao** `sdk-alias`
+  - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
+  - id: `sdk.import.package-export-cold-import:yuanbao`
+  - evidence:
+    - openclaw/plugin-sdk/channel-reply-pipeline @ plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/dispatch-reply.js:5
+    - openclaw/plugin-sdk/command-auth @ plugins/yuanbao/.crabpot-package/dist/src/business/commands/command-sync/index.js:2
+    - openclaw/plugin-sdk/command-auth @ plugins/yuanbao/.crabpot-package/dist/src/business/pipeline/middlewares/guard-command.js:5
 
 - 🟡 P2 **a2a-gateway** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -7697,10 +5585,14 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:kitchen-sink`
   - evidence:
+    - [registerAgentEventSubscription @ generated-registrars.js:4](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L4)
+    - [registerAgentHarness @ generated-registrars.js:5](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L5)
     - [registerAutoEnableProbe @ generated-registrars.js:7](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L7)
     - [registerBoardWidgetContentKind @ generated-registrars.js:8](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L8)
     - [registerChannel @ generated-registrars.js:9](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L9)
     - [registerChannel @ kitchen-runtime.js:59](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L59)
+    - [registerCliBackend @ generated-registrars.js:11](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L11)
+    - [registerCodexAppServerExtensionFactory @ generated-registrars.js:12](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L12)
     - [registerCommand @ generated-registrars.js:13](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L13)
     - [registerCommand @ kitchen-runtime.js:54](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L54)
     - [registerCommand @ kitchen-runtime.js:55](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L55)
@@ -7709,6 +5601,9 @@ _none_
     - [registerConfigMigration @ generated-registrars.js:15](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L15)
     - [registerContextEngine @ generated-registrars.js:16](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L16)
     - [registerContextEngine @ kitchen-runtime.js:99](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L99)
+    - [registerControlUiDescriptor @ generated-registrars.js:17](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L17)
+    - [registerEmbeddingProvider @ generated-registrars.js:19](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L19)
+    - [registerEmbeddingProvider @ kitchen-runtime.js:65](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L65)
     - [registerGatewayDiscoveryService @ generated-registrars.js:20](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L20)
     - [registerGatewayMethod @ generated-registrars.js:21](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L21)
     - [registerGatewayMethod @ kitchen-runtime.js:111](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L111)
@@ -7717,24 +5612,55 @@ _none_
     - [registerHostedMediaResolver @ generated-registrars.js:23](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L23)
     - [registerHttpRoute @ generated-registrars.js:24](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L24)
     - [registerHttpRoute @ kitchen-runtime.js:109](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L109)
+    - [registerImageGenerationProvider @ generated-registrars.js:25](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L25)
+    - [registerImageGenerationProvider @ kitchen-runtime.js:68](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L68)
     - [registerInteractiveHandler @ generated-registrars.js:26](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L26)
     - [registerInteractiveHandler @ kitchen-runtime.js:57](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L57)
     - [registerMcpServerConnectionResolver @ generated-registrars.js:27](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L27)
+    - [registerMediaUnderstandingProvider @ generated-registrars.js:28](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L28)
+    - [registerMediaUnderstandingProvider @ kitchen-runtime.js:71](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L71)
     - [registerMemoryCapability @ generated-registrars.js:29](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L29)
     - [registerMemoryCorpusSupplement @ generated-registrars.js:30](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L30)
     - [registerMemoryCorpusSupplement @ kitchen-runtime.js:93](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L93)
     - [registerMemoryPromptPreparation @ generated-registrars.js:31](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L31)
     - [registerMemoryPromptSupplement @ generated-registrars.js:32](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L32)
     - [registerMemoryPromptSupplement @ kitchen-runtime.js:118](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L118)
+    - [registerMigrationProvider @ generated-registrars.js:33](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L33)
+    - [registerModelCatalogProvider @ generated-registrars.js:34](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L34)
+    - [registerMusicGenerationProvider @ generated-registrars.js:35](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L35)
+    - [registerMusicGenerationProvider @ kitchen-runtime.js:84](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L84)
     - [registerNodeCliFeature @ sync-surface.mjs:166](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/scripts/sync-surface.mjs#L166)
     - [registerNodeCliFeature @ generated-registrars.js:36](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L36)
     - [registerNodeHostCommand @ generated-registrars.js:37](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L37)
     - [registerNodeInvokePolicy @ generated-registrars.js:38](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L38)
+    - [registerProvider @ generated-registrars.js:39](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L39)
+    - [registerProvider @ kitchen-runtime.js:63](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L63)
+    - [registerRealtimeTranscriptionProvider @ generated-registrars.js:40](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L40)
+    - [registerRealtimeTranscriptionProvider @ kitchen-runtime.js:75](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L75)
+    - [registerRealtimeVoiceProvider @ generated-registrars.js:41](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L41)
+    - [registerRealtimeVoiceProvider @ kitchen-runtime.js:78](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L78)
     - [registerReload @ generated-registrars.js:42](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L42)
+    - [registerRuntimeLifecycle @ generated-registrars.js:43](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L43)
     - [registerSecurityAuditCollector @ generated-registrars.js:44](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L44)
     - [registerService @ generated-registrars.js:45](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L45)
     - [registerService @ kitchen-runtime.js:108](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L108)
+    - [registerSessionAction @ generated-registrars.js:46](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L46)
+    - [registerSessionCatalog @ generated-registrars.js:47](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L47)
+    - [registerSessionExtension @ generated-registrars.js:48](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L48)
+    - [registerSpeechProvider @ generated-registrars.js:50](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L50)
+    - [registerSpeechProvider @ kitchen-runtime.js:73](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L73)
+    - [registerTextTransforms @ generated-registrars.js:51](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L51)
+    - [registerToolMetadata @ generated-registrars.js:53](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L53)
+    - [registerTranscriptSourceProvider @ sync-surface.mjs:163](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/scripts/sync-surface.mjs#L163)
+    - [registerTranscriptSourceProvider @ generated-registrars.js:54](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L54)
+    - [registerVideoGenerationProvider @ generated-registrars.js:56](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L56)
+    - [registerVideoGenerationProvider @ kitchen-runtime.js:81](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L81)
+    - [registerWebFetchProvider @ generated-registrars.js:57](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L57)
+    - [registerWebFetchProvider @ kitchen-runtime.js:90](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L90)
+    - [registerWebSearchProvider @ generated-registrars.js:58](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L58)
+    - [registerWebSearchProvider @ kitchen-runtime.js:87](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/kitchen-runtime.js#L87)
     - [registerWidgetPresenter @ generated-registrars.js:59](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L59)
+    - [registerWorkerProvider @ generated-registrars.js:60](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-registrars.js#L60)
 
 - 🟡 P2 **lossless-claw** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -7772,6 +5698,7 @@ _none_
   - id: `api.capture.runtime-registrars:nemoclaw`
   - evidence:
     - [registerCommand @ index.ts:322](https://github.com/NVIDIA/NemoClaw/blob/37ca4cb4220265c2a12b9d9b8a120d0d23a338dd/nemoclaw/src/index.ts#L322)
+    - [registerProvider @ index.ts:349](https://github.com/NVIDIA/NemoClaw/blob/37ca4cb4220265c2a12b9d9b8a120d0d23a338dd/nemoclaw/src/index.ts#L349)
 
 - 🟡 P2 **openclaw-telemetry** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -7928,6 +5855,12 @@ _none_
   - id: `manifest.metadata.name:openclaw-weixin`
   - evidence:
     - plugins/openclaw-weixin/.crabpot-package/openclaw.plugin.json
+
+- 🟡 P2 **kitchen-sink** `manifest-loader`
+  - contract: Manifest contract keys are represented in target OpenClaw PluginManifestContracts.
+  - id: `manifest.schema.contract-keys:kitchen-sink`
+  - evidence:
+    - [embeddedExtensionFactories @ openclaw.plugin.json](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/openclaw.plugin.json)
 
 - 🟡 P2 **a2a-gateway** `manifest-loader`
   - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
@@ -8386,11 +6319,17 @@ _none_
     - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/member.js:175
     - registerTool @ plugins/yuanbao/.crabpot-package/dist/src/business/tools/remind.js:622
 
+- 🟢 P3 **brave-plugin** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:brave-plugin`
+  - evidence:
+    - registerWebSearchProvider @ plugins/brave-plugin/.crabpot-package/dist/index.js:14
+
 - 🟢 P3 **clawmetry** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:clawmetry`
   - evidence:
-    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/72714376a4b358dcb2b62e6c3ae05140903bcdff/clawhub-plugin/index.ts#L20)
+    - [registerService @ index.ts:20](https://github.com/vivekchand/clawmetry/blob/6228537b0271572d55f5bf02ee130f76038f7cd5/clawhub-plugin/index.ts#L20)
 
 - 🟢 P3 **clawrouter** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -8418,27 +6357,41 @@ _none_
     - [registerCommand @ index.ts:2036](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2036)
     - [registerCommand @ index.ts:2040](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2040)
     - [registerCommand @ index.ts:2041](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2041)
+    - [registerImageGenerationProvider @ index.ts:1693](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1693)
+    - [registerMusicGenerationProvider @ index.ts:1694](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1694)
+    - [registerProvider @ index.ts:1684](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1684)
+    - [registerProvider @ index.ts:1689](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1689)
     - [registerService @ cli.js:89557](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/cli.js#L89557)
     - [registerService @ index.js:87593](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/dist/index.js#L87593)
     - [registerService @ index.ts:2050](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L2050)
+    - [registerVideoGenerationProvider @ index.ts:1696](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1696)
+    - [registerWebSearchProvider @ index.ts:1705](https://github.com/BlockRunAI/ClawRouter/blob/e3187611940d4f59a12b8ea017d001900590f2ff/src/index.ts#L1705)
 
 - 🟢 P3 **codex** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:codex`
   - evidence:
-    - registerCommand @ plugins/codex/.crabpot-package/dist/index.js:4358
+    - registerAgentHarness @ plugins/codex/.crabpot-package/dist/index.js:4261
+    - registerCommand @ plugins/codex/.crabpot-package/dist/index.js:4304
     - registerGatewayMethod @ plugins/codex/.crabpot-package/dist/index.js:72
-    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4287
-    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4354
-    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4356
-    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4289
-    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4355
-    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4357
-    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4197
-    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4215
-    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4216
+    - registerMediaUnderstandingProvider @ plugins/codex/.crabpot-package/dist/index.js:4262
+    - registerMigrationProvider @ plugins/codex/.crabpot-package/dist/index.js:4264
+    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4231
+    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4300
+    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4302
+    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4233
+    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4301
+    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4303
+    - registerProvider @ plugins/codex/.crabpot-package/dist/index.js:4152
+    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4150
+    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4168
+    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4169
+    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4170
     - registerService @ plugins/codex/.crabpot-package/dist/index.js:4217
-    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4273
+    - registerSessionCatalog @ plugins/codex/.crabpot-package/dist/index.js:3420
+    - registerToolMetadata @ plugins/codex/.crabpot-package/dist/index.js:4274
+    - registerToolMetadata @ plugins/codex/.crabpot-package/dist/index.js:4289
+    - registerWebSearchProvider @ plugins/codex/.crabpot-package/dist/index.js:4263
 
 - 🟢 P3 **codex-app-server** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -8459,31 +6412,39 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:diagnostics-prometheus`
   - evidence:
-    - registerHttpRoute @ plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:875
-    - registerService @ plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:874
+    - registerHttpRoute @ plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:1025
+    - registerService @ plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:1024
 
 - 🟢 P3 **diffs** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:diffs`
   - evidence:
-    - registerHttpRoute @ plugins/diffs/.crabpot-package/dist/index.js:1913
-    - registerService @ plugins/diffs/.crabpot-package/dist/index.js:1888
+    - registerHttpRoute @ plugins/diffs/.crabpot-package/dist/index.js:1880
+    - registerService @ plugins/diffs/.crabpot-package/dist/index.js:1855
 
 - 🟢 P3 **discord** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:discord`
   - evidence:
-    - registerHttpRoute @ plugins/discord/.crabpot-package/dist/activities-api.js:737
-    - registerWidgetPresenter @ plugins/discord/.crabpot-package/dist/activities-api.js:743
+    - registerHttpRoute @ plugins/discord/.crabpot-package/dist/activities-api.js:731
+    - registerTranscriptSourceProvider @ plugins/discord/.crabpot-package/dist/transcripts-source-api.js:4
+    - registerWidgetPresenter @ plugins/discord/.crabpot-package/dist/activities-api.js:737
 
 - 🟢 P3 **google-meet** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:google-meet`
   - evidence:
-    - registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:129
-    - registerNodeHostCommand @ plugins/google-meet/.crabpot-package/dist/index.js:370
-    - registerNodeInvokePolicy @ plugins/google-meet/.crabpot-package/dist/index.js:380
-    - registerService @ plugins/google-meet/.crabpot-package/dist/.setup/plugin-registration-B_Ohay99.mjs:111
+    - registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:128
+    - registerNodeHostCommand @ plugins/google-meet/.crabpot-package/dist/index.js:369
+    - registerNodeInvokePolicy @ plugins/google-meet/.crabpot-package/dist/index.js:379
+    - registerService @ plugins/google-meet/.crabpot-package/dist/.setup/plugin-registration-B_nOxAym.mjs:111
+    - registerTranscriptSourceProvider @ plugins/google-meet/.crabpot-package/dist/index.js:187
+
+- 🟢 P3 **inworld-tts** `inspector-capture-api`
+  - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
+  - id: `api.capture.runtime-registrars:inworld-tts`
+  - evidence:
+    - [registerSpeechProvider @ index.ts:9](https://github.com/livingghost/openclaw-inworld-tts/blob/d2abaeea330ebef7530f43f8b395671f6f404aea/index.ts#L9)
 
 - 🟢 P3 **lightclawbot** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -8496,15 +6457,13 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:matrix`
   - evidence:
-    - [registerGatewayMethod @ index.ts:17](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/index.ts#L17)
-    - [registerGatewayMethod @ index.ts:22](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/index.ts#L22)
-    - [registerGatewayMethod @ index.ts:27](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/index.ts#L27)
+    - [registerGatewayMethod @ index.ts:24](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/index.ts#L24)
 
 - 🟢 P3 **mattermost** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:mattermost`
   - evidence:
-    - [registerHttpRoute @ slash-state.ts:440](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/mattermost/slash-state.ts#L440)
+    - [registerHttpRoute @ slash-state.ts:299](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/mattermost/src/mattermost/slash-state.ts#L299)
 
 - 🟢 P3 **memory-lancedb** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -8543,9 +6502,9 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:voice-call`
   - evidence:
-    - registerConfigMigration @ plugins/voice-call/.crabpot-package/dist/setup-api.js:133
-    - registerGatewayMethod @ plugins/voice-call/.crabpot-package/dist/index.js:449
-    - registerService @ plugins/voice-call/.crabpot-package/dist/index.js:615
+    - registerConfigMigration @ plugins/voice-call/.crabpot-package/dist/setup-api.js:132
+    - registerGatewayMethod @ plugins/voice-call/.crabpot-package/dist/index.js:416
+    - registerService @ plugins/voice-call/.crabpot-package/dist/index.js:582
 
 - 🟢 P3 **bluebubbles** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -8557,13 +6516,13 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:discord`
   - evidence:
-    - createChatChannelPlugin @ plugins/discord/.crabpot-package/dist/.setup/channel-1Z1mnB_P.mjs:477
+    - createChatChannelPlugin @ plugins/discord/.crabpot-package/dist/.setup/channel-BMpMAeQL.mjs:493
 
 - 🟢 P3 **feishu** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:feishu`
   - evidence:
-    - createChatChannelPlugin @ plugins/feishu/.crabpot-package/dist/.setup/channel-DykAJJhn.mjs:2273
+    - createChatChannelPlugin @ plugins/feishu/.crabpot-package/dist/.setup/channel-dxkUGCgC.mjs:2256
 
 - 🟢 P3 **lightclawbot** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -8576,25 +6535,25 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:mattermost`
   - evidence:
-    - [createChatChannelPlugin @ channel.ts:694](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/src/channel.ts#L694)
+    - [createChatChannelPlugin @ channel.ts:530](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/mattermost/src/channel.ts#L530)
 
 - 🟢 P3 **msteams** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:msteams`
   - evidence:
-    - createChatChannelPlugin @ plugins/msteams/.crabpot-package/dist/.setup/channel-B2ftcwuA.cjs:1029
+    - createChatChannelPlugin @ plugins/msteams/.crabpot-package/dist/.setup/channel-CdCSk3Rg.cjs:1067
 
 - 🟢 P3 **nextcloud-talk** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:nextcloud-talk`
   - evidence:
-    - createChatChannelPlugin @ plugins/nextcloud-talk/.crabpot-package/dist/.setup/channel-DTKYMnlK.mjs:2289
+    - createChatChannelPlugin @ plugins/nextcloud-talk/.crabpot-package/dist/.setup/channel-D9tHRtkv.mjs:2253
 
 - 🟢 P3 **nostr** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:nostr`
   - evidence:
-    - createChatChannelPlugin @ plugins/nostr/.crabpot-package/dist/.setup/channel-okqFzt1Z.mjs:1350
+    - createChatChannelPlugin @ plugins/nostr/.crabpot-package/dist/.setup/channel-C2iK5Fjg.mjs:1333
 
 - 🟢 P3 **telnyx-sms** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -8606,31 +6565,31 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:tlon`
   - evidence:
-    - createChatChannelPlugin @ plugins/tlon/.crabpot-package/dist/.setup/channel-cZo0ECaC.mjs:138
+    - createChatChannelPlugin @ plugins/tlon/.crabpot-package/dist/.setup/channel-DwKKUzwx.mjs:135
 
 - 🟢 P3 **twitch** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:twitch`
   - evidence:
-    - createChatChannelPlugin @ plugins/twitch/.crabpot-package/dist/.setup/plugin-q9M3RXni.mjs:709
+    - createChatChannelPlugin @ plugins/twitch/.crabpot-package/dist/.setup/plugin-CnPNkPhc.mjs:699
 
 - 🟢 P3 **whatsapp** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:whatsapp`
   - evidence:
-    - createChatChannelPlugin @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-D-6ZIq4y.mjs:472
+    - createChatChannelPlugin @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-DaAKkqgg.mjs:463
 
 - 🟢 P3 **zalo** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:zalo`
   - evidence:
-    - createChatChannelPlugin @ plugins/zalo/.crabpot-package/dist/.setup/channel-BDoyUcaX.mjs:272
+    - createChatChannelPlugin @ plugins/zalo/.crabpot-package/dist/.setup/channel-B-pcG9qP.mjs:267
 
 - 🟢 P3 **zalouser** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:zalouser`
   - evidence:
-    - createChatChannelPlugin @ plugins/zalouser/.crabpot-package/dist/.setup/channel-DgZ3b3H5.mjs:487
+    - createChatChannelPlugin @ plugins/zalouser/.crabpot-package/dist/.setup/channel-Chv0Qbpd.mjs:481
 
 - 🟢 P3 **memos-cloud** `hook-runner`
   - contract: Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.
@@ -8733,7 +6692,7 @@ _none_
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
   - id: `package.entrypoint.build-before-cold-import:apify`
   - evidence:
-    - [extension:./dist/index.js @ index.js](https://github.com/apify/apify-openclaw-plugin/blob/f089a0632461f921ddbd15d783a791be9fc808ab/dist/index.js)
+    - [extension:./dist/index.js @ index.js](https://github.com/apify/apify-openclaw-plugin/blob/9f2aadbbfbd170f196165f05d9f967f500292cda/dist/index.js)
 
 - 🟢 P3 **dingtalk-doc** `package-loader`
   - contract: Inspector can build or resolve source aliases before cold importing package entrypoints.
@@ -8765,8 +6724,8 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:apify`
   - evidence:
-    - [apify-client @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/f089a0632461f921ddbd15d783a791be9fc808ab/package.json)
-    - [typebox @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/f089a0632461f921ddbd15d783a791be9fc808ab/package.json)
+    - [apify-client @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/9f2aadbbfbd170f196165f05d9f967f500292cda/package.json)
+    - [typebox @ package.json](https://github.com/apify/apify-openclaw-plugin/blob/9f2aadbbfbd170f196165f05d9f967f500292cda/package.json)
 
 - 🟢 P3 **clawrouter** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -8893,20 +6852,21 @@ _none_
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:matrix`
   - evidence:
-    - [@matrix-org/matrix-sdk-crypto-nodejs @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
-    - [@matrix-org/matrix-sdk-crypto-wasm @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
-    - [fake-indexeddb @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
-    - [markdown-it @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
-    - [matrix-js-sdk @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
-    - [music-metadata @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
-    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/package.json)
+    - [@matrix-org/matrix-sdk-crypto-nodejs @ package.json](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/package.json)
+    - [@matrix-org/matrix-sdk-crypto-wasm @ package.json](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/package.json)
+    - [@openclaw/fs-safe @ package.json](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/package.json)
+    - [fake-indexeddb @ package.json](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/package.json)
+    - [markdown-it @ package.json](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/package.json)
+    - [matrix-js-sdk @ package.json](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/package.json)
+    - [music-metadata @ package.json](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/package.json)
+    - [typebox @ package.json](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/package.json)
 
 - 🟢 P3 **mattermost** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
   - id: `package.entrypoint.isolated-dependency-install:mattermost`
   - evidence:
-    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/package.json)
+    - [zod @ package.json](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/mattermost/package.json)
 
 - 🟢 P3 **memory-lancedb** `package-loader`
   - contract: Inspector installs package dependencies in an isolated workspace before cold import.
@@ -9018,7 +6978,7 @@ _none_
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:clawmetry`
   - evidence:
-    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/72714376a4b358dcb2b62e6c3ae05140903bcdff/clawhub-plugin/index.ts)
+    - [extension @ index.ts](https://github.com/vivekchand/clawmetry/blob/6228537b0271572d55f5bf02ee130f76038f7cd5/clawhub-plugin/index.ts)
 
 - 🟢 P3 **codex-app-server** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
@@ -9036,15 +6996,15 @@ _none_
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:matrix`
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/index.ts)
-    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/matrix/setup-entry.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/index.ts)
+    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/matrix/setup-entry.ts)
 
 - 🟢 P3 **mattermost** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.
   - id: `package.entrypoint.typescript-loader:mattermost`
   - evidence:
-    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/index.ts)
-    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/10bb24270d8dad0f85781980248c5ba9a1d5cd71/extensions/mattermost/setup-entry.ts)
+    - [extension @ index.ts](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/mattermost/index.ts)
+    - [setupEntry @ setup-entry.ts](https://github.com/openclaw/openclaw/blob/5f84c5b8a9889ab7035c197bc25bbe0aa8a20765/extensions/mattermost/setup-entry.ts)
 
 - 🟢 P3 **memu-engine** `package-loader`
   - contract: Inspector can compile or load TypeScript source entrypoints before registration capture.

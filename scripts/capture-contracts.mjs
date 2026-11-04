@@ -18,12 +18,12 @@ export const HOOK_CONTEXTS = pluginInspector.defaultHookContexts;
 export const validateContractCapture = pluginInspector.validateContractCapture;
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
-  await main();
+  await runReportCommand();
 }
 
-async function main() {
-  const parsedArgs = parseArgs(process.argv.slice(2));
-  const capture = await buildContractCapture({ openclawPath: parsedArgs.openclawPath });
+export async function runReportCommand(argv = process.argv.slice(2), options = {}) {
+  const parsedArgs = parseArgs(argv);
+  const capture = await buildContractCapture({ openclawPath: parsedArgs.openclawPath, ...options });
   const errors = validateContractCapture(capture);
 
   if (parsedArgs.write) {
@@ -41,6 +41,7 @@ async function main() {
   if (errors.length > 0) {
     throw new Error(errors.join("\n"));
   }
+  return capture;
 }
 
 function parseArgs(argv) {

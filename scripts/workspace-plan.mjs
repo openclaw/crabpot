@@ -20,12 +20,12 @@ const crabpotWorkspacePlanOptions = {
 };
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
-  await main();
+  await runReportCommand();
 }
 
-async function main() {
-  const parsedArgs = parseArgs(process.argv.slice(2));
-  const plan = await buildWorkspacePlan({ openclawPath: parsedArgs.openclawPath });
+export async function runReportCommand(argv = process.argv.slice(2), options = {}) {
+  const parsedArgs = parseArgs(argv);
+  const plan = await buildWorkspacePlan({ openclawPath: parsedArgs.openclawPath, ...options });
   const errors = validateWorkspacePlan(plan);
 
   if (parsedArgs.write) {
@@ -43,6 +43,7 @@ async function main() {
   if (errors.length > 0) {
     throw new Error(errors.join("\n"));
   }
+  return plan;
 }
 
 function parseArgs(argv) {

@@ -59,11 +59,11 @@ const crabpotRegistrationProbeInputs = {
 };
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
-  await main();
+  await runReportCommand();
 }
 
-async function main() {
-  const args = parseArgs(process.argv.slice(2));
+export async function runReportCommand(argv = process.argv.slice(2), options = {}) {
+  const args = parseArgs(argv);
 
   if (args.entrypoint) {
     if (process.env.CRABPOT_EXECUTE_ISOLATED !== "1") {
@@ -82,7 +82,7 @@ async function main() {
     return;
   }
 
-  const plan = await buildSyntheticProbePlan({ openclawPath: args.openclawPath });
+  const plan = await buildSyntheticProbePlan({ openclawPath: args.openclawPath, ...options });
   const errors = validateSyntheticProbePlan(plan);
   if (args.write) {
     await writeSyntheticProbePlan(plan);
@@ -99,6 +99,7 @@ async function main() {
   if (errors.length > 0) {
     throw new Error(errors.join("\n"));
   }
+  return plan;
 }
 
 function parseArgs(argv) {

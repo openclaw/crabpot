@@ -96,7 +96,7 @@ test("static suite can focus operational report steps without filtering unit tes
   });
 
   const testStep = steps.find(([, args]) => args.join(" ") === "--test --test-concurrency=1 test/*.test.mjs");
-  const reportStep = steps.find(([, args]) => args.join(" ") === "scripts/generate-report.mjs --check");
+  const reportStep = steps.find(([, args]) => args.join(" ") === "scripts/run-report-suite.mjs --check");
 
   assert.equal(testStep[2].CRABPOT_FIXTURE_SET, undefined);
   assert.equal(testStep[2].CRABPOT_PLUGIN_TRACK, undefined);
