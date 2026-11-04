@@ -25,6 +25,7 @@
 - Removed the runtime-profile summary/renderer test copied from Inspector, including its four invented commands and the otherwise-unused private renderer wrapper. Retained the real child deadline, heap-option, and failure-artifact tests that exercise Crabpot behavior.
 - All three retained runtime-profile tests passed on AWS Linux (`run_9126c28a41296d98a1fe2926020bca25`, lease `cbx_3036110fde8b`, actual type `c7i.8xlarge`); lease cleanup completed.
 - Removed four profile-diff threshold/severity tests, four ref-diff classification tests, and one workspace-plan validator test copied from that revision's own tests. The tested algorithm calls delegate to Inspector without Crabpot transformations.
+- Removed two CI-summary rollup/status tests covered by the pinned Inspector CI-summary tests; retained the file-writing integration test and Crabpot current-run handoff tests.
 - Removed seven synthetic-policy classification/validation copies; kept all seven real default-policy fixture mappings and the current-run selection check.
 - Removed three execution-results copies for total-only audit counts, empty directories, and recursive artifact sorting. The pinned Inspector tests already own these algorithms; Crabpot adds no transformations to those inputs.
 - Removed the issue-classification assertion block duplicated by the pinned Inspector report/issue tests and its two otherwise-unused direct exports. Kept the Crabpot issue-rendering checks.
