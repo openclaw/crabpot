@@ -2,7 +2,7 @@
 
 ## 0.2.2 - Unreleased
 
-- Adopt reviewed Plugin Inspector source memory fixes for HEAD canary inspection, retaining the published 0.4.5 package pin, 2 GiB heap limit, and all cold profiling samples.
+- Adopt reviewed Plugin Inspector source memory fixes, including type-information-only SDK parsing that preserves JavaScript JSDoc and inventory evidence; retain the published 0.4.5 package pin, 2 GiB heap limit, and all cold profiling samples.
 
 - Reuse one source inspection across static report checks so Windows CI retains time for coverage and policy validation, preserving every cold profiling sample and existing deadlines.
 

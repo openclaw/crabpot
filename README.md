@@ -171,7 +171,7 @@ explicitly declares the SQLite replacement so applicable notices stay covered.
 ### Inspector profile failure diagnostics
 
 Runtime profiles use reviewed Inspector source
-`89a3fedad864844a276ae52b4011b9c65d47fe12`. The published
+`8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446`. The published
 `@openclaw/plugin-inspector@0.4.5` package remains at
 `8ec7d359fd78c96e723ce77eb5cffb3fec6703ee`. Both preserve
 bounded stdout/stderr and explicit truncation metadata for failed process
@@ -179,8 +179,9 @@ samples in JSON artifacts, including errors hidden by a Node version footer.
 Raw output is not automatically redacted; use credential-free
 workloads and review diagnostics before sharing them publicly.
 
-The source pin also avoids duplicate source parsing and eager reads of excluded
-SDK-usage files. These memory fixes are not yet in the published package;
+The source pin also avoids duplicate source parsing, eager reads of excluded
+SDK-usage files, and unused TypeScript documentation trees while preserving
+JavaScript JSDoc types. These memory fixes are not yet in the published package;
 source and locally packed smoke checks qualify the source revision separately
 from published-package smoke.
 
