@@ -2,6 +2,8 @@
 
 ## 0.2.2 - Unreleased
 
+- Advance the Plugin Inspector source pin so repeated in-process synthetic runs share one exit cleanup listener; preserve the published package pin.
+
 - Reuse one source inspection across static report checks so Windows CI retains time for coverage and policy validation, preserving every cold profiling sample and existing deadlines.
 
 - Adopt Plugin Inspector 0.4.5 for source and published-package smoke checks, carrying the source-host memory and hook-registry compatibility fixes.

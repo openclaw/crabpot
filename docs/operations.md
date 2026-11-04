@@ -219,10 +219,11 @@ node scripts/check-contract-coverage.mjs --openclaw ../openclaw
 ```
 
 Source-backed reports and registration capture use Inspector source commit
-`23dc5dd913c2105978dc6490c35481a8109af321` (reviewed source after 0.4.4, including current host hook-metadata support),
-with SDK discovery inside packaged `.setup` directories and composed Zod enums,
-including bundled SDK import classification, target-owned conversation contract
-proof, lazy runtime SDK loading, and method-scoped Gateway prerequisites.
+`105249cb6992be0f2cebcce0e51869325f7e0a44`. Repeated in-process synthetic runs share one
+exit cleanup listener while retaining mock SDK workspaces until process exit.
+The source also retains SDK discovery inside packaged `.setup` directories,
+composed Zod enums, bundled import classification, target-owned conversation
+contract proof, lazy runtime loading, and method-scoped Gateway prerequisites.
 Both pins preserve entrypoint and referenced host-type resolution on Windows.
 `npm run plugin-inspector:smoke` uses the published
 package pinned by `pluginInspectorPackage` in `scripts/plugin-inspector-source.mjs`
