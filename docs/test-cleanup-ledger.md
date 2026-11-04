@@ -23,6 +23,7 @@
 - Added 60-second deadlines to twelve subprocess calls in argument parsing, cold capture, synthetic probes, generated-surface validation, Inspector smoke and Git setup, fixture tar setup, workflow shell execution, and resource-input admission.
 - Negative CLI cases now reject spawn errors and signal termination before matching expected diagnostics. The old assertion pattern accepted a child that printed the expected error and then died from SIGTERM (`status: null`). Positive cases also surface spawn errors directly.
 - Validation: reproduced the old false-positive assertion pattern locally; syntax checks passed. All eleven CLI cases passed on AWS Linux (`run_81ecde00c117b2c667911d9d03bf9315`, lease `cbx_5b98751052f9`, actual type `m7a.8xlarge`).
+- The five additional call sites passed 109 local checks (including the macOS runtime-admission exit) and all 117 checks across their four suites on AWS Linux (`run_15e867f7537a29161ae41957e3b1ccbc`, lease `cbx_e0131138bf85`, actual type `c7i.8xlarge`). The remaining synchronous-call scan returned no additional deadline candidates.
 
 ## Remaining audit
 
