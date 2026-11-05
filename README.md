@@ -164,7 +164,7 @@ explicitly declares the SQLite replacement so applicable notices stay covered.
 ### Inspector profile failure diagnostics
 
 Runtime profiles use reviewed Inspector source
-`8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446`. The published
+`105249cb6992be0f2cebcce0e51869325f7e0a44`. The published
 `@openclaw/plugin-inspector@0.4.5` package remains at
 `8ec7d359fd78c96e723ce77eb5cffb3fec6703ee`. Both preserve
 bounded stdout/stderr and explicit truncation metadata for failed process
