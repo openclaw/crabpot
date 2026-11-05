@@ -1,0 +1,15 @@
+{
+  "crabpot": "9336b829a29901db6617623feffa60f6b2123317",
+  "openclaw": "0a995f7bbcf791bde32f2fa75378fc1c7b45a995",
+  "node": "v24.22.1",
+  "platform": "win32",
+  "arch": "x64",
+  "files": {
+    "crabpot/scripts/run-openclaw-lifecycle-capture.mjs": "d06e5295b12e0924398c6a25a76a8ba8ac7b9078dfe7115a28834f1d207a11ab",
+    "crabpot/scripts/json-output.mjs": "6f12cd0b5a721a2d999eabe9499825841388602caa24f08cd209cd9504c84d8d",
+    "crabpot/test/fixtures/lazy-import-plugin.mjs": "5b274465a45fdf68b3ade838d334a4e725ce0e3815b86297b890853fcebd3ff6",
+    "openclaw/src/infra/sqlite-staging-token.ts": "25ffd42adee4b6ab3b5f826d130eff8a33c56dec0202ab6eac671a1e8c064ea2",
+    "openclaw/package.json": "1e40aa1bbc9c8989e992d58d87375bb0c45008aac49f31ec3238b05839ae99a7",
+    "openclaw/pnpm-lock.yaml": "c428adc8508bd39a356284602a1d7e793944bbc0915c91e5327e1179ff905d6a"
+  }
+}
