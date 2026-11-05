@@ -2,6 +2,8 @@
 
 ## 0.2.2 - Unreleased
 
+- Patch HAPI's host-linked npm bundle to 12.2.2 for Undici TLS validation, renegotiation and WebSocket buffering fixes while retaining the qualified host and plugin pins.
+
 - Wait for asynchronous OpenClaw registry activation before reading lifecycle results, preserving synchronous loader support and cleanup after rejected activation.
 - Refresh 21 official plugin fallback pins to 2026.10.9 with verified publication-source references, retaining the reviewed Brave fallback, track selectors, the qualified host pin, and explicit compatibility gaps. Thanks @dependabot.
 - Patch the Teams fixture's mutable follow-redirects dependency to 1.16.2, clearing the committed-lock audit blocker.
