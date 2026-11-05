@@ -93,7 +93,7 @@ test("import loop validation fails requested OpenClaw lifecycle profiles without
   ]);
 });
 
-async function lifecycleHost(t, { importMs = "2.0", activationMs = "1.0", status = "loaded", throws = false } = {}) {
+async function lifecycleHost(t, { importMs = "2.0", activationMs = "1.0", status = "loaded", throws = false, asyncLoader = false } = {}) {
   const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-openclaw-lifecycle-"));
   t.after(() => rm(dir, { recursive: true, force: true }));
   const openclawRoot = path.join(dir, "openclaw");
@@ -125,11 +125,12 @@ async function lifecycleHost(t, { importMs = "2.0", activationMs = "1.0", status
       "assert.equal(process.env.HOME, process.env.OPENCLAW_STATE_DIR);",
       "assert.match(process.env.HOME, /crabpot-openclaw-state-/);",
       "assert.equal(process.env.OPENCLAW_DISABLE_BUNDLED_PLUGINS, '1');",
-      "export function loadAndActivateRootPluginRegistry(options) {",
+      `export ${asyncLoader ? "async " : ""}function loadAndActivateRootPluginRegistry(options) {`,
       "  const source = options.config.plugins.load.paths[0];",
       `  appendFileSync(${JSON.stringify(observationsPath)}, JSON.stringify({ source, state: options.workspaceDir }) + '\\n');`,
       "  assert.equal(options.cache, false);",
       "  assert.equal(options.workspaceDir, process.env.OPENCLAW_STATE_DIR);",
+      ...(asyncLoader ? ["  await new Promise((resolve) => setImmediate(resolve));"] : []),
       `  if (${throws}) throw new Error('lifecycle-loader-sentinel');`,
       "  const windowsSource = 'C:\\\\Users\\\\runner\\\\AppData\\\\Local\\\\Temp\\\\crabpot-openclaw-plugin-AbCd\\\\index.mjs';",
       ...(importMs === null ? [] : [
@@ -195,18 +196,22 @@ async function lifecycleHost(t, { importMs = "2.0", activationMs = "1.0", status
 }
 
 test("OpenClaw lifecycle capture CLI exits after writing output when loader leaves active handles", async (t) => {
-  const host = await lifecycleHost(t);
-  const result = host.run();
-  assert.equal(result.error?.code, undefined, result.error?.message);
-  assert.equal(result.status, 0, result.stderr);
-  const capture = JSON.parse(result.stdout);
-  assert.equal(capture.status, "captured");
-  assert.equal(capture.openClawLifecycle.status, "loaded");
-  assert.equal(capture.openClawLifecycle.importMs, 2);
-  assert.equal(capture.openClawLifecycle.activationMs, 1);
-  assert.equal(capture.openClawLifecycle.phases[0].source, "crabpot-lifecycle-probe/index.mjs");
-  assert.equal(capture.openClawLifecycle.phases[1].source, "crabpot-lifecycle-probe/index.mjs");
-  await host.assertCleanup(1);
+  for (const asyncLoader of [false, true]) {
+    await t.test(asyncLoader ? "asynchronous loader" : "synchronous loader", async (t) => {
+      const host = await lifecycleHost(t, { asyncLoader });
+      const result = host.run();
+      assert.equal(result.error?.code, undefined, result.error?.message);
+      assert.equal(result.status, 0, result.stderr);
+      const capture = JSON.parse(result.stdout);
+      assert.equal(capture.status, "captured");
+      assert.equal(capture.openClawLifecycle.status, "loaded");
+      assert.equal(capture.openClawLifecycle.importMs, 2);
+      assert.equal(capture.openClawLifecycle.activationMs, 1);
+      assert.equal(capture.openClawLifecycle.phases[0].source, "crabpot-lifecycle-probe/index.mjs");
+      assert.equal(capture.openClawLifecycle.phases[1].source, "crabpot-lifecycle-probe/index.mjs");
+      await host.assertCleanup(1);
+    });
+  }
 });
 
 test("OpenClaw lifecycle capture and parent require loaded status and valid phases", async (t) => {
@@ -219,6 +224,7 @@ test("OpenClaw lifecycle capture and parent require loaded status and valid phas
       [`malformed registration ${token.slice(0, 10)}`, { activationMs: token }, false],
     ]),
     ["failed registration with timings", { status: "error" }, false],
+    ["asynchronous failed registration with timings", { status: "error", asyncLoader: true }, false],
   ]) {
     await t.test(name, async (t) => {
       const host = await lifecycleHost(t, options);
@@ -252,11 +258,15 @@ test("OpenClaw lifecycle capture and parent require loaded status and valid phas
 });
 
 test("OpenClaw lifecycle capture CLI cleans up after a thrown loader exception", async (t) => {
-  const host = await lifecycleHost(t, { throws: true });
-  const result = host.run();
-  assert.equal(result.error?.code, undefined, result.error?.message);
-  assert.equal(result.status, 1, result.stderr);
-  assert.match(result.stderr, /lifecycle-loader-sentinel/);
-  assert.equal(result.stdout, "");
-  await host.assertCleanup(1);
+  for (const asyncLoader of [false, true]) {
+    await t.test(asyncLoader ? "rejected asynchronous loader" : "thrown synchronous loader", async (t) => {
+      const host = await lifecycleHost(t, { throws: true, asyncLoader });
+      const result = host.run();
+      assert.equal(result.error?.code, undefined, result.error?.message);
+      assert.equal(result.status, 1, result.stderr);
+      assert.match(result.stderr, /lifecycle-loader-sentinel/);
+      assert.equal(result.stdout, "");
+      await host.assertCleanup(1);
+    });
+  }
 });
