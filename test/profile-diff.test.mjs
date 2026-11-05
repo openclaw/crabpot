@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { mkdtemp } from "node:fs/promises";
+import { rm, mkdtemp } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import { test } from "node:test";
@@ -69,8 +69,9 @@ test("profile diff threshold boundaries are inclusive", async () => {
   assert.deepEqual(validateProfileDiff(diff), []);
 });
 
-test("profile diff warns but does not fail when baseline is missing", async () => {
+test("profile diff warns but does not fail when baseline is missing", async (context) => {
   const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-profile-baseline-"));
+  context.after(() => rm(dir, { recursive: true, force: true, maxRetries: 3 }));
   const diff = await buildProfileDiff({
     baselinePath: path.join(dir, "missing.json"),
     current: profile({ p95WallMs: 100, maxPeakRssMb: 100, nodeBootMs: 50, runs: 3 }),
