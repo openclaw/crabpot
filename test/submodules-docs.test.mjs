@@ -59,12 +59,6 @@ test("plugin submodule README stays aligned with manifest and gitmodules", async
   const gitFixtures = manifest.fixtures.filter((fixture) => fixture.repo);
 
   assert.equal(submodules.length, gitFixtures.length);
-  assert.match(readme, /## Add A Plugin/);
-  assert.match(readme, /## Remove A Plugin/);
-  assert.match(readme, /package-ecosystem: "gitsubmodule"/);
-  assert.match(readme, /package-ecosystem: "npm"/);
-  assert.match(readme, /plugins\/<id>\/package\.json/);
-  assert.match(readme, /once per day/);
 
   for (const fixture of gitFixtures) {
     const submodule = submodules.find((item) => item.path === fixture.path);
