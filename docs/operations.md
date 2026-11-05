@@ -78,8 +78,11 @@ TencentDB memory remains explicitly pinned to the reviewed 1.0.1 artifact; its
 moving npm tag is not part of that qualification.
 The HAPI fixture lock uses host-linked OpenClaw 2026.10.6 for patched MCP SDK
 dependencies and Hono 4.13.11. This does not promote the Default Track host pin.
-Its npm dependency is overridden to 12.2.1 to refresh the published bundle's HTTP
-cache, Undici and selector-parser dependencies.
+Its npm dependency is overridden to 12.2.2 to refresh the published bundle's HTTP
+cache, Undici and selector-parser dependencies, including Undici 6.29.1 for
+TLS validation, renegotiation and WebSocket buffering fixes. The npm bundle still
+contains older glob and minimatch releases; this override does not clear those
+separate advisories.
 Mutable fixture dependencies also pin patched Zod and Undici releases; Microsoft
 Teams pins body-parser 2.4.0 and MSAL Node 7.1.1. Published plugin bundles remain
 publisher-owned and cannot be replaced by npm overrides.
