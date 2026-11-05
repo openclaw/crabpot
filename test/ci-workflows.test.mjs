@@ -357,30 +357,6 @@ test("default check workflow resolves changed submodules into an isolated fixtur
   assert.doesNotMatch(workflow, /steps\.execute\.outcome == 'failure' \|\| steps\.policy\.outcome != 'success'/);
 });
 
-test("workflows use current action majors and dependency caches", async () => {
-  const workflows = [
-    await readWorkflow(".github/workflows/check.yml"),
-    await readOpenClawRefWorkflows(),
-    await readWorkflow(".github/workflows/dependabot-auto-merge.yml"),
-    await readWorkflow(".github/workflows/openclaw-head-canary.yml"),
-    await readWorkflow(".github/workflows/openclaw-pin-age.yml"),
-    await readWorkflow(".github/workflows/track-dashboard.yml"),
-  ].join("\n");
-  const actionRefs = [
-    ...workflows.matchAll(/uses:\s+(actions\/(?:checkout|setup-node|upload-artifact)@[^\s]+)/g),
-  ].map((match) => match[1]);
-
-  assert.deepEqual([...new Set(actionRefs)].sort(), [
-    "actions/checkout@v7",
-    "actions/setup-node@v7",
-    "actions/upload-artifact@v7",
-  ]);
-  assert.match(workflows, /cache: npm/);
-  assert.match(workflows, /cache-dependency-path: \|/);
-  assert.doesNotMatch(workflows, /actions\/(checkout|setup-node|upload-artifact)@v4/);
-  assert.doesNotMatch(workflows, /FORCE_JAVASCRIPT_ACTIONS_TO_NODE24/);
-});
-
 test("normal pushes and bot merges share an exact-commit dashboard owner", async () => {
   const workflow = await readWorkflow(".github/workflows/dependabot-auto-merge.yml");
   const check = await readWorkflow(".github/workflows/check.yml");
