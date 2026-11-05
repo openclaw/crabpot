@@ -1,6 +1,5 @@
 #!/usr/bin/env node
-import { mkdtempSync, rmSync, writeFileSync } from "node:fs";
-import os from "node:os";
+import { mkdtempSync, statSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { writeJsonResult } from "./json-output.mjs";
@@ -17,14 +16,15 @@ if (import.meta.url === pathToFileURL(process.argv[1]).href) {
 
 async function main() {
   const args = parseArgs(process.argv.slice(2));
-  if (!args.entrypoint) {
-    throw new Error("usage: run-openclaw-lifecycle-capture.mjs <entrypoint> [--output <path>]");
+  if (!args.entrypoint || !args.captureRoot) {
+    throw new Error("usage: run-openclaw-lifecycle-capture.mjs <entrypoint> --capture-root <parent-owned-directory> [--output <path>]");
   }
   if (process.env.CRABPOT_EXECUTE_ISOLATED !== "1") {
     throw new Error("OpenClaw lifecycle capture requires CRABPOT_EXECUTE_ISOLATED=1");
   }
 
-  const result = await captureOpenClawLifecycle(args.entrypoint);
+  if (!statSync(args.captureRoot).isDirectory()) throw new Error("--capture-root must be an existing parent-owned directory");
+  const result = await captureOpenClawLifecycle(args.entrypoint, args.captureRoot);
   await writeJsonResult(result, args.output);
 }
 
@@ -32,10 +32,16 @@ function parseArgs(argv) {
   const args = {
     entrypoint: null,
     output: null,
+    captureRoot: null,
   };
 
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
+    if (arg === "--capture-root") {
+      args.captureRoot = argv[index + 1];
+      index += 1;
+      continue;
+    }
     if (arg === "--output") {
       args.output = argv[index + 1];
       index += 1;
@@ -49,11 +55,11 @@ function parseArgs(argv) {
   return args;
 }
 
-async function captureOpenClawLifecycle(entrypoint) {
+async function captureOpenClawLifecycle(entrypoint, captureRoot) {
   const openclawRoot = path.resolve(process.env.CRABPOT_OPENCLAW_DIR ?? process.cwd());
   const pluginId = "crabpot-lifecycle-probe";
-  const pluginRoot = mkdtempSync(path.join(os.tmpdir(), "crabpot-openclaw-plugin-"));
-  const stateRoot = mkdtempSync(path.join(os.tmpdir(), "crabpot-openclaw-state-"));
+  const pluginRoot = mkdtempSync(path.join(captureRoot, "crabpot-openclaw-plugin-"));
+  const stateRoot = mkdtempSync(path.join(captureRoot, "crabpot-openclaw-state-"));
   const wrapperPath = path.join(pluginRoot, "index.mjs");
   const profileLines = [];
   const originalError = console.error;
@@ -137,8 +143,8 @@ async function captureOpenClawLifecycle(entrypoint) {
   } finally {
     console.error = originalError;
     restoreLifecycleEnv(originalEnv);
-    rmSync(pluginRoot, { recursive: true, force: true });
-    rmSync(stateRoot, { recursive: true, force: true });
+    // OpenClaw can hold native handles until process exit. The parent removes
+    // both directories only after joining the capture subprocesses.
   }
 }
 

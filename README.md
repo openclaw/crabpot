@@ -108,6 +108,19 @@ npm run contract:coverage
 npm run readme:summary
 ```
 
+OpenClaw lifecycle profiling owns one temporary capture directory in the parent.
+It removes that directory after all requested baseline and target children exit
+normally, including nonzero exits. Timeout, cancellation, signal, missing child
+receipts, or a thrown profile retain it. `captureCleanup` in JSON and the Markdown
+cleanup section report the outcome and directory name under the system temp
+directory; retained or failed cleanup fails validation without replacing sample
+results. The private lifecycle capture CLI requires `--capture-root` pointing to
+an existing parent-owned directory. Custom `captureCommand` factories receive
+that path as `context.captureRoot` and retain their command-selection precedence.
+Output capture JSON stays in the configured output directory.
+Whole-child wall and CPU measurements exclude parent directory deletion;
+OpenClaw import and activation phase timings are unchanged.
+
 To materialize the fixture repos as submodules:
 
 ```bash
