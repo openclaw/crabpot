@@ -83,7 +83,8 @@ test("runtime admission rejects non-Linux, Bun and missing thread CPU observatio
     assert.throws(() => assertResourceRuntime({ ...runtime, ...change }), /requires Linux Node/);
   }
   if (process.platform !== "linux" || typeof process.threadCpuUsage !== "function") {
-    const result = spawnSync(process.execPath, ["scripts/prepare-resource-inputs.mjs", "--plugin-inventory", "unused", "--host-root", "unused", "--out", "unused"], { cwd: new URL("..", import.meta.url), encoding: "utf8" });
+    const result = spawnSync(process.execPath, ["scripts/prepare-resource-inputs.mjs", "--plugin-inventory", "unused", "--host-root", "unused", "--out", "unused"], { cwd: new URL("..", import.meta.url), encoding: "utf8", timeout: 60_000 });
+    assert.ifError(result.error);
     assert.equal(result.status, 1);
     assert.match(result.stderr, /requires Linux Node[\s\S]*\[resource-inputs\] FAILED \(exit 1\)/);
   }

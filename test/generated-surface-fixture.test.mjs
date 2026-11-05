@@ -117,9 +117,12 @@ test("generated surface fixture refuses plugin roots outside .crabpot", () => {
     {
       cwd: process.cwd(),
       encoding: "utf8",
+      timeout: 60_000,
     },
   );
 
+  assert.ifError(result.error);
+  assert.equal(result.signal, null);
   assert.notEqual(result.status, 0);
   assert.match(result.stderr, /--plugin-root must be inside \.crabpot/);
 });
