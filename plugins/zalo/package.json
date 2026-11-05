@@ -4,7 +4,7 @@
   "private": true,
   "description": "Crabpot npm fixture shim for OpenClaw Zalo channel plugin.",
   "dependencies": {
-    "@openclaw/zalo": "2026.10.6"
+    "@openclaw/zalo": "2026.10.9"
   },
   "crabpot": {
     "fixture": "zalo",
@@ -12,6 +12,6 @@
     "package": "@openclaw/zalo",
     "sourceRepo": "https://github.com/openclaw/openclaw.git",
     "sourcePath": "extensions/zalo",
-    "sourceRef": "fe06181dc5ecc01cf8904abbfc26925925efefbc"
+    "sourceRef": "8b18b5578f66eab1501cba4cef2310d88bfb9a41"
   }
 }
