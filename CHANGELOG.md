@@ -2,6 +2,9 @@
 
 ## 0.2.2 - Unreleased
 
+- Refresh 21 official plugin fallback pins to 2026.10.9 with verified publication-source references, retaining the reviewed Brave fallback, track selectors, the qualified host pin, and explicit compatibility gaps. Thanks @dependabot.
+- Patch the Teams fixture's mutable follow-redirects dependency to 1.16.2, clearing the committed-lock audit blocker.
+
 - Require the WhatsApp fixture to retain its channel registration when inspecting published packages or the pinned source fallback.
 
 - Reject missing static-suite option values before starting checks, so an incomplete fixture selector cannot fall back to the full corpus.
