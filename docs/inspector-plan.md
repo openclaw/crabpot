@@ -101,7 +101,7 @@ an exact candidate checkout before its npm release. Set
 `CRABPOT_PLUGIN_INSPECTOR_BIN=/path/to/plugin-inspector`
 to test an arbitrary CLI binary.
 
-The published pin uses Inspector 0.4.5; the reviewed source pin also bounds exit
+The published and reviewed source pins use Inspector 0.4.6. Both bound exit
 listeners across repeated synthetic runs while preserving workspace lifetime.
 Both retain Windows entrypoint and host-type fixes,
 including SDK imports inside packaged `.setup`

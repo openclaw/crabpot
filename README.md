@@ -154,14 +154,14 @@ source and published-package pins both include this API in Inspector 0.4.0.
 
 ### Inspector retirement notice smoke
 
-Source mode and the published 0.4.5 package support retirement notices. Add
+Source mode and the published 0.4.6 package support retirement notices. Add
 `--retirements` with an explicit
 `CRABPOT_PLUGIN_INSPECTOR_DIR` to verify a synthetic deprecated SQLite member
 through the package's public API. Source, packed, and published-package CI smoke assert
 `deprecatedApi`, `replacement`, and `removeAfter: "2026-12-31"`, the final
 compatibility day, in a non-blocking author-facing warning, using both a source
 registry and a ClawHub-style declaration-only OpenClaw target. The default smoke
-uses the published `@openclaw/plugin-inspector@0.4.5` package; set
+uses the published `@openclaw/plugin-inspector@0.4.6` package; set
 `CRABPOT_PLUGIN_INSPECTOR_CLI=source` to exercise the pinned source instead.
 
 Both pins only prescribe a packed host migration when all replacement
@@ -171,19 +171,17 @@ explicitly declares the SQLite replacement so applicable notices stay covered.
 ### Inspector profile failure diagnostics
 
 Runtime profiles use reviewed Inspector source
-`105249cb6992be0f2cebcce0e51869325f7e0a44`. The published
-`@openclaw/plugin-inspector@0.4.5` package remains at
-`8ec7d359fd78c96e723ce77eb5cffb3fec6703ee`. Both preserve
+`09b4129b89248746ef548589377973d1874cbb48`, the same revision as the published
+`@openclaw/plugin-inspector@0.4.6` package. Both preserve
 bounded stdout/stderr and explicit truncation metadata for failed process
 samples in JSON artifacts, including errors hidden by a Node version footer.
 Raw output is not automatically redacted; use credential-free
 workloads and review diagnostics before sharing them publicly.
 
-The source pin also avoids duplicate source parsing, eager reads of excluded
+Both pins avoid duplicate source parsing, eager reads of excluded
 SDK-usage files, and unused TypeScript documentation trees while preserving
-JavaScript JSDoc types. These memory fixes are not yet in the published package;
-source and locally packed smoke checks qualify the source revision separately
-from published-package smoke.
+JavaScript JSDoc types. Source, locally packed, and published-package smoke checks
+qualify these memory fixes through each distribution path.
 
 ### Inspector resource contract smoke
 

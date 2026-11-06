@@ -4,7 +4,7 @@
 
 ## 0.2.2 - 2026-11-06
 
-- Qualify the Plugin Inspector 0.4.6 release source for lower inspection memory and runtime-capture fixes; retain the 0.4.5 published package pin until 0.4.6 is published.
+- Adopt Plugin Inspector 0.4.6 for source and published-package smoke checks, carrying lower inspection memory and runtime-capture fixes.
 
 - Patch HAPI's host-linked npm bundle to 12.2.2 for Undici TLS validation, renegotiation and WebSocket buffering fixes while retaining the qualified host and plugin pins.
 
