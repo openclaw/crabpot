@@ -1,8 +1,12 @@
 # Changelog
 
-## 0.2.2 - Unreleased
+## Unreleased
 
 - Remove OpenClaw lifecycle capture directories in the profiling parent after child exit, avoiding Windows deletion failures while native handles remain open. Report retained or failed cleanup separately from capture results.
+
+## 0.2.2 - 2026-11-06
+
+- Adopt Plugin Inspector 0.4.6 for source and published-package smoke checks, carrying lower inspection memory and runtime-capture fixes.
 
 - Patch HAPI's host-linked npm bundle to 12.2.2 for Undici TLS validation, renegotiation and WebSocket buffering fixes while retaining the qualified host and plugin pins.
 
