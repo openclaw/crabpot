@@ -235,7 +235,7 @@ node scripts/check-contract-coverage.mjs --openclaw ../openclaw
 ```
 
 Source-backed reports and registration capture use Inspector source commit
-`105249cb6992be0f2cebcce0e51869325f7e0a44`. Repeated in-process synthetic runs share one
+`09b4129b89248746ef548589377973d1874cbb48`. Repeated in-process synthetic runs share one
 exit cleanup listener while retaining mock SDK workspaces until process exit.
 The source also retains SDK discovery inside packaged `.setup` directories,
 composed Zod enums, bundled import classification, target-owned conversation
