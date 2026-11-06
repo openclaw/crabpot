@@ -208,6 +208,17 @@ test("behavior eval mock recall derives answers from request context", () => {
   );
 });
 
+test("behavior eval mock excludes metadata at every request depth", () => {
+  const fact = "<summary>CRABPOT_LCM_FACT is blue-lantern-42.</summary>";
+  const recall = "What is CRABPOT_LCM_FACT?";
+  assert.equal(buildBehaviorEvalMockResponseText({
+    input: { content: [null, 7, { metadata: fact }, { text: recall }] },
+  }), "I do not have that fact.");
+  assert.equal(buildBehaviorEvalMockResponseText({
+    input: { content: [{ text: fact }, [{ instructions: "<summary>CRABPOT_LCM_FACT is other.</summary>" }], { text: recall }] },
+  }), "blue-lantern-42");
+});
+
 test("behavior eval mock selects intent from the current Responses user message", () => {
   const recall = "What is CRABPOT_LCM_FACT?";
   const filler = "Say one neutral filler response.";
