@@ -33,7 +33,7 @@ Status: PASS
 | Windows portability risks   | 17                                                                                                                        |
 | Container portability risks | 17                                                                                                                        |
 | Jiti loader candidates      | 20                                                                                                                        |
-| Import loop                 | p50 6861 ms / p95 6886 ms / plugin delta RSS 0.2 MB / plugin delta CPU 207 ms / OpenClaw import 92.6 ms / activate 1.4 ms |
+| Import loop                 | p50 6927 ms / p95 7004 ms / plugin delta RSS 3.9 MB / plugin delta CPU 175 ms / OpenClaw import 93.6 ms / activate 1.4 ms |
 
 ## Top Issues
 
