@@ -28,6 +28,7 @@ function main() {
     fixtureEnv,
     openclawArgs,
     pluginInspectorSmoke,
+    policyArgs: args.policy === "release" ? ["--strict"] : [],
     profileArgs,
     writeReports: args.writeReports,
   });
