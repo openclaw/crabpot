@@ -10,46 +10,53 @@
 ## Reporting Data
 
 `main` follows a promoted green OpenClaw source pin plus npm `latest` plugin artifacts, with bundled fixtures source-packed from that pinned checkout. `crab-beta` follows beta npm dist-tags for externalized packages and source-packs bundled fixtures. `crab-development` checks `openclaw/openclaw` main against source-packed official plugin artifacts from that same OpenClaw checkout.
-- **Last dashboard update:** Nov 04, 2026, 22:28 UTC
+- **Last dashboard update:** Nov 07, 2026, 03:47 UTC
 <!-- crabpot-tracks:start -->
 - **Source:** `github-default-pin`
 - **OpenClaw version:** `2026.10.6`
 - **OpenClaw SHA:** `5f84c5b8a988`
 - **Dashboard target:** `openclaw/openclaw@5f84c5b8a988 + npm latest plugin artifacts`
 - **Plugin artifacts:** `npm latest fixture set plus bundled source-packed fixtures`
-- **GitHub report run:** [41897177931](https://github.com/openclaw/crabpot/actions/runs/41897177931)
+- **GitHub report run:** [42320027297](https://github.com/openclaw/crabpot/actions/runs/42320027297)
 <!-- crabpot-tracks:end -->
 
 <!-- crabpot-summary:start -->
 ## Dashboard
 
-| Metric                 | Result                                                                |
-| ---------------------- | --------------------------------------------------------------------- |
-| Fixtures               | 59                                                                    |
-| Hard breakages         | 0                                                                     |
-| Warnings               | 98                                                                    |
-| Suggestions            | 240                                                                   |
-| Issues                 | 338                                                                   |
-| P0 issues              | [🔴 P0 7](reports/crabpot-issues.md#p0-live-issues)                   |
-| P1 issues              | [🟠 P1 123](reports/crabpot-issues.md#triage-summary)                 |
-| Live issues            | 7 total / 7 P0                                                        |
-| Compat gaps            | 105                                                                   |
-| Deprecation warnings   | 21                                                                    |
-| Inspector gaps         | 160                                                                   |
-| Upstream metadata      | 45                                                                    |
-| Contract probes        | 232                                                                   |
-| Policy failures        | 0                                                                     |
-| Policy warnings        | 1                                                                     |
-| Ref diff failures      | 0                                                                     |
-| Profile failures       | 0                                                                     |
-| Execution probes       | 0 pass / 0 fail / 0 blocked                                           |
-| Synthetic probes       | 496 ready / 10 blocked / 506 total                                    |
-| Cold import            | 5 ready / 114 blocked / 119 entrypoints                               |
-| Workspace plan         | 119 entrypoints / 79 installs / 15 builds                             |
-| Platform risks         | 17 Windows / 17 container                                             |
-| Jiti loader candidates | 20                                                                    |
-| Import loop            | p50 129ms / p95 132ms / plugin delta RSS 2.8MB / plugin delta CPU 0ms |
-| Runtime profile        | p50 0ms / command p95 0ms / max RSS n/a / 1 sample/command            |
+| Metric                 | Result                                                                                                              |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| Fixtures               | 59                                                                                                                  |
+| Hard breakages         | 0                                                                                                                   |
+| Warnings               | 98                                                                                                                  |
+| Suggestions            | 240                                                                                                                 |
+| Issues                 | 338                                                                                                                 |
+| P0 issues              | [🔴 P0 7](reports/crabpot-issues.md#p0-live-issues)                                                                 |
+| P1 issues              | [🟠 P1 123](reports/crabpot-issues.md#triage-summary)                                                               |
+| Live issues            | 7 total / 7 P0                                                                                                      |
+| Compat gaps            | 105                                                                                                                 |
+| Deprecation warnings   | 21                                                                                                                  |
+| Inspector gaps         | 160                                                                                                                 |
+| Upstream metadata      | 45                                                                                                                  |
+| Contract probes        | 232                                                                                                                 |
+| Policy failures        | 0                                                                                                                   |
+| Policy warnings        | 1                                                                                                                   |
+| Ref diff failures      | 0                                                                                                                   |
+| Profile failures       | 0                                                                                                                   |
+| Execution probes       | 0 pass / 0 fail / 0 blocked                                                                                         |
+| Synthetic probes       | 496 ready / 10 blocked / 506 total                                                                                  |
+| Cold import            | 5 ready / 114 blocked / 119 entrypoints                                                                             |
+| Workspace plan         | 119 entrypoints / 79 installs / 15 builds                                                                           |
+| Platform risks         | 17 Windows / 17 container                                                                                           |
+| Jiti loader candidates | 20                                                                                                                  |
+| Import loop            | p50 6927ms / p95 7004ms / plugin delta RSS 3.9MB / plugin delta CPU 175ms / OpenClaw import 93.6ms / activate 1.4ms |
+| Runtime profile        | p50 0ms / command p95 0ms / max RSS n/a / 1 sample/command                                                          |
+
+### OpenClaw Lifecycle Probe
+
+| Phase                      | p50    | p95    |
+| -------------------------- | ------ | ------ |
+| Import (`full`)            | 93.6ms | 99.6ms |
+| Activate (`full:register`) | 1.4ms  | 1.5ms  |
 
 ### Top Discovered Issues
 
@@ -108,6 +115,19 @@ npm run contract:coverage
 npm run readme:summary
 ```
 
+OpenClaw lifecycle profiling owns one temporary capture directory in the parent.
+It removes that directory after all requested baseline and target children exit
+normally, including nonzero exits. Timeout, cancellation, signal, missing child
+receipts, or a thrown profile retain it. `captureCleanup` in JSON and the Markdown
+cleanup section report the outcome and directory name under the system temp
+directory; retained or failed cleanup fails validation without replacing sample
+results. The private lifecycle capture CLI requires `--capture-root` pointing to
+an existing parent-owned directory. Custom `captureCommand` factories receive
+that path as `context.captureRoot` and retain their command-selection precedence.
+Output capture JSON stays in the configured output directory.
+Whole-child wall and CPU measurements exclude parent directory deletion;
+OpenClaw import and activation phase timings are unchanged.
+
 To materialize the fixture repos as submodules:
 
 ```bash
@@ -147,14 +167,14 @@ source and published-package pins both include this API in Inspector 0.4.0.
 
 ### Inspector retirement notice smoke
 
-Source mode and the published 0.4.5 package support retirement notices. Add
+Source mode and the published 0.4.6 package support retirement notices. Add
 `--retirements` with an explicit
 `CRABPOT_PLUGIN_INSPECTOR_DIR` to verify a synthetic deprecated SQLite member
 through the package's public API. Source, packed, and published-package CI smoke assert
 `deprecatedApi`, `replacement`, and `removeAfter: "2026-12-31"`, the final
 compatibility day, in a non-blocking author-facing warning, using both a source
 registry and a ClawHub-style declaration-only OpenClaw target. The default smoke
-uses the published `@openclaw/plugin-inspector@0.4.5` package; set
+uses the published `@openclaw/plugin-inspector@0.4.6` package; set
 `CRABPOT_PLUGIN_INSPECTOR_CLI=source` to exercise the pinned source instead.
 
 Both pins only prescribe a packed host migration when all replacement
@@ -164,19 +184,17 @@ explicitly declares the SQLite replacement so applicable notices stay covered.
 ### Inspector profile failure diagnostics
 
 Runtime profiles use reviewed Inspector source
-`8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446`. The published
-`@openclaw/plugin-inspector@0.4.5` package remains at
-`8ec7d359fd78c96e723ce77eb5cffb3fec6703ee`. Both preserve
+`09b4129b89248746ef548589377973d1874cbb48`, the same revision as the published
+`@openclaw/plugin-inspector@0.4.6` package. Both preserve
 bounded stdout/stderr and explicit truncation metadata for failed process
 samples in JSON artifacts, including errors hidden by a Node version footer.
 Raw output is not automatically redacted; use credential-free
 workloads and review diagnostics before sharing them publicly.
 
-The source pin also avoids duplicate source parsing, eager reads of excluded
+Both pins avoid duplicate source parsing, eager reads of excluded
 SDK-usage files, and unused TypeScript documentation trees while preserving
-JavaScript JSDoc types. These memory fixes are not yet in the published package;
-source and locally packed smoke checks qualify the source revision separately
-from published-package smoke.
+JavaScript JSDoc types. Source, locally packed, and published-package smoke checks
+qualify these memory fixes through each distribution path.
 
 ### Inspector resource contract smoke
 

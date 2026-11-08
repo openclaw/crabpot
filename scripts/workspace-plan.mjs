@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import path from "node:path";
 import { pathToFileURL } from "node:url";
+import { parseReportArgs } from "./report-cli-args.mjs";
 import { readConfiguredManifest, repoRoot } from "./manifest-lib.mjs";
 import { loadPluginInspectorPublicApi } from "./plugin-inspector-source.mjs";
 
@@ -24,7 +25,7 @@ if (import.meta.url === pathToFileURL(process.argv[1]).href) {
 }
 
 export async function runReportCommand(argv = process.argv.slice(2), options = {}) {
-  const parsedArgs = parseArgs(argv);
+  const parsedArgs = parseReportArgs(argv);
   const plan = await buildWorkspacePlan({ openclawPath: parsedArgs.openclawPath, ...options });
   const errors = validateWorkspacePlan(plan);
 
@@ -44,40 +45,6 @@ export async function runReportCommand(argv = process.argv.slice(2), options = {
     throw new Error(errors.join("\n"));
   }
   return plan;
-}
-
-function parseArgs(argv) {
-  const parsed = {
-    json: false,
-    write: true,
-    openclawPath: undefined,
-  };
-
-  for (let index = 0; index < argv.length; index += 1) {
-    const arg = argv[index];
-    if (arg === "--check") {
-      parsed.write = false;
-      continue;
-    }
-    if (arg === "--json") {
-      parsed.json = true;
-      continue;
-    }
-    if (arg === "--write") {
-      parsed.write = true;
-      continue;
-    }
-    if (arg === "--openclaw") {
-      parsed.openclawPath = argv[index + 1];
-      index += 1;
-      continue;
-    }
-    if (arg === "--no-openclaw") {
-      parsed.openclawPath = false;
-    }
-  }
-
-  return parsed;
 }
 
 export async function buildWorkspacePlan(options = {}) {

@@ -1,12 +1,25 @@
 # Changelog
 
-## 0.2.2 - Unreleased
+## Unreleased
 
+- Enforce strict CI policy when the static suite selects the release gate, including manual ref checks with strict contracts enabled.
+
+- Remove OpenClaw lifecycle capture directories in the profiling parent after child exit, avoiding Windows deletion failures while native handles remain open. Report retained or failed cleanup separately from capture results.
+
+## 0.2.2 - 2026-11-06
+
+- Adopt Plugin Inspector 0.4.6 for source and published-package smoke checks, carrying lower inspection memory and runtime-capture fixes.
+
+- Patch HAPI's host-linked npm bundle to 12.2.2 for Undici TLS validation, renegotiation and WebSocket buffering fixes while retaining the qualified host and plugin pins.
+
+- Wait for asynchronous OpenClaw registry activation before reading lifecycle results, preserving synchronous loader support and cleanup after rejected activation.
 - Refresh 21 official plugin fallback pins to 2026.10.9 with verified publication-source references, retaining the reviewed Brave fallback, track selectors, the qualified host pin, and explicit compatibility gaps. Thanks @dependabot.
 - Patch the Teams fixture's mutable follow-redirects dependency to 1.16.2, clearing the committed-lock audit blocker.
 - Reject missing static-suite option values before starting checks, so an incomplete fixture selector cannot fall back to the full corpus.
 
 - Adopt reviewed Plugin Inspector source memory fixes, including type-information-only SDK parsing that preserves JavaScript JSDoc and inventory evidence; retain the published 0.4.5 package pin, 2 GiB heap limit, and all cold profiling samples.
+
+- Advance the Plugin Inspector source pin so repeated in-process synthetic runs share one exit cleanup listener; preserve the published package pin.
 
 - Reuse one source inspection across static report checks so Windows CI retains time for coverage and policy validation, preserving every cold profiling sample and existing deadlines.
 
@@ -138,8 +151,6 @@
 - Recorded dashboard metadata from the exact OpenClaw checkout exercised by the run.
 
 - Preserve Dependabot PR heads during validation so generated reports cannot invalidate required CI or conflict across dependency updates; publish reports through the shared dashboard owner after exact-commit validation or a confirmed bot merge. Thanks @vincentkoc.
-
-- Enforce strict CI policy when the static suite selects the release gate, including manual ref checks with strict contracts enabled.
 
 ## 0.2.1 - 2026-07-06
 

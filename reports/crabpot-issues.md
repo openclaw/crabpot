@@ -980,8 +980,8 @@ _none_
   - **sdk-export-missing**: discord: SDK import coverage requires an eligible host
   - state: open · compat:untracked
   - evidence:
-    - openclaw/plugin-sdk/heartbeat-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-BBDuE14w.mjs:68
-    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.10.10; recheck with an eligible host before assigning a core compatibility repair.
+    - openclaw/plugin-sdk/heartbeat-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-C61K7HHq.mjs:68
+    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.11.1; recheck with an eligible host before assigning a core compatibility repair.
     - Unassessed SDK compatibility record: plugin-sdk-export-aliases
 
 - 🟠 P1 **honcho** `inspector-gap` `inspector-follow-up`
@@ -1461,7 +1461,7 @@ _none_
   - **channel-contract-probe**: discord: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/discord/.crabpot-package/dist/.setup/channel-BMpMAeQL.mjs:493
+    - createChatChannelPlugin @ plugins/discord/.crabpot-package/dist/.setup/channel-DwvRHJL0.mjs:493
 
 - 🟡 P2 **discord** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: discord: cold import requires dependency installation in an isolated workspace
@@ -1489,7 +1489,7 @@ _none_
   - **channel-contract-probe**: feishu: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/feishu/.crabpot-package/dist/.setup/channel-dxkUGCgC.mjs:2256
+    - createChatChannelPlugin @ plugins/feishu/.crabpot-package/dist/.setup/channel-oXfjraK8.mjs:2256
 
 - 🟡 P2 **feishu** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: feishu: cold import requires dependency installation in an isolated workspace
@@ -1947,7 +1947,7 @@ _none_
   - **channel-contract-probe**: nextcloud-talk: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/nextcloud-talk/.crabpot-package/dist/.setup/channel-D9tHRtkv.mjs:2253
+    - createChatChannelPlugin @ plugins/nextcloud-talk/.crabpot-package/dist/.setup/channel-BfPCgEGM.mjs:2253
 
 - 🟡 P2 **nextcloud-talk** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: nextcloud-talk: cold import requires dependency installation in an isolated workspace
@@ -1959,7 +1959,7 @@ _none_
   - **channel-contract-probe**: nostr: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/nostr/.crabpot-package/dist/.setup/channel-C2iK5Fjg.mjs:1333
+    - createChatChannelPlugin @ plugins/nostr/.crabpot-package/dist/.setup/channel-CILcEtli.mjs:1335
 
 - 🟡 P2 **nostr** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: nostr: cold import requires dependency installation in an isolated workspace
@@ -2116,7 +2116,7 @@ _none_
   - **channel-contract-probe**: tlon: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/tlon/.crabpot-package/dist/.setup/channel-DwKKUzwx.mjs:135
+    - createChatChannelPlugin @ plugins/tlon/.crabpot-package/dist/.setup/channel-geUIVRFJ.mjs:135
 
 - 🟡 P2 **tlon** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: tlon: cold import requires dependency installation in an isolated workspace
@@ -2132,7 +2132,7 @@ _none_
   - **channel-contract-probe**: twitch: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/twitch/.crabpot-package/dist/.setup/plugin-CnPNkPhc.mjs:699
+    - createChatChannelPlugin @ plugins/twitch/.crabpot-package/dist/.setup/plugin-DQbaBSx7.mjs:715
 
 - 🟡 P2 **twitch** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: twitch: cold import requires dependency installation in an isolated workspace
@@ -2235,7 +2235,7 @@ _none_
   - **channel-contract-probe**: zalo: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/zalo/.crabpot-package/dist/.setup/channel-B-pcG9qP.mjs:267
+    - createChatChannelPlugin @ plugins/zalo/.crabpot-package/dist/.setup/channel-Dr8Lspq6.mjs:267
 
 - 🟡 P2 **zalo** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: zalo: cold import requires dependency installation in an isolated workspace
@@ -2938,8 +2938,8 @@ _none_
   - **sdk-export-missing**: discord: SDK import coverage requires an eligible host
   - state: open · compat:untracked
   - evidence:
-    - openclaw/plugin-sdk/heartbeat-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-BBDuE14w.mjs:68
-    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.10.10; recheck with an eligible host before assigning a core compatibility repair.
+    - openclaw/plugin-sdk/heartbeat-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-C61K7HHq.mjs:68
+    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.11.1; recheck with an eligible host before assigning a core compatibility repair.
     - Unassessed SDK compatibility record: plugin-sdk-export-aliases
 
 - 🟠 P1 **feishu** `compat-gap` `core-compat-adapter`
@@ -4107,7 +4107,7 @@ _none_
   - **channel-contract-probe**: discord: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/discord/.crabpot-package/dist/.setup/channel-BMpMAeQL.mjs:493
+    - createChatChannelPlugin @ plugins/discord/.crabpot-package/dist/.setup/channel-DwvRHJL0.mjs:493
 
 - 🟡 P2 **discord** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: discord: cold import requires dependency installation in an isolated workspace
@@ -4135,7 +4135,7 @@ _none_
   - **channel-contract-probe**: feishu: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/feishu/.crabpot-package/dist/.setup/channel-dxkUGCgC.mjs:2256
+    - createChatChannelPlugin @ plugins/feishu/.crabpot-package/dist/.setup/channel-oXfjraK8.mjs:2256
 
 - 🟡 P2 **feishu** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: feishu: cold import requires dependency installation in an isolated workspace
@@ -4799,7 +4799,7 @@ _none_
   - **channel-contract-probe**: nextcloud-talk: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/nextcloud-talk/.crabpot-package/dist/.setup/channel-D9tHRtkv.mjs:2253
+    - createChatChannelPlugin @ plugins/nextcloud-talk/.crabpot-package/dist/.setup/channel-BfPCgEGM.mjs:2253
 
 - 🟡 P2 **nextcloud-talk** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: nextcloud-talk: cold import requires dependency installation in an isolated workspace
@@ -4811,7 +4811,7 @@ _none_
   - **channel-contract-probe**: nostr: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/nostr/.crabpot-package/dist/.setup/channel-C2iK5Fjg.mjs:1333
+    - createChatChannelPlugin @ plugins/nostr/.crabpot-package/dist/.setup/channel-CILcEtli.mjs:1335
 
 - 🟡 P2 **nostr** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: nostr: cold import requires dependency installation in an isolated workspace
@@ -5087,7 +5087,7 @@ _none_
   - **channel-contract-probe**: tlon: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/tlon/.crabpot-package/dist/.setup/channel-DwKKUzwx.mjs:135
+    - createChatChannelPlugin @ plugins/tlon/.crabpot-package/dist/.setup/channel-geUIVRFJ.mjs:135
 
 - 🟡 P2 **tlon** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: tlon: cold import requires dependency installation in an isolated workspace
@@ -5103,7 +5103,7 @@ _none_
   - **channel-contract-probe**: twitch: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/twitch/.crabpot-package/dist/.setup/plugin-CnPNkPhc.mjs:699
+    - createChatChannelPlugin @ plugins/twitch/.crabpot-package/dist/.setup/plugin-DQbaBSx7.mjs:715
 
 - 🟡 P2 **twitch** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: twitch: cold import requires dependency installation in an isolated workspace
@@ -5251,7 +5251,7 @@ _none_
   - **channel-contract-probe**: zalo: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/zalo/.crabpot-package/dist/.setup/channel-B-pcG9qP.mjs:267
+    - createChatChannelPlugin @ plugins/zalo/.crabpot-package/dist/.setup/channel-Dr8Lspq6.mjs:267
 
 - 🟡 P2 **zalo** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: zalo: cold import requires dependency installation in an isolated workspace
@@ -5455,7 +5455,7 @@ _none_
   - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
   - id: `sdk.import.package-export-cold-import:discord`
   - evidence:
-    - openclaw/plugin-sdk/heartbeat-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-BBDuE14w.mjs:68
+    - openclaw/plugin-sdk/heartbeat-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-C61K7HHq.mjs:68
 
 - 🟠 P1 **lightclawbot** `sdk-alias`
   - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
@@ -6516,13 +6516,13 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:discord`
   - evidence:
-    - createChatChannelPlugin @ plugins/discord/.crabpot-package/dist/.setup/channel-BMpMAeQL.mjs:493
+    - createChatChannelPlugin @ plugins/discord/.crabpot-package/dist/.setup/channel-DwvRHJL0.mjs:493
 
 - 🟢 P3 **feishu** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:feishu`
   - evidence:
-    - createChatChannelPlugin @ plugins/feishu/.crabpot-package/dist/.setup/channel-dxkUGCgC.mjs:2256
+    - createChatChannelPlugin @ plugins/feishu/.crabpot-package/dist/.setup/channel-oXfjraK8.mjs:2256
 
 - 🟢 P3 **lightclawbot** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -6547,13 +6547,13 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:nextcloud-talk`
   - evidence:
-    - createChatChannelPlugin @ plugins/nextcloud-talk/.crabpot-package/dist/.setup/channel-D9tHRtkv.mjs:2253
+    - createChatChannelPlugin @ plugins/nextcloud-talk/.crabpot-package/dist/.setup/channel-BfPCgEGM.mjs:2253
 
 - 🟢 P3 **nostr** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:nostr`
   - evidence:
-    - createChatChannelPlugin @ plugins/nostr/.crabpot-package/dist/.setup/channel-C2iK5Fjg.mjs:1333
+    - createChatChannelPlugin @ plugins/nostr/.crabpot-package/dist/.setup/channel-CILcEtli.mjs:1335
 
 - 🟢 P3 **telnyx-sms** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -6565,13 +6565,13 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:tlon`
   - evidence:
-    - createChatChannelPlugin @ plugins/tlon/.crabpot-package/dist/.setup/channel-DwKKUzwx.mjs:135
+    - createChatChannelPlugin @ plugins/tlon/.crabpot-package/dist/.setup/channel-geUIVRFJ.mjs:135
 
 - 🟢 P3 **twitch** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:twitch`
   - evidence:
-    - createChatChannelPlugin @ plugins/twitch/.crabpot-package/dist/.setup/plugin-CnPNkPhc.mjs:699
+    - createChatChannelPlugin @ plugins/twitch/.crabpot-package/dist/.setup/plugin-DQbaBSx7.mjs:715
 
 - 🟢 P3 **whatsapp** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -6583,7 +6583,7 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:zalo`
   - evidence:
-    - createChatChannelPlugin @ plugins/zalo/.crabpot-package/dist/.setup/channel-B-pcG9qP.mjs:267
+    - createChatChannelPlugin @ plugins/zalo/.crabpot-package/dist/.setup/channel-Dr8Lspq6.mjs:267
 
 - 🟢 P3 **zalouser** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.

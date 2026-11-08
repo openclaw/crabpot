@@ -1297,29 +1297,7 @@ function createBehaviorEvalEmbedding(input) {
 }
 
 function extractBehaviorEvalRequestText(value) {
-  const parts = [];
-  const visit = (node) => {
-    if (typeof node === "string") {
-      parts.push(node);
-      return;
-    }
-    if (!node || typeof node !== "object") {
-      return;
-    }
-    if (Array.isArray(node)) {
-      for (const item of node) {
-        visit(item);
-      }
-      return;
-    }
-    for (const [key, child] of Object.entries(node)) {
-      if (key === "text" || key === "content" || key === "input" || key === "instructions") {
-        visit(child);
-      }
-    }
-  };
-  visit(value);
-  return parts.join("\n");
+  return extractBehaviorEvalObjectText(value, ["text", "content", "input", "instructions"]);
 }
 
 function isBehaviorEvalRuntimeContextMessage(message) {
@@ -1829,7 +1807,7 @@ async function readBehaviorEvalWebSocketMessage(data) {
   return String(data);
 }
 
-function extractBehaviorEvalObjectText(value) {
+function extractBehaviorEvalObjectText(value, allowedKeys) {
   const parts = [];
   const visit = (node) => {
     if (typeof node === "string") {
@@ -1845,8 +1823,10 @@ function extractBehaviorEvalObjectText(value) {
       }
       return;
     }
-    for (const child of Object.values(node)) {
-      visit(child);
+    for (const [key, child] of Object.entries(node)) {
+      if (!allowedKeys || allowedKeys.includes(key)) {
+        visit(child);
+      }
     }
   };
   visit(value);

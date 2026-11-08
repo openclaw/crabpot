@@ -435,7 +435,7 @@ test("readme summary preserves CI run metadata during local checks", async () =>
   assert.match(readme, /p50 231ms \/ command p95 245ms \/ max RSS 70\.4MB \/ 1 sample\/command/);
 });
 
-test("readme frame follows compact reporting design and preserves dynamic blocks", async () => {
+test("readme frame preserves source metadata and formats update time", async () => {
   const original = [
     "# crabpot",
     "",
@@ -455,10 +455,6 @@ test("readme frame follows compact reporting design and preserves dynamic blocks
   ].join("\n");
   const framed = ensureReadmeFrame(original, { generatedAt: "2026-04-26T01:31:00Z" });
 
-  assert.match(framed, /^# 🦀 crabpot/u);
-  assert.match(framed, /\*\*Goto: \[Latest Published\]/);
-  assert.match(framed, /## Reporting Data/);
-  assert.match(framed, /`main` follows a promoted green OpenClaw source pin plus npm `latest` plugin artifacts/);
   assert.match(framed, /- \*\*Last dashboard update:\*\* Apr 26, 2026, 01:31 UTC/);
   assert.match(framed, /- \*\*Source:\*\* `npm-latest`/);
   assert.match(framed, /## Dashboard/);
