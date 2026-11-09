@@ -48,10 +48,11 @@ CI. It then runs the checks below and binds the payload to two independent
 verifiers before publication. A live dispatch also requires an existing signed
 tag; it cannot silently substitute an unsigned tag.
 
-An existing draft can continue only when its notes and existing assets match
-the frozen payload, without overwriting assets. Published releases are checked
-without writes only when their notes and complete asset set match. Ambiguous
-releases, mismatched notes or bytes, and unexpected assets are refused.
+An existing draft can continue when its existing assets match the frozen
+payload, without overwriting assets. Publication sets its release notes to the
+frozen notes. Published releases are checked without writes only when their
+notes and complete asset set match. Ambiguous releases, mismatched or unexpected
+assets, and mismatched published notes are refused.
 
 ## No-publish rehearsal
 
