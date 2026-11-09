@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Enforce strict CI policy when the static suite selects the release gate, including manual ref checks with strict contracts enabled.
+
 - Remove OpenClaw lifecycle capture directories in the profiling parent after child exit, avoiding Windows deletion failures while native handles remain open. Report retained or failed cleanup separately from capture results.
 
 ## 0.2.2 - 2026-11-06
