@@ -1,7 +1,7 @@
 # Releasing Crabpot
 
 Crabpot ships the compatibility testbed as source on GitHub through
-[`release-source.yml@v1`](https://github.com/openclaw/release-workflows/blob/v1/.github/workflows/release-source.yml).
+[the pinned `release-source.yml` workflow](https://github.com/openclaw/release-workflows/blob/a3c83188f344414c993f6a5e4b43f16317ffc6f0/.github/workflows/release-source.yml).
 The root npm package is private; pinned plugin fixtures belong to their upstream
 publishers. There is no Crabpot npm publication, native binary, or Homebrew
 formula. Releases attach frozen-commit source tar/zip archives, exact notes, an
@@ -47,6 +47,12 @@ signature, version metadata, dated changelog notes, and green independent push
 CI. It then runs the checks below and binds the payload to two independent
 verifiers before publication. A live dispatch also requires an existing signed
 tag; it cannot silently substitute an unsigned tag.
+
+An existing draft can continue when its existing assets match the frozen
+payload, without overwriting assets. Publication sets its release notes to the
+frozen notes. Published releases are checked without writes only when their
+notes and complete asset set match. Ambiguous releases, mismatched or unexpected
+assets, and mismatched published notes are refused.
 
 ## No-publish rehearsal
 

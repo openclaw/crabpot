@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Pin the shared source-release workflow to a reviewed commit, enabling exact-byte draft continuation and read-only verification of matching published releases.
+
 - Enforce strict CI policy when the static suite selects the release gate, including manual ref checks with strict contracts enabled.
 
 - Remove OpenClaw lifecycle capture directories in the profiling parent after child exit, avoiding Windows deletion failures while native handles remain open. Report retained or failed cleanup separately from capture results.
