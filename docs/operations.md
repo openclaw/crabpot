@@ -101,6 +101,12 @@ prescribing a core compatibility repair.
 
 ## CI model
 
+Diffs now supplies agent guidance through its tool registration in development
+sources, while published artifacts can still use `before_prompt_build`. Its
+fixture therefore requires the shared plugin entry, HTTP route, tool
+registration, and manifest tool contract. Hook observations remain in reports;
+the legacy hook is no longer a requirement for every selected artifact.
+
 Scheduled development-dashboard refreshes keep the active run and only the newest
 pending run. This prevents the 15-minute schedule from repeatedly canceling a
 longer refresh. Manual refreshes use separate concurrency groups and still
