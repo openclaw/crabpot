@@ -1098,16 +1098,16 @@
         "npm-artifact"
       ],
       "expect": {
-        "hooks": [
-          "before_prompt_build"
-        ],
         "registrations": [
           "definePluginEntry",
           "registerHttpRoute",
           "registerTool"
+        ],
+        "manifestContracts": [
+          "tools"
         ]
       },
-      "why": "Official diff viewer package covering prompt mutation, HTTP route UI surface, tool registration, manifest tool contracts, and npm artifact packaging."
+      "why": "Official diff viewer package covering agent guidance, HTTP route UI surface, tool registration, manifest tool contracts, and npm artifact packaging."
     },
     {
       "id": "memory-lancedb",
