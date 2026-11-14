@@ -7246,7 +7246,7 @@
       "source": "plugins/matrix/.crabpot-package/index.ts:24"
     },
     {
-      "id": "registration.createChatChannelPlugin:msteams:plugins-msteams-crabpot-package-dist-setup-channel-DMWQSTtQ-cjs-1097",
+      "id": "registration.createChatChannelPlugin:msteams:plugins-msteams-crabpot-package-dist-setup-channel-Ci6K9Njb-cjs-1097",
       "fixture": "msteams",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -7271,7 +7271,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/msteams/.crabpot-package/dist/.setup/channel-DMWQSTtQ.cjs:1097"
+      "source": "plugins/msteams/.crabpot-package/dist/.setup/channel-Ci6K9Njb.cjs:1097"
     },
     {
       "id": "registration.defineBundledChannelEntry:msteams:plugins-msteams-crabpot-package-dist-index-cjs-2",
@@ -7895,7 +7895,7 @@
       "source": "plugins/feishu/.crabpot-package/dist/.setup/reply-delivery-result-DknmIzOB.mjs:1331"
     },
     {
-      "id": "registration.createChatChannelPlugin:tlon:plugins-tlon-crabpot-package-dist-setup-channel-C3JZ6wZF-mjs-138",
+      "id": "registration.createChatChannelPlugin:tlon:plugins-tlon-crabpot-package-dist-setup-channel-BtaSROL1-mjs-138",
       "fixture": "tlon",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -7920,7 +7920,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/tlon/.crabpot-package/dist/.setup/channel-C3JZ6wZF.mjs:138"
+      "source": "plugins/tlon/.crabpot-package/dist/.setup/channel-BtaSROL1.mjs:138"
     },
     {
       "id": "registration.defineBundledChannelEntry:tlon:plugins-tlon-crabpot-package-dist-index-js-3",
@@ -7943,7 +7943,7 @@
       "source": "plugins/tlon/.crabpot-package/dist/index.js:3"
     },
     {
-      "id": "registration.createChatChannelPlugin:twitch:plugins-twitch-crabpot-package-dist-setup-plugin-BoinLbED-mjs-725",
+      "id": "registration.createChatChannelPlugin:twitch:plugins-twitch-crabpot-package-dist-setup-plugin-CkRhClVg-mjs-725",
       "fixture": "twitch",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -7968,7 +7968,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/twitch/.crabpot-package/dist/.setup/plugin-BoinLbED.mjs:725"
+      "source": "plugins/twitch/.crabpot-package/dist/.setup/plugin-CkRhClVg.mjs:725"
     },
     {
       "id": "registration.defineBundledChannelEntry:twitch:plugins-twitch-crabpot-package-dist-index-js-3",

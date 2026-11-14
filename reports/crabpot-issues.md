@@ -981,7 +981,7 @@ _none_
   - state: open · compat:untracked
   - evidence:
     - openclaw/plugin-sdk/heartbeat-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-CI_OLfvz.mjs:68
-    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.11.2; recheck with an eligible host before assigning a core compatibility repair.
+    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.11.3; recheck with an eligible host before assigning a core compatibility repair.
     - Unassessed SDK compatibility record: plugin-sdk-export-aliases
 
 - 🟠 P1 **honcho** `inspector-gap` `inspector-follow-up`
@@ -1908,7 +1908,7 @@ _none_
   - **channel-contract-probe**: msteams: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/msteams/.crabpot-package/dist/.setup/channel-DMWQSTtQ.cjs:1097
+    - createChatChannelPlugin @ plugins/msteams/.crabpot-package/dist/.setup/channel-Ci6K9Njb.cjs:1097
 
 - 🟡 P2 **msteams** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: msteams: cold import requires dependency installation in an isolated workspace
@@ -2116,7 +2116,7 @@ _none_
   - **channel-contract-probe**: tlon: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/tlon/.crabpot-package/dist/.setup/channel-C3JZ6wZF.mjs:138
+    - createChatChannelPlugin @ plugins/tlon/.crabpot-package/dist/.setup/channel-BtaSROL1.mjs:138
 
 - 🟡 P2 **tlon** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: tlon: cold import requires dependency installation in an isolated workspace
@@ -2132,7 +2132,7 @@ _none_
   - **channel-contract-probe**: twitch: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/twitch/.crabpot-package/dist/.setup/plugin-BoinLbED.mjs:725
+    - createChatChannelPlugin @ plugins/twitch/.crabpot-package/dist/.setup/plugin-CkRhClVg.mjs:725
 
 - 🟡 P2 **twitch** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: twitch: cold import requires dependency installation in an isolated workspace
@@ -2939,7 +2939,7 @@ _none_
   - state: open · compat:untracked
   - evidence:
     - openclaw/plugin-sdk/heartbeat-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-CI_OLfvz.mjs:68
-    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.11.2; recheck with an eligible host before assigning a core compatibility repair.
+    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.11.3; recheck with an eligible host before assigning a core compatibility repair.
     - Unassessed SDK compatibility record: plugin-sdk-export-aliases
 
 - 🟠 P1 **feishu** `compat-gap` `core-compat-adapter`
@@ -4760,7 +4760,7 @@ _none_
   - **channel-contract-probe**: msteams: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/msteams/.crabpot-package/dist/.setup/channel-DMWQSTtQ.cjs:1097
+    - createChatChannelPlugin @ plugins/msteams/.crabpot-package/dist/.setup/channel-Ci6K9Njb.cjs:1097
 
 - 🟡 P2 **msteams** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: msteams: cold import requires dependency installation in an isolated workspace
@@ -5087,7 +5087,7 @@ _none_
   - **channel-contract-probe**: tlon: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/tlon/.crabpot-package/dist/.setup/channel-C3JZ6wZF.mjs:138
+    - createChatChannelPlugin @ plugins/tlon/.crabpot-package/dist/.setup/channel-BtaSROL1.mjs:138
 
 - 🟡 P2 **tlon** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: tlon: cold import requires dependency installation in an isolated workspace
@@ -5103,7 +5103,7 @@ _none_
   - **channel-contract-probe**: twitch: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/twitch/.crabpot-package/dist/.setup/plugin-BoinLbED.mjs:725
+    - createChatChannelPlugin @ plugins/twitch/.crabpot-package/dist/.setup/plugin-CkRhClVg.mjs:725
 
 - 🟡 P2 **twitch** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: twitch: cold import requires dependency installation in an isolated workspace
@@ -6541,7 +6541,7 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:msteams`
   - evidence:
-    - createChatChannelPlugin @ plugins/msteams/.crabpot-package/dist/.setup/channel-DMWQSTtQ.cjs:1097
+    - createChatChannelPlugin @ plugins/msteams/.crabpot-package/dist/.setup/channel-Ci6K9Njb.cjs:1097
 
 - 🟢 P3 **nextcloud-talk** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -6565,13 +6565,13 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:tlon`
   - evidence:
-    - createChatChannelPlugin @ plugins/tlon/.crabpot-package/dist/.setup/channel-C3JZ6wZF.mjs:138
+    - createChatChannelPlugin @ plugins/tlon/.crabpot-package/dist/.setup/channel-BtaSROL1.mjs:138
 
 - 🟢 P3 **twitch** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:twitch`
   - evidence:
-    - createChatChannelPlugin @ plugins/twitch/.crabpot-package/dist/.setup/plugin-BoinLbED.mjs:725
+    - createChatChannelPlugin @ plugins/twitch/.crabpot-package/dist/.setup/plugin-CkRhClVg.mjs:725
 
 - 🟢 P3 **whatsapp** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
