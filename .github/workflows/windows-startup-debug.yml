@@ -1,0 +1,108 @@
+name: Windows startup diagnostics
+
+on:
+  workflow_dispatch:
+    inputs:
+      cold-import:
+        description: Compare the actual cold CI import on the last green and current main
+        type: boolean
+        default: false
+      profile-prefix:
+        description: Reproduce the real profiler parent through contract-capture on current main
+        type: boolean
+        default: false
+      full-context:
+        description: Run the original complete static pipeline on current main with native observations
+        type: boolean
+        default: false
+      cold-cohort:
+        description: Observe eight independent fresh Windows cold-import runs, at most four at once
+        type: boolean
+        default: false
+      unmodified-control:
+        description: Observe cold import without rewriting owner or PowerShell helper source
+        type: boolean
+        default: false
+  push:
+    branches: [fix/windows-supervisor-startup]
+
+permissions:
+  contents: read
+
+jobs:
+  startup:
+    if: ${{ inputs.cold-import != true && inputs.profile-prefix != true && inputs.full-context != true && inputs.cold-cohort != true && inputs.unmodified-control != true }}
+    runs-on: windows-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [24.19.0, 24.21.0]
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Record native startup and pipe observations
+        shell: bash
+        run: node scripts/diagnose-windows-startup.mjs
+      - name: Retain synthetic diagnostics
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: windows-startup-${{ matrix.node }}-${{ github.run_attempt }}
+          path: .crabpot/windows-startup/
+          if-no-files-found: error
+
+  cold-import:
+    if: ${{ inputs.cold-import == true || inputs.profile-prefix == true || inputs.full-context == true || inputs.cold-cohort == true || inputs.unmodified-control == true }}
+    runs-on: windows-latest
+    timeout-minutes: 315
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        ref: ${{ fromJSON((inputs.profile-prefix || inputs.full-context || inputs.cold-cohort || inputs.unmodified-control) && '["4c40f7f5e154b6fafb410321e8d1ace16eba49f7"]' || '["de5d707b4a2cf864522c7689017c170bfc577fc1","4c40f7f5e154b6fafb410321e8d1ace16eba49f7"]') }}
+        trial: ${{ fromJSON((inputs.cold-cohort && !inputs.full-context && !inputs.profile-prefix && !inputs.unmodified-control) && '[1,2,3,4,5,6,7,8]' || '[1]') }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ matrix.ref }}
+          submodules: recursive
+          persist-credentials: false
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          path: .crabpot/windows-diagnostic-tools
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24.21.0
+      - id: host
+        shell: bash
+        run: node scripts/openclaw-pin.mjs --github-output
+      - uses: actions/checkout@v7
+        with:
+          repository: openclaw/openclaw
+          ref: ${{ steps.host.outputs.ref }}
+          path: openclaw
+          persist-credentials: false
+      - name: Prepare pinned Microsoft console debugger without PowerShell warmup
+        shell: bash
+        run: python .crabpot/windows-diagnostic-tools/scripts/prepare-windows-debugger.py "$RUNNER_TEMP/crabpot-debugger"
+      - name: Reproduce the actual cold CI import with native observations
+        shell: bash
+        run: node .crabpot/windows-diagnostic-tools/scripts/diagnose-windows-cold-import.mjs . "$RUNNER_TEMP/crabpot-debugger/cdb.exe" "${{ inputs.full-context && 'full-context' || inputs.profile-prefix && 'profile-prefix' || 'cold-import' }}" "${{ inputs.unmodified-control && 'unmodified' || 'instrumented' }}"
+      - name: Verify debugger command execution after the measured workload
+        if: ${{ !cancelled() }}
+        shell: bash
+        run: node .crabpot/windows-diagnostic-tools/scripts/verify-windows-debugger.mjs "$RUNNER_TEMP/crabpot-debugger/cdb.exe"
+      - name: Retain cold import evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: cold-import-${{ matrix.ref }}-${{ github.run_attempt }}${{ inputs.cold-cohort && format('-trial-{0}', matrix.trial) || '' }}
+          path: .crabpot/windows-cold-import/
+          if-no-files-found: error
