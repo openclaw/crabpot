@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Patch HAPI's mutable Hono and Node adapter dependencies to 4.13.16 and 2.1.6, retaining the qualified plugin, host, and npm bundle pins.
+
 - Pin the shared source-release workflow to a reviewed commit, enabling exact-byte draft continuation and read-only verification of matching published releases.
 
 - Enforce strict CI policy when the static suite selects the release gate, including manual ref checks with strict contracts enabled.
