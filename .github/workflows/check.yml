@@ -63,7 +63,8 @@ jobs:
   manifest:
     name: Default Track / Static checks (${{ matrix.os }})
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 240
+    # Preserve setup and artifact headroom beyond each platform's suite budget.
+    timeout-minutes: ${{ matrix.os == 'windows-latest' && 255 || 240 }}
     strategy:
       fail-fast: false
       matrix:
@@ -88,8 +89,8 @@ jobs:
           path: openclaw
       - id: suite
         shell: bash
-        # Leave time for Inspector smoke and artifacts after the full-corpus suite.
-        timeout-minutes: 225
+        # Windows needs extra time for final coverage after all profiling samples.
+        timeout-minutes: ${{ matrix.os == 'windows-latest' && 235 || 225 }}
         run: |
           plugin_track="${{ steps.openclaw-track.outputs.track }}"
           extra_args=(--openclaw-track "${{ steps.openclaw-track.outputs.track }}" --plugin-track "${plugin_track}")
