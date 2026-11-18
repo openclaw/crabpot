@@ -526,7 +526,7 @@
     {
       "fixture": "discord",
       "id": "cold-import.runtimeExtension:discord:plugins-discord-crabpot-package-dist-index-js",
-      "status": "sdk-alias-required",
+      "status": "dependency-install-required",
       "entrypoint": "plugins/discord/.crabpot-package/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -544,7 +544,7 @@
     {
       "fixture": "discord",
       "id": "cold-import.setupEntry:discord:plugins-discord-crabpot-package-dist-setup-entry-js",
-      "status": "sdk-alias-required",
+      "status": "dependency-install-required",
       "entrypoint": "plugins/discord/.crabpot-package/dist/setup-entry.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -562,7 +562,7 @@
     {
       "fixture": "discord",
       "id": "cold-import.runtimeSetupEntry:discord:plugins-discord-crabpot-package-dist-setup-entry-js",
-      "status": "sdk-alias-required",
+      "status": "dependency-install-required",
       "entrypoint": "plugins/discord/.crabpot-package/dist/setup-entry.js",
       "packageManager": "npm",
       "loaderSource": "native-node",
@@ -598,7 +598,7 @@
     {
       "fixture": "lobster",
       "id": "cold-import.runtimeExtension:lobster:plugins-lobster-crabpot-package-dist-index-js",
-      "status": "dependency-install-required",
+      "status": "sdk-alias-required",
       "entrypoint": "plugins/lobster/.crabpot-package/dist/index.js",
       "packageManager": "npm",
       "loaderSource": "native-node",

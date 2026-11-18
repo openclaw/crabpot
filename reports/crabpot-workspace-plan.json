@@ -15,7 +15,7 @@
     "installStepCount": 79,
     "auditStepCount": 79,
     "buildStepCount": 15,
-    "pruneDevWorkspaceDependencyStepCount": 15,
+    "pruneDevWorkspaceDependencyStepCount": 14,
     "artifactStepCount": 119,
     "captureStepCount": 119,
     "syntheticProbeStepCount": 119,
@@ -23,7 +23,7 @@
     "tsLoaderEntrypointCount": 20,
     "jitiAlternativeCount": 20,
     "missingBuildScriptCount": 0,
-    "sdkAliasRequiredCount": 30
+    "sdkAliasRequiredCount": 28
   },
   "fixtures": [
     {
@@ -2248,7 +2248,6 @@
           },
           "requiredCapabilities": [
             "capture-shim",
-            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -2257,11 +2256,6 @@
               "code": "missing-entrypoint",
               "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/discord/.crabpot-package/index.ts"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/heartbeat-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-CI_OLfvz.mjs:68"
             }
           ],
           "steps": [
@@ -2305,7 +2299,7 @@
           "packagePath": "plugins/discord/.crabpot-package/package.json",
           "packageName": "@openclaw/discord",
           "entrypoint": "plugins/discord/.crabpot-package/dist/index.js",
-          "status": "sdk-alias-required",
+          "status": "dependency-install-required",
           "packageManager": "npm",
           "lockfile": "plugins/discord/package-lock.json",
           "loaderStrategy": {
@@ -2317,7 +2311,6 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
-            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -2326,11 +2319,6 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@discord/embedded-app-sdk, @discordjs/voice, discord-api-types, libopus-wasm, mdast-util-from-markdown, typebox, undici, ws, zod"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/heartbeat-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-CI_OLfvz.mjs:68"
             }
           ],
           "steps": [
@@ -2387,7 +2375,7 @@
           "packagePath": "plugins/discord/.crabpot-package/package.json",
           "packageName": "@openclaw/discord",
           "entrypoint": "plugins/discord/.crabpot-package/dist/setup-entry.js",
-          "status": "sdk-alias-required",
+          "status": "dependency-install-required",
           "packageManager": "npm",
           "lockfile": "plugins/discord/package-lock.json",
           "loaderStrategy": {
@@ -2399,7 +2387,6 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
-            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -2408,11 +2395,6 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@discord/embedded-app-sdk, @discordjs/voice, discord-api-types, libopus-wasm, mdast-util-from-markdown, typebox, undici, ws, zod"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/heartbeat-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-CI_OLfvz.mjs:68"
             }
           ],
           "steps": [
@@ -2469,7 +2451,7 @@
           "packagePath": "plugins/discord/.crabpot-package/package.json",
           "packageName": "@openclaw/discord",
           "entrypoint": "plugins/discord/.crabpot-package/dist/setup-entry.js",
-          "status": "sdk-alias-required",
+          "status": "dependency-install-required",
           "packageManager": "npm",
           "lockfile": "plugins/discord/package-lock.json",
           "loaderStrategy": {
@@ -2481,7 +2463,6 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
-            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -2490,11 +2471,6 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@discord/embedded-app-sdk, @discordjs/voice, discord-api-types, libopus-wasm, mdast-util-from-markdown, typebox, undici, ws, zod"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/heartbeat-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-CI_OLfvz.mjs:68"
             }
           ],
           "steps": [
@@ -2567,6 +2543,7 @@
           },
           "requiredCapabilities": [
             "capture-shim",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -2575,6 +2552,16 @@
               "code": "missing-entrypoint",
               "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/lobster/.crabpot-package/index.ts"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/json-schema-validator @ plugins/lobster/.crabpot-package/dist/.setup/lobster-schema-compiler-Dxya_m9g.mjs:1"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/runtime-profile @ plugins/lobster/.crabpot-package/dist/index.js:74"
             }
           ],
           "steps": [
@@ -2618,7 +2605,7 @@
           "packagePath": "plugins/lobster/.crabpot-package/package.json",
           "packageName": "@openclaw/lobster",
           "entrypoint": "plugins/lobster/.crabpot-package/dist/index.js",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": "plugins/lobster/package-lock.json",
           "loaderStrategy": {
@@ -2630,6 +2617,7 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
+            "sdk-alias-compat",
             "side-effect-sandbox",
             "synthetic-probes",
             "target-openclaw-link"
@@ -2644,6 +2632,16 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@clawdbot/lobster, typebox"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/json-schema-validator @ plugins/lobster/.crabpot-package/dist/.setup/lobster-schema-compiler-Dxya_m9g.mjs:1"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/runtime-profile @ plugins/lobster/.crabpot-package/dist/index.js:74"
             }
           ],
           "steps": [
@@ -3346,7 +3344,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "zod"
+              "evidence": "saxes, zod"
             }
           ],
           "steps": [
@@ -3422,7 +3420,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "zod"
+              "evidence": "saxes, zod"
             }
           ],
           "steps": [
@@ -3498,7 +3496,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "zod"
+              "evidence": "saxes, zod"
             }
           ],
           "steps": [
@@ -3641,7 +3639,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "nostr-tools, zod"
+              "evidence": "@solidjs/web, nostr-tools, solid-js, zod"
             }
           ],
           "steps": [
@@ -3717,7 +3715,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "nostr-tools, zod"
+              "evidence": "@solidjs/web, nostr-tools, solid-js, zod"
             }
           ],
           "steps": [
@@ -3793,7 +3791,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "nostr-tools, zod"
+              "evidence": "@solidjs/web, nostr-tools, solid-js, zod"
             }
           ],
           "steps": [
@@ -4827,7 +4825,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@larksuiteoapi/node-sdk, @openclaw/fs-safe, mdast-util-from-markdown, mdast-util-gfm-table, micromark-extension-gfm-table, typebox, zod"
+              "evidence": "@larksuiteoapi/node-sdk, mdast-util-from-markdown, mdast-util-gfm-table, micromark-extension-gfm-table, typebox, zod"
             }
           ],
           "steps": [
@@ -4903,7 +4901,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@larksuiteoapi/node-sdk, @openclaw/fs-safe, mdast-util-from-markdown, mdast-util-gfm-table, micromark-extension-gfm-table, typebox, zod"
+              "evidence": "@larksuiteoapi/node-sdk, mdast-util-from-markdown, mdast-util-gfm-table, micromark-extension-gfm-table, typebox, zod"
             }
           ],
           "steps": [
@@ -4979,7 +4977,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@larksuiteoapi/node-sdk, @openclaw/fs-safe, mdast-util-from-markdown, mdast-util-gfm-table, micromark-extension-gfm-table, typebox, zod"
+              "evidence": "@larksuiteoapi/node-sdk, mdast-util-from-markdown, mdast-util-gfm-table, micromark-extension-gfm-table, typebox, zod"
             }
           ],
           "steps": [
@@ -6389,7 +6387,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@openai/codex, @openclaw/fs-safe, semver, smol-toml, typebox, ws, zod"
+              "evidence": "@openai/codex, @openclaw/fs-safe, acorn, semver, smol-toml, typebox, ws, zod"
             }
           ],
           "steps": [
@@ -6977,12 +6975,6 @@
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
-              "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/prune-workspace-dev-deps-cli.js",
-              "cwd": ".crabpot/workspaces/memory-lancedb",
-              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
-            },
-            {
               "kind": "install",
               "command": "npm install --ignore-scripts --legacy-peer-deps",
               "cwd": ".crabpot/workspaces/memory-lancedb",
@@ -7103,7 +7095,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "audio-decode, baileys, typebox"
+              "evidence": "@solidjs/web, audio-decode, baileys, solid-js, typebox"
             }
           ],
           "steps": [
@@ -7179,7 +7171,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "audio-decode, baileys, typebox"
+              "evidence": "@solidjs/web, audio-decode, baileys, solid-js, typebox"
             }
           ],
           "steps": [
@@ -7255,7 +7247,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "audio-decode, baileys, typebox"
+              "evidence": "@solidjs/web, audio-decode, baileys, solid-js, typebox"
             }
           ],
           "steps": [
