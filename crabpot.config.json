@@ -1182,6 +1182,11 @@
         "message-policy",
         "npm-artifact"
       ],
+      "expect": {
+        "registrations": [
+          "registerChannel"
+        ]
+      },
       "why": "Official WhatsApp channel package covering account auth, media-capable channel metadata, message policy, and npm artifact packaging from the monorepo."
     },
     {
