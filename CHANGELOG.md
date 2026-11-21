@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Refresh A2A Gateway's corrected manifest metadata and verify its exact empty-request rejection contracts without requiring the resolved version-drift warning. Thanks @dependabot.
+
 - Patch HAPI's mutable Hono and Node adapter dependencies to 4.13.16 and 2.1.6, retaining the qualified plugin, host, and npm bundle pins.
 - Accept Diffs' tool-owned agent guidance while retaining required tool, HTTP route, plugin entry, and manifest contracts, restoring development dashboard inspection after the legacy prompt hook migration.
 

@@ -101,6 +101,10 @@ prescribing a core compatibility repair.
 
 ## CI model
 
+A2A Gateway's empty-request probes assert the exact missing task, webhook URL,
+and peer responses for its three guarded methods. The handlers still execute;
+these rejection contracts do not qualify live peer messaging or webhook delivery.
+
 Diffs now supplies agent guidance through its tool registration in development
 sources, while published artifacts can still use `before_prompt_build`. Its
 fixture therefore requires the shared plugin entry, HTTP route, tool
