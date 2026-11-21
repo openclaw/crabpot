@@ -10,9 +10,9 @@ Status: PASS
 | Metric                      | Value                                                                                                                   |
 | --------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | Breakages                   | 0                                                                                                                       |
-| Warnings                    | 98                                                                                                                      |
+| Warnings                    | 96                                                                                                                      |
 | Suggestions                 | 240                                                                                                                     |
-| Issues                      | 338                                                                                                                     |
+| Issues                      | 336                                                                                                                     |
 | P0 issues                   | 7                                                                                                                       |
 | P1 issues                   | 123                                                                                                                     |
 | Live issues                 | 7                                                                                                                       |
@@ -20,7 +20,7 @@ Status: PASS
 | Compat gaps                 | 105                                                                                                                     |
 | Deprecation warnings        | 21                                                                                                                      |
 | Inspector gaps              | 160                                                                                                                     |
-| Upstream metadata           | 45                                                                                                                      |
+| Upstream metadata           | 43                                                                                                                      |
 | Ref diff failures           | 0                                                                                                                       |
 | Ref diff warnings           | 0                                                                                                                       |
 | Policy failures             | 0                                                                                                                       |
@@ -33,7 +33,7 @@ Status: PASS
 | Windows portability risks   | 17                                                                                                                      |
 | Container portability risks | 17                                                                                                                      |
 | Jiti loader candidates      | 20                                                                                                                      |
-| Import loop                 | p50 6557 ms / p95 6631 ms / plugin delta RSS 18.8 MB / plugin delta CPU 19 ms / OpenClaw import 89 ms / activate 1.3 ms |
+| Import loop                 | p50 6649 ms / p95 6686 ms / plugin delta RSS 5.2 MB / plugin delta CPU 0 ms / OpenClaw import 87.4 ms / activate 1.3 ms |
 
 ## Top Issues
 
