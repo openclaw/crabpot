@@ -107,6 +107,13 @@
       "expect": {
         "registrations": ["registerService", "registerTool"]
       },
+      "execution": {
+        "gatewayMethodExpectations": {
+          "a2a.pushNotification.register": { "ok": false, "payload": { "error": "taskId and url are required" } },
+          "a2a.pushNotification.unregister": { "ok": false, "payload": { "error": "taskId is required" } },
+          "a2a.send": { "ok": false, "payload": { "error": "No peer specified and no routing rule matched" } }
+        }
+      },
       "why": "Agent-to-agent server fixture with agent-card discovery, JSON-RPC/REST/gRPC transports, metrics, peer auth, and async task modes."
     },
     {

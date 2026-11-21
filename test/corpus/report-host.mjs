@@ -53,7 +53,7 @@ test("compatibility report classifies current fixture seams", async () => {
   }
   assertHasFinding(report.suggestions, "a2a-gateway", "registration-capture-gap");
   assertHasFinding(report.suggestions, "wecom", "before-tool-call-probe");
-  assertHasFinding(report.warnings, "a2a-gateway", "package-manifest-version-drift");
+  assertMissingFixtureFinding(report.warnings, "a2a-gateway", "package-manifest-version-drift");
   assertHasFinding(report.warnings, "connectclaw", "legacy-before-agent-start");
   assertHasFinding(report.warnings, "mcp-adapter", "package-plugin-api-compat-missing");
   assertHasFinding(report.suggestions, "agentchat", "package-build-artifact-entrypoint");
