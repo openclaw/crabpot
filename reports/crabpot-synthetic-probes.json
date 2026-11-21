@@ -6966,7 +6966,7 @@
       "source": "plugins/diagnostics-otel/.crabpot-package/dist/index.js:9"
     },
     {
-      "id": "registration.createChatChannelPlugin:discord:plugins-discord-crabpot-package-dist-setup-channel-CplVDtyZ-mjs-408",
+      "id": "registration.createChatChannelPlugin:discord:plugins-discord-crabpot-package-dist-setup-channel-tgjw3dY4-mjs-408",
       "fixture": "discord",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -6991,7 +6991,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/discord/.crabpot-package/dist/.setup/channel-CplVDtyZ.mjs:408"
+      "source": "plugins/discord/.crabpot-package/dist/.setup/channel-tgjw3dY4.mjs:408"
     },
     {
       "id": "registration.defineBundledChannelEntry:discord:plugins-discord-crabpot-package-dist-index-js-4",
@@ -7246,7 +7246,7 @@
       "source": "plugins/matrix/.crabpot-package/index.ts:24"
     },
     {
-      "id": "registration.createChatChannelPlugin:msteams:plugins-msteams-crabpot-package-dist-setup-channel-BaTw0JW3-cjs-902",
+      "id": "registration.createChatChannelPlugin:msteams:plugins-msteams-crabpot-package-dist-setup-channel-DD1DuPR8-cjs-913",
       "fixture": "msteams",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -7271,7 +7271,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/msteams/.crabpot-package/dist/.setup/channel-BaTw0JW3.cjs:902"
+      "source": "plugins/msteams/.crabpot-package/dist/.setup/channel-DD1DuPR8.cjs:913"
     },
     {
       "id": "registration.defineBundledChannelEntry:msteams:plugins-msteams-crabpot-package-dist-index-cjs-2",
@@ -7715,7 +7715,7 @@
       "source": "plugins/zalo/.crabpot-package/dist/index.js:3"
     },
     {
-      "id": "registration.createChatChannelPlugin:zalouser:plugins-zalouser-crabpot-package-dist-setup-channel-Bhvmq8Jk-mjs-252",
+      "id": "registration.createChatChannelPlugin:zalouser:plugins-zalouser-crabpot-package-dist-setup-channel-Bgo-k2Sn-mjs-252",
       "fixture": "zalouser",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -7740,7 +7740,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/zalouser/.crabpot-package/dist/.setup/channel-Bhvmq8Jk.mjs:252"
+      "source": "plugins/zalouser/.crabpot-package/dist/.setup/channel-Bgo_k2Sn.mjs:252"
     },
     {
       "id": "registration.defineBundledChannelEntry:zalouser:plugins-zalouser-crabpot-package-dist-index-js-10",
@@ -7795,7 +7795,7 @@
       "source": "plugins/zalouser/.crabpot-package/dist/index.js:24"
     },
     {
-      "id": "registration.createChatChannelPlugin:feishu:plugins-feishu-crabpot-package-dist-setup-channel-TBw3rO3z-mjs-2149",
+      "id": "registration.createChatChannelPlugin:feishu:plugins-feishu-crabpot-package-dist-setup-channel-DDrdYVwq-mjs-2149",
       "fixture": "feishu",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -7820,7 +7820,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/feishu/.crabpot-package/dist/.setup/channel-TBw3rO3z.mjs:2149"
+      "source": "plugins/feishu/.crabpot-package/dist/.setup/channel-DDrdYVwq.mjs:2149"
     },
     {
       "id": "registration.defineBundledChannelEntry:feishu:plugins-feishu-crabpot-package-dist-channel-entry-js-3",
@@ -9473,7 +9473,7 @@
       "source": "plugins/memory-lancedb/.crabpot-package/dist/index.js:169"
     },
     {
-      "id": "registration.createChatChannelPlugin:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-channel-RGK-WfWc-mjs-346",
+      "id": "registration.createChatChannelPlugin:whatsapp:plugins-whatsapp-crabpot-package-dist-setup-channel-Dr64YTWj-mjs-346",
       "fixture": "whatsapp",
       "kind": "registration",
       "seam": "createChatChannelPlugin",
@@ -9498,7 +9498,7 @@
         "callableProperties": [],
         "reason": "channel plugin factory metadata is captured before channel runtime execution"
       },
-      "source": "plugins/whatsapp/.crabpot-package/dist/.setup/channel-RGK_WfWc.mjs:346"
+      "source": "plugins/whatsapp/.crabpot-package/dist/.setup/channel-Dr64YTWj.mjs:346"
     },
     {
       "id": "registration.defineBundledChannelEntry:whatsapp:plugins-whatsapp-crabpot-package-dist-index-js-9",
