@@ -819,6 +819,8 @@ the generated reports. The optional isolated job runs one fixture lane when
 
 ## Default Track and HEAD canary
 
+Main dashboard updates publish through pull requests. The publisher retains the generated README and reports before attempting a normal squash merge, then verifies the merged payload. A retained branch or PR means publication is incomplete: resolve that report before starting another main dashboard refresh. Automation-created PRs can require approval to run workflows; their required checks must pass before merging. The latest-track refresh does not inherit the pinned Default Track validation from another run. Beta and development dashboards keep their existing branch publication paths.
+
 Required CI runs the Default Track suite against the immutable OpenClaw SHA in
 `.github/openclaw-default-track.json`. The separately labeled `OpenClaw HEAD
 Canary (Advisory)` workflow runs the same suite against OpenClaw `main`, uploads

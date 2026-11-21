@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Publish main dashboard updates through verified pull-request merges, retaining blocked reports and preserving beta and development publication.
+
 - Refresh A2A Gateway's corrected manifest metadata and verify its exact empty-request rejection contracts without requiring the resolved version-drift warning. Thanks @dependabot.
 
 - Patch HAPI's mutable Hono and Node adapter dependencies to 4.13.16 and 2.1.6, retaining the qualified plugin, host, and npm bundle pins.

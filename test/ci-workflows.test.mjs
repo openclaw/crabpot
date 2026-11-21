@@ -199,10 +199,9 @@ test("track dashboard workflow refreshes branch dashboards by OpenClaw track", a
   assert.doesNotMatch(workflow, /node-version:\s+22(?:\.|$)/m);
   assert.match(workflow, /schedule:/);
   assert.match(workflow, /cron: "7,22,37,52 \* \* \* \*"/);
-  assert.match(workflow, /crabpot-track-dashboard-\$\{\{ github\.event_name == 'workflow_dispatch' && 'manual' \|\| 'schedule' \}\}-/);
-  assert.match(workflow, /github\.event_name == 'workflow_dispatch' && inputs\.track \|\| matrix\.track \}\}-\$\{\{ matrix\.track \}\}/);
+  assert.ok(workflow.includes("format('crabpot-track-dashboard-{0}-{1}-{2}', github.event_name == 'workflow_dispatch' && 'manual' || 'schedule', github.event_name == 'workflow_dispatch' && inputs.track || matrix.track, matrix.track)"));
   assert.doesNotMatch(workflow, /inputs\.track == 'all' && matrix\.track \|\| inputs\.track/);
-  assert.match(workflow, /cancel-in-progress: \$\{\{ github\.event_name == 'workflow_dispatch' \}\}/);
+  assert.match(workflow, /cancel-in-progress: \$\{\{ matrix\.branch != 'main' && github\.event_name == 'workflow_dispatch' \}\}/);
   assert.match(workflow, /workflow_dispatch:/);
   assert.match(workflow, /track:/);
   assert.match(workflow, /branch: crab-beta/);
@@ -241,7 +240,7 @@ test("track dashboard workflow refreshes branch dashboards by OpenClaw track", a
   assert.match(workflow, /origin\/main:reports\/crabpot-dashboard-data\.json/);
   assert.match(workflow, /baseline_args=\(\)/);
   assert.match(workflow, /node scripts\/update-readme-summary\.mjs "\$\{baseline_args\[@\]\}"/);
-  assert.match(workflow, /git push origin HEAD:\$\{\{ matrix\.branch \}\}/);
+  assert.match(workflow, /node scripts\/publish-dashboard\.mjs publish/);
   assert.match(workflow, /git fetch --no-tags --depth=1 origin "\+refs\/heads\/\$\{\{ matrix\.branch \}\}:refs\/remotes\/origin\/\$\{\{ matrix\.branch \}\}"/);
   assert.match(workflow, /lease="\$\(git rev-parse "refs\/remotes\/origin\/\$\{\{ matrix\.branch \}\}"\)"/);
   assert.match(workflow, /git push --force-with-lease="refs\/heads\/\$\{\{ matrix\.branch \}\}:\$\{lease\}" origin HEAD:\$\{\{ matrix\.branch \}\}/);
@@ -474,4 +473,23 @@ test("manual workflow keeps isolated execution artifacts and failure policy wire
   assert.match(workflow, /node scripts\/generate-report\.mjs --openclaw \.\/openclaw --execution-results reports\/crabpot-execution-results\.json --fixture-set "\$\{\{ matrix\.id \}\}"/);
   assert.match(workflow, /path: \|[\s\S]*\.crabpot\/results\/[\s\S]*reports\/crabpot-execution-results\.\*[\s\S]*reports\/crabpot-ci-policy\.\*[\s\S]*reports\/crabpot-ci-summary\.\*/);
   assert.match(workflow, /steps\.execute\.outcome == 'failure' \|\| steps\.policy\.outcome != 'success'/);
+});
+
+
+test("main dashboards use the shared PR publisher while nonmain tracks keep their existing writes", async () => {
+  const check = await readWorkflow(".github/workflows/check.yml");
+  const dependabot = await readWorkflow(".github/workflows/dependabot-auto-merge.yml");
+  const publisher = await readWorkflow(".github/workflows/publish-dashboard.yml");
+  const tracks = await readWorkflow(".github/workflows/track-dashboard.yml");
+  for (const caller of [check, dependabot]) {
+    assert.match(caller, /statuses: write\n      pull-requests: write\n    uses: \.\/\.github\/workflows\/publish-dashboard\.yml/);
+  }
+  assert.match(publisher, /DASHBOARD_SOURCE_SHA: \$\{\{ inputs\.source-sha \}\}/);
+  assert.match(publisher, /inputs\.target-branch == 'main' && 'crabpot-main-dashboard-writer'/);
+  assert.match(tracks, /matrix\.branch == 'main' && 'crabpot-main-dashboard-writer'/);
+  assert.match(publisher, /cancel-in-progress: false/);
+  assert.match(publisher, /if \[ "\$\{DASHBOARD_TARGET_BRANCH\}" = main \]; then\n            node scripts\/publish-dashboard\.mjs publish --validated\n          else/);
+  assert.match(tracks, /if \[ "\$\{\{ matrix\.branch \}\}" = main \]; then\n            node scripts\/publish-dashboard\.mjs publish\n          else/);
+  assert.match(publisher, /node scripts\/publish-dashboard\.mjs preflight/);
+  assert.match(tracks, /DASHBOARD_SOURCE_SHA="\$\{source_sha\}" node scripts\/publish-dashboard\.mjs preflight/);
 });
