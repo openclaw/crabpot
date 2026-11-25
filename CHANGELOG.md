@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-- Publish main dashboard updates through verified pull-request merges, retaining blocked reports and preserving beta and development publication.
+- Publish main dashboard updates through verified pull-request merges, retaining blocked reports and reserving the main writer for selected updates.
 
 - Refresh A2A Gateway's corrected manifest metadata and verify its exact empty-request rejection contracts without requiring the resolved version-drift warning. Thanks @dependabot.
 

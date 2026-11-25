@@ -486,7 +486,24 @@ test("main dashboards use the shared PR publisher while nonmain tracks keep thei
   }
   assert.match(publisher, /DASHBOARD_SOURCE_SHA: \$\{\{ inputs\.source-sha \}\}/);
   assert.match(publisher, /inputs\.target-branch == 'main' && 'crabpot-main-dashboard-writer'/);
-  assert.match(tracks, /matrix\.branch == 'main' && 'crabpot-main-dashboard-writer'/);
+  // Job concurrency is acquired before any step runs. Only a selected main
+  // track can share the writer used by the reusable publisher.
+  const selection = "contains(matrix.requests, inputs.track || 'development')";
+  assert.ok(tracks.includes(`matrix.branch == 'main' && ${selection} && 'crabpot-main-dashboard-writer' ||`));
+  assert.ok(tracks.includes(`echo "run=\${{ ${selection} }}" >> "$GITHUB_OUTPUT"`));
+  const lanes = [...tracks.matchAll(/- track: (\w+)\n +requests: (\[[^\n]+\])\n +branch: ([\w-]+)/g)]
+    .map(([, track, requests, branch]) => ({ track, requests: JSON.parse(requests), branch }));
+  for (const [request, selected, mainWriters] of [
+    [undefined, ["development"], 0],
+    ["development", ["development"], 0],
+    ["beta", ["beta"], 0],
+    ["latest", ["latest"], 1],
+    ["all", ["latest", "beta", "development"], 1],
+  ]) {
+    const active = lanes.filter((lane) => lane.requests.includes(request ?? "development"));
+    assert.deepEqual(active.map((lane) => lane.track), selected);
+    assert.equal(active.filter((lane) => lane.branch === "main").length, mainWriters);
+  }
   assert.match(publisher, /cancel-in-progress: false/);
   assert.match(publisher, /if \[ "\$\{DASHBOARD_TARGET_BRANCH\}" = main \]; then\n            node scripts\/publish-dashboard\.mjs publish --validated\n          else/);
   assert.match(tracks, /if \[ "\$\{\{ matrix\.branch \}\}" = main \]; then\n            node scripts\/publish-dashboard\.mjs publish\n          else/);

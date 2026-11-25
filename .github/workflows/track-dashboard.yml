@@ -28,21 +28,24 @@ jobs:
     name: Refresh ${{ matrix.track }} dashboard
     runs-on: ubuntu-latest
     concurrency:
-      group: ${{ matrix.branch == 'main' && 'crabpot-main-dashboard-writer' || format('crabpot-track-dashboard-{0}-{1}-{2}', github.event_name == 'workflow_dispatch' && 'manual' || 'schedule', github.event_name == 'workflow_dispatch' && inputs.track || matrix.track, matrix.track) }}
+      group: ${{ matrix.branch == 'main' && contains(matrix.requests, inputs.track || 'development') && 'crabpot-main-dashboard-writer' || format('crabpot-track-dashboard-{0}-{1}-{2}', github.event_name == 'workflow_dispatch' && 'manual' || 'schedule', github.event_name == 'workflow_dispatch' && inputs.track || matrix.track, matrix.track) }}
       cancel-in-progress: ${{ matrix.branch != 'main' && github.event_name == 'workflow_dispatch' }}
     strategy:
       fail-fast: false
       matrix:
         include:
           - track: latest
+            requests: ["latest", "all"]
             branch: main
             fixture_set: ""
             plugin_track: latest
           - track: beta
+            requests: ["beta", "all"]
             branch: crab-beta
             fixture_set: ""
             plugin_track: beta
           - track: development
+            requests: ["development", "all"]
             branch: crab-development
             fixture_set: openclaw-beta
             plugin_track: source-pack
@@ -50,15 +53,7 @@ jobs:
       - name: Select requested track
         id: select
         shell: bash
-        run: |
-          run=false
-          if [ "${{ github.event_name }}" = "schedule" ] && [ "${{ matrix.track }}" = "development" ]; then
-            run=true
-          fi
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && { [ "${{ inputs.track }}" = "all" ] || [ "${{ inputs.track }}" = "${{ matrix.track }}" ]; }; then
-            run=true
-          fi
-          echo "run=${run}" >> "$GITHUB_OUTPUT"
+        run: echo "run=${{ contains(matrix.requests, inputs.track || 'development') }}" >> "$GITHUB_OUTPUT"
 
       - uses: actions/checkout@v7
         if: ${{ steps.select.outputs.run == 'true' }}
