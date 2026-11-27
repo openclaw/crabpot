@@ -24,8 +24,6 @@ export const defaultIssuesReportPath = path.join(defaultReportDir, "crabpot-issu
 let submoduleLinkTargets;
 const pluginInspector = await loadPluginInspectorPublicApi();
 
-export const KNOWN_ISSUE_CODES = pluginInspector.knownIssueCodes;
-export const classifyIssueFinding = pluginInspector.classifyIssueFinding;
 export const issueId = pluginInspector.issueId;
 export const targetOpenClawPathCandidates = pluginInspector.openClawTargetPathCandidates;
 

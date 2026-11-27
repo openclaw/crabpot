@@ -126,10 +126,3 @@ export async function writeRuntimeProfile(profile, options = {}) {
     rootDir: options.rootDir ?? crabpotRuntimeProfileOptions.rootDir,
   });
 }
-
-export function renderRuntimeProfileMarkdown(profile, options = {}) {
-  return pluginInspector.renderRuntimeProfileMarkdown(profile, {
-    ...crabpotRuntimeProfileOptions,
-    ...options,
-  });
-}

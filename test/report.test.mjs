@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { classifyIssueFinding, KNOWN_ISSUE_CODES, renderIssuesReport } from "../scripts/report-lib.mjs";
+import { renderIssuesReport } from "../scripts/report-lib.mjs";
 
 test("issue report maps npm payload evidence to monorepo source links", () => {
   const markdown = renderIssuesReport({
@@ -43,29 +43,7 @@ test("issue report maps npm payload evidence to monorepo source links", () => {
   );
 });
 
-test("issue report accepts unsupported plugin security manifests as upstream metadata", () => {
-  assert.equal(KNOWN_ISSUE_CODES.has("unrecognized-security-manifest"), true);
-  assert.equal(KNOWN_ISSUE_CODES.has("security-manifest-schema-unavailable"), true);
-  assert.deepEqual(
-    classifyIssueFinding(
-      {
-        fixture: "clawrouter",
-        code: "unrecognized-security-manifest",
-        level: "warning",
-        evidence: ["plugins/clawrouter/openclaw.security.json"],
-      },
-      { status: "disabled", compatRecordStatuses: {} },
-      { severity: "P3" },
-    ),
-    {
-      compatStatus: "none",
-      deprecated: false,
-      issueClass: "upstream-metadata",
-      live: false,
-      severity: "P3",
-    },
-  );
-
+test("issue report renders unsupported security metadata", () => {
   const markdown = renderIssuesReport({
     generatedAt: "test",
     status: "pass",
