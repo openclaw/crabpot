@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-import { appendFile, readFile, writeFile } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
+import { writeGithubOutput } from "./github-output.mjs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { repoRoot } from "./manifest-lib.mjs";
@@ -160,13 +161,4 @@ async function assertOpenClawCommit(sha) {
   if (!response.ok) {
     throw new Error(`could not verify OpenClaw commit ${sha}: GitHub returned ${response.status}`);
   }
-}
-
-async function writeGithubOutput(result) {
-  const output = `${Object.entries(result).map(([key, value]) => `${key}=${value}`).join("\n")}\n`;
-  if (process.env.GITHUB_OUTPUT) {
-    await appendFile(process.env.GITHUB_OUTPUT, output, "utf8");
-    return;
-  }
-  process.stdout.write(output);
 }
