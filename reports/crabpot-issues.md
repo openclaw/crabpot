@@ -14,23 +14,23 @@ Status: PASS
 
 | Metric                     | Value |
 | -------------------------- | ----- |
-| Issue findings             | 336   |
-| Open issue findings        | 336   |
+| Issue findings             | 348   |
+| Open issue findings        | 348   |
 | Runtime-covered findings   | 0     |
 | Runtime-partial findings   | 0     |
 | 🔴 P0                      | 7     |
-| 🟠 P1                      | 123   |
+| 🟠 P1                      | 127   |
 | Open 🔴 P0                 | 7     |
-| Open 🟠 P1                 | 123   |
+| Open 🟠 P1                 | 127   |
 | Live issues                | 7     |
 | Live P0 issues             | 7     |
 | Compat gaps                | 105   |
 | Deprecation warnings       | 21    |
-| Inspector gaps             | 160   |
-| Open inspector gaps        | 160   |
+| Inspector gaps             | 164   |
+| Open inspector gaps        | 164   |
 | Runtime coverage artifacts | 0     |
-| Upstream metadata          | 43    |
-| Contract probes            | 230   |
+| Upstream metadata          | 51    |
+| Contract probes            | 241   |
 
 ## Triage Overview
 
@@ -39,8 +39,8 @@ Status: PASS
 | live-issue          | 7     | 7  | Potential runtime breakage in the target OpenClaw/plugin pair. P0 only when it is not a deprecated compat seam.                                          |
 | compat-gap          | 105   | -  | Compatibility behavior is needed but missing from the target OpenClaw compat registry.                                                                   |
 | deprecation-warning | 21    | -  | Plugin uses a supported but deprecated compatibility seam; keep it wired while migration exists.                                                         |
-| inspector-gap       | 160   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments. Runtime-covered rows are proof-backed and not open report work. |
-| upstream-metadata   | 43    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.                                                 |
+| inspector-gap       | 164   | -  | Plugin Inspector needs stronger capture/probe evidence before making contract judgments. Runtime-covered rows are proof-backed and not open report work. |
+| upstream-metadata   | 51    | -  | Plugin package or manifest metadata should improve upstream; not a target OpenClaw live break by itself.                                                 |
 | fixture-regression  | 0     | -  | Fixture no longer exposes an expected seam; investigate fixture pin or scanner drift.                                                                    |
 
 ## P0 Live Issues
@@ -381,11 +381,10 @@ _none_
     - channel.runtime.envelope-config-metadata
 
 - 🟠 P1 **lightclawbot** `compat-gap` `core-compat-adapter`
-  - **sdk-export-missing**: lightclawbot: plugin SDK import aliases are missing from target package exports
-  - state: open · compat:untracked
+  - **missing-compat-record**: lightclawbot: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
   - evidence:
-    - openclaw/plugin-sdk/channel-reply-pipeline @ plugins/lightclawbot/.crabpot-package/dist/src/inbound.js:264
-    - openclaw/plugin-sdk/config-runtime @ plugins/lightclawbot/.crabpot-package/dist/src/utils/openclaw-compat.js:84
+    - hook.before_tool_call.terminal-block-approval
 
 - 🟠 P1 **llm-trace-phoenix** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: llm-trace-phoenix: compat-dependent behavior lacks registry coverage
@@ -976,6 +975,24 @@ _none_
   - evidence:
     - [before_tool_call @ index.ts:41](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/index.ts#L41)
 
+- 🟠 P1 **discord** `inspector-gap` `inspector-follow-up`
+  - **sdk-export-missing**: discord: SDK import coverage requires an eligible host
+  - state: open · compat:untracked
+  - evidence:
+    - openclaw/plugin-sdk/agent-control-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-BvhSlcJy.mjs:91
+    - openclaw/plugin-sdk/reply-session-init-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-GpZpRyHA.mjs:45
+    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.11.10; recheck with an eligible host before assigning a core compatibility repair.
+    - Unassessed SDK compatibility record: plugin-sdk-export-aliases
+
+- 🟠 P1 **feishu** `inspector-gap` `inspector-follow-up`
+  - **sdk-export-missing**: feishu: SDK import coverage requires an eligible host
+  - state: open · compat:untracked
+  - evidence:
+    - openclaw/plugin-sdk/agent-control-runtime @ plugins/feishu/.crabpot-package/dist/.setup/monitor.account-x_KliB35.mjs:39
+    - openclaw/plugin-sdk/agent-control-runtime @ plugins/feishu/.crabpot-package/dist/.setup/reply-delivery-result-DTuuSfED.mjs:42
+    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.11.10; recheck with an eligible host before assigning a core compatibility repair.
+    - Unassessed SDK compatibility record: plugin-sdk-export-aliases
+
 - 🟠 P1 **honcho** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: honcho: conversation-access hooks need privacy-boundary probes
   - state: open · compat:untracked
@@ -997,6 +1014,12 @@ _none_
     - [llm_input @ generated-hooks.js:27](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-hooks.js#L27)
     - [llm_output @ generated-hooks.js:28](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-hooks.js#L28)
 
+- 🟠 P1 **lightclawbot** `inspector-gap` `inspector-follow-up`
+  - **before-tool-call-probe**: lightclawbot: before_tool_call needs terminal/block/approval probes
+  - state: open · compat:untracked
+  - evidence:
+    - before_tool_call @ plugins/lightclawbot/.crabpot-package/dist/src/streaming/tool-completion.js:19
+
 - 🟠 P1 **llm-trace-phoenix** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: llm-trace-phoenix: conversation-access hooks need privacy-boundary probes
   - state: open · compat:untracked
@@ -1010,16 +1033,16 @@ _none_
   - **sdk-export-missing**: lobster: SDK import coverage requires an eligible host
   - state: open · compat:untracked
   - evidence:
-    - openclaw/plugin-sdk/json-schema-validator @ plugins/lobster/.crabpot-package/dist/.setup/lobster-schema-compiler-Dxya_m9g.mjs:1
+    - openclaw/plugin-sdk/json-schema-validator @ plugins/lobster/.crabpot-package/dist/.setup/lobster-schema-compiler-T2XZzavY.mjs:1
     - openclaw/plugin-sdk/runtime-profile @ plugins/lobster/.crabpot-package/dist/index.js:74
-    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.11.6; recheck with an eligible host before assigning a core compatibility repair.
+    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.11.10; recheck with an eligible host before assigning a core compatibility repair.
     - Unassessed SDK compatibility record: plugin-sdk-export-aliases
 
 - 🟠 P1 **memory-lancedb** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: memory-lancedb: conversation-access hooks need privacy-boundary probes
   - state: open · compat:untracked
   - evidence:
-    - agent_end @ plugins/memory-lancedb/.crabpot-package/dist/index.js:381
+    - agent_end @ plugins/memory-lancedb/.crabpot-package/dist/index.js:384
 
 - 🟠 P1 **memory-tencentdb** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: memory-tencentdb: conversation-access hooks need privacy-boundary probes
@@ -1037,6 +1060,14 @@ _none_
   - state: open · compat:untracked
   - evidence:
     - [agent_end @ index.js:860](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin/blob/a317661691bda94054d3d35f8c226e8bfe0018f7/index.js#L860)
+
+- 🟠 P1 **msteams** `inspector-gap` `inspector-follow-up`
+  - **sdk-export-missing**: msteams: SDK import coverage requires an eligible host
+  - state: open · compat:untracked
+  - evidence:
+    - openclaw/plugin-sdk/agent-control-runtime @ plugins/msteams/.crabpot-package/dist/.setup/monitor-C5ijkBxj.cjs:33
+    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.11.10; recheck with an eligible host before assigning a core compatibility repair.
+    - Unassessed SDK compatibility record: plugin-sdk-export-aliases
 
 - 🟠 P1 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: nemoclaw: before_tool_call needs terminal/block/approval probes
@@ -1260,27 +1291,29 @@ _none_
   - **registration-capture-gap**: codex: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:untracked
   - evidence:
-    - registerAgentHarness @ plugins/codex/.crabpot-package/dist/index.js:4220
-    - registerCommand @ plugins/codex/.crabpot-package/dist/index.js:4269
-    - registerGatewayMethod @ plugins/codex/.crabpot-package/dist/index.js:4095
-    - registerMediaUnderstandingProvider @ plugins/codex/.crabpot-package/dist/index.js:4221
-    - registerMigrationProvider @ plugins/codex/.crabpot-package/dist/index.js:4223
-    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4187
-    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4265
-    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4267
-    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4189
-    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4266
-    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4268
-    - registerProvider @ plugins/codex/.crabpot-package/dist/index.js:4101
-    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4099
-    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4116
-    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4117
-    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4118
-    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4173
-    - registerSessionCatalog @ plugins/codex/.crabpot-package/dist/index.js:3325
-    - registerToolMetadata @ plugins/codex/.crabpot-package/dist/index.js:4236
-    - registerToolMetadata @ plugins/codex/.crabpot-package/dist/index.js:4254
-    - registerWebSearchProvider @ plugins/codex/.crabpot-package/dist/index.js:4222
+    - registerAgentHarness @ plugins/codex/.crabpot-package/dist/index.js:4307
+    - registerCommand @ plugins/codex/.crabpot-package/dist/index.js:4358
+    - registerGatewayMethod @ plugins/codex/.crabpot-package/dist/index.js:4181
+    - registerMediaUnderstandingProvider @ plugins/codex/.crabpot-package/dist/index.js:4308
+    - registerMigrationProvider @ plugins/codex/.crabpot-package/dist/index.js:4310
+    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4273
+    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4352
+    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4354
+    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4356
+    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4275
+    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4353
+    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4355
+    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4357
+    - registerProvider @ plugins/codex/.crabpot-package/dist/index.js:4187
+    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4185
+    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4202
+    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4203
+    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4204
+    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4259
+    - registerSessionCatalog @ plugins/codex/.crabpot-package/dist/index.js:3415
+    - registerToolMetadata @ plugins/codex/.crabpot-package/dist/index.js:4323
+    - registerToolMetadata @ plugins/codex/.crabpot-package/dist/index.js:4341
+    - registerWebSearchProvider @ plugins/codex/.crabpot-package/dist/index.js:4309
 
 - 🟡 P2 **codex-app-server** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: codex-app-server: cold import requires dependency installation in an isolated workspace
@@ -1377,8 +1410,8 @@ _none_
   - **registration-capture-gap**: diagnostics-prometheus: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:untracked
   - evidence:
-    - registerHttpRoute @ plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:1666
-    - registerService @ plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:1665
+    - registerHttpRoute @ plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:1707
+    - registerService @ plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:1706
 
 - 🟡 P2 **diffs** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: diffs: cold import requires dependency installation in an isolated workspace
@@ -1394,8 +1427,8 @@ _none_
   - **registration-capture-gap**: diffs: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:untracked
   - evidence:
-    - registerHttpRoute @ plugins/diffs/.crabpot-package/dist/index.js:1712
-    - registerService @ plugins/diffs/.crabpot-package/dist/index.js:1687
+    - registerHttpRoute @ plugins/diffs/.crabpot-package/dist/index.js:1701
+    - registerService @ plugins/diffs/.crabpot-package/dist/index.js:1673
 
 - 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: dingtalk-connector: channel runtime needs envelope/config probes
@@ -1463,7 +1496,7 @@ _none_
   - **channel-contract-probe**: discord: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/discord/.crabpot-package/dist/.setup/channel-tgjw3dY4.mjs:408
+    - createChatChannelPlugin @ plugins/discord/.crabpot-package/dist/.setup/channel-C0GMDf_u.mjs:404
 
 - 🟡 P2 **discord** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: discord: cold import requires dependency installation in an isolated workspace
@@ -1483,15 +1516,15 @@ _none_
   - **registration-capture-gap**: discord: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:untracked
   - evidence:
-    - registerHttpRoute @ plugins/discord/.crabpot-package/dist/activities-api.js:573
+    - registerHttpRoute @ plugins/discord/.crabpot-package/dist/activities-api.js:534
     - registerTranscriptSourceProvider @ plugins/discord/.crabpot-package/dist/transcripts-source-api.js:4
-    - registerWidgetPresenter @ plugins/discord/.crabpot-package/dist/activities-api.js:609
+    - registerWidgetPresenter @ plugins/discord/.crabpot-package/dist/activities-api.js:570
 
 - 🟡 P2 **feishu** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: feishu: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/feishu/.crabpot-package/dist/.setup/channel-DDrdYVwq.mjs:2149
+    - createChatChannelPlugin @ plugins/feishu/.crabpot-package/dist/.setup/channel-Bp5AqILl.mjs:2177
 
 - 🟡 P2 **feishu** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: feishu: cold import requires dependency installation in an isolated workspace
@@ -1515,11 +1548,11 @@ _none_
   - **registration-capture-gap**: google-meet: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:untracked
   - evidence:
-    - registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:129
-    - registerNodeHostCommand @ plugins/google-meet/.crabpot-package/dist/index.js:370
-    - registerNodeInvokePolicy @ plugins/google-meet/.crabpot-package/dist/index.js:380
-    - registerService @ plugins/google-meet/.crabpot-package/dist/.setup/plugin-registration-CPaJjZDs.mjs:111
-    - registerTranscriptSourceProvider @ plugins/google-meet/.crabpot-package/dist/index.js:188
+    - registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:128
+    - registerNodeHostCommand @ plugins/google-meet/.crabpot-package/dist/index.js:369
+    - registerNodeInvokePolicy @ plugins/google-meet/.crabpot-package/dist/index.js:379
+    - registerService @ plugins/google-meet/.crabpot-package/dist/.setup/plugin-registration-DKu55NBZ.mjs:111
+    - registerTranscriptSourceProvider @ plugins/google-meet/.crabpot-package/dist/index.js:187
 
 - 🟡 P2 **hapi-openclaw** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: hapi-openclaw: cold import requires dependency installation in an isolated workspace
@@ -1826,9 +1859,9 @@ _none_
   - **registration-capture-gap**: memory-lancedb: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:untracked
   - evidence:
-    - registerMemoryCapability @ plugins/memory-lancedb/.crabpot-package/dist/index.js:143
-    - registerService @ plugins/memory-lancedb/.crabpot-package/dist/index.js:459
-    - registerService @ plugins/memory-lancedb/.crabpot-package/dist/index.js:60
+    - registerMemoryCapability @ plugins/memory-lancedb/.crabpot-package/dist/index.js:163
+    - registerService @ plugins/memory-lancedb/.crabpot-package/dist/index.js:462
+    - registerService @ plugins/memory-lancedb/.crabpot-package/dist/index.js:80
 
 - 🟡 P2 **memory-tencentdb** `inspector-gap` `inspector-follow-up`
   - **package-build-artifact-entrypoint**: memory-tencentdb: cold import requires package build output
@@ -1910,7 +1943,7 @@ _none_
   - **channel-contract-probe**: msteams: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/msteams/.crabpot-package/dist/.setup/channel-DD1DuPR8.cjs:913
+    - createChatChannelPlugin @ plugins/msteams/.crabpot-package/dist/.setup/channel-BFWe4zic.cjs:896
 
 - 🟡 P2 **msteams** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: msteams: cold import requires dependency installation in an isolated workspace
@@ -1949,7 +1982,7 @@ _none_
   - **channel-contract-probe**: nextcloud-talk: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/nextcloud-talk/.crabpot-package/dist/.setup/channel-CksQiDCA.mjs:2862
+    - createChatChannelPlugin @ plugins/nextcloud-talk/.crabpot-package/dist/.setup/channel-CgV-6pi2.mjs:2835
 
 - 🟡 P2 **nextcloud-talk** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: nextcloud-talk: cold import requires dependency installation in an isolated workspace
@@ -1962,7 +1995,7 @@ _none_
   - **channel-contract-probe**: nostr: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/nostr/.crabpot-package/dist/.setup/channel-BIAfPJMs.mjs:1164
+    - createChatChannelPlugin @ plugins/nostr/.crabpot-package/dist/.setup/channel-B4fpUOPw.mjs:1152
 
 - 🟡 P2 **nostr** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: nostr: cold import requires dependency installation in an isolated workspace
@@ -2121,7 +2154,7 @@ _none_
   - **channel-contract-probe**: tlon: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/tlon/.crabpot-package/dist/.setup/channel-bmlV7Bo5.mjs:136
+    - createChatChannelPlugin @ plugins/tlon/.crabpot-package/dist/.setup/channel-0hZrTtRT.mjs:161
 
 - 🟡 P2 **tlon** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: tlon: cold import requires dependency installation in an isolated workspace
@@ -2137,7 +2170,7 @@ _none_
   - **channel-contract-probe**: twitch: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/twitch/.crabpot-package/dist/.setup/plugin-D_NszQlS.mjs:781
+    - createChatChannelPlugin @ plugins/twitch/.crabpot-package/dist/.setup/plugin-B2l8TCND.mjs:772
 
 - 🟡 P2 **twitch** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: twitch: cold import requires dependency installation in an isolated workspace
@@ -2159,9 +2192,9 @@ _none_
   - **registration-capture-gap**: voice-call: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:untracked
   - evidence:
-    - registerConfigMigration @ plugins/voice-call/.crabpot-package/dist/setup-api.js:132
-    - registerGatewayMethod @ plugins/voice-call/.crabpot-package/dist/index.js:296
-    - registerService @ plugins/voice-call/.crabpot-package/dist/index.js:504
+    - registerConfigMigration @ plugins/voice-call/.crabpot-package/dist/setup-api.js:131
+    - registerGatewayMethod @ plugins/voice-call/.crabpot-package/dist/index.js:294
+    - registerService @ plugins/voice-call/.crabpot-package/dist/index.js:502
 
 - 🟡 P2 **web-search-plus** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: web-search-plus: cold import needs TypeScript source entrypoint support
@@ -2195,7 +2228,7 @@ _none_
   - **channel-contract-probe**: whatsapp: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-Dr64YTWj.mjs:346
+    - createChatChannelPlugin @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-zYMabwp9.mjs:341
 
 - 🟡 P2 **whatsapp** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: whatsapp: cold import requires dependency installation in an isolated workspace
@@ -2242,7 +2275,7 @@ _none_
   - **channel-contract-probe**: zalo: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/zalo/.crabpot-package/dist/.setup/channel-CnuMXQO7.mjs:158
+    - createChatChannelPlugin @ plugins/zalo/.crabpot-package/dist/.setup/channel-D_1R3bFK.mjs:157
 
 - 🟡 P2 **zalo** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: zalo: cold import requires dependency installation in an isolated workspace
@@ -2254,7 +2287,7 @@ _none_
   - **channel-contract-probe**: zalouser: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/zalouser/.crabpot-package/dist/.setup/channel-Bgo_k2Sn.mjs:252
+    - createChatChannelPlugin @ plugins/zalouser/.crabpot-package/dist/.setup/channel-B4uMhrLj.mjs:249
 
 - 🟡 P2 **zalouser** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: zalouser: cold import requires dependency installation in an isolated workspace
@@ -2389,6 +2422,15 @@ _none_
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
 
+- 🟡 P2 **diffs** `upstream-metadata` `plugin-upstream-fix`
+  - **manifest-unknown-fields**: diffs: manifest uses unsupported top-level fields
+  - state: open · compat:none
+  - evidence:
+    - recommendedPrompts @ plugins/diffs/.crabpot-package/openclaw.plugin.json
+  - author remediation:
+    - Move unsupported top-level manifest fields into supported package metadata or remove them.
+    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
+
 - 🟡 P2 **dingtalk-connector** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: dingtalk-connector: manifest uses unsupported top-level fields
   - state: open · compat:none
@@ -2425,6 +2467,33 @@ _none_
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
+
+- 🟡 P2 **discord** `upstream-metadata` `plugin-upstream-fix`
+  - **manifest-unknown-fields**: discord: manifest uses unsupported top-level fields
+  - state: open · compat:none
+  - evidence:
+    - recommendedPrompts @ plugins/discord/.crabpot-package/openclaw.plugin.json
+  - author remediation:
+    - Move unsupported top-level manifest fields into supported package metadata or remove them.
+    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
+
+- 🟡 P2 **feishu** `upstream-metadata` `plugin-upstream-fix`
+  - **manifest-unknown-fields**: feishu: manifest uses unsupported top-level fields
+  - state: open · compat:none
+  - evidence:
+    - recommendedPrompts @ plugins/feishu/.crabpot-package/openclaw.plugin.json
+  - author remediation:
+    - Move unsupported top-level manifest fields into supported package metadata or remove them.
+    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
+
+- 🟡 P2 **google-meet** `upstream-metadata` `plugin-upstream-fix`
+  - **manifest-unknown-fields**: google-meet: manifest uses unsupported top-level fields
+  - state: open · compat:none
+  - evidence:
+    - recommendedPrompts @ plugins/google-meet/.crabpot-package/openclaw.plugin.json
+  - author remediation:
+    - Move unsupported top-level manifest fields into supported package metadata or remove them.
+    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
 
 - 🟡 P2 **hasdata** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: hasdata: manifest uses unsupported top-level fields
@@ -2473,6 +2542,15 @@ _none_
     - Align the plugin version declared in package.json and openclaw.plugin.json.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-manifest-version-drift
 
+- 🟡 P2 **lobster** `upstream-metadata` `plugin-upstream-fix`
+  - **manifest-unknown-fields**: lobster: manifest uses unsupported top-level fields
+  - state: open · compat:none
+  - evidence:
+    - recommendedPrompts @ plugins/lobster/.crabpot-package/openclaw.plugin.json
+  - author remediation:
+    - Move unsupported top-level manifest fields into supported package metadata or remove them.
+    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
+
 - 🟡 P2 **mcp-adapter** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: mcp-adapter: plugin API compatibility range is missing
   - state: open · compat:none
@@ -2481,6 +2559,15 @@ _none_
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
+
+- 🟡 P2 **memory-lancedb** `upstream-metadata` `plugin-upstream-fix`
+  - **manifest-unknown-fields**: memory-lancedb: manifest uses unsupported top-level fields
+  - state: open · compat:none
+  - evidence:
+    - recommendedPrompts @ plugins/memory-lancedb/.crabpot-package/openclaw.plugin.json
+  - author remediation:
+    - Move unsupported top-level manifest fields into supported package metadata or remove them.
+    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
 
 - 🟡 P2 **memory-tencentdb** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: memory-tencentdb: plugin API compatibility range is missing
@@ -2609,6 +2696,15 @@ _none_
     - Move unsupported top-level manifest fields into supported package metadata or remove them.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
 
+- 🟡 P2 **voice-call** `upstream-metadata` `plugin-upstream-fix`
+  - **manifest-unknown-fields**: voice-call: manifest uses unsupported top-level fields
+  - state: open · compat:none
+  - evidence:
+    - recommendedPrompts @ plugins/voice-call/.crabpot-package/openclaw.plugin.json
+  - author remediation:
+    - Move unsupported top-level manifest fields into supported package metadata or remove them.
+    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
+
 - 🟡 P2 **wecom** `upstream-metadata` `plugin-upstream-fix`
   - **package-plugin-api-compat-missing**: wecom: plugin API compatibility range is missing
   - state: open · compat:none
@@ -2617,6 +2713,15 @@ _none_
   - author remediation:
     - Declare the OpenClaw plugin API range this package supports.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-plugin-api-compat-missing
+
+- 🟡 P2 **whatsapp** `upstream-metadata` `plugin-upstream-fix`
+  - **manifest-unknown-fields**: whatsapp: manifest uses unsupported top-level fields
+  - state: open · compat:none
+  - evidence:
+    - recommendedPrompts @ plugins/whatsapp/.crabpot-package/openclaw.plugin.json
+  - author remediation:
+    - Move unsupported top-level manifest fields into supported package metadata or remove them.
+    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
 
 - 🟡 P2 **yuanbao** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: yuanbao: manifest uses unsupported top-level fields
@@ -2922,11 +3027,29 @@ _none_
   - evidence:
     - channel.runtime.envelope-config-metadata
 
+- 🟠 P1 **discord** `inspector-gap` `inspector-follow-up`
+  - **sdk-export-missing**: discord: SDK import coverage requires an eligible host
+  - state: open · compat:untracked
+  - evidence:
+    - openclaw/plugin-sdk/agent-control-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-BvhSlcJy.mjs:91
+    - openclaw/plugin-sdk/reply-session-init-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-GpZpRyHA.mjs:45
+    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.11.10; recheck with an eligible host before assigning a core compatibility repair.
+    - Unassessed SDK compatibility record: plugin-sdk-export-aliases
+
 - 🟠 P1 **feishu** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: feishu: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
   - evidence:
     - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **feishu** `inspector-gap` `inspector-follow-up`
+  - **sdk-export-missing**: feishu: SDK import coverage requires an eligible host
+  - state: open · compat:untracked
+  - evidence:
+    - openclaw/plugin-sdk/agent-control-runtime @ plugins/feishu/.crabpot-package/dist/.setup/monitor.account-x_KliB35.mjs:39
+    - openclaw/plugin-sdk/agent-control-runtime @ plugins/feishu/.crabpot-package/dist/.setup/reply-delivery-result-DTuuSfED.mjs:42
+    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.11.10; recheck with an eligible host before assigning a core compatibility repair.
+    - Unassessed SDK compatibility record: plugin-sdk-export-aliases
 
 - 🟠 P1 **google-meet** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: google-meet: compat-dependent behavior lacks registry coverage
@@ -3024,6 +3147,12 @@ _none_
   - evidence:
     - hook.llm-observer.privacy-payload
 
+- 🟠 P1 **lightclawbot** `inspector-gap` `inspector-follow-up`
+  - **before-tool-call-probe**: lightclawbot: before_tool_call needs terminal/block/approval probes
+  - state: open · compat:untracked
+  - evidence:
+    - before_tool_call @ plugins/lightclawbot/.crabpot-package/dist/src/streaming/tool-completion.js:19
+
 - 🟠 P1 **lightclawbot** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: lightclawbot: compat-dependent behavior lacks registry coverage
   - state: open · compat:missing
@@ -3037,11 +3166,10 @@ _none_
     - channel.runtime.envelope-config-metadata
 
 - 🟠 P1 **lightclawbot** `compat-gap` `core-compat-adapter`
-  - **sdk-export-missing**: lightclawbot: plugin SDK import aliases are missing from target package exports
-  - state: open · compat:untracked
+  - **missing-compat-record**: lightclawbot: compat-dependent behavior lacks registry coverage
+  - state: open · compat:missing
   - evidence:
-    - openclaw/plugin-sdk/channel-reply-pipeline @ plugins/lightclawbot/.crabpot-package/dist/src/inbound.js:264
-    - openclaw/plugin-sdk/config-runtime @ plugins/lightclawbot/.crabpot-package/dist/src/utils/openclaw-compat.js:84
+    - hook.before_tool_call.terminal-block-approval
 
 - 🟠 P1 **llm-trace-phoenix** `inspector-gap` `inspector-follow-up`
   - **conversation-access-hook**: llm-trace-phoenix: conversation-access hooks need privacy-boundary probes
@@ -3062,9 +3190,9 @@ _none_
   - **sdk-export-missing**: lobster: SDK import coverage requires an eligible host
   - state: open · compat:untracked
   - evidence:
-    - openclaw/plugin-sdk/json-schema-validator @ plugins/lobster/.crabpot-package/dist/.setup/lobster-schema-compiler-Dxya_m9g.mjs:1
+    - openclaw/plugin-sdk/json-schema-validator @ plugins/lobster/.crabpot-package/dist/.setup/lobster-schema-compiler-T2XZzavY.mjs:1
     - openclaw/plugin-sdk/runtime-profile @ plugins/lobster/.crabpot-package/dist/index.js:74
-    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.11.6; recheck with an eligible host before assigning a core compatibility repair.
+    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.11.10; recheck with an eligible host before assigning a core compatibility repair.
     - Unassessed SDK compatibility record: plugin-sdk-export-aliases
 
 - 🟠 P1 **lossless-claw** `compat-gap` `core-compat-adapter`
@@ -3120,7 +3248,7 @@ _none_
   - **conversation-access-hook**: memory-lancedb: conversation-access hooks need privacy-boundary probes
   - state: open · compat:untracked
   - evidence:
-    - agent_end @ plugins/memory-lancedb/.crabpot-package/dist/index.js:381
+    - agent_end @ plugins/memory-lancedb/.crabpot-package/dist/index.js:384
 
 - 🟠 P1 **memory-lancedb** `compat-gap` `core-compat-adapter`
   - **missing-compat-record**: memory-lancedb: compat-dependent behavior lacks registry coverage
@@ -3223,6 +3351,14 @@ _none_
   - state: open · compat:missing
   - evidence:
     - channel.runtime.envelope-config-metadata
+
+- 🟠 P1 **msteams** `inspector-gap` `inspector-follow-up`
+  - **sdk-export-missing**: msteams: SDK import coverage requires an eligible host
+  - state: open · compat:untracked
+  - evidence:
+    - openclaw/plugin-sdk/agent-control-runtime @ plugins/msteams/.crabpot-package/dist/.setup/monitor-C5ijkBxj.cjs:33
+    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.11.10; recheck with an eligible host before assigning a core compatibility repair.
+    - Unassessed SDK compatibility record: plugin-sdk-export-aliases
 
 - 🟠 P1 **nemoclaw** `inspector-gap` `inspector-follow-up`
   - **before-tool-call-probe**: nemoclaw: before_tool_call needs terminal/block/approval probes
@@ -3766,27 +3902,29 @@ _none_
   - **registration-capture-gap**: codex: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:untracked
   - evidence:
-    - registerAgentHarness @ plugins/codex/.crabpot-package/dist/index.js:4220
-    - registerCommand @ plugins/codex/.crabpot-package/dist/index.js:4269
-    - registerGatewayMethod @ plugins/codex/.crabpot-package/dist/index.js:4095
-    - registerMediaUnderstandingProvider @ plugins/codex/.crabpot-package/dist/index.js:4221
-    - registerMigrationProvider @ plugins/codex/.crabpot-package/dist/index.js:4223
-    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4187
-    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4265
-    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4267
-    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4189
-    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4266
-    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4268
-    - registerProvider @ plugins/codex/.crabpot-package/dist/index.js:4101
-    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4099
-    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4116
-    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4117
-    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4118
-    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4173
-    - registerSessionCatalog @ plugins/codex/.crabpot-package/dist/index.js:3325
-    - registerToolMetadata @ plugins/codex/.crabpot-package/dist/index.js:4236
-    - registerToolMetadata @ plugins/codex/.crabpot-package/dist/index.js:4254
-    - registerWebSearchProvider @ plugins/codex/.crabpot-package/dist/index.js:4222
+    - registerAgentHarness @ plugins/codex/.crabpot-package/dist/index.js:4307
+    - registerCommand @ plugins/codex/.crabpot-package/dist/index.js:4358
+    - registerGatewayMethod @ plugins/codex/.crabpot-package/dist/index.js:4181
+    - registerMediaUnderstandingProvider @ plugins/codex/.crabpot-package/dist/index.js:4308
+    - registerMigrationProvider @ plugins/codex/.crabpot-package/dist/index.js:4310
+    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4273
+    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4352
+    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4354
+    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4356
+    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4275
+    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4353
+    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4355
+    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4357
+    - registerProvider @ plugins/codex/.crabpot-package/dist/index.js:4187
+    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4185
+    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4202
+    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4203
+    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4204
+    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4259
+    - registerSessionCatalog @ plugins/codex/.crabpot-package/dist/index.js:3415
+    - registerToolMetadata @ plugins/codex/.crabpot-package/dist/index.js:4323
+    - registerToolMetadata @ plugins/codex/.crabpot-package/dist/index.js:4341
+    - registerWebSearchProvider @ plugins/codex/.crabpot-package/dist/index.js:4309
 
 - 🟡 P2 **codex-app-server** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: codex-app-server: cold import requires dependency installation in an isolated workspace
@@ -3946,8 +4084,17 @@ _none_
   - **registration-capture-gap**: diagnostics-prometheus: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:untracked
   - evidence:
-    - registerHttpRoute @ plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:1666
-    - registerService @ plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:1665
+    - registerHttpRoute @ plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:1707
+    - registerService @ plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:1706
+
+- 🟡 P2 **diffs** `upstream-metadata` `plugin-upstream-fix`
+  - **manifest-unknown-fields**: diffs: manifest uses unsupported top-level fields
+  - state: open · compat:none
+  - evidence:
+    - recommendedPrompts @ plugins/diffs/.crabpot-package/openclaw.plugin.json
+  - author remediation:
+    - Move unsupported top-level manifest fields into supported package metadata or remove them.
+    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
 
 - 🟡 P2 **diffs** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: diffs: cold import requires dependency installation in an isolated workspace
@@ -3963,8 +4110,8 @@ _none_
   - **registration-capture-gap**: diffs: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:untracked
   - evidence:
-    - registerHttpRoute @ plugins/diffs/.crabpot-package/dist/index.js:1712
-    - registerService @ plugins/diffs/.crabpot-package/dist/index.js:1687
+    - registerHttpRoute @ plugins/diffs/.crabpot-package/dist/index.js:1701
+    - registerService @ plugins/diffs/.crabpot-package/dist/index.js:1673
 
 - 🟡 P2 **dingtalk-connector** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: dingtalk-connector: channel runtime needs envelope/config probes
@@ -4078,7 +4225,16 @@ _none_
   - **channel-contract-probe**: discord: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/discord/.crabpot-package/dist/.setup/channel-tgjw3dY4.mjs:408
+    - createChatChannelPlugin @ plugins/discord/.crabpot-package/dist/.setup/channel-C0GMDf_u.mjs:404
+
+- 🟡 P2 **discord** `upstream-metadata` `plugin-upstream-fix`
+  - **manifest-unknown-fields**: discord: manifest uses unsupported top-level fields
+  - state: open · compat:none
+  - evidence:
+    - recommendedPrompts @ plugins/discord/.crabpot-package/openclaw.plugin.json
+  - author remediation:
+    - Move unsupported top-level manifest fields into supported package metadata or remove them.
+    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
 
 - 🟡 P2 **discord** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: discord: cold import requires dependency installation in an isolated workspace
@@ -4098,15 +4254,24 @@ _none_
   - **registration-capture-gap**: discord: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:untracked
   - evidence:
-    - registerHttpRoute @ plugins/discord/.crabpot-package/dist/activities-api.js:573
+    - registerHttpRoute @ plugins/discord/.crabpot-package/dist/activities-api.js:534
     - registerTranscriptSourceProvider @ plugins/discord/.crabpot-package/dist/transcripts-source-api.js:4
-    - registerWidgetPresenter @ plugins/discord/.crabpot-package/dist/activities-api.js:609
+    - registerWidgetPresenter @ plugins/discord/.crabpot-package/dist/activities-api.js:570
 
 - 🟡 P2 **feishu** `inspector-gap` `inspector-follow-up`
   - **channel-contract-probe**: feishu: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/feishu/.crabpot-package/dist/.setup/channel-DDrdYVwq.mjs:2149
+    - createChatChannelPlugin @ plugins/feishu/.crabpot-package/dist/.setup/channel-Bp5AqILl.mjs:2177
+
+- 🟡 P2 **feishu** `upstream-metadata` `plugin-upstream-fix`
+  - **manifest-unknown-fields**: feishu: manifest uses unsupported top-level fields
+  - state: open · compat:none
+  - evidence:
+    - recommendedPrompts @ plugins/feishu/.crabpot-package/openclaw.plugin.json
+  - author remediation:
+    - Move unsupported top-level manifest fields into supported package metadata or remove them.
+    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
 
 - 🟡 P2 **feishu** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: feishu: cold import requires dependency installation in an isolated workspace
@@ -4119,6 +4284,15 @@ _none_
     - typebox @ plugins/feishu/.crabpot-package/package.json
     - zod @ plugins/feishu/.crabpot-package/package.json
 
+- 🟡 P2 **google-meet** `upstream-metadata` `plugin-upstream-fix`
+  - **manifest-unknown-fields**: google-meet: manifest uses unsupported top-level fields
+  - state: open · compat:none
+  - evidence:
+    - recommendedPrompts @ plugins/google-meet/.crabpot-package/openclaw.plugin.json
+  - author remediation:
+    - Move unsupported top-level manifest fields into supported package metadata or remove them.
+    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
+
 - 🟡 P2 **google-meet** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: google-meet: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
@@ -4130,11 +4304,11 @@ _none_
   - **registration-capture-gap**: google-meet: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:untracked
   - evidence:
-    - registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:129
-    - registerNodeHostCommand @ plugins/google-meet/.crabpot-package/dist/index.js:370
-    - registerNodeInvokePolicy @ plugins/google-meet/.crabpot-package/dist/index.js:380
-    - registerService @ plugins/google-meet/.crabpot-package/dist/.setup/plugin-registration-CPaJjZDs.mjs:111
-    - registerTranscriptSourceProvider @ plugins/google-meet/.crabpot-package/dist/index.js:188
+    - registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:128
+    - registerNodeHostCommand @ plugins/google-meet/.crabpot-package/dist/index.js:369
+    - registerNodeInvokePolicy @ plugins/google-meet/.crabpot-package/dist/index.js:379
+    - registerService @ plugins/google-meet/.crabpot-package/dist/.setup/plugin-registration-DKu55NBZ.mjs:111
+    - registerTranscriptSourceProvider @ plugins/google-meet/.crabpot-package/dist/index.js:187
 
 - 🟡 P2 **hapi-openclaw** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: hapi-openclaw: cold import requires dependency installation in an isolated workspace
@@ -4412,6 +4586,15 @@ _none_
     - Align the plugin version declared in package.json and openclaw.plugin.json.
     - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#package-manifest-version-drift
 
+- 🟡 P2 **lobster** `upstream-metadata` `plugin-upstream-fix`
+  - **manifest-unknown-fields**: lobster: manifest uses unsupported top-level fields
+  - state: open · compat:none
+  - evidence:
+    - recommendedPrompts @ plugins/lobster/.crabpot-package/openclaw.plugin.json
+  - author remediation:
+    - Move unsupported top-level manifest fields into supported package metadata or remove them.
+    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
+
 - 🟡 P2 **lobster** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: lobster: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
@@ -4546,6 +4729,15 @@ _none_
   - evidence:
     - [registerTool @ index.ts:30](https://github.com/androidStern-personal/openclaw-mcp-adapter/blob/5434ce21ac780a46a493c8125e52e80a03dd2640/index.ts#L30)
 
+- 🟡 P2 **memory-lancedb** `upstream-metadata` `plugin-upstream-fix`
+  - **manifest-unknown-fields**: memory-lancedb: manifest uses unsupported top-level fields
+  - state: open · compat:none
+  - evidence:
+    - recommendedPrompts @ plugins/memory-lancedb/.crabpot-package/openclaw.plugin.json
+  - author remediation:
+    - Move unsupported top-level manifest fields into supported package metadata or remove them.
+    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
+
 - 🟡 P2 **memory-lancedb** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: memory-lancedb: cold import requires dependency installation in an isolated workspace
   - state: open · compat:none
@@ -4565,9 +4757,9 @@ _none_
   - **registration-capture-gap**: memory-lancedb: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:untracked
   - evidence:
-    - registerMemoryCapability @ plugins/memory-lancedb/.crabpot-package/dist/index.js:143
-    - registerService @ plugins/memory-lancedb/.crabpot-package/dist/index.js:459
-    - registerService @ plugins/memory-lancedb/.crabpot-package/dist/index.js:60
+    - registerMemoryCapability @ plugins/memory-lancedb/.crabpot-package/dist/index.js:163
+    - registerService @ plugins/memory-lancedb/.crabpot-package/dist/index.js:462
+    - registerService @ plugins/memory-lancedb/.crabpot-package/dist/index.js:80
 
 - 🟡 P2 **memory-tencentdb** `deprecation-warning` `core-compat-adapter`
   - **legacy-root-sdk-import**: memory-tencentdb: root plugin SDK barrel is still used by fixtures
@@ -4731,7 +4923,7 @@ _none_
   - **channel-contract-probe**: msteams: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/msteams/.crabpot-package/dist/.setup/channel-DD1DuPR8.cjs:913
+    - createChatChannelPlugin @ plugins/msteams/.crabpot-package/dist/.setup/channel-BFWe4zic.cjs:896
 
 - 🟡 P2 **msteams** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: msteams: cold import requires dependency installation in an isolated workspace
@@ -4770,7 +4962,7 @@ _none_
   - **channel-contract-probe**: nextcloud-talk: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/nextcloud-talk/.crabpot-package/dist/.setup/channel-CksQiDCA.mjs:2862
+    - createChatChannelPlugin @ plugins/nextcloud-talk/.crabpot-package/dist/.setup/channel-CgV-6pi2.mjs:2835
 
 - 🟡 P2 **nextcloud-talk** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: nextcloud-talk: cold import requires dependency installation in an isolated workspace
@@ -4783,7 +4975,7 @@ _none_
   - **channel-contract-probe**: nostr: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/nostr/.crabpot-package/dist/.setup/channel-BIAfPJMs.mjs:1164
+    - createChatChannelPlugin @ plugins/nostr/.crabpot-package/dist/.setup/channel-B4fpUOPw.mjs:1152
 
 - 🟡 P2 **nostr** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: nostr: cold import requires dependency installation in an isolated workspace
@@ -5061,7 +5253,7 @@ _none_
   - **channel-contract-probe**: tlon: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/tlon/.crabpot-package/dist/.setup/channel-bmlV7Bo5.mjs:136
+    - createChatChannelPlugin @ plugins/tlon/.crabpot-package/dist/.setup/channel-0hZrTtRT.mjs:161
 
 - 🟡 P2 **tlon** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: tlon: cold import requires dependency installation in an isolated workspace
@@ -5077,7 +5269,7 @@ _none_
   - **channel-contract-probe**: twitch: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/twitch/.crabpot-package/dist/.setup/plugin-D_NszQlS.mjs:781
+    - createChatChannelPlugin @ plugins/twitch/.crabpot-package/dist/.setup/plugin-B2l8TCND.mjs:772
 
 - 🟡 P2 **twitch** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: twitch: cold import requires dependency installation in an isolated workspace
@@ -5087,6 +5279,15 @@ _none_
     - @twurple/auth @ plugins/twitch/.crabpot-package/package.json
     - @twurple/chat @ plugins/twitch/.crabpot-package/package.json
     - zod @ plugins/twitch/.crabpot-package/package.json
+
+- 🟡 P2 **voice-call** `upstream-metadata` `plugin-upstream-fix`
+  - **manifest-unknown-fields**: voice-call: manifest uses unsupported top-level fields
+  - state: open · compat:none
+  - evidence:
+    - recommendedPrompts @ plugins/voice-call/.crabpot-package/openclaw.plugin.json
+  - author remediation:
+    - Move unsupported top-level manifest fields into supported package metadata or remove them.
+    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
 
 - 🟡 P2 **voice-call** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: voice-call: cold import requires dependency installation in an isolated workspace
@@ -5099,9 +5300,9 @@ _none_
   - **registration-capture-gap**: voice-call: runtime registrations need capture evidence before final contract judgment
   - state: open · compat:untracked
   - evidence:
-    - registerConfigMigration @ plugins/voice-call/.crabpot-package/dist/setup-api.js:132
-    - registerGatewayMethod @ plugins/voice-call/.crabpot-package/dist/index.js:296
-    - registerService @ plugins/voice-call/.crabpot-package/dist/index.js:504
+    - registerConfigMigration @ plugins/voice-call/.crabpot-package/dist/setup-api.js:131
+    - registerGatewayMethod @ plugins/voice-call/.crabpot-package/dist/index.js:294
+    - registerService @ plugins/voice-call/.crabpot-package/dist/index.js:502
 
 - 🟡 P2 **web-search-plus** `inspector-gap` `inspector-follow-up`
   - **package-typescript-source-entrypoint**: web-search-plus: cold import needs TypeScript source entrypoint support
@@ -5144,7 +5345,16 @@ _none_
   - **channel-contract-probe**: whatsapp: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-Dr64YTWj.mjs:346
+    - createChatChannelPlugin @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-zYMabwp9.mjs:341
+
+- 🟡 P2 **whatsapp** `upstream-metadata` `plugin-upstream-fix`
+  - **manifest-unknown-fields**: whatsapp: manifest uses unsupported top-level fields
+  - state: open · compat:none
+  - evidence:
+    - recommendedPrompts @ plugins/whatsapp/.crabpot-package/openclaw.plugin.json
+  - author remediation:
+    - Move unsupported top-level manifest fields into supported package metadata or remove them.
+    - docs: https://docs.openclaw.ai/clawhub/plugin-validation-fixes#manifest-unknown-fields
 
 - 🟡 P2 **whatsapp** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: whatsapp: cold import requires dependency installation in an isolated workspace
@@ -5227,7 +5437,7 @@ _none_
   - **channel-contract-probe**: zalo: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/zalo/.crabpot-package/dist/.setup/channel-CnuMXQO7.mjs:158
+    - createChatChannelPlugin @ plugins/zalo/.crabpot-package/dist/.setup/channel-D_1R3bFK.mjs:157
 
 - 🟡 P2 **zalo** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: zalo: cold import requires dependency installation in an isolated workspace
@@ -5239,7 +5449,7 @@ _none_
   - **channel-contract-probe**: zalouser: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/zalouser/.crabpot-package/dist/.setup/channel-Bgo_k2Sn.mjs:252
+    - createChatChannelPlugin @ plugins/zalouser/.crabpot-package/dist/.setup/channel-B4uMhrLj.mjs:249
 
 - 🟡 P2 **zalouser** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: zalouser: cold import requires dependency installation in an isolated workspace
@@ -5280,6 +5490,12 @@ _none_
   - id: `hook.before_tool_call.terminal-block-approval:kitchen-sink`
   - evidence:
     - [before_tool_call @ generated-hooks.js:19](https://github.com/openclaw/kitchen-sink/blob/b52b553bc89a23ed6fa0a419aa52eedb8a8ba5b0/src/generated-hooks.js#L19)
+
+- 🟠 P1 **lightclawbot** `hook-runner`
+  - contract: Hook returns preserve terminal, block, and approval semantics.
+  - id: `hook.before_tool_call.terminal-block-approval:lightclawbot`
+  - evidence:
+    - before_tool_call @ plugins/lightclawbot/.crabpot-package/dist/src/streaming/tool-completion.js:19
 
 - 🟠 P1 **nemoclaw** `hook-runner`
   - contract: Hook returns preserve terminal, block, and approval semantics.
@@ -5339,7 +5555,7 @@ _none_
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
   - id: `hook.llm-observer.privacy-payload:memory-lancedb`
   - evidence:
-    - agent_end @ plugins/memory-lancedb/.crabpot-package/dist/index.js:381
+    - agent_end @ plugins/memory-lancedb/.crabpot-package/dist/index.js:384
 
 - 🟠 P1 **memory-tencentdb** `hook-runner`
   - contract: LLM observer hooks receive documented prompt/output fields with expected redaction behavior.
@@ -5427,18 +5643,25 @@ _none_
   - evidence:
     - [openclaw/plugin-sdk @ index.ts:11](https://github.com/suchasplus/openclaw-dingtalk-doc/blob/3503d688e9beff7cdf10654c1d34037ccf960cb7/index.ts#L11)
 
-- 🟠 P1 **lightclawbot** `sdk-alias`
+- 🟠 P1 **discord** `sdk-alias`
   - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
-  - id: `sdk.import.package-export-cold-import:lightclawbot`
+  - id: `sdk.import.package-export-cold-import:discord`
   - evidence:
-    - openclaw/plugin-sdk/channel-reply-pipeline @ plugins/lightclawbot/.crabpot-package/dist/src/inbound.js:264
-    - openclaw/plugin-sdk/config-runtime @ plugins/lightclawbot/.crabpot-package/dist/src/utils/openclaw-compat.js:84
+    - openclaw/plugin-sdk/agent-control-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-BvhSlcJy.mjs:91
+    - openclaw/plugin-sdk/reply-session-init-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-GpZpRyHA.mjs:45
+
+- 🟠 P1 **feishu** `sdk-alias`
+  - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
+  - id: `sdk.import.package-export-cold-import:feishu`
+  - evidence:
+    - openclaw/plugin-sdk/agent-control-runtime @ plugins/feishu/.crabpot-package/dist/.setup/monitor.account-x_KliB35.mjs:39
+    - openclaw/plugin-sdk/agent-control-runtime @ plugins/feishu/.crabpot-package/dist/.setup/reply-delivery-result-DTuuSfED.mjs:42
 
 - 🟠 P1 **lobster** `sdk-alias`
   - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
   - id: `sdk.import.package-export-cold-import:lobster`
   - evidence:
-    - openclaw/plugin-sdk/json-schema-validator @ plugins/lobster/.crabpot-package/dist/.setup/lobster-schema-compiler-Dxya_m9g.mjs:1
+    - openclaw/plugin-sdk/json-schema-validator @ plugins/lobster/.crabpot-package/dist/.setup/lobster-schema-compiler-T2XZzavY.mjs:1
     - openclaw/plugin-sdk/runtime-profile @ plugins/lobster/.crabpot-package/dist/index.js:74
 
 - 🟠 P1 **matrix** `sdk-alias`
@@ -5472,6 +5695,12 @@ _none_
   - id: `sdk.import.package-export-cold-import:mocrane-wecom`
   - evidence:
     - [openclaw/plugin-sdk @ plugin-sdk-shim.ts:30](https://github.com/TencentCloud-Lighthouse/openclaw-wecom/blob/5edda565415e29e30f6388c2160f750bb026ec32/src/compat/plugin-sdk-shim.ts#L30)
+
+- 🟠 P1 **msteams** `sdk-alias`
+  - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
+  - id: `sdk.import.package-export-cold-import:msteams`
+  - evidence:
+    - openclaw/plugin-sdk/agent-control-runtime @ plugins/msteams/.crabpot-package/dist/.setup/monitor-C5ijkBxj.cjs:33
 
 - 🟠 P1 **openclaw-telemetry** `sdk-alias`
   - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
@@ -6335,27 +6564,29 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:codex`
   - evidence:
-    - registerAgentHarness @ plugins/codex/.crabpot-package/dist/index.js:4220
-    - registerCommand @ plugins/codex/.crabpot-package/dist/index.js:4269
-    - registerGatewayMethod @ plugins/codex/.crabpot-package/dist/index.js:4095
-    - registerMediaUnderstandingProvider @ plugins/codex/.crabpot-package/dist/index.js:4221
-    - registerMigrationProvider @ plugins/codex/.crabpot-package/dist/index.js:4223
-    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4187
-    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4265
-    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4267
-    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4189
-    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4266
-    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4268
-    - registerProvider @ plugins/codex/.crabpot-package/dist/index.js:4101
-    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4099
-    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4116
-    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4117
-    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4118
-    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4173
-    - registerSessionCatalog @ plugins/codex/.crabpot-package/dist/index.js:3325
-    - registerToolMetadata @ plugins/codex/.crabpot-package/dist/index.js:4236
-    - registerToolMetadata @ plugins/codex/.crabpot-package/dist/index.js:4254
-    - registerWebSearchProvider @ plugins/codex/.crabpot-package/dist/index.js:4222
+    - registerAgentHarness @ plugins/codex/.crabpot-package/dist/index.js:4307
+    - registerCommand @ plugins/codex/.crabpot-package/dist/index.js:4358
+    - registerGatewayMethod @ plugins/codex/.crabpot-package/dist/index.js:4181
+    - registerMediaUnderstandingProvider @ plugins/codex/.crabpot-package/dist/index.js:4308
+    - registerMigrationProvider @ plugins/codex/.crabpot-package/dist/index.js:4310
+    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4273
+    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4352
+    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4354
+    - registerNodeHostCommand @ plugins/codex/.crabpot-package/dist/index.js:4356
+    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4275
+    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4353
+    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4355
+    - registerNodeInvokePolicy @ plugins/codex/.crabpot-package/dist/index.js:4357
+    - registerProvider @ plugins/codex/.crabpot-package/dist/index.js:4187
+    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4185
+    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4202
+    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4203
+    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4204
+    - registerService @ plugins/codex/.crabpot-package/dist/index.js:4259
+    - registerSessionCatalog @ plugins/codex/.crabpot-package/dist/index.js:3415
+    - registerToolMetadata @ plugins/codex/.crabpot-package/dist/index.js:4323
+    - registerToolMetadata @ plugins/codex/.crabpot-package/dist/index.js:4341
+    - registerWebSearchProvider @ plugins/codex/.crabpot-package/dist/index.js:4309
 
 - 🟢 P3 **codex-app-server** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -6376,33 +6607,33 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:diagnostics-prometheus`
   - evidence:
-    - registerHttpRoute @ plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:1666
-    - registerService @ plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:1665
+    - registerHttpRoute @ plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:1707
+    - registerService @ plugins/diagnostics-prometheus/.crabpot-package/dist/index.js:1706
 
 - 🟢 P3 **diffs** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:diffs`
   - evidence:
-    - registerHttpRoute @ plugins/diffs/.crabpot-package/dist/index.js:1712
-    - registerService @ plugins/diffs/.crabpot-package/dist/index.js:1687
+    - registerHttpRoute @ plugins/diffs/.crabpot-package/dist/index.js:1701
+    - registerService @ plugins/diffs/.crabpot-package/dist/index.js:1673
 
 - 🟢 P3 **discord** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:discord`
   - evidence:
-    - registerHttpRoute @ plugins/discord/.crabpot-package/dist/activities-api.js:573
+    - registerHttpRoute @ plugins/discord/.crabpot-package/dist/activities-api.js:534
     - registerTranscriptSourceProvider @ plugins/discord/.crabpot-package/dist/transcripts-source-api.js:4
-    - registerWidgetPresenter @ plugins/discord/.crabpot-package/dist/activities-api.js:609
+    - registerWidgetPresenter @ plugins/discord/.crabpot-package/dist/activities-api.js:570
 
 - 🟢 P3 **google-meet** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:google-meet`
   - evidence:
-    - registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:129
-    - registerNodeHostCommand @ plugins/google-meet/.crabpot-package/dist/index.js:370
-    - registerNodeInvokePolicy @ plugins/google-meet/.crabpot-package/dist/index.js:380
-    - registerService @ plugins/google-meet/.crabpot-package/dist/.setup/plugin-registration-CPaJjZDs.mjs:111
-    - registerTranscriptSourceProvider @ plugins/google-meet/.crabpot-package/dist/index.js:188
+    - registerGatewayMethod @ plugins/google-meet/.crabpot-package/dist/index.js:128
+    - registerNodeHostCommand @ plugins/google-meet/.crabpot-package/dist/index.js:369
+    - registerNodeInvokePolicy @ plugins/google-meet/.crabpot-package/dist/index.js:379
+    - registerService @ plugins/google-meet/.crabpot-package/dist/.setup/plugin-registration-DKu55NBZ.mjs:111
+    - registerTranscriptSourceProvider @ plugins/google-meet/.crabpot-package/dist/index.js:187
 
 - 🟢 P3 **inworld-tts** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -6433,9 +6664,9 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:memory-lancedb`
   - evidence:
-    - registerMemoryCapability @ plugins/memory-lancedb/.crabpot-package/dist/index.js:143
-    - registerService @ plugins/memory-lancedb/.crabpot-package/dist/index.js:459
-    - registerService @ plugins/memory-lancedb/.crabpot-package/dist/index.js:60
+    - registerMemoryCapability @ plugins/memory-lancedb/.crabpot-package/dist/index.js:163
+    - registerService @ plugins/memory-lancedb/.crabpot-package/dist/index.js:462
+    - registerService @ plugins/memory-lancedb/.crabpot-package/dist/index.js:80
 
 - 🟢 P3 **memos-cloud** `inspector-capture-api`
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
@@ -6467,9 +6698,9 @@ _none_
   - contract: External inspector capture records service, route, gateway, command, and interactive registrations.
   - id: `api.capture.runtime-registrars:voice-call`
   - evidence:
-    - registerConfigMigration @ plugins/voice-call/.crabpot-package/dist/setup-api.js:132
-    - registerGatewayMethod @ plugins/voice-call/.crabpot-package/dist/index.js:296
-    - registerService @ plugins/voice-call/.crabpot-package/dist/index.js:504
+    - registerConfigMigration @ plugins/voice-call/.crabpot-package/dist/setup-api.js:131
+    - registerGatewayMethod @ plugins/voice-call/.crabpot-package/dist/index.js:294
+    - registerService @ plugins/voice-call/.crabpot-package/dist/index.js:502
 
 - 🟢 P3 **bluebubbles** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -6481,13 +6712,13 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:discord`
   - evidence:
-    - createChatChannelPlugin @ plugins/discord/.crabpot-package/dist/.setup/channel-tgjw3dY4.mjs:408
+    - createChatChannelPlugin @ plugins/discord/.crabpot-package/dist/.setup/channel-C0GMDf_u.mjs:404
 
 - 🟢 P3 **feishu** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:feishu`
   - evidence:
-    - createChatChannelPlugin @ plugins/feishu/.crabpot-package/dist/.setup/channel-DDrdYVwq.mjs:2149
+    - createChatChannelPlugin @ plugins/feishu/.crabpot-package/dist/.setup/channel-Bp5AqILl.mjs:2177
 
 - 🟢 P3 **lightclawbot** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -6506,19 +6737,19 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:msteams`
   - evidence:
-    - createChatChannelPlugin @ plugins/msteams/.crabpot-package/dist/.setup/channel-DD1DuPR8.cjs:913
+    - createChatChannelPlugin @ plugins/msteams/.crabpot-package/dist/.setup/channel-BFWe4zic.cjs:896
 
 - 🟢 P3 **nextcloud-talk** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:nextcloud-talk`
   - evidence:
-    - createChatChannelPlugin @ plugins/nextcloud-talk/.crabpot-package/dist/.setup/channel-CksQiDCA.mjs:2862
+    - createChatChannelPlugin @ plugins/nextcloud-talk/.crabpot-package/dist/.setup/channel-CgV-6pi2.mjs:2835
 
 - 🟢 P3 **nostr** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:nostr`
   - evidence:
-    - createChatChannelPlugin @ plugins/nostr/.crabpot-package/dist/.setup/channel-BIAfPJMs.mjs:1164
+    - createChatChannelPlugin @ plugins/nostr/.crabpot-package/dist/.setup/channel-B4fpUOPw.mjs:1152
 
 - 🟢 P3 **telnyx-sms** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -6530,31 +6761,31 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:tlon`
   - evidence:
-    - createChatChannelPlugin @ plugins/tlon/.crabpot-package/dist/.setup/channel-bmlV7Bo5.mjs:136
+    - createChatChannelPlugin @ plugins/tlon/.crabpot-package/dist/.setup/channel-0hZrTtRT.mjs:161
 
 - 🟢 P3 **twitch** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:twitch`
   - evidence:
-    - createChatChannelPlugin @ plugins/twitch/.crabpot-package/dist/.setup/plugin-D_NszQlS.mjs:781
+    - createChatChannelPlugin @ plugins/twitch/.crabpot-package/dist/.setup/plugin-B2l8TCND.mjs:772
 
 - 🟢 P3 **whatsapp** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:whatsapp`
   - evidence:
-    - createChatChannelPlugin @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-Dr64YTWj.mjs:346
+    - createChatChannelPlugin @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-zYMabwp9.mjs:341
 
 - 🟢 P3 **zalo** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:zalo`
   - evidence:
-    - createChatChannelPlugin @ plugins/zalo/.crabpot-package/dist/.setup/channel-CnuMXQO7.mjs:158
+    - createChatChannelPlugin @ plugins/zalo/.crabpot-package/dist/.setup/channel-D_1R3bFK.mjs:157
 
 - 🟢 P3 **zalouser** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:zalouser`
   - evidence:
-    - createChatChannelPlugin @ plugins/zalouser/.crabpot-package/dist/.setup/channel-Bgo_k2Sn.mjs:252
+    - createChatChannelPlugin @ plugins/zalouser/.crabpot-package/dist/.setup/channel-B4uMhrLj.mjs:249
 
 - 🟢 P3 **memos-cloud** `hook-runner`
   - contract: Legacy before_agent_start remains wired until plugins migrate to before_model_resolve and before_prompt_build.
@@ -6593,11 +6824,47 @@ _none_
     - entryPoint @ plugins/aiwerk-mcp-bridge/.crabpot-package/openclaw.plugin.json
     - required @ plugins/aiwerk-mcp-bridge/.crabpot-package/openclaw.plugin.json
 
+- 🟢 P3 **diffs** `manifest-loader`
+  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
+  - id: `manifest.schema.top-level-fields:diffs`
+  - evidence:
+    - recommendedPrompts @ plugins/diffs/.crabpot-package/openclaw.plugin.json
+
+- 🟢 P3 **discord** `manifest-loader`
+  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
+  - id: `manifest.schema.top-level-fields:discord`
+  - evidence:
+    - recommendedPrompts @ plugins/discord/.crabpot-package/openclaw.plugin.json
+
+- 🟢 P3 **feishu** `manifest-loader`
+  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
+  - id: `manifest.schema.top-level-fields:feishu`
+  - evidence:
+    - recommendedPrompts @ plugins/feishu/.crabpot-package/openclaw.plugin.json
+
+- 🟢 P3 **google-meet** `manifest-loader`
+  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
+  - id: `manifest.schema.top-level-fields:google-meet`
+  - evidence:
+    - recommendedPrompts @ plugins/google-meet/.crabpot-package/openclaw.plugin.json
+
 - 🟢 P3 **inworld-tts** `manifest-loader`
   - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
   - id: `manifest.schema.top-level-fields:inworld-tts`
   - evidence:
     - [providerAuthEnvVars @ openclaw.plugin.json](https://github.com/livingghost/openclaw-inworld-tts/blob/d2abaeea330ebef7530f43f8b395671f6f404aea/openclaw.plugin.json)
+
+- 🟢 P3 **lobster** `manifest-loader`
+  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
+  - id: `manifest.schema.top-level-fields:lobster`
+  - evidence:
+    - recommendedPrompts @ plugins/lobster/.crabpot-package/openclaw.plugin.json
+
+- 🟢 P3 **memory-lancedb** `manifest-loader`
+  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
+  - id: `manifest.schema.top-level-fields:memory-lancedb`
+  - evidence:
+    - recommendedPrompts @ plugins/memory-lancedb/.crabpot-package/openclaw.plugin.json
 
 - 🟢 P3 **memos-cloud** `manifest-loader`
   - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
@@ -6610,6 +6877,18 @@ _none_
   - id: `manifest.schema.top-level-fields:telnyx-sms`
   - evidence:
     - [channelEnvVars @ openclaw.plugin.json](https://github.com/team-telnyx/telnyx-openclaw-sms-channel/blob/6e3956246cd3e0e72af649d2fd75dee6f3e46966/openclaw.plugin.json)
+
+- 🟢 P3 **voice-call** `manifest-loader`
+  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
+  - id: `manifest.schema.top-level-fields:voice-call`
+  - evidence:
+    - recommendedPrompts @ plugins/voice-call/.crabpot-package/openclaw.plugin.json
+
+- 🟢 P3 **whatsapp** `manifest-loader`
+  - contract: Manifest top-level fields are represented in target OpenClaw PluginManifest.
+  - id: `manifest.schema.top-level-fields:whatsapp`
+  - evidence:
+    - recommendedPrompts @ plugins/whatsapp/.crabpot-package/openclaw.plugin.json
 
 - 🟢 P3 **aiwerk-mcp-bridge** `package-loader`
   - contract: Package metadata declares the OpenClaw plugin API range used by the plugin.

@@ -15,7 +15,7 @@
     "installStepCount": 79,
     "auditStepCount": 79,
     "buildStepCount": 15,
-    "pruneDevWorkspaceDependencyStepCount": 14,
+    "pruneDevWorkspaceDependencyStepCount": 13,
     "artifactStepCount": 119,
     "captureStepCount": 119,
     "syntheticProbeStepCount": 119,
@@ -23,7 +23,7 @@
     "tsLoaderEntrypointCount": 20,
     "jitiAlternativeCount": 20,
     "missingBuildScriptCount": 0,
-    "sdkAliasRequiredCount": 28
+    "sdkAliasRequiredCount": 38
   },
   "fixtures": [
     {
@@ -2248,6 +2248,7 @@
           },
           "requiredCapabilities": [
             "capture-shim",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -2256,6 +2257,16 @@
               "code": "missing-entrypoint",
               "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/discord/.crabpot-package/index.ts"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-BvhSlcJy.mjs:91"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/reply-session-init-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-GpZpRyHA.mjs:45"
             }
           ],
           "steps": [
@@ -2299,7 +2310,7 @@
           "packagePath": "plugins/discord/.crabpot-package/package.json",
           "packageName": "@openclaw/discord",
           "entrypoint": "plugins/discord/.crabpot-package/dist/index.js",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": "plugins/discord/package-lock.json",
           "loaderStrategy": {
@@ -2311,6 +2322,7 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -2319,6 +2331,16 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@discord/embedded-app-sdk, @discordjs/voice, discord-api-types, libopus-wasm, mdast-util-from-markdown, typebox, undici, ws, zod"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-BvhSlcJy.mjs:91"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/reply-session-init-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-GpZpRyHA.mjs:45"
             }
           ],
           "steps": [
@@ -2375,7 +2397,7 @@
           "packagePath": "plugins/discord/.crabpot-package/package.json",
           "packageName": "@openclaw/discord",
           "entrypoint": "plugins/discord/.crabpot-package/dist/setup-entry.js",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": "plugins/discord/package-lock.json",
           "loaderStrategy": {
@@ -2387,6 +2409,7 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -2395,6 +2418,16 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@discord/embedded-app-sdk, @discordjs/voice, discord-api-types, libopus-wasm, mdast-util-from-markdown, typebox, undici, ws, zod"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-BvhSlcJy.mjs:91"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/reply-session-init-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-GpZpRyHA.mjs:45"
             }
           ],
           "steps": [
@@ -2451,7 +2484,7 @@
           "packagePath": "plugins/discord/.crabpot-package/package.json",
           "packageName": "@openclaw/discord",
           "entrypoint": "plugins/discord/.crabpot-package/dist/setup-entry.js",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": "plugins/discord/package-lock.json",
           "loaderStrategy": {
@@ -2463,6 +2496,7 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -2471,6 +2505,16 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@discord/embedded-app-sdk, @discordjs/voice, discord-api-types, libopus-wasm, mdast-util-from-markdown, typebox, undici, ws, zod"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-BvhSlcJy.mjs:91"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/reply-session-init-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-GpZpRyHA.mjs:45"
             }
           ],
           "steps": [
@@ -2556,7 +2600,7 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/json-schema-validator @ plugins/lobster/.crabpot-package/dist/.setup/lobster-schema-compiler-Dxya_m9g.mjs:1"
+              "evidence": "openclaw/plugin-sdk/json-schema-validator @ plugins/lobster/.crabpot-package/dist/.setup/lobster-schema-compiler-T2XZzavY.mjs:1"
             },
             {
               "code": "sdk-alias-required",
@@ -2636,7 +2680,7 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/json-schema-validator @ plugins/lobster/.crabpot-package/dist/.setup/lobster-schema-compiler-Dxya_m9g.mjs:1"
+              "evidence": "openclaw/plugin-sdk/json-schema-validator @ plugins/lobster/.crabpot-package/dist/.setup/lobster-schema-compiler-T2XZzavY.mjs:1"
             },
             {
               "code": "sdk-alias-required",
@@ -2961,6 +3005,7 @@
           },
           "requiredCapabilities": [
             "capture-shim",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -2969,6 +3014,11 @@
               "code": "missing-entrypoint",
               "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/msteams/.crabpot-package/index.ts"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/msteams/.crabpot-package/dist/.setup/monitor-C5ijkBxj.cjs:33"
             }
           ],
           "steps": [
@@ -3012,7 +3062,7 @@
           "packagePath": "plugins/msteams/.crabpot-package/package.json",
           "packageName": "@openclaw/msteams",
           "entrypoint": "plugins/msteams/.crabpot-package/dist/index.cjs",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": "plugins/msteams/package-lock.json",
           "loaderStrategy": {
@@ -3024,6 +3074,7 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -3032,6 +3083,11 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@azure/identity, @microsoft/teams.api, @microsoft/teams.apps, express, typebox, zod"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/msteams/.crabpot-package/dist/.setup/monitor-C5ijkBxj.cjs:33"
             }
           ],
           "steps": [
@@ -3094,7 +3150,7 @@
           "packagePath": "plugins/msteams/.crabpot-package/package.json",
           "packageName": "@openclaw/msteams",
           "entrypoint": "plugins/msteams/.crabpot-package/dist/setup-entry.cjs",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": "plugins/msteams/package-lock.json",
           "loaderStrategy": {
@@ -3106,6 +3162,7 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -3114,6 +3171,11 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@azure/identity, @microsoft/teams.api, @microsoft/teams.apps, express, typebox, zod"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/msteams/.crabpot-package/dist/.setup/monitor-C5ijkBxj.cjs:33"
             }
           ],
           "steps": [
@@ -3176,7 +3238,7 @@
           "packagePath": "plugins/msteams/.crabpot-package/package.json",
           "packageName": "@openclaw/msteams",
           "entrypoint": "plugins/msteams/.crabpot-package/dist/setup-entry.cjs",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": "plugins/msteams/package-lock.json",
           "loaderStrategy": {
@@ -3188,6 +3250,7 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -3196,6 +3259,11 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@azure/identity, @microsoft/teams.api, @microsoft/teams.apps, express, typebox, zod"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/msteams/.crabpot-package/dist/.setup/monitor-C5ijkBxj.cjs:33"
             }
           ],
           "steps": [
@@ -4755,6 +4823,7 @@
           },
           "requiredCapabilities": [
             "capture-shim",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -4763,6 +4832,16 @@
               "code": "missing-entrypoint",
               "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/feishu/.crabpot-package/index.ts"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/feishu/.crabpot-package/dist/.setup/monitor.account-x_KliB35.mjs:39"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/feishu/.crabpot-package/dist/.setup/reply-delivery-result-DTuuSfED.mjs:42"
             }
           ],
           "steps": [
@@ -4806,7 +4885,7 @@
           "packagePath": "plugins/feishu/.crabpot-package/package.json",
           "packageName": "@openclaw/feishu",
           "entrypoint": "plugins/feishu/.crabpot-package/dist/index.js",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": "plugins/feishu/package-lock.json",
           "loaderStrategy": {
@@ -4818,6 +4897,7 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -4826,6 +4906,16 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@larksuiteoapi/node-sdk, mdast-util-from-markdown, mdast-util-gfm-table, micromark-extension-gfm-table, typebox, zod"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/feishu/.crabpot-package/dist/.setup/monitor.account-x_KliB35.mjs:39"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/feishu/.crabpot-package/dist/.setup/reply-delivery-result-DTuuSfED.mjs:42"
             }
           ],
           "steps": [
@@ -4882,7 +4972,7 @@
           "packagePath": "plugins/feishu/.crabpot-package/package.json",
           "packageName": "@openclaw/feishu",
           "entrypoint": "plugins/feishu/.crabpot-package/dist/setup-entry.js",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": "plugins/feishu/package-lock.json",
           "loaderStrategy": {
@@ -4894,6 +4984,7 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -4902,6 +4993,16 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@larksuiteoapi/node-sdk, mdast-util-from-markdown, mdast-util-gfm-table, micromark-extension-gfm-table, typebox, zod"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/feishu/.crabpot-package/dist/.setup/monitor.account-x_KliB35.mjs:39"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/feishu/.crabpot-package/dist/.setup/reply-delivery-result-DTuuSfED.mjs:42"
             }
           ],
           "steps": [
@@ -4958,7 +5059,7 @@
           "packagePath": "plugins/feishu/.crabpot-package/package.json",
           "packageName": "@openclaw/feishu",
           "entrypoint": "plugins/feishu/.crabpot-package/dist/setup-entry.js",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": "plugins/feishu/package-lock.json",
           "loaderStrategy": {
@@ -4970,6 +5071,7 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -4978,6 +5080,16 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@larksuiteoapi/node-sdk, mdast-util-from-markdown, mdast-util-gfm-table, micromark-extension-gfm-table, typebox, zod"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/feishu/.crabpot-package/dist/.setup/monitor.account-x_KliB35.mjs:39"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/feishu/.crabpot-package/dist/.setup/reply-delivery-result-DTuuSfED.mjs:42"
             }
           ],
           "steps": [
@@ -6408,12 +6520,6 @@
               "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/codex",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
-            },
-            {
-              "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/prune-workspace-dev-deps-cli.js",
-              "cwd": ".crabpot/workspaces/codex",
-              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
             {
               "kind": "install",
@@ -8450,7 +8556,7 @@
           "packagePath": "plugins/lightclawbot/.crabpot-package/package.json",
           "packageName": "lightclawbot",
           "entrypoint": "plugins/lightclawbot/.crabpot-package/dist/index.js",
-          "status": "sdk-alias-required",
+          "status": "dependency-install-required",
           "packageManager": "npm",
           "lockfile": "plugins/lightclawbot/package-lock.json",
           "loaderStrategy": {
@@ -8462,7 +8568,6 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
-            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -8471,16 +8576,6 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@modelcontextprotocol/sdk, ws"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/channel-reply-pipeline @ plugins/lightclawbot/.crabpot-package/dist/src/inbound.js:264"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/config-runtime @ plugins/lightclawbot/.crabpot-package/dist/src/utils/openclaw-compat.js:84"
             }
           ],
           "steps": [
@@ -8537,7 +8632,7 @@
           "packagePath": "plugins/lightclawbot/.crabpot-package/package.json",
           "packageName": "lightclawbot",
           "entrypoint": "plugins/lightclawbot/.crabpot-package/dist/setup-entry.js",
-          "status": "sdk-alias-required",
+          "status": "dependency-install-required",
           "packageManager": "npm",
           "lockfile": "plugins/lightclawbot/package-lock.json",
           "loaderStrategy": {
@@ -8549,7 +8644,6 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
-            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -8558,16 +8652,6 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@modelcontextprotocol/sdk, ws"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/channel-reply-pipeline @ plugins/lightclawbot/.crabpot-package/dist/src/inbound.js:264"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/config-runtime @ plugins/lightclawbot/.crabpot-package/dist/src/utils/openclaw-compat.js:84"
             }
           ],
           "steps": [
