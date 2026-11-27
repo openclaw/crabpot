@@ -158,6 +158,7 @@ jobs:
     permissions:
       contents: write
       statuses: write
+      pull-requests: write
     uses: ./.github/workflows/publish-dashboard.yml
     with:
       source-sha: ${{ needs.refresh-and-automerge.outputs.merged-sha }}
