@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-- Add weekly and PR CodeQL workflow coverage for Actions and JavaScript/TypeScript, with manual scans and native caching, for the managed security-setup cutover.
+- Stage weekly and PR CodeQL workflow coverage for Actions and JavaScript/TypeScript, with manual scans and native caching, for the managed security-setup cutover.
 
 - Refresh A2A Gateway's corrected manifest metadata and verify its exact empty-request rejection contracts without requiring the resolved version-drift warning. Thanks @dependabot.
 
