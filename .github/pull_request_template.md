@@ -27,16 +27,14 @@ can help update the branch when needed.
 
 <!--
 Describe the concrete user, product, or operational problem.
-In 1–3 short, plain-language sentences, explain what someone is trying to do,
-what goes wrong or is missing, and why it matters. For a fix, include the trigger
-when known. For other changes, describe the need without inventing a bug.
+In 1–3 plain sentences, say who is affected, what happens today, and why it
+matters to them. For a bug, name the trigger if known. For a feature or internal
+work, describe the need in the actual workflow without inventing harm.
+Could a reader understand the problem without knowing your proposed fix?
 
-Good: "When a compatibility check fails without naming the plugin, maintainers
-have to search the logs before they can investigate the affected fixture."
-Bad: "Fixes missing fixture IDs in serialized contract results."
-
-Describe the experienced problem, not just the code change. Save function names,
-missing checks, and the root-cause walkthrough for the explanation below.
+Good: "Background checks can use up a new user's model allowance before they've
+asked the assistant to monitor anything."
+Bad: "Turn off periodic checks on fresh installs."
 -->
 
 ## User Impact
@@ -70,21 +68,3 @@ inspect the code, tests, and CI; do not make them decode command lists to learn
 what was verified. Put exact commands, commit hashes, and long output in links
 or optional <details>. Keep the useful evidence summary and meaningful gaps visible.
 -->
-
-## Fixture Impact
-
-- [ ] Adds or updates fixture manifest entries
-- [ ] Updates submodule pins
-- [ ] Changes contract or smoke logic
-- [ ] Docs only
-
-## Fixture Verification
-
-- [ ] `npm test`
-- [ ] `node scripts/sync-fixtures.mjs --check`
-- [ ] `node scripts/run-contract-smoke.mjs`
-- [ ] Strict fixture smoke, if submodules were materialized
-
-## Notes
-
-<!-- List any external services, secrets, or live checks intentionally skipped. -->
