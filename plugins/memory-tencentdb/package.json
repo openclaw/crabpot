@@ -14,7 +14,7 @@
   "overrides": {
     "@opentelemetry/propagator-jaeger": "2.11.0",
     "esbuild": "0.28.2",
-    "qs": "6.16.0",
+    "qs": "6.16.1",
     "tsx": "4.23.12",
     "undici@^8": "8.12.3",
     "undici@^6": "6.29.1",
