@@ -56,6 +56,40 @@ test("static suite rejects missing option values before starting any step", () =
   }
 });
 
+test("release policy reaches the checker and preserves its failure exit code", () => {
+  const cwd = mkdtempSync(path.join(os.tmpdir(), "crabpot-static-policy-"));
+  try {
+    for (const [, args] of buildStaticSuiteSteps({ pluginInspectorSmoke: true })) {
+      const file = args[0] === "--test" ? args.at(-1).replaceAll("*", "empty") : args[0];
+      mkdirSync(path.dirname(path.join(cwd, file)), { recursive: true });
+      writeFileSync(path.join(cwd, file), args[0] === "--test" ? "" : [
+        'import path from "node:path";',
+        'console.log("suite-command:" + JSON.stringify({ script: path.basename(process.argv[1]), args: process.argv.slice(2) }));',
+        'if (process.argv[1].endsWith("check-ci-policy.mjs") && process.argv.includes("--strict")) process.exit(31);',
+      ].join("\n"));
+    }
+    const env = { ...process.env, CRABPOT_STATIC_STEP_TIMEOUT_MS: "10000" };
+    delete env.NODE_TEST_CONTEXT;
+    for (const policy of ["dashboard", "release"]) {
+      const result = spawnSync(process.execPath, [
+        fileURLToPath(new URL("../scripts/run-static-suite.mjs", import.meta.url)), "--policy", policy,
+      ], {
+        cwd, env, encoding: "utf8", timeout: 30_000,
+      });
+      assert.ifError(result.error);
+      const commands = result.stdout.split("\n").filter((line) => line.startsWith("suite-command:"))
+        .map((line) => JSON.parse(line.slice("suite-command:".length)));
+      assert.deepEqual(commands.at(-1), {
+        script: "check-ci-policy.mjs", args: ["--check", ...(policy === "release" ? ["--strict"] : [])],
+      }, result.stderr);
+      assert.equal(commands.some(({ script }) => script === "run-plugin-inspector-smoke.mjs"), policy === "release");
+      assert.equal(result.status, policy === "release" ? 31 : 0, result.stderr);
+    }
+  } finally {
+    rmSync(cwd, { recursive: true, force: true });
+  }
+});
+
 test("static suite keeps the dashboard gate broad and target-explicit", () => {
   const steps = buildStaticSuiteSteps({
     openclawArgs: ["--openclaw", "./openclaw"],

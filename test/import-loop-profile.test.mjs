@@ -1,12 +1,12 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
-import { existsSync } from "node:fs";
+import { existsSync, mkdtempSync, readdirSync, rmSync } from "node:fs";
 import { mkdtemp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import { test } from "node:test";
 import { fileURLToPath, pathToFileURL } from "node:url";
-import { buildImportLoopProfile, renderImportLoopProfileMarkdown, validateImportLoopProfile } from "../scripts/import-loop-profile.mjs";
+import { buildImportLoopProfile, renderImportLoopProfileMarkdown, validateImportLoopProfile, writeImportLoopProfile } from "../scripts/import-loop-profile.mjs";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -93,7 +93,7 @@ test("import loop validation fails requested OpenClaw lifecycle profiles without
   ]);
 });
 
-async function lifecycleHost(t, { importMs = "2.0", activationMs = "1.0", status = "loaded", throws = false, asyncLoader = false } = {}) {
+async function lifecycleHost(t, { importMs = "2.0", activationMs = "1.0", status = "loaded", throws = false, asyncLoader = false, holdDatabase = false } = {}) {
   const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-openclaw-lifecycle-"));
   t.after(() => rm(dir, { recursive: true, force: true }));
   const openclawRoot = path.join(dir, "openclaw");
@@ -121,6 +121,7 @@ async function lifecycleHost(t, { importMs = "2.0", activationMs = "1.0", status
     [
       "import assert from 'node:assert/strict';",
       "import { appendFileSync } from 'node:fs';",
+      ...(holdDatabase ? ["import { DatabaseSync } from 'node:sqlite';", "import path from 'node:path';"] : []),
       "assert.equal(process.env.OPENCLAW_DIAGNOSTICS, 'plugin.load-profile');",
       "assert.equal(process.env.HOME, process.env.OPENCLAW_STATE_DIR);",
       "assert.match(process.env.HOME, /crabpot-openclaw-state-/);",
@@ -130,6 +131,7 @@ async function lifecycleHost(t, { importMs = "2.0", activationMs = "1.0", status
       `  appendFileSync(${JSON.stringify(observationsPath)}, JSON.stringify({ source, state: options.workspaceDir }) + '\\n');`,
       "  assert.equal(options.cache, false);",
       "  assert.equal(options.workspaceDir, process.env.OPENCLAW_STATE_DIR);",
+      ...(holdDatabase ? ["  globalThis.heldDatabase = new DatabaseSync(path.join(options.workspaceDir, 'held.sqlite'));"] : []),
       ...(asyncLoader ? ["  await new Promise((resolve) => setImmediate(resolve));"] : []),
       `  if (${throws}) throw new Error('lifecycle-loader-sentinel');`,
       "  const windowsSource = 'C:\\\\Users\\\\runner\\\\AppData\\\\Local\\\\Temp\\\\crabpot-openclaw-plugin-AbCd\\\\index.mjs';",
@@ -153,13 +155,15 @@ async function lifecycleHost(t, { importMs = "2.0", activationMs = "1.0", status
     "utf8",
   );
 
-  const captureCommand = ({ entrypoint: input = entrypoint, outputPath } = {}) => ({
+  const captureCommand = ({ entrypoint: input = entrypoint, outputPath, captureRoot } = {}) => ({
     command: process.execPath,
     args: [
       "--experimental-loader",
       pathToFileURL(loaderPath).href,
       path.join(repoRoot, "scripts/run-openclaw-lifecycle-capture.mjs"),
       input,
+      "--capture-root",
+      captureRoot,
       ...(outputPath ? ["--output", outputPath] : []),
     ],
     cwd: repoRoot,
@@ -172,16 +176,24 @@ async function lifecycleHost(t, { importMs = "2.0", activationMs = "1.0", status
   });
   return {
     dir,
+    openclawRoot,
     entrypoint,
     captureCommand,
     run() {
-      const command = captureCommand();
-      return spawnSync(command.command, command.args, {
+      const captureRoot = mkdtempSync(path.join(dir, "direct-capture-"));
+      const command = captureCommand({ captureRoot });
+      const result = spawnSync(command.command, command.args, {
         cwd: command.cwd,
         encoding: "utf8",
         env: { ...process.env, ...command.env },
         timeout: 2_000,
       });
+      if (!result.error && result.signal === null && Number.isInteger(result.status)) {
+        assert.equal(existsSync(captureRoot), true);
+        assert.equal(readdirSync(captureRoot).length, 2, "child must leave both directories to its parent");
+        rmSync(captureRoot, { recursive: true, force: true });
+      }
+      return result;
     },
     async assertCleanup(expectedCalls) {
       const observations = (await readFile(observationsPath, "utf8")).trim().split("\n").map(JSON.parse);
@@ -245,6 +257,8 @@ test("OpenClaw lifecycle capture and parent require loaded status and valid phas
       assert.equal(capture.captured.length, captured ? 2 : 0);
       assert.equal(profile.summary.failCount, captured ? 0 : 1);
       assert.equal(profile.summary.baselineFailCount, captured ? 0 : 1);
+      assert.equal(profile.captureCleanup.status, "removed");
+      assert.equal(existsSync(path.join(os.tmpdir(), profile.captureCleanup.directory)), false);
       if (captured) {
         assert.equal(capture.openClawLifecycle.importMs, 0);
         assert.equal(capture.openClawLifecycle.activationMs, 0);
@@ -257,7 +271,7 @@ test("OpenClaw lifecycle capture and parent require loaded status and valid phas
   }
 });
 
-test("OpenClaw lifecycle capture CLI cleans up after a thrown loader exception", async (t) => {
+test("OpenClaw lifecycle capture caller cleans up after a thrown loader exception", async (t) => {
   for (const asyncLoader of [false, true]) {
     await t.test(asyncLoader ? "rejected asynchronous loader" : "thrown synchronous loader", async (t) => {
       const host = await lifecycleHost(t, { throws: true, asyncLoader });
@@ -269,4 +283,42 @@ test("OpenClaw lifecycle capture CLI cleans up after a thrown loader exception",
       await host.assertCleanup(1);
     });
   }
+});
+
+test("OpenClaw lifecycle capture requires an explicit parent-owned root", () => {
+  const result = spawnSync(process.execPath, [path.join(repoRoot, "scripts/run-openclaw-lifecycle-capture.mjs"), "fixture.mjs"], { encoding: "utf8" });
+  assert.equal(result.status, 1);
+  assert.match(result.stderr, /--capture-root <parent-owned-directory>/);
+});
+
+test("lifecycle parent removes SQLite-held roots after child exit and preserves custom capture precedence", async (t) => {
+  const host = await lifecycleHost(t, { holdDatabase: true, asyncLoader: true });
+  const direct = host.run();
+  assert.equal(direct.status, 0, direct.stderr);
+  const roots = [];
+  const profile = await buildImportLoopProfile({
+    rootDir: host.dir,
+    outputDir: path.join(host.dir, "profile"),
+    entrypoint: host.entrypoint,
+    openclawPath: host.openclawRoot,
+    captureCommand(context) {
+      assert.equal(existsSync(context.captureRoot), true);
+      roots.push(context.captureRoot);
+      return host.captureCommand(context);
+    },
+    runs: 1,
+  });
+  assert.deepEqual(validateImportLoopProfile(profile, { requireOpenClawLifecycle: true }), []);
+  assert.equal(profile.captureCleanup.status, "removed");
+  assert.equal(roots.length, 2);
+  assert.equal(new Set(roots).size, 1);
+  assert.equal(existsSync(roots[0]), false);
+  assert.equal(existsSync(path.join(host.dir, "profile", "capture-0.json")), true);
+  assert.match(renderImportLoopProfileMarkdown(profile), /Capture cleanup\n\nremoved:/);
+  const output = await writeImportLoopProfile(profile, {
+    rootDir: host.dir, jsonPath: "result.json", markdownPath: "result.md", check: true,
+  });
+  assert.equal(await readFile(output.markdownPath, "utf8"), `${renderImportLoopProfileMarkdown(profile)}\n`);
+  assert.deepEqual(JSON.parse(await readFile(output.jsonPath, "utf8")), profile);
+  await host.assertCleanup(3);
 });

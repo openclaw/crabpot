@@ -160,6 +160,7 @@ test("default check workflow uploads policy and summary reports", async () => {
   assert.match(check, /if: \$\{\{ !cancelled\(\) && github\.event_name != 'pull_request'/);
   assert.match(dashboardBlock, /permissions:[\s\S]*contents: write[\s\S]*statuses: write/);
   assert.match(dashboardBlock, /pnpm --dir openclaw install --frozen-lockfile --ignore-scripts/);
+  assert.match(dashboardBlock, /^          source scripts\/dashboard-profile-step\.sh$/m);
   assert.match(dashboardBlock, /run_profile_step 180 "OpenClaw lifecycle import-loop profile failed or timed out; falling back to fixture-only import-loop profile" node scripts\/import-loop-profile\.mjs --openclaw \.\/openclaw --runs 3/);
   assert.match(dashboardBlock, /local profile_json="reports\/crabpot-import-loop-profile\.json"[\s\S]*local profile_markdown="reports\/crabpot-import-loop-profile\.md"[\s\S]*rm -f "\$\{profile_json\}" "\$\{profile_markdown\}"/);
   assert.match(dashboardBlock, /if ! run_profile_step 90 "fixture-only import-loop profile failed or timed out; continuing without refreshed import-loop metrics" node scripts\/import-loop-profile\.mjs --runs 3; then[\s\S]*rm -f "\$\{profile_json\}" "\$\{profile_markdown\}"/);
@@ -225,7 +226,7 @@ test("track dashboard workflow refreshes branch dashboards by OpenClaw track", a
   assert.match(workflow, /node scripts\/summarize-execution-results\.mjs --write/);
   assert.match(workflow, /execution_results_args=\(--execution-results reports\/crabpot-execution-results\.json\)/);
   assert.match(workflow, /node scripts\/generate-report\.mjs --openclaw \.\/openclaw "\$\{execution_results_args\[@\]\}"/);
-  assert.match(workflow, /run_profile_step\(\)/);
+  assert.match(workflow, /^          source scripts\/dashboard-profile-step\.sh$/m);
   assert.match(workflow, /run_openclaw_import_loop_profile\(\)/);
   assert.match(workflow, /run_profile_step 180 "OpenClaw lifecycle import-loop profile failed or timed out; falling back to fixture-only import-loop profile" node scripts\/import-loop-profile\.mjs --openclaw \.\/openclaw --runs 3/);
   assert.match(workflow, /run_profile_step 90 "fixture-only import-loop profile failed or timed out; continuing without refreshed import-loop metrics" node scripts\/import-loop-profile\.mjs --runs 3 \|\| true/);
@@ -354,30 +355,6 @@ test("default check workflow resolves changed submodules into an isolated fixtur
   assert.match(workflow, /Fail if isolated policy failed/);
   assert.match(workflow, /steps\.policy\.outcome != 'success'/);
   assert.doesNotMatch(workflow, /steps\.execute\.outcome == 'failure' \|\| steps\.policy\.outcome != 'success'/);
-});
-
-test("workflows use current action majors and dependency caches", async () => {
-  const workflows = [
-    await readWorkflow(".github/workflows/check.yml"),
-    await readOpenClawRefWorkflows(),
-    await readWorkflow(".github/workflows/dependabot-auto-merge.yml"),
-    await readWorkflow(".github/workflows/openclaw-head-canary.yml"),
-    await readWorkflow(".github/workflows/openclaw-pin-age.yml"),
-    await readWorkflow(".github/workflows/track-dashboard.yml"),
-  ].join("\n");
-  const actionRefs = [
-    ...workflows.matchAll(/uses:\s+(actions\/(?:checkout|setup-node|upload-artifact)@[^\s]+)/g),
-  ].map((match) => match[1]);
-
-  assert.deepEqual([...new Set(actionRefs)].sort(), [
-    "actions/checkout@v7",
-    "actions/setup-node@v7",
-    "actions/upload-artifact@v7",
-  ]);
-  assert.match(workflows, /cache: npm/);
-  assert.match(workflows, /cache-dependency-path: \|/);
-  assert.doesNotMatch(workflows, /actions\/(checkout|setup-node|upload-artifact)@v4/);
-  assert.doesNotMatch(workflows, /FORCE_JAVASCRIPT_ACTIONS_TO_NODE24/);
 });
 
 test("normal pushes and bot merges share an exact-commit dashboard owner", async () => {

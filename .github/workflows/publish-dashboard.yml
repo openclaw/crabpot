@@ -66,16 +66,7 @@ jobs:
         run: |
           CRABPOT_SUMMARY_GENERATED_AT="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
           export CRABPOT_SUMMARY_GENERATED_AT
-          run_profile_step() {
-            local timeout_seconds="$1"
-            local warning="$2"
-            shift 2
-            if timeout "${timeout_seconds}s" "$@"; then
-              return 0
-            fi
-            echo "::warning::${warning}"
-            return 1
-          }
+          source scripts/dashboard-profile-step.sh
           run_openclaw_import_loop_profile() {
             local profile_json="reports/crabpot-import-loop-profile.json"
             local profile_markdown="reports/crabpot-import-loop-profile.md"

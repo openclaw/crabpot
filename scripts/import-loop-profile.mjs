@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 import { existsSync } from "node:fs";
+import { appendFile, mkdtemp, rm } from "node:fs/promises";
+import os from "node:os";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { formatSampledMetric } from "./profile-metrics.mjs";
@@ -108,17 +110,60 @@ function parseArgs(argv) {
 }
 
 export async function buildImportLoopProfile(options = {}) {
-  return pluginInspector.buildImportLoopProfile({
+  const profileOptions = {
     ...crabpotImportLoopProfileOptions,
     ...(options.openclawPath ? openClawLifecycleProfileOptions(options.openclawPath) : {}),
     ...options,
     openclawPath: undefined,
     rootDir: options.rootDir ?? crabpotImportLoopProfileOptions.rootDir,
-  });
+  };
+  const captureCommand = profileOptions.captureCommand;
+  if (typeof captureCommand !== "function") {
+    return pluginInspector.buildImportLoopProfile(profileOptions);
+  }
+  const captureRoot = await mkdtemp(path.join(os.tmpdir(), "crabpot-lifecycle-capture-"));
+  const cleanup = { status: "retained", directory: path.basename(captureRoot), reason: "profile incomplete" };
+  let captureCount = 0;
+  let report;
+  try {
+    report = await pluginInspector.buildImportLoopProfile({
+      ...profileOptions,
+      captureCommand: (context) => {
+        captureCount += 1;
+        return captureCommand({ ...context, captureRoot });
+      },
+    });
+  } catch (error) {
+    console.error(`capture cleanup retained: ${cleanup.directory} in the system temp directory (profile incomplete)`);
+    throw error;
+  }
+  const runs = profileOptions.runs ?? 3;
+  const baselineRuns = profileOptions.baseline === false ? 0 : Math.max(0, profileOptions.baselineRuns ?? Math.min(runs, 3));
+  const samples = [...(report.baseline?.samples ?? []), ...(report.samples ?? [])];
+  // Ordinary Inspector samples follow child close, not descendant Job closure.
+  // Abnormal or incomplete receipts retain files instead of racing live handles.
+  const closed = report.samples?.length === runs && report.baseline?.samples?.length === baselineRuns &&
+    captureCount === runs + baselineRuns && samples.every((sample) =>
+      Number.isInteger(sample.pid) && sample.pid > 0 && Number.isInteger(sample.exitCode) && sample.exitCode >= 0 &&
+      sample.signal === null && sample.timedOut === false && sample.cancelled === false);
+  if (closed) {
+    try {
+      await rm(captureRoot, { recursive: true, force: true });
+      cleanup.status = "removed";
+      delete cleanup.reason;
+    } catch (error) {
+      cleanup.status = "failed";
+      cleanup.reason = error.code ?? "filesystem error";
+    }
+  }
+  return { ...report, captureCleanup: cleanup };
 }
 
 export function validateImportLoopProfile(report, options = {}) {
   const errors = pluginInspector.validateImportLoopProfile(report);
+  if (report.captureCleanup && report.captureCleanup.status !== "removed") {
+    errors.push(`capture cleanup ${report.captureCleanup.status}: ${report.captureCleanup.directory} (${report.captureCleanup.reason})`);
+  }
   if (options.requireOpenClawLifecycle && (report.summary?.openClawLifecycleCount ?? 0) < 1) {
     errors.push("OpenClaw lifecycle profile requested but no import+activate samples were captured");
   }
@@ -126,18 +171,24 @@ export function validateImportLoopProfile(report, options = {}) {
 }
 
 export async function writeImportLoopProfile(report, options = {}) {
-  return pluginInspector.writeImportLoopProfile(report, {
+  const output = await pluginInspector.writeImportLoopProfile(report, {
     ...crabpotImportLoopProfileOptions,
     ...options,
     rootDir: options.rootDir ?? crabpotImportLoopProfileOptions.rootDir,
   });
+  if (report.captureCleanup) await appendFile(output.markdownPath, `${renderCaptureCleanup(report.captureCleanup)}\n`, "utf8");
+  return output;
 }
 
 export function renderImportLoopProfileMarkdown(report, options = {}) {
   return pluginInspector.renderImportLoopProfileMarkdown(report, {
     ...crabpotImportLoopProfileOptions,
     ...options,
-  });
+  }) + (report.captureCleanup ? `\n${renderCaptureCleanup(report.captureCleanup)}` : "");
+}
+
+function renderCaptureCleanup(cleanup) {
+  return `\n## Capture cleanup\n\n${cleanup.status}: \`${cleanup.directory}\` in the system temp directory${cleanup.reason ? ` (${cleanup.reason})` : ""}.`;
 }
 
 function importLoopMetricLabel(summary) {
@@ -160,13 +211,15 @@ function openClawLifecycleProfileOptions(openclawPath) {
   const captureScript = path.join(repoRoot, "scripts", "run-openclaw-lifecycle-capture.mjs");
   return {
     mode: "openclaw-loader-lifecycle-profile",
-    captureCommand: ({ entrypoint, outputPath, rootDir }) => ({
+    captureCommand: ({ entrypoint, outputPath, rootDir, captureRoot }) => ({
       command: process.execPath,
       args: [
         "--import",
         "tsx",
         captureScript,
         path.resolve(rootDir, entrypoint),
+        "--capture-root",
+        captureRoot,
         "--output",
         outputPath,
       ],
