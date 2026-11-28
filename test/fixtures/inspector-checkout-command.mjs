@@ -1,3 +1,4 @@
+import assert from "node:assert/strict";
 import { mkdirSync, renameSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { parentPort, workerData } from "node:worker_threads";
@@ -25,6 +26,7 @@ export function runOwnedCommand(command, args, options) {
       return success;
     }
     if (command !== "npm" || options.cwd !== checkout) throw new Error("unexpected checkout command");
+    assert.deepEqual(args, ["ci", "--omit=dev", "--ignore-scripts", "--no-audit", "--no-fund"]);
     Atomics.add(shared, 0, 1);
     parentPort.postMessage({ type: "install" });
     if (mode === "npm-timeout") return {
