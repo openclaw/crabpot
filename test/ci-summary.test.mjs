@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { mkdtemp, readFile } from "node:fs/promises";
+import { rm, mkdtemp, readFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import { test } from "node:test";
@@ -148,8 +148,9 @@ test("ci summary fails when strict runtime profile policy fails", async () => {
   assert.match(renderCiSummaryMarkdown(summary), /Profile failures/);
 });
 
-test("ci summary writer emits reviewable json and markdown artifacts", async () => {
+test("ci summary writer emits reviewable json and markdown artifacts", async (context) => {
   const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-ci-summary-"));
+  context.after(() => rm(dir, { recursive: true, force: true, maxRetries: 3 }));
   const jsonPath = path.join(dir, "summary.json");
   const markdownPath = path.join(dir, "summary.md");
   const summary = await buildCiSummary({
