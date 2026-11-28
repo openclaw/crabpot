@@ -21,27 +21,31 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   dashboard:
     name: Refresh ${{ matrix.track }} dashboard
     runs-on: ubuntu-latest
     concurrency:
-      group: crabpot-track-dashboard-${{ github.event_name == 'workflow_dispatch' && 'manual' || 'schedule' }}-${{ github.event_name == 'workflow_dispatch' && inputs.track || matrix.track }}-${{ matrix.track }}
-      cancel-in-progress: ${{ github.event_name == 'workflow_dispatch' }}
+      group: ${{ matrix.branch == 'main' && contains(matrix.requests, inputs.track || 'development') && 'crabpot-main-dashboard-writer' || format('crabpot-track-dashboard-{0}-{1}-{2}', github.event_name == 'workflow_dispatch' && 'manual' || 'schedule', github.event_name == 'workflow_dispatch' && inputs.track || matrix.track, matrix.track) }}
+      cancel-in-progress: ${{ matrix.branch != 'main' && github.event_name == 'workflow_dispatch' }}
     strategy:
       fail-fast: false
       matrix:
         include:
           - track: latest
+            requests: ["latest", "all"]
             branch: main
             fixture_set: ""
             plugin_track: latest
           - track: beta
+            requests: ["beta", "all"]
             branch: crab-beta
             fixture_set: ""
             plugin_track: beta
           - track: development
+            requests: ["development", "all"]
             branch: crab-development
             fixture_set: openclaw-beta
             plugin_track: source-pack
@@ -49,15 +53,7 @@ jobs:
       - name: Select requested track
         id: select
         shell: bash
-        run: |
-          run=false
-          if [ "${{ github.event_name }}" = "schedule" ] && [ "${{ matrix.track }}" = "development" ]; then
-            run=true
-          fi
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && { [ "${{ inputs.track }}" = "all" ] || [ "${{ inputs.track }}" = "${{ matrix.track }}" ]; }; then
-            run=true
-          fi
-          echo "run=${run}" >> "$GITHUB_OUTPUT"
+        run: echo "run=${{ contains(matrix.requests, inputs.track || 'development') }}" >> "$GITHUB_OUTPUT"
 
       - uses: actions/checkout@v7
         if: ${{ steps.select.outputs.run == 'true' }}
@@ -72,6 +68,16 @@ jobs:
           cache: npm
           cache-dependency-path: |
             plugins/**/package-lock.json
+
+      - name: Hold unresolved main dashboard reports
+        if: ${{ steps.select.outputs.run == 'true' && matrix.branch == 'main' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DASHBOARD_TARGET_BRANCH: main
+        run: |
+          source_sha="$(git rev-parse HEAD)"
+          echo "DASHBOARD_SOURCE_SHA=${source_sha}" >> "$GITHUB_ENV"
+          DASHBOARD_SOURCE_SHA="${source_sha}" node scripts/publish-dashboard.mjs preflight
 
       - name: Resolve OpenClaw track
         if: ${{ steps.select.outputs.run == 'true' }}
@@ -127,16 +133,7 @@ jobs:
           if [ -z "${execution_fixture_set}" ]; then
             execution_fixture_set="all"
           fi
-          run_profile_step() {
-            local timeout_seconds="$1"
-            local warning="$2"
-            shift 2
-            if timeout "${timeout_seconds}s" "$@"; then
-              return 0
-            fi
-            echo "::warning::${warning}"
-            return 1
-          }
+          source scripts/dashboard-profile-step.sh
           run_openclaw_import_loop_profile() {
             if run_profile_step 180 "OpenClaw lifecycle import-loop profile failed or timed out; falling back to fixture-only import-loop profile" node scripts/import-loop-profile.mjs --openclaw ./openclaw --runs 3; then
               return 0
@@ -175,14 +172,21 @@ jobs:
           fi
           node scripts/update-readme-summary.mjs "${baseline_args[@]}"
 
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md reports/
-          if ! git diff --cached --quiet; then
-            git commit -m "chore(readme): refresh ${{ matrix.track }} dashboard [skip ci]"
-            if [ "${{ matrix.branch }}" = "main" ]; then
-              git push origin HEAD:${{ matrix.branch }}
-            else
+      - name: Publish branch dashboard
+        if: ${{ steps.select.outputs.run == 'true' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DASHBOARD_TARGET_BRANCH: ${{ matrix.branch }}
+          CRABPOT_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          if [ "${{ matrix.branch }}" = main ]; then
+            node scripts/publish-dashboard.mjs publish
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add README.md reports/
+            if ! git diff --cached --quiet; then
+              git commit -m "chore(readme): refresh ${{ matrix.track }} dashboard [skip ci]"
               git fetch --no-tags --depth=1 origin "+refs/heads/${{ matrix.branch }}:refs/remotes/origin/${{ matrix.branch }}"
               lease="$(git rev-parse "refs/remotes/origin/${{ matrix.branch }}")"
               git push --force-with-lease="refs/heads/${{ matrix.branch }}:${lease}" origin HEAD:${{ matrix.branch }}

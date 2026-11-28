@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
-import { mkdtemp, writeFile } from "node:fs/promises";
+import { rm, mkdtemp, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -9,8 +9,9 @@ import { captureEntrypoint } from "../scripts/run-cold-import-capture.mjs";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
-test("cold import capture runner imports a local fixture and records registrations", async () => {
+test("cold import capture runner imports a local fixture and records registrations", async (context) => {
   const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-capture-"));
+  context.after(() => rm(dir, { recursive: true, force: true, maxRetries: 3 }));
   const entrypoint = path.join(dir, "fixture.mjs");
   await writeFile(
     entrypoint,
@@ -36,8 +37,9 @@ test("cold import capture runner imports a local fixture and records registratio
   );
 });
 
-test("cold import capture runner reports entrypoints without register exports", async () => {
+test("cold import capture runner reports entrypoints without register exports", async (context) => {
   const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-capture-"));
+  context.after(() => rm(dir, { recursive: true, force: true, maxRetries: 3 }));
   const entrypoint = path.join(dir, "empty.mjs");
   await writeFile(entrypoint, "export const value = 1;\n", "utf8");
 
@@ -47,8 +49,9 @@ test("cold import capture runner reports entrypoints without register exports", 
   assert.deepEqual(result.captured, []);
 });
 
-test("cold import capture runner supports named register and default function exports", async () => {
+test("cold import capture runner supports named register and default function exports", async (context) => {
   const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-capture-"));
+  context.after(() => rm(dir, { recursive: true, force: true, maxRetries: 3 }));
   const named = path.join(dir, "named.mjs");
   const defaultFunction = path.join(dir, "default-function.mjs");
   await writeFile(named, "export function register(api) { api.registerCli({ name: 'named' }); }\n", "utf8");
@@ -61,8 +64,9 @@ test("cold import capture runner supports named register and default function ex
   assert.deepEqual(defaultResult.captured.map((item) => `${item.kind}:${item.name}`), ["registration:registerTool"]);
 });
 
-test("cold import capture CLI refuses execution outside isolated opt-in", async () => {
+test("cold import capture CLI refuses execution outside isolated opt-in", async (context) => {
   const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-capture-"));
+  context.after(() => rm(dir, { recursive: true, force: true, maxRetries: 3 }));
   const entrypoint = path.join(dir, "fixture.mjs");
   await writeFile(entrypoint, "export function register(api) { api.registerTool({ name: 'fixture' }); }\n", "utf8");
 
@@ -76,8 +80,9 @@ test("cold import capture CLI refuses execution outside isolated opt-in", async 
   assert.match(result.stderr, /CRABPOT_EXECUTE_ISOLATED=1/);
 });
 
-test("cold import capture CLI honors mock SDK for OpenClaw SDK imports", async () => {
+test("cold import capture CLI honors mock SDK for OpenClaw SDK imports", async (context) => {
   const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-capture-sdk-"));
+  context.after(() => rm(dir, { recursive: true, force: true, maxRetries: 3 }));
   const entrypoint = path.join(dir, "index.mjs");
   await writeFile(
     entrypoint,

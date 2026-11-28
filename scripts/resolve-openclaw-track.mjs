@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import { appendFile } from "node:fs/promises";
 import { pathToFileURL } from "node:url";
+import { writeGithubOutput } from "./github-output.mjs";
 import { configuredTimeoutMs, runOwnedCommand } from "./owned-command.mjs";
 
 export const openclawRepository = "openclaw/openclaw";
@@ -209,13 +209,4 @@ async function fetchJsonWithTimeout(url, timeout, label) {
     }
     throw error;
   }
-}
-
-async function writeGithubOutput(result) {
-  const output = `${Object.entries(result).map(([key, value]) => `${key}=${value}`).join("\n")}\n`;
-  if (process.env.GITHUB_OUTPUT) {
-    await appendFile(process.env.GITHUB_OUTPUT, output, "utf8");
-    return;
-  }
-  process.stdout.write(output);
 }

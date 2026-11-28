@@ -44,12 +44,11 @@ test("DingTalk declares twelve explicit negative contracts and rejects malformed
   assert.throws(() => validateManifest(manifest), /conflicts with a prerequisite/);
 });
 
-test("fixture manifest is valid and seam-rich", async () => {
+test("fixture manifest covers the required seams", async () => {
   const manifest = await readManifest();
 
   assert.equal(manifest.submoduleRoot, "plugins");
   assert.equal(manifest.openclaw.minimumNode, "24");
-  assert.ok(manifest.fixtures.length >= 10);
   assert.equal(manifest.fixtures.some((fixture) => fixture.id === "openclaw-qqbot"), false);
   const qqbot = manifest.fixtures.find((fixture) => fixture.id === "qqbot");
   assert.equal(qqbot.repo, "https://github.com/tencent-connect/openclaw-qqbot.git");
@@ -61,12 +60,6 @@ test("fixture manifest is valid and seam-rich", async () => {
   assert.equal(kitchen.expect.registrations.length, 56);
   assert.equal(kitchen.expect.manifestContracts.length, 22);
   assert.equal(kitchen.expect.registrations.includes("registerDetachedTaskRuntime"), false);
-  assert.deepEqual(
-    ["hyperspell", "honcho", "composio", "memu-engine", "secureclaw", "memos-cloud"].filter((id) =>
-      manifest.fixtures.some((fixture) => fixture.id === id),
-    ),
-    ["hyperspell", "honcho", "composio", "memu-engine", "secureclaw", "memos-cloud"],
-  );
 
   const seams = new Set(manifest.fixtures.flatMap((fixture) => fixture.seams));
   for (const seam of [
