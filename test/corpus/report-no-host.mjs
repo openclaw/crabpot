@@ -107,3 +107,38 @@ test("disabled OpenClaw target suppresses target-derived compat findings", async
   assert.ok(report.contractProbes.every((probe) => !probe.id.startsWith("sdk.import.package-export-cold-import:")));
   assert.match(markdown, /\| Status\s+\| disabled\s+\|/);
 });
+
+test("report reconciles supplied runtime evidence for the selected fixture", async () => {
+  const report = await buildReport({
+    fixtureSet: "a2a-gateway",
+    executionResults: {
+      summary: {
+        artifactCount: 1,
+        captureArtifactCount: 1,
+        capturedRegistrationCount: 1,
+      },
+      artifacts: [
+        {
+          fixture: "a2a-gateway",
+          kind: "capture",
+          status: "pass",
+          artifactPath: ".crabpot/results/a2a-gateway/index.capture.json",
+          captured: ["registration:registerService"],
+        },
+      ],
+    },
+    generatedAt: "test",
+    openclawPath: false,
+  });
+  const markdown = renderMarkdownReport(report);
+
+  assert.equal(report.summary.fixtureCount, 1);
+  assert.deepEqual(report.crabpotContext.fixtureIds, ["a2a-gateway"]);
+  assert.equal(report.fixtures[0].status, "ok");
+  assert.ok(report.fixtures[0].sourceFiles.length > 0);
+
+  assert.equal(report.crabpotContext.runtimeEvidence.captureArtifacts, 1);
+  assert.equal(report.summary.runtimeCoverageArtifactCount, 1);
+  assert.match(markdown, /Runtime evidence/);
+  assert.match(markdown, /Runtime-Covered Inspector Gaps/);
+});

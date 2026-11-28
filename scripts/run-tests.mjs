@@ -2,8 +2,7 @@
 import { pathToFileURL } from "node:url";
 import { runStaticStep, boundedNodeOptions } from "./static-step.mjs";
 
-// Distinct real corpus inputs have separate deadlines; every assertion remains
-// required. No process may overlap another or exceed the 2 GiB V8 heap budget.
+// Test lanes run sequentially with separate deadlines and a 2 GiB heap budget.
 export function buildTestSteps() {
   const env = {
     NODE_OPTIONS: boundedNodeOptions(),
@@ -13,7 +12,6 @@ export function buildTestSteps() {
     "test/corpus/host.test.mjs",
     "test/corpus/no-host.test.mjs",
     "test/corpus/beta.test.mjs",
-    "test/corpus/runtime.test.mjs",
   ].map((file) => ["node", ["--test", "--test-concurrency=1", file], env]);
 }
 

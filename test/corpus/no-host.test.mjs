@@ -1,4 +1,4 @@
-// One real inspection serves the assertions for this immutable corpus input.
+// Corpus checks without an OpenClaw target; runtime evidence uses one fixture.
 import "./report-no-host.mjs";
 import "./contract-coverage.mjs";
 import "./fixture-inspection.mjs";
