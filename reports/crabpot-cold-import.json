@@ -966,12 +966,12 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-BvhSlcJy.mjs:91"
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-C1pXo5BV.mjs:91"
             },
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/reply-session-init-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-GpZpRyHA.mjs:45"
+              "evidence": "openclaw/plugin-sdk/reply-session-init-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-Dc4jDAcj.mjs:45"
             }
           ],
           "assertions": [
@@ -997,12 +997,12 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-BvhSlcJy.mjs:91"
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-C1pXo5BV.mjs:91"
             },
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/reply-session-init-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-GpZpRyHA.mjs:45"
+              "evidence": "openclaw/plugin-sdk/reply-session-init-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-Dc4jDAcj.mjs:45"
             }
           ],
           "assertions": [
@@ -1028,12 +1028,12 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-BvhSlcJy.mjs:91"
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-C1pXo5BV.mjs:91"
             },
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/reply-session-init-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-GpZpRyHA.mjs:45"
+              "evidence": "openclaw/plugin-sdk/reply-session-init-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-Dc4jDAcj.mjs:45"
             }
           ],
           "assertions": [
@@ -1059,12 +1059,12 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-BvhSlcJy.mjs:91"
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-C1pXo5BV.mjs:91"
             },
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/reply-session-init-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-GpZpRyHA.mjs:45"
+              "evidence": "openclaw/plugin-sdk/reply-session-init-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-Dc4jDAcj.mjs:45"
             }
           ],
           "assertions": [
