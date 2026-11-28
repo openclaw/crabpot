@@ -979,9 +979,9 @@ _none_
   - **sdk-export-missing**: discord: SDK import coverage requires an eligible host
   - state: open · compat:untracked
   - evidence:
-    - openclaw/plugin-sdk/agent-control-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-BvhSlcJy.mjs:91
-    - openclaw/plugin-sdk/reply-session-init-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-GpZpRyHA.mjs:45
-    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.11.10; recheck with an eligible host before assigning a core compatibility repair.
+    - openclaw/plugin-sdk/agent-control-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-C1pXo5BV.mjs:91
+    - openclaw/plugin-sdk/reply-session-init-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-Dc4jDAcj.mjs:45
+    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.11.11; recheck with an eligible host before assigning a core compatibility repair.
     - Unassessed SDK compatibility record: plugin-sdk-export-aliases
 
 - 🟠 P1 **feishu** `inspector-gap` `inspector-follow-up`
@@ -990,7 +990,7 @@ _none_
   - evidence:
     - openclaw/plugin-sdk/agent-control-runtime @ plugins/feishu/.crabpot-package/dist/.setup/monitor.account-x_KliB35.mjs:39
     - openclaw/plugin-sdk/agent-control-runtime @ plugins/feishu/.crabpot-package/dist/.setup/reply-delivery-result-DTuuSfED.mjs:42
-    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.11.10; recheck with an eligible host before assigning a core compatibility repair.
+    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.11.11; recheck with an eligible host before assigning a core compatibility repair.
     - Unassessed SDK compatibility record: plugin-sdk-export-aliases
 
 - 🟠 P1 **honcho** `inspector-gap` `inspector-follow-up`
@@ -1035,7 +1035,7 @@ _none_
   - evidence:
     - openclaw/plugin-sdk/json-schema-validator @ plugins/lobster/.crabpot-package/dist/.setup/lobster-schema-compiler-T2XZzavY.mjs:1
     - openclaw/plugin-sdk/runtime-profile @ plugins/lobster/.crabpot-package/dist/index.js:74
-    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.11.10; recheck with an eligible host before assigning a core compatibility repair.
+    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.11.11; recheck with an eligible host before assigning a core compatibility repair.
     - Unassessed SDK compatibility record: plugin-sdk-export-aliases
 
 - 🟠 P1 **memory-lancedb** `inspector-gap` `inspector-follow-up`
@@ -1066,7 +1066,7 @@ _none_
   - state: open · compat:untracked
   - evidence:
     - openclaw/plugin-sdk/agent-control-runtime @ plugins/msteams/.crabpot-package/dist/.setup/monitor-C5ijkBxj.cjs:33
-    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.11.10; recheck with an eligible host before assigning a core compatibility repair.
+    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.11.11; recheck with an eligible host before assigning a core compatibility repair.
     - Unassessed SDK compatibility record: plugin-sdk-export-aliases
 
 - 🟠 P1 **nemoclaw** `inspector-gap` `inspector-follow-up`
@@ -1496,7 +1496,7 @@ _none_
   - **channel-contract-probe**: discord: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/discord/.crabpot-package/dist/.setup/channel-C0GMDf_u.mjs:404
+    - createChatChannelPlugin @ plugins/discord/.crabpot-package/dist/.setup/channel-Dm5ZdTaY.mjs:404
 
 - 🟡 P2 **discord** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: discord: cold import requires dependency installation in an isolated workspace
@@ -2228,7 +2228,7 @@ _none_
   - **channel-contract-probe**: whatsapp: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-zYMabwp9.mjs:341
+    - createChatChannelPlugin @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-XQIda7r5.mjs:341
 
 - 🟡 P2 **whatsapp** `inspector-gap` `inspector-follow-up`
   - **package-dependency-install-required**: whatsapp: cold import requires dependency installation in an isolated workspace
@@ -3031,9 +3031,9 @@ _none_
   - **sdk-export-missing**: discord: SDK import coverage requires an eligible host
   - state: open · compat:untracked
   - evidence:
-    - openclaw/plugin-sdk/agent-control-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-BvhSlcJy.mjs:91
-    - openclaw/plugin-sdk/reply-session-init-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-GpZpRyHA.mjs:45
-    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.11.10; recheck with an eligible host before assigning a core compatibility repair.
+    - openclaw/plugin-sdk/agent-control-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-C1pXo5BV.mjs:91
+    - openclaw/plugin-sdk/reply-session-init-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-Dc4jDAcj.mjs:45
+    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.11.11; recheck with an eligible host before assigning a core compatibility repair.
     - Unassessed SDK compatibility record: plugin-sdk-export-aliases
 
 - 🟠 P1 **feishu** `compat-gap` `core-compat-adapter`
@@ -3048,7 +3048,7 @@ _none_
   - evidence:
     - openclaw/plugin-sdk/agent-control-runtime @ plugins/feishu/.crabpot-package/dist/.setup/monitor.account-x_KliB35.mjs:39
     - openclaw/plugin-sdk/agent-control-runtime @ plugins/feishu/.crabpot-package/dist/.setup/reply-delivery-result-DTuuSfED.mjs:42
-    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.11.10; recheck with an eligible host before assigning a core compatibility repair.
+    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.11.11; recheck with an eligible host before assigning a core compatibility repair.
     - Unassessed SDK compatibility record: plugin-sdk-export-aliases
 
 - 🟠 P1 **google-meet** `compat-gap` `core-compat-adapter`
@@ -3192,7 +3192,7 @@ _none_
   - evidence:
     - openclaw/plugin-sdk/json-schema-validator @ plugins/lobster/.crabpot-package/dist/.setup/lobster-schema-compiler-T2XZzavY.mjs:1
     - openclaw/plugin-sdk/runtime-profile @ plugins/lobster/.crabpot-package/dist/index.js:74
-    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.11.10; recheck with an eligible host before assigning a core compatibility repair.
+    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.11.11; recheck with an eligible host before assigning a core compatibility repair.
     - Unassessed SDK compatibility record: plugin-sdk-export-aliases
 
 - 🟠 P1 **lossless-claw** `compat-gap` `core-compat-adapter`
@@ -3357,7 +3357,7 @@ _none_
   - state: open · compat:untracked
   - evidence:
     - openclaw/plugin-sdk/agent-control-runtime @ plugins/msteams/.crabpot-package/dist/.setup/monitor-C5ijkBxj.cjs:33
-    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.11.10; recheck with an eligible host before assigning a core compatibility repair.
+    - Host 2026.10.6 does not satisfy the declared plugin API range >=2026.11.11; recheck with an eligible host before assigning a core compatibility repair.
     - Unassessed SDK compatibility record: plugin-sdk-export-aliases
 
 - 🟠 P1 **nemoclaw** `inspector-gap` `inspector-follow-up`
@@ -4225,7 +4225,7 @@ _none_
   - **channel-contract-probe**: discord: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/discord/.crabpot-package/dist/.setup/channel-C0GMDf_u.mjs:404
+    - createChatChannelPlugin @ plugins/discord/.crabpot-package/dist/.setup/channel-Dm5ZdTaY.mjs:404
 
 - 🟡 P2 **discord** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: discord: manifest uses unsupported top-level fields
@@ -5345,7 +5345,7 @@ _none_
   - **channel-contract-probe**: whatsapp: channel runtime needs envelope/config probes
   - state: open · compat:untracked
   - evidence:
-    - createChatChannelPlugin @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-zYMabwp9.mjs:341
+    - createChatChannelPlugin @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-XQIda7r5.mjs:341
 
 - 🟡 P2 **whatsapp** `upstream-metadata` `plugin-upstream-fix`
   - **manifest-unknown-fields**: whatsapp: manifest uses unsupported top-level fields
@@ -5647,8 +5647,8 @@ _none_
   - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
   - id: `sdk.import.package-export-cold-import:discord`
   - evidence:
-    - openclaw/plugin-sdk/agent-control-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-BvhSlcJy.mjs:91
-    - openclaw/plugin-sdk/reply-session-init-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-GpZpRyHA.mjs:45
+    - openclaw/plugin-sdk/agent-control-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-C1pXo5BV.mjs:91
+    - openclaw/plugin-sdk/reply-session-init-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-Dc4jDAcj.mjs:45
 
 - 🟠 P1 **feishu** `sdk-alias`
   - contract: Every observed OpenClaw plugin SDK import remains exported by the target OpenClaw package.
@@ -6712,7 +6712,7 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:discord`
   - evidence:
-    - createChatChannelPlugin @ plugins/discord/.crabpot-package/dist/.setup/channel-C0GMDf_u.mjs:404
+    - createChatChannelPlugin @ plugins/discord/.crabpot-package/dist/.setup/channel-Dm5ZdTaY.mjs:404
 
 - 🟢 P3 **feishu** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
@@ -6773,7 +6773,7 @@ _none_
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
   - id: `channel.runtime.envelope-config-metadata:whatsapp`
   - evidence:
-    - createChatChannelPlugin @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-zYMabwp9.mjs:341
+    - createChatChannelPlugin @ plugins/whatsapp/.crabpot-package/dist/.setup/channel-XQIda7r5.mjs:341
 
 - 🟢 P3 **zalo** `channel-runtime`
   - contract: Channel setup, message envelope, sender metadata, and config schema remain stable.
