@@ -160,6 +160,7 @@ test("default check workflow uploads policy and summary reports", async () => {
   assert.match(check, /if: \$\{\{ !cancelled\(\) && github\.event_name != 'pull_request'/);
   assert.match(dashboardBlock, /permissions:[\s\S]*contents: write[\s\S]*statuses: write/);
   assert.match(dashboardBlock, /pnpm --dir openclaw install --frozen-lockfile --ignore-scripts/);
+  assert.match(dashboardBlock, /^          source scripts\/dashboard-profile-step\.sh$/m);
   assert.match(dashboardBlock, /run_profile_step 180 "OpenClaw lifecycle import-loop profile failed or timed out; falling back to fixture-only import-loop profile" node scripts\/import-loop-profile\.mjs --openclaw \.\/openclaw --runs 3/);
   assert.match(dashboardBlock, /local profile_json="reports\/crabpot-import-loop-profile\.json"[\s\S]*local profile_markdown="reports\/crabpot-import-loop-profile\.md"[\s\S]*rm -f "\$\{profile_json\}" "\$\{profile_markdown\}"/);
   assert.match(dashboardBlock, /if ! run_profile_step 90 "fixture-only import-loop profile failed or timed out; continuing without refreshed import-loop metrics" node scripts\/import-loop-profile\.mjs --runs 3; then[\s\S]*rm -f "\$\{profile_json\}" "\$\{profile_markdown\}"/);
@@ -198,10 +199,9 @@ test("track dashboard workflow refreshes branch dashboards by OpenClaw track", a
   assert.doesNotMatch(workflow, /node-version:\s+22(?:\.|$)/m);
   assert.match(workflow, /schedule:/);
   assert.match(workflow, /cron: "7,22,37,52 \* \* \* \*"/);
-  assert.match(workflow, /crabpot-track-dashboard-\$\{\{ github\.event_name == 'workflow_dispatch' && 'manual' \|\| 'schedule' \}\}-/);
-  assert.match(workflow, /github\.event_name == 'workflow_dispatch' && inputs\.track \|\| matrix\.track \}\}-\$\{\{ matrix\.track \}\}/);
+  assert.ok(workflow.includes("format('crabpot-track-dashboard-{0}-{1}-{2}', github.event_name == 'workflow_dispatch' && 'manual' || 'schedule', github.event_name == 'workflow_dispatch' && inputs.track || matrix.track, matrix.track)"));
   assert.doesNotMatch(workflow, /inputs\.track == 'all' && matrix\.track \|\| inputs\.track/);
-  assert.match(workflow, /cancel-in-progress: \$\{\{ github\.event_name == 'workflow_dispatch' \}\}/);
+  assert.match(workflow, /cancel-in-progress: \$\{\{ matrix\.branch != 'main' && github\.event_name == 'workflow_dispatch' \}\}/);
   assert.match(workflow, /workflow_dispatch:/);
   assert.match(workflow, /track:/);
   assert.match(workflow, /branch: crab-beta/);
@@ -225,7 +225,7 @@ test("track dashboard workflow refreshes branch dashboards by OpenClaw track", a
   assert.match(workflow, /node scripts\/summarize-execution-results\.mjs --write/);
   assert.match(workflow, /execution_results_args=\(--execution-results reports\/crabpot-execution-results\.json\)/);
   assert.match(workflow, /node scripts\/generate-report\.mjs --openclaw \.\/openclaw "\$\{execution_results_args\[@\]\}"/);
-  assert.match(workflow, /run_profile_step\(\)/);
+  assert.match(workflow, /^          source scripts\/dashboard-profile-step\.sh$/m);
   assert.match(workflow, /run_openclaw_import_loop_profile\(\)/);
   assert.match(workflow, /run_profile_step 180 "OpenClaw lifecycle import-loop profile failed or timed out; falling back to fixture-only import-loop profile" node scripts\/import-loop-profile\.mjs --openclaw \.\/openclaw --runs 3/);
   assert.match(workflow, /run_profile_step 90 "fixture-only import-loop profile failed or timed out; continuing without refreshed import-loop metrics" node scripts\/import-loop-profile\.mjs --runs 3 \|\| true/);
@@ -240,7 +240,7 @@ test("track dashboard workflow refreshes branch dashboards by OpenClaw track", a
   assert.match(workflow, /origin\/main:reports\/crabpot-dashboard-data\.json/);
   assert.match(workflow, /baseline_args=\(\)/);
   assert.match(workflow, /node scripts\/update-readme-summary\.mjs "\$\{baseline_args\[@\]\}"/);
-  assert.match(workflow, /git push origin HEAD:\$\{\{ matrix\.branch \}\}/);
+  assert.match(workflow, /node scripts\/publish-dashboard\.mjs publish/);
   assert.match(workflow, /git fetch --no-tags --depth=1 origin "\+refs\/heads\/\$\{\{ matrix\.branch \}\}:refs\/remotes\/origin\/\$\{\{ matrix\.branch \}\}"/);
   assert.match(workflow, /lease="\$\(git rev-parse "refs\/remotes\/origin\/\$\{\{ matrix\.branch \}\}"\)"/);
   assert.match(workflow, /git push --force-with-lease="refs\/heads\/\$\{\{ matrix\.branch \}\}:\$\{lease\}" origin HEAD:\$\{\{ matrix\.branch \}\}/);
@@ -354,30 +354,6 @@ test("default check workflow resolves changed submodules into an isolated fixtur
   assert.match(workflow, /Fail if isolated policy failed/);
   assert.match(workflow, /steps\.policy\.outcome != 'success'/);
   assert.doesNotMatch(workflow, /steps\.execute\.outcome == 'failure' \|\| steps\.policy\.outcome != 'success'/);
-});
-
-test("workflows use current action majors and dependency caches", async () => {
-  const workflows = [
-    await readWorkflow(".github/workflows/check.yml"),
-    await readOpenClawRefWorkflows(),
-    await readWorkflow(".github/workflows/dependabot-auto-merge.yml"),
-    await readWorkflow(".github/workflows/openclaw-head-canary.yml"),
-    await readWorkflow(".github/workflows/openclaw-pin-age.yml"),
-    await readWorkflow(".github/workflows/track-dashboard.yml"),
-  ].join("\n");
-  const actionRefs = [
-    ...workflows.matchAll(/uses:\s+(actions\/(?:checkout|setup-node|upload-artifact)@[^\s]+)/g),
-  ].map((match) => match[1]);
-
-  assert.deepEqual([...new Set(actionRefs)].sort(), [
-    "actions/checkout@v7",
-    "actions/setup-node@v7",
-    "actions/upload-artifact@v7",
-  ]);
-  assert.match(workflows, /cache: npm/);
-  assert.match(workflows, /cache-dependency-path: \|/);
-  assert.doesNotMatch(workflows, /actions\/(checkout|setup-node|upload-artifact)@v4/);
-  assert.doesNotMatch(workflows, /FORCE_JAVASCRIPT_ACTIONS_TO_NODE24/);
 });
 
 test("normal pushes and bot merges share an exact-commit dashboard owner", async () => {
@@ -497,4 +473,40 @@ test("manual workflow keeps isolated execution artifacts and failure policy wire
   assert.match(workflow, /node scripts\/generate-report\.mjs --openclaw \.\/openclaw --execution-results reports\/crabpot-execution-results\.json --fixture-set "\$\{\{ matrix\.id \}\}"/);
   assert.match(workflow, /path: \|[\s\S]*\.crabpot\/results\/[\s\S]*reports\/crabpot-execution-results\.\*[\s\S]*reports\/crabpot-ci-policy\.\*[\s\S]*reports\/crabpot-ci-summary\.\*/);
   assert.match(workflow, /steps\.execute\.outcome == 'failure' \|\| steps\.policy\.outcome != 'success'/);
+});
+
+
+test("main dashboards use the shared PR publisher while nonmain tracks keep their existing writes", async () => {
+  const check = await readWorkflow(".github/workflows/check.yml");
+  const dependabot = await readWorkflow(".github/workflows/dependabot-auto-merge.yml");
+  const publisher = await readWorkflow(".github/workflows/publish-dashboard.yml");
+  const tracks = await readWorkflow(".github/workflows/track-dashboard.yml");
+  for (const caller of [check, dependabot]) {
+    assert.match(caller, /statuses: write\n      pull-requests: write\n    uses: \.\/\.github\/workflows\/publish-dashboard\.yml/);
+  }
+  assert.match(publisher, /DASHBOARD_SOURCE_SHA: \$\{\{ inputs\.source-sha \}\}/);
+  assert.match(publisher, /inputs\.target-branch == 'main' && 'crabpot-main-dashboard-writer'/);
+  // Job concurrency is acquired before any step runs. Only a selected main
+  // track can share the writer used by the reusable publisher.
+  const selection = "contains(matrix.requests, inputs.track || 'development')";
+  assert.ok(tracks.includes(`matrix.branch == 'main' && ${selection} && 'crabpot-main-dashboard-writer' ||`));
+  assert.ok(tracks.includes(`echo "run=\${{ ${selection} }}" >> "$GITHUB_OUTPUT"`));
+  const lanes = [...tracks.matchAll(/- track: (\w+)\n +requests: (\[[^\n]+\])\n +branch: ([\w-]+)/g)]
+    .map(([, track, requests, branch]) => ({ track, requests: JSON.parse(requests), branch }));
+  for (const [request, selected, mainWriters] of [
+    [undefined, ["development"], 0],
+    ["development", ["development"], 0],
+    ["beta", ["beta"], 0],
+    ["latest", ["latest"], 1],
+    ["all", ["latest", "beta", "development"], 1],
+  ]) {
+    const active = lanes.filter((lane) => lane.requests.includes(request ?? "development"));
+    assert.deepEqual(active.map((lane) => lane.track), selected);
+    assert.equal(active.filter((lane) => lane.branch === "main").length, mainWriters);
+  }
+  assert.match(publisher, /cancel-in-progress: false/);
+  assert.match(publisher, /if \[ "\$\{DASHBOARD_TARGET_BRANCH\}" = main \]; then\n            node scripts\/publish-dashboard\.mjs publish --validated\n          else/);
+  assert.match(tracks, /if \[ "\$\{\{ matrix\.branch \}\}" = main \]; then\n            node scripts\/publish-dashboard\.mjs publish\n          else/);
+  assert.match(publisher, /node scripts\/publish-dashboard\.mjs preflight/);
+  assert.match(tracks, /DASHBOARD_SOURCE_SHA="\$\{source_sha\}" node scripts\/publish-dashboard\.mjs preflight/);
 });

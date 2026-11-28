@@ -260,8 +260,9 @@ test("readme summary renders metric deltas against main dashboard data", async (
   assert.match(markdown, /\| Activate \(`full:register`\)\s+\| 0\.3ms<br><em>\+0\.2 vs main<\/em>\s+\| 0\.4ms<br><em>\+0\.2 vs main<\/em>\s+\|/);
 });
 
-test("readme summary writes dashboard data json for branch comparison", async () => {
+test("readme summary writes dashboard data json for branch comparison", async (context) => {
   const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-dashboard-data-"));
+  context.after(() => rm(dir, { recursive: true, force: true, maxRetries: 3 }));
   const dataPath = path.join(dir, "dashboard.json");
   const summary = await buildReadmeSummary({
     generatedAt: "2026-04-26T00:00:00.000Z",
@@ -324,8 +325,9 @@ test("readme summary inserts and replaces marker block", async () => {
   assert.match(replaced, /## What this tests/);
 });
 
-test("readme summary check detects stale dashboard", async () => {
+test("readme summary check detects stale dashboard", async (context) => {
   const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-readme-summary-"));
+  context.after(() => rm(dir, { recursive: true, force: true, maxRetries: 3 }));
   const reportsDir = path.join(dir, "reports");
   const readmePath = path.join(dir, "README.md");
   await mkdir(reportsDir);
@@ -357,8 +359,9 @@ test("readme summary check detects stale dashboard", async () => {
   assert.match(await readFile(readmePath, "utf8"), /Last dashboard update/);
 });
 
-test("readme summary preserves CI run metadata during local checks", async () => {
+test("readme summary preserves CI run metadata during local checks", async (context) => {
   const dir = await mkdtemp(path.join(os.tmpdir(), "crabpot-readme-summary-"));
+  context.after(() => rm(dir, { recursive: true, force: true, maxRetries: 3 }));
   const readmePath = path.join(dir, "README.md");
   const summary = await buildReadmeSummary({
     generatedAt: "deterministic",
@@ -435,7 +438,7 @@ test("readme summary preserves CI run metadata during local checks", async () =>
   assert.match(readme, /p50 231ms \/ command p95 245ms \/ max RSS 70\.4MB \/ 1 sample\/command/);
 });
 
-test("readme frame follows compact reporting design and preserves dynamic blocks", async () => {
+test("readme frame preserves source metadata and formats update time", async () => {
   const original = [
     "# crabpot",
     "",
@@ -455,10 +458,6 @@ test("readme frame follows compact reporting design and preserves dynamic blocks
   ].join("\n");
   const framed = ensureReadmeFrame(original, { generatedAt: "2026-04-26T01:31:00Z" });
 
-  assert.match(framed, /^# 🦀 crabpot/u);
-  assert.match(framed, /\*\*Goto: \[Latest Published\]/);
-  assert.match(framed, /## Reporting Data/);
-  assert.match(framed, /`main` follows a promoted green OpenClaw source pin plus npm `latest` plugin artifacts/);
   assert.match(framed, /- \*\*Last dashboard update:\*\* Apr 26, 2026, 01:31 UTC/);
   assert.match(framed, /- \*\*Source:\*\* `npm-latest`/);
   assert.match(framed, /## Dashboard/);

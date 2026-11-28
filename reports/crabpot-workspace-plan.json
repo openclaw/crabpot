@@ -15,7 +15,7 @@
     "installStepCount": 79,
     "auditStepCount": 79,
     "buildStepCount": 15,
-    "pruneDevWorkspaceDependencyStepCount": 15,
+    "pruneDevWorkspaceDependencyStepCount": 13,
     "artifactStepCount": 119,
     "captureStepCount": 119,
     "syntheticProbeStepCount": 119,
@@ -23,7 +23,7 @@
     "tsLoaderEntrypointCount": 20,
     "jitiAlternativeCount": 20,
     "missingBuildScriptCount": 0,
-    "sdkAliasRequiredCount": 30
+    "sdkAliasRequiredCount": 38
   },
   "fixtures": [
     {
@@ -79,7 +79,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/agentchat",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -168,7 +168,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/agentchat",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -255,7 +255,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/wecom",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -342,7 +342,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/qqbot",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -519,7 +519,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/hasdata",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -844,7 +844,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/opik-openclaw",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -932,7 +932,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/opik-openclaw",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1089,7 +1089,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/lossless-claw",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1184,7 +1184,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/connectclaw",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1253,7 +1253,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/hyperspell",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1341,7 +1341,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/honcho",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1484,7 +1484,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/kitchen-sink",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1540,7 +1540,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/kitchen-sink",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1596,7 +1596,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/kitchen-sink",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1719,7 +1719,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/bluebubbles",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1832,7 +1832,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/bluebubbles",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -1950,7 +1950,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/bluebubbles",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -2063,7 +2063,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/bluebubbles",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -2130,7 +2130,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/diagnostics-otel",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -2193,7 +2193,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/diagnostics-otel",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -2261,7 +2261,12 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/heartbeat-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-BBDuE14w.mjs:68"
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-BvhSlcJy.mjs:91"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/reply-session-init-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-GpZpRyHA.mjs:45"
             }
           ],
           "steps": [
@@ -2279,7 +2284,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/discord",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -2330,7 +2335,12 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/heartbeat-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-BBDuE14w.mjs:68"
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-BvhSlcJy.mjs:91"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/reply-session-init-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-GpZpRyHA.mjs:45"
             }
           ],
           "steps": [
@@ -2348,7 +2358,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/discord",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -2412,7 +2422,12 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/heartbeat-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-BBDuE14w.mjs:68"
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-BvhSlcJy.mjs:91"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/reply-session-init-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-GpZpRyHA.mjs:45"
             }
           ],
           "steps": [
@@ -2430,7 +2445,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/discord",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -2494,7 +2509,12 @@
             {
               "code": "sdk-alias-required",
               "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/heartbeat-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-BBDuE14w.mjs:68"
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/discord/.crabpot-package/dist/.setup/provider-BvhSlcJy.mjs:91"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/reply-session-init-runtime @ plugins/discord/.crabpot-package/dist/.setup/message-handler.process-GpZpRyHA.mjs:45"
             }
           ],
           "steps": [
@@ -2512,7 +2532,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/discord",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -2567,6 +2587,7 @@
           },
           "requiredCapabilities": [
             "capture-shim",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -2575,6 +2596,16 @@
               "code": "missing-entrypoint",
               "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/lobster/.crabpot-package/index.ts"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/json-schema-validator @ plugins/lobster/.crabpot-package/dist/.setup/lobster-schema-compiler-T2XZzavY.mjs:1"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/runtime-profile @ plugins/lobster/.crabpot-package/dist/index.js:74"
             }
           ],
           "steps": [
@@ -2592,7 +2623,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/lobster",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -2618,7 +2649,7 @@
           "packagePath": "plugins/lobster/.crabpot-package/package.json",
           "packageName": "@openclaw/lobster",
           "entrypoint": "plugins/lobster/.crabpot-package/dist/index.js",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": "plugins/lobster/package-lock.json",
           "loaderStrategy": {
@@ -2630,6 +2661,7 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
+            "sdk-alias-compat",
             "side-effect-sandbox",
             "synthetic-probes",
             "target-openclaw-link"
@@ -2644,6 +2676,16 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@clawdbot/lobster, typebox"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/json-schema-validator @ plugins/lobster/.crabpot-package/dist/.setup/lobster-schema-compiler-T2XZzavY.mjs:1"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/runtime-profile @ plugins/lobster/.crabpot-package/dist/index.js:74"
             }
           ],
           "steps": [
@@ -2661,7 +2703,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/lobster",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -2781,13 +2823,13 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/matrix",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/matrix",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -2902,13 +2944,13 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/matrix",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/matrix",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -2963,6 +3005,7 @@
           },
           "requiredCapabilities": [
             "capture-shim",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -2971,6 +3014,11 @@
               "code": "missing-entrypoint",
               "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/msteams/.crabpot-package/index.ts"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/msteams/.crabpot-package/dist/.setup/monitor-C5ijkBxj.cjs:33"
             }
           ],
           "steps": [
@@ -2988,7 +3036,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/msteams",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -3014,7 +3062,7 @@
           "packagePath": "plugins/msteams/.crabpot-package/package.json",
           "packageName": "@openclaw/msteams",
           "entrypoint": "plugins/msteams/.crabpot-package/dist/index.cjs",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": "plugins/msteams/package-lock.json",
           "loaderStrategy": {
@@ -3026,6 +3074,7 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -3034,6 +3083,11 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@azure/identity, @microsoft/teams.api, @microsoft/teams.apps, express, typebox, zod"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/msteams/.crabpot-package/dist/.setup/monitor-C5ijkBxj.cjs:33"
             }
           ],
           "steps": [
@@ -3051,13 +3105,13 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/msteams",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/msteams",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -3096,7 +3150,7 @@
           "packagePath": "plugins/msteams/.crabpot-package/package.json",
           "packageName": "@openclaw/msteams",
           "entrypoint": "plugins/msteams/.crabpot-package/dist/setup-entry.cjs",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": "plugins/msteams/package-lock.json",
           "loaderStrategy": {
@@ -3108,6 +3162,7 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -3116,6 +3171,11 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@azure/identity, @microsoft/teams.api, @microsoft/teams.apps, express, typebox, zod"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/msteams/.crabpot-package/dist/.setup/monitor-C5ijkBxj.cjs:33"
             }
           ],
           "steps": [
@@ -3133,13 +3193,13 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/msteams",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/msteams",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -3178,7 +3238,7 @@
           "packagePath": "plugins/msteams/.crabpot-package/package.json",
           "packageName": "@openclaw/msteams",
           "entrypoint": "plugins/msteams/.crabpot-package/dist/setup-entry.cjs",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": "plugins/msteams/package-lock.json",
           "loaderStrategy": {
@@ -3190,6 +3250,7 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -3198,6 +3259,11 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@azure/identity, @microsoft/teams.api, @microsoft/teams.apps, express, typebox, zod"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/msteams/.crabpot-package/dist/.setup/monitor-C5ijkBxj.cjs:33"
             }
           ],
           "steps": [
@@ -3215,13 +3281,13 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/msteams",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/msteams",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -3301,7 +3367,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/nextcloud-talk",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -3346,7 +3412,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "zod"
+              "evidence": "saxes, zod"
             }
           ],
           "steps": [
@@ -3364,7 +3430,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/nextcloud-talk",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -3422,7 +3488,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "zod"
+              "evidence": "saxes, zod"
             }
           ],
           "steps": [
@@ -3440,7 +3506,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/nextcloud-talk",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -3498,7 +3564,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "zod"
+              "evidence": "saxes, zod"
             }
           ],
           "steps": [
@@ -3516,7 +3582,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/nextcloud-talk",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -3596,7 +3662,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/nostr",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -3641,7 +3707,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "nostr-tools, zod"
+              "evidence": "@solidjs/web, nostr-tools, solid-js, zod"
             }
           ],
           "steps": [
@@ -3659,7 +3725,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/nostr",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -3717,7 +3783,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "nostr-tools, zod"
+              "evidence": "@solidjs/web, nostr-tools, solid-js, zod"
             }
           ],
           "steps": [
@@ -3735,7 +3801,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/nostr",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -3793,7 +3859,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "nostr-tools, zod"
+              "evidence": "@solidjs/web, nostr-tools, solid-js, zod"
             }
           ],
           "steps": [
@@ -3811,7 +3877,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/nostr",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -3891,7 +3957,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/voice-call",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -3960,7 +4026,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/voice-call",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -4036,7 +4102,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/voice-call",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -4112,7 +4178,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/voice-call",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -4192,7 +4258,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/zalo",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -4255,7 +4321,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/zalo",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -4331,7 +4397,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/zalo",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -4407,7 +4473,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/zalo",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -4487,7 +4553,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/zalouser",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -4550,7 +4616,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/zalouser",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -4626,7 +4692,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/zalouser",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -4702,7 +4768,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/zalouser",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -4757,6 +4823,7 @@
           },
           "requiredCapabilities": [
             "capture-shim",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -4765,6 +4832,16 @@
               "code": "missing-entrypoint",
               "message": "entrypoint path is missing in the fixture checkout",
               "evidence": "plugins/feishu/.crabpot-package/index.ts"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/feishu/.crabpot-package/dist/.setup/monitor.account-x_KliB35.mjs:39"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/feishu/.crabpot-package/dist/.setup/reply-delivery-result-DTuuSfED.mjs:42"
             }
           ],
           "steps": [
@@ -4782,7 +4859,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/feishu",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -4808,7 +4885,7 @@
           "packagePath": "plugins/feishu/.crabpot-package/package.json",
           "packageName": "@openclaw/feishu",
           "entrypoint": "plugins/feishu/.crabpot-package/dist/index.js",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": "plugins/feishu/package-lock.json",
           "loaderStrategy": {
@@ -4820,6 +4897,7 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -4827,7 +4905,17 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@larksuiteoapi/node-sdk, @openclaw/fs-safe, mdast-util-from-markdown, mdast-util-gfm-table, micromark-extension-gfm-table, typebox, zod"
+              "evidence": "@larksuiteoapi/node-sdk, mdast-util-from-markdown, mdast-util-gfm-table, micromark-extension-gfm-table, typebox, zod"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/feishu/.crabpot-package/dist/.setup/monitor.account-x_KliB35.mjs:39"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/feishu/.crabpot-package/dist/.setup/reply-delivery-result-DTuuSfED.mjs:42"
             }
           ],
           "steps": [
@@ -4845,7 +4933,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/feishu",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -4884,7 +4972,7 @@
           "packagePath": "plugins/feishu/.crabpot-package/package.json",
           "packageName": "@openclaw/feishu",
           "entrypoint": "plugins/feishu/.crabpot-package/dist/setup-entry.js",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": "plugins/feishu/package-lock.json",
           "loaderStrategy": {
@@ -4896,6 +4984,7 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -4903,7 +4992,17 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@larksuiteoapi/node-sdk, @openclaw/fs-safe, mdast-util-from-markdown, mdast-util-gfm-table, micromark-extension-gfm-table, typebox, zod"
+              "evidence": "@larksuiteoapi/node-sdk, mdast-util-from-markdown, mdast-util-gfm-table, micromark-extension-gfm-table, typebox, zod"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/feishu/.crabpot-package/dist/.setup/monitor.account-x_KliB35.mjs:39"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/feishu/.crabpot-package/dist/.setup/reply-delivery-result-DTuuSfED.mjs:42"
             }
           ],
           "steps": [
@@ -4921,7 +5020,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/feishu",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -4960,7 +5059,7 @@
           "packagePath": "plugins/feishu/.crabpot-package/package.json",
           "packageName": "@openclaw/feishu",
           "entrypoint": "plugins/feishu/.crabpot-package/dist/setup-entry.js",
-          "status": "dependency-install-required",
+          "status": "sdk-alias-required",
           "packageManager": "npm",
           "lockfile": "plugins/feishu/package-lock.json",
           "loaderStrategy": {
@@ -4972,6 +5071,7 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
+            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -4979,7 +5079,17 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@larksuiteoapi/node-sdk, @openclaw/fs-safe, mdast-util-from-markdown, mdast-util-gfm-table, micromark-extension-gfm-table, typebox, zod"
+              "evidence": "@larksuiteoapi/node-sdk, mdast-util-from-markdown, mdast-util-gfm-table, micromark-extension-gfm-table, typebox, zod"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/feishu/.crabpot-package/dist/.setup/monitor.account-x_KliB35.mjs:39"
+            },
+            {
+              "code": "sdk-alias-required",
+              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
+              "evidence": "openclaw/plugin-sdk/agent-control-runtime @ plugins/feishu/.crabpot-package/dist/.setup/reply-delivery-result-DTuuSfED.mjs:42"
             }
           ],
           "steps": [
@@ -4997,7 +5107,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/feishu",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -5077,7 +5187,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/tlon",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -5140,13 +5250,13 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/tlon",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/tlon",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -5222,13 +5332,13 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/tlon",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/tlon",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -5304,13 +5414,13 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/tlon",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/tlon",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -5390,7 +5500,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/twitch",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -5453,13 +5563,13 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/twitch",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/twitch",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -5535,13 +5645,13 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/twitch",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/twitch",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -5617,13 +5727,13 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/twitch",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/twitch",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -5728,13 +5838,13 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/mattermost",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/mattermost",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -5834,13 +5944,13 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/mattermost",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
             {
               "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/prune-workspace-dev-deps-cli.js",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/prune-workspace-dev-deps-cli.js",
               "cwd": ".crabpot/workspaces/mattermost",
               "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
@@ -5920,7 +6030,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/synology-chat",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -5983,7 +6093,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/synology-chat",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -6059,7 +6169,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/synology-chat",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -6135,7 +6245,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/synology-chat",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -6215,7 +6325,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/brave-plugin",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -6271,7 +6381,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/brave-plugin",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -6338,7 +6448,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/codex",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -6389,7 +6499,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "@openai/codex, @openclaw/fs-safe, semver, smol-toml, typebox, ws, zod"
+              "evidence": "@openai/codex, @openclaw/fs-safe, acorn, semver, smol-toml, typebox, ws, zod"
             }
           ],
           "steps": [
@@ -6407,15 +6517,9 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/codex",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
-            },
-            {
-              "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/prune-workspace-dev-deps-cli.js",
-              "cwd": ".crabpot/workspaces/codex",
-              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
             {
               "kind": "install",
@@ -6493,7 +6597,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/diagnostics-prometheus",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -6556,7 +6660,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/diagnostics-prometheus",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -6623,7 +6727,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/google-meet",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -6686,7 +6790,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/google-meet",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -6766,7 +6870,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/diffs",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -6829,7 +6933,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/diffs",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -6909,7 +7013,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/memory-lancedb",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -6972,15 +7076,9 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/memory-lancedb",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
-            },
-            {
-              "kind": "prune-dev-workspace-deps",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/prune-workspace-dev-deps-cli.js",
-              "cwd": ".crabpot/workspaces/memory-lancedb",
-              "reason": "remove workspace: devDependencies from the isolated runtime install; the mock SDK supplies OpenClaw host imports"
             },
             {
               "kind": "install",
@@ -7058,7 +7156,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/whatsapp",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -7103,7 +7201,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "audio-decode, baileys, typebox"
+              "evidence": "@solidjs/web, audio-decode, baileys, solid-js, typebox"
             }
           ],
           "steps": [
@@ -7121,7 +7219,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/whatsapp",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -7179,7 +7277,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "audio-decode, baileys, typebox"
+              "evidence": "@solidjs/web, audio-decode, baileys, solid-js, typebox"
             }
           ],
           "steps": [
@@ -7197,7 +7295,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/whatsapp",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -7255,7 +7353,7 @@
             {
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
-              "evidence": "audio-decode, baileys, typebox"
+              "evidence": "@solidjs/web, audio-decode, baileys, solid-js, typebox"
             }
           ],
           "steps": [
@@ -7273,7 +7371,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/whatsapp",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -7541,7 +7639,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/memory-tencentdb",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -7623,7 +7721,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/ddingtalk",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -7792,7 +7890,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/dingtalk-connector",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -7886,7 +7984,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/dingtalk-doc",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -7979,7 +8077,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/hapi-openclaw",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -8074,7 +8172,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/mocrane-wecom",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -8338,7 +8436,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/openclaw-weixin",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -8414,7 +8512,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/openclaw-weixin",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -8458,7 +8556,7 @@
           "packagePath": "plugins/lightclawbot/.crabpot-package/package.json",
           "packageName": "lightclawbot",
           "entrypoint": "plugins/lightclawbot/.crabpot-package/dist/index.js",
-          "status": "sdk-alias-required",
+          "status": "dependency-install-required",
           "packageManager": "npm",
           "lockfile": "plugins/lightclawbot/package-lock.json",
           "loaderStrategy": {
@@ -8470,7 +8568,6 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
-            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -8479,16 +8576,6 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@modelcontextprotocol/sdk, ws"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/channel-reply-pipeline @ plugins/lightclawbot/.crabpot-package/dist/src/inbound.js:264"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/config-runtime @ plugins/lightclawbot/.crabpot-package/dist/src/utils/openclaw-compat.js:84"
             }
           ],
           "steps": [
@@ -8506,7 +8593,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/lightclawbot",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -8545,7 +8632,7 @@
           "packagePath": "plugins/lightclawbot/.crabpot-package/package.json",
           "packageName": "lightclawbot",
           "entrypoint": "plugins/lightclawbot/.crabpot-package/dist/setup-entry.js",
-          "status": "sdk-alias-required",
+          "status": "dependency-install-required",
           "packageManager": "npm",
           "lockfile": "plugins/lightclawbot/package-lock.json",
           "loaderStrategy": {
@@ -8557,7 +8644,6 @@
           "requiredCapabilities": [
             "capture-shim",
             "dependency-install",
-            "sdk-alias-compat",
             "synthetic-probes",
             "target-openclaw-link"
           ],
@@ -8566,16 +8652,6 @@
               "code": "dependency-install-required",
               "message": "package declares runtime dependencies that must be installed before cold import",
               "evidence": "@modelcontextprotocol/sdk, ws"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/channel-reply-pipeline @ plugins/lightclawbot/.crabpot-package/dist/src/inbound.js:264"
-            },
-            {
-              "code": "sdk-alias-required",
-              "message": "fixture imports an SDK alias missing from target OpenClaw package exports",
-              "evidence": "openclaw/plugin-sdk/config-runtime @ plugins/lightclawbot/.crabpot-package/dist/src/utils/openclaw-compat.js:84"
             }
           ],
           "steps": [
@@ -8593,7 +8669,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/lightclawbot",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -8849,7 +8925,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/clawrouter",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -9000,7 +9076,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/secureclaw",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -9150,7 +9226,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/clawmetry",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -9206,7 +9282,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/clawmetry",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -9282,7 +9358,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/codex-app-server",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -9365,7 +9441,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/web-search-plus",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -9428,7 +9504,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/web-search-plus",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -9497,7 +9573,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/apify",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
@@ -9586,7 +9662,7 @@
             },
             {
               "kind": "link-openclaw",
-              "command": "node ../../plugin-inspector/8ebe4f8b2b8d327db77f5d3d4a02d4d327af4446/src/link-openclaw-workspace-cli.js file:../../../openclaw",
+              "command": "node ../../plugin-inspector/09b4129b89248746ef548589377973d1874cbb48/src/link-openclaw-workspace-cli.js file:../../../openclaw",
               "cwd": ".crabpot/workspaces/inworld-tts",
               "reason": "link the plugin's openclaw peer dependency to the target checkout under test"
             },
