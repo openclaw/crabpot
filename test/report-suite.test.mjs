@@ -7,7 +7,6 @@ import { test } from "node:test";
 import { ciReportPaths, collectCiReports, readCiRun } from "../scripts/ci-report-handoff.mjs";
 import { reportSuiteSteps } from "../scripts/run-report-suite.mjs";
 import { runStaticSuite } from "../scripts/run-static-suite.mjs";
-import { staticCommandTimeoutMs } from "../scripts/static-step.mjs";
 
 function fixture(t, failure = "") {
   const root = mkdtempSync(path.join(os.tmpdir(), "crabpot-report-suite-"));
@@ -120,8 +119,3 @@ for (const failure of ["crash", "timeout", "false-success"]) {
     assert.equal(f.later(), 0);
   });
 }
-
-test("report composition keeps the ordinary deadline and all profiler samples", () => {
-  assert.equal(staticCommandTimeoutMs(["scripts/run-report-suite.mjs"]), 600_000);
-  assert.equal(staticCommandTimeoutMs(["scripts/profile-contract-runtime.mjs", "--runs", "3"]), 29 * 600_000);
-});

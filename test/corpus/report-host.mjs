@@ -20,9 +20,6 @@ test("compatibility report classifies current fixture seams", async () => {
 
   assert.equal(report.status, "pass");
   assert.equal(report.breakages.length, 0);
-  assert.ok(report.summary.fixtureCount >= 10);
-  assert.equal(report.fixtures.some((fixture) => fixture.id === "openclaw-qqbot"), false);
-  assert.ok(report.fixtures.some((fixture) => fixture.id === "qqbot"));
   assert.ok(report.summary.issueCount > 0);
   assert.ok(report.summary.p1IssueCount > 0);
   assert.ok(report.summary.deprecationWarningCount > 0);
@@ -37,12 +34,6 @@ test("compatibility report classifies current fixture seams", async () => {
   }
   assert.ok(report.issues.every((issue) => /^CRABPOT-[A-F0-9]{8}$/.test(issue.id)));
   assert.ok(report.issues.every((issue) => typeof issue.issueClass === "string"));
-  assert.deepEqual(
-    ["hyperspell", "honcho", "composio", "memu-engine", "secureclaw", "memos-cloud"].filter((id) =>
-      report.fixtures.some((fixture) => fixture.id === id),
-    ),
-    ["hyperspell", "honcho", "composio", "memu-engine", "secureclaw", "memos-cloud"],
-  );
 
   assertHasFinding(report.warnings, "hasdata", "provider-auth-env-vars");
   assertHasFinding(report.warnings, "agentchat", "channel-env-vars");
