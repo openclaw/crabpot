@@ -73,9 +73,12 @@ test("cold import capture CLI refuses execution outside isolated opt-in", async 
   const result = spawnSync(process.execPath, ["scripts/run-cold-import-capture.mjs", entrypoint], {
     cwd: repoRoot,
     encoding: "utf8",
+    timeout: 60_000,
     env: { ...process.env, CRABPOT_EXECUTE_ISOLATED: "" },
   });
 
+  assert.ifError(result.error);
+  assert.equal(result.signal, null);
   assert.notEqual(result.status, 0);
   assert.match(result.stderr, /CRABPOT_EXECUTE_ISOLATED=1/);
 });
@@ -104,10 +107,12 @@ test("cold import capture CLI honors mock SDK for OpenClaw SDK imports", async (
     {
       cwd: repoRoot,
       encoding: "utf8",
+      timeout: 60_000,
       env: { ...process.env, CRABPOT_EXECUTE_ISOLATED: "1" },
     },
   );
 
+  assert.ifError(result.error);
   assert.equal(result.status, 0, result.stderr);
   const capture = JSON.parse(result.stdout);
   assert.equal(capture.status, "captured");

@@ -114,7 +114,8 @@ async function miniatureRepo(t, fixtures, steps = []) {
       assert.equal((await lstat(path.join(archiveRoot, "package/.crabpot-source.json"))).isSymbolicLink(), true);
     }
     step.tarball = path.join(archiveRoot, "fixture.tgz");
-    const tar = spawnSync("tar", ["-czf", "fixture.tgz", "package"], { cwd: archiveRoot, encoding: "utf8" });
+    const tar = spawnSync("tar", ["-czf", "fixture.tgz", "package"], { cwd: archiveRoot, encoding: "utf8", timeout: 60_000 });
+    assert.ifError(tar.error);
     assert.equal(tar.status, 0, tar.stderr);
   }
   await json("npm-plan.json", { steps, calls: [], sourceRef });

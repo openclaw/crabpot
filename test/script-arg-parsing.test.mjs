@@ -15,8 +15,11 @@ for (const [script, flag] of missingValueCases) {
     const result = spawnSync(process.execPath, [script, flag], {
       cwd: process.cwd(),
       encoding: "utf8",
+      timeout: 60_000,
     });
 
+    assert.ifError(result.error);
+    assert.equal(result.signal, null);
     assert.notEqual(result.status, 0);
     assert.match(result.stderr, new RegExp(`${flag} requires a value`));
   });
